@@ -1,0 +1,932 @@
+
+<!DOCTYPE
+ html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+ <html>
+ <!-- $Date: 2005/08/30 07:54:43 $ / $Revision: 1.29 $ / Last Theme Editor :$Author: jx $-->
+  
+<!-- Mirrored from drupal.postgresql.fr/?q=node/397 by HTTrack Website Copier/3.x [XR&CO'2006], Sun, 12 Oct 2008 17:04:03 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<base  />
+<style type="text/css" media="all">@import "misc/drupal.css";</style>
+   <title>Gel système avec Postgres 7.4.2 sur Suse Enterprise Server 9 - PostgreSQLFr</title>
+ <style type="text/css" media="screen" title="Normal Text">
+    @import url("layout/css/blue/fixed.css");
+    @import url(_guillaume/dotclear/themes/postgresql/style.html);
+ </style>
+ <style type="text/css" media="screen" title="Normal Text2">
+    @import url("layout/css/blue/pgfr.css");
+    @import url(_guillaume/dotclear/themes/postgresql/style.html);
+ </style>
+   </head>
+   <body>
+    <table border="0" cellspacing="5" cellpadding="0" width="100%">
+     <tr>
+      <!--td colspan="2" width="100%"-->
+      <td colspan="2">
+      <!-- Head -->
+       <table border="0" cellspacing="0" cellpadding="0" width="100%">
+        <tr>
+	 <td align="left">
+           <div id="pgHeader">
+	    <div id="pgHeaderLogoLeft">
+	     <a href="index.html" title="PostgreSQL"><img src="layout/images/hdr_left.png" width="230" height="80" alt="PostgreSQL" /></a>
+	    </div>
+	    <div id="pgHeaderLogoRight">
+	     <a href="index.html" title="La base de donn�es la plus sophistiqu�e au monde."><img src="layout/images/hdr_right.png" width="210" height="80" alt="La base de donn�es la plus sophistiqu�e au monde." /></a>
+	    </div>
+	   </div>
+         </td>
+	 <td align="right">
+         </td>
+	</tr>
+      </table> <!-- Head -->
+      <br />
+      <table border="0" cellspacing="0" cellpadding="0" width="100%">
+              <tr>
+	      	 <td align="left">
+
+		<div class="pgTopNav">
+		   <div class="pgTopNavLeft"> 
+		     <img src="layout/images/nav_lft.png" width="7" height="23" alt="" />
+		   </div>
+		   <div class="pgTopNavRight">
+		    <img src="layout/images/nav_rgt.png" width="7" height="23" alt="" />
+		  </div>
+		  <!--<ul class="pgTopNavList">-->
+		  <ul class="pgTopNavList">
+		   <li><a href="index03d2.html?q=" title="Retourner à la page principale.">accueil</a> </li>
+		   <li> <a href="indexf6e5.html?q=archive" title="Lire le contenu plus ancien dans notre archive.">archives</a> </li>
+		   <li> <a href="index71c4.html?q=blog" title="Lire les blogues les plus récents.">blogues</a> </li>
+
+		   <li> <a href="indexf6fe.html?q=book" title="Lire et contribuer aux livres collaboratifs.">livres</a> </li>
+		   <li> <a href="index79b7.html?q=forum">forums</a> </li>
+		   <li> <a href="index729f.html?q=poll" title="Voir la liste des sondages de ce site.">sondages</a> </li>
+		   <li> <a href="index4404.html?q=search" title="Chercher pour du contenu plus vieux.">recherche</a></li><li><a href="http://docs.postgresqlfr.org/" target="_blank">documentation </a></li>
+
+		  </ul>
+
+<!--
+		   <li><a href="?q=" title="Retourner à la page principale.">accueil</a> </li>
+		   <li> <a href="?q=archive" title="Lire le contenu plus ancien dans notre archive.">archives</a> </li>
+		   <li> <a href="?q=blog" title="Lire les blogues les plus récents.">blogues</a> </li>
+		   <li> <a href="?q=book" title="Lire et contribuer aux livres collaboratifs.">livres</a> </li>
+		   <li> <a href="?q=forum">forums</a> </li>
+		   <li> <a href="?q=poll" title="Voir la liste des sondages de ce site.">sondages</a> </li>
+		   <li> <a href="?q=search" title="Chercher pour du contenu plus vieux.">recherche</a></li><li><a href="http://docs.postgresqlfr.org/" target="_blank">documentation </a></li>
+-->
+		  </ul>
+	        </div>
+		</td>
+		</tr>
+		</table>
+      </td>
+     </tr>
+     <tr>
+    <td style="vertical-align: top; width: 20%;">
+<div class="block block-user" id="block-user-0">
+<div class="pgSideNav">    <h2>Ouverture de session</h2>    
+		    <div>
+			<form action="http://drupal.postgresql.fr/?q=user/login" method="post">
+<div class="user-login-block">
+<input type="hidden" name="edit[destination]" value="node/397" />
+<div class="form-item">
+ <label for="edit-name">Nom d'utilisateur:</label><br />
+ <input type="text" maxlength="64" class="form-text" name="edit[name]" id="edit-name" size="15" value="" />
+</div>
+<div class="form-item">
+ <label for="edit-pass">Mot de passe:</label><br />
+ <input type="password" class="form-password" maxlength="64" name="edit[pass]" id="edit-pass" size="15" value="" />
+</div>
+<input type="submit" class="form-submit" name="op" value="Identification"  />
+</div>
+
+</form>
+<div class="item-list"><ul><li><a href="indexc12c.html?q=user/password" title="Demander un nouveau mot de passe par e-mail.">Demander un nouveau mot de passe</a></li></ul></div>
+		    </div></div></div>
+<div class="block block-user" id="block-user-1">
+<div class="pgSideNav">    <h2>Navigation</h2>    
+		    <div>
+			<div class="menu">
+<ul>
+<li class="leaf"><a href="indexa499.html?q=tracker">messages récents</a></li>
+
+</ul>
+</div>
+		    </div></div></div>
+<div class="block block-block" id="block-block-4">
+<div class="pgSideNav">    <h2>Contactez-nous</h2>    
+		    <div>
+			<p><strong>Administration du site&nbsp;:</strong><br />
+"equipe chez postgresqlfr point org"<br><br />
+<strong>Contact presse&nbsp;:</strong><br />
+"fr chez postgresql point org"<br><br />
+<strong>Contact association&nbsp;:</strong><br />
+"bureau chez postgresqlfr point org"<br><br />
+<strong>Questions PostgreSQL&nbsp;:</strong><br />
+&nbsp;IRC&nbsp;:<br />
+&nbsp;&nbsp;serveur <strong>irc.freenode.net</strong><br />
+&nbsp;&nbsp;canal <strong>#postgresqlfr</strong></p>
+
+		    </div></div></div>
+<div class="block block-block" id="block-block-1">
+<div class="pgSideNav">    <h2>Liens</h2>    
+		    <div>
+			<p><small></p>
+<ul>
+<li>
+<a href="http://www.postgresqlfr.org/?q=node/view/162">Adhérer</a>
+</li>
+<li>
+<a href="http://www.postgresqlfr.org/?q=node/473">Faire un don</a>
+</li>
+<li>
+<a href="http://www.postgresqlfr.org/?q=node/163">Consulter les statuts</a>
+</li>
+</ul>
+<ul>
+<li>
+<a href="http://www.postgresql.org/" class="active">Site original<br />
+</a>
+</li>
+<li>
+<a href="http://docs.postgresqlfr.org/" class="active">Site de traduction</a>
+</li>
+<li>
+<a href="http://docs.postgresqlfr.org/8.3/">Doc v.8.3.x fr</a>
+</li>
+<li>
+<a href="http://docs.postgresqlfr.org/8.2/">Doc v.8.2.x fr</a>
+</li>
+<li>
+<a href="http://docs.postgresqlfr.org/8.1/">Doc v.8.1.x fr</a>
+</li>
+<li>
+<a href="http://docs.postgresqlfr.org/8.0/">Doc v.8.0.x fr</a>
+</li>
+<li>
+<a href="http://docs.postgresqlfr.org/7.4/">Doc v.7.4.x fr</a>
+</li>
+<li>
+<a href="http://www.postgis.fr/">PostGIS</a>
+</li>
+<li>
+<a href="http://www.postgresql.org/docs/techdocs">Techdocs</a>
+</li>
+<li>
+<a href="http://www.varlena.com/varlena/GeneralBits/Tidbits/">General TidBits</a>
+</li>
+<p><!--</p>
+<li>
+<a href="http://www.postgresqlfr.org/?q=node/view/58">Version Windows</a>
+</li>
+<p>--></p>
+<li>
+<a href="http://www.postgresqlfr.org/drupal/?q=node/view/63">Témoignages de pros</a>
+</li>
+<li>
+<a href="http://archives.postgresql.org/pgsql-fr-generale/">Liste de diffusion</a>
+</li>
+<li>
+<a href="http://wwwmaster.postgresql.org/download/mirrors-ftp">Télécharger</a>
+</li>
+</ul>
+<p></small></p>
+
+		    </div></div></div>
+<div class="block block-block" id="block-block-2">
+<div class="pgSideNav">    <h2>Recherche</h2>    
+		    <div>
+			<form action="http://drupal.postgresql.fr/?q=search" method="post">
+<div id="search">
+<input class="form-text" type="text" size="15" value="" name="keys" alt="Enter the terms you wish to search for." /><br />
+<input class="form-submit" type="submit" value="Recherche" />
+</div>
+</form>
+
+		    </div></div></div>
+<div class="block block-forum" id="block-forum-0">
+<div class="pgSideNav">    <h2>Sujets du forum</h2>    
+		    <div>
+			<div class="item-list"><h3>Sujets actifs</h3><ul><li><a href="index253f.html?q=node/1742">A LIRE : FERMETURE DES FORUMS DRUPAL</a></li><li><a href="indexfc2e.html?q=node/1739" title="2 commentaires">Problème  avec pg_dump</a></li><li><a href="index97c1.html?q=node/1731" title="5 commentaires">Connexions simultannées</a></li><li><a href="index32d3.html?q=node/1737" title="1 commentaire">Optimisation de la mémoire sous PostgreSQL</a></li><li><a href="index2483.html?q=node/1736" title="3 commentaires">[Résolu] Upgrade Postgre -> types et opérateurs</a></li></ul></div><div class="item-list"><h3>Nouveaux sujets:</h3><ul><li><a href="index253f.html?q=node/1742">A LIRE : FERMETURE DES FORUMS DRUPAL</a></li><li><a href="indexfc2e.html?q=node/1739" title="2 commentaires">Problème  avec pg_dump</a></li><li><a href="index32d3.html?q=node/1737" title="1 commentaire">Optimisation de la mémoire sous PostgreSQL</a></li><li><a href="index2483.html?q=node/1736" title="3 commentaires">[Résolu] Upgrade Postgre -> types et opérateurs</a></li><li><a href="index82c4.html?q=node/1734" title="2 commentaires">[RESOLU] Probleme de connection en odbc</a></li></ul></div><div class="more-link"><a href="index79b7.html?q=forum" title="Lire les derniers sujets.">en lire plus</a></div>
+		    </div></div></div>
+<div class="block block-archive" id="block-archive-0">
+<div class="pgSideNav">    <h2>Accéder aux archives</h2>    
+		    <div>
+			
+<!-- calendar -->
+<div class="calendar"><table summary="Un calendrier pour accéder aux archives.">
+ <caption><a href="index9dfb.html?q=archive/2008/09/12" title="Mois précédent">&laquo;</a> Octobre 2008 &nbsp;</caption>
+ <tr class="header-week">
+ <th abbr="Lundi">Lun</th>
+ <th abbr="Mardi">Mar</th>
+ <th abbr="Mercredi">Mer</th>
+ <th abbr="Jeudi">Jeu</th>
+ <th abbr="Vendredi">Ven</th>
+ <th abbr="Samedi">Sam</th>
+ <th abbr="Dimanche">Dim</th>
+</tr>
+ <tr class="row-week"><td class="day-blank" colspan="2">&nbsp;</td>
+  <td class="day-link"><a href="indexd3e2.html?q=archive/2008/10/1">1</a></td>
+  <td class="day-normal">2</td>
+  <td class="day-normal">3</td>
+  <td class="day-normal">4</td>
+  <td class="day-normal">5</td>
+ </tr>
+ <tr class="row-week">
+  <td class="day-normal">6</td>
+  <td class="day-normal">7</td>
+  <td class="day-normal">8</td>
+  <td class="day-normal">9</td>
+  <td class="day-normal">10</td>
+  <td class="day-normal">11</td>
+  <td class="day-today">12</td>
+ </tr>
+ <tr class="row-week">
+  <td class="day-future">13</td>
+  <td class="day-future">14</td>
+  <td class="day-future">15</td>
+  <td class="day-future">16</td>
+  <td class="day-future">17</td>
+  <td class="day-future">18</td>
+  <td class="day-future">19</td>
+ </tr>
+ <tr class="row-week">
+  <td class="day-future">20</td>
+  <td class="day-future">21</td>
+  <td class="day-future">22</td>
+  <td class="day-future">23</td>
+  <td class="day-future">24</td>
+  <td class="day-future">25</td>
+  <td class="day-future">26</td>
+ </tr>
+ <tr class="row-week">
+  <td class="day-future">27</td>
+  <td class="day-future">28</td>
+  <td class="day-future">29</td>
+  <td class="day-future">30</td>
+  <td class="day-future">31</td>
+  <td class="day-blank" colspan="2">&nbsp;</td>
+ </tr>
+</table></div>
+
+
+		    </div></div></div>
+<div class="block block-node" id="block-node-0">
+<div class="pgSideNav">    <h2>Syndication</h2>    
+		    <div>
+			<div class="xml-icon"><a href="index9637.html?q=rss.xml"><img src="misc/xml.png" width="36" height="14" alt="Flux XML" title="Flux XML" /></a></div>
+		    </div></div></div>
+<div class="block block-poll" id="block-poll-0">
+<div class="pgSideNav">    <h2>Sondage</h2>    
+		    <div>
+			<div class="poll"><div class="title">Quelle est la version de PostgreSQL la plus répandue sur vos serveurs ?</div><div class="text">8.3</div><div class="bar"><div style="width: 10%;" class="foreground"></div></div><div class="percent">10%</div><div class="text">8.2</div><div class="bar"><div style="width: 42%;" class="foreground"></div></div><div class="percent">42%</div><div class="text">8.1</div><div class="bar"><div style="width: 40%;" class="foreground"></div></div><div class="percent">40%</div><div class="text">8.0</div><div class="bar"><div style="width: 2%;" class="foreground"></div></div><div class="percent">2%</div><div class="text">7.4</div><div class="bar"><div style="width: 6%;" class="foreground"></div></div><div class="percent">6%</div><div class="text">7.3 ou antérieure</div><div class="bar"><div style="width: 0%;" class="foreground"></div></div><div class="percent">0%</div><div class="total">Nombre de votes: 48</div></div><div class="links"><a href="index8c57.html?q=node/1426#comment" title="Sauter au premier commentaire de ce message.">3 commentaires</a> | <a href="index729f.html?q=poll" title="Voir la liste des sondages de ce site.">anciens sondages</a></div>
+		    </div></div></div>
+    </td>
+
+      <td style="vertical-align: top; width: 80%"><div class="breadcrumb"><a href="index03d2.html?q=">Accueil</a> &raquo; <a href="index79b7.html?q=forum">forums</a> &raquo; <a href="index0561.html?q=forum/10">Technique - général</a></div><h2 class="title">Gel système avec Postgres 7.4.2 sur Suse Enterprise Server 9</h2>
+<!-- begin content -->
+
+<!-- node: "Gel système avec Postgres 7.4.2 sur Suse Enterprise Server 9" -->
+<!--<div class="pgFrontCenterUser">
+<div class="pgFrontUser">
+<div class="pgFrontUserInner">
+--><div class="pgFrontUserWrap">
+ <div class="pgFrontUserContent">	<h1 class="plop"><a href="indexea60.html?q=taxonomy/term/10">Technique - général</a> | <a href="indexb1b4.html?q=node/397" class="active">Gel système avec Postgres 7.4.2 sur Suse Enterprise Server 9</a></h1>
+		    <p>
+			    Par <a href="indexf0f5.html?q=user/1078" title="Voir le profil utilisateur.">jerome</a> le 06/10/2005 - 11:31
+		    </p>	
+			    <p>Bonjour,</p>
+<p>Merci à ceux qui prendront le temps de lire ce long message.</p>
+<p>Dans le cadre d'une infra WEB PHP/PostgreSQL (environ 250 000 pages / jour), j'ai installé un serveur PostgreSQL 7.4.2 sur une Suse Enterprise 9 (Kernel 2.6.5-7.97-smp x86_64) sur une bi-opteron (2 CPU Opteron 240 1,4GHz, 1M Cache) avec 8Go de RAM.</p>
+<p>Mon problème est que, plus ou moins régulièrement, le système gêle (environ 1 fois tous les 15 jours), occasionnant un arrêt toujours délicat du service</p>
+<p>================================================================================================================</p>
+<p>Param système:<br />
+/proc/sys/kernel/shmmax: 1 073 741 824<br />
+/proc/sys/kernel/shmall: 2 097 152 (valeur par défaut)<br />
+/proc/sys/kernel/shmmi : 4 096 (valeur par défaut)</p>
+<p>================================================================================================================</p>
+<p>Mon fichier de config est le suivant:</p>
+<p># -----------------------------<br />
+# PostgreSQL configuration file<br />
+# -----------------------------<br />
+#<br />
+# This file consists of lines of the form:<br />
+#<br />
+#   name = value<br />
+#<br />
+# (The '=' is optional.) White space may be used. Comments are introduced<br />
+# with '#' anywhere on a line. The complete list of option names and<br />
+# allowed values can be found in the PostgreSQL documentation. The<br />
+# commented-out settings shown in this file represent the default values.<br />
+#<br />
+# Any option can also be given as a command line switch to the<br />
+# postmaster, e.g. 'postmaster -c log_connections=on'. Some options<br />
+# can be changed at run-time with the 'SET' SQL command.<br />
+#<br />
+# This file is read on postmaster startup and when the postmaster<br />
+# receives a SIGHUP. If you edit the file on a running system, you have<br />
+# to SIGHUP the postmaster for the changes to take effect, or use<br />
+# "pg_ctl reload".</p>
+<p>#---------------------------------------------------------------------------<br />
+# CONNECTIONS AND AUTHENTICATION<br />
+#---------------------------------------------------------------------------</p>
+<p># - Connection Settings -</p>
+<p>tcpip_socket = true<br />
+max_connections = 1024<br />
+	# note: increasing max_connections costs about 500 bytes of shared<br />
+	# memory per connection slot, in addition to costs from shared_buffers<br />
+        # and max_locks_per_transaction.<br />
+#superuser_reserved_connections = 2<br />
+#port = 5432<br />
+#unix_socket_directory = ''<br />
+#unix_socket_group = ''<br />
+#unix_socket_permissions = 0777	# octal<br />
+#virtual_host = ''		# what interface to listen on; defaults to any<br />
+#rendezvous_name = ''		# defaults to the computer name</p>
+<p># - Security &#038; Authentication -</p>
+<p>#authentication_timeout = 60	# 1-600, in seconds<br />
+#ssl = false<br />
+#password_encryption = true<br />
+#krb_server_keyfile = ''<br />
+#db_user_namespace = false</p>
+<p>#---------------------------------------------------------------------------<br />
+# RESOURCE USAGE (except WAL)<br />
+#---------------------------------------------------------------------------</p>
+<p># - Memory -</p>
+<p>#shared_buffers = 1000		# min 16, at least max_connections*2, 8KB each<br />
+shared_buffers = 4096<br />
+#sort_mem = 1024		# min 64, size in KB<br />
+#vacuum_mem = 8192		# min 1024, size in KB</p>
+<p># - Free Space Map -</p>
+<p>#max_fsm_pages = 20000		# min max_fsm_relations*16, 6 bytes each<br />
+#max_fsm_relations = 1000	# min 100, ~50 bytes each</p>
+<p># - Kernel Resource Usage -</p>
+<p>#max_files_per_process = 1000	# min 25<br />
+#preload_libraries = ''</p>
+<p>#---------------------------------------------------------------------------<br />
+# WRITE AHEAD LOG<br />
+#---------------------------------------------------------------------------</p>
+<p># - Settings -</p>
+<p>#fsync = true			# turns forced synchronization on or off<br />
+fsync = false<br />
+#wal_sync_method = fsync	# the default varies across platforms:<br />
+				# fsync, fdatasync, open_sync, or open_datasync<br />
+#wal_buffers = 8		# min 4, 8KB each</p>
+<p># - Checkpoints -</p>
+<p>#checkpoint_segments = 3	# in logfile segments, min 1, 16MB each<br />
+#checkpoint_timeout = 300	# range 30-3600, in seconds<br />
+#checkpoint_warning = 30	# 0 is off, in seconds<br />
+#commit_delay = 0		# range 0-100000, in microseconds<br />
+#commit_siblings = 5		# range 1-1000</p>
+<p>#---------------------------------------------------------------------------<br />
+# QUERY TUNING<br />
+#---------------------------------------------------------------------------</p>
+<p># - Planner Method Enabling -</p>
+<p>#enable_hashagg = true<br />
+#enable_hashjoin = true<br />
+#enable_indexscan = true<br />
+#enable_mergejoin = true<br />
+#enable_nestloop = true<br />
+#enable_seqscan = true<br />
+#enable_sort = true<br />
+#enable_tidscan = true</p>
+<p># - Planner Cost Constants -</p>
+<p>#effective_cache_size = 1000	# typically 8KB each<br />
+#random_page_cost = 4		# units are one sequential page fetch cost<br />
+#cpu_tuple_cost = 0.01		# (same)<br />
+#cpu_index_tuple_cost = 0.001	# (same)<br />
+#cpu_operator_cost = 0.0025	# (same)</p>
+<p># - Genetic Query Optimizer -</p>
+<p>#geqo = true<br />
+#geqo_threshold = 11<br />
+#geqo_effort = 1<br />
+#geqo_generations = 0<br />
+#geqo_pool_size = 0		# default based on tables in statement,<br />
+				# range 128-1024<br />
+#geqo_selection_bias = 2.0	# range 1.5-2.0</p>
+<p># - Other Planner Options -</p>
+<p>#default_statistics_target = 10	# range 1-1000<br />
+#from_collapse_limit = 8<br />
+#join_collapse_limit = 8	# 1 disables collapsing of explicit JOINs</p>
+<p>#---------------------------------------------------------------------------<br />
+# ERROR REPORTING AND LOGGING<br />
+#---------------------------------------------------------------------------</p>
+<p># - Syslog -</p>
+<p>#syslog = 0			# range 0-2; 0=stdout; 1=both; 2=syslog<br />
+#syslog_facility = 'LOCAL0'<br />
+#syslog_ident = 'postgres'</p>
+<p># - When to Log -</p>
+<p>#client_min_messages = notice	# Values, in order of decreasing detail:<br />
+				#   debug5, debug4, debug3, debug2, debug1,<br />
+				#   log, info, notice, warning, error</p>
+<p>#log_min_messages = notice	# Values, in order of decreasing detail:<br />
+				#   debug5, debug4, debug3, debug2, debug1,<br />
+				#   info, notice, warning, error, log, fatal,<br />
+				#   panic</p>
+<p>#log_error_verbosity = default   # terse, default, or verbose messages</p>
+<p>#log_min_error_statement = panic # Values in order of increasing severity:<br />
+				 #   debug5, debug4, debug3, debug2, debug1,<br />
+				 #   info, notice, warning, error, panic(off)</p>
+<p>#log_min_duration_statement = -1 # Log all statements whose<br />
+				 # execution time exceeds the value, in<br />
+				 # milliseconds.  Zero prints all queries.<br />
+				 # Minus-one disables.</p>
+<p>#silent_mode = false		 # DO NOT USE without Syslog!</p>
+<p># - What to Log -</p>
+<p>#debug_print_parse = false<br />
+#debug_print_rewritten = false<br />
+#debug_print_plan = false<br />
+#debug_pretty_print = false<br />
+#log_connections = false<br />
+#log_duration = false<br />
+#log_pid = false<br />
+#log_statement = false<br />
+log_timestamp = true<br />
+#log_hostname = false<br />
+#log_source_port = false</p>
+<p>#---------------------------------------------------------------------------<br />
+# RUNTIME STATISTICS<br />
+#---------------------------------------------------------------------------</p>
+<p># - Statistics Monitoring -</p>
+<p>#log_parser_stats = false<br />
+#log_planner_stats = false<br />
+#log_executor_stats = false<br />
+#log_statement_stats = false</p>
+<p># - Query/Index Statistics Collector -</p>
+<p>#stats_start_collector = true<br />
+#stats_command_string = false<br />
+#stats_block_level = false<br />
+#stats_row_level = false<br />
+#stats_reset_on_server_start = true</p>
+<p>#---------------------------------------------------------------------------<br />
+# CLIENT CONNECTION DEFAULTS<br />
+#---------------------------------------------------------------------------</p>
+<p># - Statement Behavior -</p>
+<p>#search_path = '$user,public'	# schema names<br />
+#check_function_bodies = true<br />
+#default_transaction_isolation = 'read committed'<br />
+#default_transaction_read_only = false<br />
+#statement_timeout = 0		# 0 is disabled, in milliseconds</p>
+<p># - Locale and Formatting -</p>
+<p>#datestyle = 'iso, mdy'<br />
+#timezone = unknown		# actually, defaults to TZ environment setting<br />
+#australian_timezones = false<br />
+#extra_float_digits = 0		# min -15, max 2<br />
+#client_encoding = sql_ascii	# actually, defaults to database encoding</p>
+<p># These settings are initialized by initdb -- they may be changed<br />
+lc_messages = 'fr_FR.UTF-8'		# locale for system error message strings<br />
+lc_monetary = 'fr_FR.UTF-8'		# locale for monetary formatting<br />
+lc_numeric = 'fr_FR.UTF-8'		# locale for number formatting<br />
+lc_time = 'fr_FR.UTF-8'			# locale for time formatting</p>
+<p># - Other Defaults -</p>
+<p>#explain_pretty_print = true<br />
+#dynamic_library_path = '$libdir'<br />
+#max_expr_depth = 10000		# min 10</p>
+<p>#---------------------------------------------------------------------------<br />
+# LOCK MANAGEMENT<br />
+#---------------------------------------------------------------------------</p>
+<p>#deadlock_timeout = 1000	# in milliseconds<br />
+#max_locks_per_transaction = 64	# min 10, ~260*max_connections bytes each</p>
+<p>#---------------------------------------------------------------------------<br />
+# VERSION/PLATFORM COMPATIBILITY<br />
+#---------------------------------------------------------------------------</p>
+<p># - Previous Postgres Versions -</p>
+<p>#add_missing_from = true<br />
+#regex_flavor = advanced	# advanced, extended, or basic<br />
+#sql_inheritance = true</p>
+<p># - Other Platforms &#038; Clients -</p>
+<p>#transform_null_equals = false</p>
+<p>================================================================================================================</p>
+<p>Extrait du fichier de log (j'ai des milliers de lignes du même genre)</p>
+<p>Oct  5 20:51:55 sgbdmaitre kernel: Unable to handle kernel paging request at 0000001000000068 RIP:<br />
+Oct  5 20:51:55 sgbdmaitre kernel: <ffffffff8016acaf>{__vma_prio_tree_remove+63}<br />
+Oct  5 20:51:55 sgbdmaitre kernel: PML4 14649067 PGD 0<br />
+Oct  5 20:51:55 sgbdmaitre kernel: Oops: 0000 [1] SMP<br />
+Oct  5 20:51:55 sgbdmaitre kernel: CPU 0<br />
+Oct  5 20:51:55 sgbdmaitre kernel: Pid: 28595, comm: postmaster Not tainted 2.6.5-7.97-smp<br />
+Oct  5 20:51:55 sgbdmaitre kernel: RIP: 0010:[<ffffffff8016acaf>] <ffffffff8016acaf>{__vma_prio_tree_remove+63}<br />
+Oct  5 20:51:55 sgbdmaitre kernel: RSP: 0018:000001009b599ea8  EFLAGS: 00010206<br />
+Oct  5 20:51:55 sgbdmaitre kernel: RAX: 0000000000000000 RBX: 00000100afa36340 RCX: 00000100afa36340<br />
+Oct  5 20:51:55 sgbdmaitre kernel: RDX: 00000101fc3b5650 RSI: 00000100afa36340 RDI: 00000101fc3b5688<br />
+Oct  5 20:51:55 sgbdmaitre kernel: RBP: 00000100afa36290 R08: 0000001000000000 R09: 000001009b599ee8<br />
+Oct  5 20:51:55 sgbdmaitre kernel: R10: 0000002a9664bee8 R11: 0000000000000246 R12: 00000101fc3b5650<br />
+Oct  5 20:51:55 sgbdmaitre kernel: R13: 0000000000000000 R14: 0000000000000000 R15: 0000000000000000<br />
+Oct  5 20:51:55 sgbdmaitre kernel: FS:  0000002a96de1aa0(0000) GS:ffffffff804e7e00(0000) knlGS:00000000556ba080<br />
+Oct  5 20:51:56 sgbdmaitre kernel: CS:  0010 DS: 0000 ES: 0000 CR0: 000000008005003b<br />
+Oct  5 20:51:56 sgbdmaitre kernel: CR2: 0000001000000068 CR3: 0000000000101000 CR4: 00000000000006e0<br />
+Oct  5 20:51:58 sgbdmaitre kernel: Process postmaster (pid: 28595, threadinfo 000001009b598000, task 000001010eb1d310)<br />
+Oct  5 20:51:58 sgbdmaitre kernel: Stack: 00000101fc3b56b8 ffffffff80170a2b 0000000000000216 00000100afa36340<br />
+Oct  5 20:51:58 sgbdmaitre kernel:        000001010eb1d310 ffffffff80170c52 0000000000000246 0000010010000140<br />
+Oct  5 20:51:58 sgbdmaitre kernel:        0000000000000653 0000010028515000<br />
+Oct  5 20:51:58 sgbdmaitre kernel: Call Trace:<ffffffff80170a2b>{remove_shared_vm_struct+75} <ffffffff80170c52>{exit_mmap+514}<br />
+Oct  5 20:51:58 sgbdmaitre kernel:        <ffffffff80138f48>{mmput+88} <ffffffff8013d8c3>{do_exit+547}<br />
+Oct  5 20:51:58 sgbdmaitre kernel:        <ffffffff8013e318>{do_group_exit+232} <ffffffff801106f4>{system_call+124}<br />
+Oct  5 20:51:58 sgbdmaitre kernel:<br />
+Oct  5 20:51:58 sgbdmaitre kernel:<br />
+Oct  5 20:51:58 sgbdmaitre kernel: Code: 49 39 58 68 74 0c 0f 0b 77 2a 36 80 ff ff ff ff 1e 02 48 85<br />
+Oct  5 20:51:58 sgbdmaitre kernel: RIP <ffffffff8016acaf>{__vma_prio_tree_remove+63} RSP <000001009b599ea8><br />
+Oct  5 20:51:58 sgbdmaitre kernel: CR2: 0000001000000068<br />
+Oct  5 20:51:58 sgbdmaitre kernel:  <1>Unable to handle kernel NULL pointer dereference at 0000000000000028 RIP:<br />
+Oct  5 20:51:58 sgbdmaitre kernel: <ffffffff80138e06>{mm_release+86}<br />
+Oct  5 20:51:58 sgbdmaitre kernel: PML4 14649067 PGD 0<br />
+Oct  5 20:51:58 sgbdmaitre kernel: Oops: 0000 [2] SMP<br />
+Oct  5 20:51:58 sgbdmaitre kernel: CPU 0<br />
+Oct  5 20:51:58 sgbdmaitre kernel: Pid: 28595, comm: postmaster Not tainted 2.6.5-7.97-smp<br />
+Oct  5 20:51:58 sgbdmaitre kernel: RIP: 0010:[<ffffffff80138e06>] <ffffffff80138e06>{mm_release+86}<br />
+Oct  5 20:51:58 sgbdmaitre kernel: RSP: 0018:000001009b599c98  EFLAGS: 00010206<br />
+Oct  5 20:51:58 sgbdmaitre kernel: RAX: 000001010eb1d310 RBX: 000001010eb1d310 RCX: ffffffff803b1df8<br />
+Oct  5 20:51:58 sgbdmaitre kernel: RDX: 000001010eb1d310 RSI: 0000000000000000 RDI: 0000002a96de1b30<br />
+Oct  5 20:51:58 sgbdmaitre kernel: RBP: 0000000000000000 R08: 0000000000000040 R09: ffffffff80522880<br />
+Oct  5 20:51:59 sgbdmaitre kernel: R10: 00000000000493e0 R11: 0000000000002710 R12: 0000000000000000<br />
+Oct  5 20:52:00 sgbdmaitre kernel: R13: 0000000000000000 R14: 0000000000000009 R15: 0000000000000000<br />
+Oct  5 20:52:00 sgbdmaitre kernel: FS:  0000002a96de1aa0(0000) GS:ffffffff804e7e00(0000) knlGS:00000000556ba080<br />
+Oct  5 20:52:01 sgbdmaitre kernel: CS:  0010 DS: 0000 ES: 0000 CR0: 000000008005003b<br />
+Oct  5 20:52:01 sgbdmaitre kernel: CR2: 0000000000000028 CR3: 0000000000101000 CR4: 00000000000006e0<br />
+Oct  5 20:52:02 sgbdmaitre kernel: Process postmaster (pid: 28595, threadinfo 000001009b598000, task 000001010eb1d310)<br />
+Oct  5 20:52:02 sgbdmaitre kernel: Stack: ffffffff803b1df0 0000000000000000 0000001000000068 000001010eb1d310<br />
+Oct  5 20:52:02 sgbdmaitre kernel:        000001009b599df8 ffffffff8013d7e8 000001010eb1d310 ffffffffffffffef<br />
+Oct  5 20:52:02 sgbdmaitre kernel:        ffffffff80111cb3 0000000000000001<br />
+Oct  5 20:52:02 sgbdmaitre kernel: Call Trace:<ffffffff8013d7e8>{do_exit+328} <ffffffff80111cb3>{oops_end+35}<br />
+Oct  5 20:52:02 sgbdmaitre kernel:        <ffffffff80122240>{do_page_fault+1200} <ffffffff80111061>{error_exit+0}<br />
+Oct  5 20:52:02 sgbdmaitre kernel:        <ffffffff8016acaf>{__vma_prio_tree_remove+63} it+232} <ffffffff801106f4>{system_call+124}<br />
+Oct  5 20:52:02 sgbdmaitre kernel:<br />
+Oct  5 20:52:02 sgbdmaitre kernel:<br />
+Oct  5 20:52:02 sgbdmaitre kernel: Code: 41 8b 45 28 ff c8 7e 63 48 c7 83 78 02 00 00 00 00 00 00 65<br />
+Oct  5 20:52:02 sgbdmaitre kernel: RIP <ffffffff80138e06>{mm_release+86} RSP <000001009b5983d8><br />
+Oct  5 20:52:02 sgbdmaitre kernel: CR2: 0000000000000028<br />
+Oct  5 20:52:02 sgbdmaitre kernel:  <0>Kernel panic: Aiee, killing interrupt handler!<br />
+Oct  5 20:52:02 sgbdmaitre kernel: Unable to handle kernel paging request at fffffffea00080a2 RIP:<br />
+Oct  5 20:52:02 sgbdmaitre kernel: [<fffffffea00080a2>]<br />
+Oct  5 20:52:02 sgbdmaitre kernel: PML4 103027 PGD 0<br />
+Oct  5 20:52:02 sgbdmaitre kernel: Oops: 0010 [15] SMP<br />
+Oct  5 20:52:02 sgbdmaitre kernel: CPU 0<br />
+Oct  5 20:52:02 sgbdmaitre kernel: Pid: 28595, comm: postmaster Not tainted 2.6.5-7.97-smp<br />
+Oct  5 20:52:02 sgbdmaitre kernel: RIP: 0010:[<fffffffea00080a2>] [<fffffffea00080a2>]<br />
+Oct  5 20:52:02 sgbdmaitre kernel: RSP: 0018:000001009b598018  EFLAGS: 00010212<br />
+Oct  5 20:52:02 sgbdmaitre kernel: RAX: 00000000a00080a2 RBX: 0000010008367c00 RCX: 00000000c0000100<br />
+Oct  5 20:52:02 sgbdmaitre kernel: RDX: 00000100fbe769a0 RSI: 000001010eb1d310 RDI: 000001017c8f4c00<br />
+Oct  5 20:52:05 sgbdmaitre kernel: RBP: 0000000000049b18 R08: 000001009b598000 R09: 00000000ffffffff<br />
+Oct  5 20:52:05 sgbdmaitre kernel: R10: 0000010097f333c0 R11: 0000000000000000 R12: 0000010008367c98<br />
+Oct  5 20:52:05 sgbdmaitre kernel: R13: 000001009b598018 R14: 0000010008367cc8 R15: 0000000000000000<br />
+Oct  5 20:52:05 sgbdmaitre kernel: FS:  0000002a96de1aa0(0000) GS:ffffffff804e7e00(0000) knlGS:00000000556ba080<br />
+Oct  5 20:52:05 sgbdmaitre kernel: CS:  0010 DS: 0000 ES: 0000 CR0: 000000008005003b<br />
+Oct  5 20:52:05 sgbdmaitre kernel: CR2: fffffffea00080a2 CR3: 0000000000101000 CR4: 00000000000006e0<br />
+Oct  5 20:52:05 sgbdmaitre kernel: Process postmaster (pid: 28595, threadinfo 000001009b598000, task 000001010eb1d310)<br />
+Oct  5 20:52:05 sgbdmaitre kernel: Stack: 0000000000000000 000001010eb1d310 ffffffff80134fd0 0000010008367ca0<br />
+Oct  5 20:52:05 sgbdmaitre kernel:        0000010008367ca0 0000010008367c00 000001009b59808c 0000010008364c00<br />
+Oct  5 20:52:05 sgbdmaitre kernel:        0000000000000001 0000000000000001<br />
+Oct  5 20:52:05 sgbdmaitre kernel: Call Trace:<ffffffff80134fd0>{default_wake_function+0} <ffffffffa001f6ee>{:ext3:ext3_sync_fs+78}<br />
+Oct  5 20:52:05 sgbdmaitre kernel:        <ffffffff801896ef>{sync_filesystems+223} <ffffffff80185b31>{do_sync+49}<br />
+Oct  5 20:52:05 sgbdmaitre kernel:        <ffffffff80185b9e>{sys_sync+62} <ffffffff8013ade6>{panic+262}<br />
+Oct  5 20:52:05 sgbdmaitre kernel:        <ffffffff8013b76f>{printk+511} <ffffffff8013d6fd>{do_exit+93}<br />
+Oct  5 20:52:05 sgbdmaitre kernel:        <ffffffff80111cb3>{oops_end+35} <ffffffff80122240>{do_page_fault+1200}<br />
+Oct  5 20:52:05 sgbdmaitre kernel:        <ffffffff802507b3>{poke_blanked_console+179} <ffffffff80252bb7>{vt_console_print+727}<br />
+Oct  5 20:52:05 sgbdmaitre kernel:        <ffffffff8013aebc>{__call_console_drivers+76} <ffffffff80111061>{error_exit+0}<br />
+Oct  5 20:52:05 sgbdmaitre kernel:        <ffffffff80138e06>{mm_release+86} <ffffffff80138ddf>{mm_release+47}<br />
+Oct  5 20:52:05 sgbdmaitre kernel:        <ffffffff8013d7e8>{do_exit+328} <ffffffff80111cb3>{oops_end+35}<br />
+Oct  5 20:52:05 sgbdmaitre kernel:        <ffffffff80122240>{do_page_fault+1200} <ffffffff802507b3>{poke_blanked_console+179}<br />
+Oct  5 20:52:05 sgbdmaitre kernel:        <ffffffff80252bb7>{vt_console_print+727} <ffffffff8013aebc>{__call_console_drivers+76}<br />
+Oct  5 20:52:05 sgbdmaitre kernel:        <ffffffff80111061>{error_exit+0} <ffffffff80138e06>{mm_release+86}<br />
+Oct  5 20:52:05 sgbdmaitre kernel:        <ffffffff80138ddf>{mm_release+47} <ffffffff8013d7e8>{do_exit+328}<br />
+Oct  5 20:52:05 sgbdmaitre kernel:        <ffffffff80111cb3>{oops_end+35} <ffffffff80122240>{do_page_fault+1200}<br />
+Oct  5 20:52:05 sgbdmaitre kernel:        <ffffffff802507b3>{poke_blanked_console+179} <ffffffff80252bb7>{vt_console_print+727}<br />
+Oct  5 20:52:05 sgbdmaitre kernel:        <ffffffff8013aebc>{__call_console_drivers+76} <ffffffff80111061>{error_exit+0}<br />
+Oct  5 20:52:05 sgbdmaitre kernel:        <ffffffff80138e06>{mm_release+86} <ffffffff80138ddf>{mm_release+47}<br />
+Oct  5 20:52:05 sgbdmaitre kernel:        <ffffffff8013d7e8>{do_exit+328} <ffffffff80111cb3>{oops_end+35}<br />
+Oct  5 20:52:05 sgbdmaitre kernel:        <ffffffff80122240>{do_page_fault+1200} <ffffffff802507b3>{poke_blanked_console+179}<br />
+Oct  5 20:52:05 sgbdmaitre kernel:        <ffffffff80252bb7>{vt_console_print+727} <ffffffff8013aebc>{__call_console_drivers+76}<br />
+Oct  5 20:52:05 sgbdmaitre kernel:        <ffffffff80111061>{error_exit+0} <ffffffff80138e06>{mm_release+86}<br />
+Oct  5 20:52:05 sgbdmaitre kernel:        <ffffffff80138ddf>{mm_release+47} <ffffffff8013d7e8>{do_exit+328}<br />
+Oct  5 20:52:05 sgbdmaitre kernel:        <ffffffff80111cb3>{oops_end+35} <ffffffff80122240>{do_page_fault+1200}<br />
+Oct  5 20:52:05 sgbdmaitre kernel:        <ffffffff802507b3>{poke_blanked_console+179} <ffffffff80252bb7>{vt_console_print+727}<br />
+Oct  5 20:52:05 sgbdmaitre kernel:        <ffffffff8013aebc>{__call_console_drivers+76} <ffffffff80111061>{error_exit+0}<br />
+Oct  5 20:52:05 sgbdmaitre kernel:        <ffffffff80138e06>{mm_release+86} <ffffffff80138ddf>{mm_release+47}<br />
+Oct  5 20:52:05 sgbdmaitre kernel:        <ffffffff8013d7e8>{do_exit+328} <ffffffff80111cb3>{oops_end+35}<br />
+Oct  5 20:52:05 sgbdmaitre kernel:        <ffffffff80122240>{do_page_fault+1200} <ffffffff802507b3>{poke_blanked_console+179}<br />
+Oct  5 20:52:05 sgbdmaitre kernel:        <ffffffff80252bb7>{vt_console_print+727} <ffffffff8013aebc>{__call_console_drivers+76}<br />
+Oct  5 20:52:05 sgbdmaitre kernel:        <ffffffff80111061>{error_exit+0} <ffffffff80138e06>{mm_release+86}<br />
+Oct  5 20:52:05 sgbdmaitre kernel:        <ffffffff80138ddf>{mm_release+47} <ffffffff8013d7e8>{do_exit+328}<br />
+Oct  5 20:52:05 sgbdmaitre kernel:        <ffffffff80111cb3>{oops_end+35} <ffffffff80122240>{do_page_fault+1200}<br />
+Oct  5 20:52:05 sgbdmaitre kernel:        <ffffffff802507b3>{poke_blanked_console+179} <ffffffff80252bb7>{vt_console_print+727}<br />
+Oct  5 20:52:05 sgbdmaitre kernel:        <ffffffff8013aebc>{__call_console_drivers+76} <ffffffff80111061>{error_exit+0}<br />
+Oct  5 20:52:05 sgbdmaitre kernel:        <ffffffff80138e06>{mm_release+86} <ffffffff80138ddf>{mm_release+47}<br />
+Oct  5 20:52:05 sgbdmaitre kernel:        <ffffffff8013d7e8>{do_exit+328} <ffffffff80111cb3>{oops_end+35}<br />
+Oct  5 20:52:05 sgbdmaitre kernel:        <ffffffff80122240>{do_page_fault+1200} <ffffffff802507b3>{poke_blanked_console+179}<br />
+Oct  5 20:52:05 sgbdmaitre kernel:        <ffffffff80252bb7>{vt_console_print+727} <ffffffff8013aebc>{__call_console_drivers+76}<br />
+Oct  5 20:52:05 sgbdmaitre kernel:        <ffffffff80111061>{error_exit+0} <ffffffff80138e06>{mm_release+86}<br />
+Oct  5 20:52:05 sgbdmaitre kernel:        <ffffffff80138ddf>{mm_release+47} <ffffffff8013d7e8>{do_exit+328}<br />
+Oct  5 20:52:05 sgbdmaitre kernel:        <ffffffff80111cb3>{oops_end+35} <ffffffff80122240>{do_page_fault+1200}<br />
+Oct  5 20:52:05 sgbdmaitre kernel:        <ffffffff802507b3>{poke_blanked_console+179} <ffffffff80252bb7>{vt_console_print+727}<br />
+Oct  5 20:52:05 sgbdmaitre kernel:        <ffffffff8013aebc>{__call_console_drivers+76} <ffffffff80111061>{error_exit+0}<br />
+Oct  5 20:52:05 sgbdmaitre kernel:        <ffffffff80138e06>{mm_release+86} <ffffffff80138ddf>{mm_release+47}<br />
+Oct  5 20:52:05 sgbdmaitre kernel:        <ffffffff8013d7e8>{do_exit+328} <ffffffff80111cb3>{oops_end+35}<br />
+Oct  5 20:52:05 sgbdmaitre kernel:        <ffffffff80122240>{do_page_fault+1200} <ffffffff802507b3>{poke_blanked_console+179}<br />
+Oct  5 20:52:05 sgbdmaitre kernel:        <ffffffff80252bb7>{vt_console_print+727} <ffffffff8013aebc>{__call_console_drivers+76}<br />
+Oct  5 20:52:05 sgbdmaitre kernel:        <ffffffff80111061>{error_exit+0} <ffffffff80138e06>{mm_release+86}<br />
+Oct  5 20:52:05 sgbdmaitre kernel:        <ffffffff80138ddf>{mm_release+47} <ffffffff8013d7e8>{do_exit+328}<br />
+Oct  5 20:52:05 sgbdmaitre kernel:        <ffffffff80111cb3>{oops_end+35} <ffffffff80122240>{do_page_fault+1200}<br />
+Oct  5 20:52:05 sgbdmaitre kernel:        <ffffffff802507b3>{poke_blanked_console+179} <ffffffff80252bb7>{vt_console_print+727}<br />
+Oct  5 20:52:05 sgbdmaitre kernel:        <ffffffff8013aebc>{__call_console_drivers+76} <ffffffff80111061>{error_exit+0}<br />
+Oct  5 20:52:05 sgbdmaitre kernel:        <ffffffff80138e06>{mm_release+86} <ffffffff80138ddf>{mm_release+47}<br />
+Oct  5 20:52:05 sgbdmaitre kernel:        <ffffffff8013d7e8>{do_exit+328} <ffffffff80111cb3>{oops_end+35}<br />
+Oct  5 20:52:05 sgbdmaitre kernel:        <ffffffff80122240>{do_page_fault+1200} <ffffffff802507b3>{poke_blanked_console+179}<br />
+Oct  5 20:52:05 sgbdmaitre kernel:        <ffffffff80252bb7>{vt_console_print+727} <ffffffff8013aebc>{__call_console_drivers+76}<br />
+Oct  5 20:52:05 sgbdmaitre kernel:        <ffffffff80111061>{error_exit+0} <ffffffff80138e06>{mm_release+86}<br />
+Oct  5 20:52:05 sgbdmaitre kernel:        <ffffffff80138ddf>{mm_release+47} <ffffffff8013d7e8>{do_exit+328}<br />
+Oct  5 20:52:05 sgbdmaitre kernel:        <ffffffff80111cb3>{oops_end+35} <ffffffff80122240>{do_page_fault+1200}<br />
+Oct  5 20:52:05 sgbdmaitre kernel:        <ffffffff80133980>{__wake_up_common+64} <ffffffff80111061>{error_exit+0}<br />
+Oct  5 20:52:05 sgbdmaitre kernel:        <ffffffff80138e06>{mm_release+86} <ffffffff80138ddf>{mm_release+47}<br />
+Oct  5 20:52:05 sgbdmaitre kernel:        <ffffffff8013d7e8>{do_exit+328} <ffffffff80111cb3>{oops_end+35}<br />
+Oct  5 20:52:05 sgbdmaitre kernel:        <ffffffff80122240>{do_page_fault+1200} <ffffffff80111061>{error_exit+0}<br />
+Oct  5 20:52:05 sgbdmaitre kernel:        <ffffffff8016acaf>{__vma_prio_tree_remove+63} <ffffffff8017ac14>{free_pages_and_swap_cache+116}<br />
+Oct  5 20:52:05 sgbdmaitre kernel:        <ffffffff80170a2b>{remove_shared_vm_struct+75} <ffffffff80170c52>{exit_mmap+514}<br />
+Oct  5 20:52:05 sgbdmaitre kernel:        <ffffffff80138f48>{mmput+88} <ffffffff8013d8c3>{do_exit+547}<br />
+Oct  5 20:52:05 sgbdmaitre kernel:        <ffffffff8013e318>{do_group_exit+232} <ffffffff801106f4>{system_call+124}<br />
+Oct  5 20:52:05 sgbdmaitre kernel:<br />
+Oct  5 20:52:05 sgbdmaitre kernel:<br />
+Oct  5 20:52:05 sgbdmaitre kernel: Code:  Bad RIP value.<br />
+Oct  5 20:52:05 sgbdmaitre kernel: RIP [<fffffffea00080a2>] RSP <000001009b598018><br />
+Oct  5 20:52:05 sgbdmaitre kernel: CR2: fffffffea00080a2<br />
+Oct  5 20:52:05 sgbdmaitre kernel:  <1>Unable to handle kernel NULL pointer dereference at 0000000000000028 RIP:<br />
+Oct  5 20:52:05 sgbdmaitre kernel: <ffffffff80138e06>{mm_release+86}<br />
+Oct  5 20:52:05 sgbdmaitre kernel: PML4 83b9b067 PGD 307ab067 PMD 0<br />
+Oct  5 20:52:05 sgbdmaitre kernel: Oops: 0000 [16] SMP<br />
+Oct  5 20:52:05 sgbdmaitre kernel: CPU 0<br />
+Oct  5 20:52:05 sgbdmaitre kernel: Pid: 28595, comm: postmaster Not tainted 2.6.5-7.97-smp<br />
+Oct  5 20:52:05 sgbdmaitre kernel: RIP: 0010:[<ffffffff80138e06>] <ffffffff80138e06>{mm_release+86}<br />
+Oct  5 20:52:05 sgbdmaitre kernel: RSP: 0018:000001009b597e08  EFLAGS: 00010206<br />
+Oct  5 20:52:05 sgbdmaitre kernel: RAX: 000001010eb1d310 RBX: 000001010eb1d310 RCX: ffffffff803b1df8<br />
+Oct  5 20:52:05 sgbdmaitre kernel: RDX: 000001010eb1d310 RSI: 0000000000000000 RDI: 0000002a96de1b30<br />
+Oct  5 20:52:05 sgbdmaitre kernel: RBP: 0000000000000000 R08: 0000000000000040 R09: ffffffff80522880<br />
+Oct  5 20:52:06 sgbdmaitre kernel: R10: 0000000000000000 R11: 0000000000000000 R12: 0000000000000000<br />
+Oct  5 20:52:06 sgbdmaitre kernel: R13: 0000000000000000 R14: 0000000000000009 R15: 0000000000000000<br />
+Oct  5 20:52:06 sgbdmaitre kernel: FS:  0000002a96de1aa0(0000) GS:ffffffff804e7e00(0000) knlGS:00000000556ba080<br />
+Oct  5 20:52:06 sgbdmaitre kernel: CS:  0010 DS: 0000 ES: 0000 CR0: 000000008005003b<br />
+Oct  5 20:52:06 sgbdmaitre kernel: CR2: 0000000000000028 CR3: 0000000000101000 CR4: 00000000000006e0<br />
+Oct  5 20:52:06 sgbdmaitre kernel: Process postmaster (pid: 28595, threadinfo 000001009b598000, task 000001010eb1d310)<br />
+Oct  5 20:52:06 sgbdmaitre kernel: Stack: ffffffff803b1df0 0000000000000000 fffffffea00080a2 000001010eb1d310<br />
+Oct  5 20:52:06 sgbdmaitre kernel:        000001009b597f68 ffffffff8013d7e8 ffffffff803b1da0 ffffffffffffffef<br />
+Oct  5 20:52:06 sgbdmaitre kernel:        ffffffff80111cb3 0000000000000001<br />
+Oct  5 20:52:06 sgbdmaitre kernel: Call Trace:<ffffffff8013d7e8>{do_exit+328} <ffffffff80111cb3>{oops_end+35}<br />
+Oct  5 20:52:06 sgbdmaitre kernel:        <ffffffff80122240>{do_page_fault+1200} <ffffffff80136cd3>{thread_return+0}<br />
+Oct  5 20:52:06 sgbdmaitre kernel:        <ffffffff80111061>{error_exit+0}<br />
+Oct  5 20:52:06 sgbdmaitre kernel:<br />
+Oct  5 20:52:06 sgbdmaitre kernel: Code: 41 8b 45 28 ff c8 7e 63 48 c7 83 78 02 00 00 00 00 00 00 65<br />
+Oct  5 20:52:06 sgbdmaitre kernel: RIP <ffffffff80138e06>{mm_release+86} RSP <000001009b597e08><br />
+Oct  5 20:52:06 sgbdmaitre kernel: CR2: 0000000000000028<br />
+Oct  5 20:52:06 sgbdmaitre kernel:  <1>Unable to handle kernel NULL pointer dereference at 0000000000000028 RIP:<br />
+Oct  5 20:52:06 sgbdmaitre kernel: <ffffffff80138e06>{mm_release+86}<br />
+Oct  5 20:52:06 sgbdmaitre kernel: PML4 83b9b067 PGD 307ab067 PMD 0<br />
+Oct  5 20:52:06 sgbdmaitre kernel: Oops: 0000 [17] SMP<br />
+Oct  5 20:52:06 sgbdmaitre kernel: CPU 0<br />
+Oct  5 20:52:06 sgbdmaitre kernel: Pid: 28595, comm: postmaster </p>
+<p>================================================================================================================</p>
+<p>Voilà. Je ne sais pas quoi faire. Postgres aurait-il des faiblesses lors de fortes charges ? Ou Linux ? Aurais-je un problème matériel ?<br />
+J'avoue être un peu désemparé.<br />
+Nb: il y onze autres ordinateurs dans notre infrastructure, et seul celui hébergeant PostgreSQL (et rien d'autre) pose problème.</p>
+<p>Toute aide serait très appréciée.</p>
+<p>Cordialement,</p>
+<p>Jérôme</p>
+<!--hr /--><div class="contentsLink">[ <a href="index35f9.html?q=node/399" title="Blog sous PostgreSQL">sujet précédent</a> | <a href="index6216.html?q=node/388" title="Copier un élément d'une table">sujet suivant</a> ]</div>
+		     </div></div>
+<!--</div>
+</div>
+</div>
+</div> -->
+<a id="comment"></a>
+<form method="post" action="http://drupal.postgresql.fr/?q=comment"><div>
+<div class="pgSideNav">    <h2>Options d'affichage des commentaires</h2>    
+		    <div>
+			<div class="form-item">
+ <select name="mode"> <option value="1">A plat - replié</option>
+ <option value="2">A plat - déplié</option>
+ <option value="3">Par discussions - replié</option>
+ <option value="4" selected="selected">Par discussions - déplié</option>
+</select>
+<select name="order"> <option value="1">Date - récents en premier</option>
+ <option value="2" selected="selected">Date - anciens en premier</option>
+</select>
+<select name="comments_per_page"> <option value="10">10 commentaires par page</option> <option value="30">30 commentaires par page</option> <option value="50" selected="selected">50 commentaires par page</option> <option value="70">70 commentaires par page</option> <option value="90">90 commentaires par page</option></select>
+<input type="hidden" name="threshold" value="0" />
+ <input type="submit" class="form-submit" name="op" value="Sauvegarder les paramètres"  />
+
+ <div class="description">Sélectionnez la méthode d'affichage des commentaires que vous préférez, puis cliquez sur "Sauvegarder les paramètres" pour activer vos changements.</div>
+</div>
+
+		    </div></div><input type="hidden" name="edit[nid]" value="397" />
+</div></form><form method="post" action="http://drupal.postgresql.fr/?q=comment"><div>
+<input type="hidden" name="edit[nid]" value="397" />
+<a id="comment-429"></a>
+<div class="pgContentWrap"><h1 id="txtFrontFeatureHeading">Bonjour
+
+Pourriez vous nous</h1>
+		<p>
+		    <b><a href="index0b33.html?q=user/22" title="Voir le profil utilisateur.">Christophe Chauvet</a></b>/ = 6 Octobre, 2005 - 14:21
+		</p>
+		<p>
+		    <p>Bonjour</p>
+<p>Pourriez vous nous dire si :<br />
+- PostgreSQL est installé en paquet ou compiler ?<br />
+- Sur quel type de partition est le moteur et le cluster $PGDATA</p>
+<p>Cordialement.</p>
+<p>Christophe Chauvet.</p>
+<br /><!--hr /--><div class="contentsLink">[ Vous devez <a href="index7992.html?q=user/login">vous connecter</a> pour poster des commentaires ]</div>
+		</p></div><a id="comment-430"></a>
+<div class="pgContentWrap"><h1 id="txtFrontFeatureHeading">Re
+
+après une brève reche</h1>
+		<p>
+		    <b><a href="index0b33.html?q=user/22" title="Voir le profil utilisateur.">Christophe Chauvet</a></b>/ = 6 Octobre, 2005 - 15:06
+		</p>
+		<p>
+		    <p>Re</p>
+<p>après une brève recherche sur internet et il semble que c'est un problème de BIOS qui gère mal + de 4Gb de RAM sur les carte mère Tyan (je suppose que c'est ce que vous avez).il y'a le meme problème sur RedhAt<br />
+http://lists.suse.com/archive/suse-amd64/2003-Dec/0158.html voici le message de départ de la discution.<br />
+http://lists.suse.com/archive/suse-amd64/2003-Dec/0180.html et la conclusion.</p>
+<p>Cordialement.</p>
+<p>Christophe Chauvet.</p>
+<br /><!--hr /--><div class="contentsLink">[ Vous devez <a href="index7992.html?q=user/login">vous connecter</a> pour poster des commentaires ]</div>
+		</p></div><a id="comment-431"></a>
+<div class="pgContentWrap"><h1 id="txtFrontFeatureHeading">Bonjour
+
+Et merci pour cett</h1>
+		<p>
+		    <b><a href="indexf0f5.html?q=user/1078" title="Voir le profil utilisateur.">jerome</a></b>/ = 6 Octobre, 2005 - 15:16
+		</p>
+		<p>
+		    <p>Bonjour</p>
+<p>Et merci pour cette réponse aussi rapide.</p>
+<p>Postgres a été installé avec les RPM fournis par Suse (donc en version x86_64)<br />
+Toutes mes partitions sont en ext3<br />
+Le PGDATA est /var/lib/pgsql/data (valeur par défaut)</p>
+<p>MAIS<br />
+Un HD (monté sur /disk2 a été ajouté, le 1er s'avérant trop petit, et un lien a été créé de /var/lib/pgsql vers /disk2/pgsql</p>
+<p>Les données sont donc en réalité sur /disk2/pgsql/data et les binaires dans /usr/bin (chemins par défaut). On a donc système+SWAP+binaires PG sur /dev/hda et data sur /dev/hdb</p>
+<br /><!--hr /--><div class="contentsLink">[ Vous devez <a href="index7992.html?q=user/login">vous connecter</a> pour poster des commentaires ]</div>
+		</p></div><a id="comment-432"></a>
+<div class="pgContentWrap"><h1 id="txtFrontFeatureHeading">Re,
+ 
+Je ne serais vous con</h1>
+		<p>
+		    <b><a href="index0b33.html?q=user/22" title="Voir le profil utilisateur.">Christophe Chauvet</a></b>/ = 6 Octobre, 2005 - 15:39
+		</p>
+		<p>
+		    <p>Re,</p>
+<p>Je ne serais vous conseiler de mettre un LVM en place,  cela vous permet d'augmenter l'espace disque en rajoutant des DD et de les ratachés au système, cette manip est transparente pour PostgreSQL.</p>
+<p>Cordialement.</p>
+<p>Christophe Chauvet.</p>
+<br /><!--hr /--><div class="contentsLink">[ Vous devez <a href="index7992.html?q=user/login">vous connecter</a> pour poster des commentaires ]</div>
+		</p></div><a id="comment-434"></a>
+<div class="pgContentWrap"><h1 id="txtFrontFeatureHeading">Je n'avais pas vu le message </h1>
+		<p>
+		    <b><a href="indexf0f5.html?q=user/1078" title="Voir le profil utilisateur.">jerome</a></b>/ = 6 Octobre, 2005 - 15:49
+		</p>
+		<p>
+		    <p>Je n'avais pas vu le message sur les cartes mères (il est arrivé alors que je rédigeais ma réponse précédente)<br />
+Ma carte mère est une Rhapsody HDAMA de Arima/AccelerTech<br />
+Ceci dit, je vais regarder si je trouve des infos sur ce sujet.</p>
+<p>Encore merci,</p>
+<p>Jérôme</p>
+<br /><!--hr /--><div class="contentsLink">[ Vous devez <a href="index7992.html?q=user/login">vous connecter</a> pour poster des commentaires ]</div>
+		</p></div><a id="comment-436"></a>
+<div class="pgContentWrap"><h1 id="txtFrontFeatureHeading">Mise en place d'un LVM
+
+Tou</h1>
+		<p>
+		    <b><a href="indexf0f5.html?q=user/1078" title="Voir le profil utilisateur.">jerome</a></b>/ = 6 Octobre, 2005 - 16:02
+		</p>
+		<p>
+		    <p>Mise en place d'un LVM</p>
+<p>Tout à fait d'accord, c'est ce que j'aurais dû faire (et c'est ce que je ferai la prochaine fois). Cependant, ça ne résoud pas mon problème.</p>
+<p>J'ai trouvé quelques références de kernel panic similaires avec cette carte mère sur le site de Redhat. Suffisemment peu pour ne pas savoir que faire. </p>
+<br /><!--hr /--><div class="contentsLink">[ Vous devez <a href="index7992.html?q=user/login">vous connecter</a> pour poster des commentaires ]</div>
+		</p></div><a id="comment-437"></a>
+<div class="pgContentWrap"><h1 id="txtFrontFeatureHeading">Visiblement c'est un problèm</h1>
+		<p>
+		    <b><a href="index0b33.html?q=user/22" title="Voir le profil utilisateur.">Christophe Chauvet</a></b>/ = 6 Octobre, 2005 - 17:04
+		</p>
+		<p>
+		    <p>Visiblement c'est un problème avec les BIOS Phoenix, est ce que vous avez sur votre carte mère ?</p>
+<p>Cordialement.</p>
+<p>Christophe Chauvet.</p>
+<br /><!--hr /--><div class="contentsLink">[ Vous devez <a href="index7992.html?q=user/login">vous connecter</a> pour poster des commentaires ]</div>
+		</p></div><a id="comment-438"></a>
+<div class="pgContentWrap"><h1 id="txtFrontFeatureHeading">C'est bien un bios Phoenix.
+</h1>
+		<p>
+		    <b><a href="indexf0f5.html?q=user/1078" title="Voir le profil utilisateur.">jerome</a></b>/ = 6 Octobre, 2005 - 17:43
+		</p>
+		<p>
+		    <p>C'est bien un bios Phoenix.<br />
+Connaissez-vous une mise à jour qui corrigerait le problème ou je suis obligé de changer de machine. Et dans cette dernière hypothèse, pour quel matériel ?<br />
+Nb: Nous étions initialement parti sur Opteron pour le gain qu'apporte le 64 bits sur les grosses bases (certaines bases "pèsent" environ 70Go)</p>
+<br /><!--hr /--><div class="contentsLink">[ Vous devez <a href="index7992.html?q=user/login">vous connecter</a> pour poster des commentaires ]</div>
+		</p></div><a id="comment-439"></a>
+<div class="pgContentWrap"><h1 id="txtFrontFeatureHeading">Est ce un machine assemblé p</h1>
+		<p>
+		    <b><a href="index0b33.html?q=user/22" title="Voir le profil utilisateur.">Christophe Chauvet</a></b>/ = 6 Octobre, 2005 - 18:01
+		</p>
+		<p>
+		    <p>Est ce un machine assemblé par vos soin ou acheter chez un fabricant, dans le premier cas, regarder sur le site du Fabricant si une mise à jour est disponible, si vous êtes dans le second cas contacter le fabricant pour savoir si il a à sa disposition un patch qui corrige le problème, je pense que vous n'êtes pas le seul.</p>
+<p>Je n'est pas eu l'occasion de tester les Opteron pour le 64Bits, car je me suis tourné vers les serveurs SUN (entre autre V440) mais au dernier salon Solution Linux j'ai rencontré une personne sur le stand de SUN qui m'a fait une démonstration de leur dernier serveur à base d'Opteron, ils sont relativement peu chère comparé au version avec Processeur Sparc. je pense que je vais tester prochainement sur des <a href="http://www.sun.com/servers/entry/v40z/index.jsp">v40z</a>.</p>
+<p>Cordialement;</p>
+<br /><!--hr /--><div class="contentsLink">[ Vous devez <a href="index7992.html?q=user/login">vous connecter</a> pour poster des commentaires ]</div>
+		</p></div><a id="comment-440"></a>
+<div class="pgContentWrap"><h1 id="txtFrontFeatureHeading">C'est une machine achetée ch</h1>
+		<p>
+		    <b><a href="indexf0f5.html?q=user/1078" title="Voir le profil utilisateur.">jerome</a></b>/ = 6 Octobre, 2005 - 18:15
+		</p>
+		<p>
+		    <p>C'est une machine achetée chez Transtec.<br />
+Je vais voir sur leur site, mais sans grande illusion.</p>
+<br /><!--hr /--><div class="contentsLink">[ Vous devez <a href="index7992.html?q=user/login">vous connecter</a> pour poster des commentaires ]</div>
+		</p></div><a id="comment-441"></a>
+<div class="pgContentWrap"><h1 id="txtFrontFeatureHeading">regarder du coté des cartes </h1>
+		<p>
+		    <b><a href="index0b33.html?q=user/22" title="Voir le profil utilisateur.">Christophe Chauvet</a></b>/ = 6 Octobre, 2005 - 19:38
+		</p>
+		<p>
+		    <p>regarder du coté des cartes mère Tyan elles ont ce bug qui est corrigé</p>
+<p>Cordialement.</p>
+<p>Christophe Chauvet.</p>
+<br /><!--hr /--><div class="contentsLink">[ Vous devez <a href="index7992.html?q=user/login">vous connecter</a> pour poster des commentaires ]</div>
+		</p></div><a id="comment-442"></a>
+<div class="pgContentWrap"><h1 id="txtFrontFeatureHeading">Il semblerait que les cartes </h1>
+		<p>
+		    <b><a href="indexf0f5.html?q=user/1078" title="Voir le profil utilisateur.">jerome</a></b>/ = 7 Octobre, 2005 - 10:05
+		</p>
+		<p>
+		    <p>Il semblerait que les cartes mère TYAN soient équipées d'un bios AMI. Sur la Rhapsody, c'est un Phoenix.</p>
+<br /><!--hr /--><div class="contentsLink">[ Vous devez <a href="index7992.html?q=user/login">vous connecter</a> pour poster des commentaires ]</div>
+		</p></div><a id="comment-443"></a>
+<div class="pgContentWrap"><h1 id="txtFrontFeatureHeading">Certaine sont équipés de BI</h1>
+		<p>
+		    <b><a href="index0b33.html?q=user/22" title="Voir le profil utilisateur.">Christophe Chauvet</a></b>/ = 7 Octobre, 2005 - 10:41
+		</p>
+		<p>
+		    <p>Certaine sont équipés de BIOS Phoenix, appremement  les nouvelles ont effectivement un BIOS Ami.</p>
+<p>Cordialement.</p>
+<p>Christophe Chauvet.</p>
+<br /><!--hr /--><div class="contentsLink">[ Vous devez <a href="index7992.html?q=user/login">vous connecter</a> pour poster des commentaires ]</div>
+		</p></div></div></form>
+<!-- end content -->
+              </td>
+
+    </tr>
+    <tr><td colspan="2">
+
+		<div class="pgTopNav">
+		   <div class="pgTopNavLeft"> 
+		     <img src="layout/images/nav_lft.png" width="7" height="23" alt="" />
+		   </div>
+		   <div class="pgTopNavRight">
+		    <img src="layout/images/nav_rgt.png" width="7" height="23" alt="" />
+		  </div>
+		  <!--<ul class="pgTopNavList">-->
+		  <ul class="pgTopNavList">
+		   <li><a href="index03d2.html?q=" title="Retourner à la page principale.">accueil</a> </li>
+		   <li> <a href="indexf6e5.html?q=archive" title="Lire le contenu plus ancien dans notre archive.">archives</a> </li>
+		   <li> <a href="index71c4.html?q=blog" title="Lire les blogues les plus récents.">blogues</a> </li>
+
+		   <li> <a href="indexf6fe.html?q=book" title="Lire et contribuer aux livres collaboratifs.">livres</a> </li>
+		   <li> <a href="index79b7.html?q=forum">forums</a> </li>
+		   <li> <a href="index729f.html?q=poll" title="Voir la liste des sondages de ce site.">sondages</a> </li>
+		   <li> <a href="index4404.html?q=search" title="Chercher pour du contenu plus vieux.">recherche</a></li><li><a href="http://docs.postgresqlfr.org/" target="_blank">documentation </a></li>
+
+		  </ul>
+
+<!--
+		   <li><a href="?q=" title="Retourner à la page principale.">accueil</a> </li>
+		   <li> <a href="?q=archive" title="Lire le contenu plus ancien dans notre archive.">archives</a> </li>
+		   <li> <a href="?q=blog" title="Lire les blogues les plus récents.">blogues</a> </li>
+		   <li> <a href="?q=book" title="Lire et contribuer aux livres collaboratifs.">livres</a> </li>
+		   <li> <a href="?q=forum">forums</a> </li>
+		   <li> <a href="?q=poll" title="Voir la liste des sondages de ce site.">sondages</a> </li>
+		   <li> <a href="?q=search" title="Chercher pour du contenu plus vieux.">recherche</a></li><li><a href="http://docs.postgresqlfr.org/" target="_blank">documentation </a></li>
+-->
+		  </ul>
+	        </div>
+    </td></tr>
+   </table>
+   <p style="text-align: center;">&copy;&nbsp;PostgreSQLFr, tous droits réservés.<br>
+Site déclaré à la CNIL sous le numéro 1074678, conformément à la Loi en vigueur.
+</p>
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-3921927-1");
+pageTracker._initData();
+pageTracker._trackPageview();
+</script>
+<p></p>
+   
+</body>
+
+<!-- Mirrored from drupal.postgresql.fr/?q=node/397 by HTTrack Website Copier/3.x [XR&CO'2006], Sun, 12 Oct 2008 17:04:04 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+</html>

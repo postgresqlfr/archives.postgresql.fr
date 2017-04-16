@@ -1,0 +1,627 @@
+
+<!DOCTYPE
+ html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+ <html>
+ <!-- $Date: 2005/08/30 07:54:43 $ / $Revision: 1.29 $ / Last Theme Editor :$Author: jx $-->
+  
+<!-- Mirrored from drupal.postgresql.fr/?q=node/317 by HTTrack Website Copier/3.x [XR&CO'2006], Sun, 12 Oct 2008 17:47:10 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<base  />
+<style type="text/css" media="all">@import "misc/drupal.css";</style>
+   <title>Probleme de connexion - PostgreSQLFr</title>
+ <style type="text/css" media="screen" title="Normal Text">
+    @import url("layout/css/blue/fixed.css");
+    @import url(_guillaume/dotclear/themes/postgresql/style.html);
+ </style>
+ <style type="text/css" media="screen" title="Normal Text2">
+    @import url("layout/css/blue/pgfr.css");
+    @import url(_guillaume/dotclear/themes/postgresql/style.html);
+ </style>
+   </head>
+   <body>
+    <table border="0" cellspacing="5" cellpadding="0" width="100%">
+     <tr>
+      <!--td colspan="2" width="100%"-->
+      <td colspan="2">
+      <!-- Head -->
+       <table border="0" cellspacing="0" cellpadding="0" width="100%">
+        <tr>
+	 <td align="left">
+           <div id="pgHeader">
+	    <div id="pgHeaderLogoLeft">
+	     <a href="index.html" title="PostgreSQL"><img src="layout/images/hdr_left.png" width="230" height="80" alt="PostgreSQL" /></a>
+	    </div>
+	    <div id="pgHeaderLogoRight">
+	     <a href="index.html" title="La base de donn�es la plus sophistiqu�e au monde."><img src="layout/images/hdr_right.png" width="210" height="80" alt="La base de donn�es la plus sophistiqu�e au monde." /></a>
+	    </div>
+	   </div>
+         </td>
+	 <td align="right">
+         </td>
+	</tr>
+      </table> <!-- Head -->
+      <br />
+      <table border="0" cellspacing="0" cellpadding="0" width="100%">
+              <tr>
+	      	 <td align="left">
+
+		<div class="pgTopNav">
+		   <div class="pgTopNavLeft"> 
+		     <img src="layout/images/nav_lft.png" width="7" height="23" alt="" />
+		   </div>
+		   <div class="pgTopNavRight">
+		    <img src="layout/images/nav_rgt.png" width="7" height="23" alt="" />
+		  </div>
+		  <!--<ul class="pgTopNavList">-->
+		  <ul class="pgTopNavList">
+		   <li><a href="index03d2.html?q=" title="Retourner à la page principale.">accueil</a> </li>
+		   <li> <a href="indexf6e5.html?q=archive" title="Lire le contenu plus ancien dans notre archive.">archives</a> </li>
+		   <li> <a href="index71c4.html?q=blog" title="Lire les blogues les plus récents.">blogues</a> </li>
+
+		   <li> <a href="indexf6fe.html?q=book" title="Lire et contribuer aux livres collaboratifs.">livres</a> </li>
+		   <li> <a href="index79b7.html?q=forum">forums</a> </li>
+		   <li> <a href="index729f.html?q=poll" title="Voir la liste des sondages de ce site.">sondages</a> </li>
+		   <li> <a href="index4404.html?q=search" title="Chercher pour du contenu plus vieux.">recherche</a></li><li><a href="http://docs.postgresqlfr.org/" target="_blank">documentation </a></li>
+
+		  </ul>
+
+<!--
+		   <li><a href="?q=" title="Retourner à la page principale.">accueil</a> </li>
+		   <li> <a href="?q=archive" title="Lire le contenu plus ancien dans notre archive.">archives</a> </li>
+		   <li> <a href="?q=blog" title="Lire les blogues les plus récents.">blogues</a> </li>
+		   <li> <a href="?q=book" title="Lire et contribuer aux livres collaboratifs.">livres</a> </li>
+		   <li> <a href="?q=forum">forums</a> </li>
+		   <li> <a href="?q=poll" title="Voir la liste des sondages de ce site.">sondages</a> </li>
+		   <li> <a href="?q=search" title="Chercher pour du contenu plus vieux.">recherche</a></li><li><a href="http://docs.postgresqlfr.org/" target="_blank">documentation </a></li>
+-->
+		  </ul>
+	        </div>
+		</td>
+		</tr>
+		</table>
+      </td>
+     </tr>
+     <tr>
+    <td style="vertical-align: top; width: 20%;">
+<div class="block block-user" id="block-user-0">
+<div class="pgSideNav">    <h2>Ouverture de session</h2>    
+		    <div>
+			<form action="http://drupal.postgresql.fr/?q=user/login" method="post">
+<div class="user-login-block">
+<input type="hidden" name="edit[destination]" value="node/317" />
+<div class="form-item">
+ <label for="edit-name">Nom d'utilisateur:</label><br />
+ <input type="text" maxlength="64" class="form-text" name="edit[name]" id="edit-name" size="15" value="" />
+</div>
+<div class="form-item">
+ <label for="edit-pass">Mot de passe:</label><br />
+ <input type="password" class="form-password" maxlength="64" name="edit[pass]" id="edit-pass" size="15" value="" />
+</div>
+<input type="submit" class="form-submit" name="op" value="Identification"  />
+</div>
+
+</form>
+<div class="item-list"><ul><li><a href="indexc12c.html?q=user/password" title="Demander un nouveau mot de passe par e-mail.">Demander un nouveau mot de passe</a></li></ul></div>
+		    </div></div></div>
+<div class="block block-user" id="block-user-1">
+<div class="pgSideNav">    <h2>Navigation</h2>    
+		    <div>
+			<div class="menu">
+<ul>
+<li class="leaf"><a href="indexa499.html?q=tracker">messages récents</a></li>
+
+</ul>
+</div>
+		    </div></div></div>
+<div class="block block-block" id="block-block-4">
+<div class="pgSideNav">    <h2>Contactez-nous</h2>    
+		    <div>
+			<p><strong>Administration du site&nbsp;:</strong><br />
+"equipe chez postgresqlfr point org"<br><br />
+<strong>Contact presse&nbsp;:</strong><br />
+"fr chez postgresql point org"<br><br />
+<strong>Contact association&nbsp;:</strong><br />
+"bureau chez postgresqlfr point org"<br><br />
+<strong>Questions PostgreSQL&nbsp;:</strong><br />
+&nbsp;IRC&nbsp;:<br />
+&nbsp;&nbsp;serveur <strong>irc.freenode.net</strong><br />
+&nbsp;&nbsp;canal <strong>#postgresqlfr</strong></p>
+
+		    </div></div></div>
+<div class="block block-block" id="block-block-1">
+<div class="pgSideNav">    <h2>Liens</h2>    
+		    <div>
+			<p><small></p>
+<ul>
+<li>
+<a href="http://www.postgresqlfr.org/?q=node/view/162">Adhérer</a>
+</li>
+<li>
+<a href="http://www.postgresqlfr.org/?q=node/473">Faire un don</a>
+</li>
+<li>
+<a href="http://www.postgresqlfr.org/?q=node/163">Consulter les statuts</a>
+</li>
+</ul>
+<ul>
+<li>
+<a href="http://www.postgresql.org/" class="active">Site original<br />
+</a>
+</li>
+<li>
+<a href="http://docs.postgresqlfr.org/" class="active">Site de traduction</a>
+</li>
+<li>
+<a href="http://docs.postgresqlfr.org/8.3/">Doc v.8.3.x fr</a>
+</li>
+<li>
+<a href="http://docs.postgresqlfr.org/8.2/">Doc v.8.2.x fr</a>
+</li>
+<li>
+<a href="http://docs.postgresqlfr.org/8.1/">Doc v.8.1.x fr</a>
+</li>
+<li>
+<a href="http://docs.postgresqlfr.org/8.0/">Doc v.8.0.x fr</a>
+</li>
+<li>
+<a href="http://docs.postgresqlfr.org/7.4/">Doc v.7.4.x fr</a>
+</li>
+<li>
+<a href="http://www.postgis.fr/">PostGIS</a>
+</li>
+<li>
+<a href="http://www.postgresql.org/docs/techdocs">Techdocs</a>
+</li>
+<li>
+<a href="http://www.varlena.com/varlena/GeneralBits/Tidbits/">General TidBits</a>
+</li>
+<p><!--</p>
+<li>
+<a href="http://www.postgresqlfr.org/?q=node/view/58">Version Windows</a>
+</li>
+<p>--></p>
+<li>
+<a href="http://www.postgresqlfr.org/drupal/?q=node/view/63">Témoignages de pros</a>
+</li>
+<li>
+<a href="http://archives.postgresql.org/pgsql-fr-generale/">Liste de diffusion</a>
+</li>
+<li>
+<a href="http://wwwmaster.postgresql.org/download/mirrors-ftp">Télécharger</a>
+</li>
+</ul>
+<p></small></p>
+
+		    </div></div></div>
+<div class="block block-block" id="block-block-2">
+<div class="pgSideNav">    <h2>Recherche</h2>    
+		    <div>
+			<form action="http://drupal.postgresql.fr/?q=search" method="post">
+<div id="search">
+<input class="form-text" type="text" size="15" value="" name="keys" alt="Enter the terms you wish to search for." /><br />
+<input class="form-submit" type="submit" value="Recherche" />
+</div>
+</form>
+
+		    </div></div></div>
+<div class="block block-forum" id="block-forum-0">
+<div class="pgSideNav">    <h2>Sujets du forum</h2>    
+		    <div>
+			<div class="item-list"><h3>Sujets actifs</h3><ul><li><a href="index253f.html?q=node/1742">A LIRE : FERMETURE DES FORUMS DRUPAL</a></li><li><a href="indexfc2e.html?q=node/1739" title="2 commentaires">Problème  avec pg_dump</a></li><li><a href="index97c1.html?q=node/1731" title="5 commentaires">Connexions simultannées</a></li><li><a href="index32d3.html?q=node/1737" title="1 commentaire">Optimisation de la mémoire sous PostgreSQL</a></li><li><a href="index2483.html?q=node/1736" title="3 commentaires">[Résolu] Upgrade Postgre -> types et opérateurs</a></li></ul></div><div class="item-list"><h3>Nouveaux sujets:</h3><ul><li><a href="index253f.html?q=node/1742">A LIRE : FERMETURE DES FORUMS DRUPAL</a></li><li><a href="indexfc2e.html?q=node/1739" title="2 commentaires">Problème  avec pg_dump</a></li><li><a href="index32d3.html?q=node/1737" title="1 commentaire">Optimisation de la mémoire sous PostgreSQL</a></li><li><a href="index2483.html?q=node/1736" title="3 commentaires">[Résolu] Upgrade Postgre -> types et opérateurs</a></li><li><a href="index82c4.html?q=node/1734" title="2 commentaires">[RESOLU] Probleme de connection en odbc</a></li></ul></div><div class="more-link"><a href="index79b7.html?q=forum" title="Lire les derniers sujets.">en lire plus</a></div>
+		    </div></div></div>
+<div class="block block-archive" id="block-archive-0">
+<div class="pgSideNav">    <h2>Accéder aux archives</h2>    
+		    <div>
+			
+<!-- calendar -->
+<div class="calendar"><table summary="Un calendrier pour accéder aux archives.">
+ <caption><a href="index9dfb.html?q=archive/2008/09/12" title="Mois précédent">&laquo;</a> Octobre 2008 &nbsp;</caption>
+ <tr class="header-week">
+ <th abbr="Lundi">Lun</th>
+ <th abbr="Mardi">Mar</th>
+ <th abbr="Mercredi">Mer</th>
+ <th abbr="Jeudi">Jeu</th>
+ <th abbr="Vendredi">Ven</th>
+ <th abbr="Samedi">Sam</th>
+ <th abbr="Dimanche">Dim</th>
+</tr>
+ <tr class="row-week"><td class="day-blank" colspan="2">&nbsp;</td>
+  <td class="day-link"><a href="indexd3e2.html?q=archive/2008/10/1">1</a></td>
+  <td class="day-normal">2</td>
+  <td class="day-normal">3</td>
+  <td class="day-normal">4</td>
+  <td class="day-normal">5</td>
+ </tr>
+ <tr class="row-week">
+  <td class="day-normal">6</td>
+  <td class="day-normal">7</td>
+  <td class="day-normal">8</td>
+  <td class="day-normal">9</td>
+  <td class="day-normal">10</td>
+  <td class="day-normal">11</td>
+  <td class="day-today">12</td>
+ </tr>
+ <tr class="row-week">
+  <td class="day-future">13</td>
+  <td class="day-future">14</td>
+  <td class="day-future">15</td>
+  <td class="day-future">16</td>
+  <td class="day-future">17</td>
+  <td class="day-future">18</td>
+  <td class="day-future">19</td>
+ </tr>
+ <tr class="row-week">
+  <td class="day-future">20</td>
+  <td class="day-future">21</td>
+  <td class="day-future">22</td>
+  <td class="day-future">23</td>
+  <td class="day-future">24</td>
+  <td class="day-future">25</td>
+  <td class="day-future">26</td>
+ </tr>
+ <tr class="row-week">
+  <td class="day-future">27</td>
+  <td class="day-future">28</td>
+  <td class="day-future">29</td>
+  <td class="day-future">30</td>
+  <td class="day-future">31</td>
+  <td class="day-blank" colspan="2">&nbsp;</td>
+ </tr>
+</table></div>
+
+
+		    </div></div></div>
+<div class="block block-node" id="block-node-0">
+<div class="pgSideNav">    <h2>Syndication</h2>    
+		    <div>
+			<div class="xml-icon"><a href="index9637.html?q=rss.xml"><img src="misc/xml.png" width="36" height="14" alt="Flux XML" title="Flux XML" /></a></div>
+		    </div></div></div>
+<div class="block block-poll" id="block-poll-0">
+<div class="pgSideNav">    <h2>Sondage</h2>    
+		    <div>
+			<div class="poll"><div class="title">Quelle est la version de PostgreSQL la plus répandue sur vos serveurs ?</div><div class="text">8.3</div><div class="bar"><div style="width: 10%;" class="foreground"></div></div><div class="percent">10%</div><div class="text">8.2</div><div class="bar"><div style="width: 42%;" class="foreground"></div></div><div class="percent">42%</div><div class="text">8.1</div><div class="bar"><div style="width: 40%;" class="foreground"></div></div><div class="percent">40%</div><div class="text">8.0</div><div class="bar"><div style="width: 2%;" class="foreground"></div></div><div class="percent">2%</div><div class="text">7.4</div><div class="bar"><div style="width: 6%;" class="foreground"></div></div><div class="percent">6%</div><div class="text">7.3 ou antérieure</div><div class="bar"><div style="width: 0%;" class="foreground"></div></div><div class="percent">0%</div><div class="total">Nombre de votes: 48</div></div><div class="links"><a href="index8c57.html?q=node/1426#comment" title="Sauter au premier commentaire de ce message.">3 commentaires</a> | <a href="index729f.html?q=poll" title="Voir la liste des sondages de ce site.">anciens sondages</a></div>
+		    </div></div></div>
+    </td>
+
+      <td style="vertical-align: top; width: 80%"><div class="breadcrumb"><a href="index03d2.html?q=">Accueil</a> &raquo; <a href="index79b7.html?q=forum">forums</a> &raquo; <a href="index0561.html?q=forum/10">Technique - général</a></div><h2 class="title">Probleme de connexion</h2>
+<!-- begin content -->
+
+<!-- node: "Probleme de connexion" -->
+<!--<div class="pgFrontCenterUser">
+<div class="pgFrontUser">
+<div class="pgFrontUserInner">
+--><div class="pgFrontUserWrap">
+ <div class="pgFrontUserContent">	<h1 class="plop"><a href="indexea60.html?q=taxonomy/term/10">Technique - général</a> | <a href="index37e0.html?q=node/317" class="active">Probleme de connexion</a></h1>
+		    <p>
+			    Par <a href="index4f04.html?q=user/924" title="Voir le profil utilisateur.">michel7</a> le 01/08/2005 - 13:13
+		    </p>	
+			    <p>Bonjour :</p>
+<p>je vous serais tres reconnaissant de bien vouloir m'aider à  configurer ma base de données<br />
+ "scolaire" avec PostgreSQL.</p>
+<p> Car je trouve que PostgreSQL offre plus d'options que n'as pas MySQL.</p>
+<p> Par contre PostgreSQL est "chiant" à  configurer.</p>
+<p> pour vous informer voila ma configuration :</p>
+<p> Systeme : Fedora Core 4<br />
+ PosygreSQL : 8.0.3<br />
+ nond'utilisateur (compte unix) : user1</p>
+<p> quasiment tous les livres et les sites indiquent la demarche suivante :</p>
+<p> 1) se connecter en tant que "root", puis "postgres"<br />
+    creer une base de données puis un utilisateur</p>
+<p>    je resume ces etapes comme suivant :</p>
+<p>		[user1@user ~]$ su<br />
+		Password:<br />
+		[root@user user1]# su postgres<br />
+		bash-3.00$ createdb mabase<br />
+		CREATE DATABASE<br />
+		bash-3.00$ createuser -W utilisateur<br />
+		Le nouvel utilisateur a-t'il le droit de créer des bases de données ? (y/n) n<br />
+		Le nouvel utilisateur a-t'il le droit de créer des utilisateurs ? (y/n) n<br />
+		Mot de passe :<br />
+		CREATE USER</p>
+<p>		et c'est là  que je galère à  accéder à  ma base, car voila ce que j'ai :</p>
+<p>		1.1)<br />
+		[user1@user ~]$ psql -U utilisateur -d mabase<br />
+		psql: FATAL:  authentification Ident échouée pour l'utilisateur «utilisateur»</p>
+<p>		1.2)<br />
+		[user1@user ~]$ psql mabase<br />
+		psql: FATAL:  l'utilisateur «user1» n'existe pas</p>
+<p>		1.3)<br />
+		[user1@user ~]$ psql -W utilisateur -d mabase<br />
+		Mot de passe :<br />
+		psql: FATAL:  authentification Ident échouée pour l'utilisateur «utilisateur»</p>
+<p>	2) par contre si je crée un utilisateur "user1" ( qui est le même que mon compte unix )<br />
+	pour mabase, là  pas de probleme de connexion, mais le plus inquietant est que :<br />
+	je me connecte avec n'importe quel mot de passe.</p>
+<p>		si vous une recette qui fonctionne avec la même configuration que la mienne<br />
+		je vous remercie d'avance pour votre aide.</p>
+<p>		Et puis je ne sais pas s'il faut changer quelque chose dans le fichier<br />
+                "pg_hba.conf" ?</p>
+<p>		d'ailleur au debut j'ai le fichier "pg_hba.conf.sample" et non pas "pg_hba.conf"</p>
+<!--hr /--><div class="contentsLink">[ <a href="indexd875.html?q=node/232" title="problème postgresql- java ">sujet précédent</a> | <a href="indexaaac.html?q=node/965" title="Cohabitation avec MySQL">sujet suivant</a> ]</div>
+		     </div></div>
+<!--</div>
+</div>
+</div>
+</div> -->
+<a id="comment"></a>
+<form method="post" action="http://drupal.postgresql.fr/?q=comment"><div>
+<div class="pgSideNav">    <h2>Options d'affichage des commentaires</h2>    
+		    <div>
+			<div class="form-item">
+ <select name="mode"> <option value="1">A plat - replié</option>
+ <option value="2">A plat - déplié</option>
+ <option value="3">Par discussions - replié</option>
+ <option value="4" selected="selected">Par discussions - déplié</option>
+</select>
+<select name="order"> <option value="1">Date - récents en premier</option>
+ <option value="2" selected="selected">Date - anciens en premier</option>
+</select>
+<select name="comments_per_page"> <option value="10">10 commentaires par page</option> <option value="30">30 commentaires par page</option> <option value="50" selected="selected">50 commentaires par page</option> <option value="70">70 commentaires par page</option> <option value="90">90 commentaires par page</option></select>
+<input type="hidden" name="threshold" value="0" />
+ <input type="submit" class="form-submit" name="op" value="Sauvegarder les paramètres"  />
+
+ <div class="description">Sélectionnez la méthode d'affichage des commentaires que vous préférez, puis cliquez sur "Sauvegarder les paramètres" pour activer vos changements.</div>
+</div>
+
+		    </div></div><input type="hidden" name="edit[nid]" value="317" />
+</div></form><form method="post" action="http://drupal.postgresql.fr/?q=comment"><div>
+<input type="hidden" name="edit[nid]" value="317" />
+<a id="comment-309"></a>
+<div class="pgContentWrap"><h1 id="txtFrontFeatureHeading">Bonjour
+
+Pour votre problè</h1>
+		<p>
+		    <b><a href="index0b33.html?q=user/22" title="Voir le profil utilisateur.">Christophe Chauvet</a></b>/ = 1 Août, 2005 - 17:17
+		</p>
+		<p>
+		    <p>Bonjour</p>
+<p>Pour votre problème il semblerait que dans le fichier <b>pg_hba.conf</b> la ligne de connection contient à la fin <b>ident sameuser</b>, ce qui signifie, que le user au sens PostgreSQL doit aussi être un utilisateur déclaré sur le système.</p>
+<p>Pour ne gérer les utilisateurs qu'au niveau de PG, il convient de remplacer <b>ident sameuser</b> par <b>md5</b>.</p>
+<p>Christophe Chauvet.</p>
+<br /><!--hr /--><div class="contentsLink">[ Vous devez <a href="index7992.html?q=user/login">vous connecter</a> pour poster des commentaires ]</div>
+		</p></div><a id="comment-313"></a>
+<div class="pgContentWrap"><h1 id="txtFrontFeatureHeading">ok, je vais posé le probleme</h1>
+		<p>
+		    <b><a href="index4f04.html?q=user/924" title="Voir le profil utilisateur.">michel7</a></b>/ = 3 Août, 2005 - 12:44
+		</p>
+		<p>
+		    <p>ok, je vais posé le probleme autrement alors : </p>
+<p>y a t-il quelquun qui a la configuration suivante : </p>
+<p>Fedora 4<br />
+PostgreSQL 8.0.3<br />
+PHP 5</p>
+<p>*<br />
+*<br />
+*<br />
+*<br />
+*<br />
+*<br />
+*<br />
+*<br />
+voila ce que je trouve par defaut dan mon fichier "pg_hba.conf.sample" ( il n'y a pas de fichier "pg_hba.conf" )</p>
+<p>* les etoiles je les rajoute sur ce message pour bien afficher mon<br />
+* message<br />
+*<br />
+*<br />
+*<br />
+*</p>
+<p># PostgreSQL Client Authentication Configuration File<br />
+# ===================================================<br />
+#<br />
+# Refer to the PostgreSQL Administrator's Guide, chapter "Client<br />
+# Authentication" for a complete description.  A short synopsis<br />
+# follows.<br />
+#<br />
+# This file controls: which hosts are allowed to connect, how clients<br />
+# are authenticated, which PostgreSQL user names they can use, which<br />
+# databases they can access.  Records take one of these forms:<br />
+#<br />
+# local      DATABASE  USER  METHOD  [OPTION]<br />
+# host       DATABASE  USER  CIDR-ADDRESS  METHOD  [OPTION]<br />
+# hostssl    DATABASE  USER  CIDR-ADDRESS  METHOD  [OPTION]<br />
+# hostnossl  DATABASE  USER  CIDR-ADDRESS  METHOD  [OPTION]<br />
+#<br />
+# (The uppercase items must be replaced by actual values.)<br />
+#<br />
+# The first field is the connection type: "local" is a Unix-domain socket,<br />
+# "host" is either a plain or SSL-encrypted TCP/IP socket, "hostssl" is an<br />
+# SSL-encrypted TCP/IP socket, and "hostnossl" is a plain TCP/IP socket.<br />
+#<br />
+# DATABASE can be "all", "sameuser", "samegroup", a database name, or<br />
+# a comma-separated list thereof.<br />
+#<br />
+# USER can be "all", a user name, a group name prefixed with "+", or<br />
+# a comma-separated list thereof.  In both the DATABASE and USER fields<br />
+# you can also write a file name prefixed with "@" to include names from<br />
+# a separate file.<br />
+#<br />
+# CIDR-ADDRESS specifies the set of hosts the record matches.<br />
+# It is made up of an IP address and a CIDR mask that is an integer<br />
+# (between 0 and 32 (IPv6) or 128(IPv6) inclusive) that specifies<br />
+# the number of significant bits in the mask.  Alternatively, you can write<br />
+# an IP address and netmask in separate columns to specify the set of hosts.<br />
+#<br />
+# METHOD can be "trust", "reject", "md5", "crypt", "password",<br />
+# "krb4", "krb5", "ident", or "pam".  Note that "password" sends passwords<br />
+# in clear text; "md5" is preferred since it sends encrypted passwords.<br />
+#<br />
+# OPTION is the ident map or the name of the PAM service, depending on METHOD.<br />
+#<br />
+# Database and user names containing spaces, commas, quotes and other special<br />
+# characters must be quoted. Quoting one of the keywords "all", "sameuser" or<br />
+# "samegroup" makes the name lose its special character, and just match a<br />
+# database or username with that name.<br />
+#<br />
+# This file is read on server startup and when the postmaster receives<br />
+# a SIGHUP signal.  If you edit the file on a running system, you have<br />
+# to SIGHUP the postmaster for the changes to take effect.  You can use<br />
+# "pg_ctl reload" to do that.</p>
+<p># Put your actual configuration here<br />
+# ----------------------------------<br />
+#<br />
+# If you want to allow non-local connections, you need to add more<br />
+# "host" records. In that case you will also need to make PostgreSQL listen<br />
+# on a non-local interface via the listen_addresses configuration parameter,<br />
+# or via the -i or -h command line switches.<br />
+#</p>
+<p>#@authcomment@</p>
+<p># TYPE  DATABASE    USER        CIDR-ADDRESS          METHOD</p>
+<p>#@remove-line-for-nolocal@# "local" is for Unix domain socket connections only<br />
+#@remove-line-for-nolocal@local   all         all                               @authmethod@<br />
+# IPv4 local connections:<br />
+host    all         all         ::1/128               @authmethod@<br />
+# IPv6 local connections:<br />
+host    all         all         ::1/128               @authmethod@</p>
+<p>*<br />
+*<br />
+*<br />
+*<br />
+*<br />
+*<br />
+*<br />
+*<br />
+puis voila ce que je trouve dans mon fichier "pg_ident.conf.sample" ( là encore il n'y a pas de fichier "pg_ident.conf" ) </p>
+<p>*<br />
+*<br />
+*<br />
+*<br />
+*<br />
+*<br />
+*<br />
+# PostgreSQL Ident Authentication Maps<br />
+# ====================================<br />
+#<br />
+# Refer to the PostgreSQL Administrator's Guide, chapter "Client<br />
+# Authentication" for a complete description.  A short synopsis<br />
+# follows.<br />
+#<br />
+# This file controls PostgreSQL ident-based authentication. It maps<br />
+# ident user names (typically Unix user names) to their corresponding<br />
+# PostgreSQL user names.  Records are of the form:<br />
+#<br />
+# MAPNAME  IDENT-USERNAME  PG-USERNAME<br />
+#<br />
+# (The uppercase quantities must be replaced by actual values.)<br />
+#<br />
+# MAPNAME is the (otherwise freely chosen) map name that was used in<br />
+# pg_hba.conf.  IDENT-USERNAME is the detected user name of the<br />
+# client.  PG-USERNAME is the requested PostgreSQL user name.  The<br />
+# existence of a record specifies that IDENT-USERNAME may connect as<br />
+# PG-USERNAME.  Multiple maps may be specified in this file and used<br />
+# by pg_hba.conf.<br />
+#<br />
+# This file is read on server startup and when the postmaster receives<br />
+# a SIGHUP signal.  If you edit the file on a running system, you have<br />
+# to SIGHUP the postmaster for the changes to take effect.  You can use<br />
+# "pg_ctl reload" to do that.</p>
+<p># Put your actual configuration here<br />
+# ----------------------------------<br />
+#<br />
+# No map names are defined in the default configuration.  If all ident<br />
+# user names and PostgreSQL user names are the same, you don't need<br />
+# this file.  Instead, use the special map name "sameuser" in<br />
+# pg_hba.conf.</p>
+<p># MAPNAME     IDENT-USERNAME    PG-USERNAME</p>
+<p>*<br />
+*<br />
+*<br />
+*<br />
+*<br />
+*<br />
+*<br />
+*<br />
+alors si vous avez cette configuration dites moi svp comment vous avez procédé ( notament la manipulation des deux fichiers précédents )</p>
+<p>pour pouvoir se connecter avec un nom d'utilisateur et un mot de passe autre que ceux du system</p>
+<p>Merci d'avance</p>
+<br /><!--hr /--><div class="contentsLink">[ Vous devez <a href="index7992.html?q=user/login">vous connecter</a> pour poster des commentaires ]</div>
+		</p></div><div style="margin-left:25px;">
+<a id="comment-333"></a>
+<div class="pgContentWrap"><h1 id="txtFrontFeatureHeading">Bonjour ,
+
+J'utilise aussi </h1>
+		<p>
+		    <b><a href="index5145.html?q=user/859" title="Voir le profil utilisateur.">LucasMacNamara</a></b>/ = 14 Août, 2005 - 11:55
+		</p>
+		<p>
+		    <p>Bonjour ,</p>
+<p>J'utilise aussi Fedora core 4 </p>
+<p>Le fichier pg_hba.conf existe bien dans /var/lib/pgsql/data</p>
+<p>En revance j'ai configuré mon nouvel utilisateur est créé une base a partir de PgAdmin3</p>
+<p>Pour moi PosqreSQL fonctionne bien , du moins des que j'y accede avec un programme comme PgAdmin 3 , DbVisualizer ( via JDBC ) ou les softs d'EMS</p>
+<p>En revanche impossible de faire fonctionner php5 avec postgresql8 , j'ai du installer une Fedora Core 3 pour avoir a coté un servuer Apache avec php 4 .....a partir du quel je me connecte a ma base PG8</p>
+<p>Si certains connaissent une distribution qui fonctionne correctement avec php5 et Postgresql 8 ....je serais interessé !</p>
+<p>MERCI</p>
+<br /><!--hr /--><div class="contentsLink">[ Vous devez <a href="index7992.html?q=user/login">vous connecter</a> pour poster des commentaires ]</div>
+		</p></div></div>
+<div style="margin-left:25px;">
+<a id="comment-1458"></a>
+<div class="pgContentWrap"><h1 id="txtFrontFeatureHeading">Kubuntu marche parfaitement a</h1>
+		<p>
+		    <b><a href="indexf85c.html?q=user/1950" title="Voir le profil utilisateur.">deY</a></b>/ = 1 Décembre, 2006 - 17:22
+		</p>
+		<p>
+		    <p>Kubuntu marche parfaitement avec Pg8 et PHP5</p>
+<br /><!--hr /--><div class="contentsLink">[ Vous devez <a href="index7992.html?q=user/login">vous connecter</a> pour poster des commentaires ]</div>
+		</p></div></div>
+</div></form>
+<!-- end content -->
+              </td>
+
+    </tr>
+    <tr><td colspan="2">
+
+		<div class="pgTopNav">
+		   <div class="pgTopNavLeft"> 
+		     <img src="layout/images/nav_lft.png" width="7" height="23" alt="" />
+		   </div>
+		   <div class="pgTopNavRight">
+		    <img src="layout/images/nav_rgt.png" width="7" height="23" alt="" />
+		  </div>
+		  <!--<ul class="pgTopNavList">-->
+		  <ul class="pgTopNavList">
+		   <li><a href="index03d2.html?q=" title="Retourner à la page principale.">accueil</a> </li>
+		   <li> <a href="indexf6e5.html?q=archive" title="Lire le contenu plus ancien dans notre archive.">archives</a> </li>
+		   <li> <a href="index71c4.html?q=blog" title="Lire les blogues les plus récents.">blogues</a> </li>
+
+		   <li> <a href="indexf6fe.html?q=book" title="Lire et contribuer aux livres collaboratifs.">livres</a> </li>
+		   <li> <a href="index79b7.html?q=forum">forums</a> </li>
+		   <li> <a href="index729f.html?q=poll" title="Voir la liste des sondages de ce site.">sondages</a> </li>
+		   <li> <a href="index4404.html?q=search" title="Chercher pour du contenu plus vieux.">recherche</a></li><li><a href="http://docs.postgresqlfr.org/" target="_blank">documentation </a></li>
+
+		  </ul>
+
+<!--
+		   <li><a href="?q=" title="Retourner à la page principale.">accueil</a> </li>
+		   <li> <a href="?q=archive" title="Lire le contenu plus ancien dans notre archive.">archives</a> </li>
+		   <li> <a href="?q=blog" title="Lire les blogues les plus récents.">blogues</a> </li>
+		   <li> <a href="?q=book" title="Lire et contribuer aux livres collaboratifs.">livres</a> </li>
+		   <li> <a href="?q=forum">forums</a> </li>
+		   <li> <a href="?q=poll" title="Voir la liste des sondages de ce site.">sondages</a> </li>
+		   <li> <a href="?q=search" title="Chercher pour du contenu plus vieux.">recherche</a></li><li><a href="http://docs.postgresqlfr.org/" target="_blank">documentation </a></li>
+-->
+		  </ul>
+	        </div>
+    </td></tr>
+   </table>
+   <p style="text-align: center;">&copy;&nbsp;PostgreSQLFr, tous droits réservés.<br>
+Site déclaré à la CNIL sous le numéro 1074678, conformément à la Loi en vigueur.
+</p>
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-3921927-1");
+pageTracker._initData();
+pageTracker._trackPageview();
+</script>
+<p></p>
+   
+</body>
+
+<!-- Mirrored from drupal.postgresql.fr/?q=node/317 by HTTrack Website Copier/3.x [XR&CO'2006], Sun, 12 Oct 2008 17:47:10 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+</html>

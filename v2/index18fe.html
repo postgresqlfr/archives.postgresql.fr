@@ -1,0 +1,739 @@
+
+<!DOCTYPE
+ html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+ <html>
+ <!-- $Date: 2005/08/30 07:54:43 $ / $Revision: 1.29 $ / Last Theme Editor :$Author: jx $-->
+  
+<!-- Mirrored from drupal.postgresql.fr/?q=node/297 by HTTrack Website Copier/3.x [XR&CO'2006], Sun, 12 Oct 2008 15:57:24 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<base  />
+<style type="text/css" media="all">@import "misc/drupal.css";</style>
+   <title>Points à vérifier en ce qui concerne les performances de PostgreSQL 8.0 - PostgreSQLFr</title>
+ <style type="text/css" media="screen" title="Normal Text">
+    @import url("layout/css/blue/fixed.css");
+    @import url(_guillaume/dotclear/themes/postgresql/style.html);
+ </style>
+ <style type="text/css" media="screen" title="Normal Text2">
+    @import url("layout/css/blue/pgfr.css");
+    @import url(_guillaume/dotclear/themes/postgresql/style.html);
+ </style>
+   </head>
+   <body>
+    <table border="0" cellspacing="5" cellpadding="0" width="100%">
+     <tr>
+      <!--td colspan="2" width="100%"-->
+      <td colspan="2">
+      <!-- Head -->
+       <table border="0" cellspacing="0" cellpadding="0" width="100%">
+        <tr>
+	 <td align="left">
+           <div id="pgHeader">
+	    <div id="pgHeaderLogoLeft">
+	     <a href="index.html" title="PostgreSQL"><img src="layout/images/hdr_left.png" width="230" height="80" alt="PostgreSQL" /></a>
+	    </div>
+	    <div id="pgHeaderLogoRight">
+	     <a href="index.html" title="La base de donn�es la plus sophistiqu�e au monde."><img src="layout/images/hdr_right.png" width="210" height="80" alt="La base de donn�es la plus sophistiqu�e au monde." /></a>
+	    </div>
+	   </div>
+         </td>
+	 <td align="right">
+         </td>
+	</tr>
+      </table> <!-- Head -->
+      <br />
+      <table border="0" cellspacing="0" cellpadding="0" width="100%">
+              <tr>
+	      	 <td align="left">
+
+		<div class="pgTopNav">
+		   <div class="pgTopNavLeft"> 
+		     <img src="layout/images/nav_lft.png" width="7" height="23" alt="" />
+		   </div>
+		   <div class="pgTopNavRight">
+		    <img src="layout/images/nav_rgt.png" width="7" height="23" alt="" />
+		  </div>
+		  <!--<ul class="pgTopNavList">-->
+		  <ul class="pgTopNavList">
+		   <li><a href="index03d2.html?q=" title="Retourner à la page principale.">accueil</a> </li>
+		   <li> <a href="indexf6e5.html?q=archive" title="Lire le contenu plus ancien dans notre archive.">archives</a> </li>
+		   <li> <a href="index71c4.html?q=blog" title="Lire les blogues les plus récents.">blogues</a> </li>
+
+		   <li> <a href="indexf6fe.html?q=book" title="Lire et contribuer aux livres collaboratifs.">livres</a> </li>
+		   <li> <a href="index79b7.html?q=forum">forums</a> </li>
+		   <li> <a href="index729f.html?q=poll" title="Voir la liste des sondages de ce site.">sondages</a> </li>
+		   <li> <a href="index4404.html?q=search" title="Chercher pour du contenu plus vieux.">recherche</a></li><li><a href="http://docs.postgresqlfr.org/" target="_blank">documentation </a></li>
+
+		  </ul>
+
+<!--
+		   <li><a href="?q=" title="Retourner à la page principale.">accueil</a> </li>
+		   <li> <a href="?q=archive" title="Lire le contenu plus ancien dans notre archive.">archives</a> </li>
+		   <li> <a href="?q=blog" title="Lire les blogues les plus récents.">blogues</a> </li>
+		   <li> <a href="?q=book" title="Lire et contribuer aux livres collaboratifs.">livres</a> </li>
+		   <li> <a href="?q=forum">forums</a> </li>
+		   <li> <a href="?q=poll" title="Voir la liste des sondages de ce site.">sondages</a> </li>
+		   <li> <a href="?q=search" title="Chercher pour du contenu plus vieux.">recherche</a></li><li><a href="http://docs.postgresqlfr.org/" target="_blank">documentation </a></li>
+-->
+		  </ul>
+	        </div>
+		</td>
+		</tr>
+		</table>
+      </td>
+     </tr>
+     <tr>
+    <td style="vertical-align: top; width: 20%;">
+<div class="block block-user" id="block-user-0">
+<div class="pgSideNav">    <h2>Ouverture de session</h2>    
+		    <div>
+			<form action="http://drupal.postgresql.fr/?q=user/login" method="post">
+<div class="user-login-block">
+<input type="hidden" name="edit[destination]" value="node/297" />
+<div class="form-item">
+ <label for="edit-name">Nom d'utilisateur:</label><br />
+ <input type="text" maxlength="64" class="form-text" name="edit[name]" id="edit-name" size="15" value="" />
+</div>
+<div class="form-item">
+ <label for="edit-pass">Mot de passe:</label><br />
+ <input type="password" class="form-password" maxlength="64" name="edit[pass]" id="edit-pass" size="15" value="" />
+</div>
+<input type="submit" class="form-submit" name="op" value="Identification"  />
+</div>
+
+</form>
+<div class="item-list"><ul><li><a href="indexc12c.html?q=user/password" title="Demander un nouveau mot de passe par e-mail.">Demander un nouveau mot de passe</a></li></ul></div>
+		    </div></div></div>
+<div class="block block-user" id="block-user-1">
+<div class="pgSideNav">    <h2>Navigation</h2>    
+		    <div>
+			<div class="menu">
+<ul>
+<li class="leaf"><a href="indexa499.html?q=tracker">messages récents</a></li>
+
+</ul>
+</div>
+		    </div></div></div>
+<div class="block block-block" id="block-block-4">
+<div class="pgSideNav">    <h2>Contactez-nous</h2>    
+		    <div>
+			<p><strong>Administration du site&nbsp;:</strong><br />
+"equipe chez postgresqlfr point org"<br><br />
+<strong>Contact presse&nbsp;:</strong><br />
+"fr chez postgresql point org"<br><br />
+<strong>Contact association&nbsp;:</strong><br />
+"bureau chez postgresqlfr point org"<br><br />
+<strong>Questions PostgreSQL&nbsp;:</strong><br />
+&nbsp;IRC&nbsp;:<br />
+&nbsp;&nbsp;serveur <strong>irc.freenode.net</strong><br />
+&nbsp;&nbsp;canal <strong>#postgresqlfr</strong></p>
+
+		    </div></div></div>
+<div class="block block-block" id="block-block-1">
+<div class="pgSideNav">    <h2>Liens</h2>    
+		    <div>
+			<p><small></p>
+<ul>
+<li>
+<a href="http://www.postgresqlfr.org/?q=node/view/162">Adhérer</a>
+</li>
+<li>
+<a href="http://www.postgresqlfr.org/?q=node/473">Faire un don</a>
+</li>
+<li>
+<a href="http://www.postgresqlfr.org/?q=node/163">Consulter les statuts</a>
+</li>
+</ul>
+<ul>
+<li>
+<a href="http://www.postgresql.org/" class="active">Site original<br />
+</a>
+</li>
+<li>
+<a href="http://docs.postgresqlfr.org/" class="active">Site de traduction</a>
+</li>
+<li>
+<a href="http://docs.postgresqlfr.org/8.3/">Doc v.8.3.x fr</a>
+</li>
+<li>
+<a href="http://docs.postgresqlfr.org/8.2/">Doc v.8.2.x fr</a>
+</li>
+<li>
+<a href="http://docs.postgresqlfr.org/8.1/">Doc v.8.1.x fr</a>
+</li>
+<li>
+<a href="http://docs.postgresqlfr.org/8.0/">Doc v.8.0.x fr</a>
+</li>
+<li>
+<a href="http://docs.postgresqlfr.org/7.4/">Doc v.7.4.x fr</a>
+</li>
+<li>
+<a href="http://www.postgis.fr/">PostGIS</a>
+</li>
+<li>
+<a href="http://www.postgresql.org/docs/techdocs">Techdocs</a>
+</li>
+<li>
+<a href="http://www.varlena.com/varlena/GeneralBits/Tidbits/">General TidBits</a>
+</li>
+<p><!--</p>
+<li>
+<a href="http://www.postgresqlfr.org/?q=node/view/58">Version Windows</a>
+</li>
+<p>--></p>
+<li>
+<a href="http://www.postgresqlfr.org/drupal/?q=node/view/63">Témoignages de pros</a>
+</li>
+<li>
+<a href="http://archives.postgresql.org/pgsql-fr-generale/">Liste de diffusion</a>
+</li>
+<li>
+<a href="http://wwwmaster.postgresql.org/download/mirrors-ftp">Télécharger</a>
+</li>
+</ul>
+<p></small></p>
+
+		    </div></div></div>
+<div class="block block-block" id="block-block-2">
+<div class="pgSideNav">    <h2>Recherche</h2>    
+		    <div>
+			<form action="http://drupal.postgresql.fr/?q=search" method="post">
+<div id="search">
+<input class="form-text" type="text" size="15" value="" name="keys" alt="Enter the terms you wish to search for." /><br />
+<input class="form-submit" type="submit" value="Recherche" />
+</div>
+</form>
+
+		    </div></div></div>
+<div class="block block-forum" id="block-forum-0">
+<div class="pgSideNav">    <h2>Sujets du forum</h2>    
+		    <div>
+			<div class="item-list"><h3>Sujets actifs</h3><ul><li><a href="index253f.html?q=node/1742">A LIRE : FERMETURE DES FORUMS DRUPAL</a></li><li><a href="indexfc2e.html?q=node/1739" title="2 commentaires">Problème  avec pg_dump</a></li><li><a href="index97c1.html?q=node/1731" title="5 commentaires">Connexions simultannées</a></li><li><a href="index32d3.html?q=node/1737" title="1 commentaire">Optimisation de la mémoire sous PostgreSQL</a></li><li><a href="index2483.html?q=node/1736" title="3 commentaires">[Résolu] Upgrade Postgre -> types et opérateurs</a></li></ul></div><div class="item-list"><h3>Nouveaux sujets:</h3><ul><li><a href="index253f.html?q=node/1742">A LIRE : FERMETURE DES FORUMS DRUPAL</a></li><li><a href="indexfc2e.html?q=node/1739" title="2 commentaires">Problème  avec pg_dump</a></li><li><a href="index32d3.html?q=node/1737" title="1 commentaire">Optimisation de la mémoire sous PostgreSQL</a></li><li><a href="index2483.html?q=node/1736" title="3 commentaires">[Résolu] Upgrade Postgre -> types et opérateurs</a></li><li><a href="index82c4.html?q=node/1734" title="2 commentaires">[RESOLU] Probleme de connection en odbc</a></li></ul></div><div class="more-link"><a href="index79b7.html?q=forum" title="Lire les derniers sujets.">en lire plus</a></div>
+		    </div></div></div>
+<div class="block block-archive" id="block-archive-0">
+<div class="pgSideNav">    <h2>Accéder aux archives</h2>    
+		    <div>
+			
+<!-- calendar -->
+<div class="calendar"><table summary="Un calendrier pour accéder aux archives.">
+ <caption><a href="index9dfb.html?q=archive/2008/09/12" title="Mois précédent">&laquo;</a> Octobre 2008 &nbsp;</caption>
+ <tr class="header-week">
+ <th abbr="Lundi">Lun</th>
+ <th abbr="Mardi">Mar</th>
+ <th abbr="Mercredi">Mer</th>
+ <th abbr="Jeudi">Jeu</th>
+ <th abbr="Vendredi">Ven</th>
+ <th abbr="Samedi">Sam</th>
+ <th abbr="Dimanche">Dim</th>
+</tr>
+ <tr class="row-week"><td class="day-blank" colspan="2">&nbsp;</td>
+  <td class="day-link"><a href="indexd3e2.html?q=archive/2008/10/1">1</a></td>
+  <td class="day-normal">2</td>
+  <td class="day-normal">3</td>
+  <td class="day-normal">4</td>
+  <td class="day-normal">5</td>
+ </tr>
+ <tr class="row-week">
+  <td class="day-normal">6</td>
+  <td class="day-normal">7</td>
+  <td class="day-normal">8</td>
+  <td class="day-normal">9</td>
+  <td class="day-normal">10</td>
+  <td class="day-normal">11</td>
+  <td class="day-today">12</td>
+ </tr>
+ <tr class="row-week">
+  <td class="day-future">13</td>
+  <td class="day-future">14</td>
+  <td class="day-future">15</td>
+  <td class="day-future">16</td>
+  <td class="day-future">17</td>
+  <td class="day-future">18</td>
+  <td class="day-future">19</td>
+ </tr>
+ <tr class="row-week">
+  <td class="day-future">20</td>
+  <td class="day-future">21</td>
+  <td class="day-future">22</td>
+  <td class="day-future">23</td>
+  <td class="day-future">24</td>
+  <td class="day-future">25</td>
+  <td class="day-future">26</td>
+ </tr>
+ <tr class="row-week">
+  <td class="day-future">27</td>
+  <td class="day-future">28</td>
+  <td class="day-future">29</td>
+  <td class="day-future">30</td>
+  <td class="day-future">31</td>
+  <td class="day-blank" colspan="2">&nbsp;</td>
+ </tr>
+</table></div>
+
+
+		    </div></div></div>
+<div class="block block-node" id="block-node-0">
+<div class="pgSideNav">    <h2>Syndication</h2>    
+		    <div>
+			<div class="xml-icon"><a href="index9637.html?q=rss.xml"><img src="misc/xml.png" width="36" height="14" alt="Flux XML" title="Flux XML" /></a></div>
+		    </div></div></div>
+<div class="block block-poll" id="block-poll-0">
+<div class="pgSideNav">    <h2>Sondage</h2>    
+		    <div>
+			<div class="poll"><div class="title">Quelle est la version de PostgreSQL la plus répandue sur vos serveurs ?</div><div class="text">8.3</div><div class="bar"><div style="width: 10%;" class="foreground"></div></div><div class="percent">10%</div><div class="text">8.2</div><div class="bar"><div style="width: 42%;" class="foreground"></div></div><div class="percent">42%</div><div class="text">8.1</div><div class="bar"><div style="width: 40%;" class="foreground"></div></div><div class="percent">40%</div><div class="text">8.0</div><div class="bar"><div style="width: 2%;" class="foreground"></div></div><div class="percent">2%</div><div class="text">7.4</div><div class="bar"><div style="width: 6%;" class="foreground"></div></div><div class="percent">6%</div><div class="text">7.3 ou antérieure</div><div class="bar"><div style="width: 0%;" class="foreground"></div></div><div class="percent">0%</div><div class="total">Nombre de votes: 48</div></div><div class="links"><a href="index8c57.html?q=node/1426#comment" title="Sauter au premier commentaire de ce message.">3 commentaires</a> | <a href="index729f.html?q=poll" title="Voir la liste des sondages de ce site.">anciens sondages</a></div>
+		    </div></div></div>
+    </td>
+
+      <td style="vertical-align: top; width: 80%"><div class="breadcrumb"><a href="index03d2.html?q=">Accueil</a></div><h2 class="title">Points à vérifier en ce qui concerne les performances de PostgreSQL 8.0</h2>
+<!-- begin content -->
+
+<!-- node: "Points à vérifier en ce qui concerne les performances de PostgreSQL 8.0" -->
+<!--<div class="pgFrontCenterUser">
+<div class="pgFrontUser">
+<div class="pgFrontUserInner">
+--><div class="pgFrontUserWrap">
+ <div class="pgFrontUserContent">	<h1 class="plop"><a href="index8ccf.html?q=taxonomy/term/1">Technique</a> | <a href="index18fe.html?q=node/297" class="active">Points à vérifier en ce qui concerne les performances de PostgreSQL 8.0</a></h1>
+		    <p>
+			    Par <a href="indexc818.html?q=user/3" title="Voir le profil utilisateur.">Guillaume Lelarge</a> le 15/07/2005 - 21:16
+		    </p>	
+			    <p><i>Cet article est la traduction d'un billet posté par Josh Berkus et Joe Conway sur leur site, <a href="http://powerpostgresql.com/">powerpostgresql.com</a>. D'autres documents devraient suivre...</i></p>
+<p>Voici un ensemble de règles de base pour votre serveur PostgreSQL<br />
+8.0. Beaucoup de ces règles sont basées sur des anecdoctes ou des<br />
+tests pratiques&nbsp;; il y a encore beaucoup de travail à effectuer en<br />
+ce qui concerne les performances des bases de données et nous essayons de<br />
+les mettre en place avec OSDL. Néanmoins, ceci devrait vous permettre de<br />
+commencer. Toutes les informations ci-dessous sont utiles. Ce document,<br />
+du 12 janvier 2005, sera vraisemblablement mis à jour plus tard. Les<br />
+indications sur les paramètrages ci-dessous sont préférées aux<br />
+indications que j'ai pû donner sur General Bits.</p>
+<h2>Cinq principes sur le matériel de votre serveur PostgreSQL</h2>
+<ol>
+<li><span class="c1">Disques &gt; RAM &gt; CPU</span><br />
+	Si vous devez dépenser de l'argent dans un serveur PostgreSQL,<br />
+	dépensez-le sur des baies de disques à haute performance et<br />
+	obtenez des processeurs moyens et une quantité de mémoire adéquate.<br />
+	PostgreSQL, comme les autres RDBMS compatibles ACID, est très<br />
+	demandeur au niveau entrées/sorties. Il est rare que son<br />
+	utilisation du CPU soit plus importante que celle de la carte SCSI<br />
+	(bien que cela soit possible). Ceci s'applique aux petits serveurs<br />
+	mais cela s'applique aussi aux huit voix avec NetApps&nbsp;; obtenez<br />
+	un CPU à bas prix si cela vous permet d'acheter la toute<br />
+	dernière carte RAID et un grand nombre de disques.</li>
+<li><span class="c1">Plus de têtes de lecture == Mieux<br /></span><br />
+	Avec de nombreux disques, PostgreSQL et la plupart des systèmes<br />
+	d'exploitation parallèliseront les demandes de lecture et d'écriture<br />
+	sur la base de données. Ceci fera une énorme différence sur les<br />
+	systèmes de traitement des transactions et sera une amélioration<br />
+	significative pour toute application où la base de données ne tient<br />
+	pas entièrement en mémoire. Étant donné les tailles minimales des<br />
+	disques de nos jours (72&nbsp;Go), vous pourriez être tenté de<br />
+	n'utiliser qu'un seul disque ou une seule paire en RAID 1&nbsp;;<br />
+	néanmoins, vous trouverez que l'utilisation de 4, 6, voire même 14<br />
+	disques amèneront un surplus de puissance. Évidemment, le SCSI est<br />
+	toujours significativement meilleur que l'IDE, même avec SATA.</li>
+<li><span class="c1">Séparez les journaux des transactions de la base de<br />
+	données<br /></span> En supposant que vous avez déjà placé de<br />
+	l'argent sur une baie de dimension raisonnable, il existe quelques<br />
+	autres options intelligentes plutôt que de tout placer dans un RAID<br />
+	simple. En particulier, placer les journaux de la base de données<br />
+	(pg_xlog) sur sa propre ressource disque dédiée (une baie ou un<br />
+	disque) peut fournir un gain jusqu'à 12&nbsp;% sur des bases de<br />
+	données comprenant une grosse activité en écriture. Ceci est tout<br />
+	particulièrement vitale sur les petits systèmes avec des disques<br />
+	SCSI ou IDE lents. Ceci fonctionne aussi dans le cas d'un serveur<br />
+	comprenant deux disques&nbsp;; vous pouvez placer les journaux dans<br />
+	le disque du système d'exploitation et obtenir ainsi un gain simple.</li>
+<li><span class="c1">RAID 1+0/0+1 &gt; RAID 5</span><br />
+	Le RAID 5 avec trois disques est devenu un standard malheureux parmi<br />
+	les serveurs économiques des gros vendeurs. Ceci est la configuration<br />
+	de baie la plus lente qu'il soit pour PostgreSQL&nbsp;; vous pouvez<br />
+	espérer un petit 50&nbsp;% par rapport à ce que vous pourriez obtenir<br />
+	avec un simple disque SCSI. À la place, concentrez-vous sur du RAID<br />
+	1 ou 1+0 ou 0+1 avec un ensemble de 2, 4 ou 6 disques. Avec plus de six<br />
+	disques, RAID 5 commence à se comporter de façon acceptable au niveau<br />
+	des performances et la comparaison se fera plus au niveau de la<br />
+	qualité de votre contrôleur individuel. Peut-être plus important, une<br />
+	carte RAID bon marché peut être un risque&nbsp;; il est quelque<br />
+	fois préférable d'utiliser du RAID logiciel plutôt que la carte Adaptec<br />
+	intégrée fournie avec votre serveur.</li>
+<li><span class="c1">Les applications doivent bien se comporter<br />
+	mutuellement</span><br />
+	L'autre grosse erreur que j'ai vu dans bon nombre de société est de<br />
+	placer PostgreSQL avec plusieurs autres applications sur un seul<br />
+	serveur, où tout le monde finit par se battre pour les mêmes<br />
+	ressources. Encore pire, placer PostgreSQL et d'autres RDBMS sur la<br />
+	même machine&nbsp;; les systèmes de bases de données vont se battre<br />
+	pour obtenir la bande passante du disque et le cache disque du<br />
+	système d'exploitation, et ils en pâtiront tous. Les serveurs de<br />
+	documents et les programmes créant des traces de sécurité sont<br />
+	pratiquement aussi mauvais. PostgreSQL peut gérer une machine avec<br />
+	des applications qui ont des besoins principalement au niveau CPU<br />
+	et RAM, comme Apache, en supposant qu'il y ait suffisamment de RAM.</li>
+</ol>
+<h2>Douze paramètrages que vous voudrez ajuster dans votre fichier<br />
+PostgreSQL.Conf</h2>
+<p>Il existe vraiment un nombre effrayant de nouvelles options dans le<br />
+fichier PostgreSQL.conf. Même les options familières des cinq dernières<br />
+versions ont vu leurs noms ou le format de leur paramètres changés.<br />
+Le but est de vous donner plus de contrôle (vous, les administrateurs des<br />
+bases de données). Mais cela vous peut vous demander du temps.</p>
+<p>Ce qui suit sont les paramètrages que la plupart des administrateurs<br />
+de bases de données voudront modifier, avec une attention portée plus<br />
+fortement vers la performance. Il existe quelques paramètres<br />
+spécialisés que la plupart des utilisateurs ne toucheront pas mais que ceux<br />
+qui les utilisent trouveront indispensables. Pour ceux-là, il leur faudra<br />
+attendre le livre.</p>
+<p><span class="c2">Rappelez-vous&nbsp;: les paramètres de PostgreSQL.conf<br />
+ne doivent pas être commentés pour être pris en compte, et les mettre de<br />
+nouveau en commentaire ne restaure pas forcément leur valeur par<br />
+défaut&nbsp;!</span></p>
+<h3>Connexions</h3>
+<p><span class="c1">listen_addresses&nbsp;:</span> Remplace à la fois<br />
+les paramètres tcp_ip et virtual_hosts de la version 7.4. Vaut, par défaut,<br />
+localhost dans la plupart des installations, autorisant uniquement les<br />
+connexions sur la console. La plupart des administrateurs de bases de<br />
+données voudront le configurer à «&nbsp;*&nbsp;», signifiant toutes les interfaces<br />
+disponibles, une fois que les bons droits ont été configurés dans le<br />
+fichier pg_hba.conf, pour que PostgreSQL soit accessible du réseau.<br />
+Comme amélioration par rapport aux versions précédentes, la valeur<br />
+«&nbsp;localhost&nbsp;» par défaut permet les connexions sur l'interface<br />
+«&nbsp;loopback&nbsp;», 127.0.0.1, activant les nombreux outils basés sur<br />
+les navigateurs.</p>
+<p><span class="c1">max_connections&nbsp;:</span> Exactement comme dans<br />
+les versions précédentes, cette variable a besoin d'être configurée pour<br />
+atteindre le nombre réel de connexions dont vous pensez avoir besoin.<br />
+Une valeur haute va requérir plus de mémoire partagée (shared_buffers).<br />
+Comme la surcharge pour chaque connexion, à la fois du côté de PostgreSQL<br />
+et de celui du système hôte, il est important d'utiliser une queue de<br />
+connexion si vous avez besoin d'un grand nombre d'utilisateurs. Par<br />
+exemple, 150 connexions actives sur un seul processeur 32 bit de qualité<br />
+moyenne sur un serveur Linux consommera des ressources significatives.<br />
+600 est la limite sur ce matériel. Bien sûr, un matériel plus costaud<br />
+permettra un plus grand nombre de connexions.</p>
+<h3>Mémoire</h3>
+<p><span class="c1">shared_buffers&nbsp;:</span> Rappel&nbsp;:<br />
+cette variable n'est PAS la mémoire totale qu'utilise PostgreSQL.<br />
+C'est le bloc de mémoire dédié que PostgreSQL utilise pour ses<br />
+opérations actives et devrait correspondre à une quantité mineure de<br />
+la mémoire totale sur votre machine car PostgreSQL utilise aussi le cache<br />
+disque du système d'exploitation. Malheureusement, le nombre exact de<br />
+tampons partagés requis est un calcul complexe entre la RAM totale, la<br />
+taille de la base de données, le nombre de connexions et la complexité<br />
+des requêtes. Donc, il est préférable d'utiliser quelques règles de base<br />
+dans l'allocation et de surveiller le serveur (particulièrement via les<br />
+vues pg_statio) pour déterminer les ajustements nécessaires.<br />
+Sur des serveurs dédiés, les valeurs possibles semblent se situer entre<br />
+8&nbsp;Mo et 400&nbsp;Mo (entre 1&nbsp;000 et 50&nbsp;000 pages de<br />
+8&nbsp;Ko). Les facteurs qui élèvent les tampons partagés désirés sont<br />
+des portions actives plus importantes, des grosses requêtes complexes,<br />
+de nombreuses requêtes simultanées, des procédures ou des transactions<br />
+s'exécutant sur une grosse période, plus de RAM disponible et des<br />
+processeurs plus nombreux ou plus rapides. Et, bien sûr, d'autres<br />
+applications sur la machine. Contrairement à certaines attentes, allouer<br />
+bien trop de shared_buffers peut réellement baisser les performances, le<br />
+temps normalement requis pour le parcours. Voici quelques exemples basés<br />
+sur des anecdotes et sur des tests TPC sur machines Linux&nbsp;:</p>
+<ul>
+<li>Portable, processeur Celeron, 384&nbsp;Mo de RAM, base de données<br />
+	de 25&nbsp;Mo&nbsp;: 12&nbsp;Mo/1500</li>
+<li>Serveur Athlon, 1&nbsp;Go de RAM, base de données décisionnelle<br />
+	10&nbsp;Go&nbsp;: 120&nbsp;Mo/15000</li>
+<li>Serveur Quadri PIII, 4&nbsp;Go de RAM, 40&nbsp;Go, base de données<br />
+	de traitements de grosses transactions (150 connexions)&nbsp;:<br />
+	240&nbsp;Mo/30000</li>
+<li>Serveur Quadri Xeon, 8&nbsp;Go de RAM, 200&nbsp;Go, base de données<br />
+	de traitement de grosses transactions (300 connexions)&nbsp;:<br />
+	400MB/50000</li>
+</ul>
+Merci de noter qu'augmenter shared_buffers, et quelques autres<br />
+paramètres mémoire, vous demandera de modifier les paramètres mémoire<br />
+System V du système d'exploitation. Voir la documentation de PostgreSQL<br />
+pour des instructions sur ceci.</p>
+<p><span class="c1">work_mem&nbsp;:</span> Auparavant appelé<br />
+sort_mem, mais renommé depuis car il couvre aussi les tris, les<br />
+agrégats et quelques autres opérations. C'est une mémoire non<br />
+partagée qui est allouée par opération (une à plusieurs fois par<br />
+requête)&nbsp;; ce paramètre est situé ici pour placer une limite<br />
+sur la mémoire RAM que chaque opération peut allouer avant d'être forcé<br />
+à écrire sur disque. Il devrait être configuré suivant un calcul basé<br />
+en divisant la RAM disponible (après les applications et shared_buffers)<br />
+par le nombre de requêtes maximum attendu, multiplié par le nombre<br />
+moyen d'opérations par requête utilisant de la mémoire.<br />
+Une certaine attention doit aussi être portée sur la valeur de<br />
+work_mem nécessaire à chaque requête&nbsp;; traiter de grands ensembles<br />
+de données en requiert plus. Les applications web utilisant des bases<br />
+de données configurent généralement une valeur assez basse car le nombre<br />
+de connexions est assez grand et les requêtes sont simples&nbsp;;<br />
+de 512&nbsp;Ko à 2048&nbsp;Ko suffit généralement. Au contraire, les<br />
+applications de support de décision avec leur requêtes de 160 lignes et<br />
+les agrégats de plus de 10&nbsp;millions de lignes demandent souvent<br />
+beaucoup plus, pratiquement 500&nbsp;Mo sur un serveur disposant de<br />
+beaucoup de mémoire. Pour des bases de données à utilisation mixe, ce<br />
+paramètre peut être configuré par connexion, au moment du lancement<br />
+de la requête, pour donner plus de RAM à certaines requêtes spécifiques.
+</p>
+<p><span class="c1">maintenance_work_mem&nbsp;:</span> Appelée auparavant<br />
+vacuum_mem, ceci est la quantité de RAM que PostgreSQL utilise pour<br />
+VACUUM, ANALYZE, CREATE INDEX et l'ajout de clés étrangères. Vous devez<br />
+l'augmenter suivant la taille des tables de votre base de données et la<br />
+quantité de mémoire que vous pouvez donner pour rendre les opérations<br />
+aussi rapides que possibles. Un paramètrage de 50&nbsp;% à 75&nbsp;% de<br />
+la taille (sur disque) de votre plus grosse table ou index est une bonne<br />
+règle, ou entre 32 et 256&nbsp;Mo lorsqu'il n'est pas possible de le<br />
+déterminer.</p>
+<h3>Disque et WAL</h3>
+<p><span class="c1">checkpoint_segments&nbsp;:</span> Définit la taille<br />
+cache sur disque du journal des transactions pour les opérations<br />
+d'écriture. Vous pouvez ignorer ceci dans les applications web utilisant<br />
+des bases de données car elles sont principalement utilisées pour de la<br />
+lecture. Mais, dans le cas des bases de données utilisant des transactions<br />
+ou créant des rapports impliquant de gros volumes de données, l'augmenter<br />
+est critique pour les performances. Suivant le volume des données,<br />
+augmentez-le de 12 à 256 segments, en commençant avec des valeurs basses<br />
+et en l'augmentant lorsque vous apercevez des messages d'avertissements<br />
+dans les journaux de trace. L'espace requis sur disque est égal à<br />
+(checkpoint_segments * 2 + 1) * 16MB, donc assurez-vous que vous disposez<br />
+d'assez de place disque (32 signifiant plus d'1&nbsp;Go).</p>
+<p><span class="c1">max_fsm_pages&nbsp;:</span> Taille du registre<br />
+traçant partiellement les pages de données vides pour les peupler plus<br />
+tard avec de nouvelles données&nbsp;; si elle est bien configurée, elle<br />
+rend le VACUUM plus rapide et supprime le besoin de VACUUM FULL et de<br />
+REINDEX. Devrait être légèrement supérieure au nombre total de pages de<br />
+données qui sera touché par les mises à jour et suppressions entre<br />
+VACUUM. Les deux façons de déterminer ce nombre sont de lancer VACUUM<br />
+VERBOSE ANALYZE ou, dans le cas de l'utilisation d'autovacuum (voir<br />
+ci-dessous), de configurer ceci suivant la valeur du paramètre -V en<br />
+tant que pourcentage des pages de données totales utilisées par votre<br />
+base de données. fsm_pages requiert très peu de mémoire, donc il vaut<br />
+mieux être généreux ici.</p>
+<p><span class="c1">vacuum_cost_delay&nbsp;:</span> Si vous avez des<br />
+tables importantes et un nombre significatif d'écritures concurrentes,<br />
+vous pourriez vouloir utiliser une nouvelle fonctionnalité qui diminue<br />
+l'activité I/O des VACUUM au prix de les rendre plus long. Comme il<br />
+s'agit d'une toute nouvelle fonctionnalité, c'est une valeur complexe<br />
+comprenant cinq paramètres indépendants pour lesquels nous n'avons que<br />
+quelques tests de performance. Augmenter vacuum_cost_delay à une valeur<br />
+non nulle active cette fonctionnalité&nbsp;; utilisez un délai<br />
+raisonnable, quelque part entre 50 et 200&nbsp;ms. Pour une configuration<br />
+plus fine, augmenter vacuum_cost_page_hit et décroître<br />
+vacuum_cost_page_limit amoindrira l'impact des opérations VACUUM et les rendra<br />
+plus lentes&nbsp;; dans les tests de Jan Wieck pour des traitements de<br />
+transaction, un délai de 200, un page_hit de 6 et une limite de 100 fait<br />
+décroître l'impact du VACUUM de plus de 80&nbsp;% en triplant le temps<br />
+d'exécution.</p>
+<h3>Planificateur de requêtes</h3>
+<p>Ces paramètres permettent au planificateur de requêtes de disposer<br />
+d'estimations plus justes et, du coup, de choisir le meilleur plan possible.<br />
+Il existe deux paramètres globaux dont il vaut mieux s'occuper&nbsp;:</p>
+<p><span class="c1">effective_cache_size&nbsp;:</span> Indique au<br />
+planificateur de requêtes l'objet en base de données le plus gros qu'il<br />
+peut s'attendre à avoir à placer en cache. Devrait généralement être<br />
+configuré au 2/3 de la RAM totale, dans le cas d'un serveur dédié. Sur<br />
+un serveur à utilisation mixe, vous aurez à estimer le nombre total de<br />
+mémoire RAM et de cache disque du système d'exploitation utilisé par<br />
+les applications et le soustraire.</p>
+<p><span class="c1">random_page_cost&nbsp;:</span> Une variable qui<br />
+estime le coût moyen des recherches pour des pages de données récupérées<br />
+via l'index. Sur des machines très rapides, avec des baies de disques<br />
+très rapides, elle devrait être diminuée, à 3,0, 2,5 voire même 2,0.<br />
+Néanmoins, si la portion active de votre base de données est bien plus<br />
+grosse que votre mémoire, vous augmenterez le facteur à la valeur<br />
+par défaut de 4. Autrement, vous basez vos ajustements sur la<br />
+performance des requêtes. Si le planificateur semble favoriser sans<br />
+raison les parcours séquentiels par rapport aux parcours d'index,<br />
+baissez-le. Assurez-vous de tester une grande variété de requêtes. Ne<br />
+passez pas en-dessous de 2,0&nbsp;; si cela semble nécessaire, vous<br />
+avez besoin d'ajuster des variables comprises dans des domaines,<br />
+comme les statistiques de planification.</p>
+<h3>Traces</h3>
+<p><span class="c1">log_destination&nbsp;:</span> Ceci remplace le<br />
+paramètrage non intuitif de syslog dans les versions précédentes. Vos<br />
+choix sont d'utiliser le journal du système d'exploitation (syslog ou<br />
+eventlog) ou d'utiliser un journal de trace séparé pour PostgreSQL<br />
+(stderr). Le premier choix est meilleur en ce qui concerne la<br />
+surveillance du système&nbsp;; le deuxième est préférable pour corriger<br />
+les problèmes de la base de données et pour améliorer sa configuration.</p>
+<p><span class="c1">redirect_stderr&nbsp;:</span> Si vous décidez<br />
+d'utiliser un journal de traces séparé pour PostgreSQL, ce paramètrage<br />
+vous permet de tracer dans un fichier en utilisant un outil de<br />
+PostgreSQL au lieu de la redirection de la ligne de commande, vous<br />
+permettant une rotation automatisée des traces. Configurez-le à True,<br />
+puis configurez log_directory en lui indiquant où placer les traces.<br />
+Les configurations par défaut pour log_filename, log_rotation_size et<br />
+log_rotation_age conviennent à la plupart des gens.</p>
+<h3>Autovacuum et vous</h3>
+<p>Lors de votre progression vers la production en 8.0, vous devrez<br />
+configurer un plan de maintenance qui inclut les VACUUM et ANALYZE. Si<br />
+votre base de données doit gérer un flot important d'écriture de données<br />
+mais ne requiert pas de chargement ou de suppression massifs de données<br />
+ou de redémarrages fréquents, ceci pourrait impliquer la configuration<br />
+de pg_autovacuum. C'est bien mieux qu'un VACUUM régulier parce<br />
+que&nbsp;:</p>
+<ul>
+<li>Les tables sont VACUUMées suivant leur activité, ceci permettant<br />
+	d'éviter de lancer des VACUUM sur des tables en lecture seule.</li>
+<li>La fréquence des VACUUM augmente automatiquement avec<br />
+	l'acroissement de l'activité de la base de données.</li>
+<li>Il est plus simple de calculer les besoins pour le "free space<br />
+	map" et éviter ainsi un engorgement de la base de données.</li>
+</ul>
+<p>Configurer autovacuum requiert une construction facile du module<br />
+compris dans le répertoire contrib/pg_autovacuum de vos sources<br />
+PostgreSQL (les utilisateurs Windows devraient trouver autovaccuum inclus<br />
+dans le paquetage PGInstaller). Vous activerez les paramètrages de<br />
+configuration des statistiques détaillées dans le fichier README. Ensuite,<br />
+vous lancez autovacuum une fois que PostgreSQL a démarré et en tant que<br />
+processus séparé&nbsp;; il s'arrêtera automatiquement lors de l'arrêt<br />
+de PostgreSQL.</p>
+<p>La configuration par défaut d'autovacuum est très basse et tout<br />
+à fait convenable pour une très petite base de données. J'utilise<br />
+généralement quelque chose de plus agressif comme&nbsp;:<br />
+<code>-D -v 400 -V 0.4 -a 100 -A 0.3</code><br />
+Ceci lance VACUUM sur les tables après que 400 lignes + 40&nbsp;% de la<br />
+table ont été insérées, mises à jour ou supprimées. La configuration<br />
+ci-dessus vous laisse aussi configurer max_fsm_pages à 50&nbsp;% des<br />
+pages de données dans la base avec la certitude que ce nombre ne sera<br />
+pas dépassé, causant un débordement de la base de données. Nous testons<br />
+actuellement différents paramètrages à OSDL et il y aura quelques cas<br />
+difficiles plus bas.</p>
+<p>Notez que vous pouvez aussi utiliser autovacuum pour configurer les<br />
+options de délai du VACUUM, au lieu de le faire dans PostgreSQL.conf. Le<br />
+délai du vacuum peut être d'une importance vitale pour les systèmes avec<br />
+de très grosses tables ou index&nbsp;; sinon, un appel autovacuum (non<br />
+planifié) peut arrêter une opération importante.</p>
+<p>Malheureusement, il existe un ensemble de limitations sérieuses à<br />
+l'autovacuum de la 8.0, limitations qui seront éliminées dans les<br />
+versions futures&nbsp;:</p>
+<ul>
+<li>Pas de mémoire à long terme&nbsp;: autovacuum oublie toutes ces<br />
+	traces d'activité lors du redémarrage de la base de données. Donc, si<br />
+	vous effectuez des redémarrages réguliers, vous devrez faire un VACUUM<br />
+	ANALYZE complet des bases de données tout juste après.</li>
+<li>Ne fait pas attention à l'activité du serveur&nbsp;: il existait<br />
+	des plans pour vérifier la charge du système avant le VACUUM, mais ce<br />
+	n'est pas une fonctionnalité actuelle. Donc, si vous avez des pics de<br />
+	charge extrême, autovacuum pourrait ne pas être le bon choix pour<br />
+	vous.</li>
+</ul>
+<div id="footerText">
+Copyright Josh Berkus et Joe Conway, <a href="License/index.html">OPL Licensed</a><br/><br />
+Traduction française, Guillaume Lelarge.
+</div>
+
+		     </div></div>
+<!--</div>
+</div>
+</div>
+</div> -->
+<a id="comment"></a>
+<form method="post" action="http://drupal.postgresql.fr/?q=comment"><div>
+<div class="pgSideNav">    <h2>Options d'affichage des commentaires</h2>    
+		    <div>
+			<div class="form-item">
+ <select name="mode"> <option value="1">A plat - replié</option>
+ <option value="2">A plat - déplié</option>
+ <option value="3">Par discussions - replié</option>
+ <option value="4" selected="selected">Par discussions - déplié</option>
+</select>
+<select name="order"> <option value="1">Date - récents en premier</option>
+ <option value="2" selected="selected">Date - anciens en premier</option>
+</select>
+<select name="comments_per_page"> <option value="10">10 commentaires par page</option> <option value="30">30 commentaires par page</option> <option value="50" selected="selected">50 commentaires par page</option> <option value="70">70 commentaires par page</option> <option value="90">90 commentaires par page</option></select>
+<input type="hidden" name="threshold" value="0" />
+ <input type="submit" class="form-submit" name="op" value="Sauvegarder les paramètres"  />
+
+ <div class="description">Sélectionnez la méthode d'affichage des commentaires que vous préférez, puis cliquez sur "Sauvegarder les paramètres" pour activer vos changements.</div>
+</div>
+
+		    </div></div><input type="hidden" name="edit[nid]" value="297" />
+</div></form><form method="post" action="http://drupal.postgresql.fr/?q=comment"><div>
+<input type="hidden" name="edit[nid]" value="297" />
+<a id="comment-269"></a>
+<div class="pgContentWrap"><h1 id="txtFrontFeatureHeading">Guillaume a encore frappé :-)</h1>
+		<p>
+		    <b><a href="indexec55.html?q=user/2" title="Voir le profil utilisateur.">Jean-Paul Argudo</a></b>/ = 16 Juillet, 2005 - 18:25
+		</p>
+		<p>
+		    <p>Guillaume a encore frappé en traduisant un des articles les plus intéressants du moment... Admirez la précision de la traduction...</p>
+<p>
+Si vous aimez PostgreSQL et que vous voulez contribuer au projet, il y a un moyen simple et accessible au plus grand nombre pour le faire&nbsp;: tout comme Guillaume Lelarge, vous pouvez traduire les fichiers relatifs au projet, la doc, des articles, etc.. Pour cela, allez faire un petit tour sur le site de Guillaume, ça vaut le détour&nbsp;:<br />
+<a href="http://traduc.postgresqlfr.org/" target="_blank">http://traduc.postgresqlfr.org</a></p>
+<p>Bravo et merci Guillaume (et tous ses amis). Encore une fois&nbsp;: <b>N'hésitez pas à le contacter et à l'aider&nbsp;!</b></p>
+<p>
+--<br />
+Jean-Paul ARGUDO<br />
+www.PostgreSQLFr.org
+</p>
+<br /><!--hr /--><div class="contentsLink">[ Vous devez <a href="index7992.html?q=user/login">vous connecter</a> pour poster des commentaires ]</div>
+		</p></div><a id="comment-288"></a>
+<div class="pgContentWrap"><h1 id="txtFrontFeatureHeading">Doc / slide en anglais sur l'optimisation</h1>
+		<p>
+		    <b><a href="index53fc.html?q=user/312" title="Voir le profil utilisateur.">thomas silvi</a></b>/ = 23 Juillet, 2005 - 13:38
+		</p>
+		<p>
+		    <p>Les slides sont disponibles a cette adresse :<br />
+http://www.gtsm.com/oscon2003/toc.html</p>
+<p>Cela explique pas mal de choses mais il faut prendre le temps<br />
+de le lire.</p>
+<br /><!--hr /--><div class="contentsLink">[ Vous devez <a href="index7992.html?q=user/login">vous connecter</a> pour poster des commentaires ]</div>
+		</p></div></div></form>
+<!-- end content -->
+              </td>
+
+    </tr>
+    <tr><td colspan="2">
+
+		<div class="pgTopNav">
+		   <div class="pgTopNavLeft"> 
+		     <img src="layout/images/nav_lft.png" width="7" height="23" alt="" />
+		   </div>
+		   <div class="pgTopNavRight">
+		    <img src="layout/images/nav_rgt.png" width="7" height="23" alt="" />
+		  </div>
+		  <!--<ul class="pgTopNavList">-->
+		  <ul class="pgTopNavList">
+		   <li><a href="index03d2.html?q=" title="Retourner à la page principale.">accueil</a> </li>
+		   <li> <a href="indexf6e5.html?q=archive" title="Lire le contenu plus ancien dans notre archive.">archives</a> </li>
+		   <li> <a href="index71c4.html?q=blog" title="Lire les blogues les plus récents.">blogues</a> </li>
+
+		   <li> <a href="indexf6fe.html?q=book" title="Lire et contribuer aux livres collaboratifs.">livres</a> </li>
+		   <li> <a href="index79b7.html?q=forum">forums</a> </li>
+		   <li> <a href="index729f.html?q=poll" title="Voir la liste des sondages de ce site.">sondages</a> </li>
+		   <li> <a href="index4404.html?q=search" title="Chercher pour du contenu plus vieux.">recherche</a></li><li><a href="http://docs.postgresqlfr.org/" target="_blank">documentation </a></li>
+
+		  </ul>
+
+<!--
+		   <li><a href="?q=" title="Retourner à la page principale.">accueil</a> </li>
+		   <li> <a href="?q=archive" title="Lire le contenu plus ancien dans notre archive.">archives</a> </li>
+		   <li> <a href="?q=blog" title="Lire les blogues les plus récents.">blogues</a> </li>
+		   <li> <a href="?q=book" title="Lire et contribuer aux livres collaboratifs.">livres</a> </li>
+		   <li> <a href="?q=forum">forums</a> </li>
+		   <li> <a href="?q=poll" title="Voir la liste des sondages de ce site.">sondages</a> </li>
+		   <li> <a href="?q=search" title="Chercher pour du contenu plus vieux.">recherche</a></li><li><a href="http://docs.postgresqlfr.org/" target="_blank">documentation </a></li>
+-->
+		  </ul>
+	        </div>
+    </td></tr>
+   </table>
+   <p style="text-align: center;">&copy;&nbsp;PostgreSQLFr, tous droits réservés.<br>
+Site déclaré à la CNIL sous le numéro 1074678, conformément à la Loi en vigueur.
+</p>
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-3921927-1");
+pageTracker._initData();
+pageTracker._trackPageview();
+</script>
+<p></p>
+   
+</body>
+
+<!-- Mirrored from drupal.postgresql.fr/?q=node/297 by HTTrack Website Copier/3.x [XR&CO'2006], Sun, 12 Oct 2008 15:57:24 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+</html>

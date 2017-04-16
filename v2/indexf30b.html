@@ -1,0 +1,78 @@
+<html>
+<!-- Mirrored from drupal.postgresql.fr/?q=book/print/1474 by HTTrack Website Copier/3.x [XR&CO'2006], Sun, 12 Oct 2008 17:23:56 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+<head><title>Nombre de semaines entre deux dates quelconques</title><base  /><style type="text/css">
+@import url(misc/print.css);
+</style></head><body><h1 id="1474" name="1474" class="book-h1">Nombre de semaines entre deux dates quelconques</h1><p>Cette fois-ci il s'agit donc de trouver le nombre de semaines entre deux dates quelconques. Ce qui rend la solution un poil compliquée, c'est que toutes les années n'ont pas le même nombre de semaines (52*7 ça donne que 364 jours). </p>
+<p>On va donc faire ça en deux temps, d'abord trouver le nombre de semaines de chaque année faisant partie de l'intervalle, ensuite c'est facile.</p>
+<p>Déjà, trouver les années comprises entre deux dates, ainsi que le premier janvier de l'année suivante :<br />
+<p class=code>
+dim# select year, to_date(year+1, 'YYYY-01-01') as d<br />
+&nbsp;from generate_series(extract(year from (current_date - interval '4 years')::date)::int,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;extract(year from current_date)::int) as year;<br />
+&nbsp;year |     d<br />
+------+------------<br />
+&nbsp;2003 | 01-01-2004<br />
+&nbsp;2004 | 01-01-2005<br />
+&nbsp;2005 | 01-01-2006<br />
+&nbsp;2006 | 01-01-2007<br />
+&nbsp;2007 | 01-01-2008<br />
+(5 lignes)
+</p>
+<p>Maintenant, première ruse : si le premier janvier de l'année suivante est semaine 1, alors l'année donnée contient 52 semaines, sinon elle contient le nombre de semaine correspondant au numéro de semaine du premier janvier de l'année suivante :</p>
+<p class="code">
+dim=# select extract(year from d) - 1 as year,<br />
+dim-#        case when extract(week from d) = 1<br />
+dim-#             then extract(week from d - interval '1 week')<br />
+dim-#             else extract(week from d) end as nb_weeks<br />
+dim-#  from (<br />
+dim(#     select year, to_date(year+1, 'YYYY-01-01') as d<br />
+dim(#      from generate_series(extract(year from (current_date - interval '4 years')::date)::int,<br />
+dim(#                           extract(year from current_date)::int) as year) as x;<br />
+&nbsp;year | nb_weeks<br />
+------+----------<br />
+&nbsp;2003 |       52<br />
+&nbsp;2004 |       53<br />
+&nbsp;2005 |       52<br />
+&nbsp;2006 |       52<br />
+&nbsp;2007 |       52<br />
+(5 lignes)
+</p>
+<p>Il reste à additionner toutes les semaines des années intermédiaires et à ajouter le numéro de semaine de l'année courante pour avoir le nombre de semaines depuis le premier janvier de l'année de la date de début. On enlèvera donc de cette somme le numéro de semaine de la date de début pour avoir notre résultat :</p>
+<p class="code">
+create or replace function weeks(timestamp, timestamp) returns int language sql<br />
+as $$<br />
+&nbsp;&nbsp;select extract(week from $2)::int<br />
+&nbsp;&nbsp;+<br />
+&nbsp;&nbsp;coalesce(<br />
+&nbsp;&nbsp;&nbsp;sum( case when extract(week from d) = 1<br />
+&nbsp;&nbsp;&nbsp;&nbsp;then extract(week from d - interval '1 week')<br />
+&nbsp;&nbsp;&nbsp;&nbsp;else extract(week from d) end ),<br />
+&nbsp;&nbsp;&nbsp;0)::int<br />
+&nbsp;&nbsp;&nbsp;-<br />
+&nbsp;&nbsp;&nbsp;extract(week from $1)::int<br />
+&nbsp;&nbsp;from (<br />
+&nbsp;&nbsp;&nbsp;select year, to_date(year+1, 'YYYY-01-01') as d<br />
+&nbsp;&nbsp;&nbsp;from generate_series(extract(year from $1)::int,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;extract(year from $2)::int - 1) as year<br />
+&nbsp;&nbsp;&nbsp;) as x;<br />
+$$;<br />
+&nbsp;<br />
+dim=# select weeks(current_date - interval '18 months', current_date);<br />
+&nbsp;weeks<br />
+-------<br />
+&nbsp;&nbsp;&nbsp;79<br />
+(1 ligne)<br />
+&nbsp;<br />
+dim=# select weeks(current_date - interval '4 years', current_date);<br />
+&nbsp;weeks<br />
+-------<br />
+&nbsp;&nbsp;&nbsp;209<br />
+(1 ligne)
+</p>
+<p>Et voilà :)</p>
+<p>Note : on utilise <b>COALESCE()</b> sur le <b>SUM()</b> afin de savoir compter le nombre de semaines entre deux dates de la même année aussi !</p>
+</body>
+<!-- Mirrored from drupal.postgresql.fr/?q=book/print/1474 by HTTrack Website Copier/3.x [XR&CO'2006], Sun, 12 Oct 2008 17:23:56 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+</html>

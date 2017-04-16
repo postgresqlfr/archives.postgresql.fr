@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE rss [<!ENTITY % HTMLlat1 PUBLIC "-//W3C//ENTITIES Latin 1 for XHTML//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml-lat1.ent">]>
+<rss version="0.92" xml:base="http://drupal.postgresql.fr">
+<channel>
+ <title>PostgreSQLFr - Technique - optimisation</title>
+ <link>http://drupal.postgresql.fr/?q=taxonomy/term/12/0</link>
+ <description>Discussions techniques sur l'optimisation du serveur PostgreSQL et des requêtes SQL</description>
+ <language>fr</language>
+<item>
+ <title>Optimisation de la mémoire sous PostgreSQL</title>
+ <link>http://drupal.postgresql.fr/?q=node/1737</link>
+ <description>&lt;p&gt;Bonjour&lt;/p&gt;
+&lt;p&gt;J’ai mis en place un extranet avec comme architecture un Tomcat 5 couplé à une base de données PostgreSQL 8.1 sur un serveur linux RedHat.&lt;/p&gt;
+&lt;p&gt;J’aurais voulu savoir si il existait un moyen pour configurer PostgreSQL 8.1 afin d’exploiter efficacement la mémoire serveur au-delà de 1 GO ?&lt;/p&gt;
+&lt;p&gt;Merci d'avance.&lt;br /&gt;
+Cordialement&lt;/p&gt;
+</description>
+ <pubDate>Mon, 22 Sep 2008 14:06:48 +0200</pubDate>
+</item>
+<item>
+ <title>Optimisation 13M de select</title>
+ <link>http://drupal.postgresql.fr/?q=node/1709</link>
+ <description>&lt;p&gt;Bonjour,&lt;/p&gt;
+&lt;p&gt;J'ai une base de données contenant 13M de lignes dans une table A&lt;br /&gt;
+Je dois les traités une par une puis insérer les resultats dans une autre table B&lt;br /&gt;
+Mais plus je fais de traitement plus la récupartion de la prochaine ligne a traiter est longue.&lt;/p&gt;
+&lt;p&gt;Pour ca j'utilise un script python dont le principe est :&lt;/p&gt;
+&lt;p&gt;TANT QUE "SELECT * FROM tableA WHERE traite=0 LIMIT 1" retourne une ligne :&lt;/p&gt;
+</description>
+ <pubDate>Thu, 31 Jul 2008 15:15:04 +0200</pubDate>
+</item>
+<item>
+ <title>Temps de réponse à une requête</title>
+ <link>http://drupal.postgresql.fr/?q=node/1671</link>
+ <description>&lt;p&gt;Slt les gars,&lt;/p&gt;
+&lt;p&gt;Dans le cadre de mon travail (la recherche), j'ai besoin de mesurer le temps d'exécution d'un bout de code dans lequel je fais appel au serveur de base de données. J’ai quelques questions à propos du temps de réponse d'un serveur de base de&lt;br /&gt;
+données.&lt;/p&gt;
+&lt;p&gt;Soit Q une requête.&lt;/p&gt;
+&lt;p&gt;1. est-ce qu'un serveur de base de données potgreSQL est capable de répondre avec le même temps de réponse à une même requête Q ?&lt;/p&gt;
+</description>
+ <pubDate>Wed, 25 Jun 2008 00:00:16 +0200</pubDate>
+</item>
+<item>
+ <title>Partitionnement sous postgresql sans utiliser l'héritage</title>
+ <link>http://drupal.postgresql.fr/?q=node/1641</link>
+ <description>&lt;p&gt;Bonjour à tous,&lt;br /&gt;
+je souhaite partitionner une grosse table et diviser ainsi la table des indexes qui est devenue énorme aussi !&lt;br /&gt;
+réindex, analyze,vacuum, vacuum full, ... da la table a permis de réduire la taille des indexes, mais ce n'est pas suffusant, d'où l'idée de partitionner la table en fonction d'un critére, exemple (refernce fournisseur!) comme ça pour chaque fournisseur, j'ai la liste des produits.&lt;/p&gt;
+</description>
+ <pubDate>Fri, 09 May 2008 11:24:05 +0200</pubDate>
+</item>
+<item>
+ <title>Index</title>
+ <link>http://drupal.postgresql.fr/?q=node/1631</link>
+ <description>&lt;p&gt;bonjour,&lt;/p&gt;
+&lt;p&gt;J'ai 2 tables : table1 et table2. chacune a 40 000 lignes. il y a 4 champs sur chacune des 2 tables.&lt;/p&gt;
+&lt;p&gt;table1&lt;br /&gt;
+	id_tab1, nom_tab1, date_tab1, desc_tab1&lt;/p&gt;
+&lt;p&gt;table2&lt;br /&gt;
+	id_tab2, detail_tab2, encoredudetail_tab2, id_tab1&lt;/p&gt;
+&lt;p&gt;N'étant pas le concepteur des 2 tables, je ne peux qu'ajouter des index (c'est déjà pas mal !!). Il n'y a pas de clé primaire, ni de clé étrangère.&lt;br /&gt;
+La raison est que les données arrive en brut dans les 2 tables et que les doublons nous interressent.&lt;/p&gt;
+</description>
+ <pubDate>Fri, 25 Apr 2008 10:53:34 +0200</pubDate>
+</item>
+<item>
+ <title>[Résolu] Vues &gt; Changement de la requete</title>
+ <link>http://drupal.postgresql.fr/?q=node/1615</link>
+ <description>&lt;p&gt;Bonjour,&lt;br /&gt;
+Je travaille en Postgres 8.2.7 sur Ubuntu&lt;br /&gt;
+Si je fais une vue du genre :&lt;/p&gt;
+&lt;p&gt;SELECT DISTINCT table1.col1, table1.col2, table1.col3, table1.col4&lt;br /&gt;
+  FROM&lt;br /&gt;
+	matable1 table1,&lt;br /&gt;
+	matable2 table2&lt;br /&gt;
+  where&lt;br /&gt;
+	table1.champs = table2.champs&lt;/p&gt;
+&lt;p&gt;Cette requête seule prend 10 secondes.&lt;/p&gt;
+&lt;p&gt;Postgres modifie ma requête et ajoute en fin de requête un order by de chaque champs du select.&lt;/p&gt;
+&lt;p&gt;Du coup, la requête passe à plus d'une minutes.&lt;/p&gt;
+</description>
+ <pubDate>Fri, 18 Apr 2008 09:27:56 +0200</pubDate>
+</item>
+<item>
+ <title>Optimisation de requetes</title>
+ <link>http://drupal.postgresql.fr/?q=node/1613</link>
+ <description>&lt;p&gt;Bonjour,&lt;/p&gt;
+&lt;p&gt;Je voudrai savoir laquelle des deux requetes suivantes est plus optimales :&lt;/p&gt;
+&lt;p&gt;RQ1 :&lt;br /&gt;
+SELECT C1, C2&lt;br /&gt;
+FROM T1, (UneSousRequete) AS SR&lt;br /&gt;
+WHERE T1.id = SR.id&lt;br /&gt;
+SELECT C1, C2&lt;br /&gt;
+FROM T2, (UneSousRequete) AS SR&lt;br /&gt;
+WHERE T2.id = SR.id&lt;/p&gt;
+&lt;p&gt;RQ2 :&lt;br /&gt;
+SELECT T.C1, T.C2&lt;br /&gt;
+FROM&lt;br /&gt;
+       (SELECT id, C1, C2 FROM T1&lt;br /&gt;
+         UNION&lt;br /&gt;
+        SELECT id, C1, C2 FROM T2) AS T,&lt;br /&gt;
+        (UneSousRequete) RS&lt;br /&gt;
+WHERE T.id = RS.id&lt;/p&gt;
+</description>
+ <pubDate>Wed, 09 Apr 2008 16:18:12 +0200</pubDate>
+</item>
+<item>
+ <title>Vacuum sur une grosse table</title>
+ <link>http://drupal.postgresql.fr/?q=node/1607</link>
+ <description>&lt;p&gt;Bonjour,&lt;/p&gt;
+&lt;p&gt;j'ai récuperé une grosse table de plusieurs Giga, mais j'ai un gros doute sur la réussite de son vacuum analyse.&lt;br /&gt;
+Il me renvoie:&lt;/p&gt;
+&lt;p&gt;INFO:  vacuuming "dba.multi_resultat"&lt;br /&gt;
+INFO:  analyzing "dba.multi_resultat"&lt;br /&gt;
+INFO:  "multi_resultat": scanned 3000 of 387589 pages, containing 214998 live rows and 0 dead rows; 3000 rows in sample, 27776953 estimated total rows&lt;/p&gt;
+&lt;p&gt;Durée totale d'exécution de la requête :445230 ms.&lt;/p&gt;
+</description>
+ <pubDate>Thu, 03 Apr 2008 15:35:32 +0200</pubDate>
+</item>
+<item>
+ <title>clé en double dans une table postgres lors de la restauration d'une base ou une table</title>
+ <link>http://drupal.postgresql.fr/?q=node/1575</link>
+ <description>&lt;p&gt;bonjour,&lt;br /&gt;
+je reçoie l'erreur de clé en double lors de la restauration d' une table postgres:&lt;br /&gt;
+"&lt;br /&gt;
+C:\Program Files\PostgreSQL\8.2\bin\pg_restore.exe -i -h localhost -p 5432 -U postgres -d optimaint -a -t util_cfs -v "D:\bb_arborescence\Département Informatique\Développement\users.backup"&lt;br /&gt;
+pg_restore: connexion à la base de données pour la restauration&lt;br /&gt;
+pg_restore: restauration des données de la table « util_cfs »&lt;/p&gt;
+</description>
+ <pubDate>Thu, 28 Feb 2008 14:31:12 +0100</pubDate>
+</item>
+<item>
+ <title>Explosion de performance</title>
+ <link>http://drupal.postgresql.fr/?q=node/1560</link>
+ <description>&lt;p&gt;Bonjour,&lt;/p&gt;
+&lt;p&gt;Je développe un logiciel de paie PHP/PostGreSQL. J'ai notamment un calcul de balance mensuelle des salaires. C'est un script assez lourd avec de nombreuses requêtes qui s'effectuent essentiellement sur 2 tables :&lt;/p&gt;
+&lt;p&gt;- la table BULLETIN contenant les données principales des bulletins&lt;br /&gt;
+- la table LIGNES_BULLETIN décrivant chaque ligne de chaque bulletin, rattachée à la table BULLETIN&lt;/p&gt;
+</description>
+ <pubDate>Wed, 13 Feb 2008 17:27:59 +0100</pubDate>
+</item>
+<item>
+ <title>Optimiseur : réécriture/simplification des requêtes avant exécution ?</title>
+ <link>http://drupal.postgresql.fr/?q=node/1540</link>
+ <description>&lt;p&gt;Bonjour&lt;/p&gt;
+&lt;p&gt;J'utilise Postgresql depuis peu. J'ai constaté sur ma base récemment installée un problème : l'optimiseur ne sait apparemment pas, quand c'est possible, simplifier une requête et la réécrire avant de l'exécuter. Exemple simple et reproductible :&lt;/p&gt;
+&lt;p&gt;ma_bdd=# create table test (n numeric);&lt;br /&gt;
+CREATE&lt;br /&gt;
+ma_bdd=# insert into test values (1); --&gt; lancé 10 fois&lt;br /&gt;
+INSERT&lt;br /&gt;
+ma_bdd=# insert into test values (0); --&gt; lancé 10 fois&lt;/p&gt;
+</description>
+ <pubDate>Thu, 31 Jan 2008 13:58:10 +0100</pubDate>
+</item>
+<item>
+ <title>Reqête très lente</title>
+ <link>http://drupal.postgresql.fr/?q=node/1476</link>
+ <description>&lt;p&gt;Bonjour, je débute en postresql et j'ai un problème au niveau d'un requête sur une table.&lt;br /&gt;
+En effet, lorsque je fais un :&lt;br /&gt;
+&lt;p class="code"&gt;
+select count(*) from matable;
+&lt;/p&gt;
+=&gt; le résultat s'affiche au bout de 15secondes. (Cette table contient 7500 lignes)&lt;/p&gt;
+&lt;p&gt;Si je fais la même requête sur des tables similaires , le résultat est instantané.&lt;/p&gt;
+&lt;p&gt;J'ai essayé de faire un 'vacuum verbose analyse matable;' sans résultat !&lt;/p&gt;
+&lt;p&gt;voici le résultat d'un \dt&lt;/p&gt;
+&lt;p class="code"&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Table&amp;nbsp;"public.stat"&lt;br /&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;Colonne&amp;nbsp;&amp;nbsp;&amp;nbsp;|&amp;nbsp;&amp;nbsp;&amp;nbsp;Type&amp;nbsp;&amp;nbsp;&amp;nbsp;|&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Modifications&lt;br /&gt;
+-------------+----------+--------------------------------------------&lt;br /&gt;
+&amp;nbsp;stat_num&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;|&amp;nbsp;integer&amp;nbsp;&amp;nbsp;|&amp;nbsp;not&amp;nbsp;null&amp;nbsp;default&amp;nbsp;nextval('stat_seq'::text)&lt;br /&gt;
+&amp;nbsp;stat_unum&amp;nbsp;&amp;nbsp;&amp;nbsp;|&amp;nbsp;integer&amp;nbsp;&amp;nbsp;|&lt;br /&gt;
+&amp;nbsp;stat_dnum&amp;nbsp;&amp;nbsp;&amp;nbsp;|&amp;nbsp;integer&amp;nbsp;&amp;nbsp;|&lt;br /&gt;
+&amp;nbsp;stat_dsnum&amp;nbsp;&amp;nbsp;|&amp;nbsp;integer&amp;nbsp;&amp;nbsp;|&lt;br /&gt;
+&amp;nbsp;stat_date&amp;nbsp;&amp;nbsp;&amp;nbsp;|&amp;nbsp;date&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;|&lt;br /&gt;
+&amp;nbsp;stat_dofw&amp;nbsp;&amp;nbsp;&amp;nbsp;|&amp;nbsp;smallint&amp;nbsp;|&lt;br /&gt;
+&amp;nbsp;stat_ftnum&amp;nbsp;&amp;nbsp;|&amp;nbsp;integer&amp;nbsp;&amp;nbsp;|&lt;br /&gt;
+&amp;nbsp;stat_srvnum&amp;nbsp;|&amp;nbsp;integer&amp;nbsp;&amp;nbsp;|&lt;br /&gt;
+Index:&amp;nbsp;stat_pkey&amp;nbsp;primary&amp;nbsp;key&amp;nbsp;btree&amp;nbsp;(stat_num),&lt;br /&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;stat_i_dnum&amp;nbsp;btree&amp;nbsp;(stat_dnum),&lt;br /&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;stat_i_dsnum&amp;nbsp;btree&amp;nbsp;(stat_dsnum),&lt;br /&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;stat_i_unum&amp;nbsp;btree&amp;nbsp;(stat_unum)
+&lt;/p&gt;
+</description>
+ <pubDate>Fri, 30 Nov 2007 20:51:01 +0100</pubDate>
+</item>
+<item>
+ <title>Transaction de 1h30, parfois....</title>
+ <link>http://drupal.postgresql.fr/?q=node/1465</link>
+ <description>&lt;p&gt;Bonjour!&lt;/p&gt;
+&lt;p&gt;Je rencontre un gros problème de performances.&lt;br /&gt;
+Mon application reçoit des données régulièrement, et après traîtmenet, j'insère les informations pertinentes dans la base de données. ; dans la majorité des cas, tout se passe bien et la transaction globale dure moins d'une seconde. Cependant, de temps à autre (une fois sur vingt ?), la transaction met un temps extraordinairement long pour s'achever (avec succès!) ; extraordinairement long signifie en l'occurence environ 1h30 (une heure et trente minutes!!!) mesuré directement dans les logs de postgresql (duration).&lt;/p&gt;
+</description>
+ <pubDate>Fri, 16 Nov 2007 19:04:05 +0100</pubDate>
+</item>
+<item>
+ <title>TEXT ou Varchar</title>
+ <link>http://drupal.postgresql.fr/?q=node/1456</link>
+ <description>&lt;p&gt;Bonjour,&lt;/p&gt;
+&lt;p&gt;J'ai posé la question par email. Il est préférable de partager cette question avec tout le monde.&lt;/p&gt;
+&lt;p&gt;Nous developpons un projet en Php avec Postgres.&lt;br /&gt;
+Nous devons enregistrer plusieurs milliers de lignes par jour sur 100 colonnes environs. Les données proviennent de fichiers bruts CSV. Nous faisons ensuite plusieurs traitements qui réduisent le nombre de lignes et éventuellement le nombre de colonnes. Les colonnes ne dépassent pas les 200 caractères mais sont très variables.&lt;/p&gt;
+</description>
+ <pubDate>Tue, 13 Nov 2007 16:14:31 +0100</pubDate>
+</item>
+<item>
+ <title>Optimisation requête : sélection des n premiers éléments de chaque catégorie</title>
+ <link>http://drupal.postgresql.fr/?q=node/1453</link>
+ <description>&lt;p&gt;Bonjour,&lt;/p&gt;
+&lt;p&gt;Je souhaite savoir s'il existe une méthode "optimale" pour récupérer les n premières lignes de chaque catégorie d'un ensemble de données.&lt;/p&gt;
+&lt;p&gt;Je m'explique. Imaginons le jeu de données suivant :&lt;/p&gt;
+&lt;p&gt;CREATE TABLE ma_table&lt;br /&gt;
+(&lt;br /&gt;
+  ID integer NOT NULL,&lt;br /&gt;
+  ID_CATEGORIE integer,&lt;br /&gt;
+  CONSTRAINT ma_table_pkey PRIMARY KEY (ID)&lt;br /&gt;
+)&lt;br /&gt;
+WITHOUT OIDS;&lt;br /&gt;
+INSERT INTO ma_table(ID, ID_CATEGORIE) VALUES(1,1);&lt;/p&gt;
+</description>
+ <pubDate>Mon, 12 Nov 2007 16:22:18 +0100</pubDate>
+</item>
+</channel>
+</rss>

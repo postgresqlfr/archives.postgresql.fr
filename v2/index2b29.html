@@ -1,0 +1,35 @@
+<html>
+<!-- Mirrored from drupal.postgresql.fr/?q=book/print/886 by HTTrack Website Copier/3.x [XR&CO'2006], Sun, 12 Oct 2008 17:23:52 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+<head><title>Nombre de jours dans chaque mois</title><base  /><style type="text/css">
+@import url(misc/print.css);
+</style></head><body><h1 id="886" name="886" class="book-h1">Nombre de jours dans chaque mois</h1><p>La requête suivante permet de connaître pour chaque mois d'une période donnée (ici de l'année courante) son nombre de jours.</p>
+<pre class="programlisting">
+select to_char(month, 'FMMonth YYYY') as month,<br />
+       date_part('day',month + '1 month - 1 day'::interval) as lastday<br />
+from (<br />
+  select (date_part('year', current_date) || '-' || m || '-01')::date as month<br />
+  from   generate_series(1, 12) m) months;
+</pre>
+<p>On obtient le résultat suivant :</p>
+<pre class="programlisting">
+     month      | lastday<br />
+----------------+---------<br />
+ January 2006   |      31<br />
+ February 2006  |      28<br />
+ March 2006     |      31<br />
+ April 2006     |      30<br />
+ May 2006       |      31<br />
+ June 2006      |      30<br />
+ July 2006      |      31<br />
+ August 2006    |      31<br />
+ September 2006 |      30<br />
+ October 2006   |      31<br />
+ November 2006  |      30<br />
+ December 2006  |      31<br />
+(12 rows)</p>
+</pre>
+</body>
+<!-- Mirrored from drupal.postgresql.fr/?q=book/print/886 by HTTrack Website Copier/3.x [XR&CO'2006], Sun, 12 Oct 2008 17:23:52 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+</html>

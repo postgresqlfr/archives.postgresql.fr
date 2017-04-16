@@ -1,0 +1,19 @@
+<html>
+<!-- Mirrored from drupal.postgresql.fr/?q=book/print/1055 by HTTrack Website Copier/3.x [XR&CO'2006], Sun, 12 Oct 2008 17:24:04 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+<head><title>Lister les tables filles d'une table</title><base  /><style type="text/css">
+@import url(misc/print.css);
+</style></head><body><h1 id="1055" name="1055" class="book-h1">Lister les tables filles d'une table</h1><p>
+On remplacera "element" par la table père, on pourra bien sûr récupérer les informations de la table pg_class (c) ou pg_inherits (i) en fonction des besoins...<br />
+<br></p>
+<pre>
+SELECT relname<br />
+FROM pg_catalog.pg_class c,<br />
+     pg_catalog.pg_inherits i<br />
+WHERE i.inhparent=(select oid from pg_class where relname='element');
+</pre>
+</p>
+</body>
+<!-- Mirrored from drupal.postgresql.fr/?q=book/print/1055 by HTTrack Website Copier/3.x [XR&CO'2006], Sun, 12 Oct 2008 17:24:04 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+</html>

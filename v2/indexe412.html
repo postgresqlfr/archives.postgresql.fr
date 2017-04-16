@@ -1,0 +1,93 @@
+<html>
+<!-- Mirrored from drupal.postgresql.fr/?q=book/print/65 by HTTrack Website Copier/3.x [XR&CO'2006], Sun, 12 Oct 2008 16:33:38 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+<head><title>Sébastien DINOT, Ingénieur en développement, NEWTECH MULTIMEDIA</title><base  /><style type="text/css">
+@import url(misc/print.css);
+</style></head><body><h1 id="65" name="65" class="book-h1">Sébastien DINOT, Ingénieur en développement, NEWTECH MULTIMEDIA</h1><p class="question">
+Êtes vous d'accord pour que votre nom, prénom, courriel, nom d'organisation et<br />
+votre fonction dans celle-ci soit connue du public&nbsp;?</p>
+<p class="detail">
+  Sébastien DINOT, Ingénieur en développement, NEWTECH MULTIMEDIA</p>
+<p>Organisation&nbsp;:</p>
+  <p>NEWTECH MULTIMEDIA<br />
+  3 chemin du pigeonnier de la C&eacute;pi&egrave;re<br />
+  F &ndash; 31&nbsp;100 TOULOUSE<br />
+  <a href="http://www.newtech.fr/">http://www.newtech.fr/</a></p>
+<p>Contact&nbsp;:</p>
+  <p>S&eacute;bastien DINOT<br />
+  <a href="mailto:s.dinot@newtech.fr">s.dinot@newtech.fr</a><br />
+  +33&nbsp;(0)5&nbsp;61&nbsp;43&nbsp;14&nbsp;85</p>
+<p>Date&nbsp;: 11 f&eacute;vrier 2004</p></p>
+<p class="question">Quelle est la finalit&eacute; de la base de donn&eacute;es PostgreSQL&nbsp;?<br />
+	Par exemple, est-elle &agrave; but scientifique, technique, de gestion, de comptabilit&eacute;&nbsp;?<br />
+	Quel est son contexte m&eacute;tier (m&eacute;dical, social, association, etc...)&nbsp;?</p>
+<p class="detail">Nous utilisons PostgreSQL pour collecter et analyser en temps r&eacute;el des donn&eacute;es techniques en provenance de divers services.</p>
+<p class="question">Ces bases de donn&eacute;es sont-elles critiques pour l'organisation (les donn&eacute;es stock&eacute;es sont-elles crutiales ou non)&nbsp;?<br />
+	Par exemple, la comptabilit&eacute; est sensible, la gestion des clients, des factures, des commandes aussi... Mais le pointage du personnel est peut probablement d'importance moindre, etc..
+</p>
+<p class="detail">Oui, la disponibilit&eacute; et la consistance de ces donn&eacute;es est critique.</p>
+<p class="question">Quel est le nombre de bases de donn&eacute;es distinctes sous  PostgreSQL&nbsp;?<br />
+	Quelle fraction cela repr&eacute;sente-t'il par rapport au nombre total de bases de donn&eacute;es de l'organisation&nbsp;?
+</p>
+<p class="detail">Nous utilisons actuellement quatre bases de donn&eacute;es en production sur quatre serveurs diff&eacute;rents.<br />
+  Ces bases sont pour l'instant minoritaires en regard des dizaines de bases de donn&eacute;es que nous utilisons par ailleurs (MySQL et SQLServer).<br />
+  Mais il est aujourd'hui certain que les serveurs PostgreSQL remplaceront &agrave; terme tous les serveurs SQLServer.
+</p>
+<p class="question">Quelle est la volum&eacute;trie de ces bases (nombre de tables et d'enregistrements par table, occupation disque)&nbsp;?</p>
+<p class="detail">Une seule base PostgreSQL contient environ<br />
+trente tables et jusqu'&agrave; trois millions d'enregistrements par<br />
+table, l'ensemble repr&eacute;sentant plus de deux giga-octets de<br />
+donn&eacute;es.</p>
+<p class="question">PostgreSQL est-il utilis&eacute; dans un contexte transactionnel (beaucoup de requ&ecirc;tes rapides et unitaires comme c'est le cas pour un site de vente en ligne)<br />
+	ou plut&ocirc;t de type datamining/datawarehouse (par exemple, &eacute;tudes statistiques sur quelques millions ou  milliards de tuples comme c'est le cas pour un syst&egrave;me de pilotage bas&eacute; sur des faisceaux de capteurs ou l'&eacute;tude du g&eacute;nome humain ou l'analyse statistique des tickets de caisses d'un supermarch&eacute;, etc..)</p>
+<p class="detail">Nous utilisons PostgreSQL dans les deux contextes. L'alimentation de la base est continue et s'effectue par de fr&eacute;quentes et nombreuses requ&ecirc;tes.<br />
+	L'analyse des donn&eacute;es porte par contre sur l'int&eacute;gralit&eacute; des enregistrements et n&eacute;cessite des traitements lourds.</p>
+<p class="question">Quelle est la version de PostgreSQL utilis&eacute;e&nbsp;?</p>
+<p class="detail">Nous utilisons les versions 7.2 &agrave; 7.3 de PostgreSQL.</p>
+<p class="question">Depuis combien de temps PostgreSQL est-il utilis&eacute; dans l'organisation et/ou depuis quelle version&nbsp;?</p>
+<p class="detail">Nous utilisons PostgreSQL depuis plus de deux ans maintenant.</p>
+<p class="question">PostgreSQL a-t-il remplac&eacute; un outil propri&eacute;taire&nbsp;?<br />
+	Si oui, lequel et pourquoi&nbsp;?</p>
+<p class="detail">Oui, PostgreSQL remplace avantageusement SQLServer.</p>
+<p>En premier lieu, lorsque nos besoins ont &eacute;volu&eacute; au point de n&eacute;cessiter le changement de SGBD, une &eacute;tude interne a montr&eacute; que seuls PostgreSQL et Oracle satisfaisaient nos attentes en terme de performances et de fonctionnalit&eacute;s.<br />
+Oracle a &eacute;t&eacute; &eacute;limin&eacute; &agrave; cause du co&ucirc;t.</p>
+<p>Par ailleurs, PostgreSQL fonctionne sous GNU/Linux. L'adopter nous a donc permis de nous affranchir des serveurs MS-Windows NT (n&eacute;cessaires pour SQLServer) dont nous &eacute;tions m&eacute;contents.</p>
+<p>Au final, opter pour PostgreSQL nous a permis d'acheter pour le m&ecirc;me budget un serveur solide et performant.</p>
+<p class="question">Avez vous test&eacute; d'autres SGBD libres&nbsp;? Si oui, lesquels&nbsp;?<br />
+ Si oui, pourquoi avez-vous choisi PostgreSQL&nbsp;?</p>
+<p class="detail">Oui, notamment MySQL que nous utilisons largement par ailleurs. Mais nous avons retenu pour ces projets PostgreSQL &agrave; cause de sa richesse fonctionnelle, sa fiabilit&eacute; et ses performances dans l'exploitation de bases volumineuses et complexes.</p>
+<p class="question">[Pour les questions suivantes, donnez une note de 1 (mauvais) &agrave; 5 (excellent) et commentez si possible]</p>
+<p class="question">Quel est votre ressenti sur PostgreSQL en termes de fiabilit&eacute;&nbsp;?</p>
+<p class="detail">5, nous n'avons jamais rencontr&eacute; le moindre probl&egrave;me de fiabilit&eacute; en deux ans d'exploitation.</p>
+<p class="question">Quel est votre ressenti sur PostgreSQL en termes de robustesse (reprise en cas de crash, r&eacute;sistance aux bogues et aux mauvaises utilisations du SQL, ...)&nbsp;?</p>
+<p class="detail">5, nous avons volontairement malmen&eacute; la base, coup&eacute; la connexion r&eacute;seau durant des transactions lourdes, arr&ecirc;t&eacute; brutalement la machine h&ocirc;te.<br />
+L'int&eacute;grit&eacute; des donn&eacute;es n'a jamais &eacute;t&eacute; mise en d&eacute;faut sur un serveur utilisant un syst&egrave;me de fichiers journalis&eacute;.</p>
+<p class="question">Quel est votre ressenti sur PostgreSQL en termes d'administration&nbsp;?<br />
+	La base de donn&eacute;es demande-t-elle beaucoup d'heures d'administration ou presque pas, voire pas du tout&nbsp;?</p>
+<p class="detail">4, une base de donn&eacute;es PostgreSQL s'administre sans mal. Nous aurions cependant appr&eacute;ci&eacute; de trouver un document synth&eacute;tisant les bonnes pratiques &agrave; adopter dans l'utilisation quotidienne de PostgreSQL. Par exemple, seuls nos essais progressifs nous ont permis de comprendre la raison d'&ecirc;tre du VACUUM et la pertinence d'utiliser une option plus que l'autre.</p>
+<p class="question">Quel est votre ressenti sur PostgreSQL en termes de facilit&eacute; d'utilisation&nbsp;?<br />
+	Rencontrez-vous des difficult&eacute;s particuli&egrave;res dans l'utilisation de PostgreSQL&nbsp;?<br />
+	Retrouvez-vous vos marques par rapport &agrave; votre acquis en environnement propri&eacute;taire par exemple&nbsp;?</p>
+<p class="detail">5, PostgreSQL est facile et agr&eacute;able &agrave;<br />
+utiliser, aussi bien &agrave; travers la console psql (un mod&egrave;le<br />
+du genre) qu'&agrave; travers l'interface web phpPgAdmin.</p>
+<p class="question">Quel est votre ressenti sur PostgreSQL en termes de performances&nbsp;?</p>
+<p class="detail">5, nous sommes pleinement satisfait des performances de PostgreSQL qui sont m&ecirc;me all&eacute;es au del&agrave; de nos attentes.</p>
+<p class="question">Quel est votre ressenti sur PostgreSQL en termes d'extensibilit&eacute; (par exemple la cr&eacute;ation de types de donn&eacute;es qui ne sont pas des composites de types de donn&eacute;es existants..)&nbsp;?</p>
+<p class="detail">Pas test&eacute;.</p>
+<p class="question">Quel est votre ressenti sur PostgreSQL en termes de mise &agrave; l'&eacute;chelle&nbsp;?<br />
+	PostgreSQL s'adapte-t'il facilement &agrave; des machines plus puissantes, des infrastructures plus complexes&nbsp;?</p>
+<p class="detail">Pas test&eacute;.</p>
+<p class="question">Quel est votre ressenti sur PostgreSQL en termes de &laquo;&nbsp;tuning&nbsp;&raquo; (optimisation fine des param&egrave;tres de fonctionnement)&nbsp;?<br />
+	Les possibilit&eacute;s d'optimisation sont-elles simples et suffisamment fines&nbsp;?</p>
+<p class="detail">3, nous avons eu des difficult&eacute;s pour trouver les informations dont nous avions besoin. Une fois ces informations en main, l'optimisation s'effectue sans difficult&eacute; particuli&egrave;re.</p>
+<p class="question">Quel 	est votre ressenti sur PostgreSQL en termes d'outils annexes (console en ligne de commande, interface web, etc)&nbsp;?</p>
+<p class="detail">5, nous avons trouv&eacute; tous les outils dont nous avions besoin et ces derniers r&eacute;pondent pleinement &agrave; nos attentes.</p>
+<p class="question">Quel est votre ressenti sur PostgreSQL en termes de support de la communaut&eacute;&nbsp;?<br />
+  Savez-vous o&ugrave; poser vos questions&nbsp;?<br />
+  Obtenez vous rapidement et facilement des r&eacute;ponses ad&eacute;quates&nbsp;?</p>
+<p class="detail">Peu test&eacute;. Dommage qu'il n'y ait pas de portail d'information francophone sur PostgreSQL.</p>
+</body>
+<!-- Mirrored from drupal.postgresql.fr/?q=book/print/65 by HTTrack Website Copier/3.x [XR&CO'2006], Sun, 12 Oct 2008 16:33:38 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+</html>

@@ -1,0 +1,502 @@
+
+<!DOCTYPE
+ html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+ <html>
+ <!-- $Date: 2005/08/30 07:54:43 $ / $Revision: 1.29 $ / Last Theme Editor :$Author: jx $-->
+  
+<!-- Mirrored from drupal.postgresql.fr/?q=node/1363 by HTTrack Website Copier/3.x [XR&CO'2006], Sun, 12 Oct 2008 16:16:30 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<base  />
+<style type="text/css" media="all">@import "misc/drupal.css";</style>
+   <title>Connexion automatique en vb - PostgreSQLFr</title>
+ <style type="text/css" media="screen" title="Normal Text">
+    @import url("layout/css/blue/fixed.css");
+    @import url(_guillaume/dotclear/themes/postgresql/style.html);
+ </style>
+ <style type="text/css" media="screen" title="Normal Text2">
+    @import url("layout/css/blue/pgfr.css");
+    @import url(_guillaume/dotclear/themes/postgresql/style.html);
+ </style>
+   </head>
+   <body>
+    <table border="0" cellspacing="5" cellpadding="0" width="100%">
+     <tr>
+      <!--td colspan="2" width="100%"-->
+      <td colspan="2">
+      <!-- Head -->
+       <table border="0" cellspacing="0" cellpadding="0" width="100%">
+        <tr>
+	 <td align="left">
+           <div id="pgHeader">
+	    <div id="pgHeaderLogoLeft">
+	     <a href="index.html" title="PostgreSQL"><img src="layout/images/hdr_left.png" width="230" height="80" alt="PostgreSQL" /></a>
+	    </div>
+	    <div id="pgHeaderLogoRight">
+	     <a href="index.html" title="La base de donn�es la plus sophistiqu�e au monde."><img src="layout/images/hdr_right.png" width="210" height="80" alt="La base de donn�es la plus sophistiqu�e au monde." /></a>
+	    </div>
+	   </div>
+         </td>
+	 <td align="right">
+         </td>
+	</tr>
+      </table> <!-- Head -->
+      <br />
+      <table border="0" cellspacing="0" cellpadding="0" width="100%">
+              <tr>
+	      	 <td align="left">
+
+		<div class="pgTopNav">
+		   <div class="pgTopNavLeft"> 
+		     <img src="layout/images/nav_lft.png" width="7" height="23" alt="" />
+		   </div>
+		   <div class="pgTopNavRight">
+		    <img src="layout/images/nav_rgt.png" width="7" height="23" alt="" />
+		  </div>
+		  <!--<ul class="pgTopNavList">-->
+		  <ul class="pgTopNavList">
+		   <li><a href="index03d2.html?q=" title="Retourner à la page principale.">accueil</a> </li>
+		   <li> <a href="indexf6e5.html?q=archive" title="Lire le contenu plus ancien dans notre archive.">archives</a> </li>
+		   <li> <a href="index71c4.html?q=blog" title="Lire les blogues les plus récents.">blogues</a> </li>
+
+		   <li> <a href="indexf6fe.html?q=book" title="Lire et contribuer aux livres collaboratifs.">livres</a> </li>
+		   <li> <a href="index79b7.html?q=forum">forums</a> </li>
+		   <li> <a href="index729f.html?q=poll" title="Voir la liste des sondages de ce site.">sondages</a> </li>
+		   <li> <a href="index4404.html?q=search" title="Chercher pour du contenu plus vieux.">recherche</a></li><li><a href="http://docs.postgresqlfr.org/" target="_blank">documentation </a></li>
+
+		  </ul>
+
+<!--
+		   <li><a href="?q=" title="Retourner à la page principale.">accueil</a> </li>
+		   <li> <a href="?q=archive" title="Lire le contenu plus ancien dans notre archive.">archives</a> </li>
+		   <li> <a href="?q=blog" title="Lire les blogues les plus récents.">blogues</a> </li>
+		   <li> <a href="?q=book" title="Lire et contribuer aux livres collaboratifs.">livres</a> </li>
+		   <li> <a href="?q=forum">forums</a> </li>
+		   <li> <a href="?q=poll" title="Voir la liste des sondages de ce site.">sondages</a> </li>
+		   <li> <a href="?q=search" title="Chercher pour du contenu plus vieux.">recherche</a></li><li><a href="http://docs.postgresqlfr.org/" target="_blank">documentation </a></li>
+-->
+		  </ul>
+	        </div>
+		</td>
+		</tr>
+		</table>
+      </td>
+     </tr>
+     <tr>
+    <td style="vertical-align: top; width: 20%;">
+<div class="block block-user" id="block-user-0">
+<div class="pgSideNav">    <h2>Ouverture de session</h2>    
+		    <div>
+			<form action="http://drupal.postgresql.fr/?q=user/login" method="post">
+<div class="user-login-block">
+<input type="hidden" name="edit[destination]" value="node/1363" />
+<div class="form-item">
+ <label for="edit-name">Nom d'utilisateur:</label><br />
+ <input type="text" maxlength="64" class="form-text" name="edit[name]" id="edit-name" size="15" value="" />
+</div>
+<div class="form-item">
+ <label for="edit-pass">Mot de passe:</label><br />
+ <input type="password" class="form-password" maxlength="64" name="edit[pass]" id="edit-pass" size="15" value="" />
+</div>
+<input type="submit" class="form-submit" name="op" value="Identification"  />
+</div>
+
+</form>
+<div class="item-list"><ul><li><a href="indexc12c.html?q=user/password" title="Demander un nouveau mot de passe par e-mail.">Demander un nouveau mot de passe</a></li></ul></div>
+		    </div></div></div>
+<div class="block block-user" id="block-user-1">
+<div class="pgSideNav">    <h2>Navigation</h2>    
+		    <div>
+			<div class="menu">
+<ul>
+<li class="leaf"><a href="indexa499.html?q=tracker">messages récents</a></li>
+
+</ul>
+</div>
+		    </div></div></div>
+<div class="block block-block" id="block-block-4">
+<div class="pgSideNav">    <h2>Contactez-nous</h2>    
+		    <div>
+			<p><strong>Administration du site&nbsp;:</strong><br />
+"equipe chez postgresqlfr point org"<br><br />
+<strong>Contact presse&nbsp;:</strong><br />
+"fr chez postgresql point org"<br><br />
+<strong>Contact association&nbsp;:</strong><br />
+"bureau chez postgresqlfr point org"<br><br />
+<strong>Questions PostgreSQL&nbsp;:</strong><br />
+&nbsp;IRC&nbsp;:<br />
+&nbsp;&nbsp;serveur <strong>irc.freenode.net</strong><br />
+&nbsp;&nbsp;canal <strong>#postgresqlfr</strong></p>
+
+		    </div></div></div>
+<div class="block block-block" id="block-block-1">
+<div class="pgSideNav">    <h2>Liens</h2>    
+		    <div>
+			<p><small></p>
+<ul>
+<li>
+<a href="http://www.postgresqlfr.org/?q=node/view/162">Adhérer</a>
+</li>
+<li>
+<a href="http://www.postgresqlfr.org/?q=node/473">Faire un don</a>
+</li>
+<li>
+<a href="http://www.postgresqlfr.org/?q=node/163">Consulter les statuts</a>
+</li>
+</ul>
+<ul>
+<li>
+<a href="http://www.postgresql.org/" class="active">Site original<br />
+</a>
+</li>
+<li>
+<a href="http://docs.postgresqlfr.org/" class="active">Site de traduction</a>
+</li>
+<li>
+<a href="http://docs.postgresqlfr.org/8.3/">Doc v.8.3.x fr</a>
+</li>
+<li>
+<a href="http://docs.postgresqlfr.org/8.2/">Doc v.8.2.x fr</a>
+</li>
+<li>
+<a href="http://docs.postgresqlfr.org/8.1/">Doc v.8.1.x fr</a>
+</li>
+<li>
+<a href="http://docs.postgresqlfr.org/8.0/">Doc v.8.0.x fr</a>
+</li>
+<li>
+<a href="http://docs.postgresqlfr.org/7.4/">Doc v.7.4.x fr</a>
+</li>
+<li>
+<a href="http://www.postgis.fr/">PostGIS</a>
+</li>
+<li>
+<a href="http://www.postgresql.org/docs/techdocs">Techdocs</a>
+</li>
+<li>
+<a href="http://www.varlena.com/varlena/GeneralBits/Tidbits/">General TidBits</a>
+</li>
+<p><!--</p>
+<li>
+<a href="http://www.postgresqlfr.org/?q=node/view/58">Version Windows</a>
+</li>
+<p>--></p>
+<li>
+<a href="http://www.postgresqlfr.org/drupal/?q=node/view/63">Témoignages de pros</a>
+</li>
+<li>
+<a href="http://archives.postgresql.org/pgsql-fr-generale/">Liste de diffusion</a>
+</li>
+<li>
+<a href="http://wwwmaster.postgresql.org/download/mirrors-ftp">Télécharger</a>
+</li>
+</ul>
+<p></small></p>
+
+		    </div></div></div>
+<div class="block block-block" id="block-block-2">
+<div class="pgSideNav">    <h2>Recherche</h2>    
+		    <div>
+			<form action="http://drupal.postgresql.fr/?q=search" method="post">
+<div id="search">
+<input class="form-text" type="text" size="15" value="" name="keys" alt="Enter the terms you wish to search for." /><br />
+<input class="form-submit" type="submit" value="Recherche" />
+</div>
+</form>
+
+		    </div></div></div>
+<div class="block block-forum" id="block-forum-0">
+<div class="pgSideNav">    <h2>Sujets du forum</h2>    
+		    <div>
+			<div class="item-list"><h3>Sujets actifs</h3><ul><li><a href="index253f.html?q=node/1742">A LIRE : FERMETURE DES FORUMS DRUPAL</a></li><li><a href="indexfc2e.html?q=node/1739" title="2 commentaires">Problème  avec pg_dump</a></li><li><a href="index97c1.html?q=node/1731" title="5 commentaires">Connexions simultannées</a></li><li><a href="index32d3.html?q=node/1737" title="1 commentaire">Optimisation de la mémoire sous PostgreSQL</a></li><li><a href="index2483.html?q=node/1736" title="3 commentaires">[Résolu] Upgrade Postgre -> types et opérateurs</a></li></ul></div><div class="item-list"><h3>Nouveaux sujets:</h3><ul><li><a href="index253f.html?q=node/1742">A LIRE : FERMETURE DES FORUMS DRUPAL</a></li><li><a href="indexfc2e.html?q=node/1739" title="2 commentaires">Problème  avec pg_dump</a></li><li><a href="index32d3.html?q=node/1737" title="1 commentaire">Optimisation de la mémoire sous PostgreSQL</a></li><li><a href="index2483.html?q=node/1736" title="3 commentaires">[Résolu] Upgrade Postgre -> types et opérateurs</a></li><li><a href="index82c4.html?q=node/1734" title="2 commentaires">[RESOLU] Probleme de connection en odbc</a></li></ul></div><div class="more-link"><a href="index79b7.html?q=forum" title="Lire les derniers sujets.">en lire plus</a></div>
+		    </div></div></div>
+<div class="block block-archive" id="block-archive-0">
+<div class="pgSideNav">    <h2>Accéder aux archives</h2>    
+		    <div>
+			
+<!-- calendar -->
+<div class="calendar"><table summary="Un calendrier pour accéder aux archives.">
+ <caption><a href="index9dfb.html?q=archive/2008/09/12" title="Mois précédent">&laquo;</a> Octobre 2008 &nbsp;</caption>
+ <tr class="header-week">
+ <th abbr="Lundi">Lun</th>
+ <th abbr="Mardi">Mar</th>
+ <th abbr="Mercredi">Mer</th>
+ <th abbr="Jeudi">Jeu</th>
+ <th abbr="Vendredi">Ven</th>
+ <th abbr="Samedi">Sam</th>
+ <th abbr="Dimanche">Dim</th>
+</tr>
+ <tr class="row-week"><td class="day-blank" colspan="2">&nbsp;</td>
+  <td class="day-link"><a href="indexd3e2.html?q=archive/2008/10/1">1</a></td>
+  <td class="day-normal">2</td>
+  <td class="day-normal">3</td>
+  <td class="day-normal">4</td>
+  <td class="day-normal">5</td>
+ </tr>
+ <tr class="row-week">
+  <td class="day-normal">6</td>
+  <td class="day-normal">7</td>
+  <td class="day-normal">8</td>
+  <td class="day-normal">9</td>
+  <td class="day-normal">10</td>
+  <td class="day-normal">11</td>
+  <td class="day-today">12</td>
+ </tr>
+ <tr class="row-week">
+  <td class="day-future">13</td>
+  <td class="day-future">14</td>
+  <td class="day-future">15</td>
+  <td class="day-future">16</td>
+  <td class="day-future">17</td>
+  <td class="day-future">18</td>
+  <td class="day-future">19</td>
+ </tr>
+ <tr class="row-week">
+  <td class="day-future">20</td>
+  <td class="day-future">21</td>
+  <td class="day-future">22</td>
+  <td class="day-future">23</td>
+  <td class="day-future">24</td>
+  <td class="day-future">25</td>
+  <td class="day-future">26</td>
+ </tr>
+ <tr class="row-week">
+  <td class="day-future">27</td>
+  <td class="day-future">28</td>
+  <td class="day-future">29</td>
+  <td class="day-future">30</td>
+  <td class="day-future">31</td>
+  <td class="day-blank" colspan="2">&nbsp;</td>
+ </tr>
+</table></div>
+
+
+		    </div></div></div>
+<div class="block block-node" id="block-node-0">
+<div class="pgSideNav">    <h2>Syndication</h2>    
+		    <div>
+			<div class="xml-icon"><a href="index9637.html?q=rss.xml"><img src="misc/xml.png" width="36" height="14" alt="Flux XML" title="Flux XML" /></a></div>
+		    </div></div></div>
+<div class="block block-poll" id="block-poll-0">
+<div class="pgSideNav">    <h2>Sondage</h2>    
+		    <div>
+			<div class="poll"><div class="title">Quelle est la version de PostgreSQL la plus répandue sur vos serveurs ?</div><div class="text">8.3</div><div class="bar"><div style="width: 10%;" class="foreground"></div></div><div class="percent">10%</div><div class="text">8.2</div><div class="bar"><div style="width: 42%;" class="foreground"></div></div><div class="percent">42%</div><div class="text">8.1</div><div class="bar"><div style="width: 40%;" class="foreground"></div></div><div class="percent">40%</div><div class="text">8.0</div><div class="bar"><div style="width: 2%;" class="foreground"></div></div><div class="percent">2%</div><div class="text">7.4</div><div class="bar"><div style="width: 6%;" class="foreground"></div></div><div class="percent">6%</div><div class="text">7.3 ou antérieure</div><div class="bar"><div style="width: 0%;" class="foreground"></div></div><div class="percent">0%</div><div class="total">Nombre de votes: 48</div></div><div class="links"><a href="index8c57.html?q=node/1426#comment" title="Sauter au premier commentaire de ce message.">3 commentaires</a> | <a href="index729f.html?q=poll" title="Voir la liste des sondages de ce site.">anciens sondages</a></div>
+		    </div></div></div>
+    </td>
+
+      <td style="vertical-align: top; width: 80%"><div class="breadcrumb"><a href="index03d2.html?q=">Accueil</a> &raquo; <a href="index79b7.html?q=forum">forums</a> &raquo; <a href="index161a.html?q=forum/15">Technique - odbc</a></div><h2 class="title">Connexion automatique en vb</h2>
+<!-- begin content -->
+
+<!-- node: "Connexion automatique en vb" -->
+<!--<div class="pgFrontCenterUser">
+<div class="pgFrontUser">
+<div class="pgFrontUserInner">
+--><div class="pgFrontUserWrap">
+ <div class="pgFrontUserContent">	<h1 class="plop"><a href="index9732.html?q=taxonomy/term/15">Technique - odbc</a> | <a href="index0789.html?q=node/1363" class="active">Connexion automatique en vb</a></h1>
+		    <p>
+			    Par <a href="indexe050.html?q=user/2798" title="Voir le profil utilisateur.">jertho</a> le 22/08/2007 - 10:16
+		    </p>	
+			    <p>Bonjour,</p>
+<p>Je suis nouveau sur le forum.<br />
+J'ai migré les tables de mon appli. Access sur Postgre.<br />
+Le seul souci que j'ai concerne la premiere connexion lorsque l'application se lance.<br />
+J'ai systématiquement un message me demandant d'indiquer l'id et le mot de passe du serveur base de données.<br />
+Je cherche à automatiser cette connexion en utilisant un script en vb.<br />
+J'espére que qq'un peut me donner la solution à mon problème !!!</p>
+<p>Merci d'avance</p>
+<!--hr /--><div class="contentsLink">[ <a href="index2186.html?q=node/237" title="Problème avec MS-Access comme Front End pour Postgresql">sujet précédent</a> | <a href="index627d.html?q=node/390" title="Pb driver psqlodbc">sujet suivant</a> ]</div>
+		     </div></div>
+<!--</div>
+</div>
+</div>
+</div> -->
+<a id="comment"></a>
+<form method="post" action="http://drupal.postgresql.fr/?q=comment"><div>
+<div class="pgSideNav">    <h2>Options d'affichage des commentaires</h2>    
+		    <div>
+			<div class="form-item">
+ <select name="mode"> <option value="1">A plat - replié</option>
+ <option value="2">A plat - déplié</option>
+ <option value="3">Par discussions - replié</option>
+ <option value="4" selected="selected">Par discussions - déplié</option>
+</select>
+<select name="order"> <option value="1">Date - récents en premier</option>
+ <option value="2" selected="selected">Date - anciens en premier</option>
+</select>
+<select name="comments_per_page"> <option value="10">10 commentaires par page</option> <option value="30">30 commentaires par page</option> <option value="50" selected="selected">50 commentaires par page</option> <option value="70">70 commentaires par page</option> <option value="90">90 commentaires par page</option></select>
+<input type="hidden" name="threshold" value="0" />
+ <input type="submit" class="form-submit" name="op" value="Sauvegarder les paramètres"  />
+
+ <div class="description">Sélectionnez la méthode d'affichage des commentaires que vous préférez, puis cliquez sur "Sauvegarder les paramètres" pour activer vos changements.</div>
+</div>
+
+		    </div></div><input type="hidden" name="edit[nid]" value="1363" />
+</div></form><form method="post" action="http://drupal.postgresql.fr/?q=comment"><div>
+<input type="hidden" name="edit[nid]" value="1363" />
+<a id="comment-2160"></a>
+<div class="pgContentWrap"><h1 id="txtFrontFeatureHeading">Bonjour
+
+Je suppose que vou</h1>
+		<p>
+		    <b><a href="index0b33.html?q=user/22" title="Voir le profil utilisateur.">Christophe Chauvet</a></b>/ = 22 Août, 2007 - 14:32
+		</p>
+		<p>
+		    <p>Bonjour</p>
+<p>Je suppose que vous utiliser de l'ODBC ?<br />
+Si oui quel version de votre driver</p>
+<p>si c'est celui re-écrit en utilisant la libpq vous pouvez utiliser cette <a href="http://docs.postgresqlfr.org/8.2/libpq-pgpass.html">méthode</a> (fichier .pgpass),<br />
+ou la <a href="http://docs.postgresqlfr.org/8.2/libpq-envars.html">méthode</a> des variables d'environnement,</p>
+<p>Cordialement.</p>
+<p>Christophe Chauvet<br />
+<a href="http://kryskool.org/" target="_blank">KrysKool.org</a></p>
+<br /><!--hr /--><div class="contentsLink">[ Vous devez <a href="index7992.html?q=user/login">vous connecter</a> pour poster des commentaires ]</div>
+		</p></div><a id="comment-2161"></a>
+<div class="pgContentWrap"><h1 id="txtFrontFeatureHeading">Connexion automatique en vb</h1>
+		<p>
+		    <b><a href="indexe050.html?q=user/2798" title="Voir le profil utilisateur.">jertho</a></b>/ = 22 Août, 2007 - 18:34
+		</p>
+		<p>
+		    <p>Bjr,<br />
+MErci de la réponse. La version de l'ODBC est 8.02.04.</p>
+<br /><!--hr /--><div class="contentsLink">[ Vous devez <a href="index7992.html?q=user/login">vous connecter</a> pour poster des commentaires ]</div>
+		</p></div><a id="comment-2166"></a>
+<div class="pgContentWrap"><h1 id="txtFrontFeatureHeading">Connection automatique en vb</h1>
+		<p>
+		    <b><a href="index040e.html?q=user/2679" title="Voir le profil utilisateur.">syracine</a></b>/ = 23 Août, 2007 - 16:31
+		</p>
+		<p>
+		    <p>Bonjour,</p>
+<p>J'ai un peu de difficulté à cerner où est ton problème. Est-ce que ton application est écrite en vb? Si tu as déjà migré tes tables vers PostgreSQL, alors tu devrais avoir déjà établie une connection ODBC...et les explications suivantes deviennent inutiles. Cependant, j'aime mieux te les donner pour être certain que tout fonctionne.</p>
+<p>Notes: Les explications fournies par Christophe Chauvet concerne l'utilisation des commandes (exécutables) de PostgreSQL dans un shell DOS par exemple ou pour l'ouverture d'une session dans pgAdminIII. Pour VB, c'est quelque chose de complètement différent. Il faut passer par la méthode que j'explique ci-dessous.</p>
+<p>CONNECTION ODBC<br />
+===============<br />
+Il faut d'abord établir une connection ODBC pour communiquer avec PostgreSQL en vb. Il n'y a pas de connection directe entre vb et PostgreSQL à ma connaissance.</p>
+<p>Lors de la création de la connection ODBC, tu choisis ton pilote (j'utilise le 8.02.02.00), puis une fenêtre apparaît. N'oublie que, contrairement à Access, tu dois spécifier un nom d'utilisateur et un mot de passe pour accéder à PostgreSQL. Donne les bonnes infos dans les champs 'User Name' et 'Password'. Il faut donner bien sûr aussi l'adresse IP de l'ordi où est installé le serveur PostgreSQL ('localhost' si c'est sur le même ordi que tu travailles) et le port (généralement 5432) et le mode SSL (généralement 'disable'). Puis tu cliques sur 'Test'. Si ça marche, alors tes infos sont corrects. Si ça ne marche pas, alors, vérifie la façon dont est configuré ton serveur PostgreSQL.</p>
+<p>CODE DE PROGRAMMATION VB<br />
+========================<br />
+Tu peux passer par ADODB pour communiquer avec PostgreSQL. C'est la méthode que j'utilise et qui est la plus simple. Voici ce que ça donne sous VB 6:</p>
+<p>Sub Connection()<br />
+  Dim cnn As New ADODB.connection<br />
+  Dim cmd AS New ADODB.command<br />
+  Dim rst AS New ADODB.Recordset</p>
+<p>  With cnn<br />
+    .Provider = "MSDASQL"<br />
+    .String = "DNS=matable;" ' Ici on donne l'info pour connecter à la BD<br />
+    .Open 'Ouverture de la communication<br />
+  End With</p>
+<p>  'Ensuite tu peux faire toutes sortes de requêtes</p>
+<p>  rst.Open "SELECT champ1, champ2 FROM matable", cnn<br />
+  valeur1 = rst("champ1")<br />
+  valeur2 = rst("champ2")<br />
+  rst.Close</p>
+<p>  cnn.Close 'Fermeture de la communication</p>
+<p>End Sub</p>
+<p>J'espère que cela te seras utile.</p>
+<br /><!--hr /--><div class="contentsLink">[ Vous devez <a href="index7992.html?q=user/login">vous connecter</a> pour poster des commentaires ]</div>
+		</p></div><a id="comment-2179"></a>
+<div class="pgContentWrap"><h1 id="txtFrontFeatureHeading">Pas besoin d'un shell DOS pou</h1>
+		<p>
+		    <b><a href="index0b33.html?q=user/22" title="Voir le profil utilisateur.">Christophe Chauvet</a></b>/ = 24 Août, 2007 - 16:54
+		</p>
+		<p>
+		    <p>Pas besoin d'un shell DOS pour fixer ses valeurs, un clique droit sur le <b>poste de travail</b> puis l'onglet <b>Avancé</b> et cliquer sur le bouton <b>Variables d'environnement</b>.</p>
+<p>les méthodes décrites fonctionnent avec VB (bien sur il faut la version du driver ODBC qui utilise la libpq.</p>
+<p>sinon y'a toujours possibilité de mettre ça dans le code VB.</p>
+<p>voici le code du module de base qui contient connexion et déconnexion que l'on utilise</p>
+<p class="code">
+Attribute VB_Name = "mod_Database"<br />
+Option Explicit</p>
+<p>' /**<br />
+' * Module gestion base de donnée via ADO<br />
+' */</p>
+<p>Public MyDB As New ADODB.Connection</p>
+<p>Public Function Pg_Connect(Chaine As String) As Boolean<br />
+  On Error Resume Next<br />
+  Err.Clear</p>
+<p>  Chaine = Trim(Chaine)<br />
+  MyDB.ConnectionString = Chaine<br />
+  MyDB.Open<br />
+  If (Err.Number <> 0) Then<br />
+    Debug.Print "ERR: N° " &#038; Err.Number &#038; " -> " &#038; Err.Description<br />
+    Pg_Connect = False<br />
+  Else<br />
+    Pg_Connect = True<br />
+  End If<br />
+End Function</p>
+<p>Public Sub Pg_Close()<br />
+  MyDB.Close<br />
+  Set MyDB = Nothing<br />
+End Sub</p>
+<p>' Convertie une DATE (AAAAMMJJ) et<br />
+' HEURE (HHmmss) au format<br />
+' TIMESTAMP ISO (AAAA-MM-JJ HH:mm:ss.00) de PostgreSQL.<br />
+Public Function Pg_TimeStamp(strDate As String, strTime As String) As String<br />
+  Pg_TimeStamp = Mid(strDate, 1, 4) &#038; "-" &#038; Mid(strDate, 5, 2) &#038; "-" &#038; Mid(strDate, 7, 2) &#038; " " &#038; _<br />
+                 Mid(strTime, 1, 2) &#038; ":" &#038; Mid(strTime, 3, 2) &#038; ":" &#038; Mid(strTime, 5, 2) &#038; ".00"<br />
+End Function
+</p>
+Cordialement.</p>
+<p>Christophe Chauvet<br />
+<a href="http://kryskool.org/" target="_blank">KrysKool.org</a></p>
+<br /><!--hr /--><div class="contentsLink">[ Vous devez <a href="index7992.html?q=user/login">vous connecter</a> pour poster des commentaires ]</div>
+		</p></div></div></form>
+<!-- end content -->
+              </td>
+
+    </tr>
+    <tr><td colspan="2">
+
+		<div class="pgTopNav">
+		   <div class="pgTopNavLeft"> 
+		     <img src="layout/images/nav_lft.png" width="7" height="23" alt="" />
+		   </div>
+		   <div class="pgTopNavRight">
+		    <img src="layout/images/nav_rgt.png" width="7" height="23" alt="" />
+		  </div>
+		  <!--<ul class="pgTopNavList">-->
+		  <ul class="pgTopNavList">
+		   <li><a href="index03d2.html?q=" title="Retourner à la page principale.">accueil</a> </li>
+		   <li> <a href="indexf6e5.html?q=archive" title="Lire le contenu plus ancien dans notre archive.">archives</a> </li>
+		   <li> <a href="index71c4.html?q=blog" title="Lire les blogues les plus récents.">blogues</a> </li>
+
+		   <li> <a href="indexf6fe.html?q=book" title="Lire et contribuer aux livres collaboratifs.">livres</a> </li>
+		   <li> <a href="index79b7.html?q=forum">forums</a> </li>
+		   <li> <a href="index729f.html?q=poll" title="Voir la liste des sondages de ce site.">sondages</a> </li>
+		   <li> <a href="index4404.html?q=search" title="Chercher pour du contenu plus vieux.">recherche</a></li><li><a href="http://docs.postgresqlfr.org/" target="_blank">documentation </a></li>
+
+		  </ul>
+
+<!--
+		   <li><a href="?q=" title="Retourner à la page principale.">accueil</a> </li>
+		   <li> <a href="?q=archive" title="Lire le contenu plus ancien dans notre archive.">archives</a> </li>
+		   <li> <a href="?q=blog" title="Lire les blogues les plus récents.">blogues</a> </li>
+		   <li> <a href="?q=book" title="Lire et contribuer aux livres collaboratifs.">livres</a> </li>
+		   <li> <a href="?q=forum">forums</a> </li>
+		   <li> <a href="?q=poll" title="Voir la liste des sondages de ce site.">sondages</a> </li>
+		   <li> <a href="?q=search" title="Chercher pour du contenu plus vieux.">recherche</a></li><li><a href="http://docs.postgresqlfr.org/" target="_blank">documentation </a></li>
+-->
+		  </ul>
+	        </div>
+    </td></tr>
+   </table>
+   <p style="text-align: center;">&copy;&nbsp;PostgreSQLFr, tous droits réservés.<br>
+Site déclaré à la CNIL sous le numéro 1074678, conformément à la Loi en vigueur.
+</p>
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-3921927-1");
+pageTracker._initData();
+pageTracker._trackPageview();
+</script>
+<p></p>
+   
+</body>
+
+<!-- Mirrored from drupal.postgresql.fr/?q=node/1363 by HTTrack Website Copier/3.x [XR&CO'2006], Sun, 12 Oct 2008 16:16:30 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+</html>

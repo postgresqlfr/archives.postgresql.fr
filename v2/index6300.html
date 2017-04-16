@@ -1,0 +1,212 @@
+<html>
+<!-- Mirrored from drupal.postgresql.fr/?q=book/print/72 by HTTrack Website Copier/3.x [XR&CO'2006], Sun, 12 Oct 2008 16:33:36 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+<head><title>Stéphane SCHILDKNECHT, DBA, dalibo</title><base  /><style type="text/css">
+@import url(misc/print.css);
+</style></head><body><h1 id="72" name="72" class="book-h1">Stéphane SCHILDKNECHT, DBA, dalibo</h1><p class="question">
+Êtes vous d'accord pour que votre nom, prénom, courriel, nom d'organisation et votre fonction dans celle-ci soit connue du public ?
+</p>
+<p class="detail">
+Oui.
+</p>
+<p class="detail">
+Stéphane SCHILDKNECHT, stephane.schildknecht@postgresqlfr.org<br><br />
+Fonction : Administrateur de bases de données.<br><br />
+Je dois avouer que j'ai une TRES nette préférence pour les bases OpenSource, et notamment PG ;-)<br><br />
+Société : dalibo<br><br />
+Adresse : <br>
+</p>
+<p class="question">
+Vous faites partie d'une organisation à but lucratif, associatif ou gouvernementale ?
+</p>
+<p class="detail">
+Société de srvices, but lucratif!<br />
+<p class="question">
+Quelle est la taille de votre organisation en nombre de collaborateurs ?
+</p>
+<p class="detail">
+5, en croissance.
+</p>
+<par>
+A partir de ce point, les réponses aux questions reflètent mon expérience de DBA depuis mes débuts chez Aurora jusqu'à mon expérience précédente. Mon entreprise actuelle ne souhaite pas communiquer sur les technologies employées.<br />
+</par>
+<p class="question">
+À quoi sert la(les) bases de données que vous utilisez dans votre organisation ?
+</p>
+<p class="detail">
+Chez Aurora, PostgreSQL était utilisé en interne. Chez Linagora, je n'ai jamais réussi à imposer son utilisation en interne. Quoiqu'il en soit, peu de projets étaient internes. J'ai essayé de mener à bien un certain nombre de tests (réplication par exemple), mais les priorités étaient souvent différentes.
+</p>
+<p class="detail">
+Chez Aurora, j'ai travaillé sur le site ameli.fr, site de la CNAMTS. Nous avons utilisé une base de données PostgreSQL pour stocker le contenu et les informations des utilisateurs des front et backend. J'ai ainsi pu développé toute une panoplie de procédures stockées et de triggers. Et franchement, PL/PgSQL n'a pas grand-chose à envier au PL/SQL d'un éditeur proprétaire.
+</p>
+<p class="detail">
+Linagora a/avait un certain nombre de clients chez qui nous intervenions sur des bases de données PostgreSQL. Le service DPMA du MINEFI utilise une base de données PostgreSQL depuis plusieurs années pour son intranet (plus de 18000 utilisateurs). Cette base présente une stabilité et une rapidité de réponse impressionnante.
+</p>
+<p class="detail">
+Nous travaillions sur un projet d'agenda partagé, basé sur OpenGroupware.org et utilisant une base de données PostgreSQL. J'ai envisagé les possibilités de réplication de cette base qui devrait stocker les informations concernant plus de 60 000 utilisateurs.
+</p>
+<p class="detail">
+Je suis également intervenu chez un client qui a basculé son système d'information (et notamment son catalogue de produits) vers des produits libres. Ils ont fait le choix de PostgreSQL pour des bases de données critiques.
+</p>
+<p class="question">
+La(les) bases de donnéess gérées sont critiques pour votre l'organisation ?
+</p>
+<p class="detail">
+Pour certains des clients chez qui je suis intervenu, c'est vital.
+</p>
+<p class="question">
+Quel est le nombre de bases de données sous PostgreSQL par rapport aux total de bases de données de votre organisation, tous SGBD confondus ?
+</p>
+<p class="detail">
+La plupart!
+</p>
+<p class="question">
+Quel est le nombre minimum/maximum/moyen de tables par base de données ?
+</p>
+<p class="detail">
+Je ne sais pas pour nos clients.
+</p>
+<p class="question">
+Quelle est la taille minimum/max/moyenne des bases gérées (en méga octets) ?
+</p>
+<p class="detail">
+A la louche, cela va de quelques mégas à plusieurs gigaoctets.
+</p>
+<p class="question">
+PostgreSQL est utilisée dans un contexte transactionnel ou plutôt de type datamining/datawarehouse ?
+</p>
+<p class="detail">
+Essentiellement du transactionnel.
+</p>
+<p class="question">
+Quelle est la version utilisée ?
+</p>
+<p class="detail">
+De la 7.3 à la 8.2. Sous debian et RedHat essentiellement.
+</p>
+<p class="question">
+Le serveur sur lequel est installé PostgreSQL est de quel type ?
+</p>
+<p class="detail">
+Pour mes tests de réplications, je suis sur du serveur Debian sarge, Intel PIV à 3 GHz et 896 Mo de RAM, d'un côté, Quadriproc Xeon 2,4GHz et 1 Go de RAM de l'autre.
+</p>
+<p class="question">
+Quelle est la part des logiciels libres dans votre organisation ?<br><br />
+Au niveau des serveurs ? Et au niveau des postes clients ?<br>
+</p>
+<p class="detail">
+80 % de logiciels libres (même dans les SSLL il est possible de trouver du Windows installé !)
+</p>
+<p class="question">
+Quel est le "nombre de serveurs en technologies libres globalement)" ? et le nombre de serveurs au total, dans votre organisation ?
+</p>
+<p class="detail">
+Une quinzaine de serveurs, tous sous Linux.
+</p>
+<p class="question">
+Depuis combien de temps PostgreSQL est utilisé dans l'organisation et/ou depuis quelle version ?
+</p>
+<p class="detail">
+Personnellement, j'utilise Postgresql depuis 2001, version 7.1, il me semble.
+</p>
+<p class="question">
+PostgreSQL est-il venu en remplacement d'une technologie propriétaire (ou plusieurs), si oui, laquelle (lesquelles) ?
+</p>
+<p class="detail">
+Il n'est pas forcément venu en remplacement, mais nous le proposons quand le client nous laisse le choix du SGBD/R.
+</p>
+<p class="question">
+Si vous avez remplacé une technologie propriétaire par PostgreSQL: Pourquoi ?
+</p>
+<p class="detail">
+La proposition de PG est souvent accepté au regard du rapport besoin/coût/fonctionnalités.
+</p>
+<p class="question">
+Si vous avez remplacé une technologie propriétaire par PostgreSQL: Avez vous testé d'autres SGBD Libres ? Si oui, lesquels ?
+</p>
+<p class="detail">
+MySQL, SAPDB. Je vais me lancer dans la découverte de Ingres.
+</p>
+<p class="question">
+Si vous avez testé d'autres SGBD/R libres: Pourquoi avoir choisi PostgreSQL au final ?
+</p>
+<p class="detail">
+Les procédures stockées, les triggers, entre autres. il manque toujours une solution stable et efficace de réplication sous PG.<br><br />
+Je changerais peut-être d'avis lorsque j'aurais finalisé les tests de Slony-I.
+</p>
+<p class="question">
+À présent, donnez des notes de 1 à 5 et commentez<br><br />
+1 = mauvais, 2 = passable, 3 = moyen, 4 = bon, 5 = très bon<br>
+</p>
+<p class="question"> Quel est votre ressenti sur PostgreSQL en termes de fiabilité ?
+</p>
+<p class="detail">
+5 sur 5 !
+</p>
+<p class="question">
+de robustesse ?
+</p>
+<p class="detail">
+4 sur 5. Il est possible de planter le serveur à l'aide de procédures stockées mal écrites ! Mais les données ne sont pas perdues pour autant.
+</p>
+<p class="question">
+d'administration ?
+</p>
+<p class="detail">
+5
+</p>
+<p class="question">
+de facilité d'utilisation ?
+</p>
+<p class="detail">
+5. J'apprécie énormément l'outil psql. Je repproche par contre l'absence d'une commande SQL telle que DESCRIBE qui oblige à un peu plus de contorsions pour scrpter le résultat de la commande \dt.
+</p>
+<p class="question">
+de performances ?
+</p>
+<p class="detail">
+5
+</p>
+<p class="question">
+d'extensibilité ?
+</p>
+<p class="detail">
+Je n'ai pas utilisé la posibilité de créer de nouveaux types de données.
+</p>
+<p class="question">
+de « scalabilité » ?
+</p>
+<p class="detail">
+5
+</p>
+<p class="question">
+de « tuning » ?
+</p>
+<p class="detail">
+3,5... Le tuning est assez complexe dans la mesure où les changements effectués ne sont pas forcément flagrants.
+</p>
+<p class="question">
+d'outils annexes ?
+</p>
+<p class="detail">
+5
+</p>
+<p class="question">
+Le support de la communauté PostgreSQL vous parraît-il efficace ?
+</p>
+<p class="detail">
+5. Il y a toujours qqn de compétent pour répondre, que ce soit sur #postgresqlfr ou #postgresql sur IRC (serveur irc.freenode.net), par exemple.
+</p>
+<p class="detail">
+--<br><br />
+Stéphane SCHILDKNECHT<br><br />
+Mnémosyne<br><br />
+44, rue La Fayette 75009 PARIS<br><br />
+Tel : +33(0)1 53 34 43 60<br><br />
+fax : +33(0)1 53 34 05 61<br><br />
+http://www.mnémosyne.fr<br>
+</p>
+</body>
+<!-- Mirrored from drupal.postgresql.fr/?q=book/print/72 by HTTrack Website Copier/3.x [XR&CO'2006], Sun, 12 Oct 2008 16:33:36 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+</html>

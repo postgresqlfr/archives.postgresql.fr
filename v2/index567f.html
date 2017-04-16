@@ -1,0 +1,63 @@
+<html>
+<!-- Mirrored from drupal.postgresql.fr/?q=book/print/1270 by HTTrack Website Copier/3.x [XR&CO'2006], Sun, 12 Oct 2008 17:23:51 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+<head><title>Tableau Accumulateur</title><base  /><style type="text/css">
+@import url(misc/print.css);
+</style></head><body><h1 id="1270" name="1270" class="book-h1">Tableau Accumulateur</h1><p>Plutôt que de faire une somme, on peut avoir besoin de cumuler l'ensemble des valeurs différentes d'un <tt>GROUP BY</tt> dans un tableau. On peut à cet effet utiliser l'agrégat suivant :<br />
+<p class="code">
+CREATE AGGREGATE array_acc (<br />
+        BASETYPE = anyelement,<br />
+        SFUNC = array_append,<br />
+        STYPE = anyarray,<br />
+        INITCOND = '{}'<br />
+);
+</p>
+Il s'utilise tout simplement comme suit :<br />
+<p class="code">
+pgloader=# begin;<br />
+BEGIN<br />
+pgloader=# create table foo (a int, b text);<br />
+CREATE TABLE<br />
+pgloader=# insert into foo values(1, 'foo'), (1, 'bar'), (2, 'baz'), (1, 'zoinx');<br />
+INSERT 0 4<br />
+pgloader=# CREATE AGGREGATE array_acc (<br />
+pgloader(#         BASETYPE = anyelement,<br />
+pgloader(#         SFUNC = array_append,<br />
+pgloader(#         STYPE = anyarray,<br />
+pgloader(#         INITCOND = '{}'<br />
+pgloader(# );<br />
+CREATE AGGREGATE<br />
+pgloader=# select a, array_acc(b) from foo group by a;<br />
+ a |    array_acc<br />
+---+-----------------<br />
+ 2 | {baz}<br />
+ 1 | {foo,bar,zoinx}<br />
+(2 lignes)<br />
+pgloader=# rollback;<br />
+ROLLBACK<br />
+pgloader=# begin;<br />
+BEGIN<br />
+pgloader=# create table foo (a int, b text);<br />
+CREATE TABLE<br />
+pgloader=# insert into foo values(1, 'foo'), (1, 'bar'), (2, 'baz'), (1, 'zoinx');<br />
+INSERT 0 4<br />
+pgloader=# CREATE AGGREGATE array_acc (<br />
+pgloader(#         BASETYPE = anyelement,<br />
+pgloader(#         SFUNC = array_append,<br />
+pgloader(#         STYPE = anyarray,<br />
+pgloader(#         INITCOND = '{}'<br />
+pgloader(# );<br />
+CREATE AGGREGATE<br />
+pgloader=# select a, array_acc(b) from foo group by a;<br />
+ a |    array_acc<br />
+---+-----------------<br />
+ 2 | {baz}<br />
+ 1 | {foo,bar,zoinx}<br />
+(2 lignes)</p>
+<p>pgloader=# rollback;<br />
+ROLLBACK
+</p>
+</body>
+<!-- Mirrored from drupal.postgresql.fr/?q=book/print/1270 by HTTrack Website Copier/3.x [XR&CO'2006], Sun, 12 Oct 2008 17:23:51 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+</html>

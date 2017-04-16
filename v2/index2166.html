@@ -1,0 +1,46 @@
+<html>
+<!-- Mirrored from drupal.postgresql.fr/?q=book/print/906 by HTTrack Website Copier/3.x [XR&CO'2006], Sun, 12 Oct 2008 17:23:58 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+<head><title>Filtrer des tuples à intervalle temporel régulier</title><base  /><style type="text/css">
+@import url(misc/print.css);
+</style></head><body><h1 id="906" name="906" class="book-h1">Filtrer des tuples à intervalle temporel régulier</h1><p>
+<b>Conditions préalables</b><br>
+<blockquote>
+Imaginons une table contenant plusieurs colonnes dont une est une estampille. Par exemple la table mesures :
+<pre>
+CREATE TABLE mesures (
+     estampille TIMESTAMP WITH TIMEZONE PRIMARY KEY,
+     valeur DOUBLE PRECISION);
+</pre>
+
+Nous pouvons imaginer que les données sont temporellement réparties uniformément dans le temps (une donnée toutes les minutes par exemple)
+</blockquote>
+</p>
+<p>
+<b>Cas d'utilisation</b><br>
+<blockquote>
+On souhaite avoir les mesures entre deux dates en échantillonnant les données présentes dans la table mesures avec un intervalle régulier supérieur à la répartition initiale de la mesure (par exemple toutes les 5 minutes).
+</blockquote>
+</p>
+<p>
+<b>Requête</b><br>
+<blockquote>
+Nous allons utiliser la fonction EXTRACT avec comme argument EPOCH pour extraire le nombre de secondes écoulées depuis le 1er Janvier 1970 à minuit GMT sur l'estampille de chaque ligne. Nous pourrons ensuite utiliser la fonction modulo (%) pour fixer déterminer si la ligne est sélectionnable ou non.
+
+<pre>
+SELECT 
+ * 
+FROM 
+ mesures
+WHERE
+ estampille BETWEEN CURRENT_TIMESTAMP - '1 day'::INTERVAL AND CURRENT_TIMESTAMP
+AND
+ ( (EXTRACT(EPOCH FROM estampille)::INTEGER ) % (5 * 60) ) = 0;
+</pre>
+
+Ainsi chaque fois que la date EPOCH sera un multiple de 5*60 secondes (5 minutes) le modulo sera égal à 0 et notre ligne sera sélectionnée.
+</blockquote>
+</p></body>
+<!-- Mirrored from drupal.postgresql.fr/?q=book/print/906 by HTTrack Website Copier/3.x [XR&CO'2006], Sun, 12 Oct 2008 17:23:58 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+</html>

@@ -1,0 +1,711 @@
+
+<!DOCTYPE
+ html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+ <html>
+ <!-- $Date: 2005/08/30 07:54:43 $ / $Revision: 1.29 $ / Last Theme Editor :$Author: jx $-->
+  
+<!-- Mirrored from drupal.postgresql.fr/?q=node/58 by HTTrack Website Copier/3.x [XR&CO'2006], Sun, 12 Oct 2008 16:30:01 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<base  />
+<style type="text/css" media="all">@import "misc/drupal.css";</style>
+   <title>Installer PostgreSQL sous Windows, en natif, sans Cygwin? Facile!!! - PostgreSQLFr</title>
+ <style type="text/css" media="screen" title="Normal Text">
+    @import url("layout/css/blue/fixed.css");
+    @import url(_guillaume/dotclear/themes/postgresql/style.html);
+ </style>
+ <style type="text/css" media="screen" title="Normal Text2">
+    @import url("layout/css/blue/pgfr.css");
+    @import url(_guillaume/dotclear/themes/postgresql/style.html);
+ </style>
+   </head>
+   <body>
+    <table border="0" cellspacing="5" cellpadding="0" width="100%">
+     <tr>
+      <!--td colspan="2" width="100%"-->
+      <td colspan="2">
+      <!-- Head -->
+       <table border="0" cellspacing="0" cellpadding="0" width="100%">
+        <tr>
+	 <td align="left">
+           <div id="pgHeader">
+	    <div id="pgHeaderLogoLeft">
+	     <a href="index.html" title="PostgreSQL"><img src="layout/images/hdr_left.png" width="230" height="80" alt="PostgreSQL" /></a>
+	    </div>
+	    <div id="pgHeaderLogoRight">
+	     <a href="index.html" title="La base de donn�es la plus sophistiqu�e au monde."><img src="layout/images/hdr_right.png" width="210" height="80" alt="La base de donn�es la plus sophistiqu�e au monde." /></a>
+	    </div>
+	   </div>
+         </td>
+	 <td align="right">
+         </td>
+	</tr>
+      </table> <!-- Head -->
+      <br />
+      <table border="0" cellspacing="0" cellpadding="0" width="100%">
+              <tr>
+	      	 <td align="left">
+
+		<div class="pgTopNav">
+		   <div class="pgTopNavLeft"> 
+		     <img src="layout/images/nav_lft.png" width="7" height="23" alt="" />
+		   </div>
+		   <div class="pgTopNavRight">
+		    <img src="layout/images/nav_rgt.png" width="7" height="23" alt="" />
+		  </div>
+		  <!--<ul class="pgTopNavList">-->
+		  <ul class="pgTopNavList">
+		   <li><a href="index03d2.html?q=" title="Retourner à la page principale.">accueil</a> </li>
+		   <li> <a href="indexf6e5.html?q=archive" title="Lire le contenu plus ancien dans notre archive.">archives</a> </li>
+		   <li> <a href="index71c4.html?q=blog" title="Lire les blogues les plus récents.">blogues</a> </li>
+
+		   <li> <a href="indexf6fe.html?q=book" title="Lire et contribuer aux livres collaboratifs.">livres</a> </li>
+		   <li> <a href="index79b7.html?q=forum">forums</a> </li>
+		   <li> <a href="index729f.html?q=poll" title="Voir la liste des sondages de ce site.">sondages</a> </li>
+		   <li> <a href="index4404.html?q=search" title="Chercher pour du contenu plus vieux.">recherche</a></li><li><a href="http://docs.postgresqlfr.org/" target="_blank">documentation </a></li>
+
+		  </ul>
+
+<!--
+		   <li><a href="?q=" title="Retourner à la page principale.">accueil</a> </li>
+		   <li> <a href="?q=archive" title="Lire le contenu plus ancien dans notre archive.">archives</a> </li>
+		   <li> <a href="?q=blog" title="Lire les blogues les plus récents.">blogues</a> </li>
+		   <li> <a href="?q=book" title="Lire et contribuer aux livres collaboratifs.">livres</a> </li>
+		   <li> <a href="?q=forum">forums</a> </li>
+		   <li> <a href="?q=poll" title="Voir la liste des sondages de ce site.">sondages</a> </li>
+		   <li> <a href="?q=search" title="Chercher pour du contenu plus vieux.">recherche</a></li><li><a href="http://docs.postgresqlfr.org/" target="_blank">documentation </a></li>
+-->
+		  </ul>
+	        </div>
+		</td>
+		</tr>
+		</table>
+      </td>
+     </tr>
+     <tr>
+    <td style="vertical-align: top; width: 20%;">
+<div class="block block-user" id="block-user-0">
+<div class="pgSideNav">    <h2>Ouverture de session</h2>    
+		    <div>
+			<form action="http://drupal.postgresql.fr/?q=user/login" method="post">
+<div class="user-login-block">
+<input type="hidden" name="edit[destination]" value="node/58" />
+<div class="form-item">
+ <label for="edit-name">Nom d'utilisateur:</label><br />
+ <input type="text" maxlength="64" class="form-text" name="edit[name]" id="edit-name" size="15" value="" />
+</div>
+<div class="form-item">
+ <label for="edit-pass">Mot de passe:</label><br />
+ <input type="password" class="form-password" maxlength="64" name="edit[pass]" id="edit-pass" size="15" value="" />
+</div>
+<input type="submit" class="form-submit" name="op" value="Identification"  />
+</div>
+
+</form>
+<div class="item-list"><ul><li><a href="indexc12c.html?q=user/password" title="Demander un nouveau mot de passe par e-mail.">Demander un nouveau mot de passe</a></li></ul></div>
+		    </div></div></div>
+<div class="block block-user" id="block-user-1">
+<div class="pgSideNav">    <h2>Navigation</h2>    
+		    <div>
+			<div class="menu">
+<ul>
+<li class="leaf"><a href="indexa499.html?q=tracker">messages récents</a></li>
+
+</ul>
+</div>
+		    </div></div></div>
+<div class="block block-block" id="block-block-4">
+<div class="pgSideNav">    <h2>Contactez-nous</h2>    
+		    <div>
+			<p><strong>Administration du site&nbsp;:</strong><br />
+"equipe chez postgresqlfr point org"<br><br />
+<strong>Contact presse&nbsp;:</strong><br />
+"fr chez postgresql point org"<br><br />
+<strong>Contact association&nbsp;:</strong><br />
+"bureau chez postgresqlfr point org"<br><br />
+<strong>Questions PostgreSQL&nbsp;:</strong><br />
+&nbsp;IRC&nbsp;:<br />
+&nbsp;&nbsp;serveur <strong>irc.freenode.net</strong><br />
+&nbsp;&nbsp;canal <strong>#postgresqlfr</strong></p>
+
+		    </div></div></div>
+<div class="block block-block" id="block-block-1">
+<div class="pgSideNav">    <h2>Liens</h2>    
+		    <div>
+			<p><small></p>
+<ul>
+<li>
+<a href="http://www.postgresqlfr.org/?q=node/view/162">Adhérer</a>
+</li>
+<li>
+<a href="http://www.postgresqlfr.org/?q=node/473">Faire un don</a>
+</li>
+<li>
+<a href="http://www.postgresqlfr.org/?q=node/163">Consulter les statuts</a>
+</li>
+</ul>
+<ul>
+<li>
+<a href="http://www.postgresql.org/" class="active">Site original<br />
+</a>
+</li>
+<li>
+<a href="http://docs.postgresqlfr.org/" class="active">Site de traduction</a>
+</li>
+<li>
+<a href="http://docs.postgresqlfr.org/8.3/">Doc v.8.3.x fr</a>
+</li>
+<li>
+<a href="http://docs.postgresqlfr.org/8.2/">Doc v.8.2.x fr</a>
+</li>
+<li>
+<a href="http://docs.postgresqlfr.org/8.1/">Doc v.8.1.x fr</a>
+</li>
+<li>
+<a href="http://docs.postgresqlfr.org/8.0/">Doc v.8.0.x fr</a>
+</li>
+<li>
+<a href="http://docs.postgresqlfr.org/7.4/">Doc v.7.4.x fr</a>
+</li>
+<li>
+<a href="http://www.postgis.fr/">PostGIS</a>
+</li>
+<li>
+<a href="http://www.postgresql.org/docs/techdocs">Techdocs</a>
+</li>
+<li>
+<a href="http://www.varlena.com/varlena/GeneralBits/Tidbits/">General TidBits</a>
+</li>
+<p><!--</p>
+<li>
+<a href="http://www.postgresqlfr.org/?q=node/view/58">Version Windows</a>
+</li>
+<p>--></p>
+<li>
+<a href="http://www.postgresqlfr.org/drupal/?q=node/view/63">Témoignages de pros</a>
+</li>
+<li>
+<a href="http://archives.postgresql.org/pgsql-fr-generale/">Liste de diffusion</a>
+</li>
+<li>
+<a href="http://wwwmaster.postgresql.org/download/mirrors-ftp">Télécharger</a>
+</li>
+</ul>
+<p></small></p>
+
+		    </div></div></div>
+<div class="block block-block" id="block-block-2">
+<div class="pgSideNav">    <h2>Recherche</h2>    
+		    <div>
+			<form action="http://drupal.postgresql.fr/?q=search" method="post">
+<div id="search">
+<input class="form-text" type="text" size="15" value="" name="keys" alt="Enter the terms you wish to search for." /><br />
+<input class="form-submit" type="submit" value="Recherche" />
+</div>
+</form>
+
+		    </div></div></div>
+<div class="block block-forum" id="block-forum-0">
+<div class="pgSideNav">    <h2>Sujets du forum</h2>    
+		    <div>
+			<div class="item-list"><h3>Sujets actifs</h3><ul><li><a href="index253f.html?q=node/1742">A LIRE : FERMETURE DES FORUMS DRUPAL</a></li><li><a href="indexfc2e.html?q=node/1739" title="2 commentaires">Problème  avec pg_dump</a></li><li><a href="index97c1.html?q=node/1731" title="5 commentaires">Connexions simultannées</a></li><li><a href="index32d3.html?q=node/1737" title="1 commentaire">Optimisation de la mémoire sous PostgreSQL</a></li><li><a href="index2483.html?q=node/1736" title="3 commentaires">[Résolu] Upgrade Postgre -> types et opérateurs</a></li></ul></div><div class="item-list"><h3>Nouveaux sujets:</h3><ul><li><a href="index253f.html?q=node/1742">A LIRE : FERMETURE DES FORUMS DRUPAL</a></li><li><a href="indexfc2e.html?q=node/1739" title="2 commentaires">Problème  avec pg_dump</a></li><li><a href="index32d3.html?q=node/1737" title="1 commentaire">Optimisation de la mémoire sous PostgreSQL</a></li><li><a href="index2483.html?q=node/1736" title="3 commentaires">[Résolu] Upgrade Postgre -> types et opérateurs</a></li><li><a href="index82c4.html?q=node/1734" title="2 commentaires">[RESOLU] Probleme de connection en odbc</a></li></ul></div><div class="more-link"><a href="index79b7.html?q=forum" title="Lire les derniers sujets.">en lire plus</a></div>
+		    </div></div></div>
+<div class="block block-archive" id="block-archive-0">
+<div class="pgSideNav">    <h2>Accéder aux archives</h2>    
+		    <div>
+			
+<!-- calendar -->
+<div class="calendar"><table summary="Un calendrier pour accéder aux archives.">
+ <caption><a href="index9dfb.html?q=archive/2008/09/12" title="Mois précédent">&laquo;</a> Octobre 2008 &nbsp;</caption>
+ <tr class="header-week">
+ <th abbr="Lundi">Lun</th>
+ <th abbr="Mardi">Mar</th>
+ <th abbr="Mercredi">Mer</th>
+ <th abbr="Jeudi">Jeu</th>
+ <th abbr="Vendredi">Ven</th>
+ <th abbr="Samedi">Sam</th>
+ <th abbr="Dimanche">Dim</th>
+</tr>
+ <tr class="row-week"><td class="day-blank" colspan="2">&nbsp;</td>
+  <td class="day-link"><a href="indexd3e2.html?q=archive/2008/10/1">1</a></td>
+  <td class="day-normal">2</td>
+  <td class="day-normal">3</td>
+  <td class="day-normal">4</td>
+  <td class="day-normal">5</td>
+ </tr>
+ <tr class="row-week">
+  <td class="day-normal">6</td>
+  <td class="day-normal">7</td>
+  <td class="day-normal">8</td>
+  <td class="day-normal">9</td>
+  <td class="day-normal">10</td>
+  <td class="day-normal">11</td>
+  <td class="day-today">12</td>
+ </tr>
+ <tr class="row-week">
+  <td class="day-future">13</td>
+  <td class="day-future">14</td>
+  <td class="day-future">15</td>
+  <td class="day-future">16</td>
+  <td class="day-future">17</td>
+  <td class="day-future">18</td>
+  <td class="day-future">19</td>
+ </tr>
+ <tr class="row-week">
+  <td class="day-future">20</td>
+  <td class="day-future">21</td>
+  <td class="day-future">22</td>
+  <td class="day-future">23</td>
+  <td class="day-future">24</td>
+  <td class="day-future">25</td>
+  <td class="day-future">26</td>
+ </tr>
+ <tr class="row-week">
+  <td class="day-future">27</td>
+  <td class="day-future">28</td>
+  <td class="day-future">29</td>
+  <td class="day-future">30</td>
+  <td class="day-future">31</td>
+  <td class="day-blank" colspan="2">&nbsp;</td>
+ </tr>
+</table></div>
+
+
+		    </div></div></div>
+<div class="block block-node" id="block-node-0">
+<div class="pgSideNav">    <h2>Syndication</h2>    
+		    <div>
+			<div class="xml-icon"><a href="index9637.html?q=rss.xml"><img src="misc/xml.png" width="36" height="14" alt="Flux XML" title="Flux XML" /></a></div>
+		    </div></div></div>
+<div class="block block-poll" id="block-poll-0">
+<div class="pgSideNav">    <h2>Sondage</h2>    
+		    <div>
+			<div class="poll"><div class="title">Quelle est la version de PostgreSQL la plus répandue sur vos serveurs ?</div><div class="text">8.3</div><div class="bar"><div style="width: 10%;" class="foreground"></div></div><div class="percent">10%</div><div class="text">8.2</div><div class="bar"><div style="width: 42%;" class="foreground"></div></div><div class="percent">42%</div><div class="text">8.1</div><div class="bar"><div style="width: 40%;" class="foreground"></div></div><div class="percent">40%</div><div class="text">8.0</div><div class="bar"><div style="width: 2%;" class="foreground"></div></div><div class="percent">2%</div><div class="text">7.4</div><div class="bar"><div style="width: 6%;" class="foreground"></div></div><div class="percent">6%</div><div class="text">7.3 ou antérieure</div><div class="bar"><div style="width: 0%;" class="foreground"></div></div><div class="percent">0%</div><div class="total">Nombre de votes: 48</div></div><div class="links"><a href="index8c57.html?q=node/1426#comment" title="Sauter au premier commentaire de ce message.">3 commentaires</a> | <a href="index729f.html?q=poll" title="Voir la liste des sondages de ce site.">anciens sondages</a></div>
+		    </div></div></div>
+    </td>
+
+      <td style="vertical-align: top; width: 80%"><div class="breadcrumb"><a href="index03d2.html?q=">Accueil</a></div><h2 class="title">Installer PostgreSQL sous Windows, en natif, sans Cygwin? Facile!!!</h2>
+<!-- begin content -->
+
+<!-- node: "Installer PostgreSQL sous Windows, en natif, sans Cygwin? Facile!!!" -->
+<!--<div class="pgFrontCenterUser">
+<div class="pgFrontUser">
+<div class="pgFrontUserInner">
+--><div class="pgFrontUserWrap">
+ <div class="pgFrontUserContent">	<h1 class="plop"><a href="index8ccf.html?q=taxonomy/term/1">Technique</a> | <a href="indexe6fc.html?q=node/58" class="active">Installer PostgreSQL sous Windows, en natif, sans Cygwin? Facile!!!</a></h1>
+		    <p>
+			    Par <a href="indexec55.html?q=user/2" title="Voir le profil utilisateur.">Jean-Paul Argudo</a> le 30/08/2004 - 12:28
+		    </p>	
+			    <p>Eh oui...</p>
+<p>Avec PostgreSQL 8.0 qui est en béta 1, pour l'instant, rien de plus simple... Il n'y a qu'à aller faire un tour sur <a href="http://pginstaller.projects.postgresql.org/">la page de PGInstaller</a>!</p>
+<p>Comme on vous le dit sur cette page, il vous faudra récupérer les exécutables sur  <a href="http://pgfoundry.org/projects/pginstaller/">sa page sur PGFoundry</a>. Après il suffit de savoir cliquer! ;-)</p>
+<p>Clic... clic... clic...</p>
+<p><strong>Enjoy!</strong></p>
+<p>PS: Vous aurez la version <strong>béta 1</strong> de PG 8.0 d'installée sur votre machine Windows. Pour avoir la version stable, il vous faudra attendre un peu, que le cycle de béta test soit terminé... Si l'attente est trop longue: <a href="http://www.postgresql.org/">contribuez</a>! La méthode la plus efficace pour que le cycle de béta test avance c'est de faire un <a href="http://www.postgresql.org/bugform.html">report de bug</a></p>
+
+		     </div></div>
+<!--</div>
+</div>
+</div>
+</div> -->
+<a id="comment"></a>
+<form method="post" action="http://drupal.postgresql.fr/?q=comment"><div>
+<div class="pgSideNav">    <h2>Options d'affichage des commentaires</h2>    
+		    <div>
+			<div class="form-item">
+ <select name="mode"> <option value="1">A plat - replié</option>
+ <option value="2">A plat - déplié</option>
+ <option value="3">Par discussions - replié</option>
+ <option value="4" selected="selected">Par discussions - déplié</option>
+</select>
+<select name="order"> <option value="1">Date - récents en premier</option>
+ <option value="2" selected="selected">Date - anciens en premier</option>
+</select>
+<select name="comments_per_page"> <option value="10">10 commentaires par page</option> <option value="30">30 commentaires par page</option> <option value="50" selected="selected">50 commentaires par page</option> <option value="70">70 commentaires par page</option> <option value="90">90 commentaires par page</option></select>
+<input type="hidden" name="threshold" value="0" />
+ <input type="submit" class="form-submit" name="op" value="Sauvegarder les paramètres"  />
+
+ <div class="description">Sélectionnez la méthode d'affichage des commentaires que vous préférez, puis cliquez sur "Sauvegarder les paramètres" pour activer vos changements.</div>
+</div>
+
+		    </div></div><input type="hidden" name="edit[nid]" value="58" />
+</div></form><form method="post" action="http://drupal.postgresql.fr/?q=comment"><div>
+<input type="hidden" name="edit[nid]" value="58" />
+<a id="comment-19"></a>
+<div class="pgContentWrap"><h1 id="txtFrontFeatureHeading">Il existe toujours le même bug que dans la version 7.5</h1>
+		<p>
+		    <b><a href="index00f3.html?q=user/128" title="Voir le profil utilisateur.">sekaijin</a></b>/ = 17 Septembre, 2004 - 13:38
+		</p>
+		<p>
+		    <p>Il semble que l'installateur ne sache pas utiliser corectement les comptes utilisateurs pour initialiser la base.</p>
+<p>les démarche explicatives autant pour la 70.5 que la 8 n'ont rien donné chez moi. J'ai un winn2000 pro et les explication que j'ai trouvé concerne la win2000 server</p>
+<p>les sympthomes sont l'impossiblité de créer la base. initdb plante ou alors le service refuse de démarer.</p>
+<p>pour ce dernier cas le message indique que l'utilisateur possède des droits d'admin alors qu'il n'est même pas utilisateur standard mais restraint.</p>
+<p>en suivant le process par défaut on arrive à une erreur de initdb l'install est annullée et tout est effacé.</p>
+<p>en créant soit même le user avant et en jouant sur les droit on parvient à aller plus loin (démarage du service) mais pas plus.</p>
+<p>dans sa version pour la 7.5 je suis parvenu à obtemir un postgres installé (l'installateur efface tout en cas d'échec) mais impossible de lancer le serveur ni à la main ni en service</p>
+<p>A+</p>
+<br /><!--hr /--><div class="contentsLink">[ Vous devez <a href="index7992.html?q=user/login">vous connecter</a> pour poster des commentaires ]</div>
+		</p></div><div style="margin-left:25px;">
+<a id="comment-20"></a>
+<div class="pgContentWrap"><h1 id="txtFrontFeatureHeading">J'ai installé Pgsql 8 sur Wi</h1>
+		<p>
+		    <b><a href="indexc5a3.html?q=user/121" title="Voir le profil utilisateur.">jm33</a></b>/ = 20 Septembre, 2004 - 15:47
+		</p>
+		<p>
+		    <p>J'ai installé Pgsql 8 sur Win2kPro sans pb en creant un compte local W2K   </p>
+<p>J'ai cependant constaté que l'install créait l'utilisateur W2K chargé du service postmaster sans appartenenace à un groupe (on le voit dans "Outils d'administration->Utilisateurs, mais pas dans "Outils d'administration->Utilisateur et mots de passe).<br />
+Essayer de supprimimer le groupe d'appartenance de cet utilisateur?</p>
+<p>NB je ne suis pas un expert de WK...</p>
+<br /><!--hr /--><div class="contentsLink">[ Vous devez <a href="index7992.html?q=user/login">vous connecter</a> pour poster des commentaires ]</div>
+		</p></div></div>
+<div style="margin-left:25px;">
+<a id="comment-26"></a>
+<div class="pgContentWrap"><h1 id="txtFrontFeatureHeading">compte utilisateur</h1>
+		<p>
+		    <b><a href="index263b.html?q=user/206" title="Voir le profil utilisateur.">nayhau</a></b>/ = 31 Octobre, 2004 - 21:24
+		</p>
+		<p>
+		    <p>J'ai rencontré également ce problème de compte utilisateur. Après plusieurs tentatives d'installation de Postgres, j'ai constaté qu'il y avait un nouvel utilisateur dans "Utilisateurs et groupes locaux" au nom de postgres. J'ai modifié son passwd que j'ai repris dans l'installation de postgresql-8.0.0-beta4 avec succès.<br />
+A+ Nayhau</p>
+<br /><!--hr /--><div class="contentsLink">[ Vous devez <a href="index7992.html?q=user/login">vous connecter</a> pour poster des commentaires ]</div>
+		</p></div></div>
+<div style="margin-left:50px;">
+<a id="comment-673"></a>
+<div class="pgContentWrap"><h1 id="txtFrontFeatureHeading">bonjour , moi aussi j'ai trou</h1>
+		<p>
+		    <b><a href="index1d74.html?q=user/1392" title="Voir le profil utilisateur.">chichiboof</a></b>/ = 12 Février, 2006 - 16:48
+		</p>
+		<p>
+		    <p>bonjour , moi aussi j'ai trouvé un problem au début c'était avec le domaine que j'ai :-) enfin pu le resoudre mais maintenant je trouve le problem des priviléges ,juste avant la fin de l'instalation il me déclare que j'ai pas tout les priviléges pour pouvoir instaler postgrsql comme service .portant je suis bien administrateur sur ma machine . merci beaucoup </p>
+<p>j'ai bien besoin de votre aide</p>
+<br /><!--hr /--><div class="contentsLink">[ Vous devez <a href="index7992.html?q=user/login">vous connecter</a> pour poster des commentaires ]</div>
+		</p></div></div>
+<div style="margin-left:25px;">
+<a id="comment-34"></a>
+<div class="pgContentWrap"><h1 id="txtFrontFeatureHeading">je ne trouve pas l'install de posgres</h1>
+		<p>
+		    <b><a href="index54e7.html?q=user/289" title="Voir le profil utilisateur.">jekyll</a></b>/ = 8 Décembre, 2004 - 08:31
+		</p>
+		<p>
+		    <p>Bonjour à tous<br />
+j'ai cliqué sur les liens sus listés pour trouver l'install de postgres mais les liens semblent inactifs.<br />
+Pourriez vous me le confirmer svp ?<br />
+Autrement l'install de Pgadmin III ou Aqua data studio suffit t-il pour avoir Posgres sur ma machine ?<br />
+***Je suis sur winXP***<br />
+Merci pour vos lumières.</p>
+<br /><!--hr /--><div class="contentsLink">[ Vous devez <a href="index7992.html?q=user/login">vous connecter</a> pour poster des commentaires ]</div>
+		</p></div></div>
+<div style="margin-left:25px;">
+<a id="comment-35"></a>
+<div class="pgContentWrap"><h1 id="txtFrontFeatureHeading">postgresql-8.0.0-rc2</h1>
+		<p>
+		    <b><a href="index9bd0.html?q=user/322" title="Voir le profil utilisateur.">beiak</a></b>/ = 24 Décembre, 2004 - 01:43
+		</p>
+		<p>
+		    <p>Est-ce que quelqu'un a réussi à installer cette version ?<br />
+J'ai le même problème que sekaijin, un plantage sur la création de la table template dans le dossier 1 de initdb. Tant sur W2000 ou WXP Pro SP2. Pourtant les permissions ressemblent aux explications fournies dans la FAQ...</p>
+<br /><!--hr /--><div class="contentsLink">[ Vous devez <a href="index7992.html?q=user/login">vous connecter</a> pour poster des commentaires ]</div>
+		</p></div></div>
+<div style="margin-left:25px;">
+<a id="comment-101"></a>
+<div class="pgContentWrap"><h1 id="txtFrontFeatureHeading">Configuration debug pgadmin III</h1>
+		<p>
+		    <b><a href="indexfdee.html?q=user/574" title="Voir le profil utilisateur.">Laurent Birckel</a></b>/ = 18 Mars, 2005 - 15:05
+		</p>
+		<p>
+		    <p>je suis nouveau sur PostgreSQL (je travaillais auparavant sous MSSQL)</p>
+<p>je crée une fonction sous pgAdmin III query, j'oublie un ';',<br />
+et dans l'onglet message, j'ai ... rien !!!</p>
+<p>idem en cas d'oubli d'un END IF ou tout autre erreur syntaxique.</p>
+<p>à l'exécution, quelquesoit le problème, je n'arrive pas non plus à obtenir un quelconque message d'erreur. J'ai essayé de configurer le postgresql.conf au verbose ++ en terme de logs, désactivé le redirect_stderr, rien n'y fait.</p>
+<p>j'ai essayé en ligne de commande sous pgsql : idem.</p>
+<p>J'imagine qu'il y a quelquechose qui cloche. Il doit bien y avoir un moyen pour obtenir un message d'erreur, ne serait-ce que "error at line NNNN" .</p>
+<p>Merci pour toute aide !</p>
+<br /><!--hr /--><div class="contentsLink">[ Vous devez <a href="index7992.html?q=user/login">vous connecter</a> pour poster des commentaires ]</div>
+		</p></div></div>
+<div style="margin-left:50px;">
+<a id="comment-104"></a>
+<div class="pgContentWrap"><h1 id="txtFrontFeatureHeading">RE: Configuration degug pgadmin III</h1>
+		<p>
+		    <b><a href="index7420.html?q=user/491" title="Voir le profil utilisateur.">tony31</a></b>/ = 19 Mars, 2005 - 12:58
+		</p>
+		<p>
+		    <p>Bonjour Laurent Birckel</p>
+<p>A ce jour pgAdmin III n'affiche pas tout les messages d'erreurs nottememt les erreurs de "parse" et est incapable d'éxcuter des commandes internes Postgres( ex :\d equivalent du desc sous mysql ou oracle)</p>
+<p>Par contre la console psql affiche normalement dans tout les cas un message d'erreur plus ou moins explicit.</p>
+<p>Je te conseil plutot d'utiliser la console psql qui elle t'affichera au moins un message d'erreur. tu peux utiliser le \e pour taper une requête depuis un bloc note ce qui est plus convivial.</p>
+<p>Tony</p>
+<br /><!--hr /--><div class="contentsLink">[ Vous devez <a href="index7992.html?q=user/login">vous connecter</a> pour poster des commentaires ]</div>
+		</p></div></div>
+<div style="margin-left:75px;">
+<a id="comment-110"></a>
+<div class="pgContentWrap"><h1 id="txtFrontFeatureHeading">debug pgadmin III (suite)</h1>
+		<p>
+		    <b><a href="indexfdee.html?q=user/574" title="Voir le profil utilisateur.">Laurent Birckel</a></b>/ = 22 Mars, 2005 - 19:38
+		</p>
+		<p>
+		    <p>pour information, le problème que j'ai rencontré est dû à l'installation des "national langage support" lors du setup de postgresql 8.0.1 sous windows. Si on installe ces machins, on n'a plus de messages d'erreur. Si on ne les installe pas, on a des messages d'erreurs. Pas terribles, mais des messages d'erreurs tout de même. Merci pour le tuyau psql. J'ai l'impression de revenir 15 ans en arrière, lorsque je faisais de l'assembleur sous msDOS, çà me rajeunit ;-)</p>
+<p>Laurent</p>
+<br /><!--hr /--><div class="contentsLink">[ Vous devez <a href="index7992.html?q=user/login">vous connecter</a> pour poster des commentaires ]</div>
+		</p></div></div>
+<div style="margin-left:100px;">
+<a id="comment-121"></a>
+<div class="pgContentWrap"><h1 id="txtFrontFeatureHeading">Le bug est-il déjà signalé quelque part ?</h1>
+		<p>
+		    <b><a href="indexca56.html?q=user/603" title="Voir le profil utilisateur.">Olivier Korn</a></b>/ = 4 Avril, 2005 - 01:03
+		</p>
+		<p>
+		    <p>Je confirme l'analyse de Laurent :<br />
+installer NLS = faire boguer l'affichage des messages d'erreur dans pgAdmin III (y compris le dernier snapshot).<br />
+ne pas installer NLS = pgAdmin III arrive à afficher les messages d'erreur.</p>
+<p>Ma question est : est-ce que quelqu'un a déjà signalé le bogue aux développeurs de PostgreSQL ou de pgAdmin III ? (J'ai cherché mais je n'ai rien trouvé).</p>
+<br /><!--hr /--><div class="contentsLink">[ Vous devez <a href="index7992.html?q=user/login">vous connecter</a> pour poster des commentaires ]</div>
+		</p></div></div>
+<div style="margin-left:75px;">
+<a id="comment-111"></a>
+<div class="pgContentWrap"><h1 id="txtFrontFeatureHeading">help needed LOL</h1>
+		<p>
+		    <b><a href="index850d.html?q=user/590" title="Voir le profil utilisateur.">renren</a></b>/ = 25 Mars, 2005 - 22:29
+		</p>
+		<p>
+		    <p>Salut a tous,<br />
+ben si vous passez sur le foruml vous verrez que j'ai des soucis avec la restauration,<br />
+si quelqu'un a une idée pour l'aider ce serait cool.<br />
+Sinon pour les premiers points d'instal c allé pas mal..</p>
+<p>J'ai ll'impression que PgAdmin est pas encore au top mais bon, y'a l'intterface msdos ...<br />
+Merci pour votre aide..</p>
+<br /><!--hr /--><div class="contentsLink">[ Vous devez <a href="index7992.html?q=user/login">vous connecter</a> pour poster des commentaires ]</div>
+		</p></div></div>
+<div style="margin-left:75px;">
+<a id="comment-166"></a>
+<div class="pgContentWrap"><h1 id="txtFrontFeatureHeading">Problème de débutant en PostgreSQL version Win</h1>
+		<p>
+		    <b><a href="index1ba4.html?q=user/716" title="Voir le profil utilisateur.">ON5MJ</a></b>/ = 20 Mai, 2005 - 22:03
+		</p>
+		<p>
+		    <p>Bonsoir à tous,</p>
+<p>Je vien d'installer lelogiciel version 8.0.2 sous Win 2000. comme je ne suis ni un champion de SQl, ni un champion de Windows, j'ai évidemment quelques problèmes qui m"chappent.</p>
+<p>1. Tout d'abord quand je lance l'application par PgAdmin et que je me connecte, si je repasse en mode console (psql to template1) j'obtiens un message m'annonçant que ma console utilise une page code 850 au lieu de 1252. En conséquence tous les caractères accentués sont remplacés par des signes cabalistiques et les pages d'aide sont illisibles. J'ai un copain qui a installé sous XP et qui n'a pas ce problème. Avez-vous une solution ?</p>
+<p>2. Si je lance l'application à partir de psql en mode console, j'ai immédiatement un message qui me dit que je ne peux pas le faire puisque je suis loggé comme administrateur. Bien, mais je en sais pas comment créer un utilisateur non-root sous W2000. Pouvez-vous m'expliquer comment faire ?</p>
+<p>3. si je me mets dans une page console (DOS) en mode ligne de commande et que j'essaie de lancer initdb, même résultat qu'en 2.</p>
+<p>Merci d'éclairer ma lanterne car je risque de mourir idiot.</p>
+<p>Jacques.</p>
+<p>on5mj@skynet.be</p>
+<br /><!--hr /--><div class="contentsLink">[ Vous devez <a href="index7992.html?q=user/login">vous connecter</a> pour poster des commentaires ]</div>
+		</p></div></div>
+<div style="margin-left:75px;">
+<a id="comment-170"></a>
+<div class="pgContentWrap"><h1 id="txtFrontFeatureHeading">Tres facile ! Install plante systematiquement sous XP</h1>
+		<p>
+		    <b><a href="index65d9.html?q=user/703" title="Voir le profil utilisateur.">jaguar</a></b>/ = 22 Mai, 2005 - 11:44
+		</p>
+		<p>
+		    <p>Bonjour</p>
+<p>Qqun a-t-il une idée pourquoi toutes les installs sous WinXP natif 8.0x se bloquent lors de l'activation des languages de procedures ?<br />
+Aucune install ne s'est terminée....Que fait pgsql et msiexec ?<br />
+Pourquoi ttes ces erreurs dans le log </p>
+<p>MSI (c) (60:60) [22:09:02:687]: Note: 1: 2205 2:  3: Error<br />
+MSI (c) (60:60) [22:09:02:687]: Note: 1: 2228 2:  3: Error 4: SELECT `Message` FROM `Error` WHERE `Error` = 2888<br />
+DEBUG: Error 2888:  Executing the TextStyle view failed</p>
+<p>J'essayé de modifier différentes options sans résultat<br />
+Config<br />
+XP pro sp2<br />
+Norton 2004, pas de firewall local (externe) , Pestpatrol</p>
+<p>Merci pour votre aide<br />
+JL</p>
+<br /><!--hr /--><div class="contentsLink">[ Vous devez <a href="index7992.html?q=user/login">vous connecter</a> pour poster des commentaires ]</div>
+		</p></div></div>
+<div style="margin-left:100px;">
+<a id="comment-181"></a>
+<div class="pgContentWrap"><h1 id="txtFrontFeatureHeading">Voyons voir</h1>
+		<p>
+		    <b><a href="indexec55.html?q=user/2" title="Voir le profil utilisateur.">Jean-Paul Argudo</a></b>/ = 25 Mai, 2005 - 17:30
+		</p>
+		<p>
+		    <p>Bonjour,<br><br />
+Ça se bloque où exactement? Dans pginstaller sous windows, lorsque vous êtes sur la page qui vous demande quels langages procéduraux vous voulez installer? (comme on le voit sur la page: <a href="http://pginstaller.projects.postgresql.org/" target="_blank">PostgreSQL Installer</a>) ...
+</p>
+<p>
+Si oui, alors vous avez demandé à ce que PostgreSQL s'installe comme un service: avez-vous bien lu la FAQ, apparement il y a de nombreux cas d'erreurs qui s'expliquent: <a href="http://pginstaller.projects.postgresql.org/faq/FAQ_windows.html" target="_blank">Running &#038; Installing PostgreSQL On Native Windows FAQ</a></p>
+<p>De plus comme on vous le dit dans la doc en ligne : "This dialog is only available if you chose to install PostgreSQL as a service, and chose to have a database cluster initialized.<br />
+PL/perl requires ActiveState Perl 5.8 to be installed. PL/python requires Python 2.3 to be installed, and PL/tcl requires ActiveState Tcl 8.4 to be installed.": est-ce ok pour vous?</p>
+<p>Bon courage,</p>
+<p>
+-- <br><br />
+Jean-Paul ARGUDO<br><br />
+www.PostgreSQLFr.org<br>
+</p>
+<br /><!--hr /--><div class="contentsLink">[ Vous devez <a href="index7992.html?q=user/login">vous connecter</a> pour poster des commentaires ]</div>
+		</p></div></div>
+<div style="margin-left:125px;">
+<a id="comment-194"></a>
+<div class="pgContentWrap"><h1 id="txtFrontFeatureHeading">Blocage install sous XP  : conflit ?</h1>
+		<p>
+		    <b><a href="index65d9.html?q=user/703" title="Voir le profil utilisateur.">jaguar</a></b>/ = 5 Juin, 2005 - 11:40
+		</p>
+		<p>
+		    <p>Bonjour et merci</p>
+<p>J'avais un peu abandonné mes tests...<br />
+Le blocage est proche de la fin du processus automatique pendant "Activating Procedural Languages..".<br />
+Toutes les options sont par defaut avec mise en service (le service est créé et se lance (??)<br />
+Dans le log: InstallPl. Activating procedural languages...</p>
+<p>Je fais un dernier essai et il semble que cela fonctionne, après avoir desintallé Tomcat4.1. Je ne vois pas d'autre explication !!!!<br />
+Que fait l'install à ce moment ?</p>
+<p>Mystérieux et inquietant !</p>
+<p>Je reprend mes investigations en reinstallant un Tomcat ...a suivre</p>
+<p>Cdt<br />
+JL</p>
+<br /><!--hr /--><div class="contentsLink">[ Vous devez <a href="index7992.html?q=user/login">vous connecter</a> pour poster des commentaires ]</div>
+		</p></div></div>
+<div style="margin-left:100px;">
+<a id="comment-192"></a>
+<div class="pgContentWrap"><h1 id="txtFrontFeatureHeading">Probème de connexion pgsql  Linux sur Xp (Résolu)</h1>
+		<p>
+		    <b><a href="index2e49.html?q=user/291" title="Voir le profil utilisateur.">bustaf</a></b>/ = 1 Juin, 2005 - 16:09
+		</p>
+		<p>
+		    <p>Bonjour<br />
+Je rencontre un problème avec une connexion pgsql d'un poste Linux  sur une base en OS Microsoft.<br />
+Sous XP j'ai créé un serveur avec une  IP réseau  j'ai  modifié  le fichier pg_hba.conf  en mode<br />
+(trust) avec l'adressage requis et j'arrive a connecter  le moteur  sans mot de passe avec l'instruction suivante: (En local sur le poste XP)<br />
+ psql -h 192.168.1.89 -U  template1 user<br />
+192.168.1.89 est l'adresse de la carte réseau du poste XP.</p>
+<p>Du poste XP  l'instruction<br />
+psql -h 192.168.1.18 -U  template1 user<br />
+appelle la base linux (192.168.1.18 est l'adresse du poste linux)<br />
+Cela marche parfaitement.</p>
+<p>Le problème: avec Linux qui appelle Xp<br />
+Du poste LINUX l'instruction<br />
+psql -h 192.168.1.89  template1 -U user<br />
+reste en attente 3 à 4 minutes est génère un message</p>
+<p>postgres@linux:~> psql -h 192.168.1.89 base  -U postgres<br />
+psql: impossible de se connecter au serveur: ï¿½@ï¿½|@<br />
+        Est-ce que le serveur tourne sur l'hôte 192.168.1.89<br />
+        et accepte des connexions TCP/IP sur le port 5432?</p>
+<p>J'ai ajouté l'option (-i) dans le fichier postmaster.opts de XP cela ne change rien..<br />
+NB: Postrgresql Linux (ver 7.5) et XP (ver 8 rc4)</p>
+<p>Merci de votre aide.<br />
+(Résolu Problème lié a l'IPV6)</p>
+<br /><!--hr /--><div class="contentsLink">[ Vous devez <a href="index7992.html?q=user/login">vous connecter</a> pour poster des commentaires ]</div>
+		</p></div></div>
+<div style="margin-left:100px;">
+<a id="comment-218"></a>
+<div class="pgContentWrap"><h1 id="txtFrontFeatureHeading">Comment telecharger postgresql </h1>
+		<p>
+		    <b><a href="indexd4d7.html?q=user/827" title="Voir le profil utilisateur.">rechiut2005</a></b>/ = 27 Juin, 2005 - 17:42
+		</p>
+		<p>
+		    <p>Salut !</p>
+<p>J'aimerai travailler sur postgresql</p>
+<p>Aidez svp à telecharger et è installer.</p>
+<br /><!--hr /--><div class="contentsLink">[ Vous devez <a href="index7992.html?q=user/login">vous connecter</a> pour poster des commentaires ]</div>
+		</p></div></div>
+<div style="margin-left:100px;">
+<a id="comment-263"></a>
+<div class="pgContentWrap"><h1 id="txtFrontFeatureHeading">tsearch2</h1>
+		<p>
+		    <b><a href="indexc32b.html?q=user/877" title="Voir le profil utilisateur.">soulcoder</a></b>/ = 14 Juillet, 2005 - 09:18
+		</p>
+		<p>
+		    <p>Bonjour,</p>
+<p>quelqu'un a-t-il une expérience oudes connaissance sur l'utilisation de tsearch 2 et notament sur la version windows de postgresql.<br />
+Mes questions sont du genre:<br />
+Faut-il généré soit même les indexes pour chaques langues<br />
+y a t il des paramêtre suplémentaire tel que le type d'encodage de la bd, à spécifier quelque part pour que tsearch2 effectue une recherche</p>
+<p>Merci d'avance</p>
+<br /><!--hr /--><div class="contentsLink">[ Vous devez <a href="index7992.html?q=user/login">vous connecter</a> pour poster des commentaires ]</div>
+		</p></div></div>
+<div style="margin-left:100px;">
+<a id="comment-396"></a>
+<div class="pgContentWrap"><h1 id="txtFrontFeatureHeading">je vois reelemnt que les ques</h1>
+		<p>
+		    <b><a href="indexfad7.html?q=user/1045" title="Voir le profil utilisateur.">ilo</a></b>/ = 22 Septembre, 2005 - 15:33
+		</p>
+		<p>
+		    <p>je vois reelemnt que les questions sont beacoup mais les reponses ne sont pa du tout ponctuels<br />
+s'il vous plait les amis si quelqun a une reponse exacte essaye de mieu l'exprimer car nous cherchons tous la bonne reponse<br />
+alors moi ausssi je vient un lien pour trouver postgress pour linstaller sur windows quelqun peu maider correctement et précisament</p>
+<br /><!--hr /--><div class="contentsLink">[ Vous devez <a href="index7992.html?q=user/login">vous connecter</a> pour poster des commentaires ]</div>
+		</p></div></div>
+<div style="margin-left:100px;">
+<a id="comment-404"></a>
+<div class="pgContentWrap"><h1 id="txtFrontFeatureHeading">la vesion Slony I y'a t'il qu</h1>
+		<p>
+		    <b><a href="index95de.html?q=user/1052" title="Voir le profil utilisateur.">aigsfrance</a></b>/ = 26 Septembre, 2005 - 15:28
+		</p>
+		<p>
+		    <p>la vesion Slony I y'a t'il quelqu'un qui a peu la faire fonctionner sous Win32?</p>
+<br /><!--hr /--><div class="contentsLink">[ Vous devez <a href="index7992.html?q=user/login">vous connecter</a> pour poster des commentaires ]</div>
+		</p></div></div>
+<div style="margin-left:100px;">
+<a id="comment-655"></a>
+<div class="pgContentWrap"><h1 id="txtFrontFeatureHeading">bonjour ,j'ai un problem de p</h1>
+		<p>
+		    <b><a href="index1d74.html?q=user/1392" title="Voir le profil utilisateur.">chichiboof</a></b>/ = 6 Février, 2006 - 15:47
+		</p>
+		<p>
+		    <p>bonjour ,j'ai un problem de privilége sur ma machine , je partage mon pc avec plusieur utilisateur aussi ,je suis utilisateur en tant qu'administrateur mais lors de l'instaltion juste avant la fin il me génére un msg d'erreurs ,pas assez de privilége .please help me </p>
+<br /><!--hr /--><div class="contentsLink">[ Vous devez <a href="index7992.html?q=user/login">vous connecter</a> pour poster des commentaires ]</div>
+		</p></div></div>
+</div></form>
+<!-- end content -->
+              </td>
+
+    </tr>
+    <tr><td colspan="2">
+
+		<div class="pgTopNav">
+		   <div class="pgTopNavLeft"> 
+		     <img src="layout/images/nav_lft.png" width="7" height="23" alt="" />
+		   </div>
+		   <div class="pgTopNavRight">
+		    <img src="layout/images/nav_rgt.png" width="7" height="23" alt="" />
+		  </div>
+		  <!--<ul class="pgTopNavList">-->
+		  <ul class="pgTopNavList">
+		   <li><a href="index03d2.html?q=" title="Retourner à la page principale.">accueil</a> </li>
+		   <li> <a href="indexf6e5.html?q=archive" title="Lire le contenu plus ancien dans notre archive.">archives</a> </li>
+		   <li> <a href="index71c4.html?q=blog" title="Lire les blogues les plus récents.">blogues</a> </li>
+
+		   <li> <a href="indexf6fe.html?q=book" title="Lire et contribuer aux livres collaboratifs.">livres</a> </li>
+		   <li> <a href="index79b7.html?q=forum">forums</a> </li>
+		   <li> <a href="index729f.html?q=poll" title="Voir la liste des sondages de ce site.">sondages</a> </li>
+		   <li> <a href="index4404.html?q=search" title="Chercher pour du contenu plus vieux.">recherche</a></li><li><a href="http://docs.postgresqlfr.org/" target="_blank">documentation </a></li>
+
+		  </ul>
+
+<!--
+		   <li><a href="?q=" title="Retourner à la page principale.">accueil</a> </li>
+		   <li> <a href="?q=archive" title="Lire le contenu plus ancien dans notre archive.">archives</a> </li>
+		   <li> <a href="?q=blog" title="Lire les blogues les plus récents.">blogues</a> </li>
+		   <li> <a href="?q=book" title="Lire et contribuer aux livres collaboratifs.">livres</a> </li>
+		   <li> <a href="?q=forum">forums</a> </li>
+		   <li> <a href="?q=poll" title="Voir la liste des sondages de ce site.">sondages</a> </li>
+		   <li> <a href="?q=search" title="Chercher pour du contenu plus vieux.">recherche</a></li><li><a href="http://docs.postgresqlfr.org/" target="_blank">documentation </a></li>
+-->
+		  </ul>
+	        </div>
+    </td></tr>
+   </table>
+   <p style="text-align: center;">&copy;&nbsp;PostgreSQLFr, tous droits réservés.<br>
+Site déclaré à la CNIL sous le numéro 1074678, conformément à la Loi en vigueur.
+</p>
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-3921927-1");
+pageTracker._initData();
+pageTracker._trackPageview();
+</script>
+<p></p>
+   
+</body>
+
+<!-- Mirrored from drupal.postgresql.fr/?q=node/58 by HTTrack Website Copier/3.x [XR&CO'2006], Sun, 12 Oct 2008 16:30:01 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+</html>

@@ -1,0 +1,563 @@
+
+<!DOCTYPE
+ html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+ <html>
+ <!-- $Date: 2005/08/30 07:54:43 $ / $Revision: 1.29 $ / Last Theme Editor :$Author: jx $-->
+  
+<!-- Mirrored from drupal.postgresql.fr/?q=taxonomy/term/12&from=20 by HTTrack Website Copier/3.x [XR&CO'2006], Sun, 12 Oct 2008 16:16:16 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<base  />
+<style type="text/css" media="all">@import "misc/drupal.css";</style><link rel="alternate" type="application/rss+xml" title="RSS - Technique - optimisation" href="index7a0d.html?q=taxonomy/term/12/0/feed" />
+
+   <title>Technique - optimisation - PostgreSQLFr</title>
+ <style type="text/css" media="screen" title="Normal Text">
+    @import url("layout/css/blue/fixed.css");
+    @import url(_guillaume/dotclear/themes/postgresql/style.html);
+ </style>
+ <style type="text/css" media="screen" title="Normal Text2">
+    @import url("layout/css/blue/pgfr.css");
+    @import url(_guillaume/dotclear/themes/postgresql/style.html);
+ </style>
+   </head>
+   <body>
+    <table border="0" cellspacing="5" cellpadding="0" width="100%">
+     <tr>
+      <!--td colspan="2" width="100%"-->
+      <td colspan="2">
+      <!-- Head -->
+       <table border="0" cellspacing="0" cellpadding="0" width="100%">
+        <tr>
+	 <td align="left">
+           <div id="pgHeader">
+	    <div id="pgHeaderLogoLeft">
+	     <a href="index.html" title="PostgreSQL"><img src="layout/images/hdr_left.png" width="230" height="80" alt="PostgreSQL" /></a>
+	    </div>
+	    <div id="pgHeaderLogoRight">
+	     <a href="index.html" title="La base de donn�es la plus sophistiqu�e au monde."><img src="layout/images/hdr_right.png" width="210" height="80" alt="La base de donn�es la plus sophistiqu�e au monde." /></a>
+	    </div>
+	   </div>
+         </td>
+	 <td align="right">
+         </td>
+	</tr>
+      </table> <!-- Head -->
+      <br />
+      <table border="0" cellspacing="0" cellpadding="0" width="100%">
+              <tr>
+	      	 <td align="left">
+
+		<div class="pgTopNav">
+		   <div class="pgTopNavLeft"> 
+		     <img src="layout/images/nav_lft.png" width="7" height="23" alt="" />
+		   </div>
+		   <div class="pgTopNavRight">
+		    <img src="layout/images/nav_rgt.png" width="7" height="23" alt="" />
+		  </div>
+		  <!--<ul class="pgTopNavList">-->
+		  <ul class="pgTopNavList">
+		   <li><a href="index03d2.html?q=" title="Retourner à la page principale.">accueil</a> </li>
+		   <li> <a href="indexf6e5.html?q=archive" title="Lire le contenu plus ancien dans notre archive.">archives</a> </li>
+		   <li> <a href="index71c4.html?q=blog" title="Lire les blogues les plus récents.">blogues</a> </li>
+
+		   <li> <a href="indexf6fe.html?q=book" title="Lire et contribuer aux livres collaboratifs.">livres</a> </li>
+		   <li> <a href="index79b7.html?q=forum">forums</a> </li>
+		   <li> <a href="index729f.html?q=poll" title="Voir la liste des sondages de ce site.">sondages</a> </li>
+		   <li> <a href="index4404.html?q=search" title="Chercher pour du contenu plus vieux.">recherche</a></li><li><a href="http://docs.postgresqlfr.org/" target="_blank">documentation </a></li>
+
+		  </ul>
+
+<!--
+		   <li><a href="?q=" title="Retourner à la page principale.">accueil</a> </li>
+		   <li> <a href="?q=archive" title="Lire le contenu plus ancien dans notre archive.">archives</a> </li>
+		   <li> <a href="?q=blog" title="Lire les blogues les plus récents.">blogues</a> </li>
+		   <li> <a href="?q=book" title="Lire et contribuer aux livres collaboratifs.">livres</a> </li>
+		   <li> <a href="?q=forum">forums</a> </li>
+		   <li> <a href="?q=poll" title="Voir la liste des sondages de ce site.">sondages</a> </li>
+		   <li> <a href="?q=search" title="Chercher pour du contenu plus vieux.">recherche</a></li><li><a href="http://docs.postgresqlfr.org/" target="_blank">documentation </a></li>
+-->
+		  </ul>
+	        </div>
+		</td>
+		</tr>
+		</table>
+      </td>
+     </tr>
+     <tr>
+    <td style="vertical-align: top; width: 20%;">
+<div class="block block-user" id="block-user-0">
+<div class="pgSideNav">    <h2>Ouverture de session</h2>    
+		    <div>
+			<form action="http://drupal.postgresql.fr/?q=user/login" method="post">
+<div class="user-login-block">
+<input type="hidden" name="edit[destination]" value="taxonomy/term/12" />
+<div class="form-item">
+ <label for="edit-name">Nom d'utilisateur:</label><br />
+ <input type="text" maxlength="64" class="form-text" name="edit[name]" id="edit-name" size="15" value="" />
+</div>
+<div class="form-item">
+ <label for="edit-pass">Mot de passe:</label><br />
+ <input type="password" class="form-password" maxlength="64" name="edit[pass]" id="edit-pass" size="15" value="" />
+</div>
+<input type="submit" class="form-submit" name="op" value="Identification"  />
+</div>
+
+</form>
+<div class="item-list"><ul><li><a href="indexc12c.html?q=user/password" title="Demander un nouveau mot de passe par e-mail.">Demander un nouveau mot de passe</a></li></ul></div>
+		    </div></div></div>
+<div class="block block-user" id="block-user-1">
+<div class="pgSideNav">    <h2>Navigation</h2>    
+		    <div>
+			<div class="menu">
+<ul>
+<li class="leaf"><a href="indexa499.html?q=tracker">messages récents</a></li>
+
+</ul>
+</div>
+		    </div></div></div>
+<div class="block block-block" id="block-block-4">
+<div class="pgSideNav">    <h2>Contactez-nous</h2>    
+		    <div>
+			<p><strong>Administration du site&nbsp;:</strong><br />
+"equipe chez postgresqlfr point org"<br><br />
+<strong>Contact presse&nbsp;:</strong><br />
+"fr chez postgresql point org"<br><br />
+<strong>Contact association&nbsp;:</strong><br />
+"bureau chez postgresqlfr point org"<br><br />
+<strong>Questions PostgreSQL&nbsp;:</strong><br />
+&nbsp;IRC&nbsp;:<br />
+&nbsp;&nbsp;serveur <strong>irc.freenode.net</strong><br />
+&nbsp;&nbsp;canal <strong>#postgresqlfr</strong></p>
+
+		    </div></div></div>
+<div class="block block-block" id="block-block-1">
+<div class="pgSideNav">    <h2>Liens</h2>    
+		    <div>
+			<p><small></p>
+<ul>
+<li>
+<a href="http://www.postgresqlfr.org/?q=node/view/162">Adhérer</a>
+</li>
+<li>
+<a href="http://www.postgresqlfr.org/?q=node/473">Faire un don</a>
+</li>
+<li>
+<a href="http://www.postgresqlfr.org/?q=node/163">Consulter les statuts</a>
+</li>
+</ul>
+<ul>
+<li>
+<a href="http://www.postgresql.org/" class="active">Site original<br />
+</a>
+</li>
+<li>
+<a href="http://docs.postgresqlfr.org/" class="active">Site de traduction</a>
+</li>
+<li>
+<a href="http://docs.postgresqlfr.org/8.3/">Doc v.8.3.x fr</a>
+</li>
+<li>
+<a href="http://docs.postgresqlfr.org/8.2/">Doc v.8.2.x fr</a>
+</li>
+<li>
+<a href="http://docs.postgresqlfr.org/8.1/">Doc v.8.1.x fr</a>
+</li>
+<li>
+<a href="http://docs.postgresqlfr.org/8.0/">Doc v.8.0.x fr</a>
+</li>
+<li>
+<a href="http://docs.postgresqlfr.org/7.4/">Doc v.7.4.x fr</a>
+</li>
+<li>
+<a href="http://www.postgis.fr/">PostGIS</a>
+</li>
+<li>
+<a href="http://www.postgresql.org/docs/techdocs">Techdocs</a>
+</li>
+<li>
+<a href="http://www.varlena.com/varlena/GeneralBits/Tidbits/">General TidBits</a>
+</li>
+<p><!--</p>
+<li>
+<a href="http://www.postgresqlfr.org/?q=node/view/58">Version Windows</a>
+</li>
+<p>--></p>
+<li>
+<a href="http://www.postgresqlfr.org/drupal/?q=node/view/63">Témoignages de pros</a>
+</li>
+<li>
+<a href="http://archives.postgresql.org/pgsql-fr-generale/">Liste de diffusion</a>
+</li>
+<li>
+<a href="http://wwwmaster.postgresql.org/download/mirrors-ftp">Télécharger</a>
+</li>
+</ul>
+<p></small></p>
+
+		    </div></div></div>
+<div class="block block-block" id="block-block-2">
+<div class="pgSideNav">    <h2>Recherche</h2>    
+		    <div>
+			<form action="http://drupal.postgresql.fr/?q=search" method="post">
+<div id="search">
+<input class="form-text" type="text" size="15" value="" name="keys" alt="Enter the terms you wish to search for." /><br />
+<input class="form-submit" type="submit" value="Recherche" />
+</div>
+</form>
+
+		    </div></div></div>
+<div class="block block-forum" id="block-forum-0">
+<div class="pgSideNav">    <h2>Sujets du forum</h2>    
+		    <div>
+			<div class="item-list"><h3>Sujets actifs</h3><ul><li><a href="index253f.html?q=node/1742">A LIRE : FERMETURE DES FORUMS DRUPAL</a></li><li><a href="indexfc2e.html?q=node/1739" title="2 commentaires">Problème  avec pg_dump</a></li><li><a href="index97c1.html?q=node/1731" title="5 commentaires">Connexions simultannées</a></li><li><a href="index32d3.html?q=node/1737" title="1 commentaire">Optimisation de la mémoire sous PostgreSQL</a></li><li><a href="index2483.html?q=node/1736" title="3 commentaires">[Résolu] Upgrade Postgre -> types et opérateurs</a></li></ul></div><div class="item-list"><h3>Nouveaux sujets:</h3><ul><li><a href="index253f.html?q=node/1742">A LIRE : FERMETURE DES FORUMS DRUPAL</a></li><li><a href="indexfc2e.html?q=node/1739" title="2 commentaires">Problème  avec pg_dump</a></li><li><a href="index32d3.html?q=node/1737" title="1 commentaire">Optimisation de la mémoire sous PostgreSQL</a></li><li><a href="index2483.html?q=node/1736" title="3 commentaires">[Résolu] Upgrade Postgre -> types et opérateurs</a></li><li><a href="index82c4.html?q=node/1734" title="2 commentaires">[RESOLU] Probleme de connection en odbc</a></li></ul></div><div class="more-link"><a href="index79b7.html?q=forum" title="Lire les derniers sujets.">en lire plus</a></div>
+		    </div></div></div>
+<div class="block block-archive" id="block-archive-0">
+<div class="pgSideNav">    <h2>Accéder aux archives</h2>    
+		    <div>
+			
+<!-- calendar -->
+<div class="calendar"><table summary="Un calendrier pour accéder aux archives.">
+ <caption><a href="index9dfb.html?q=archive/2008/09/12" title="Mois précédent">&laquo;</a> Octobre 2008 &nbsp;</caption>
+ <tr class="header-week">
+ <th abbr="Lundi">Lun</th>
+ <th abbr="Mardi">Mar</th>
+ <th abbr="Mercredi">Mer</th>
+ <th abbr="Jeudi">Jeu</th>
+ <th abbr="Vendredi">Ven</th>
+ <th abbr="Samedi">Sam</th>
+ <th abbr="Dimanche">Dim</th>
+</tr>
+ <tr class="row-week"><td class="day-blank" colspan="2">&nbsp;</td>
+  <td class="day-link"><a href="indexd3e2.html?q=archive/2008/10/1">1</a></td>
+  <td class="day-normal">2</td>
+  <td class="day-normal">3</td>
+  <td class="day-normal">4</td>
+  <td class="day-normal">5</td>
+ </tr>
+ <tr class="row-week">
+  <td class="day-normal">6</td>
+  <td class="day-normal">7</td>
+  <td class="day-normal">8</td>
+  <td class="day-normal">9</td>
+  <td class="day-normal">10</td>
+  <td class="day-normal">11</td>
+  <td class="day-today">12</td>
+ </tr>
+ <tr class="row-week">
+  <td class="day-future">13</td>
+  <td class="day-future">14</td>
+  <td class="day-future">15</td>
+  <td class="day-future">16</td>
+  <td class="day-future">17</td>
+  <td class="day-future">18</td>
+  <td class="day-future">19</td>
+ </tr>
+ <tr class="row-week">
+  <td class="day-future">20</td>
+  <td class="day-future">21</td>
+  <td class="day-future">22</td>
+  <td class="day-future">23</td>
+  <td class="day-future">24</td>
+  <td class="day-future">25</td>
+  <td class="day-future">26</td>
+ </tr>
+ <tr class="row-week">
+  <td class="day-future">27</td>
+  <td class="day-future">28</td>
+  <td class="day-future">29</td>
+  <td class="day-future">30</td>
+  <td class="day-future">31</td>
+  <td class="day-blank" colspan="2">&nbsp;</td>
+ </tr>
+</table></div>
+
+
+		    </div></div></div>
+<div class="block block-node" id="block-node-0">
+<div class="pgSideNav">    <h2>Syndication</h2>    
+		    <div>
+			<div class="xml-icon"><a href="index9637.html?q=rss.xml"><img src="misc/xml.png" width="36" height="14" alt="Flux XML" title="Flux XML" /></a></div>
+		    </div></div></div>
+<div class="block block-poll" id="block-poll-0">
+<div class="pgSideNav">    <h2>Sondage</h2>    
+		    <div>
+			<div class="poll"><div class="title">Quelle est la version de PostgreSQL la plus répandue sur vos serveurs ?</div><div class="text">8.3</div><div class="bar"><div style="width: 10%;" class="foreground"></div></div><div class="percent">10%</div><div class="text">8.2</div><div class="bar"><div style="width: 42%;" class="foreground"></div></div><div class="percent">42%</div><div class="text">8.1</div><div class="bar"><div style="width: 40%;" class="foreground"></div></div><div class="percent">40%</div><div class="text">8.0</div><div class="bar"><div style="width: 2%;" class="foreground"></div></div><div class="percent">2%</div><div class="text">7.4</div><div class="bar"><div style="width: 6%;" class="foreground"></div></div><div class="percent">6%</div><div class="text">7.3 ou antérieure</div><div class="bar"><div style="width: 0%;" class="foreground"></div></div><div class="percent">0%</div><div class="total">Nombre de votes: 48</div></div><div class="links"><a href="index8c57.html?q=node/1426#comment" title="Sauter au premier commentaire de ce message.">3 commentaires</a> | <a href="index729f.html?q=poll" title="Voir la liste des sondages de ce site.">anciens sondages</a></div>
+		    </div></div></div>
+    </td>
+
+      <td style="vertical-align: top; width: 80%"><div class="breadcrumb"><a href="index03d2.html?q=">Accueil</a></div><h2 class="title">Technique - optimisation</h2>
+<!-- begin content -->
+
+<!-- node: "probeleme de SWAP et CPU" -->
+<!--<div class="pgFrontCenterUser">
+<div class="pgFrontUser">
+<div class="pgFrontUserInner">
+--><div class="pgFrontUserWrap">
+ <div class="pgFrontUserContent">	<h1 class="plop"><a href="indexeb61.html?q=taxonomy/term/12" class="active">Technique - optimisation</a> | <a href="index7f13.html?q=node/1304">probeleme de SWAP et CPU</a></h1>
+		    <p>
+			    Par <a href="index6db2.html?q=user/2665" title="Voir le profil utilisateur.">aitali</a> le 03/07/2007 - 11:08
+		    </p>	
+			    <p>bonjour a tous, </p>
+<p>j'ai un serveur postgres 8.2.4 qui tourne sous RedHat, RAM reste raisonnable, CPU atteint par moment 100%, mais<br />
+le swap utilisé est toujours a 0% !!!!!!!!!!!</p>
+<p>pas de probleme d'espace disque, d'où ca peut venir ?</p>
+<p>merci d'avance</p>
+<p>voici des infos sur les ressources utilisées:</p>
+<p>top - 11:07:39 up  1:39,  2 users,  load average: 0.98, 0.95, 0.84<br />
+Tasks:  94 total,   3 running,  91 sleeping,   0 stopped,   0 zombie</p>
+<!--hr /--><div class="contentsLink">[ <a href="index7f13.html?q=node/1304#comment" title="Sauter au premier commentaire de ce message.">4 commentaires</a> | <a href="index7f13.html?q=node/1304" title="Lire le reste de cette contribution." class="read-more">lire plus</a> ]</div>
+		     </div></div>
+<!--</div>
+</div>
+</div>
+</div> -->
+
+<!-- node: "probeleme de RAM et de CPU" -->
+<!--<div class="pgFrontCenterUser">
+<div class="pgFrontUser">
+<div class="pgFrontUserInner">
+--><div class="pgFrontUserWrap">
+ <div class="pgFrontUserContent">	<h1 class="plop"><a href="indexeb61.html?q=taxonomy/term/12" class="active">Technique - optimisation</a> | <a href="indexfede.html?q=node/1303">probeleme de RAM et de CPU</a></h1>
+		    <p>
+			    Par <a href="index6db2.html?q=user/2665" title="Voir le profil utilisateur.">aitali</a> le 02/07/2007 - 20:39
+		    </p>	
+			    <p>bonjour a tous,</p>
+<p>j'ai un serveur , postgres (8.2.4)sous linux, qui tourne depuis quelques mois sans probleme; et depuis 5 jours, le CPU est toujours autour<br />
+de 100% et la RAM augmente régulierement sans raisons!!!</p>
+<p>je n'ai pas une grosse activité sur la base</p>
+<p>pourriez vous me dire, qui pourrait etre la cause de cette augmentation qui est arrivé d'un seul coup<br />
+merci d'avance </p>
+<!--hr /--><div class="contentsLink">[ <a href="indexfede.html?q=node/1303#comment" title="Sauter au premier commentaire de ce message.">11 commentaires</a> ]</div>
+		     </div></div>
+<!--</div>
+</div>
+</div>
+</div> -->
+
+<!-- node: "Optimisation des requêtes" -->
+<!--<div class="pgFrontCenterUser">
+<div class="pgFrontUser">
+<div class="pgFrontUserInner">
+--><div class="pgFrontUserWrap">
+ <div class="pgFrontUserContent">	<h1 class="plop"><a href="indexeb61.html?q=taxonomy/term/12" class="active">Technique - optimisation</a> | <a href="indexc0a6.html?q=node/1300">Optimisation des requêtes</a></h1>
+		    <p>
+			    Par <a href="indexfce5.html?q=user/2651" title="Voir le profil utilisateur.">chtonk</a> le 28/06/2007 - 11:11
+		    </p>	
+			    <p>Bonjour,</p>
+<p>je voudrais savoir s'il était possible, à l'instar d'Oracle, d'accrocher ("pin") des requêtes en mémoire. Notamment pour réduire l'analyse SQL et éviter d'avoir à refaire tous les trajets.</p>
+<p>Cordialement,</p>
+<!--hr /--><div class="contentsLink">[ <a href="indexc0a6.html?q=node/1300#comment" title="Sauter au premier commentaire de ce message.">4 commentaires</a> ]</div>
+		     </div></div>
+<!--</div>
+</div>
+</div>
+</div> -->
+
+<!-- node: "probleme encodage de la base" -->
+<!--<div class="pgFrontCenterUser">
+<div class="pgFrontUser">
+<div class="pgFrontUserInner">
+--><div class="pgFrontUserWrap">
+ <div class="pgFrontUserContent">	<h1 class="plop"><a href="indexeb61.html?q=taxonomy/term/12" class="active">Technique - optimisation</a> | <a href="indexffe6.html?q=node/1283">probleme encodage de la base</a></h1>
+		    <p>
+			    Par <a href="indexb518.html?q=user/2596" title="Voir le profil utilisateur.">touane</a> le 13/06/2007 - 13:55
+		    </p>	
+			    <p>bonjour<br />
+j'ai le probleme ensuite :<br />
+javax.servlet.ServletException: Des données de caractères invalides ont été trouvées. C'est probablement causé par le stockage de caractères invalides pour le jeu de caractères de création de la base. L'exemple le plus courant est le stockage de données 8bit dans une base SQL_ASCII.<br />
+Exception : java.io.IOException: UTF-8 string representation was truncated</p>
+<!--hr /--><div class="contentsLink">[ <a href="indexffe6.html?q=node/1283#comment" title="Sauter au premier commentaire de ce message.">3 commentaires</a> | <a href="indexffe6.html?q=node/1283" title="Lire le reste de cette contribution." class="read-more">lire plus</a> ]</div>
+		     </div></div>
+<!--</div>
+</div>
+</div>
+</div> -->
+
+<!-- node: "Nombre d'occurence d'une chaine dans une autre" -->
+<!--<div class="pgFrontCenterUser">
+<div class="pgFrontUser">
+<div class="pgFrontUserInner">
+--><div class="pgFrontUserWrap">
+ <div class="pgFrontUserContent">	<h1 class="plop"><a href="indexeb61.html?q=taxonomy/term/12" class="active">Technique - optimisation</a> | <a href="index33f0.html?q=node/1251">Nombre d'occurence d'une chaine dans une autre</a></h1>
+		    <p>
+			    Par <a href="index5f33.html?q=user/198" title="Voir le profil utilisateur.">Froggy</a> le 29/05/2007 - 11:52
+		    </p>	
+			    <p>De passage sur le site, je proposais une petite optim pour cette fonction :</p>
+<p>--strOccurence(Chaine complete, chaine recherchee)<br />
+--renvoit le nombre d'occurence de "chaine recherchee" dans "chaine complete" en int</p>
+<p>CREATE OR REPLACE FUNCTION strOccurence (text, text) RETURNS integer AS '<br />
+DECLARE<br />
+    chaine ALIAS FOR $1;<br />
+    souschaine ALIAS FOR $2;<br />
+BEGIN<br />
+return ((length(chaine) - length(replace(chaine, souschaine, \'\'))) / length(souschaine));</p>
+<!--hr /--><div class="contentsLink">[ Vous devez <a href="index7992.html?q=user/login">vous connecter</a> pour poster des commentaires | <a href="index33f0.html?q=node/1251" title="Lire le reste de cette contribution." class="read-more">lire plus</a> ]</div>
+		     </div></div>
+<!--</div>
+</div>
+</div>
+</div> -->
+
+<!-- node: "Optimisation restauration de base avec psql ..." -->
+<!--<div class="pgFrontCenterUser">
+<div class="pgFrontUser">
+<div class="pgFrontUserInner">
+--><div class="pgFrontUserWrap">
+ <div class="pgFrontUserContent">	<h1 class="plop"><a href="indexeb61.html?q=taxonomy/term/12" class="active">Technique - optimisation</a> | <a href="index4b0c.html?q=node/1244">Optimisation restauration de base avec psql ...</a></h1>
+		    <p>
+			    Par <a href="indexe3a2.html?q=user/2556" title="Voir le profil utilisateur.">djezair31</a> le 23/05/2007 - 16:03
+		    </p>	
+			    <p>Salut a tous,</p>
+<p>je possede une DB sur PostgreSQL 8.0.1 sur laquel je stocke tout les flux reseau entrant et sortant. Il s'agit d'une base d'environ 7G et qui peut monter a 30G.</p>
+<p>Toutes les semaines on lance un VACUM sur la base pour la nettoyer. Le VACUM est extrement long. </p>
+<p>Du coup on prefere sauvegarder la base, la suppprimer puis la restaurer toutes les semaines.</p>
+<p>Postgres gere le pg_dump (sauvegarde) et le psql (restauration) sur un seul process alors que l'on possede un BI Xeon Quad Core.</p>
+<!--hr /--><div class="contentsLink">[ <a href="index4b0c.html?q=node/1244#comment" title="Sauter au premier commentaire de ce message.">4 commentaires</a> | <a href="index4b0c.html?q=node/1244" title="Lire le reste de cette contribution." class="read-more">lire plus</a> ]</div>
+		     </div></div>
+<!--</div>
+</div>
+</div>
+</div> -->
+
+<!-- node: "Requêtes accentuées" -->
+<!--<div class="pgFrontCenterUser">
+<div class="pgFrontUser">
+<div class="pgFrontUserInner">
+--><div class="pgFrontUserWrap">
+ <div class="pgFrontUserContent">	<h1 class="plop"><a href="indexeb61.html?q=taxonomy/term/12" class="active">Technique - optimisation</a> | <a href="indexacb7.html?q=node/1228">Requêtes accentuées</a></h1>
+		    <p>
+			    Par <a href="index4c23.html?q=user/2455" title="Voir le profil utilisateur.">SangJun</a> le 11/05/2007 - 14:29
+		    </p>	
+			    <p>Lorsque je lance une requête, qui contient des caractères accentués, par la fonction PQexec(conn, maRequete), je n'obtiens aucun résultat.</p>
+<p>J'affiche maRequete par un printf, je la copie-colle sous pgAgmin III, j'ai des résultats.</p>
+<p>Lorsque je n'utilise pas d'accents, tout va bien, seul les arguments accentués me causent des problèmes.</p>
+<p>Y a-t-il un UpCase en PostGreSQL (si upcase(é) donne pour résultat E, ça devrait suffir)?</p>
+<!--hr /--><div class="contentsLink">[ <a href="indexacb7.html?q=node/1228#comment" title="Sauter au premier commentaire de ce message.">5 commentaires</a> | <a href="indexacb7.html?q=node/1228" title="Lire le reste de cette contribution." class="read-more">lire plus</a> ]</div>
+		     </div></div>
+<!--</div>
+</div>
+</div>
+</div> -->
+
+<!-- node: "Requête rebelle" -->
+<!--<div class="pgFrontCenterUser">
+<div class="pgFrontUser">
+<div class="pgFrontUserInner">
+--><div class="pgFrontUserWrap">
+ <div class="pgFrontUserContent">	<h1 class="plop"><a href="indexeb61.html?q=taxonomy/term/12" class="active">Technique - optimisation</a> | <a href="index5350.html?q=node/1227">Requête rebelle</a></h1>
+		    <p>
+			    Par <a href="index4c23.html?q=user/2455" title="Voir le profil utilisateur.">SangJun</a> le 10/05/2007 - 16:41
+		    </p>	
+			    <p>Bonjour,</p>
+<p>Je n'arrive pas à exécuter 2 requêtes, la première passe sans problème. La seconde me met un Segmentation Fault.<br />
+Quand je rentre la requête manuellement, pas de soucis, lorsque je l'ajoute par "calcul", ça ne marche plus.</p>
+<p>C'est-à-dire que :</p>
+<p>       strcpy(maRequete,"");<br />
+       strcat(maRequete,"SELECT SOURCE_ID, TARGET_ID FROM ROUTES WHERE ID = ");<br />
+       sprintf(resultChar,"%f\0",result);</p>
+<!--hr /--><div class="contentsLink">[ <a href="index5350.html?q=node/1227#comment" title="Sauter au premier commentaire de ce message.">8 commentaires</a> | <a href="index5350.html?q=node/1227" title="Lire le reste de cette contribution." class="read-more">lire plus</a> ]</div>
+		     </div></div>
+<!--</div>
+</div>
+</div>
+</div> -->
+
+<!-- node: "Imposer l'index de recherche dans une clause select" -->
+<!--<div class="pgFrontCenterUser">
+<div class="pgFrontUser">
+<div class="pgFrontUserInner">
+--><div class="pgFrontUserWrap">
+ <div class="pgFrontUserContent">	<h1 class="plop"><a href="indexeb61.html?q=taxonomy/term/12" class="active">Technique - optimisation</a> | <a href="indexbc36.html?q=node/1181">Imposer l'index de recherche dans une clause select</a></h1>
+		    <p>
+			    Par <a href="index3cee.html?q=user/1317" title="Voir le profil utilisateur.">h.henoch</a> le 04/04/2007 - 15:02
+		    </p>	
+			    <p>Bonjour, est-il possible d'imposer l'index de recherche sur une colonne donné .. Par exemple sous Sybase on peut faire : select* from <ma table> (index index1) ce qui impose l'utilisation de l'index1 lors de la recherche.</p>
+<p>Peut-on faire pareil avec Postgresql ?</p>
+<!--hr /--><div class="contentsLink">[ <a href="indexbc36.html?q=node/1181#comment" title="Sauter au premier commentaire de ce message.">4 commentaires</a> ]</div>
+		     </div></div>
+<!--</div>
+</div>
+</div>
+</div> -->
+
+<!-- node: "La limite de réinitialisation de l'ID de transaction" -->
+<!--<div class="pgFrontCenterUser">
+<div class="pgFrontUser">
+<div class="pgFrontUserInner">
+--><div class="pgFrontUserWrap">
+ <div class="pgFrontUserContent">	<h1 class="plop"><a href="indexeb61.html?q=taxonomy/term/12" class="active">Technique - optimisation</a> | <a href="indexdbe3.html?q=node/1165">La limite de réinitialisation de l'ID de transaction</a></h1>
+		    <p>
+			    Par <a href="index6270.html?q=user/1976" title="Voir le profil utilisateur.">ahlonko</a> le 27/03/2007 - 08:12
+		    </p>	
+			    <p>Bonjour ,</p>
+<p>Depuis deux semaines j'ai constamment ce type de massage dans les logs de PG 8.1 </p>
+<p>LOG:  La limite de réinitialisation de l'ID de transaction est 1137327667, limité par la base de données <<xyz>></p>
+<p>et le serveur  de redémarrer tout seul déconnectant ainsi les utilisateurs avec ce type de message:</p>
+<p>DÉTAIL:  Le postmaster a commandé à ce processus serveur d'annuler la transaction courante et de quitter car un autre processus serveur a quitté anormalement et qu'il existe probablement de la mémoire partagée corrompue.</p>
+<!--hr /--><div class="contentsLink">[ <a href="indexdbe3.html?q=node/1165#comment" title="Sauter au premier commentaire de ce message.">18 commentaires</a> | <a href="indexdbe3.html?q=node/1165" title="Lire le reste de cette contribution." class="read-more">lire plus</a> ]</div>
+		     </div></div>
+<!--</div>
+</div>
+</div>
+</div> -->
+<div id="pager" class="container-inline"><div><a href="index354d.html?q=taxonomy/term/12&amp;from=0">première page</a></div><div><a href="index7a2a.html?q=taxonomy/term/12&amp;from=10">page précédente</a></div><div><a href="index354d.html?q=taxonomy/term/12&amp;from=0">1</a> <a href="index7a2a.html?q=taxonomy/term/12&amp;from=10">2</a> <strong>3</strong> <a href="index3c14.html?q=taxonomy/term/12&amp;from=30">4</a> <a href="indexcc74.html?q=taxonomy/term/12&amp;from=40">5</a> <a href="indexdaed.html?q=taxonomy/term/12&amp;from=50">6</a> <a href="index236d-2.html?q=taxonomy/term/12&amp;from=60">7</a> </div><div><a href="index3c14.html?q=taxonomy/term/12&amp;from=30">page suivante</a></div><div><a href="index236d-2.html?q=taxonomy/term/12&amp;from=60">dernière page</a></div></div><div class="xml-icon"><a href="index7a0d.html?q=taxonomy/term/12/0/feed"><img src="misc/xml.png" width="36" height="14" alt="Flux XML" title="Flux XML" /></a></div>
+<!-- end content -->
+              </td>
+
+    </tr>
+    <tr><td colspan="2">
+
+		<div class="pgTopNav">
+		   <div class="pgTopNavLeft"> 
+		     <img src="layout/images/nav_lft.png" width="7" height="23" alt="" />
+		   </div>
+		   <div class="pgTopNavRight">
+		    <img src="layout/images/nav_rgt.png" width="7" height="23" alt="" />
+		  </div>
+		  <!--<ul class="pgTopNavList">-->
+		  <ul class="pgTopNavList">
+		   <li><a href="index03d2.html?q=" title="Retourner à la page principale.">accueil</a> </li>
+		   <li> <a href="indexf6e5.html?q=archive" title="Lire le contenu plus ancien dans notre archive.">archives</a> </li>
+		   <li> <a href="index71c4.html?q=blog" title="Lire les blogues les plus récents.">blogues</a> </li>
+
+		   <li> <a href="indexf6fe.html?q=book" title="Lire et contribuer aux livres collaboratifs.">livres</a> </li>
+		   <li> <a href="index79b7.html?q=forum">forums</a> </li>
+		   <li> <a href="index729f.html?q=poll" title="Voir la liste des sondages de ce site.">sondages</a> </li>
+		   <li> <a href="index4404.html?q=search" title="Chercher pour du contenu plus vieux.">recherche</a></li><li><a href="http://docs.postgresqlfr.org/" target="_blank">documentation </a></li>
+
+		  </ul>
+
+<!--
+		   <li><a href="?q=" title="Retourner à la page principale.">accueil</a> </li>
+		   <li> <a href="?q=archive" title="Lire le contenu plus ancien dans notre archive.">archives</a> </li>
+		   <li> <a href="?q=blog" title="Lire les blogues les plus récents.">blogues</a> </li>
+		   <li> <a href="?q=book" title="Lire et contribuer aux livres collaboratifs.">livres</a> </li>
+		   <li> <a href="?q=forum">forums</a> </li>
+		   <li> <a href="?q=poll" title="Voir la liste des sondages de ce site.">sondages</a> </li>
+		   <li> <a href="?q=search" title="Chercher pour du contenu plus vieux.">recherche</a></li><li><a href="http://docs.postgresqlfr.org/" target="_blank">documentation </a></li>
+-->
+		  </ul>
+	        </div>
+    </td></tr>
+   </table>
+   <p style="text-align: center;">&copy;&nbsp;PostgreSQLFr, tous droits réservés.<br>
+Site déclaré à la CNIL sous le numéro 1074678, conformément à la Loi en vigueur.
+</p>
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-3921927-1");
+pageTracker._initData();
+pageTracker._trackPageview();
+</script>
+<p></p>
+   
+</body>
+
+<!-- Mirrored from drupal.postgresql.fr/?q=taxonomy/term/12&from=20 by HTTrack Website Copier/3.x [XR&CO'2006], Sun, 12 Oct 2008 16:16:16 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+</html>

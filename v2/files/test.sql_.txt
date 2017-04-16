@@ -1,0 +1,9 @@
+CREATE FUNCTION test (VARCHAR) RETURNS REFCURSOR AS '
+DECLARE
+  NA ALIAS FOR $1;
+  curs_retour REFCURSOR;
+BEGIN
+    OPEN curs_retour FOR SELECT * FROM test;
+  RETURN curs_retour;
+END;
+'LANGUAGE plpgsql;

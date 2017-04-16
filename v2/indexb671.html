@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE rss [<!ENTITY % HTMLlat1 PUBLIC "-//W3C//ENTITIES Latin 1 for XHTML//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml-lat1.ent">]>
+<rss version="0.92" xml:base="http://drupal.postgresql.fr">
+<channel>
+ <title>PostgreSQLFr - Technique - Langages Procéduraux (PL)</title>
+ <link>http://drupal.postgresql.fr/?q=taxonomy/term/24/0</link>
+ <description>Tous sur les langages procéduraux (PLpgSQL, PL/PHP, PL/TCL, PL/Java, PL/Perl, PL/Python).</description>
+ <language>fr</language>
+<item>
+ <title>[Résolu] Trigger -&gt; Clefs Etrangères</title>
+ <link>http://drupal.postgresql.fr/?q=node/1724</link>
+ <description>&lt;p&gt;Bonjour,&lt;/p&gt;
+&lt;p&gt;J'ai un trigger (AFTER FOR EACH ROW) sur une table qui à chaque fois qu'il y a un enregistrement sur cette même table, exécute une fonction pgplsql qui éxécute elle-même une fonction PL/sh qui exécute un script PHP.&lt;/p&gt;
+&lt;p&gt;Dans ce script PHP, je créer 10 enregistrements dans une autre tables où il y a un champ qui fait référence à la table sur laquelle il y a le trigger.&lt;/p&gt;
+&lt;p&gt;Exemple d'application:&lt;/p&gt;
+</description>
+ <pubDate>Fri, 12 Sep 2008 08:58:59 +0200</pubDate>
+</item>
+<item>
+ <title>Déclencheurs/triggers</title>
+ <link>http://drupal.postgresql.fr/?q=node/1706</link>
+ <description>&lt;p&gt;Bonjour, je suis novice dans l'utilisation de PostgreSQL.&lt;/p&gt;
+&lt;p&gt;je l'utilise avec Postgis.&lt;/p&gt;
+&lt;p&gt;j'ai une table parcelle avec des informations géométriques. &lt;/p&gt;
+&lt;p&gt;id_parcelle serial&lt;br /&gt;
+num_parcelle character varying 15&lt;br /&gt;
+num_INSSE_commune integer&lt;br /&gt;
+the_geom geometry&lt;/p&gt;
+&lt;p&gt;puis une opération est réalisée sur une parcelle. &lt;/p&gt;
+&lt;p&gt;j'ai une table opération.&lt;/p&gt;
+&lt;p&gt;id_opération serial&lt;br /&gt;
+type_opération character varying&lt;/p&gt;
+</description>
+ <pubDate>Tue, 29 Jul 2008 14:16:50 +0200</pubDate>
+</item>
+<item>
+ <title>[plpgSQL][Déclencheur / Trigger en cascade] perte / changement de NEW</title>
+ <link>http://drupal.postgresql.fr/?q=node/1705</link>
+ <description>&lt;p&gt;Bonjour,&lt;/p&gt;
+&lt;p&gt;Voilà dans l'exemple suivant quand je rentre dans le if de la fonction "function_update_pds_salles_valide_before()", et alors qu'aucune modification n'est apporté à NEW dans la fonction, si NEW.valide était égale à 1 au début de la fonction celui-ci est égale à 0 au moment du return avant le END IF; et inversement si il était égale à 0 celui-ci est égale à 1 à la fin...&lt;/p&gt;
+</description>
+ <pubDate>Mon, 28 Jul 2008 16:13:21 +0200</pubDate>
+</item>
+<item>
+ <title>Declaration fonction avec parametres facultatifs</title>
+ <link>http://drupal.postgresql.fr/?q=node/1687</link>
+ <description>&lt;p&gt;Bonjour,&lt;/p&gt;
+&lt;p&gt;Je suis entrain de convertir des procédures SQL Server pour qu'elles soient compatibles sur PostgreSQL mais je ne sais pas comment faire sur Postgres pour déclarer une fonction avec des paramètres facultatifs (et affectations par defaut)? Il me met que j'ai une erreur de synthaxe vers le "=".&lt;/p&gt;
+&lt;p&gt;La déclaration de la fonction sur SQL Server:&lt;/p&gt;
+&lt;p&gt;ALTER PROCEDURE [dbo].[sp_TRACE_Creer] (&lt;/p&gt;
+</description>
+ <pubDate>Thu, 10 Jul 2008 15:46:14 +0200</pubDate>
+</item>
+<item>
+ <title>afficher le nom du serveur -&gt; equivalent sur SQL Server @@SERVERNAME</title>
+ <link>http://drupal.postgresql.fr/?q=node/1669</link>
+ <description>&lt;p&gt;Bonjour,&lt;br /&gt;
+Je me suis mis recemment sur PostgreSQL et je voudrais savoir quelle est la commande pour afficher le nom du serveur à travers une requête dans le language 'plpgsql'. Sur SQL Server, la commande equivalente est @@SERVERNAME.&lt;br /&gt;
+Merci d'avance.&lt;/p&gt;
+</description>
+ <pubDate>Tue, 24 Jun 2008 17:14:16 +0200</pubDate>
+</item>
+<item>
+ <title>[Débutant][PgSql] Appel de Procédures InOut</title>
+ <link>http://drupal.postgresql.fr/?q=node/1668</link>
+ <description>&lt;p&gt;Bonjour,&lt;/p&gt;
+&lt;p&gt;Débutant sur l'utilisation de PgSql, je reste complètement bloqué sur un simple appel de procédure. Venant du monde Oracle, je pense qu'il me manque quelques concepts clés que je ne suis pourtant pas arrivé à débusquer sur Internet.&lt;/p&gt;
+&lt;p&gt;J'ai une simple procédure qui me permet d'ajouter un couple attribut/valeur dans une chaîne de caractères : (j'utilise EMS SQL Manager Lite)&lt;/p&gt;
+</description>
+ <pubDate>Thu, 19 Jun 2008 14:12:46 +0200</pubDate>
+</item>
+<item>
+ <title>Grant / Revoke sur toutes les tables à la fois ?</title>
+ <link>http://drupal.postgresql.fr/?q=node/1662</link>
+ <description>&lt;p&gt;Bonjour, encore une fois je me retouve avec un lèger problème avec postgres.&lt;br /&gt;
+Dans ma base de données je possède 67 tables, quelques roles et des utilisateurs.&lt;br /&gt;
+Comme ces derniers n'ont pas tous les mêmes droits (des GRANT différents) j'ai pondu une petite fonction qui se charge de lister mes tables et d'affecter les bons droits.&lt;/p&gt;
+&lt;p&gt;Seulement visiblement Postgres n'aime pas le nom de tables en variable....&lt;/p&gt;
+</description>
+ <pubDate>Tue, 17 Jun 2008 10:21:12 +0200</pubDate>
+</item>
+<item>
+ <title>Contrainte avec valeur absolu</title>
+ <link>http://drupal.postgresql.fr/?q=node/1654</link>
+ <description>&lt;p&gt;Bonjour je cherche a crée une contrainte sur 2 champs.&lt;/p&gt;
+&lt;p&gt;Le 1er est la clef primaire de ma table, le  second devra étre la valeur absolue d'un id_user (lui meme clé primaire d'une autre table).&lt;/p&gt;
+&lt;p&gt;J'ai essayé &lt;/p&gt;
+&lt;p&gt;ALTER TABLE ONLY table1&lt;br /&gt;
+    ADD CONSTRAINT ma_contrainte UNIQUE (id_table1, @(id_user));&lt;br /&gt;
+&amp;#038;&lt;br /&gt;
+ALTER TABLE ONLY table1&lt;br /&gt;
+    ADD CONSTRAINT ma_contrainte UNIQUE (id_table1, abs(id_user));&lt;/p&gt;
+</description>
+ <pubDate>Fri, 30 May 2008 18:25:04 +0200</pubDate>
+</item>
+<item>
+ <title>executer un fichier .sql à partir d'une fonction Pl/pgsql</title>
+ <link>http://drupal.postgresql.fr/?q=node/1647</link>
+ <description>&lt;p&gt;Bonjour,&lt;/p&gt;
+&lt;p&gt;Je voudrai savoir s'il est possible d' exécuter ou lancer un fichier.sql à partir d'une fonction PL/pgSQL.&lt;/p&gt;
+&lt;p&gt;Merci, d'avance à tous.&lt;/p&gt;
+</description>
+ <pubDate>Thu, 22 May 2008 10:28:48 +0200</pubDate>
+</item>
+<item>
+ <title>PLPGSQL : Nom des tables en variable possible ?</title>
+ <link>http://drupal.postgresql.fr/?q=node/1633</link>
+ <description>&lt;p&gt;Bonjour, voila je bloque sur une fonction un peu con.&lt;br /&gt;
+Je pense que vous la comprendrez facilement: le but est de trouver dans quelle sous-table appartient un ID (clé primaire), car j'ai un héritage... Donc dans une fonction je parcours les tables possible mais visiblement je ne peux pas faire d'appel sur une table si c'est un nom de variable :&lt;/p&gt;
+&lt;p&gt;-----------------------------&lt;/p&gt;
+&lt;p&gt;CREATE OR REPLACE FUNCTION get_type_of_document(bigint) RETURNS varchar AS '&lt;/p&gt;
+</description>
+ <pubDate>Tue, 29 Apr 2008 10:37:22 +0200</pubDate>
+</item>
+<item>
+ <title>Insertion depuis open office</title>
+ <link>http://drupal.postgresql.fr/?q=node/1600</link>
+ <description>&lt;p&gt;Bonjour&lt;/p&gt;
+&lt;p&gt;Je cherche toujours à interfacer correctement postgresql avec open office ...&lt;br /&gt;
+j'arrive donc très bien à faire des requètes (select) et des insertion (insert) par code VB (interne à open office) !&lt;br /&gt;
+si je fait l'insert sur une base open office classique, je n'ai pas de message d'erreur ...&lt;br /&gt;
+sauf que lorsque je fait mon insertion dans une table postgresql cela me retourne ce message :&lt;/p&gt;
+</description>
+ <pubDate>Mon, 31 Mar 2008 10:51:24 +0200</pubDate>
+</item>
+<item>
+ <title>Trigger</title>
+ <link>http://drupal.postgresql.fr/?q=node/1576</link>
+ <description>&lt;p&gt;Salut tous&lt;/p&gt;
+&lt;p&gt;Je voudrais avec une "trigger fonction" valider les entrées dans plusieurs colones dans de tableaux differents à l´aide d´une seule fonction. Est que quelqu´un aurait une idée comment est ce que je peux realiser cela? Merci d´avance&lt;/p&gt;
+</description>
+ <pubDate>Fri, 29 Feb 2008 13:52:01 +0100</pubDate>
+</item>
+<item>
+ <title>Trigger à l'issue de transaction</title>
+ <link>http://drupal.postgresql.fr/?q=node/1531</link>
+ <description>&lt;p&gt;Bonjour,&lt;/p&gt;
+&lt;p&gt;Y a-t'il moyen de placer des trigger à l'issue d'une transaction ?&lt;br /&gt;
+J'ai un pb d'intégrité de type contraintes récursives sur 2 tables.&lt;/p&gt;
+</description>
+ <pubDate>Tue, 22 Jan 2008 11:44:30 +0100</pubDate>
+</item>
+<item>
+ <title>verrouillage de ligne</title>
+ <link>http://drupal.postgresql.fr/?q=node/1519</link>
+ <description>&lt;p&gt;Bonjour à tous,&lt;/p&gt;
+&lt;p&gt;J'ai interfacé postgresql avec open office. Jusque là ca marche, j'arrive à faire mes SELECT via mon code pour récupérer les données sous calc ...&lt;br /&gt;
+j'aurais voulu que lorsque je fais un select, cela me vérouille les lignes sélectionnées.&lt;br /&gt;
+et j'ai découvert SELECT ... FOR UPDATE&lt;/p&gt;
+&lt;p&gt;cequi me donne :&lt;br /&gt;
+req="SELECT NUMINT FROM SAV FOR UPDATE;"&lt;/p&gt;
+&lt;p&gt;mais que ce soit dans mon code pour calc ou dans base directement cela me retourne qu'il y a une erreur dans l'instruction SQL. J'ai essayé aussi comme ca : req="SELECT NUMINT FROM SAV FOR UPDATE SAV;" meme si c'est implicite ...&lt;/p&gt;
+</description>
+ <pubDate>Tue, 15 Jan 2008 11:46:28 +0100</pubDate>
+</item>
+<item>
+ <title>Lire le source d'une function</title>
+ <link>http://drupal.postgresql.fr/?q=node/1505</link>
+ <description>&lt;p&gt;Bonjour,&lt;/p&gt;
+&lt;p&gt;Debutant en PostgreSQL (mais pas en bases de données), Je suis en train de porter une appli de SQlserver sur PostgreSQL. Une des fonctions de l'appli est la capacité de générer des triggers à la volée pour permettre de réagir à certains évènements. Pour cela j'ai besoin de pouvoir relire le source de functions PLPgSQL par une requète SQL. Où ce texte est il stocké ?&lt;/p&gt;
+&lt;p&gt;J'ai regardé dans pg_catalog mais cela n'est pas évident pour moi. &lt;/p&gt;
+</description>
+ <pubDate>Wed, 19 Dec 2007 11:43:19 +0100</pubDate>
+</item>
+</channel>
+</rss>

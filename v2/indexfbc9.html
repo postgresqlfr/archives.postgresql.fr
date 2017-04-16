@@ -1,0 +1,654 @@
+
+<!DOCTYPE
+ html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+ <html>
+ <!-- $Date: 2005/08/30 07:54:43 $ / $Revision: 1.29 $ / Last Theme Editor :$Author: jx $-->
+  
+<!-- Mirrored from drupal.postgresql.fr/?q=node/1378 by HTTrack Website Copier/3.x [XR&CO'2006], Sun, 12 Oct 2008 16:30:57 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<base  />
+<style type="text/css" media="all">@import "misc/drupal.css";</style>
+   <title>Index inversé, en C - PostgreSQLFr</title>
+ <style type="text/css" media="screen" title="Normal Text">
+    @import url("layout/css/blue/fixed.css");
+    @import url(_guillaume/dotclear/themes/postgresql/style.html);
+ </style>
+ <style type="text/css" media="screen" title="Normal Text2">
+    @import url("layout/css/blue/pgfr.css");
+    @import url(_guillaume/dotclear/themes/postgresql/style.html);
+ </style>
+   </head>
+   <body>
+    <table border="0" cellspacing="5" cellpadding="0" width="100%">
+     <tr>
+      <!--td colspan="2" width="100%"-->
+      <td colspan="2">
+      <!-- Head -->
+       <table border="0" cellspacing="0" cellpadding="0" width="100%">
+        <tr>
+	 <td align="left">
+           <div id="pgHeader">
+	    <div id="pgHeaderLogoLeft">
+	     <a href="index.html" title="PostgreSQL"><img src="layout/images/hdr_left.png" width="230" height="80" alt="PostgreSQL" /></a>
+	    </div>
+	    <div id="pgHeaderLogoRight">
+	     <a href="index.html" title="La base de donn�es la plus sophistiqu�e au monde."><img src="layout/images/hdr_right.png" width="210" height="80" alt="La base de donn�es la plus sophistiqu�e au monde." /></a>
+	    </div>
+	   </div>
+         </td>
+	 <td align="right">
+         </td>
+	</tr>
+      </table> <!-- Head -->
+      <br />
+      <table border="0" cellspacing="0" cellpadding="0" width="100%">
+              <tr>
+	      	 <td align="left">
+
+		<div class="pgTopNav">
+		   <div class="pgTopNavLeft"> 
+		     <img src="layout/images/nav_lft.png" width="7" height="23" alt="" />
+		   </div>
+		   <div class="pgTopNavRight">
+		    <img src="layout/images/nav_rgt.png" width="7" height="23" alt="" />
+		  </div>
+		  <!--<ul class="pgTopNavList">-->
+		  <ul class="pgTopNavList">
+		   <li><a href="index03d2.html?q=" title="Retourner à la page principale.">accueil</a> </li>
+		   <li> <a href="indexf6e5.html?q=archive" title="Lire le contenu plus ancien dans notre archive.">archives</a> </li>
+		   <li> <a href="index71c4.html?q=blog" title="Lire les blogues les plus récents.">blogues</a> </li>
+
+		   <li> <a href="indexf6fe.html?q=book" title="Lire et contribuer aux livres collaboratifs.">livres</a> </li>
+		   <li> <a href="index79b7.html?q=forum">forums</a> </li>
+		   <li> <a href="index729f.html?q=poll" title="Voir la liste des sondages de ce site.">sondages</a> </li>
+		   <li> <a href="index4404.html?q=search" title="Chercher pour du contenu plus vieux.">recherche</a></li><li><a href="http://docs.postgresqlfr.org/" target="_blank">documentation </a></li>
+
+		  </ul>
+
+<!--
+		   <li><a href="?q=" title="Retourner à la page principale.">accueil</a> </li>
+		   <li> <a href="?q=archive" title="Lire le contenu plus ancien dans notre archive.">archives</a> </li>
+		   <li> <a href="?q=blog" title="Lire les blogues les plus récents.">blogues</a> </li>
+		   <li> <a href="?q=book" title="Lire et contribuer aux livres collaboratifs.">livres</a> </li>
+		   <li> <a href="?q=forum">forums</a> </li>
+		   <li> <a href="?q=poll" title="Voir la liste des sondages de ce site.">sondages</a> </li>
+		   <li> <a href="?q=search" title="Chercher pour du contenu plus vieux.">recherche</a></li><li><a href="http://docs.postgresqlfr.org/" target="_blank">documentation </a></li>
+-->
+		  </ul>
+	        </div>
+		</td>
+		</tr>
+		</table>
+      </td>
+     </tr>
+     <tr>
+    <td style="vertical-align: top; width: 20%;">
+<div class="block block-user" id="block-user-0">
+<div class="pgSideNav">    <h2>Ouverture de session</h2>    
+		    <div>
+			<form action="http://drupal.postgresql.fr/?q=user/login" method="post">
+<div class="user-login-block">
+<input type="hidden" name="edit[destination]" value="node/1378" />
+<div class="form-item">
+ <label for="edit-name">Nom d'utilisateur:</label><br />
+ <input type="text" maxlength="64" class="form-text" name="edit[name]" id="edit-name" size="15" value="" />
+</div>
+<div class="form-item">
+ <label for="edit-pass">Mot de passe:</label><br />
+ <input type="password" class="form-password" maxlength="64" name="edit[pass]" id="edit-pass" size="15" value="" />
+</div>
+<input type="submit" class="form-submit" name="op" value="Identification"  />
+</div>
+
+</form>
+<div class="item-list"><ul><li><a href="indexc12c.html?q=user/password" title="Demander un nouveau mot de passe par e-mail.">Demander un nouveau mot de passe</a></li></ul></div>
+		    </div></div></div>
+<div class="block block-user" id="block-user-1">
+<div class="pgSideNav">    <h2>Navigation</h2>    
+		    <div>
+			<div class="menu">
+<ul>
+<li class="leaf"><a href="indexa499.html?q=tracker">messages récents</a></li>
+
+</ul>
+</div>
+		    </div></div></div>
+<div class="block block-block" id="block-block-4">
+<div class="pgSideNav">    <h2>Contactez-nous</h2>    
+		    <div>
+			<p><strong>Administration du site&nbsp;:</strong><br />
+"equipe chez postgresqlfr point org"<br><br />
+<strong>Contact presse&nbsp;:</strong><br />
+"fr chez postgresql point org"<br><br />
+<strong>Contact association&nbsp;:</strong><br />
+"bureau chez postgresqlfr point org"<br><br />
+<strong>Questions PostgreSQL&nbsp;:</strong><br />
+&nbsp;IRC&nbsp;:<br />
+&nbsp;&nbsp;serveur <strong>irc.freenode.net</strong><br />
+&nbsp;&nbsp;canal <strong>#postgresqlfr</strong></p>
+
+		    </div></div></div>
+<div class="block block-block" id="block-block-1">
+<div class="pgSideNav">    <h2>Liens</h2>    
+		    <div>
+			<p><small></p>
+<ul>
+<li>
+<a href="http://www.postgresqlfr.org/?q=node/view/162">Adhérer</a>
+</li>
+<li>
+<a href="http://www.postgresqlfr.org/?q=node/473">Faire un don</a>
+</li>
+<li>
+<a href="http://www.postgresqlfr.org/?q=node/163">Consulter les statuts</a>
+</li>
+</ul>
+<ul>
+<li>
+<a href="http://www.postgresql.org/" class="active">Site original<br />
+</a>
+</li>
+<li>
+<a href="http://docs.postgresqlfr.org/" class="active">Site de traduction</a>
+</li>
+<li>
+<a href="http://docs.postgresqlfr.org/8.3/">Doc v.8.3.x fr</a>
+</li>
+<li>
+<a href="http://docs.postgresqlfr.org/8.2/">Doc v.8.2.x fr</a>
+</li>
+<li>
+<a href="http://docs.postgresqlfr.org/8.1/">Doc v.8.1.x fr</a>
+</li>
+<li>
+<a href="http://docs.postgresqlfr.org/8.0/">Doc v.8.0.x fr</a>
+</li>
+<li>
+<a href="http://docs.postgresqlfr.org/7.4/">Doc v.7.4.x fr</a>
+</li>
+<li>
+<a href="http://www.postgis.fr/">PostGIS</a>
+</li>
+<li>
+<a href="http://www.postgresql.org/docs/techdocs">Techdocs</a>
+</li>
+<li>
+<a href="http://www.varlena.com/varlena/GeneralBits/Tidbits/">General TidBits</a>
+</li>
+<p><!--</p>
+<li>
+<a href="http://www.postgresqlfr.org/?q=node/view/58">Version Windows</a>
+</li>
+<p>--></p>
+<li>
+<a href="http://www.postgresqlfr.org/drupal/?q=node/view/63">Témoignages de pros</a>
+</li>
+<li>
+<a href="http://archives.postgresql.org/pgsql-fr-generale/">Liste de diffusion</a>
+</li>
+<li>
+<a href="http://wwwmaster.postgresql.org/download/mirrors-ftp">Télécharger</a>
+</li>
+</ul>
+<p></small></p>
+
+		    </div></div></div>
+<div class="block block-block" id="block-block-2">
+<div class="pgSideNav">    <h2>Recherche</h2>    
+		    <div>
+			<form action="http://drupal.postgresql.fr/?q=search" method="post">
+<div id="search">
+<input class="form-text" type="text" size="15" value="" name="keys" alt="Enter the terms you wish to search for." /><br />
+<input class="form-submit" type="submit" value="Recherche" />
+</div>
+</form>
+
+		    </div></div></div>
+<div class="block block-forum" id="block-forum-0">
+<div class="pgSideNav">    <h2>Sujets du forum</h2>    
+		    <div>
+			<div class="item-list"><h3>Sujets actifs</h3><ul><li><a href="index253f.html?q=node/1742">A LIRE : FERMETURE DES FORUMS DRUPAL</a></li><li><a href="indexfc2e.html?q=node/1739" title="2 commentaires">Problème  avec pg_dump</a></li><li><a href="index97c1.html?q=node/1731" title="5 commentaires">Connexions simultannées</a></li><li><a href="index32d3.html?q=node/1737" title="1 commentaire">Optimisation de la mémoire sous PostgreSQL</a></li><li><a href="index2483.html?q=node/1736" title="3 commentaires">[Résolu] Upgrade Postgre -> types et opérateurs</a></li></ul></div><div class="item-list"><h3>Nouveaux sujets:</h3><ul><li><a href="index253f.html?q=node/1742">A LIRE : FERMETURE DES FORUMS DRUPAL</a></li><li><a href="indexfc2e.html?q=node/1739" title="2 commentaires">Problème  avec pg_dump</a></li><li><a href="index32d3.html?q=node/1737" title="1 commentaire">Optimisation de la mémoire sous PostgreSQL</a></li><li><a href="index2483.html?q=node/1736" title="3 commentaires">[Résolu] Upgrade Postgre -> types et opérateurs</a></li><li><a href="index82c4.html?q=node/1734" title="2 commentaires">[RESOLU] Probleme de connection en odbc</a></li></ul></div><div class="more-link"><a href="index79b7.html?q=forum" title="Lire les derniers sujets.">en lire plus</a></div>
+		    </div></div></div>
+<div class="block block-archive" id="block-archive-0">
+<div class="pgSideNav">    <h2>Accéder aux archives</h2>    
+		    <div>
+			
+<!-- calendar -->
+<div class="calendar"><table summary="Un calendrier pour accéder aux archives.">
+ <caption><a href="index9dfb.html?q=archive/2008/09/12" title="Mois précédent">&laquo;</a> Octobre 2008 &nbsp;</caption>
+ <tr class="header-week">
+ <th abbr="Lundi">Lun</th>
+ <th abbr="Mardi">Mar</th>
+ <th abbr="Mercredi">Mer</th>
+ <th abbr="Jeudi">Jeu</th>
+ <th abbr="Vendredi">Ven</th>
+ <th abbr="Samedi">Sam</th>
+ <th abbr="Dimanche">Dim</th>
+</tr>
+ <tr class="row-week"><td class="day-blank" colspan="2">&nbsp;</td>
+  <td class="day-link"><a href="indexd3e2.html?q=archive/2008/10/1">1</a></td>
+  <td class="day-normal">2</td>
+  <td class="day-normal">3</td>
+  <td class="day-normal">4</td>
+  <td class="day-normal">5</td>
+ </tr>
+ <tr class="row-week">
+  <td class="day-normal">6</td>
+  <td class="day-normal">7</td>
+  <td class="day-normal">8</td>
+  <td class="day-normal">9</td>
+  <td class="day-normal">10</td>
+  <td class="day-normal">11</td>
+  <td class="day-today">12</td>
+ </tr>
+ <tr class="row-week">
+  <td class="day-future">13</td>
+  <td class="day-future">14</td>
+  <td class="day-future">15</td>
+  <td class="day-future">16</td>
+  <td class="day-future">17</td>
+  <td class="day-future">18</td>
+  <td class="day-future">19</td>
+ </tr>
+ <tr class="row-week">
+  <td class="day-future">20</td>
+  <td class="day-future">21</td>
+  <td class="day-future">22</td>
+  <td class="day-future">23</td>
+  <td class="day-future">24</td>
+  <td class="day-future">25</td>
+  <td class="day-future">26</td>
+ </tr>
+ <tr class="row-week">
+  <td class="day-future">27</td>
+  <td class="day-future">28</td>
+  <td class="day-future">29</td>
+  <td class="day-future">30</td>
+  <td class="day-future">31</td>
+  <td class="day-blank" colspan="2">&nbsp;</td>
+ </tr>
+</table></div>
+
+
+		    </div></div></div>
+<div class="block block-node" id="block-node-0">
+<div class="pgSideNav">    <h2>Syndication</h2>    
+		    <div>
+			<div class="xml-icon"><a href="index9637.html?q=rss.xml"><img src="misc/xml.png" width="36" height="14" alt="Flux XML" title="Flux XML" /></a></div>
+		    </div></div></div>
+<div class="block block-poll" id="block-poll-0">
+<div class="pgSideNav">    <h2>Sondage</h2>    
+		    <div>
+			<div class="poll"><div class="title">Quelle est la version de PostgreSQL la plus répandue sur vos serveurs ?</div><div class="text">8.3</div><div class="bar"><div style="width: 10%;" class="foreground"></div></div><div class="percent">10%</div><div class="text">8.2</div><div class="bar"><div style="width: 42%;" class="foreground"></div></div><div class="percent">42%</div><div class="text">8.1</div><div class="bar"><div style="width: 40%;" class="foreground"></div></div><div class="percent">40%</div><div class="text">8.0</div><div class="bar"><div style="width: 2%;" class="foreground"></div></div><div class="percent">2%</div><div class="text">7.4</div><div class="bar"><div style="width: 6%;" class="foreground"></div></div><div class="percent">6%</div><div class="text">7.3 ou antérieure</div><div class="bar"><div style="width: 0%;" class="foreground"></div></div><div class="percent">0%</div><div class="total">Nombre de votes: 48</div></div><div class="links"><a href="index8c57.html?q=node/1426#comment" title="Sauter au premier commentaire de ce message.">3 commentaires</a> | <a href="index729f.html?q=poll" title="Voir la liste des sondages de ce site.">anciens sondages</a></div>
+		    </div></div></div>
+    </td>
+
+      <td style="vertical-align: top; width: 80%"><div class="breadcrumb"><a href="index03d2.html?q=">Accueil</a></div><h2 class="title">Index inversé, en C</h2>
+<!-- begin content -->
+
+<!-- node: "Index inversé, en C" -->
+<!--<div class="pgFrontCenterUser">
+<div class="pgFrontUser">
+<div class="pgFrontUserInner">
+--><div class="pgFrontUserWrap">
+ <div class="pgFrontUserContent">	<h1 class="plop"> | <a href="indexfbc9.html?q=node/1378" class="active">Index inversé, en C</a></h1>
+		    <p>
+			    Par <a href="indexc818.html?q=user/3" title="Voir le profil utilisateur.">Guillaume Lelarge</a> le 05/09/2007 - 18:33
+		    </p>	
+			    <p>Depuis la version 8i, Oracle implémente les index inversés. Voici une proposition d’implémentation équivalente pour PostgreSQL. Les index inversés permettent d’accélérer les recherches sur les motifs tels que « colonne LIKE '%chaîne' ». Dans un tel cas, PostgreSQL effectue un parcours séquentiel (ou « sequential scan ») de la table interrogée. Toutefois, il est possible d’émuler un index inverse au moyen d’une fonction de renversement de chaîne couplée à un index sur fonction.</p>
+<p>L'<a href="http://www.postgresqlfr.org/?q=node/1329" hreflang="fr">article précédent</a> proposait l'implémentation d'un prototype en langage procédural PL/pgSQL, qui fait office ici de prototype. Cette implémentation a pour principal défaut d'être lente, pénalisant ainsi gravement les performances en écriture (INSERT et UPDATE). Ainsi, à chaque mise à jour, il est nécessaire de faire appel à la fonction <code>reverse</code> pour mettre à jour l'index fonctionnel ; cela s'observe notamment à la création de l'index. En revanche, il est possible de tirer partie des capacités de traitement des caractères multi-octets, que l'on rencontre notamment dans le cas d'une base de données encodée en UTF-8.</p>
+<p>Ainsi, l'implémentation en langage C se doit d'être à la fois plus rapide et surtout se doit de supporter les jeux de caractères multi-octets. C'est à partir de ce minuscule cahier des charges que nous allons construire notre fonction <code>reverse</code>.<a href="http://doxygen.postgresql.org/c_8h-source.html#l00395" hreflang="en"></a></p>
+<h1>Pourquoi écrire une procédure stockée en C</h1>
+<p>Pourquoi s'embêter à prendre le temps d'écrire une procédure stockée en langage C alors qu'il est possible de faire la même chose en langage PL/pgSQL&nbsp;?<br />
+Il y a plusieurs réponses à cette question&nbsp;:</p>
+<ul>
+<li>Une fonction C permet de <strong>protéger le code</strong>. En effet, rien n'interdit à un utilisateur possédant les droits nécessaires de modifier la procédure stockée que l'on a écrite et validé par une autre procédure de son crue, rendant le système inopérant.</li>
+<li>Si le besoin de créer son propre type de données se fait sentir, le passage par la case <q>fonction C</q> est obligatoire.</li>
+<li>La satisfaction de connaître un peu mieux le fonctionnement interne de PostgreSQL, mais c'est surtout une satisfaction de geek :)</li>
+<li>La problématique de la <strong>vitesse</strong> est toutefois le facteur déterminant de la réécriture d'une fonction d'un langage procédural interprété en langage compilé.</li>
+</ul>
+<p>Le gain significatif de vitesse ne sera pas évident pour les requêtes de sélection. En revanche, les écritures (surtout INSERT et UPDATE) peuvent être fortement pénalisées par le coût de la mise à jour d'un index fonctionnel. Bien que cela ne soit pas évident pour une opération unitaire, il sera parfaitement visible dans le cas d'une opération d'écriture en masse (chargement massif de données), ou tout simplement pour la création de l'index fonctionnel. Dans un tel cas, l'option d'une réécriture en langage C est à envisager très sérieusement.</p>
+<h1>Implémentation et discussion technique</h1>
+<p>Les possibilités d'extension de PostgreSQL s’appuient sur les mécanismes de chargement dynamique de bibliothèque du système d’exploitation. L’interface de programmation est relativement simple, à condition d’en connaître certaines clés.</p>
+<h2>Structure du projet</h2>
+<p>Le projet est articulé autour de différents fichiers, qui seront tous placés dans un répertoire dédié :</p>
+<ol>
+<li>un fichier <code>Makefile</code> simplifié, utilisant PGXS, l'infrastructure de construction d'extension PostgreSQL ;</li>
+<li>un modèle de script SQL d'installation <code>reverse.sql.in</code> ;</li>
+<li>un fichier <code>uninstall_reverse.sql</code> ;</li>
+<li>le fichier source en langage C, <code>reverse.c</code>.</li>
+</ol>
+<h2>Fichiers annexes</h2>
+<p>Avant toute chose, il faut disposer d’un fichier « Makefile » de construction du module externe&nbsp;:</p>
+<p class="code">
+MODULES = reverse<br />
+#PG_CPPFLAGS = -ggdb<br />
+DATA_built = reverse.sql<br />
+DATA = uninstall_reverse.sql<br />
+PGXS := $(shell pg_config --pgxs)<br />
+include $(PGXS)
+</p>
+<p>Le Makefile utilise ici l’outil PGXS qui propose un fichier Makefile prédéfini, à l’instar des fichiers Makefile fournis par Oracle.</p>
+<p>Le fichier « reverse.sql.in » qui sert de modèle à la création du fichier d'installation de l'extension « <code>reverse.sql</code> ». Ce dernier fichier sera généré à partir du modèle en remplaçant « <code>MODULE_PATHNAME</code> » par le chemin complet du fichier objet généré.</p>
+<p class="code">
+-- Déclaration de la fonction reverse en tant que module C<br />
+SET search_path = public;<br />
+CREATE OR REPLACE FUNCTION reverse(varchar) RETURNS varchar<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;AS 'MODULE_PATHNAME', 'reverse'<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;LANGUAGE 'C' IMMUTABLE STRICT;
+</p>
+<p>Le script « reverse.sql » sera exécuté par un utilisateur PostgreSQL ayant le rôle d’administrateur, les fonctions C étant considérées comme non-sûres et donc de la responsabilité de l’administrateur.</p>
+<p>Un script de désinstallation « uninstall_reverse.sql » est également prévu, ça fait toujours plaisir&nbsp;:</p>
+<p class="code">
+SET search_path = public;<br />
+DROP FUNCTION reverse(varchar);
+</p>
+<h2>Un peu de technique</h2>
+<p>La lecture de la page « Fonctions en langage C » permet d’obtenir les informations nécessaires au développement d’une fonction C, voir la documentation « <a href="http://docs.postgresqlfr.org/8.2/xfunc-c.html" hreflang="fr">Fonctions en langage C</a> ». Cependant la lecture des fichiers d’en-têtes permet d’apporter un éclairage supplémentaire sur certaines structures de données.</p>
+<h3>Traitement des chaînes de caractères avec PostgreSQL</h3>
+<p>Sous PostgreSQL, les chaînes de caractères ne sont pas délimitées par un caractère nul « <code>\0</code> » terminal, mais, à l’instar du langage Pascal, en stockant dans une structure d’abord sa longueur puis son contenu. Une telle chaîne est décrite dans une structure de type « <code>varlena</code> ». Ce type de données offre en fait un moyen uniforme de stocker tout type de données à longueur variable, comme les chaînes de caractères, les tableaux ou encore les types utilisateurs.</p>
+<p>Voici sa définition, obtenu dans le fichier d'en-tête <a href="http://doxygen.postgresql.org/c_8h-source.html#l00395" hreflang="en">c.h</a>, à la ligne 409 :</p>
+<p class="code">
+struct varlena<br />
+{<br />
+&nbsp;&nbsp;&nbsp;&nbsp;int32       vl_len_;      /* Do not touch this field directly! */<br />
+&nbsp;&nbsp;&nbsp;&nbsp;char        vl_dat[1];<br />
+};
+</p>
+<p>Ainsi, l'entier <code>vl_len</code> contient la longueur, en octets, de la chaîne d'octets <code>vl_dat</code>.</p>
+<p>Quelques macros permettent de manipuler facilement cette structure.</p>
+<ul>
+<li><code>VARDATA(<em>varlena</em>)</code> obtient un pointeur sur la donnée ;</li>
+<li><code>VARSIZE(<em>varlena</em>)</code> obtient la taille en octets de la structure varlena (<code>vl_len + vl_dat</code>) ;</li>
+<li>la constante <code>VARHDRSZ</code> représente la taille en octet de <code>vl_len</code> ;</li>
+<li>Enfin, <code>VARATT_SIZEP</code>, remplacée par <code>SET_VARSIZE</code> à partir de la 8.3, permet de définir la longueur en octets de la donnée.</li>
+</ul>
+<p>Ainsi, pour obtenir la longueur en octets de la données, on utilisera <code>(VARSIZE - VARHDRSZ)</code>.</p>
+<h3>Support des jeux de caractères multi-octets</h3>
+<p>L'implémentation proposée supporte les jeux de caractères multi-octets, comme l'UTF8 (ou Unicode) et les jeux de caractères asiatiques, qui représente certains caractères sous la forme d'une séquence de deux octets ou plus (voir référence). PostgreSQL met à disposition des fonctions utiles pour manipuler les chaînes de caractères, peu importe l'encodage, notamment <code>pg_verifymbstr</code> qui valide une chaîne de caractère selon l'encodage de la base de données, ou encore <code>pg_mblen</code> qui donne la longueur en octets d'un caractère. Pour le prototype des fonctions citées et d'autres fonctions, se référer au fichier d'en-tête « <code>mb/pg_wchar.h</code> ».</p>
+<h3>Les conventions d'appel</h3>
+<p>Il existe deux conventions d'appel de fonctions externes&nbsp;:</p>
+<ol>
+<li>La convention d'appel version 0, représentant l'ancien style, simple à utiliser ;</li>
+<li>La convention d'appel version 1, qui est la norme dorénavant et qui ne présente pas de difficultés particulières.</li>
+</ol>
+<p>La convention d'appel version 1 sera utilisée dans le but de donner d'entrée de jeu de bonnes habitudes. La complexité de cette convention est masquée par une batterie de macros qui rendent son utilisation tout aussi simple, voire encore plus simple que la version 0, notamment pour le passage d'arguments.</p>
+<h2>Implémentation en langage C</h2>
+<p>Le source C est structuré en quatre parties&nbsp;:</p>
+<ul>
+<li>L’inclusion des fichiers d’en-têtes nécessaires ;</li>
+<li>La définition d’un « magic » signant un module externe PostgreSQL ;</li>
+<li>La définition d’un « magic » déclarant la fonction reverse à PostgreSQL ;</li>
+<li>Le corps de fonction reverse, cette fois en langage C.</li>
+</ul>
+<p>Voici ci-après, le code source en langage C de la fonction reverse.</p>
+<p class="code">
+/*<br />
+ * reverse procedural function<br />
+ *<br />
+ * Thomas Reiss, 12/07/2007 – 24/07/2007 - 02/08/2007<br />
+ * Alain Delorme, 24/07/2007<br />
+ * Merci à depesz pour ses tests sur la version 8.3devel<br />
+ *<br />
+ */<br />
+&nbsp;<br />
+#include &quot;pg_config.h&quot;<br />
+#include &quot;postgres.h&quot;<br />
+#include &quot;fmgr.h&quot;<br />
+&nbsp;<br />
+#include &quot;mb/pg_wchar.h&quot;<br />
+#include &quot;utils/elog.h&quot;<br />
+&nbsp;<br />
+#ifdef PG_MODULE_MAGIC<br />
+PG_MODULE_MAGIC;<br />
+#endif<br />
+&nbsp;<br />
+Datum<br />
+reverse(PG_FUNCTION_ARGS);<br />
+&nbsp;<br />
+// SET_VARSIZE correspond à la nouvelle API, nous définissons cette<br />
+// macro pour les versions ne la possédant pas.<br />
+#ifndef SET_VARSIZE<br />
+#define SET_VARSIZE(n,s) VARATT_SIZEP(n) = s;<br />
+#endif<br />
+&nbsp;<br />
+/* fonction reverse */<br />
+PG_FUNCTION_INFO_V1(reverse);<br />
+Datum<br />
+reverse(PG_FUNCTION_ARGS)<br />
+{<br />
+&nbsp;&nbsp;&nbsp;&nbsp;int len, pos = 0;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;VarChar *str_out, *str_in;<br />
+&nbsp;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;/* Obtient l'adresse de l'argument */<br />
+&nbsp;&nbsp;&nbsp;&nbsp;str_in = PG_GETARG_VARCHAR_P_COPY(0);<br />
+&nbsp;&nbsp;&nbsp;&nbsp;/* Calcul de la taille en octet de la chaîne */<br />
+&nbsp;&nbsp;&nbsp;&nbsp;len = (int) (VARSIZE(str_in) - VARHDRSZ);<br />
+&nbsp;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;/* Créer une chaîne vide de taille identique */<br />
+&nbsp;&nbsp;&nbsp;&nbsp;str_out = (VarChar *)palloc(VARSIZE(str_in));<br />
+&nbsp;&nbsp;&nbsp;&nbsp;/* La structure résultante aura une longueur identique */<br />
+&nbsp;&nbsp;&nbsp;&nbsp;SET_VARSIZE(str_out, VARSIZE(str_in));<br />
+&nbsp;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;/* Vérifie que l'encodage de la chaîne en argument<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;* concorde avec l'encodage de la BDD */<br />
+&nbsp;&nbsp;&nbsp;&nbsp;pg_verifymbstr(VARDATA(str_in), len, false);<br />
+&nbsp;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;/* Copie à l'envers de la chaîne */<br />
+&nbsp;&nbsp;&nbsp;&nbsp;while (pos &lt; len)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;{<br />
+&nbsp;&nbsp;&nbsp;&nbsp;int charlen = pg_mblen(VARDATA(str_in) + pos);<br />
+&nbsp;&nbsp;&nbsp;&nbsp;int i = charlen;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;// Copie un caractère.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;// !! Un caractère != un octet<br />
+&nbsp;&nbsp;&nbsp;&nbsp;while (i--)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*(VARDATA(str_out) + len - charlen + i - pos) = *(VARDATA(str_in) + i + pos);<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pos = pos + charlen;     // incrémente le compteur<br />
+&nbsp;&nbsp;&nbsp;&nbsp;}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;PG_FREE_IF_COPY(str_in, 0);<br />
+&nbsp;&nbsp;&nbsp;&nbsp;/* Retourne la copie */<br />
+&nbsp;&nbsp;&nbsp;&nbsp;PG_RETURN_VARCHAR_P(str_out);<br />
+}
+</p>
+<h2>Construction</h2>
+<p>La construction de l'extension PostgreSQL est réalisée en invoquant <code>make</code></p>
+<p class="code">
+tom@clementina:~/src/reverse$ make<br />
+cc -g -Wall -O2 -fPIC -Wall -Wmissing-prototypes -Wpointer-arith -Winline -Wdeclaration-after-statement -Wendif-labels -fno-strict-aliasing -g -fpic -I. -I/usr/include/postgresql/8.2/server -I/usr/include/postgresql/internal -D_GNU_SOURCE  -I/usr/include/tcl8.4  -c -o reverse.o reverse.c<br />
+cc -shared -o reverse.so reverse.o<br />
+rm reverse.o
+</p>
+<p>Si tout s'est bien passé, l'installation sera finalisée en exécutant la commande <code>make install</code>, éventuellement précédé de <code>sudo</code> en fonction de sa distribution et de son installation de PostgreSQL.</p>
+<p class="code">
+tom@clementina:~/src/reverse$ sudo make install<br />
+Password: xxxx<br />
+/bin/sh /usr/lib/postgresql/8.2/lib/pgxs/src/makefiles/../../config/install-sh -c -m 644 ./reverse.sql '/usr/share/postgresql/8.2/contrib'<br />
+ /bin/sh /usr/lib/postgresql/8.2/lib/pgxs/src/makefiles/../../config/install-sh -c -m 755  reverse.so '/usr/lib/postgresql/8.2/lib'
+</p>
+<p>Les fichiers produits seront ainsi installés dans le répertoire d'installation de PostgreSQL. Il est toutefois possible de les positionner ailleurs, à condition d'adapter le fichier « <code>reverse.sql</code> » de façon à indiquer à PostgreSQL<br />
+où se trouve la bibliothèque partagée (fichier « <code>reverse.so</code> » sous Linux).</p>
+<h1>Utilisation et performances</h1>
+<h2>Vérification de bon fonctionnement</h2>
+<p>Dans un premier temps, on crée la fonction via l'outil <code>psql</code>&nbsp;:</p>
+<p class="code">
+test=# \i reverse.sql<br />
+CREATE FUNCTION
+</p>
+<p>On vérifie que la fonction répond correctement :</p>
+<p class="code">
+test=# SHOW client_encoding;<br />
+ client_encoding<br />
+-----------------<br />
+ UTF8<br />
+(1 ligne)<br />
+&nbsp;<br />
+test=# SELECT reverse('Chaîne à renverser');<br />
+      reverse<br />
+--------------------<br />
+ resrevner à enîahC<br />
+(1 ligne)
+</p>
+<p>Ok, ça marche, y compris avec les chaînes encodées en UTF-8&nbsp;!</p>
+<h2>Petit test de performance</h2>
+<p>Ce test a été réalisé par <a href="http://www.depesz.com/" hreflang="en">depesz</a>, qui m'a aimablement autorisé a le réutiliser dans le cadre de cet article.</p>
+<p>Petit aperçu du jeu de test :</p>
+<p class="code">
+test=# SELECT count(*),<br />
+test-#        min(length(filepath)),<br />
+test-#        max(length(filepath)),<br />
+test-#        sum(length(filepath))<br />
+test-#  FROM test;<br />
+count  | min | max |   sum<br />
+-------+-----+-----+----------<br />
+320136 |   7 | 174 | 18563865<br />
+(1 row)
+</p>
+<p>Maintenant, voici une petite comparaison des trois implémentations, à savoir le prototype en PL/pgSQL, la version PL/perl de depesz et la version C. On oppose à ces trois tests un parcours de la table via la fonction d'agrégat <a href="http://docs.postgresqlfr.org/8.2/functions-aggregate.html" hreflang="fr">count()</a>, permettant ainsi de mesurer l<em>'overhead</em> due à chaque implémentation de la fonction <code>reverse</code>. À chaque fois, 3 exécutions permettent de vérifier les résultats.</p>
+<h3>Simple comptage (count)</h3>
+<p>Voici l'ordre SQL utilisé pour réaliser ce test :</p>
+<p class="code">
+test=# EXPLAIN ANALYZE<br />
+test-# SELECT count(filepath)<br />
+test-# FROM test;
+</p>
+<p>Et voici les temps de réponse obtenus&nbsp;:<br />
+Exécution #1 : 1269.535 ms<br />
+Exécution #2 : 1268.421 ms<br />
+Exécution #3 : 1257.926 ms<br />
+<strong>Moyenne : 1265,29 ms</strong></p>
+<h3>Prototype PL/pgSQL</h3>
+<p class="code">
+test=# EXPLAIN ANALYZE<br />
+test-# SELECT count(reverse_plpgsql(filepath))<br />
+test-# FROM test;
+</p>
+<p>Exécution #1 : 55269.941 ms<br />
+Exécution #2 : 56047.004 ms<br />
+Exécution #3 : 56149.888 ms<br />
+<strong>Moyenne : 55822,28 ms</strong></p>
+<h3>Version PL/perl</h3>
+<p class="code">
+test=# EXPLAIN ANALYZE<br />
+test-# SELECT count(text_reverse(filepath))<br />
+test-# FROM test;
+</p>
+<p>Exécution #1 : 4088.625 ms<br />
+Exécution #2 : 4089.729 ms<br />
+Exécution #3 : 4020.500 ms<br />
+<strong>Moyenne : 4066,28 ms</strong></p>
+<h3>Version C</h3>
+<p class="code">
+test=# EXPLAIN ANALYZE<br />
+test-# SELECT count(reverse(filepath))<br />
+test-# FROM test;
+</p>
+<p>Exécution #1 : 1596.176 ms<br />
+Exécution #2 : 1647.046 ms<br />
+Exécution #3 : 1657.531 ms<br />
+<strong>Moyenne : 1633,58 ms</strong></p>
+<h3>Synthèse du test de performance</h3>
+<p>Voici un graphe faisant la synthèse des moyennes des temps de réponse&nbsp;:</p>
+<p><img src="files/comparaison_plpgsql_plperl_c_count.png" alt="Comparaison des temps de réponse"/></p>
+<p>Le graphe suivant permet de mieux se rendre compte de l'overhead induie par l'implémentation PL/perl et l'implémentation C.</p>
+<p><img src="files/ccomparaison_plperl_c_count.png" alt="Comparaison des temps de réponse"/></p>
+<p>Chose très intéressante&nbsp;: l'overhead pour renverser ~320000 enregistrements est de seulement 300ms, ce qui est bien entendu excellent et laisse présager de très bonnes performances quant au coût de la mise à jour d'un index fonctionnel.</p>
+<p>Ainsi, comme cela pouvait être aisément imaginé, la version C est la plus rapide, suivie par la version PL/Perl. La version PL/pgSQL se traîne lamentablement derrière, ce qui justifie complètement la réécriture de la procédure stockée en C.</p>
+<h1>Notes</h1>
+<p>Cette fonction a été testé sur une base en PostgreSQL 8.0, 8.2 et 8.3devel (merci à depesz).</p>
+<p>Je regrette de ne pas avoir pu aller un peu plus loin pour le <a href="post/2007/08/20/Fonction-reverse-avec-PostgreSQL-PL/pgSQL.html" hreflang="fr">précédent article</a>, des impératifs de place m'ayant obligé à aller à l'essentiel sans montrer les différents plans d'exécution. Heureusement, l'<a href="http://www.depesz.com/index.php/2007/07/30/indexable-field-like-something/" hreflang="en">article de hubert depesz lubaczewski</a> montre tous les aspects que j'ai négligé, malheureusement c'est en anglais.</p>
+<h1>Références</h1>
+<p>De plus amples précisions sont également disponibles en langue anglaise sur les sites Internet suivant :</p>
+<ul>
+<li><a href="http://stephane.bpf.st/si/bdd/pg/fnctidx" hreflang="fr">Les index fonctionnels</a></li>
+<li><a href="http://docs.postgresqlfr.org/8.2/multibyte.html" hreflang="fr">Support des jeux de caractères</a> dans PostgreSQL</li>
+<li><a href="http://docs.postgresqlfr.org/8.2/xfunc-c.html" hreflang="fr">Fonctions en langage C</a></li>
+<li><a href="http://linuxgazette.net/139/peterson.html" hreflang="en">Writing PostgreSQL Functions in C</a></li>
+<li><a href="http://www.varlena.com/GeneralBits/68.php" hreflang="en">What's a Varlena ?</a></li>
+<li><a href="http://french.joelonsoftware.com/Articles/Unicode.html" hreflang="fr">Le minimum syndical à connaître sur les jeux de caractères multi-octets</a></li>
+<li><a href="http://www.rfc-ref.org/RFC-TEXTS/3629/index.html" hreflang="en">RFC 3629, UTF-8, a transformation format of ISO 10646</a> ou <a href="ftp://ftp.isi.edu/in-notes/rfc3629.txt" hreflang="en">RFC 3629</a></li>
+<li><a href="http://doxygen.postgresql.org/main.html" hreflang="en">Documentation Doxygen du code de PostgreSQL</a></li>
+</ul>
+<h1>Remerciements</h1>
+<p>Je remercie vivement les personnes suivantes&nbsp;:</p>
+<ul>
+<li>Alain Delorme pour sa contribution,</li>
+<li>hubert depesz lubaczewski pour ses retours et tests préliminaires,</li>
+<li>Guillaume Lelarge pour ses relectures et ses conseils avisés.</li>
+</ul>
+<p><i>Article écrit par Thomas Reiss, publié sur postgresqlfr.org avec sa permission. Vous pouvez le retrouver sur son <a href="http://blog.frosties.org/">blog où il parle encore de PostgreSQL (et d'autres choses :-)</a> ). Merci beaucoup.</i></p>
+<table>
+ <tr><th>Fichier attaché</th><th>Taille</th> </tr>
+ <tr class="dark"><td><a href="files/comparaison_plpgsql_plperl_c_count.png">comparaison_plpgsql_plperl_c_count.png</a></td><td>15.26 Ko</td> </tr>
+ <tr class="light"><td><a href="files/ccomparaison_plperl_c_count.png">ccomparaison_plperl_c_count.png</a></td><td>9.86 Ko</td> </tr>
+</table>
+
+		     </div></div>
+<!--</div>
+</div>
+</div>
+</div> -->
+<a id="comment"></a>
+<form method="post" action="http://drupal.postgresql.fr/?q=comment"><div>
+<input type="hidden" name="edit[nid]" value="1378" />
+</div></form>
+<!-- end content -->
+              </td>
+
+    </tr>
+    <tr><td colspan="2">
+
+		<div class="pgTopNav">
+		   <div class="pgTopNavLeft"> 
+		     <img src="layout/images/nav_lft.png" width="7" height="23" alt="" />
+		   </div>
+		   <div class="pgTopNavRight">
+		    <img src="layout/images/nav_rgt.png" width="7" height="23" alt="" />
+		  </div>
+		  <!--<ul class="pgTopNavList">-->
+		  <ul class="pgTopNavList">
+		   <li><a href="index03d2.html?q=" title="Retourner à la page principale.">accueil</a> </li>
+		   <li> <a href="indexf6e5.html?q=archive" title="Lire le contenu plus ancien dans notre archive.">archives</a> </li>
+		   <li> <a href="index71c4.html?q=blog" title="Lire les blogues les plus récents.">blogues</a> </li>
+
+		   <li> <a href="indexf6fe.html?q=book" title="Lire et contribuer aux livres collaboratifs.">livres</a> </li>
+		   <li> <a href="index79b7.html?q=forum">forums</a> </li>
+		   <li> <a href="index729f.html?q=poll" title="Voir la liste des sondages de ce site.">sondages</a> </li>
+		   <li> <a href="index4404.html?q=search" title="Chercher pour du contenu plus vieux.">recherche</a></li><li><a href="http://docs.postgresqlfr.org/" target="_blank">documentation </a></li>
+
+		  </ul>
+
+<!--
+		   <li><a href="?q=" title="Retourner à la page principale.">accueil</a> </li>
+		   <li> <a href="?q=archive" title="Lire le contenu plus ancien dans notre archive.">archives</a> </li>
+		   <li> <a href="?q=blog" title="Lire les blogues les plus récents.">blogues</a> </li>
+		   <li> <a href="?q=book" title="Lire et contribuer aux livres collaboratifs.">livres</a> </li>
+		   <li> <a href="?q=forum">forums</a> </li>
+		   <li> <a href="?q=poll" title="Voir la liste des sondages de ce site.">sondages</a> </li>
+		   <li> <a href="?q=search" title="Chercher pour du contenu plus vieux.">recherche</a></li><li><a href="http://docs.postgresqlfr.org/" target="_blank">documentation </a></li>
+-->
+		  </ul>
+	        </div>
+    </td></tr>
+   </table>
+   <p style="text-align: center;">&copy;&nbsp;PostgreSQLFr, tous droits réservés.<br>
+Site déclaré à la CNIL sous le numéro 1074678, conformément à la Loi en vigueur.
+</p>
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-3921927-1");
+pageTracker._initData();
+pageTracker._trackPageview();
+</script>
+<p></p>
+   
+</body>
+
+<!-- Mirrored from drupal.postgresql.fr/?q=node/1378 by HTTrack Website Copier/3.x [XR&CO'2006], Sun, 12 Oct 2008 16:31:03 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+</html>

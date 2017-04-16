@@ -1,0 +1,17 @@
+<html>
+<!-- Mirrored from drupal.postgresql.fr/?q=book/print/1240 by HTTrack Website Copier/3.x [XR&CO'2006], Sun, 12 Oct 2008 17:19:19 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+<head><title>Supprimer les fonctions à l'intérieur d'un schéma</title><base  /><style type="text/css">
+@import url(misc/print.css);
+</style></head><body><h1 id="1240" name="1240" class="book-h1">Supprimer les fonctions à l'intérieur d'un schéma</h1><p>Trouvé sur un des <A HREF="http://www.postgresqlfr.org/?q=node/1192"> forums</a>, cette astuce qui mérite de figurer dans le cookbook.</p>
+<p>Pour supprimer toutes les fonctions d'un schéma, on peut utiliser la commande suivante, en shell&nbsp;:</p>
+<p><code><br />
+psql -U MON_USER MA_BASE -t -P format=unaligned -c "\df MON_SCHEMA.*"|awk -F '|' '{if (NF > 0 ) print "drop function "$2"("$4") cascade;";}' | psql -U MON_USER MA_BASE<br />
+</code></p>
+<p>Le cascade permet de gérer la présence d'une fonction d'agrégation.</p>
+<p>Il est utile pour le bon fonctionnement de la commande de mettre le mot de passe de l'utilisateur dans la variable d'environnement PGPASSWORD.</p>
+<p>Merci à jxemo pour cette astuce et à Sparky pour la piste.</p>
+</body>
+<!-- Mirrored from drupal.postgresql.fr/?q=book/print/1240 by HTTrack Website Copier/3.x [XR&CO'2006], Sun, 12 Oct 2008 17:19:19 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+</html>

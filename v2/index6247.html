@@ -1,0 +1,559 @@
+
+<!DOCTYPE
+ html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+ <html>
+ <!-- $Date: 2005/08/30 07:54:43 $ / $Revision: 1.29 $ / Last Theme Editor :$Author: jx $-->
+  
+<!-- Mirrored from drupal.postgresql.fr/?q=node/201 by HTTrack Website Copier/3.x [XR&CO'2006], Sun, 12 Oct 2008 17:51:47 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<base  />
+<style type="text/css" media="all">@import "misc/drupal.css";</style>
+   <title>PostgreSQL8 + PHP4 + Win -> Call to undefined function: pg_connect()  - PostgreSQLFr</title>
+ <style type="text/css" media="screen" title="Normal Text">
+    @import url("layout/css/blue/fixed.css");
+    @import url(_guillaume/dotclear/themes/postgresql/style.html);
+ </style>
+ <style type="text/css" media="screen" title="Normal Text2">
+    @import url("layout/css/blue/pgfr.css");
+    @import url(_guillaume/dotclear/themes/postgresql/style.html);
+ </style>
+   </head>
+   <body>
+    <table border="0" cellspacing="5" cellpadding="0" width="100%">
+     <tr>
+      <!--td colspan="2" width="100%"-->
+      <td colspan="2">
+      <!-- Head -->
+       <table border="0" cellspacing="0" cellpadding="0" width="100%">
+        <tr>
+	 <td align="left">
+           <div id="pgHeader">
+	    <div id="pgHeaderLogoLeft">
+	     <a href="index.html" title="PostgreSQL"><img src="layout/images/hdr_left.png" width="230" height="80" alt="PostgreSQL" /></a>
+	    </div>
+	    <div id="pgHeaderLogoRight">
+	     <a href="index.html" title="La base de donn�es la plus sophistiqu�e au monde."><img src="layout/images/hdr_right.png" width="210" height="80" alt="La base de donn�es la plus sophistiqu�e au monde." /></a>
+	    </div>
+	   </div>
+         </td>
+	 <td align="right">
+         </td>
+	</tr>
+      </table> <!-- Head -->
+      <br />
+      <table border="0" cellspacing="0" cellpadding="0" width="100%">
+              <tr>
+	      	 <td align="left">
+
+		<div class="pgTopNav">
+		   <div class="pgTopNavLeft"> 
+		     <img src="layout/images/nav_lft.png" width="7" height="23" alt="" />
+		   </div>
+		   <div class="pgTopNavRight">
+		    <img src="layout/images/nav_rgt.png" width="7" height="23" alt="" />
+		  </div>
+		  <!--<ul class="pgTopNavList">-->
+		  <ul class="pgTopNavList">
+		   <li><a href="index03d2.html?q=" title="Retourner à la page principale.">accueil</a> </li>
+		   <li> <a href="indexf6e5.html?q=archive" title="Lire le contenu plus ancien dans notre archive.">archives</a> </li>
+		   <li> <a href="index71c4.html?q=blog" title="Lire les blogues les plus récents.">blogues</a> </li>
+
+		   <li> <a href="indexf6fe.html?q=book" title="Lire et contribuer aux livres collaboratifs.">livres</a> </li>
+		   <li> <a href="index79b7.html?q=forum">forums</a> </li>
+		   <li> <a href="index729f.html?q=poll" title="Voir la liste des sondages de ce site.">sondages</a> </li>
+		   <li> <a href="index4404.html?q=search" title="Chercher pour du contenu plus vieux.">recherche</a></li><li><a href="http://docs.postgresqlfr.org/" target="_blank">documentation </a></li>
+
+		  </ul>
+
+<!--
+		   <li><a href="?q=" title="Retourner à la page principale.">accueil</a> </li>
+		   <li> <a href="?q=archive" title="Lire le contenu plus ancien dans notre archive.">archives</a> </li>
+		   <li> <a href="?q=blog" title="Lire les blogues les plus récents.">blogues</a> </li>
+		   <li> <a href="?q=book" title="Lire et contribuer aux livres collaboratifs.">livres</a> </li>
+		   <li> <a href="?q=forum">forums</a> </li>
+		   <li> <a href="?q=poll" title="Voir la liste des sondages de ce site.">sondages</a> </li>
+		   <li> <a href="?q=search" title="Chercher pour du contenu plus vieux.">recherche</a></li><li><a href="http://docs.postgresqlfr.org/" target="_blank">documentation </a></li>
+-->
+		  </ul>
+	        </div>
+		</td>
+		</tr>
+		</table>
+      </td>
+     </tr>
+     <tr>
+    <td style="vertical-align: top; width: 20%;">
+<div class="block block-user" id="block-user-0">
+<div class="pgSideNav">    <h2>Ouverture de session</h2>    
+		    <div>
+			<form action="http://drupal.postgresql.fr/?q=user/login" method="post">
+<div class="user-login-block">
+<input type="hidden" name="edit[destination]" value="node/201" />
+<div class="form-item">
+ <label for="edit-name">Nom d'utilisateur:</label><br />
+ <input type="text" maxlength="64" class="form-text" name="edit[name]" id="edit-name" size="15" value="" />
+</div>
+<div class="form-item">
+ <label for="edit-pass">Mot de passe:</label><br />
+ <input type="password" class="form-password" maxlength="64" name="edit[pass]" id="edit-pass" size="15" value="" />
+</div>
+<input type="submit" class="form-submit" name="op" value="Identification"  />
+</div>
+
+</form>
+<div class="item-list"><ul><li><a href="indexc12c.html?q=user/password" title="Demander un nouveau mot de passe par e-mail.">Demander un nouveau mot de passe</a></li></ul></div>
+		    </div></div></div>
+<div class="block block-user" id="block-user-1">
+<div class="pgSideNav">    <h2>Navigation</h2>    
+		    <div>
+			<div class="menu">
+<ul>
+<li class="leaf"><a href="indexa499.html?q=tracker">messages récents</a></li>
+
+</ul>
+</div>
+		    </div></div></div>
+<div class="block block-block" id="block-block-4">
+<div class="pgSideNav">    <h2>Contactez-nous</h2>    
+		    <div>
+			<p><strong>Administration du site&nbsp;:</strong><br />
+"equipe chez postgresqlfr point org"<br><br />
+<strong>Contact presse&nbsp;:</strong><br />
+"fr chez postgresql point org"<br><br />
+<strong>Contact association&nbsp;:</strong><br />
+"bureau chez postgresqlfr point org"<br><br />
+<strong>Questions PostgreSQL&nbsp;:</strong><br />
+&nbsp;IRC&nbsp;:<br />
+&nbsp;&nbsp;serveur <strong>irc.freenode.net</strong><br />
+&nbsp;&nbsp;canal <strong>#postgresqlfr</strong></p>
+
+		    </div></div></div>
+<div class="block block-block" id="block-block-1">
+<div class="pgSideNav">    <h2>Liens</h2>    
+		    <div>
+			<p><small></p>
+<ul>
+<li>
+<a href="http://www.postgresqlfr.org/?q=node/view/162">Adhérer</a>
+</li>
+<li>
+<a href="http://www.postgresqlfr.org/?q=node/473">Faire un don</a>
+</li>
+<li>
+<a href="http://www.postgresqlfr.org/?q=node/163">Consulter les statuts</a>
+</li>
+</ul>
+<ul>
+<li>
+<a href="http://www.postgresql.org/" class="active">Site original<br />
+</a>
+</li>
+<li>
+<a href="http://docs.postgresqlfr.org/" class="active">Site de traduction</a>
+</li>
+<li>
+<a href="http://docs.postgresqlfr.org/8.3/">Doc v.8.3.x fr</a>
+</li>
+<li>
+<a href="http://docs.postgresqlfr.org/8.2/">Doc v.8.2.x fr</a>
+</li>
+<li>
+<a href="http://docs.postgresqlfr.org/8.1/">Doc v.8.1.x fr</a>
+</li>
+<li>
+<a href="http://docs.postgresqlfr.org/8.0/">Doc v.8.0.x fr</a>
+</li>
+<li>
+<a href="http://docs.postgresqlfr.org/7.4/">Doc v.7.4.x fr</a>
+</li>
+<li>
+<a href="http://www.postgis.fr/">PostGIS</a>
+</li>
+<li>
+<a href="http://www.postgresql.org/docs/techdocs">Techdocs</a>
+</li>
+<li>
+<a href="http://www.varlena.com/varlena/GeneralBits/Tidbits/">General TidBits</a>
+</li>
+<p><!--</p>
+<li>
+<a href="http://www.postgresqlfr.org/?q=node/view/58">Version Windows</a>
+</li>
+<p>--></p>
+<li>
+<a href="http://www.postgresqlfr.org/drupal/?q=node/view/63">Témoignages de pros</a>
+</li>
+<li>
+<a href="http://archives.postgresql.org/pgsql-fr-generale/">Liste de diffusion</a>
+</li>
+<li>
+<a href="http://wwwmaster.postgresql.org/download/mirrors-ftp">Télécharger</a>
+</li>
+</ul>
+<p></small></p>
+
+		    </div></div></div>
+<div class="block block-block" id="block-block-2">
+<div class="pgSideNav">    <h2>Recherche</h2>    
+		    <div>
+			<form action="http://drupal.postgresql.fr/?q=search" method="post">
+<div id="search">
+<input class="form-text" type="text" size="15" value="" name="keys" alt="Enter the terms you wish to search for." /><br />
+<input class="form-submit" type="submit" value="Recherche" />
+</div>
+</form>
+
+		    </div></div></div>
+<div class="block block-forum" id="block-forum-0">
+<div class="pgSideNav">    <h2>Sujets du forum</h2>    
+		    <div>
+			<div class="item-list"><h3>Sujets actifs</h3><ul><li><a href="index253f.html?q=node/1742">A LIRE : FERMETURE DES FORUMS DRUPAL</a></li><li><a href="indexfc2e.html?q=node/1739" title="2 commentaires">Problème  avec pg_dump</a></li><li><a href="index97c1.html?q=node/1731" title="5 commentaires">Connexions simultannées</a></li><li><a href="index32d3.html?q=node/1737" title="1 commentaire">Optimisation de la mémoire sous PostgreSQL</a></li><li><a href="index2483.html?q=node/1736" title="3 commentaires">[Résolu] Upgrade Postgre -> types et opérateurs</a></li></ul></div><div class="item-list"><h3>Nouveaux sujets:</h3><ul><li><a href="index253f.html?q=node/1742">A LIRE : FERMETURE DES FORUMS DRUPAL</a></li><li><a href="indexfc2e.html?q=node/1739" title="2 commentaires">Problème  avec pg_dump</a></li><li><a href="index32d3.html?q=node/1737" title="1 commentaire">Optimisation de la mémoire sous PostgreSQL</a></li><li><a href="index2483.html?q=node/1736" title="3 commentaires">[Résolu] Upgrade Postgre -> types et opérateurs</a></li><li><a href="index82c4.html?q=node/1734" title="2 commentaires">[RESOLU] Probleme de connection en odbc</a></li></ul></div><div class="more-link"><a href="index79b7.html?q=forum" title="Lire les derniers sujets.">en lire plus</a></div>
+		    </div></div></div>
+<div class="block block-archive" id="block-archive-0">
+<div class="pgSideNav">    <h2>Accéder aux archives</h2>    
+		    <div>
+			
+<!-- calendar -->
+<div class="calendar"><table summary="Un calendrier pour accéder aux archives.">
+ <caption><a href="index9dfb.html?q=archive/2008/09/12" title="Mois précédent">&laquo;</a> Octobre 2008 &nbsp;</caption>
+ <tr class="header-week">
+ <th abbr="Lundi">Lun</th>
+ <th abbr="Mardi">Mar</th>
+ <th abbr="Mercredi">Mer</th>
+ <th abbr="Jeudi">Jeu</th>
+ <th abbr="Vendredi">Ven</th>
+ <th abbr="Samedi">Sam</th>
+ <th abbr="Dimanche">Dim</th>
+</tr>
+ <tr class="row-week"><td class="day-blank" colspan="2">&nbsp;</td>
+  <td class="day-link"><a href="indexd3e2.html?q=archive/2008/10/1">1</a></td>
+  <td class="day-normal">2</td>
+  <td class="day-normal">3</td>
+  <td class="day-normal">4</td>
+  <td class="day-normal">5</td>
+ </tr>
+ <tr class="row-week">
+  <td class="day-normal">6</td>
+  <td class="day-normal">7</td>
+  <td class="day-normal">8</td>
+  <td class="day-normal">9</td>
+  <td class="day-normal">10</td>
+  <td class="day-normal">11</td>
+  <td class="day-today">12</td>
+ </tr>
+ <tr class="row-week">
+  <td class="day-future">13</td>
+  <td class="day-future">14</td>
+  <td class="day-future">15</td>
+  <td class="day-future">16</td>
+  <td class="day-future">17</td>
+  <td class="day-future">18</td>
+  <td class="day-future">19</td>
+ </tr>
+ <tr class="row-week">
+  <td class="day-future">20</td>
+  <td class="day-future">21</td>
+  <td class="day-future">22</td>
+  <td class="day-future">23</td>
+  <td class="day-future">24</td>
+  <td class="day-future">25</td>
+  <td class="day-future">26</td>
+ </tr>
+ <tr class="row-week">
+  <td class="day-future">27</td>
+  <td class="day-future">28</td>
+  <td class="day-future">29</td>
+  <td class="day-future">30</td>
+  <td class="day-future">31</td>
+  <td class="day-blank" colspan="2">&nbsp;</td>
+ </tr>
+</table></div>
+
+
+		    </div></div></div>
+<div class="block block-node" id="block-node-0">
+<div class="pgSideNav">    <h2>Syndication</h2>    
+		    <div>
+			<div class="xml-icon"><a href="index9637.html?q=rss.xml"><img src="misc/xml.png" width="36" height="14" alt="Flux XML" title="Flux XML" /></a></div>
+		    </div></div></div>
+<div class="block block-poll" id="block-poll-0">
+<div class="pgSideNav">    <h2>Sondage</h2>    
+		    <div>
+			<div class="poll"><div class="title">Quelle est la version de PostgreSQL la plus répandue sur vos serveurs ?</div><div class="text">8.3</div><div class="bar"><div style="width: 10%;" class="foreground"></div></div><div class="percent">10%</div><div class="text">8.2</div><div class="bar"><div style="width: 42%;" class="foreground"></div></div><div class="percent">42%</div><div class="text">8.1</div><div class="bar"><div style="width: 40%;" class="foreground"></div></div><div class="percent">40%</div><div class="text">8.0</div><div class="bar"><div style="width: 2%;" class="foreground"></div></div><div class="percent">2%</div><div class="text">7.4</div><div class="bar"><div style="width: 6%;" class="foreground"></div></div><div class="percent">6%</div><div class="text">7.3 ou antérieure</div><div class="bar"><div style="width: 0%;" class="foreground"></div></div><div class="percent">0%</div><div class="total">Nombre de votes: 48</div></div><div class="links"><a href="index8c57.html?q=node/1426#comment" title="Sauter au premier commentaire de ce message.">3 commentaires</a> | <a href="index729f.html?q=poll" title="Voir la liste des sondages de ce site.">anciens sondages</a></div>
+		    </div></div></div>
+    </td>
+
+      <td style="vertical-align: top; width: 80%"><div class="breadcrumb"><a href="index03d2.html?q=">Accueil</a> &raquo; <a href="index79b7.html?q=forum">forums</a> &raquo; <a href="indexdc64.html?q=forum/14">Technique - php</a></div><h2 class="title">PostgreSQL8 + PHP4 + Win -> Call to undefined function: pg_connect() </h2>
+<!-- begin content -->
+
+<!-- node: "PostgreSQL8 + PHP4 + Win -> Call to undefined function: pg_connect() " -->
+<!--<div class="pgFrontCenterUser">
+<div class="pgFrontUser">
+<div class="pgFrontUserInner">
+--><div class="pgFrontUserWrap">
+ <div class="pgFrontUserContent">	<h1 class="plop"><a href="index4f64.html?q=taxonomy/term/14">Technique - php</a> | <a href="index6247.html?q=node/201" class="active">PostgreSQL8 + PHP4 + Win -> Call to undefined function: pg_connect() </a></h1>
+		    <p>
+			    Par <a href="indexc7b1.html?q=user/611" title="Voir le profil utilisateur.">david_kf</a> le 06/04/2005 - 17:22
+		    </p>	
+			    <p>Ma configuration:<br />
+Souw Windows 2000 Pro (ma config de dev)<br />
+PostgresSQL 8.0.1 + Apache 1.3.33 + PHP 4.3.10</p>
+<p>Je viens de quitter MySQL pour un Serveur de BD un peu plus solide PostgreSQL</p>
+<p>Malheureusement j'obtiens le message d'erreur suivant lorsque j'essaie simplement de me connecter au serveur:</p>
+<p>Fatal error: Call to undefined function: pg_connect() in c:\program files\apache group\apache\htdocs\connexion.php on line 10</p>
+<p>J'ai passé mon après midi à chercher dans les docs PHP,PostgreSQL,Apache et sur le web d'où ce problème peut venir.</p>
+<p>Est-ce-que quelqu'un sait pourquoi PHP ne trouve pas les fonctions PostgreSQL? Les fonctions de la DLL php_pgsql.dll ne sont elles pas reconnues?</p>
+<p>Comment faire fonctionner PHP avec PostGreSQL sous Windows?</p>
+<p>Merci</p>
+<p>David</p>
+<!--hr /--><div class="contentsLink">[ <a href="indexf174.html?q=node/1196" title="outils de développement">sujet précédent</a> | <a href="index22d0.html?q=node/1359" title="Création d'une application Web pour la saisie et recherche de données ">sujet suivant</a> ]</div>
+		     </div></div>
+<!--</div>
+</div>
+</div>
+</div> -->
+<a id="comment"></a>
+<form method="post" action="http://drupal.postgresql.fr/?q=comment"><div>
+<div class="pgSideNav">    <h2>Options d'affichage des commentaires</h2>    
+		    <div>
+			<div class="form-item">
+ <select name="mode"> <option value="1">A plat - replié</option>
+ <option value="2">A plat - déplié</option>
+ <option value="3">Par discussions - replié</option>
+ <option value="4" selected="selected">Par discussions - déplié</option>
+</select>
+<select name="order"> <option value="1">Date - récents en premier</option>
+ <option value="2" selected="selected">Date - anciens en premier</option>
+</select>
+<select name="comments_per_page"> <option value="10">10 commentaires par page</option> <option value="30">30 commentaires par page</option> <option value="50" selected="selected">50 commentaires par page</option> <option value="70">70 commentaires par page</option> <option value="90">90 commentaires par page</option></select>
+<input type="hidden" name="threshold" value="0" />
+ <input type="submit" class="form-submit" name="op" value="Sauvegarder les paramètres"  />
+
+ <div class="description">Sélectionnez la méthode d'affichage des commentaires que vous préférez, puis cliquez sur "Sauvegarder les paramètres" pour activer vos changements.</div>
+</div>
+
+		    </div></div><input type="hidden" name="edit[nid]" value="201" />
+</div></form><form method="post" action="http://drupal.postgresql.fr/?q=comment"><div>
+<input type="hidden" name="edit[nid]" value="201" />
+<a id="comment-123"></a>
+<div class="pgContentWrap"><h1 id="txtFrontFeatureHeading">php.ini ?</h1>
+		<p>
+		    <b><a href="indexec55.html?q=user/2" title="Voir le profil utilisateur.">Jean-Paul Argudo</a></b>/ = 9 Avril, 2005 - 08:55
+		</p>
+		<p>
+		    <p>
+Bonjour,<br><br />
+Je connais très mal la version Windows... mais bon, déjà, avez-vous vérifié dans le php.ini ?<br><br />
+Vous devriez avoir quelque chose qui ressemble à cela dedans&nbsp;:</p>
+<pre>
+Version <b>UNIX</b>:<br />
+pgsql.allow_persistent = On<br />
+pgsql.max_persistent = -1<br />
+pgsql.max_links = -1<br />
+extension=pgsql.so
+</pre>
+<p>De mémoire, c'est à la ligne 479 que cela se passe, vous devriez avoir un ";" devant  "extension=php_pgsql.dll". Enlevez ce ";" et redémarrez le tout, cela devrait fonctionner.
+<p>
+Merci de revenir ici poster le résultat, que cela marche ou non ;-)
+</p>
+<p>
+-- <br><br />
+Jean-Paul ARGUDO<br><br />
+www.PostgreSQLFr.org<br>
+</p>
+<br /><!--hr /--><div class="contentsLink">[ Vous devez <a href="index7992.html?q=user/login">vous connecter</a> pour poster des commentaires ]</div>
+		</p></div><a id="comment-144"></a>
+<div class="pgContentWrap"><h1 id="txtFrontFeatureHeading">
+est-ce qu'une page avec l'a</h1>
+		<p>
+		    <b><a href="indexdb6e.html?q=user/647" title="Voir le profil utilisateur.">Sebastien Lardiere</a></b>/ = 2 Mai, 2005 - 22:45
+		</p>
+		<p>
+		    <p>est-ce qu'une page avec l'appel à phpinfo() montre bien l'extension pgsql. </p>
+<p>Si non, alors, c'est qu'elle n'est pas chargée dans Php. </p>
+<br /><!--hr /--><div class="contentsLink">[ Vous devez <a href="index7992.html?q=user/login">vous connecter</a> pour poster des commentaires ]</div>
+		</p></div><div style="margin-left:25px;">
+<a id="comment-149"></a>
+<div class="pgContentWrap"><h1 id="txtFrontFeatureHeading">bonjour,
+
+j'ai installé ea</h1>
+		<p>
+		    <b><a href="index2cfb-2.html?q=user/701" title="Voir le profil utilisateur.">tthierry</a></b>/ = 7 Mai, 2005 - 19:15
+		</p>
+		<p>
+		    <p>bonjour,</p>
+<p>j'ai installé easyphp sous winows xp et j'ai dû en effet changer une ligne du php.ini pour ne pas avoir le même type d'erreur.</p>
+<p>voici un extrait du php.ini :<br />
+////////////////////////////////<br />
+[PostgresSQL]<br />
+; Allow or prevent persistent links.<br />
+pgsql.allow_persistent = On</p>
+<p>; Detect broken persistent links always with pg_pconnect().<br />
+; Auto reset feature requires a little overheads.<br />
+pgsql.auto_reset_persistent = Off</p>
+<p>; Maximum number of persistent links.  -1 means no limit.<br />
+pgsql.max_persistent = -1</p>
+<p>; Maximum number of links (persistent+non persistent).  -1 means no limit.<br />
+pgsql.max_links = -1</p>
+<p>; Ignore PostgreSQL backends Notice message or not.<br />
+; Notice message logging require a little overheads.<br />
+pgsql.ignore_notice = 0</p>
+<p>; Log PostgreSQL backends Noitce message or not.<br />
+; Unless pgsql.ignore_notice=0, module cannot log notice message.<br />
+pgsql.log_notice = 0<br />
+///////////////////////////////////////</p>
+<p>ce passage existait déja par contre j'ai du décommenter cette ligne:</p>
+<p>///////////////////////////////<br />
+;extension=php_pdf.dll<br />
+extension=php_pgsql.dll   <- ligne à décommenter<br />
+;extension=php_printer.dll<br />
+///////////////////////////////</p>
+<p>thierry</p>
+<br /><!--hr /--><div class="contentsLink">[ Vous devez <a href="index7992.html?q=user/login">vous connecter</a> pour poster des commentaires ]</div>
+		</p></div></div>
+<div style="margin-left:25px;">
+<a id="comment-188"></a>
+<div class="pgContentWrap"><h1 id="txtFrontFeatureHeading">Bonjour, j'ai également le m</h1>
+		<p>
+		    <b><a href="indexed33.html?q=user/758" title="Voir le profil utilisateur.">MaitrePylos</a></b>/ = 30 Mai, 2005 - 15:41
+		</p>
+		<p>
+		    <p>Bonjour, j'ai également le même problème, je suis sous Ubuntu et je viens de passer de php4 à php5, et quand je me connecte a ma base PostGres, il me met ceci : "Fatal error: Call to undefined function pg_connect() in ".</p>
+<p>De même que si je vais sur "phpPgAdmin"; il me dit que php est mal configuré.</p>
+<p>Pouvez-vous m'aider.</p>
+<p>merci</p>
+<br /><!--hr /--><div class="contentsLink">[ Vous devez <a href="index7992.html?q=user/login">vous connecter</a> pour poster des commentaires ]</div>
+		</p></div></div>
+<div style="margin-left:50px;">
+<a id="comment-190"></a>
+<div class="pgContentWrap"><h1 id="txtFrontFeatureHeading">J'ai aussi le problème</h1>
+		<p>
+		    <b><a href="index415f.html?q=user/763" title="Voir le profil utilisateur.">stefy</a></b>/ = 31 Mai, 2005 - 15:31
+		</p>
+		<p>
+		    <p>Bonjour,<br />
+J'ai également le même problème. La dll est dans le bon répertoire mais il n'arrive pas à la charger. Je cherche comment résoudre ce problème depuis hier et je n'y arrive pas !<br />
+Je ne peux donc pas me connecter à ma base !<br />
+Quelqu'un pourrait-il m'aider ??</p>
+<p>Merci</p>
+<br /><!--hr /--><div class="contentsLink">[ Vous devez <a href="index7992.html?q=user/login">vous connecter</a> pour poster des commentaires ]</div>
+		</p></div></div>
+<div style="margin-left:50px;">
+<a id="comment-241"></a>
+<div class="pgContentWrap"><h1 id="txtFrontFeatureHeading">Pour resoudre ce probleme j'a</h1>
+		<p>
+		    <b><a href="indexc7b1.html?q=user/611" title="Voir le profil utilisateur.">david_kf</a></b>/ = 8 Juillet, 2005 - 13:40
+		</p>
+		<p>
+		    <p>Pour resoudre ce probleme j'ai installé Apache 2 avec PHP 5 et en suivant les instructions de la doc, ca a fonctionné.</p>
+<br /><!--hr /--><div class="contentsLink">[ Vous devez <a href="index7992.html?q=user/login">vous connecter</a> pour poster des commentaires ]</div>
+		</p></div></div>
+<div style="margin-left:50px;">
+<a id="comment-2086"></a>
+<div class="pgContentWrap"><h1 id="txtFrontFeatureHeading">Le même problème </h1>
+		<p>
+		    <b><a href="index355c.html?q=user/2669" title="Voir le profil utilisateur.">vivi</a></b>/ = 11 Juillet, 2007 - 10:20
+		</p>
+		<p>
+		    <p>Moi je travail avec eclipse php et j'ai la même erreur  Call to undefined function pg_pconnect() in...si quelqu'un a deja eu le même cas avec eclipse ce la m'aiderai.</p>
+<p>merci à tous et bonne journée!</p>
+<br /><!--hr /--><div class="contentsLink">[ Vous devez <a href="index7992.html?q=user/login">vous connecter</a> pour poster des commentaires ]</div>
+		</p></div></div>
+<div style="margin-left:50px;">
+<a id="comment-2162"></a>
+<div class="pgContentWrap"><h1 id="txtFrontFeatureHeading">Ca persiste</h1>
+		<p>
+		    <b><a href="index82cc.html?q=user/2804" title="Voir le profil utilisateur.">S O S</a></b>/ = 23 Août, 2007 - 12:26
+		</p>
+		<p>
+		    <p>apparement le probléme n'a pas de solution puisqu'il y a pas eu des interventions en ce sens.moi aussi j'ai le même probléme mais en attendant le "HERO" qui nous apportera la solution ça n'empêche de chercher tout seul car on dit bien qui "cherche trouve". Bonne journée.</p>
+<br /><!--hr /--><div class="contentsLink">[ Vous devez <a href="index7992.html?q=user/login">vous connecter</a> pour poster des commentaires ]</div>
+		</p></div></div>
+<div style="margin-left:50px;">
+<a id="comment-2164"></a>
+<div class="pgContentWrap"><h1 id="txtFrontFeatureHeading">Call to undefined function: pg_connect()</h1>
+		<p>
+		    <b><a href="index040e.html?q=user/2679" title="Voir le profil utilisateur.">syracine</a></b>/ = 23 Août, 2007 - 15:32
+		</p>
+		<p>
+		    <p>Bonjour à tous,</p>
+<p>J'utilise Postgresql et PHP avec Apache 2 sous Windows depuis plusieurs années. Je crois que vos problèmes viennent de ceci:<br />
+Les modules (extensions) de PHP sont par défaut dans le répertoire 'ext' de PHP. Or, par défaut, PHP lit les extensions qui sont dans le répertoire RACINE de PHP.</p>
+<p>Exemple: J'ai installé PHP dans C:/php. Les modules (extensions.dll) se trouve dans C:/php/ext.</p>
+<p>Vous avez 2 solutions,<br />
+1) soit que vous déplacez le fichier php_pgsql.dll dans le répertoire d'installation de PHP (ex. C:/php - ce que j'ai fait)<br />
+2) soit que vous donner le chemin relatif pour vous rendre à ce fichier dans votre php.ini (ex.: extension=ext/php_pgsql.dll;)</p>
+<p>Méthode à suivre:<br />
+- trouver le fichier 'php_pgsql.dll' sur le disque dur<br />
+- trouver le fichier 'php.ini' sur le disque dur<br />
+- (solution 1): déplacer l'extension.dll dans le même répertoire que php.ini<br />
+- redémarrer le serveur Web<br />
+- vérifier dans les logs de votre serveur Web si tout va bien<br />
+- vérifier avec phpinfo(); si le module 'pgsql' apparaît</p>
+<p>Tant que ces étapes ne donneront pas de succès, vous allez obtenir un 'call to undefined function: pg_connect()', ce qui veut dire que la fonction 'pg_connect' n'existe pas pour PHP.</p>
+<p>PS: Pour les utilisateurs de MySQL, l'extension PHP pour postgreSQL n'est pas inclus automatiquement dans PHP!</p>
+<p>Bonne chance</p>
+<br /><!--hr /--><div class="contentsLink">[ Vous devez <a href="index7992.html?q=user/login">vous connecter</a> pour poster des commentaires ]</div>
+		</p></div></div>
+</div></form>
+<!-- end content -->
+              </td>
+
+    </tr>
+    <tr><td colspan="2">
+
+		<div class="pgTopNav">
+		   <div class="pgTopNavLeft"> 
+		     <img src="layout/images/nav_lft.png" width="7" height="23" alt="" />
+		   </div>
+		   <div class="pgTopNavRight">
+		    <img src="layout/images/nav_rgt.png" width="7" height="23" alt="" />
+		  </div>
+		  <!--<ul class="pgTopNavList">-->
+		  <ul class="pgTopNavList">
+		   <li><a href="index03d2.html?q=" title="Retourner à la page principale.">accueil</a> </li>
+		   <li> <a href="indexf6e5.html?q=archive" title="Lire le contenu plus ancien dans notre archive.">archives</a> </li>
+		   <li> <a href="index71c4.html?q=blog" title="Lire les blogues les plus récents.">blogues</a> </li>
+
+		   <li> <a href="indexf6fe.html?q=book" title="Lire et contribuer aux livres collaboratifs.">livres</a> </li>
+		   <li> <a href="index79b7.html?q=forum">forums</a> </li>
+		   <li> <a href="index729f.html?q=poll" title="Voir la liste des sondages de ce site.">sondages</a> </li>
+		   <li> <a href="index4404.html?q=search" title="Chercher pour du contenu plus vieux.">recherche</a></li><li><a href="http://docs.postgresqlfr.org/" target="_blank">documentation </a></li>
+
+		  </ul>
+
+<!--
+		   <li><a href="?q=" title="Retourner à la page principale.">accueil</a> </li>
+		   <li> <a href="?q=archive" title="Lire le contenu plus ancien dans notre archive.">archives</a> </li>
+		   <li> <a href="?q=blog" title="Lire les blogues les plus récents.">blogues</a> </li>
+		   <li> <a href="?q=book" title="Lire et contribuer aux livres collaboratifs.">livres</a> </li>
+		   <li> <a href="?q=forum">forums</a> </li>
+		   <li> <a href="?q=poll" title="Voir la liste des sondages de ce site.">sondages</a> </li>
+		   <li> <a href="?q=search" title="Chercher pour du contenu plus vieux.">recherche</a></li><li><a href="http://docs.postgresqlfr.org/" target="_blank">documentation </a></li>
+-->
+		  </ul>
+	        </div>
+    </td></tr>
+   </table>
+   <p style="text-align: center;">&copy;&nbsp;PostgreSQLFr, tous droits réservés.<br>
+Site déclaré à la CNIL sous le numéro 1074678, conformément à la Loi en vigueur.
+</p>
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-3921927-1");
+pageTracker._initData();
+pageTracker._trackPageview();
+</script>
+<p></p>
+   
+</body>
+
+<!-- Mirrored from drupal.postgresql.fr/?q=node/201 by HTTrack Website Copier/3.x [XR&CO'2006], Sun, 12 Oct 2008 17:51:47 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+</html>

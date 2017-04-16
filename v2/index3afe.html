@@ -1,0 +1,115 @@
+<html>
+<!-- Mirrored from drupal.postgresql.fr/?q=book/print/66 by HTTrack Website Copier/3.x [XR&CO'2006], Sun, 12 Oct 2008 16:33:35 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+<head><title>Pierre-Louis Malatray, développeur indépendant</title><base  /><style type="text/css">
+@import url(misc/print.css);
+</style></head><body><h1 id="66" name="66" class="book-h1">Pierre-Louis Malatray, développeur indépendant</h1><h1>Pierre-Louis Malatray, développeur indépendant</h1>
+<p>
+<p class="question">Contexte</p>
+<p class="detail">
+Je suis développeur indépendant et je travaille avec PG dans de petites<br />
+entreprises<br />
+qui recherchent le moindre coût et le maximum de fiabilité.
+</p>
+<p class="detail">
+La fiabilité, c'est aussi pour moi, parce que je ne veux pas courrir<br />
+remettre en route<br />
+les serveurs chez mes clients&nbsp;!<br />
+Il faut que ça tourne tout seul.
+</p>
+<p class="question">
+Premier exemple&nbsp;:
+</p>
+<p class="detail">
+J'ai développé un logiciel spécifique pour gérer des créances dans une<br />
+société de recouvrement.<br />
+Il fonctionne en client/serveur avec 5 postes clients sous Windows 98<br />
+par ODBC, 6 jours sur 7.
+</p>
+<p class="detail">
+Initialement, le moteur de base de données (Sybase SQL Anywhere)<br />
+tournait sur un des postes client.<br />
+Solution techniquement loin d'être idéale mais économique. La base<br />
+comptait 200 Mo lorsque les<br />
+utilisateurs ont commencé à se plaindre de la lenteur du système,<br />
+c'était en 1999.
+</p>
+<p class="detail">
+Il a donc fallu trouver une solution fiable et économique pour mettre en<br />
+place un serveur dédié.<br />
+J'ai choisi GNU/Linux et PostgreSQL après quelques essais sur différents<br />
+moteurs.<br />
+Les performances étaient équivalentes avec la base que j'utilisais.<br />
+A l'époque, les moteurs SQL libres n'étaient pas légion.<br />
+PostgreSQL était purement en license GPL, ce qui a finalement emporté<br />
+mon choix pour des<br />
+raisons de perrennité et de transparence.<br />
+J'ai été impressionné, en lisant les mails qui circulaient sur la liste<br />
+de PG, de voir avec quelle<br />
+célérité les problèmes des administrateurs de bases de données étaient<br />
+résolus&nbsp;!
+</p>
+<p class="detail">
+Finalement, le logiciel tourne avec PostgreSQL version 6.4, une base de<br />
+400 Mo, aujourd'hui,<br />
+avec 19 tables appuyé sur une RedHat 6.0.<br />
+Ce serveur tourne depuis 1999 en 24/24 avec un VACUUM (régénération des<br />
+index et purge du soft delete)<br />
+hebdomadaire et un reboot mensuel, tout ceci depuis la cron donc en<br />
+automatique.
+</p>
+<p class="detail">
+Quelque remarques&nbsp;:<br />
+Ce serveur a subi, au fil du temps, quelques avaries, mort de la carte<br />
+mère, onduleur HS, court circuit<br />
+sur le câble réseau par écrasement de celui-ci.<br />
+Des resets répétés des utilisateurs qui trouvaient que le serveur ne<br />
+démarrait pas assez vite<br />
+après une coupure de courant prolongée.<br />
+PostgreSQL = 0 défaut. Pas une ombre au tableau :-)
+</p>
+<p class="detail">
+Lorsque je codais les requêtes SQL pour migrer sous PG, j'avais quelques<br />
+inquiétudes au sujet de la syntaxe<br />
+notamment pour la conversion des entiers. Tout ceci s'est dissipé à<br />
+partir de la version 7.0 :)
+</p>
+<p class="question">
+Deuxième exemple
+</p>
+<p class="detail">
+J'utilise PG sur un logiciel personnel qui me sert à faire mes comptes.<br />
+PostgreSQL version 7.2, une base de 50 Mo avec 8 tables.<br />
+Cette appli me sert essentiellement 'd'éclaireur' pour les essais divers<br />
+et variés<br />
+de moteurs SQL, d'outils de développement etc...<br />
+Le serveur tourne sous ma propre distribution (noyau 2.4.21) et je ne<br />
+m'en occupe jamais<br />
+sauf pour installer une distribution plus récente.<br />
+PG fonctionne parfaitement.
+</p>
+<p class="question">Conclusion</p>
+<p class="detail">
+PostgreSQL est aujourd'hui un moteur SQL qui n'a pas à rougir devant ses<br />
+concurrents commerciaux.<br />
+Les connectivités ODBC, JDBC sont implémentées et fiables.<br />
+Il supporte toute la puissance du langage SQL ANSI92.<br />
+La mise en route et la sécurisation sont simples et logiques.
+</p>
+<p class="detail">
+La documentation est très bien faite.<br />
+Le volume des bases que j'utilise est faible, j'aimerais tester des<br />
+volumes plus importants (plusieurs Go)<br />
+mais je n'ai réussi à convaincre personne pour l'instant :-(
+</p>
+<p class="detail">
+Voici mon humble témoignage, espérant qu'il amènera sa pierre à<br />
+l'édifice :-)
+</p>
+<p class="detail">
+Pierre-Louis Malatray
+</p>
+</body>
+<!-- Mirrored from drupal.postgresql.fr/?q=book/print/66 by HTTrack Website Copier/3.x [XR&CO'2006], Sun, 12 Oct 2008 16:33:35 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+</html>

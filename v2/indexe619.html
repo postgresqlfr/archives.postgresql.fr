@@ -1,0 +1,26 @@
+<html>
+<!-- Mirrored from drupal.postgresql.fr/?q=book/print/1254 by HTTrack Website Copier/3.x [XR&CO'2006], Sun, 12 Oct 2008 17:23:59 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+<head><title>Taille des tables TOAST</title><base  /><style type="text/css">
+@import url(misc/print.css);
+</style></head><body><h1 id="1254" name="1254" class="book-h1">Taille des tables TOAST</h1><p>La requête suivante permet d'afficher la taille des tables de TOAST de votre système, pour celles dont la taille est supérieure à 0 octets. On utilise une sous-requête dans la clause <tt>FROM</tt> (cf. <a href="http://www.postgresql.org/docs/current/static/queries-table-expressions.html">queries-table-expressions</a>) afin de récupérer les informations brutes voulues, puis on les met en forme dans le <tt>SELECT</tt> en utilisant entre autres <tt>pg_size_pretty</tt>.</p>
+<pre>
+SELECT a, n, pg_relation_size(t), pg_size_pretty(pg_relation_size(t))</p>
+<p>FROM   (SELECT c.relname, c.reltoastrelid, d.relname<br />
+        FROM   pg_class c JOIN pg_class d ON c.reltoastrelid = d.oid<br />
+       ) as x(a, t, n)</p>
+<p>WHERE  t > 0 and pg_relation_size(t) > 0</p>
+<p>ORDER BY 3 DESC;
+</pre>
+<p>Et voici un exemple d'utilisation :</p>
+<pre>
+psql amarok < /home/dim/PostgreSQL/cookbook/size.toast.sql<br />
+     a      |       n       | pg_relation_size | pg_size_pretty<br />
+------------+---------------+------------------+----------------<br />
+ pg_rewrite | pg_toast_2618 |           139264 | 136 kB<br />
+(1 ligne)
+</pre>
+</body>
+<!-- Mirrored from drupal.postgresql.fr/?q=book/print/1254 by HTTrack Website Copier/3.x [XR&CO'2006], Sun, 12 Oct 2008 17:23:59 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+</html>

@@ -1,0 +1,18 @@
+<html>
+<!-- Mirrored from drupal.postgresql.fr/?q=book/print/918 by HTTrack Website Copier/3.x [XR&CO'2006], Sun, 12 Oct 2008 17:23:50 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+<head><title>Sommes intermédiaires</title><base  /><style type="text/css">
+@import url(misc/print.css);
+</style></head><body><h1 id="918" name="918" class="book-h1">Sommes intermédiaires</h1><p>Un exemple qui nous viens tout droit du site <a href="http://www.udel.edu/evelyn/SQL-Class3/SQL3_Stat.html">http://www.udel.edu/evelyn/SQL-Class3/SQL3_Stat.html</a></p>
+<p>Il s'agit de calculer pour chaque ligne de résultat la somme des éléments déjà affichés jusque là, sans pour autant modifier la requête d'une quelconque autre façon. </p>
+<p>L'idée est d'utiliser une jointure sur la même table, et de limiter cette jointure aux tuples déjà pris en compte jusque-là. Vous aurez donc à adapter le code suivant à vos données, bien sûr, mais aussi à votre façon de limiter la somme intermédiaire :</p>
+<p class="code">
+SELECT   a.OrderID, a.OrderDate, Sum(b.OrderTotal) AS RunningTotal<br />
+FROM     RATTC_ForRunSum AS a, RATTC_ForRunSum AS b<br />
+WHERE    b.OrderDate <= a.OrderDate<br />
+GROUP BY a.OrderID, a.OrderDate;
+</pre>
+</body>
+<!-- Mirrored from drupal.postgresql.fr/?q=book/print/918 by HTTrack Website Copier/3.x [XR&CO'2006], Sun, 12 Oct 2008 17:23:50 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+</html>

@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE rss [<!ENTITY % HTMLlat1 PUBLIC "-//W3C//ENTITIES Latin 1 for XHTML//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml-lat1.ent">]>
+<rss version="0.92" xml:base="http://drupal.postgresql.fr">
+<channel>
+ <title>PostgreSQLFr - Technique - sécurité</title>
+ <link>http://drupal.postgresql.fr/?q=taxonomy/term/20/0</link>
+ <description>Discussions autour de la sécurité et PostgreSQL</description>
+ <language>fr</language>
+<item>
+ <title>Droits d'accès aux logs</title>
+ <link>http://drupal.postgresql.fr/?q=node/1356</link>
+ <description>&lt;p&gt;Bonjour à tous,&lt;/p&gt;
+&lt;p&gt;je suis actuellement en train de configurer la rotation des logs sous PostgreSQL 8.2.3.&lt;/p&gt;
+&lt;p&gt;Depuis que j'ai mis en place la rotation des logs, tous les logs d'erreurs ont pour droits -rw-------.&lt;br /&gt;
+Ceci me pose problème parce que la sauvegarde de ces logs, est effectuée par un autre utilisateur.&lt;br /&gt;
+Est-il possible de spécifier à l'outil de rotation de logs interne à PostgreSQL les droits que l'on désire pour la création des fichiers ?&lt;/p&gt;
+</description>
+ <pubDate>Mon, 13 Aug 2007 16:22:35 +0200</pubDate>
+</item>
+<item>
+ <title>Conflit Service postgresql - antivirus</title>
+ <link>http://drupal.postgresql.fr/?q=node/1344</link>
+ <description>&lt;p&gt;Bonjour,&lt;/p&gt;
+&lt;p&gt;Lorsque j'installe l'antivirus fsecure, le service postgresql ne fonctionne plus du tout, il ne démarre plus !&lt;br /&gt;
+NB : sans l'antivirus, tout fonctionne correctement.&lt;/p&gt;
+&lt;p&gt;Quelqu'un peut-il me sortir de ce mauvais pas, sachant que je ne peus pas changer d'antivirus et que j'ai absolument besoin de postgres ... évidement.&lt;/p&gt;
+&lt;p&gt;Merci d'avance&lt;/p&gt;
+</description>
+ <pubDate>Thu, 26 Jul 2007 16:49:54 +0200</pubDate>
+</item>
+<item>
+ <title>Lien vers une info Sécurité.</title>
+ <link>http://drupal.postgresql.fr/?q=node/990</link>
+ <description>&lt;p&gt;Veuillez consulter ce lien:&lt;br /&gt;
+http://akosh.pcinpact.com/actu/news/32960-oracle-microsoft-litchfield.htm&lt;/p&gt;
+&lt;p&gt;J'ai trouvé interessante la position de cet expert sur Postgresql.&lt;br /&gt;
+Certes, Postgre n'est pas le centre du sujet mais au paragraphe 3 on y trouve un point positif sur notre SGBDR préféré.&lt;/p&gt;
+</description>
+ <pubDate>Fri, 24 Nov 2006 21:03:44 +0100</pubDate>
+</item>
+<item>
+ <title>fonctions cryptage decryptage</title>
+ <link>http://drupal.postgresql.fr/?q=node/979</link>
+ <description>&lt;p&gt;Bonjour,&lt;/p&gt;
+&lt;p&gt;Quelqu'un a-t-il déjà utilisé les fonctions de cryptage.decryptage de postgres ?&lt;/p&gt;
+&lt;p&gt;Je souhaiterai crypter/décrypter plusieurs colonnes d'une table dans ma base mais je ne sais pas comment faire.&lt;/p&gt;
+&lt;p&gt;merci&lt;/p&gt;
+&lt;p&gt;Vincent &lt;/p&gt;
+</description>
+ <pubDate>Thu, 16 Nov 2006 22:56:50 +0100</pubDate>
+</item>
+<item>
+ <title>pg_hba.conf pour accès externe à la base</title>
+ <link>http://drupal.postgresql.fr/?q=node/780</link>
+ <description>&lt;p&gt;Bonjour,&lt;/p&gt;
+&lt;p&gt;Je dispose de 2 serveurs, un sous postgresql 8.1 et un ayant un serveur apache avec php. hors j'essaye de faire un accès depuis le serveur apache via une page php. Le code d'erreur retourné est :&lt;/p&gt;
+&lt;p&gt;Warning: pg_connect() [function.pg-connect]: Unable to connect to PostgreSQL server: could not connect to server: Connection refused Is the server running on host "192.168.2.212" and accepting TCP/IP connections on port 5432? in /var/www/ajout_u.php on line 16&lt;/p&gt;
+</description>
+ <pubDate>Fri, 23 Jun 2006 14:42:05 +0200</pubDate>
+</item>
+<item>
+ <title>PhpPgAdmin et accés base de données</title>
+ <link>http://drupal.postgresql.fr/?q=node/728</link>
+ <description>&lt;p&gt;Bonjour,&lt;/p&gt;
+&lt;p&gt;je voudrai savoir si il existe un moyen de bloquer l'accés aux différentes base de données sous phpPgAdmin. Je m'explque : un utilisateur toto posséde une base de données toto avec un schéma toto. Les droits du schéma ont été REVOKE pour le public et postgres. Toto est le seul à pouvoir creer, select, etc... sur sa base de données.&lt;/p&gt;
+&lt;p&gt;Le souci est qu'un autre utilisateur se connectant sous phpPgAdmin peut tout de même voir les autres bases de données que celle dont il est le propriétaire. Il eput ainsi voir le l'ossature d'une table même si il ne peut pas effectuer de select.&lt;/p&gt;
+</description>
+ <pubDate>Sat, 20 May 2006 15:32:31 +0200</pubDate>
+</item>
+<item>
+ <title>Configuration de postgresql+freeradius</title>
+ <link>http://drupal.postgresql.fr/?q=node/391</link>
+ <description>&lt;p&gt;Salut les amis. Je suis en train de configurer un serveur freeradius 1.0.4-1 avec un backend postgresql 8.0.3-1. Les  configurations ont été bien faites car apparemment lorsque je démarre le serveur postgresql ça marche. Aussi lorsque je lance freeradius en mode debug (avec la commande radiusd-X) ça marche, et j'arrive à authentifier des utilisateurs que j'ai préalablement enregistré dans la base de données ( authentification en locale avec la commande radtest) Mais lorsque je lance le serveur radius en tant que demon, l'authentification des mêmes utilisateurs échouent. Un tour effectué dans le fichier de log du serveur freeradius m'informe que le serveur postgresql n'accèpte par les connections tcp/ip. Là je ne comprends pas cette contradiction. Alorsque dans le fichier pg_hba.conf voici la config que j'ai effectuées:&lt;/p&gt;
+</description>
+ <pubDate>Thu, 29 Sep 2005 17:35:00 +0200</pubDate>
+</item>
+<item>
+ <title>Installation de Slony-I </title>
+ <link>http://drupal.postgresql.fr/?q=node/304</link>
+ <description>&lt;p&gt;Bonjour,&lt;/p&gt;
+&lt;p&gt;Voilà mon premier message sur ce forum.&lt;br /&gt;
+Je me lance dans les joies du SQL, et je commence un peu à m'arracher les cheveux.&lt;br /&gt;
+Voilà à peu près ce que j'aimerai faire: j'essaye d'installer Slony-I pour tester ce nouveaux mode de replication de BDD.&lt;br /&gt;
+Etant plutôt familié avec les Redhat et Fedora, j'ai decidé de gouter aix joies de l'apt-get et d'installer la derniere debian avec le joli netiso.&lt;/p&gt;
+</description>
+ <pubDate>Thu, 21 Jul 2005 23:58:12 +0200</pubDate>
+</item>
+<item>
+ <title>sécurité de transfert de données</title>
+ <link>http://drupal.postgresql.fr/?q=node/208</link>
+ <description>&lt;p&gt;postgresql est t il plus fiable queoracle ou sqlserver pour ce qui est d'une sécurité de transfert de données via internet vers un autre server(sauvgarde à distance)&lt;/p&gt;
+</description>
+ <pubDate>Mon, 18 Apr 2005 08:01:30 +0200</pubDate>
+</item>
+</channel>
+</rss>

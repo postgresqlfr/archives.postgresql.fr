@@ -1,0 +1,18 @@
+<html>
+<!-- Mirrored from drupal.postgresql.fr/?q=book/print/891 by HTTrack Website Copier/3.x [XR&CO'2006], Sun, 12 Oct 2008 17:15:59 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+<head><title>trouver le nom de l'objet associé à un OID</title><base  /><style type="text/css">
+@import url(misc/print.css);
+</style></head><body><h1 id="891" name="891" class="book-h1">trouver le nom de l'objet associé à un OID</h1><p>Il est possible de trouver le nom de l'objet associé à un OID en passant par la conversion regclass. Par exemple, pour connaître le nom de l'objet dont l'OID est 2613 :</p>
+<pre>
+guillaume=# select 2613::regclass;<br />
+    regclass<br />
+----------------<br />
+ pg_largeobject<br />
+(1 ligne)
+</pre>
+<p>L'OID 2613 correspond donc à la table système pg_largeobject.</p>
+</body>
+<!-- Mirrored from drupal.postgresql.fr/?q=book/print/891 by HTTrack Website Copier/3.x [XR&CO'2006], Sun, 12 Oct 2008 17:15:59 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+</html>

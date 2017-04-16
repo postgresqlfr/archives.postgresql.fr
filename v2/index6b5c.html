@@ -1,0 +1,91 @@
+<html>
+<!-- Mirrored from drupal.postgresql.fr/?q=book/print/907 by HTTrack Website Copier/3.x [XR&CO'2006], Sun, 12 Oct 2008 16:34:21 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+<head><title>misc</title><base  /><style type="text/css">
+@import url(misc/print.css);
+</style></head><body><h1 id="907" name="907" class="book-h1">misc</h1><br />
+<h1 id="1055" name="1055" class="book-h1">Lister les tables filles d'une table</h1><ul><p>
+On remplacera "element" par la table père, on pourra bien sûr récupérer les informations de la table pg_class (c) ou pg_inherits (i) en fonction des besoins...<br />
+<br></p>
+<pre>
+SELECT relname<br />
+FROM pg_catalog.pg_class c,<br />
+     pg_catalog.pg_inherits i<br />
+WHERE i.inhparent=(select oid from pg_class where relname='element');
+</pre>
+</p>
+</ul><h1 id="1226" name="1226" class="book-h1">Modifier les droits d'un utilisateur sur toutes les tables d'un schéma.</h1><ul><p>Ci-dessous une requête qui permet de composer un script permettant d'affecter les droits <b>SELECT</b> sur toutes les tables du schéma <b>public</b></p>
+<pre class="code">
+select 'GRANT SELECT ON '||table_schema||'.'||table_name||' TO mon_user;'<br />
+from   information_schema.tables<br />
+where  table_type='BASE TABLE'<br />
+and    table_schema='public';
+</pre>
+<p>Enregistrer le contenu de cette requête dans un fichier et rejouer le script.</p>
+<p>Cette requête peut être modifier pour le faire sur plusieurs schéma ou bien ajouter des droits supplémentaires. </p>
+</ul><h1 id="1275" name="1275" class="book-h1">Récupérer le résultat d'une requête éxécutée dans une procédure stockée</h1><ul><p>En php on peut utiliser directement une requête pour obtenir un <i>recordset</i>.<br />
+Cependant si l'on veux récupérer un <i>recordset</i> via une procedure stockée -- pour appliquer des traitements sur des paramètres avant d'exécuter la requête par exemple -- on peut créer une fonction équivalent à celle qui suit.</p>
+<p>L'exemple renvoie un <i>setof</i> de la variable <i>out</i> nommée myset et qui est definie du type du champs convoité dans la table. (On utilise %TYPE pour recupérer le type du champs).</p>
+<pre class="code">
+CREATE OR REPLACE FUNCTION ma_fonction(out myset ma_table.mon_champ_pk%TYPE)<br />
+    RETURNS setof integer AS<br />
+$BODY$<br />
+    DECLARE<br />
+    -- On crée une variable de type record , on peut aussi suivant le besoin créer une variable de type %ROWTYPE<br />
+     myrecord record;<br />
+BEGIN</p>
+<p>    FOR myrecord in SELECT mon_pk FROM ma_table loop<br />
+        myset:= myrecord.mon_pk;<br />
+        RETURN NEXT;<br />
+    END LOOP;<br />
+    RETURN;<br />
+END;<br />
+$BODY$<br />
+    LANGUAGE 'plpgsql' VOLATILE;</p>
+<p>ALTER FUNCTION ma_fonction(out myset demande.demande_pk%TYPE) OWNER TO mon_user;
+</pre>
+<p>Pour récupérer l'ensemble des resultat on selectionne la procedure ainsi:</p>
+<pre class="code">
+SELECT * FROM  ma_fonction();
+</pre>
+<p>Les mots importants sont :<br />
+ - setof<br />
+ - record<br />
+ - %TYPE et %ROWTYPE<br />
+ - for...loop<br />
+ - return next</p>
+</ul><h1 id="908" name="908" class="book-h1">Trouver le 1er élément disponible dans une liste de numériques</h1><ul><p>On veut parfois trouver le 1er élément disponible dans une liste. C'est souvent le cas quand la clé primaire d'une table est un nombre mais qu'il n'est pas soumis à une séquence.. Ou alors qu'on a des trous dans la séquence et qu'on veut les combler.</p>
+<p>Soit la table nombres (a integer, [...]), la requête suivante retourne le 1er élement disponible:</p>
+<pre>
+explain<br />
+SELECT (x.a+1) AS id_disponible<br />
+FROM nombres x<br />
+     LEFT JOIN nombres y<br />
+     ON ((x.a + 1) = y.a)<br />
+WHERE y.a IS NULL<br />
+ORDER BY x.a LIMIT 1;</p>
+<p>                                    QUERY PLAN<br />
+-----------------------------------------------------------------------------------<br />
+ Limit  (cost=0.00..1.58 rows=1 width=4)<br />
+   ->  Nested Loop Left Join  (cost=0.00..22.09 rows=14 width=4)<br />
+         Join Filter: (("outer".a + 1) = "inner".a)<br />
+         Filter: ("inner".a IS NULL)<br />
+         ->  Index Scan using id_a on nombres x  (cost=0.00..3.15 rows=14 width=4<br />
+         ->  Seq Scan on nombres y  (cost=0.00..1.14 rows=14 width=4)<br />
+(6 lignes)</p>
+<p>test2=> SELECT (x.a+1) AS id_disponible FROM nombres x LEFT JOIN nombres<br />
+y ON ((x.a + 1) = y.a) WHERE y.a IS NULL ORDER BY x.a LIMIT 1;<br />
+ id_disponible<br />
+---------------<br />
+             4<br />
+(1 ligne)
+</pre>
+<p>Si vous constatez des lenteurs, il vous faudra créer un index sur a (si ce n'est pas déjà fait, ce dont je doute):</p>
+<pre>create unique index id_a on nombres(a);</pre>
+<p>Et un index fonctionnel comme suit:</p>
+<pre>create index id_a_suivant on nombres ((a+1));</pre>
+<p>Merci à John Hansen (appeljack) pour cette idée. </p>
+</ul></body>
+<!-- Mirrored from drupal.postgresql.fr/?q=book/print/907 by HTTrack Website Copier/3.x [XR&CO'2006], Sun, 12 Oct 2008 16:34:21 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+</html>

@@ -1,0 +1,20 @@
+<Replicate_Server_Info>
+	<Host_Name> 	postmaster	</Host_Name>
+	<Port> 		8001 		</Port>
+	<Recovery_Port> 8101 		</Recovery_Port>
+	<LifeCheck_Port>8201 		</LifeCheck_Port>
+</Replicate_Server_Info>
+
+<Host_Name> 		postslave1 	</Host_Name>
+<Recovery_Port> 	7101 		</Recovery_Port>
+<LifeCheck_Port> 	7201 		</LifeCheck_Port>
+<Rsync_Path> 		/usr/bin/rsync 	</Rsync_Path>
+<Rsync_Option> 		ssh - 1 	</Rsync_Option>
+<Rsync_Compress> 	yes 		</Rsync_Compress>
+<Pg_Dump_Path> 		/usr/local/pgsql/bin/pg_dump </Pg_Dump_Path>
+<When_Stand_Alone> 	read_only  	</When_Stand_Alone>
+<Replication_Timeout> 	1min 		</Replication_Timeout>
+<LifeCheck_Timeout> 	3s 		</LifeCheck_Timeout>
+<LifeCheck_Interval> 	11s 		</LifeCheck_Interval>
+<Status_Log_File>  	/tmp/cluster.sts </Status_Log_File>
+<Error_Log_File> 	/tmp/cluster.log </Error_Log_File>

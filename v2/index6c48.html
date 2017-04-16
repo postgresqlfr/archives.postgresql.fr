@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE rss [<!ENTITY % HTMLlat1 PUBLIC "-//W3C//ENTITIES Latin 1 for XHTML//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml-lat1.ent">]>
+<rss version="0.92" xml:base="http://drupal.postgresql.fr">
+<channel>
+ <title>Jean-Christophe Arnu's blog</title>
+ <link>http://drupal.postgresql.fr/?q=blog/10</link>
+ <description></description>
+ <language>fr</language>
+<item>
+ <title>Prepared Statement et valeurs à Null</title>
+ <link>http://drupal.postgresql.fr/?q=node/772</link>
+ <description>&lt;p&gt;&lt;b&gt;Le problème&lt;/b&gt;&lt;br /&gt;
+Le problème est simple : lorsqu'on a, dans une condition, des valeurs pouvant être à null les PreparedStatement peuvent être problématiques  car il n'existe pas d'opérateur = pour les valeurs à null dans PostgreSQL (enfin presque, voir plus bas) :&lt;/p&gt;
+&lt;p&gt;Par exemple j'ai une requête du type :&lt;br /&gt;
+&lt;p class="code"&gt;
+SELECT * FROM ALARM WHERE timestamp = ? AND type = ? AND param = ? AND ackdate IS NOT NULL;
+&lt;/p&gt;
+&lt;p&gt;type et param peuvent être à null. Si on place la valeur à null dans le code Source :&lt;br /&gt;
+&lt;p class="code"&gt;
+PreparedStatement stt = Connexion.prepareStatement("SELECT * FROM ALARM WHERE timestamp = ? AND type = ? AND param = ? AND ackdate IS NOT NULL;");&lt;br /&gt;
+stt.setNull(2,java.sql.Types.INTEGER);&lt;br /&gt;
+...
+&lt;/p&gt;
+</description>
+ <pubDate>Sun, 13 Jan 2008 09:41:53 +0100</pubDate>
+</item>
+<item>
+ <title>Les règles et PostgreSQL, héritage, etc...</title>
+ <link>http://drupal.postgresql.fr/?q=node/757</link>
+ <description>&lt;p&gt;Lors d'une discussion sur &lt;a href="irc://irc.freenode.net/#postgresqlfr"&gt;#PostgreSQLFr&lt;/a&gt;, nous avons tenté de nous attaquer aux &lt;a href="http://docs.postgresqlfr.org/8.1/rules-views.html"&gt;règles&lt;/a&gt; sur les SELECT. Si nous considérons les données d'entrée :&lt;br /&gt;
+&lt;p class="code"&gt;
+&lt;font color="#a52a2a"&gt;&lt;b&gt;CREATE&lt;/b&gt;&lt;/font&gt; &lt;font color="#6a5acd"&gt;TABLE&lt;/font&gt; table1&lt;br /&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;id SERIAL &lt;font color="#a52a2a"&gt;&lt;b&gt;NOT&lt;/b&gt;&lt;/font&gt; &lt;font color="#6a5acd"&gt;NULL&lt;/font&gt; PRIMARY KEY, &lt;font color="#0000ff"&gt;-- clé primaire de la relation&lt;/font&gt;&lt;br /&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;font color="#6a5acd"&gt;type&lt;/font&gt; &lt;font color="#2e8b57"&gt;&lt;b&gt;VARCHAR&lt;/b&gt;&lt;/font&gt;(&lt;font color="#ff00ff"&gt;100&lt;/font&gt;) &lt;font color="#a52a2a"&gt;&lt;b&gt;NOT&lt;/b&gt;&lt;/font&gt; &lt;font color="#6a5acd"&gt;NULL&lt;/font&gt;,     &lt;font color="#0000ff"&gt;-- type de données&lt;/font&gt;&lt;br /&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;data TEXT                       &lt;font color="#0000ff"&gt;-- contenu&lt;/font&gt;&lt;br /&gt;
+);
+&lt;/p&gt;
+</description>
+ <pubDate>Thu, 13 Sep 2007 15:49:44 +0200</pubDate>
+</item>
+</channel>
+</rss>

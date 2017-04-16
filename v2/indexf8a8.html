@@ -1,0 +1,127 @@
+<html>
+<!-- Mirrored from drupal.postgresql.fr/?q=book/print/890 by HTTrack Website Copier/3.x [XR&CO'2006], Sun, 12 Oct 2008 16:34:08 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+<head><title>fonctions système</title><base  /><style type="text/css">
+@import url(misc/print.css);
+</style></head><body><h1 id="890" name="890" class="book-h1">fonctions système</h1><br />
+<h1 id="1672" name="1672" class="book-h1">Contrôler l'utilisation de HOT, à partir de la 8.3</h1><ul>Si comme moi vous avez prévu un fort besoin d'utiliser HOT sur vos tables (UPDATE fréquents sur des colonnes non indexées), vous aurez sûrement réglé un fillfactor largement inférieur à 100. Mais comment contrôler que HOT profite réellement de l'opportunité théorique ?
+
+La requête suivante permet de contrôler HOT:
+<!--break-->
+<pre>
+SELECT schemaname, relname,
+       n_tup_upd,n_tup_hot_upd,
+       case when n_tup_upd > 0
+            then ((n_tup_hot_upd::numeric/n_tup_upd::numeric)*100.0)::numeric(5,2) 
+            else NULL
+       end as hot_ratio
+
+ FROM pg_stat_all_tables;
+
+ schemaname | relname | n_tup_upd | n_tup_hot_upd | hot_ratio
+------------+---------+-----------+---------------+-----------
+ public     | table1  |         6 |             6 |    100.00
+ public     | table2  |   2551200 |       2549474 |     99.93
+
+</pre>
+
+Et si l'on souhaite ajouter à l'affichage le réglage actuel du fillfactor, c'est possible. Mais il faut se référer au catalogue système, où pg_class référence le schéma sous relnamespace qui est un OID de la table système pg_namespace, laquelle publie le nom du schéma sous la colonne nspname, retrouvée sous le nom schemaname dans les tables de stats...
+
+<pre>
+SELECT t.schemaname, t.relname, c.reloptions, 
+       t.n_tup_upd, t.n_tup_hot_upd, 
+       case when n_tup_upd > 0 
+            then ((n_tup_hot_upd::numeric/n_tup_upd::numeric)*100.0)::numeric(5,2)
+            else NULL
+        end as hot_ratio
+
+ FROM pg_stat_all_tables t 
+      join (pg_class c join pg_namespace n on c.relnamespace = n.oid) 
+        on n.nspname = t.schemaname and c.relname = t.relname
+
+ schemaname | relname |   reloptions    | n_tup_upd | n_tup_hot_upd | hot_ratio
+------------+---------+-----------------+-----------+---------------+-----------
+ public     | table1  | {fillfactor=50} |   1585920 |       1585246 |     99.96
+ public     | table2  | {fillfactor=50} |   2504880 |       2503154 |     99.93
+</pre>
+
+On dirait que les espoirs théoriques sont plutôt bien vérifiés en pratique... on peut donc continuer de suivre la documentation les yeux fermés^Wgrands ouverts ;)
+Merci PostgreSQL !</ul><h1 id="984" name="984" class="book-h1">Rétablir la sauvegarde et la restauration</h1><ul><p>Bonjour,</p>
+<p>La version 1.6.0 de pgadmin sous Windows ne permet pas d'utiliser par défaut les outils de sauvegarde et de restauration de PostgreSQL à savoir pg_dump.exe et pg_restore.exe. La solution à ce défaut est de rajouter dans la variable PATH de Windows le chemin d'accès vers le répertoire de pgadmin à savoir par défaut <b>C:\Program Files\pgAdmin III\1.6</b>. Après un redémarrage de votre machine, vous pourrez de nouveau sauvegarder et restaurer vos bases de données.</p>
+<p>Merci.</p>
+</ul><h1 id="1240" name="1240" class="book-h1">Supprimer les fonctions à l'intérieur d'un schéma</h1><ul><p>Trouvé sur un des <A HREF="http://www.postgresqlfr.org/?q=node/1192"> forums</a>, cette astuce qui mérite de figurer dans le cookbook.</p>
+<p>Pour supprimer toutes les fonctions d'un schéma, on peut utiliser la commande suivante, en shell&nbsp;:</p>
+<p><code><br />
+psql -U MON_USER MA_BASE -t -P format=unaligned -c "\df MON_SCHEMA.*"|awk -F '|' '{if (NF > 0 ) print "drop function "$2"("$4") cascade;";}' | psql -U MON_USER MA_BASE<br />
+</code></p>
+<p>Le cascade permet de gérer la présence d'une fonction d'agrégation.</p>
+<p>Il est utile pour le bon fonctionnement de la commande de mettre le mot de passe de l'utilisateur dans la variable d'environnement PGPASSWORD.</p>
+<p>Merci à jxemo pour cette astuce et à Sparky pour la piste.</p>
+</ul><h1 id="1254" name="1254" class="book-h1">Taille des tables TOAST</h1><ul><p>La requête suivante permet d'afficher la taille des tables de TOAST de votre système, pour celles dont la taille est supérieure à 0 octets. On utilise une sous-requête dans la clause <tt>FROM</tt> (cf. <a href="http://www.postgresql.org/docs/current/static/queries-table-expressions.html">queries-table-expressions</a>) afin de récupérer les informations brutes voulues, puis on les met en forme dans le <tt>SELECT</tt> en utilisant entre autres <tt>pg_size_pretty</tt>.</p>
+<pre>
+SELECT a, n, pg_relation_size(t), pg_size_pretty(pg_relation_size(t))</p>
+<p>FROM   (SELECT c.relname, c.reltoastrelid, d.relname<br />
+        FROM   pg_class c JOIN pg_class d ON c.reltoastrelid = d.oid<br />
+       ) as x(a, t, n)</p>
+<p>WHERE  t > 0 and pg_relation_size(t) > 0</p>
+<p>ORDER BY 3 DESC;
+</pre>
+<p>Et voici un exemple d'utilisation :</p>
+<pre>
+psql amarok < /home/dim/PostgreSQL/cookbook/size.toast.sql<br />
+     a      |       n       | pg_relation_size | pg_size_pretty<br />
+------------+---------------+------------------+----------------<br />
+ pg_rewrite | pg_toast_2618 |           139264 | 136 kB<br />
+(1 ligne)
+</pre>
+</ul><h1 id="1088" name="1088" class="book-h1">Trouver facilement la taille d'une table, de ses index et son nombre de tuples</h1><ul><p>On a besoin parfois d'avoir rapidement la taille sur disque d'une table et le nombre d'enregistrements qu'elle contient. Pour cela, on peut utiliser la fonction <code>pg_total_relation_size('nom de table')</code> qui permet de rapatrier la taille <b>totale</b> de la table sur disque, index inclus. Si on ne veut pas connaître la taille prise par les index, il suffit d'utiliser la fonction <code>pg_relation_size('nom de table')</code>. La soustraction des deux permet de connaître la taille des index!</p>
+<p>Tout cela nous permet de réaliser une vue fort sympathique pour l'administrateur de base de données. Attention à <b>lancer un ANALYZE avant tout requêtage de cette vue</b>:</p>
+<p><code font=fixed></p>
+<p>drop view vue_stats;</p>
+<p>create view vue_stats as<br />
+SELECT<br />
+  c.relname as nom,<br />
+  c.reltuples::bigint as tuples,<br />
+  pg_total_relation_size(c.relname) as volume_total,<br />
+  pg_relation_size(c.relname) as volume_donnees,<br />
+  pg_total_relation_size(c.relname)-pg_relation_size(c.relname) as volume_index<br />
+FROM pg_catalog.pg_class c<br />
+     JOIN pg_catalog.pg_roles r ON r.oid = c.relowner<br />
+     LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace<br />
+WHERE c.relkind = 'r'<br />
+      AND n.nspname NOT IN ('pg_catalog', 'pg_toast')<br />
+      AND pg_catalog.pg_table_is_visible(c.oid)<br />
+ORDER BY 1,2;<br />
+</code>
+<p>Merci à klando (Cédric) pour cet ajout, fort sympathique: il permet d'avoir les tailles des objets lisibles sous la forme <i>humaine</i>:<br><br />
+<code><br />
+drop view vue_stats_pretty ;</p>
+<p>create view vue_stats_pretty as<br />
+ SELECT<br />
+ nom,<br />
+ tuples,<br />
+ pg_size_pretty(volume_total) as volume_total,<br />
+ pg_size_pretty(volume_donnees) as volume_donnees,<br />
+ pg_size_pretty(volume_index) as volume_index<br />
+ FROM vue_stats;<br />
+</code><br />
+<br>Enjoy!
+</p>
+<p>
+--<br />
+Jean-Paul ARGUDO<br />
+<a href="http://dalibo.com/" title="dalibo - L'expertise PostgreSQL">http://dalibo.com</a> | <a href="http://dalibo.org/" title="dalibo - projets Open-Source">http://dalibo.org</a>
+</p>
+</ul><h1 id="891" name="891" class="book-h1">trouver le nom de l'objet associé à un OID</h1><ul><p>Il est possible de trouver le nom de l'objet associé à un OID en passant par la conversion regclass. Par exemple, pour connaître le nom de l'objet dont l'OID est 2613 :</p>
+<pre>
+guillaume=# select 2613::regclass;<br />
+    regclass<br />
+----------------<br />
+ pg_largeobject<br />
+(1 ligne)
+</pre>
+<p>L'OID 2613 correspond donc à la table système pg_largeobject.</p>
+</ul></body>
+<!-- Mirrored from drupal.postgresql.fr/?q=book/print/890 by HTTrack Website Copier/3.x [XR&CO'2006], Sun, 12 Oct 2008 16:34:08 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+</html>

@@ -1,0 +1,553 @@
+
+<!DOCTYPE
+ html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+ <html>
+ <!-- $Date: 2005/08/30 07:54:43 $ / $Revision: 1.29 $ / Last Theme Editor :$Author: jx $-->
+  
+<!-- Mirrored from drupal.postgresql.fr/?q=node/1432 by HTTrack Website Copier/3.x [XR&CO'2006], Sun, 12 Oct 2008 15:59:36 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<base  />
+<style type="text/css" media="all">@import "misc/drupal.css";</style>
+   <title>Pourquoi préférer PostgreSQL à MySQL - PostgreSQLFr</title>
+ <style type="text/css" media="screen" title="Normal Text">
+    @import url("layout/css/blue/fixed.css");
+    @import url(_guillaume/dotclear/themes/postgresql/style.html);
+ </style>
+ <style type="text/css" media="screen" title="Normal Text2">
+    @import url("layout/css/blue/pgfr.css");
+    @import url(_guillaume/dotclear/themes/postgresql/style.html);
+ </style>
+   </head>
+   <body>
+    <table border="0" cellspacing="5" cellpadding="0" width="100%">
+     <tr>
+      <!--td colspan="2" width="100%"-->
+      <td colspan="2">
+      <!-- Head -->
+       <table border="0" cellspacing="0" cellpadding="0" width="100%">
+        <tr>
+	 <td align="left">
+           <div id="pgHeader">
+	    <div id="pgHeaderLogoLeft">
+	     <a href="index.html" title="PostgreSQL"><img src="layout/images/hdr_left.png" width="230" height="80" alt="PostgreSQL" /></a>
+	    </div>
+	    <div id="pgHeaderLogoRight">
+	     <a href="index.html" title="La base de donn�es la plus sophistiqu�e au monde."><img src="layout/images/hdr_right.png" width="210" height="80" alt="La base de donn�es la plus sophistiqu�e au monde." /></a>
+	    </div>
+	   </div>
+         </td>
+	 <td align="right">
+         </td>
+	</tr>
+      </table> <!-- Head -->
+      <br />
+      <table border="0" cellspacing="0" cellpadding="0" width="100%">
+              <tr>
+	      	 <td align="left">
+
+		<div class="pgTopNav">
+		   <div class="pgTopNavLeft"> 
+		     <img src="layout/images/nav_lft.png" width="7" height="23" alt="" />
+		   </div>
+		   <div class="pgTopNavRight">
+		    <img src="layout/images/nav_rgt.png" width="7" height="23" alt="" />
+		  </div>
+		  <!--<ul class="pgTopNavList">-->
+		  <ul class="pgTopNavList">
+		   <li><a href="index03d2.html?q=" title="Retourner à la page principale.">accueil</a> </li>
+		   <li> <a href="indexf6e5.html?q=archive" title="Lire le contenu plus ancien dans notre archive.">archives</a> </li>
+		   <li> <a href="index71c4.html?q=blog" title="Lire les blogues les plus récents.">blogues</a> </li>
+
+		   <li> <a href="indexf6fe.html?q=book" title="Lire et contribuer aux livres collaboratifs.">livres</a> </li>
+		   <li> <a href="index79b7.html?q=forum">forums</a> </li>
+		   <li> <a href="index729f.html?q=poll" title="Voir la liste des sondages de ce site.">sondages</a> </li>
+		   <li> <a href="index4404.html?q=search" title="Chercher pour du contenu plus vieux.">recherche</a></li><li><a href="http://docs.postgresqlfr.org/" target="_blank">documentation </a></li>
+
+		  </ul>
+
+<!--
+		   <li><a href="?q=" title="Retourner à la page principale.">accueil</a> </li>
+		   <li> <a href="?q=archive" title="Lire le contenu plus ancien dans notre archive.">archives</a> </li>
+		   <li> <a href="?q=blog" title="Lire les blogues les plus récents.">blogues</a> </li>
+		   <li> <a href="?q=book" title="Lire et contribuer aux livres collaboratifs.">livres</a> </li>
+		   <li> <a href="?q=forum">forums</a> </li>
+		   <li> <a href="?q=poll" title="Voir la liste des sondages de ce site.">sondages</a> </li>
+		   <li> <a href="?q=search" title="Chercher pour du contenu plus vieux.">recherche</a></li><li><a href="http://docs.postgresqlfr.org/" target="_blank">documentation </a></li>
+-->
+		  </ul>
+	        </div>
+		</td>
+		</tr>
+		</table>
+      </td>
+     </tr>
+     <tr>
+    <td style="vertical-align: top; width: 20%;">
+<div class="block block-user" id="block-user-0">
+<div class="pgSideNav">    <h2>Ouverture de session</h2>    
+		    <div>
+			<form action="http://drupal.postgresql.fr/?q=user/login" method="post">
+<div class="user-login-block">
+<input type="hidden" name="edit[destination]" value="node/1432" />
+<div class="form-item">
+ <label for="edit-name">Nom d'utilisateur:</label><br />
+ <input type="text" maxlength="64" class="form-text" name="edit[name]" id="edit-name" size="15" value="" />
+</div>
+<div class="form-item">
+ <label for="edit-pass">Mot de passe:</label><br />
+ <input type="password" class="form-password" maxlength="64" name="edit[pass]" id="edit-pass" size="15" value="" />
+</div>
+<input type="submit" class="form-submit" name="op" value="Identification"  />
+</div>
+
+</form>
+<div class="item-list"><ul><li><a href="indexc12c.html?q=user/password" title="Demander un nouveau mot de passe par e-mail.">Demander un nouveau mot de passe</a></li></ul></div>
+		    </div></div></div>
+<div class="block block-user" id="block-user-1">
+<div class="pgSideNav">    <h2>Navigation</h2>    
+		    <div>
+			<div class="menu">
+<ul>
+<li class="leaf"><a href="indexa499.html?q=tracker">messages récents</a></li>
+
+</ul>
+</div>
+		    </div></div></div>
+<div class="block block-block" id="block-block-4">
+<div class="pgSideNav">    <h2>Contactez-nous</h2>    
+		    <div>
+			<p><strong>Administration du site&nbsp;:</strong><br />
+"equipe chez postgresqlfr point org"<br><br />
+<strong>Contact presse&nbsp;:</strong><br />
+"fr chez postgresql point org"<br><br />
+<strong>Contact association&nbsp;:</strong><br />
+"bureau chez postgresqlfr point org"<br><br />
+<strong>Questions PostgreSQL&nbsp;:</strong><br />
+&nbsp;IRC&nbsp;:<br />
+&nbsp;&nbsp;serveur <strong>irc.freenode.net</strong><br />
+&nbsp;&nbsp;canal <strong>#postgresqlfr</strong></p>
+
+		    </div></div></div>
+<div class="block block-block" id="block-block-1">
+<div class="pgSideNav">    <h2>Liens</h2>    
+		    <div>
+			<p><small></p>
+<ul>
+<li>
+<a href="http://www.postgresqlfr.org/?q=node/view/162">Adhérer</a>
+</li>
+<li>
+<a href="http://www.postgresqlfr.org/?q=node/473">Faire un don</a>
+</li>
+<li>
+<a href="http://www.postgresqlfr.org/?q=node/163">Consulter les statuts</a>
+</li>
+</ul>
+<ul>
+<li>
+<a href="http://www.postgresql.org/" class="active">Site original<br />
+</a>
+</li>
+<li>
+<a href="http://docs.postgresqlfr.org/" class="active">Site de traduction</a>
+</li>
+<li>
+<a href="http://docs.postgresqlfr.org/8.3/">Doc v.8.3.x fr</a>
+</li>
+<li>
+<a href="http://docs.postgresqlfr.org/8.2/">Doc v.8.2.x fr</a>
+</li>
+<li>
+<a href="http://docs.postgresqlfr.org/8.1/">Doc v.8.1.x fr</a>
+</li>
+<li>
+<a href="http://docs.postgresqlfr.org/8.0/">Doc v.8.0.x fr</a>
+</li>
+<li>
+<a href="http://docs.postgresqlfr.org/7.4/">Doc v.7.4.x fr</a>
+</li>
+<li>
+<a href="http://www.postgis.fr/">PostGIS</a>
+</li>
+<li>
+<a href="http://www.postgresql.org/docs/techdocs">Techdocs</a>
+</li>
+<li>
+<a href="http://www.varlena.com/varlena/GeneralBits/Tidbits/">General TidBits</a>
+</li>
+<p><!--</p>
+<li>
+<a href="http://www.postgresqlfr.org/?q=node/view/58">Version Windows</a>
+</li>
+<p>--></p>
+<li>
+<a href="http://www.postgresqlfr.org/drupal/?q=node/view/63">Témoignages de pros</a>
+</li>
+<li>
+<a href="http://archives.postgresql.org/pgsql-fr-generale/">Liste de diffusion</a>
+</li>
+<li>
+<a href="http://wwwmaster.postgresql.org/download/mirrors-ftp">Télécharger</a>
+</li>
+</ul>
+<p></small></p>
+
+		    </div></div></div>
+<div class="block block-block" id="block-block-2">
+<div class="pgSideNav">    <h2>Recherche</h2>    
+		    <div>
+			<form action="http://drupal.postgresql.fr/?q=search" method="post">
+<div id="search">
+<input class="form-text" type="text" size="15" value="" name="keys" alt="Enter the terms you wish to search for." /><br />
+<input class="form-submit" type="submit" value="Recherche" />
+</div>
+</form>
+
+		    </div></div></div>
+<div class="block block-forum" id="block-forum-0">
+<div class="pgSideNav">    <h2>Sujets du forum</h2>    
+		    <div>
+			<div class="item-list"><h3>Sujets actifs</h3><ul><li><a href="index253f.html?q=node/1742">A LIRE : FERMETURE DES FORUMS DRUPAL</a></li><li><a href="indexfc2e.html?q=node/1739" title="2 commentaires">Problème  avec pg_dump</a></li><li><a href="index97c1.html?q=node/1731" title="5 commentaires">Connexions simultannées</a></li><li><a href="index32d3.html?q=node/1737" title="1 commentaire">Optimisation de la mémoire sous PostgreSQL</a></li><li><a href="index2483.html?q=node/1736" title="3 commentaires">[Résolu] Upgrade Postgre -> types et opérateurs</a></li></ul></div><div class="item-list"><h3>Nouveaux sujets:</h3><ul><li><a href="index253f.html?q=node/1742">A LIRE : FERMETURE DES FORUMS DRUPAL</a></li><li><a href="indexfc2e.html?q=node/1739" title="2 commentaires">Problème  avec pg_dump</a></li><li><a href="index32d3.html?q=node/1737" title="1 commentaire">Optimisation de la mémoire sous PostgreSQL</a></li><li><a href="index2483.html?q=node/1736" title="3 commentaires">[Résolu] Upgrade Postgre -> types et opérateurs</a></li><li><a href="index82c4.html?q=node/1734" title="2 commentaires">[RESOLU] Probleme de connection en odbc</a></li></ul></div><div class="more-link"><a href="index79b7.html?q=forum" title="Lire les derniers sujets.">en lire plus</a></div>
+		    </div></div></div>
+<div class="block block-archive" id="block-archive-0">
+<div class="pgSideNav">    <h2>Accéder aux archives</h2>    
+		    <div>
+			
+<!-- calendar -->
+<div class="calendar"><table summary="Un calendrier pour accéder aux archives.">
+ <caption><a href="index9dfb.html?q=archive/2008/09/12" title="Mois précédent">&laquo;</a> Octobre 2008 &nbsp;</caption>
+ <tr class="header-week">
+ <th abbr="Lundi">Lun</th>
+ <th abbr="Mardi">Mar</th>
+ <th abbr="Mercredi">Mer</th>
+ <th abbr="Jeudi">Jeu</th>
+ <th abbr="Vendredi">Ven</th>
+ <th abbr="Samedi">Sam</th>
+ <th abbr="Dimanche">Dim</th>
+</tr>
+ <tr class="row-week"><td class="day-blank" colspan="2">&nbsp;</td>
+  <td class="day-link"><a href="indexd3e2.html?q=archive/2008/10/1">1</a></td>
+  <td class="day-normal">2</td>
+  <td class="day-normal">3</td>
+  <td class="day-normal">4</td>
+  <td class="day-normal">5</td>
+ </tr>
+ <tr class="row-week">
+  <td class="day-normal">6</td>
+  <td class="day-normal">7</td>
+  <td class="day-normal">8</td>
+  <td class="day-normal">9</td>
+  <td class="day-normal">10</td>
+  <td class="day-normal">11</td>
+  <td class="day-today">12</td>
+ </tr>
+ <tr class="row-week">
+  <td class="day-future">13</td>
+  <td class="day-future">14</td>
+  <td class="day-future">15</td>
+  <td class="day-future">16</td>
+  <td class="day-future">17</td>
+  <td class="day-future">18</td>
+  <td class="day-future">19</td>
+ </tr>
+ <tr class="row-week">
+  <td class="day-future">20</td>
+  <td class="day-future">21</td>
+  <td class="day-future">22</td>
+  <td class="day-future">23</td>
+  <td class="day-future">24</td>
+  <td class="day-future">25</td>
+  <td class="day-future">26</td>
+ </tr>
+ <tr class="row-week">
+  <td class="day-future">27</td>
+  <td class="day-future">28</td>
+  <td class="day-future">29</td>
+  <td class="day-future">30</td>
+  <td class="day-future">31</td>
+  <td class="day-blank" colspan="2">&nbsp;</td>
+ </tr>
+</table></div>
+
+
+		    </div></div></div>
+<div class="block block-node" id="block-node-0">
+<div class="pgSideNav">    <h2>Syndication</h2>    
+		    <div>
+			<div class="xml-icon"><a href="index9637.html?q=rss.xml"><img src="misc/xml.png" width="36" height="14" alt="Flux XML" title="Flux XML" /></a></div>
+		    </div></div></div>
+<div class="block block-poll" id="block-poll-0">
+<div class="pgSideNav">    <h2>Sondage</h2>    
+		    <div>
+			<div class="poll"><div class="title">Quelle est la version de PostgreSQL la plus répandue sur vos serveurs ?</div><div class="text">8.3</div><div class="bar"><div style="width: 10%;" class="foreground"></div></div><div class="percent">10%</div><div class="text">8.2</div><div class="bar"><div style="width: 42%;" class="foreground"></div></div><div class="percent">42%</div><div class="text">8.1</div><div class="bar"><div style="width: 40%;" class="foreground"></div></div><div class="percent">40%</div><div class="text">8.0</div><div class="bar"><div style="width: 2%;" class="foreground"></div></div><div class="percent">2%</div><div class="text">7.4</div><div class="bar"><div style="width: 6%;" class="foreground"></div></div><div class="percent">6%</div><div class="text">7.3 ou antérieure</div><div class="bar"><div style="width: 0%;" class="foreground"></div></div><div class="percent">0%</div><div class="total">Nombre de votes: 48</div></div><div class="links"><a href="index8c57.html?q=node/1426#comment" title="Sauter au premier commentaire de ce message.">3 commentaires</a> | <a href="index729f.html?q=poll" title="Voir la liste des sondages de ce site.">anciens sondages</a></div>
+		    </div></div></div>
+    </td>
+
+      <td style="vertical-align: top; width: 80%"><div class="breadcrumb"><a href="index03d2.html?q=">Accueil</a></div><h2 class="title">Pourquoi préférer PostgreSQL à MySQL</h2>
+<!-- begin content -->
+
+<!-- node: "Pourquoi préférer PostgreSQL à MySQL" -->
+<!--<div class="pgFrontCenterUser">
+<div class="pgFrontUser">
+<div class="pgFrontUserInner">
+--><div class="pgFrontUserWrap">
+ <div class="pgFrontUserContent">	<h1 class="plop"><a href="index3513.html?q=taxonomy/term/22">Documentation</a> | <a href="index6e4e.html?q=node/1432" class="active">Pourquoi préférer PostgreSQL à MySQL</a></h1>
+		    <p>
+			    Par <a href="index0b33.html?q=user/22" title="Voir le profil utilisateur.">Christophe Chauvet</a> le 24/10/2007 - 13:58
+		    </p>	
+			    <h1>Pourquoi préférer PostgreSQL à MySQL&nbsp;: comparatif de fiabilité et de rapidité en 2007</h1>
+<h2>Introduction</h2>
+<p>
+Pendant des années, le marché considérait MySQL comme plus rapide et plus facile à utiliser que PostgreSQL.<br />
+PostgreSQL avait la réputation d'être plus puissant, focalisé sur l'intégrité des données, et plus respectueux des normes SQL, mais également plus lent et plus compliqué à utiliser.
+</p>
+<p>
+Ces perceptions appartiennent au passé, et avec les versions actuelles, les choses ne sont plus aussi tranchées qu'auparavant. Les deux systèmes ont évolué avec des versions notables qui rendent leur comparaison beaucoup plus compliquée.</p>
+<ul>
+<li>MySQL 5.0 (Octobre 2005) a finalement ajouté un « strict mode » pour réduire l'écart en terme d'intégrité des données et de conformité aux spécifications. Le support des procédures stockées, des vues, des déclencheurs et des curseurs, fonctionnalités essentielles dans de nombreux cas de déploiement de base de données, a aussi été ajouté.</li>
+<li>PostgreSQL 8.1 (Novembre 2005) améliore considérablement les performances, particulièrement en terme d'évolutivité. Une attention particulière a été portée sur l'amélioration des performances pour toutes les versions 8.X, dont l'actuelle 8.2.</li>
+</ul>
+</p>
+<p>
+Alors que l'innovation sur ces deux SGBD a progressé, chacune des communautés de développement a travaillé activement à réduire la liste de ses désavantages perçus. Le résultat est qu'il est devenu plus difficile de déterminer objectivement la base de données la plus adaptée à une application donnée.
+</p>
+<p>
+Ce document vise à présenter les situations dans lesquelles PostgreSQL est plus approprié que MySQL, en essayant de comparer équitablement les versions de production actuelles et d'en discuter les forces et faiblesses. Les domaines principalement étudiés ici concernent les questions fondamentales de l'intégrité des données et la rapidité du noyau logiciel de la base de données. Puisqu'il est souvent question de faire un choix entre performance et fiabilité, ces deux sujets doivent être considérés conjointement afin d'avoir une vision précise de l'ensemble.
+</p>
+<p>
+En résumé, ce document apporte les éléments permettant d'affirmer que la génération actuelle de PostgreSQL répond aussi bien, voire mieux, que MySQL lorsque les deux SGBD sont envisagés dans une application exigeant un haut degré d'intégrité des données au sein d'une base de données transactionnelle, en particulier si l'on considère un nombre important d'utilisateurs et des requêtes complexes. PostgreSQL conserve, de plus, son avance dans la conformité aux standards SQL et dans la richesse de ses fonctionnalités.<br />
+Ce document tente également de mettre en avant l'approche fondamentale qui prévaut depuis les origines de PostgreSQL, la priorité est d'obtenir un comprotement fiable et prévisible. À l'inverse, le développement de MySQL résulte plus de rapiècements visant à ajouter des fonctionnalités (support des transactions et « strict mode », par exemple) qui n'étaient même pas envisagées au début.
+</p>
+<p><!-- SAS... --></p>
+<h2>Comparaison des versions, ensemble de fonctionnalités et détails</h2>
+<p>
+Les versions actuelles recommandées en production en ce mois d'Août 2007 sont <b>PostgreSQL 8.2</b> et <b>MySQL 5.0</b>, et feront donc ici l'objet de notre comparaison. PostgreSQL 8.1 et 8.2 sont aujourd'hui les deux versions supportées avec de bonnes performances, certains des commentaires suivant pourront y faire références indistinctement. 8.2 est sensiblement plus rapide (peut-être pas moins de 30% sur certaines tâches), mais déployer 8.1 reste une option tout à fait viable pour le moment, particulièrement dû au fait que les vendeurs de système d'exploitation la distribuent et la prennent en charge plus souvent que la 8.2 encore relativement récente.
+</p>
+<p>
+Les deux systèmes ont en ce moment des versions en phase de tests (PostgreSQL 8.3 et MySQL 5.1) qui offrent de nouvelles améliorations dans plusieurs domaines traités ici, mais aucune des deux n'apporte de différences fondamentales si importantes qu'elles laisseraient penser que les principales orientations de ce document en seraient infirmées. La sortie officielle du moteur Falcon de MySQL est probablement l'un des futur points perturbateur à l'horizon. La fonctionnalité de <a href="http://docs.postgresqlfr.org/8.3/wal-async-commit.html">Validation Asynchrone</a> (Asynchronous Commit) dans PostgreSQL 8.3 est un autre évènement prochain qui étendra significativement les différentes options disponibles pour affiner la configuration entre fiabilité et performance.
+</p>
+<p>
+Ce qui ne sera pas spécifiquement abordé ici, seront les fonctionnalités des deux produits dans des domaines extérieurs à ces fondamentaux. À cause de l'importance des changements dans PostgreSQL 8.1 and MySQL 5.0, beaucoup des documents concernant ce sujet sont trop vieux pour être recommandés. Incluant certaines pages qui auraient pû être utiles :</p>
+<ul>
+<li><a href="http://www.devx.com/dbzone/Article/29480" target="_blank">Matrice de comparaison des fonctionnalités des bases de données Open Source</a></li>
+<li><a href="http://monstera.man.poznan.pl/wiki/index.php/Mysql_vs_postgres" target="_blank">MySQL contre PostgreSQL</a></li>
+<li><a href="http://dev.mysql.com/doc/refman/5.1/en/roadmap.html" target="_blank">Prévision de développement de MySQL</a></li>
+<li><a href="http://developer.postgresql.org/index.php/Feature_Matrix" target="_blank">Matrice des fonctionnalités de PostgreSQL</a></li>
+</ul>
+</p>
+<p>
+Alors que les listes des fonctionnalités sont utiles, certains comportements internes nécessitent une compréhension profonde des systèmes respectifs pour bien les saisir. Par exemple, les mécanismes internes concernant la façon dont PostgreSQL compresse les données TOAST sont invisibles aux utilisateurs, mais peuvent mener à une amélioration drastique des performances système sur certains types de donnée.
+</p>
+<p>
+Un autre sujet qui sort du cadre de ce document est qu'un nombre plus important d'applications choisissent MySQL comme base de données plutôt que PostgreSQL, et ceci est certainement un facteur d'influence important sur le choix de la base la plus adaptée à une situation particulière. Le travail pour ajouter un support PostgreSQL à plusieurs <a href="http://developer.postgresql.org/index.php/Category:Software_Ports">applications populaires</a> peut-être mené en adaptant les logiciels. Une chose que vous devez considérer lorsque vous étudiez comment les applications utilisent MySQL est que si elles sont initialement destinées aux versions antérieures à 5.0, elles pourraient alors ne plus être compatibles avec les nouvelles fonctionnalités comme le mode strict ajouté dans cette version. Si cela est le cas, de telles applications pourraient être limitées aux capacités des plus vieilles versions pour lesquelles elles ont été écrites et pourraient demander un effort d'adaptation pour profiter des fonctionnalités modernes de MySQL.
+</p>
+<h2>Fiabilité</h2>
+<h3>Intégrité des données</h3>
+<p>
+Avant la version 5.0, MySQL méritait clairement sa réputation à propos de l'incohérence des données insérées dans la base. <a href="http://dev.mysql.com/tech-resources/articles/mysql-data-integrity.html" target="_blank">Guaranteeing Data Integrity with MySQL 5.0</a> explique les problèmes avec ces plus vieilles versions de MySQL, et comment ils pourraient être évités en utilisant le <a href="http://dev.mysql.com/doc/refman/5.0/en/server-sql-mode.html" target="_blank">Mode SQL</a> strict disponible dans la version actuelle. Bien entendu, tout client MySQL a la possibilité de changer son mode SQL et contourner ainsi ce comportement, avec comme conséquences que ces validations de contraintes ne soient plus forcément assurées coté serveur.
+</p>
+<p>
+PostgreSQL a toujours été strict sur la validation des données avant de les insérer dans la base de données, et il n'existe aucune alternative au client pour contourner ces vérifications.
+</p>
+<h3>Transactions et moteur interne de la base de donnée</h3>
+<p>
+<a href="http://dev.mysql.com/doc/refman/5.0/fr/myisam-storage-engine.html" target="_blank">MyISAM</a> est le composant interne de MySQL à l'origine de sa réputation de rapidité. Ce moteur a d'excellentes performances en lecture et son analyseur est vraiment très efficace pour les requêtes simples, ce qui le rend très rapide pour les applications en lecture intensive comme les applications web qui emploient de simples SELECT. Cependant, il est communément connu que MyISAM est plus vulnérable aux <a href="http://dev.mysql.com/doc/refman/5.0/fr/corrupted-myisam-tables.html" target="_blank">corruptions de données</a> que la plupart des bases de données sérieuses ne sauraient tolérer, et en cas d'incident, il peut s'écouler un temps non négligeable durant lequel il reconstruit ses index avant que le serveur ne puisse redémarrer. En outre, il ne supporte pas les clés étrangères ou les transactions qui auraient permis à la base d'avoir des propriétés <a href="http://fr.wikipedia.org/wiki/Propri%C3%A9t%C3%A9s_ACID" target="_blank">ACID</a>. MyISAM a aussi un problème avec les accès concurrents en lecture et mise à jour car ne supporte que les verrous de niveau table.
+</p>
+<p>
+L'intégration du <a href="http://dev.mysql.com/doc/refman/5.0/fr/innodb.html" target="_blank">moteur de stockage InnoDB</a> à MySQL a grandement surpassé MyISAM en terme d'intégrité des données, ajoutant un mécanisme de ré-exécution des journaux plus robuste pour la restauration après incident et supportant des transactions ACID. Cependant, cette nouvelle approche apporte aussi beaucoup plus de charge, et les tables InnoDB ne sont pas aussi rapides que les MyISAM pour les accès en lecture pure. De plus, les tables des métadonnées internes à MySQL sont toujours stockées en MyISAM, ce qui signifie qu'elles restent vulnérables aux traditionnels problèmes de corruption associés à ce moteur de stockage. Ce problème peut-être contourné en utilisant plusieurs <a href="http://forge.mysql.com/wiki/MySQL_Internals_Data_and_meta-data_locking" target="_blank">méthodes de verrous</a> compliqués qui peuvent potentiellement bloquer l'édition d'une table pendant un certain temps.
+</p>
+<p>
+Vous devez aussi savoir que dans certaines conditions il est possible de créer ce que vous pensez être une table InnoDB transactionnel sûre, mais que vous obteniez en réalité du MyISAM non-ACID. Comme trop souvent avec MySQL, cela ne provoquera pas d'erreur, et il fera discrètement à la place ce qu'il ne faut pas. Consultez «&nbsp;<a href="http://sql-info.de/en/mysql/database-definition.html#2_4" target="_blank">Whoops, no InnoDB table support</a>&nbsp;» pour savoir comment vérifier que vous avez ce que vous vouliez lors de la création de vos tables sur un système qui utiliserait une vieille version de MySQL.
+</p>
+<p>
+PostgreSQL a toujours porté attention à l'intégrité des données au niveau transactionnel, se gardant ainsi des problèmes de verrou au minimum, et empêchant une erreur matériel ou une configuration extrêmement mauvaise de corrompre la base de données.
+</p>
+<p>
+Il est intéressant de souligner que PostgreSQL intègre entièrement son moteur de base de donnée, alors que InnoDB est un produit sous licence double actuellement détenu par la société Oracle. L'histoire ne dit pas comment Oracle modifiera InnoDB dans le futur sachant qu'ils sont eux-même en concurrence avec MySQL AB, alors que PostgreSQL n'a aucun conflit d'intérêts de la sorte. MySQL AB développe un nouveau moteur de base de données interne appelé <a href="http://dev.mysql.com/doc/falcon/en/index.html" target="_blank">Falcon</a> afin de se libérer de cette situation, mais historiquement, développer un de moteur de base rapide et fiable nécessite de nombreuses d'années de travail et de tests avant d'obtenir un produit mûr convenant à la production. Les <a href="http://www.mysqlperformanceblog.com/2007/01/08/innodb-vs-myisam-vs-falcon-benchmarks-part-1/" target="_blank">premières évaluations</a> suggèrent que Falcon a énormément de points d'approximations qui ont besoins d'être corrigés.
+</p>
+<h3>Clés étrangères</h3>
+<p>
+L'implémentation correcte des techniques de conception comme les <a href="http://fr.wikipedia.org/wiki/Forme_normale_(bases_de_donn%C3%A9es_relationnelles)" target="_blank">formes normales</a> repose sur la capacité de la base de données à utiliser les <a href="http://en.wikipedia.org/wiki/Foreign_key">clés étrangères</a> pour représenter les relations entre les tables. Avec MySQL, seul <a href="http://dev.mysql.com/doc/refman/5.0/fr/ansi-diff-foreign-keys.html" target="_blank">InnoDB supporte les clés étrangères</a>. Un problème avec leur implémentation est qu'elle est limitée et ignorera silencieusement plusieurs syntaxes standard. Par exemple, lors de la création d'une table, même avec la prochaine version 5.1 de MySQL <a href="http://dev.mysql.com/doc/refman/5.1/fr/create-table.html" target="_blank">la clause CHECK est analysée mais ignorée par tous les moteurs de stockage</a>. La philosophie de conception à la base de PostgreSQL est de produire des erreurs ou des avertissements dans les situations similaires où une opération est ambigüe ou non supportée.
+</p>
+<h3>DDL transactionnel</h3>
+<p>
+Avec PostgreSQL, lorsque vous êtes à l'intérieur d'une transaction presque toute opération peut être annulée. Il existe quelque opérations irréversibles (comme créer ou détruire une base ou un tablespace), mais les modifications classiques de table peuvent être défaites en exécutant un <a href="http://docs.postgresqlfr.org/8.2/sql-rollback.html" target="_blank">ROLLBACK</a> grâce aux mécanismes de <a href="http://docs.postgresqlfr.org/8.2/wal.html" target="_blank">Write-Ahead Log</a>. Cela s'applique aussi aux importantes modifications <a href="http://fr.wikipedia.org/wiki/Langage_de_d%C3%A9finition_de_donn%C3%A9es" target="_blank">DDL</a> comme la création de tables.
+</p>
+<p>
+MySQL ne supporte aucun type d'annulation en utilisant MyISAM. Avec InnoDB, le serveur déclenche une <a href="http://dev.mysql.com/doc/refman/5.0/fr/implicit-commit.html" target="_blank">validation implicite</a> même si le comportement normal d'auto-commit est désactivé. Celà signifie qu'une unique modification de table ou changement similaire est immédiatement validé.
+</p>
+<p>
+Les DBA PostgreSQL expérimenté savent tirer parti de ces fonctionnalités pour s'assurer lors de travaux compliqués comme la mise à jour d'un schéma. Si vous placez tous ces changements dans une transaction, vous pouvez être certain qu'elles seront toutes appliquées de façon atomique ou pas du tout. Cela abaisse drastiquement la possibilité de corruption de la base de données par une erreur de frappe ou tout autre erreur de ce genre dans les modifications du schéma, ce qui est particulièrement important lorsque vous modifiez plusieurs tables en relations où une erreur peut détruire la clé relationnelle. Il n'existe aucune méthode similaire pour ajuster sûrement plusieurs sections d'un schéma avec MySQL.
+</p>
+<p>Voir <a href="http://www.postgresql.org/docs/techdocs.84" target="_blank">Transactional DDL in PostgreSQL: A Competitive Analysis</a> pour des exemples détaillés démontrant ces différences.</p>
+<h2>Rapidité</h2>
+<h3>Configuration par défaut</h3>
+<p>
+Historiquement, la configuration initiale de PostgreSQL était dimensionnée pour supporter les plus vieilles variantes d'UNIX où l'allocation de grande quantité de mémoire n'était pas nécessairement possible. Le résultat fût que son utilisation de la mémoire cache pour les résultats était, par défaut, très pessimiste. Sur les systèmes modernes qui possèdent beaucoup de mémoire libre, cela handicap fortement les performances d'un PostgreSQL non configuré.
+</p>
+<p>
+Les valeurs par défaut sont beaucoup moins pessimistes dans les versions récentes. Désormais la configuration système est examinée au moment de l'initialisation de la base de la données et plus de mémoire sera allouée s'il est possible de le faire. Le résultat, c'est qu'une configuration par défaut non modifiée d'une version récente de PostgreSQL s'exécutera significativement mieux qu'une version plus ancienne. De plus, des changements dans la gestion du cache dans les versions 8.1 et 8.2 permettent même une utilisation plus efficace du cache en quantité modeste.
+</p>
+<p>
+Le premier des réglages sur les deux systèmes fonctionne de façon similaire, en allouant un bloc de mémoire partagée dédiée à la base de données. MySQL règle cela avec <a href="http://dev.mysql.com/doc/refman/5.0/fr/server-parameters.html" target="_blank">key_buffer_size</a> en utilisant MyISAM, et <a href="http://dev.mysql.com/doc/refman/5.0/en/innodb-parameters.html" target="_blank">innodb_buffer_pool_size</a> avec InnoDB (notez que vous aurez toujours besoin d'un espace MyISAM pour les tables systèmes même lorsque InnoDB est le moteur de stockage principal de vos tables normales). PostgreSQL taille son espace mémoire principal avec <a href="http://docs.postgresqlfr.org/8.2/runtime-config-resource.html" target="_blank">shared_buffers</a>.
+</p>
+<p>
+Dans MySQL, key_buffer_size utilise par défaut 8&nbsp;Mo de mémoire. Les premières configurations de PostgreSQL alloueraient aussi 8&nbsp;Mo de mémoire pour le cache shared_buffers si possible. Sur un serveur de type linux de génération actuelle, il est admis qu'une version récente de PostgreSQL assigne au moins 24&nbsp;Mo par défaut à shared_buffers lors de la création du cluster.
+</p>
+<p>
+Il est toujours possible de parcourir les fichiers de configuration afin de les adapter à la mémoire libre du serveur de la base de données, comme toutes ces valeurs par défaut sont dramatiquement sous-dimensionnées comparé à la quantité de RAM sur les systèmes actuels. Pour un serveur moderne dédié, le principe de base pour PostgreSQL et MySQL est de dimensionner la mémoire dédiée à au moins 1/4 de la mémoire totale de la machine, pouvant grimper à 1/2 de la RAM pour des quantités supérieures à la normale. Il n'est cependant pas hors de question de pousser ce pourcentage encore plus haut sur des systèmes avec une quantité vraiment grande de RAM; Le guide de MySQL InnoDB suggère même que 80% n'est pas déraisonnable. Les directives initiales dans ce domaine peuvent être trouvées dans <a href="http://www.westnet.com/~gsmith/content/postgresql/pg-5minute.htm" target="_blank">5-Minute Introduction to PostgreSQL Performance</a>, <a href="http://www.databasejournal.com/features/mysql/article.php/3367871" target="_blank">Optimizing the mysqld variables</a> et <a href="http://dev.mysql.com/doc/refman/5.0/fr/optimizing-the-server.html" target="_blank">Optimizing the MySQL Server</a>.
+</p>
+<h2>Tests de performances</h2>
+<p>
+Les tests de performances sont vraiment compliqués à réaliser correctement&nbsp;; créer des tests vraiment comparables est un art complexe. Beaucoup des tests de performances qui ont présenté MySQL comme plus rapide que PostgreSQL ont souffert de nombreuses zones de problèmes&nbsp;:</p>
+<ul>
+<li>Configuration : il n'est pas impossible de voir un MySQL configuré comparé à une instance de PostgreSQL qui ne l'est pas. Comme indiqué plus haut, un PostgreSQL non configuré a une utilisation particulièrement péssimiste des ressources qu'il a à sa disposition. Une comparaison réellement juste utiliserait la même quantité de mémoire sur les deux systèmes.</li>
+<li>Support des transactions : les tests de MyISAM impliquent des «&nbsp;transactions&nbsp;» qui ne fournissent aucune des garanties ACID que PostgreSQL offre. Cela revient généralement à comparer des pommes à des oranges.</li>
+<li>Groupement de transactions : relatif au point précédent, PostgreSQL serait parfois affecté par des tests simplets qui ne groupent pas correctement les transactions comme les applications le feraient. Cela n'ajoute pas seulement le coût d'une transaction, mais peut-être celui de centaines de milliers, au coût total de la réalisation des modifications.</li>
+<li>Comportements en série ou en parallèle : un certain nombre de comportement de MyISAM sont ajustés pour n'avoir qu'un seul utilisateur accèdant à la base. Par exemple, son utilisation des verrous de table lors d'accès à celles-ci implique qu'avec de nombreux accès utilisateurs, MyISAM ralentira dramatiquement. Les performances de PostgreSQL se dégradent plus harmonieusement avec de grande quantité de connexions simultanées. Méfiez-vous des tests qui n'impliquent qu'un simple flot de requêtes sur la base à travers une unique connexion.</li>
+</ul>
+</p>
+<h2>Résultats des tests de performances de Sun Microsystems 2007 jAppServer2004</h2>
+<p>
+Sun Microsystems, un constructeur neutre vendant du matériel qui supporte beaucoup de bases de données différentes, a récemment publié les résultats de ses tests sur le très règlementé <a href="http://www.spec.org/jAppServer2004/" target="_blank">SPECjAppServer2004</a> en utilisant <a href="http://www.spec.org/jAppServer2004/results/res2007q3/jAppServer2004-20070606-00065.html" target="_blank">PostgreSQL</a> et <a href="http://www.spec.org/jAppServer2004/results/res2007q2/jAppServer2004-20070411-00063.html" target="_blank">MySQL</a>. Le peu de <a href="http://www.mysqlperformanceblog.com/2007/07/25/mysql-and-postgresql-specjappserver-benchmark-results/" target="_blank">différences matériels</a> entre les deux systèmes suffit pour ne pas comparer les deux résultats directement. Mais le fait que les deux résultats soient assez proches avec une configuration similaire suggère que, malgré des performances différentes entre les deux bases, l'importance de cette différence n'est pas particulièrement grande avec ce type d'application.
+</p>
+<p>
+Par comparaison, un <a href="http://www.spec.org/jAppServer2004/results/res2007q2/jAppServer2004-20070410-00060.html" target="_blank">Oracle sur HP</a> offre des résultats comparable en performance sur du matériel moins impressionnant, suggérant ainsi que les deux bases de données open-source ont toujours du retard sur le meilleur des produits commerciaux en terme d'efficacité des performances. Certains prétendent que la <a href="http://kevinclosson.wordpress.com/2007/07/18/application-server-benchmark-proves-postgresql-is-the-best-enterprise-database-server-new-specjappserver2004-cost-metric-introduced-too/" target="_blank">supériorité d'Oracle</a> est encore plus grande en choisissant des exemples qui le mettent plus en valeur, mais assurez-vous de bien lire le <a href="http://blogs.ittoolbox.com/database/soup/archives/benchmark-brouhaha-17939" target="_blank">Brou-Ha-Ha du test</a> à la recherche de commentaires à propos du tarif en cours (et de relever quelques commentaires sur des <a href="http://www.spec.org/jAppServer2004/results/res2007q3/jAppServer2004-20070703-00073.html" target="_blank">résultats secondaires</a> utilisant un serveur plus petit avec PostgreSQL). Notez que Josh Berkus est un employé de Sun et qu'il est aussi un des membres de <a href="http://www.postgresql.org/developer/bios" target="_blank">l'équipe principal de PostgreSQL</a>, et son commentaire devrait être évalué en conséquence.
+</p>
+<p>
+Si vous faites une comparaison équitable en incluant le coût des licences, la performance par dollar paraît semblable pour PostgreSQL et MySQL et très bon relativement à la moyenne dans l'industrie de base de données. Il serait cependant faux de dire que ces solutions open-source sont toujours un meilleur choix que les offres commerciales comme Oracle en se basant seulement là dessus&nbsp;; les fonctionnalités et performances absolues de chacune des solutions doivent certainement être prises en compte aussi.
+</p>
+<h2>Verrou de transaction et extensibilité</h2>
+<p>
+PostgreSQL utilise un modèle de verrous robuste appelé <a href="http://docs.postgresqlfr.org/8.2/mvcc.html#mvcc-intro" target="_blank">MVCC</a> qui limite les situations où les clients interfèrent les uns avec les autres. Un court résumé du principal bénéfice du MVCC serait «&nbsp;les lecteurs ne sont jamais bloqués par les écritures&nbsp;». MVCC est utilisé pour implémenter une <a href="http://www.postgresql.org/docs/current/static/transaction-iso.html" target="_blank">vision pessimiste</a> des quatre niveaux d'isolation standards de SQL : « lorsque vous sélectionnez le niveau "Read Uncommited" (Lecture de données non validées), vous avez en réalité "Read Committed" (Lecture de données validées), et quand vous sélectionnez "Repeatable Read" (Lecture répétée) vous aurez en réalité "Serializable" (Sérialisable), donc le niveau d'isolation actuel pourrait être plus strict que ce que vous sélectionnez ». Le niveau d'isolation des transactions par défaut est "read commited".
+</p>
+<p>
+InnoDB de MySQL <a href="http://dev.mysql.com/doc/refman/5.0/fr/innodb-multi-versioning.html" target="_blank">implémente MVCC</a> en utilisant un espace d'annulation (rollback segment), inspiré par la conception d'Oracle ; leur nouveau moteur Falcon fonctionne de la même manière. Les bases de données InnoDB supportent les quatre standards <a href="http://dev.mysql.com/doc/refman/5.0/en/innodb-transaction-isolation.html" target="_blank">d'isolation de transaction SQL</a>, celui par défaut étant «&nbsp;Repeatable Read&nbsp;».
+</p>
+<p>
+Lorsque l'on compare les deux modèles, PostgreSQL assure une séparation des clients tel que les données traitées soient toujours cohérentes dans toutes les circonstances ; comme la documentation MVCC l'établit, «&nbsp;la raison pour laquelle PostgreSQL fournit seulement deux niveaux d'isolation est qu'il s'agit de la seule façon raisonnable de faire correspondre les niveaux d'isolation standards avec l'architecture de contrôle des accès simultanés multiversion&nbsp;». MySQL autorise des configurations où le code d'un client qui ne valide pas correctement ses transactions peut aboutir à une vue des données qui serait considérée comme incohérente par les standards stricts de PostgreSQL. Cependant, dans les situations où il est acceptable d'avoir des lectures avec de petites incohérences, avoir la possibilité d'utiliser des verrous moins stricts peut être un avantage en terme de performances dans MySQL.
+</p>
+<p>
+Même lorsque les deux systèmes sont configurés avec l'un des niveaux stricts des verrous de transaction, les différences entre les deux implémentations sont suffisamment subtiles qu'il est difficile de définir clairement quelle sera la plus appropriée pour une application particulière. Une lecture recommandée pour comprendre ce sujet compliqué est <a href="http://www.amazon.com/Transactional-Information-Systems-Algorithms-Concurrency/dp/1558605088/" target="_blank">Transactional Information Systems: Theory, Algorithms, and the Practice of Concurrency Control</a> de Weikum &#038; Vossen. En utilisant les termes qui y sont employés, PostgreSQL utilise un tri daté multiversion (multi-version timestamp ordering - MVTO) tandis que InnoDB et Oracle utilisent la cohérence des lectures multiversions (multi-version read consistency - MVRC). La principale différence est que PostgreSQL est avec-REFAIT/sans-ANNULE (with-REDO/no-UNDO) car il enregistre chaque version des lignes dans la table principale, alors que Oracle/InnoDB implémente avec-REFAIT/avec-ANNULE (with-REDO/with-UNDO) où ils reconstruisent un bloc et/ou l'image d'une ligne depuis les journaux afin de proposer une lecture consistante. Si vous êtes prêt à aborder une troisième architecture, celle de DB2 d'IBM, d'autres bonnes références sur le propos pour comparaisons sont <a href="http://www.ibphoenix.com/main.nfs?page=ibp_mvcc_roman" target="_blank">A not-so-very technical discussion of Multi Version Concurrency Control</a> et <a href="http://www-128.ibm.com/developerworks/db2/library/techarticle/dm-0603wasserman2/index.html" target="_blank">Leverage your PostgreSQL V8.1 skills to learn DB2</a>. IBM n'est clairement pas fan de l'approche MVCC.
+</p>
+<p>
+En parti à cause de l'implémentation très mature des verrous dans PostgreSQL (elle est toujours active et les performances du code associé est par conséquent critique), même dans les situations où MySQL paraît initialement plus rapide PostgreSQL peut aller plus loin et arriver à un débit plus élevé lorsque le nombre d'utilisateurs simultanés devient important. Un bon exemple de ce type de situation est démontré dans le test de base de données de <a href="http://tweakers.net/reviews/649/7" target="_blank">tweakers.net</a>.
+</p>
+<h2>Compter les lignes d'une table</h2>
+<p>
+Une opération sur laquelle PostgreSQL est connu pour être lent est de compter la totalité des lignes d'une table, typiquement en utilisant cette requête :
+</p>
+<p class="code">SELECT COUNT(*) FROM table</p>
+<p>
+La raison de cette lenteur vient de l'implémentation MVCC de PostgreSQL. Le fait que plusieurs transactions puissent voir différents états de données implique qu'il ne peut y avoir de méthode simple pour "COUNT(*)" pour résumer les données sur l'ensemble de la table ; dans un sens, PostgreSQL doit parcourir toutes les lignes. Cela aboutit normalement sur un parcours séquentiel lisant les informations de chaque ligne de la table.
+</p>
+<p>
+Certains SGBD fournissent aux requêtes «&nbsp;COUNT(*)&nbsp;» la capacité de fonctionner en consultant un index. Malheureusement, dans PostgreSQL, cette stratégie ne fonctionne pas car l'information de visibilité MVCC n'est pas présente au niveau de l'index. Il est nécessaire d'examiner les lignes elles-même pour déterminer si elles sont visibles pour la transaction.
+</p>
+<p>
+Dans MySQL, les tables MyISAM conservent en cache l'information sur le nombre de ligne, faisant de ce type de dénombrement des opérations presque instantanées. C'est la raison pour laquelle tant de code MySQL utilisent cette construction présumant que c'est une opération triviale. Mais si vous utilisez InnoDB, ce ne sera plus le cas. Voir <a href="http://www.mysqlperformanceblog.com/2006/12/01/count-for-innodb-tables/">COUNT(*) for Innodb Tables</a> et <a href="http://www.mysqlperformanceblog.com/2007/04/10/count-vs-countcol/">COUNT(*) vs COUNT(col)</a> pour les notes sur les limitations de MySQL dans ce domaine. MySQL admet que déployé sur InnoDB, il ne peut assurer qu'un dénombrement de toutes les lignes soit rapide, et qu'ils sont donc prisonnier des mêmes limitations que celles présentes dans PostgreSQL.
+</p>
+<p>
+Il est utile de préciser que seule cette forme précise d'aggrégat doit être si pessimiste ; si elle est complétée avec une clause «&nbsp;WHERE&nbsp;» comme :
+</p>
+<p class="code">SELECT COUNT(*) FROM table WHERE status = 'quelque chose'</p>
+<p>
+PostgreSQL, MySQL et beaucoup d'autres implémentations de base de données tireront profit de la disponibilités des index pour le champ restreint afin de limiter le nombre d'enregistrements devant être comptés, ce qui accélère grandement de telles requêtes.
+</p>
+<p>
+Une approche appréciée pour les applications qui ont besoin de compter les lignes et qui peuvent tolérer de ne pas inclure les transactions en cours de réalisation, est d'utiliser un mécanisme à base de trigger pour compter les lignes de la table. Dans PostgreSQL, une autre alternative est d'utiliser le champs reltuples de la table <a href="http://docs.postgresqlfr.org/8.2/catalog-pg-class.html">pg_class</a> du catalogue lorsque seule une valeur approximative est nécessaire.
+</p>
+<h2>Jointure complexe</h2>
+<p>
+PostgreSQL utilise une méthode économique d'optimisation des requêtes afin d'obtenir de bonne performances pour les différents types de jointures. Le coût des requêtes est évalué à partir des <a href="http://docs.postgresqlfr.org/8.2/planner-stats.html">statistiques du planificateur</a> recueillies lors de l'analyse des tables et combiné avec l'ajustements des <a href="http://docs.postgresqlfr.org/8.2/runtime-config-query.html">coûts du planificateur</a>, et des fonctionnalités avancées tel que le <a href="http://docs.postgresqlfr.org/8.2/geqo.html">Genetic Query Optimizer</a> permettent l'optimisation efficace de jointures très compliquées.
+</p>
+<p>
+Le planificateur de MySQL n'a pas ce niveau de sophistication, et les options de réglage pour le <a href="http://dev.mysql.com/doc/refman/5.0/fr/controlling-optimizer.html">Controlling Query Optimizer Performance</a> sont grossières. Les développeurs contournent cela en fournissant par exemple des <a href="http://dev.mysql.com/doc/refman/5.0/en/index-hints.html">astuces sur les index</a> afin de s'assurer que les jointures se fassent correctement. Pour faciliter cette tâche, MySQL fournit un <a href="#"http://dev.mysql.com/tech-resources/articles/using-new-query-profiler.html>Query Profiler</a> qui typiquement facilite le travail sur ces données EXPLAIN. En dehors de ces astuces, l'optimisation des sous-selections est une faiblesse connue de MySQL. <!--Il existe aussi un bug plutôt sérieux à propos des sous-requêtes nulles dans MySQL 5.0 (qui semble toujours être présent dans MySQL 5.1 pour le moment).--><!-- ndt : vérifier que le bug "subquery null handling bug" soit toujours d'actualité. les liens donnés ne sont plus correcte. Problème signalé à gsmith, qui propose de retirer la phrase et reviendra vers nous si complément d'info. voir : http://dev.mysql.com/doc/refman/5.0/en/open-bugs.html http://dev.mysql.com/doc/refman/5.1/en/open-bugs.html ? -->
+</p>
+<p>
+<a href="http://pooteeweet.org/files/webtuesday0407/finding_order_in_execution.pdf">Finding order in execution</a> (définir l'ordre d'exécution) fournit plusieurs points de comparaisons sur les différences de traîtement des requêtes par les deux bases de données. Comme son optimisation automatique est plus robuste, PostgreSQL réalise généralement un meilleur travail avec les jointures compliquées que MySQL -- Mais seulement si le planificateur est configuré correctement (définir une valeur trop petite pour <a href="http://docs.postgresqlfr.org/8.2/runtime-config-query.html">effective_cache_size</a> est une erreur commune) et que les statistiques sur les tables sont maintenues à jour (typiquement via <a href="http://docs.postgresqlfr.org/8.2/maintenance.html">autovacuum</a>). Le fait que vous deviez donner à l'optimiseur de PostgreSQL des informations correctes sur lesquelles travailler, est quelque chose de controversé dans le choix de conception. Les développeurs principaux de PostgreSQL estiment qu'il est plus important de se concentrer sur l'amélioration de l'optimiseur pour qu'il fonctionne correctement dans tous les cas plutôt que d'autoriser les requêtes à introduire des modifications dans le plan comme contournement aux problèmes.
+</p>
+<p>
+Il y a quelques outils complémentaires pour explorer le planificateur de PostgreSQL. <a href="http://www.pgadmin.org/">pgAdmin</a> inclut une visionneuse de plan d'exécution (<a href="http://www.pgadmin.org/images/screenshots/pgadmin3_macosx.png">exemple</a>). Une autre option est "Visual Explain", à l'origine un composant de <a href="http://sources.redhat.com/rhdb/visualexplain.html">RedHat</a> qui est maintenant maintenu par <a href="http://www.enterprisedb.com/">Enterprise DB</a>. Il est inclus dans l'offre EnterpriseDB Advanced Server et peut être compilé avec une installation de PostgreSQL en utilisant le code source du paquet <a href="http://www.enterprisedb.com/products/download.do">Developer Studio</a>.
+</p>
+<h2>Remerciements et Remarques</h2>
+<p>
+Ce document a été écrit par <a href="http://www.westnet.com/~gsmith/">Greg Smith</a> incluant de pertinentes contributions de <a href="http://linuxdatabases.info/">Christopher Browne</a>, <a href="http://pooteeweet.org/">Lukas Kahwe Smith</a>, et de beaucoup d'autres membres de la <a href="http://www.postgresql.org/community/lists/">liste de diffusion</a> Advocacy. Quelques unes des références citées dans ce document proviennent d'articles écrits par ces mêmes auteurs.
+</p>
+<p>
+Corrections, suggestions, coup de gueule, et autres remarques peuvent être adressés à <a href="mailto:gsmith@gregsmith.com">Greg</a>, un consultant indépendant dont le seul lien avec l'équipe de développement mondial consiste à soumettre des patchs pour améliorer la future version 8.3.
+</p>
+<p>
+Cet <a href="http://www.postgresql.org/docs/techdocs.83">article</a> a été traduit en français par <b>Guillaume '<i>ioguix</i>' de Rorthais</b> et <b>Christophe '<i>KrysKool</i>' Chauvet</b>. Merci également aux relecteurs.
+</p>
+
+		     </div></div>
+<!--</div>
+</div>
+</div>
+</div> -->
+<a id="comment"></a>
+<form method="post" action="http://drupal.postgresql.fr/?q=comment"><div>
+<input type="hidden" name="edit[nid]" value="1432" />
+</div></form>
+<!-- end content -->
+              </td>
+
+    </tr>
+    <tr><td colspan="2">
+
+		<div class="pgTopNav">
+		   <div class="pgTopNavLeft"> 
+		     <img src="layout/images/nav_lft.png" width="7" height="23" alt="" />
+		   </div>
+		   <div class="pgTopNavRight">
+		    <img src="layout/images/nav_rgt.png" width="7" height="23" alt="" />
+		  </div>
+		  <!--<ul class="pgTopNavList">-->
+		  <ul class="pgTopNavList">
+		   <li><a href="index03d2.html?q=" title="Retourner à la page principale.">accueil</a> </li>
+		   <li> <a href="indexf6e5.html?q=archive" title="Lire le contenu plus ancien dans notre archive.">archives</a> </li>
+		   <li> <a href="index71c4.html?q=blog" title="Lire les blogues les plus récents.">blogues</a> </li>
+
+		   <li> <a href="indexf6fe.html?q=book" title="Lire et contribuer aux livres collaboratifs.">livres</a> </li>
+		   <li> <a href="index79b7.html?q=forum">forums</a> </li>
+		   <li> <a href="index729f.html?q=poll" title="Voir la liste des sondages de ce site.">sondages</a> </li>
+		   <li> <a href="index4404.html?q=search" title="Chercher pour du contenu plus vieux.">recherche</a></li><li><a href="http://docs.postgresqlfr.org/" target="_blank">documentation </a></li>
+
+		  </ul>
+
+<!--
+		   <li><a href="?q=" title="Retourner à la page principale.">accueil</a> </li>
+		   <li> <a href="?q=archive" title="Lire le contenu plus ancien dans notre archive.">archives</a> </li>
+		   <li> <a href="?q=blog" title="Lire les blogues les plus récents.">blogues</a> </li>
+		   <li> <a href="?q=book" title="Lire et contribuer aux livres collaboratifs.">livres</a> </li>
+		   <li> <a href="?q=forum">forums</a> </li>
+		   <li> <a href="?q=poll" title="Voir la liste des sondages de ce site.">sondages</a> </li>
+		   <li> <a href="?q=search" title="Chercher pour du contenu plus vieux.">recherche</a></li><li><a href="http://docs.postgresqlfr.org/" target="_blank">documentation </a></li>
+-->
+		  </ul>
+	        </div>
+    </td></tr>
+   </table>
+   <p style="text-align: center;">&copy;&nbsp;PostgreSQLFr, tous droits réservés.<br>
+Site déclaré à la CNIL sous le numéro 1074678, conformément à la Loi en vigueur.
+</p>
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-3921927-1");
+pageTracker._initData();
+pageTracker._trackPageview();
+</script>
+<p></p>
+   
+</body>
+
+<!-- Mirrored from drupal.postgresql.fr/?q=node/1432 by HTTrack Website Copier/3.x [XR&CO'2006], Sun, 12 Oct 2008 15:59:36 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+</html>

@@ -1,0 +1,230 @@
+ Hi,
+
+(1) The SYWARE_SyncInfo table has a column called DesktopOID iand a column called HandheldOID, but it does should not have a column called OID.
+
+(2) In the log you sent, the driver coninues to have the same problem you reported before: we asked the driver if the table SYWARE_SyncInfo exists or not, the driver says NO, and then compains that the file exists when we try to create it.  YOU WILL HAVE TO TALK TO THE POSTGRESS PEOPLE TO RESOLVE THIS PROBLEM.  This is a problem with the POSTGRESS ODBC driver.  We have no control over this driver.
+
+Craig
+
+
+At 02:50 AM 6/26/2007, you wrote:
+> Hi, thanks for your response.
+>
+> Here is the file. What i did :
+>
+> - delete the SYWARE_SyncInfo and syware_syncinfo tables
+> - after rebooting :
+> i did download the first table, OK
+> i did start the second table and the same message came.
+>
+> In my database, VisualCE did create a "syware_syncinfo" table, without "OID option".
+>
+> After testing, here is what seems to work for me :
+>
+> - create myself the SYWARE_SyncInfo and syware_syncinfo tables (both of them) :
+>
+>    - "SYWARE_SyncInfo" table is empty, just for telling visual CE that the table already exists.
+>    - "syware_syncinfo" table, because I need to have the OID option activated when creating :
+> after testing, if i use the first "syware_syncinfo" table created by Visual CE (without OID option),
+> I loose data after synchronising (i did have the same problem last time).
+> Morover, the synchronisation is faster whith this OID option activated (timestamp synchronisation).
+>
+> what do you think about my case ?
+> thanks,
+>
+> Stéphane.
+>
+>
+>
+>
+>
+>
+> Dr. DeeBee a écrit :
+>> Hi,
+>>
+>> First, please remove the SYWARE_SyncInfo and syware_syncinfo tables.
+>> Then:
+>>
+>> (1) Select START | SETTINGS | CONTROL PANEL | ODBC DATA SOURCES (this may be under "Administrative Tools").
+>> (2) Click the "Tracing" tab.
+>> (3) Click the button that is labeled "Start tracing now".  The text will change to "Stop tracing now".  While the button still reads "Stop tracing now", close the ODBC administrator.
+>> (4) Reboot your desktop (START | TURN OFF and then power up your machine again)
+>> (5) Do whatever you were doing to create the syware_syncinfo table
+>> (6) Select START | SETTINGS | CONTROL PANEL | ODBC DATA SOURCES (this may be under "Administrative Tools").
+>> (7) Click the "Tracing" tab.
+>> (8) Click the button that is labeled "Stop tracing now".  The text will change to "Start tracing now".  While the button still reads "Start tracing now", close the ODBC administrator.
+>> (9) Reboot your machine
+>>
+>> There will be a log in the root of your C: drive called SQL.LOG.
+>> Please zip this up and send it to me.
+>>
+>> Craig
+>>
+>>
+>> At 09:07 AM 6/22/2007, you wrote:
+>>> Hi,
+>>>
+>>> the table created by your appication is lower case (i tried many times).
+>>> and when i download tables it is also writing in the syware_syncinfo table (lower case).
+>>>
+>>> What i think in my situation, is that Visual CE is looking for "SYWARE_SyncInfo"
+>>> but is writing to "syware_syncinfo".
+>>> And my "SYWARE_SyncInfo" make things going on now.
+>>> but this table stay empty.
+>>>
+>>> Steph
+>>>
+>>>
+>>>
+>>> Dr. DeeBee a écrit :
+>>>> Hi,
+>>>>
+>>>> How exactly did the first (original) syware_syncinfo table get created in the first place?  The reason I askis taht we have always been very careful with the capitalization in the table names, so I'm suprised that the name was lower case
+>>>>
+>>>> Craig
+>>>>
+>>>> At 03:05 AM 6/22/2007, you wrote:
+>>>>> Hi,
+>>>>>
+>>>>> it's a problem about case sensitive with POSTGRESQL.
+>>>>> It is case sensitive when using " ", and not when not using it...
+>>>>>
+>>>>> So what I did : I did download the first table.
+>>>>> So it creates the "syware_syncinfo" table
+>>>>> Then I create myself another table : "SYWARE_SyncInfo" (empty) but with the same columns
+>>>>> Then i can download the other tables. It recognizes that the table exists ("SYWARE_SyncInfo")
+>>>>> and create data in the "syware_syncinfo" table.
+>>>>>
+>>>>> perhaps we can propose an "how-to" specific for postgresql databases
+>>>>>
+>>>>> thanks,
+>>>>>
+>>>>> Stéphane
+>>>>>
+>>>>>
+>>>>> Dr. DeeBee a écrit :
+>>>>>> Hi,
+>>>>>>
+>>>>>> In response to your questions...
+>>>>>>
+>>>>>>> - we would like to use 3 computers (microsoft TCP/IP network - ODBC connection) to synchronize : is it possible ?
+>>>>>>
+>>>>>> Yes, this is possible.
+>>>>>>
+>>>>>>
+>>>>>>> If it is possible, can we synchronize the Pocket PC to any of these computers ? Or always the same Pocket to the same computer ?
+>>>>>>
+>>>>>> You can mix and match Pocket PC's and desktop computers.  You don't need to establish a partnership in order to use our synchronizer (you can connect as a "guest")
+>>>>>>
+>>>>>>
+>>>>>>> - on the second table i want to download, it says me
+>>>>>>>
+>>>>>>> ERROR: relation "syware_syncinfo" already exists;
+>>>>>>> Error while executing the query
+>>>>>>
+>>>>>> In both cases, are you logged into Postgress using the same name?
+>>>>>>
+>>>>>>
+>>>>>>
+>>>>>> I looked at the log you sent. In the log, I saw us asking the driver if the table SYWARE_SyncInfo exists or not:
+>>>>>>
+>>>>>>         ENTER SQLTablesW
+>>>>>>                 HSTMT               009846D8
+>>>>>>                 WCHAR *             0x00000000 [      -3] <empty string>
+>>>>>>                 SWORD                       -3
+>>>>>>                 WCHAR *             0x00000000 [      -3] <empty string>
+>>>>>>                 SWORD                       -3
+>>>>>>                 WCHAR *             0x00981980 [      -3] "SYWARE_SyncInfo\ 0"
+>>>>>>                 SWORD                       -3
+>>>>>>                 WCHAR *             0x009850B8 [      -3] "'TABLE','VIEW'\ 0"
+>>>>>>                 SWORD                       -3
+>>>>>>
+>>>>>>         EXIT  SQLTablesW  with return code 0 (SQL_SUCCESS)
+>>>>>>                 HSTMT               009846D8
+>>>>>>                 WCHAR *             0x00000000 [      -3] <empty string>
+>>>>>>                 SWORD                       -3
+>>>>>>                 WCHAR *             0x00000000 [      -3] <empty string>
+>>>>>>                 SWORD                       -3
+>>>>>>                 WCHAR *             0x00981980 [      -3] "SYWARE_SyncInfo\ 0"
+>>>>>>                 SWORD                       -3
+>>>>>>                 WCHAR *             0x009850B8 [      -3] "'TABLE','VIEW'\ 0"
+>>>>>>                 SWORD                       -3
+>>>>>>
+>>>>>> And the driver responded, "No there isno sych table or view"
+>>>>>>
+>>>>>>         ENTER SQLFetch
+>>>>>>                 HSTMT               009846D8
+>>>>>>
+>>>>>>         EXIT  SQLFetch  with return code 100 (SQL_NO_DATA_FOUND)
+>>>>>>                 HSTMT               009846D8
+>>>>>>
+>>>>>> So, we asked the driver to create a SYWARE_SyncInfo table
+>>>>>>
+>>>>>>         ENTER SQLExecDirect
+>>>>>>                 HSTMT               009846D8
+>>>>>>                 UCHAR *             0x0012B250 [      -3] "create table SYWARE_SyncInfo (TableName varchar(128), DeviceName varchar(16), DesktopOID int4, HandheldOID int4, HandheldTimestamp timestamptz)\ 0"
+>>>>>>                 SDWORD                    -3
+>>>>>>
+>>>>>>         EXIT  SQLExecDirect  with return code -1 (SQL_ERROR)
+>>>>>>                 HSTMT               009846D8
+>>>>>>                 UCHAR *             0x0012B250 [      -3] "create table SYWARE_SyncInfo (TableName varchar(128), DeviceName varchar(16), DesktopOID int4, HandheldOID int4, HandheldTimestamp timestamptz)\ 0"
+>>>>>>                 SDWORD                    -3
+>>>>>>
+>>>>>> And the driver responded, "that table already exists"
+>>>>>>
+>>>>>>                 DIAG [42P07] ERROR: relation "syware_syncinfo" already exists;
+>>>>>>
+>>>>>> Clearly this is a problem with the ODBC driver.  You might want to contact the Postgress people about this.  Feel free to have then contact me directly.
+>>>>>>
+>>>>>> Craig
+>>>>>>
+>>>>>> At 02:52 AM 6/21/2007, you wrote:
+>>>>>>> Hi, Dr. DeeBee
+>>>>>>>
+>>>>>>> We just bought the professionnal version of Visual CE, because we want to synchronize 3 pockets PC
+>>>>>>> to one database server (POSTGRESQL).
+>>>>>>>
+>>>>>>> I would like first to chek that our organisation is the OK for that kind of operation :
+>>>>>>>
+>>>>>>> - we have 3 pocket PC with 3 differents name
+>>>>>>> - we have one database server (POSTGRESQL) on a server
+>>>>>>> - we would like to use 3 computers (microsoft TCP/IP network - ODBC connection) to synchronize : is it possible ?
+>>>>>>> I can create the same ODBC connection  (local connection) on the 3 computers so the users can synchronize to differents places in the network.
+>>>>>>> If it is possible, can we synchronize the Pocket PC to any of these computers ? Or always the same Pocket to the same computer ?
+>>>>>>> (I know that the Microsoft Active Sync accepts 2 differents computers synchronization).
+>>>>>>>
+>>>>>>> The application and synchronizing are working when using 1 handheld.
+>>>>>>>
+>>>>>>> Then I did try with my first Pocket PC today with multiple handheld option :
+>>>>>>>
+>>>>>>> - when i download my first table, it asks me if i want to synchronize to multiple handhelds, I say Yes. It seems OK
+>>>>>>> - on the second table i want to download, it says me
+>>>>>>>
+>>>>>>> ERROR: relation "syware_syncinfo" already exists;
+>>>>>>> Error while executing the query
+>>>>>>>
+>>>>>>> I chek in my postgresql tables, it did create a syware_syncinfo table. There are (only) data from the first table inside.
+>>>>>>> Last time I get trouble with POSTGRESQL, it was because the were not POSTGRESQL "oid" option in the table creation.
+>>>>>>> So I did try to create a new empty syware_syncinfo table, with oid option, with the same columns but it is the same message
+>>>>>>>
+>>>>>>> The oid fields of my tables are not empty.
+>>>>>>>
+>>>>>>> I will try to send you a SQL log of thoses operation later.
+>>>>>>> thanks for your help,
+>>>>>>>
+>>>>>>> Stéphane AVRIL
+>>>>>>>
+>>>>>>> -- 
+>>>>>>> Stéphane AVRIL
+>>>>>>> Coop Vivéa
+>>>>>>>
+>>>>>>> 6, chemin Beaurivage
+>>>>>>> Pierrefonds
+>>>>>>> 97410 - Saint-Pierre
+>>>>>>>
+>>>>>>> www.vivea-reunion.com
+>>>>>>>
+>>>>>>> tel: 0262 38 83 06
+>>>>>>> fax: 0262 25 82 19
+>>>>>>>
+>>>>>>> Portable : 0692 86 02 75 Mèl : communication@vivea-reunion.com

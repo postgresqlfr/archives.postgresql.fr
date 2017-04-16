@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE rss [<!ENTITY % HTMLlat1 PUBLIC "-//W3C//ENTITIES Latin 1 for XHTML//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml-lat1.ent">]>
+<rss version="0.92" xml:base="http://drupal.postgresql.fr">
+<channel>
+ <title>PostgreSQLFr - Technique</title>
+ <link>http://drupal.postgresql.fr/?q=taxonomy/term/1/0</link>
+ <description>Article technique sur PostgreSQL</description>
+ <language>fr</language>
+<item>
+ <title>Écrire et utiliser des fonctions retournant une valeur de type composite (ROWTYPE)</title>
+ <link>http://drupal.postgresql.fr/?q=node/1726</link>
+ <description>&lt;p&gt;&lt;!-- Note de style:&lt;br /&gt;
+En ajoutant feuille de style CSS contenant:&lt;br /&gt;
+&lt;style type="text/css"&gt;&lt;br /&gt;
+pre.sql, pre.result {&lt;br /&gt;
+  margin:2em 4em; padding:0.7ex; line-height:1.4ex;&lt;br /&gt;
+}&lt;br /&gt;
+pre.sql, code.sql {&lt;br /&gt;
+  color:#0022AA; background-color:#FFFFAA;&lt;br /&gt;
+}&lt;br /&gt;
+pre.result {&lt;br /&gt;
+  color:yellow; background-color:#222288;&lt;br /&gt;
+}&lt;br /&gt;
+&lt;/style&gt;&lt;br /&gt;
+ou équivalent, on pourrait supprimer les attributs style="..."&lt;br /&gt;
+dans cette page.&lt;br /&gt;
+ --&gt;&lt;/p&gt;
+&lt;p&gt; Bien que nouvelle utilisatrice de PG, j'ai choisi de présenter un mini-article sur l'utilisation des ROWTYPE dans PL/pgSQL, car je crois qu'il pourrait être utile à beaucoup.&lt;/p&gt;
+&lt;p&gt; Je n'ai hélas pas beaucoup de temps à y consacrer, mais je compte sur votre participation pour m'aider à le clarifier.&lt;/p&gt;
+&lt;p&gt; En effet je n'ai rien trouvé de tel sur le web et j'ai dû passer du temps, pour "trouver le pot aux roses", c'est-à-dire une syntaxe correcte utilisable pour mon application (GPL) que je vous dévoilerai plus tard.&lt;/p&gt;
+&lt;p&gt; Merci à Guillaume Lelarge pour son aide. Au-delà de partager son expérience, il s'est joint activement à mes réflexions et suggéré les solutions qui m'ont mise sur la bonne voie.&lt;/p&gt;
+</description>
+ <pubDate>Wed, 27 Aug 2008 20:34:22 +0200</pubDate>
+</item>
+<item>
+ <title>PostgreSQL et Ruby</title>
+ <link>http://drupal.postgresql.fr/?q=node/1489</link>
+ <description>&lt;h2&gt;Extracteur de tables&lt;/h2&gt;
+&lt;p&gt;Trouvé sur le site &lt;a href="http://www.geekz.fr"&gt; We are Geeks&lt;/a&gt;, un extracteur de tables pour PostgreSQL.&lt;/p&gt;
+&lt;p&gt;Il s'agit d'extraire d'une base de données les informations nécessaires à sa recréation.&lt;/p&gt;
+&lt;p&gt;Tout est là&amp;nbsp;: &lt;a href="http://www.geekz.fr/Extracteur-de-tables-postgresql"&gt;Extracteur PG en ruby&lt;/a&gt;.&lt;/p&gt;
+</description>
+ <pubDate>Tue, 11 Dec 2007 08:37:23 +0100</pubDate>
+</item>
+<item>
+ <title>Debian Sarge, PostgreSQL 8.1, XID Wraparound et Single User Mode</title>
+ <link>http://drupal.postgresql.fr/?q=node/927</link>
+ <description>&lt;p&gt;
+J'utilise une distribution GNU/Linux Debian Sarge avec un backport officiel de PostgreSQL 8.1 sur un serveur de test. Tout fonctionnait à merveille jusqu'au jour où la connexion &lt;tt&gt;psql&lt;/tt&gt; m'a été refusée. La justification de l'impossibilité de connexion était relative à un XID Wraparound, comprendre un rebouclage des identifiants de transactions, par suite de manque de vacuum full sur deux bases. Ayant déjà été confronté au &lt;a href="http://www.postgresqlfr.org/?q=node/49" target="_blank"&gt;problème par le passé&lt;/a&gt;, je me suis donc rué sur la procédure que j'avais tantôt décrite...
+&lt;/p&gt;</description>
+ <pubDate>Fri, 29 Sep 2006 16:21:45 +0200</pubDate>
+</item>
+<item>
+ <title>Réussir des petits gateaux en forme d'éléphant</title>
+ <link>http://drupal.postgresql.fr/?q=node/585</link>
+ <description>&lt;p&gt;
+Plusieurs personnes ont demandé à connaître la recette des excellents gateaux en forme d'éléphant que ceux qui ont fréquenté le stand de l'association pendant le salon «&amp;nbsp;Solutions Linux 2006&amp;nbsp;» ont pu déguster.&lt;br&gt;&lt;br /&gt;
+La voici !
+&lt;/p&gt;
+&lt;p&gt;
+Ces gateaux au beurre, originaires d'Alsace ont pour nom &lt;b&gt;BUTTERBREDELE&lt;/b&gt;.
+&lt;/p&gt;
+&lt;p&gt;
+Durée de préparation: 30 minutes environ&lt;br&gt;&lt;br /&gt;
+Repos: 3 heures&lt;br&gt;&lt;br /&gt;
+Cuisson: 10 minutes dans un four à 200° C&lt;br&gt;
+&lt;/p&gt;
+</description>
+ <pubDate>Wed, 22 Feb 2006 09:33:06 +0100</pubDate>
+</item>
+<item>
+ <title>Langages de procédure : type OUT et INOUT</title>
+ <link>http://drupal.postgresql.fr/?q=node/483</link>
+ <description>&lt;p&gt;Attention, tous les exemples de cet article utilisent le langage PL/pgsql. Pour l'utiliser, vous devez l'intégrer à votre base. Cela se fait tout simplement avec cette commande&amp;nbsp;:&lt;/p&gt;
+&lt;pre&gt;createlang plpgsql metier&lt;/pre&gt;
+&lt;p&gt;Je viens donc d'intégrer le langage de procédures plpgsql dans la base metier.&lt;/p&gt;
+&lt;p&gt;Avant la version 8.1, PostgreSQL n'acceptait que des arguments en entrée dans la déclaration des fonctions (et quelque soit le langage de procédures utilisé). Pour renvoyer un résultat, il fallait passer par la « valeur de retour ». Malgré tout, il était possible de renvoyer plusieurs valeurs en utilisant un type composite. En fait, cela revenait à renvoyer une ligne de plusieurs colonnes d'une table « virtuelle ».&lt;/p&gt;
+</description>
+ <pubDate>Wed, 21 Dec 2005 08:39:45 +0100</pubDate>
+</item>
+<item>
+ <title>PostgreSQLFr.org change de serveur Web</title>
+ <link>http://drupal.postgresql.fr/?q=node/474</link>
+ <description>&lt;p&gt;L'ancien serveur de PostgreSQLFr.org étant arrivé en fin de cycle de vie, &lt;a href="http://www.dalibo.com" target="_blank"&gt;notre hébergeur&lt;/a&gt; a migré le site et les services annexes de celui-ci sur une nouvelle machine. Elle est relativement performante, et la navigation dans le site s'en ressent.&lt;/p&gt;
+&lt;p&gt;Voici les caractéristiques principales de la machine&amp;nbsp;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;HP Proliant DL360 (1U)
+&lt;li&gt;Bi-Xeon 3GHz
+&lt;li&gt;2Go de Ram
+&lt;li&gt;2 x 146G 10Krpms en Ultra SCSI 320 et en Raid 1 (Compaq Smart Array 64xx)
+&lt;/ul&gt;
+&lt;/p&gt;
+</description>
+ <pubDate>Sat, 10 Dec 2005 22:41:26 +0100</pubDate>
+</item>
+<item>
+ <title>Utilisation des rôles dans PostgreSQL 8.1</title>
+ <link>http://drupal.postgresql.fr/?q=node/438</link>
+ <description>&lt;p&gt;Ce document est un rappel de l'utilisation des utilisateurs et groupes pour les versions antérieures à la 8.1 et une introduction aux rôles, concept remplaçant les utilisateurs/groupes à partir de PostgreSQL 8.1.&lt;/p&gt;
+&lt;p&gt;&lt;!-- header --&gt;&lt;/p&gt;
+&lt;p&gt;PostgreSQL 8.1 modifie la gestion des utilisateurs. Le concept des utilisateurs et des groupes est remplacé par un concept plus global&amp;nbsp;: celui des &lt;a href="http://traduc.postgresqlfr.org/pgsql-8.1.0-fr/user-manag.html"&gt;rôles&lt;/a&gt;. Un rôle correspond à un utilisateur et/ou à un groupe. Un rôle a des droits et il peut être membre d'un ou plusieurs autres rôles.&lt;/p&gt;
+</description>
+ <pubDate>Tue, 29 Nov 2005 23:16:11 +0100</pubDate>
+</item>
+<item>
+ <title>Fiche mémoire sur PostgreSQL</title>
+ <link>http://drupal.postgresql.fr/?q=node/368</link>
+ <description>&lt;p&gt;Peter Freitag vient de publier une fiche mémoire sur PostgreSQL dont voici la traduction. La version anglaise est disponible sur le &lt;a href="http://www.petefreitag.com/cheatsheets/postgresql/"&gt;site de Peter Freitag&lt;/a&gt;.&lt;/p&gt;
+</description>
+ <pubDate>Mon, 10 Oct 2005 22:00:04 +0200</pubDate>
+</item>
+<item>
+ <title>Points à vérifier en ce qui concerne les performances de PostgreSQL 8.0</title>
+ <link>http://drupal.postgresql.fr/?q=node/297</link>
+ <description>&lt;p&gt;&lt;i&gt;Cet article est la traduction d'un billet posté par Josh Berkus et Joe Conway sur leur site, &lt;a href="http://powerpostgresql.com"&gt;powerpostgresql.com&lt;/a&gt;. D'autres documents devraient suivre...&lt;/i&gt;&lt;/p&gt;
+&lt;p&gt;Voici un ensemble de règles de base pour votre serveur PostgreSQL&lt;br /&gt;
+8.0. Beaucoup de ces règles sont basées sur des anecdoctes ou des&lt;br /&gt;
+tests pratiques&amp;nbsp;; il y a encore beaucoup de travail à effectuer en&lt;br /&gt;
+ce qui concerne les performances des bases de données et nous essayons de&lt;br /&gt;
+les mettre en place avec OSDL. Néanmoins, ceci devrait vous permettre de&lt;br /&gt;
+commencer. Toutes les informations ci-dessous sont utiles. Ce document,&lt;br /&gt;
+du 12 janvier 2005, sera vraisemblablement mis à jour plus tard. Les&lt;br /&gt;
+indications sur les paramètrages ci-dessous sont préférées aux&lt;br /&gt;
+indications que j'ai pû donner sur General Bits.&lt;/p&gt;
+</description>
+ <pubDate>Sat, 16 Jul 2005 14:15:40 +0200</pubDate>
+</item>
+<item>
+ <title>Datamining avec PostgreSQL</title>
+ <link>http://drupal.postgresql.fr/?q=node/170</link>
+ <description>&lt;p&gt;Robert Bernier, un des core Hackers de PostgreSQL vient de publier un article sur le datamining avec PostgreSQL sur le site de onlamp. Une bonne lecture ! &lt;a href="http://www.onlamp.com/pub/a/onlamp/2005/03/03/pg_datamining.html"&gt;http://www.onlamp.com/pub/a/onlamp/2005/03/03/pg_datamining.html&lt;/a&gt;&lt;/p&gt;
+</description>
+ <pubDate>Mon, 07 Mar 2005 20:28:03 +0100</pubDate>
+</item>
+<item>
+ <title>Un postgresql.conf complètement commenté !</title>
+ <link>http://drupal.postgresql.fr/?q=node/143</link>
+ <description>&lt;p&gt;Josh Berkus et Joe Conway se sont lancés ce début d'année dans la rédaction d'un livre sur la dernière version de PostgreSQL. Sur&lt;br /&gt;
+&lt;a href="http://www.powerpostgresql.com/" target="_blank"&gt;leur site&lt;/a&gt;, une sorte de blog, ils viennent de poster un document plus qu'intéressant. Il s'agit d'un fichier postgresql.conf complètement commenté&amp;nbsp;!&lt;/p&gt;
+&lt;p&gt;Je vous engage donc à lire attentivement ce document qui présente pour chaque clé du postgresql.conf&amp;nbsp;:&lt;br&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;son nom&lt;/li&gt;
+&lt;li&gt;les valeurs possibles&lt;/li&gt;
+&lt;li&gt;la valeur par défaut&lt;/li&gt;
+&lt;li&gt;si la variable peut être définie à chaud ou à froid&lt;/li&gt;
+&lt;li&gt;si un raccourci existe pour pg_ctl&lt;/li&gt;
+&lt;li&gt;ce que la documentation officielle dit sur la variable&lt;/li&gt;
+&lt;li&gt;le commentaire des deux auteurs, tout à fait précieux&amp;nbsp;!&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/p&gt;
+</description>
+ <pubDate>Thu, 10 Feb 2005 09:32:19 +0100</pubDate>
+</item>
+<item>
+ <title>Modéliser un arbre simplement dans PostgreSQL</title>
+ <link>http://drupal.postgresql.fr/?q=node/142</link>
+ <description>&lt;p&gt;
+Bonjour,&lt;/p&gt;
+&lt;p&gt;Parmis les problèmes récurrents auxquels on est confrontés lorsqu'on fait un schéma de données, il y a la modélisation des arbres.&lt;/p&gt;
+&lt;p&gt;Il s'agit de bien conceptualiser une structure hiérarchique dans une base de données. Je vous propose une méthode éprouvée pour le faire simplement! (attention, ne pas confondre avec un graphe...).
+&lt;/p&gt;
+&lt;p&gt;
+Deux méthodes "anciennes":
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;id / parent_id:&lt;/strong&gt; Tout d'abord, on trouve la méthode id / parent_id. C'est à dire qu'on boucle sur la même table, en ajoutant une colonne du même type que l'identifiant et en bouclant sur cette même colonne, avec un lien père / fils.
+&lt;p&gt;Il n'y a pas grand chose à dire sur cette méthode si ce n'est qu'elle montre un peu ses limites en matière de performances lorsqu'on a un arbre conséquent... De plus les mises à jour de l'arbre (suppression ou déplacement d'un noeud) sont assez hardues et nécessitent un code particulier.&lt;br&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;nested loops&lt;/strong&gt; (ou "boucles imbriquées): Il s'agit de modéliser un arbre en sachant à l'avance quelle sera la "largeur" de celui-ci. C'est à dire que pour un arbre donné, la racine ira de 1 à n, le premier fils de la racine, de 1 à m. Le second fils de la racine, de m+1 à n et ainsi dessuite pour les descendants. Je vous laisse le soin de découvrir cette méthode en lisant &lt;a href="http://www.intelligententerprise.com/001020/celko.jhtml?_requestid=145525]" target="_blank"&gt;http://www.intelligententerprise.com/001020/celko.jhtml?_requestid=145525]&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/p&gt;
+</description>
+ <pubDate>Mon, 12 Jun 2006 09:12:54 +0200</pubDate>
+</item>
+<item>
+ <title>Présentations des conférences PostgreSQL - Solutions Linux 2005 Paris</title>
+ <link>http://drupal.postgresql.fr/?q=node/140</link>
+ <description>&lt;p&gt;Comme promis sur le stand PostgreSQLFr lors de Solutions Linux 2005, vous trouverez ci-après les liens qui vous permettront de télécharger les présentations des&lt;br /&gt;
+&lt;a href="http://www.solutionslinux.fr/fr/conferences_detail.php?id_conference=26"&gt;différentes présentations afférentes aux bases de données&lt;/a&gt; lors du salon Solutions Linux 2005 à Paris.&lt;/p&gt;
+&lt;p&gt;
+&lt;b&gt;Tour d'horizon des bases de données "libres" :MySQL et MaxDB, PostgreSQL, Ingres, Firebird, SQLLite&lt;/b&gt;&lt;br&gt;&lt;br /&gt;
+par Stéphane Schildknecht, responsable du pôle bases de données de Linagora.&lt;br&gt;&lt;br /&gt;
+&lt;a href="files/BDD_OS.pdf"&gt;Télécharger!&lt;/a&gt; (PDF, 3,7 Mo)&lt;br&gt;
+&lt;/p&gt;
+</description>
+ <pubDate>Wed, 16 Mar 2005 20:06:49 +0100</pubDate>
+</item>
+<item>
+ <title>Réponse à l'article de Décision Informatique n°606 du 04/10/2004</title>
+ <link>http://drupal.postgresql.fr/?q=node/96</link>
+ <description>&lt;p&gt;
+Dans le n°606 du 4 octobre 2004 du journal Décision Informatique, est paru un comparatif de cinq systèmes de gestion de bases de données (SGBD): Microsoft SQL Server, Oracle, BD2, MySQL et PostgreSQL. Notre communauté a été contactée par le mandataire des tests, afin de l'aider à optimiser l'installation de PostgreSQL. Par contre, la communauté n'a jamais été sollicitée sur d'autres points et il en résulte un certain nombre d'erreurs, d'imprécisions et de confusions, qui auraient facilement pu être évitées.
+&lt;/p&gt;
+&lt;p&gt;
+Nous souhaitons donc ici corriger ces problèmes et donner de PostgreSQL une image plus juste.
+&lt;/p&gt;
+</description>
+ <pubDate>Wed, 17 Nov 2004 18:49:02 +0100</pubDate>
+</item>
+<item>
+ <title>Autodoc : documentez vos bases de données facilement!</title>
+ <link>http://drupal.postgresql.fr/?q=node/89</link>
+ <description>&lt;p&gt;&lt;a href="http://www.rbt.ca/autodoc/"&gt;Autodoc&lt;/a&gt; permet de documenter de manière extrêmement simple et efficace une base de données.&lt;/p&gt;
+&lt;p&gt;Sous Debian, l'installation est simple. Commencez par mettre à jour vos sources apt&amp;nbsp;:&lt;/p&gt;
+&lt;pre&gt;$ apt-get update&lt;/pre&gt;
+&lt;p&gt;Vérifiez la disponibilité du paquet&amp;nbsp;:&lt;/p&gt;
+&lt;pre&gt;$ apt-cache search postgresql-autodoc&lt;br /&gt;
+postgresql-autodoc - Utility to create system tables overview in HTML, DOT and XML
+&lt;/pre&gt;
+&lt;p&gt;Installez le paquet s'il est disponible&amp;nbsp;:&lt;/p&gt;
+&lt;pre&gt;$ apt-get install postgresql-autodoc&lt;/pre&gt;
+&lt;p&gt;Pour les autres distributions, cherchez un peu... Ou alors, installez à partir des&lt;br /&gt;
+&lt;a href="http://www.rbt.ca/autodoc/releasenotes.html"&gt;sources disponibles sur le site&lt;/a&gt; ;-)&lt;/p&gt;
+</description>
+ <pubDate>Sun, 28 Nov 2004 15:14:38 +0100</pubDate>
+</item>
+</channel>
+</rss>

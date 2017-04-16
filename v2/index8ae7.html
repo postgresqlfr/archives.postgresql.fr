@@ -1,0 +1,198 @@
+<html>
+<!-- Mirrored from drupal.postgresql.fr/?q=book/print/1538 by HTTrack Website Copier/3.x [XR&CO'2006], Sun, 12 Oct 2008 16:31:12 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+<head><title>Valérie SCHNEIDER, Ingénieur DBA, Météo France</title><base  /><style type="text/css">
+@import url(misc/print.css);
+</style></head><body><h1 id="1538" name="1538" class="book-h1">Valérie SCHNEIDER, Ingénieur DBA, Météo France</h1><p class="question">
+Êtes-vous d'accord pour que vos nom, prénom, courriel, organisation et fonction dans celle-ci soit connus du public&nbsp;?
+</p>
+<p class="detail">
+Oui!<br></p>
+<ul>
+<li>Organisation: Météo-France
+<li>Site web: <a href="http://www.meteo.fr/">http://www.meteo.fr/</a>
+<li>Prénom: Valérie
+<li>Nom: SCHNEIDER
+<li>Fonction: Ingénieur - DBA
+</ul>
+</p>
+<p class="question">
+Travaillez-vous pour une organisation à but lucratif, associatif ou gouvernemental ?
+</p>
+<p class="detail">
+Service public, Météo-France.
+</p>
+<p class="question">
+Quelle est la taille de votre organisation en nombre de collaborateurs&nbsp;?
+</p>
+<p class="detail">
+3600 personnes réparties sur tout le territoire français.</p>
+<p class="question">
+À quoi sert(vent) la(les) base(s) de données utilisée(s) dans votre organisation&nbsp;?
+</p>
+<p class="detail">
+La plupart des applications centrales de Météo-France s'appuient sur des bases de données provenant de plusieurs éditeurs. Il s'agit pour l'essentiel:
+<ul>
+<li>de bases de données techniques et scientifiques, dont certaines sont des bases temps réel. La disponibilité et la consistance des données y sont critiques&nbsp;;
+<li>d'autres bases de données, pour les besoins liés à la gestion commerciale et aux ressources humaines.</ul>
+<p class="question">
+La(les) base(s) de données gérée(s) est(sont)-elle(s) critique(s) pour votre organisation ?
+</p>
+<p class="detail">
+Beaucoup sont critiques.
+</p>
+<p class="question">
+Quel est le nombre de bases de données qui fonctionnent sous PostgreSQL par rapport au nombre total de bases de données (tous SGBD confondus) de votre organisation ?
+</p>
+<p class="detail">
+Environ 10 à 20% de nos bases de données fonctionnent sous PostgreSQL; mais d'autres bases (dont certaines critiques) sont actuellement en cours de migration sous PostgreSQL.</p>
+<p class="question">
+Quel est le nombre minimum/maximum/moyen de tables par base de données ?
+</p>
+<p class="detail">
+De la dizaine à quelques centaines. À titre d'exemple, une base de tests servant à mener des benchs de type transactionnel (pour comparatifs entre divers SGBD) contient des tables de 130 millions de lignes, volume 30 Go par table.
+</p>
+<p class="question">
+Quelle est la taille minimum/max/moyenne des bases gérées (en méga octets) ?
+</p>
+<p class="detail">
+<ul>
+<li>Minimum: quelques Giga-octets
+<li>Maximum: 3.5 Tera-octets, notre plus grosse base sous PostgreSQL
+</ul>
+</p>
+<p class="question">
+PostgreSQL est-il utilisé dans un contexte transactionnel ou datamining/datawarehouse&nbsp;?
+</p>
+<p class="detail">
+Les deux. Mais pour la plus grosse, dans un contexte de type datawarehouse et faiblement transactionnelavec 20 Giga-octets d'insertion par jour.
+</p>
+<p class="question">
+Quelle est la version utilisée ?
+</p>
+<p class="detail">
+De 8.0.7 pour la plus ancienne à 8.2.x pour les plus récentes.
+</p>
+<p class="question">
+Quel est le type du serveur sur lequel est installé PostgreSQL&nbsp;?
+</p>
+<p class="detail">
+La plupart des bases sont sur des serveurs linux Red Hat. Quelques unes sont sur des serveurs Windows.
+</p>
+<p class="question">
+Quelle est la part des logiciels libres dans votre organisation&nbsp;? Au niveau des serveurs&nbsp;? Et au niveau des postes clients&nbsp;?
+</p>
+<p class="detail">
+La part est de plus en plus importante pour des raisons d'économie. Au niveau des serveurs la quasi totalité fonctionne sous linux. Pour les postes clients c'est le contraire, 90% environ du parc<br />
+est sous Windows.
+</p>
+<p class="question">
+Quel est le "nombre de serveurs en technologies libres (globalement)"&nbsp;? et le nombre de serveurs au total, dans votre organisation&nbsp;?
+</p>
+<p class="detail">
+Le nombre total de serveurs dans l'organisation est de l'ordre de la centaine (plusieurs). Je ne connais pas la proportion en techno libres.
+</p>
+<p class="question">
+Depuis combien de temps PostgreSQL est-il utilisé dans l'organisation et/ou depuis quelle version&nbsp;?
+</p>
+<p class="detail">
+Des tests ont débuté en 2003/2004 avec la version 7.<br />
+En production: depuis 2005 et en version 8.0 pour la plus ancienne
+</p>
+<p class="question">
+PostgreSQL est-il venu en remplacement d'une technologie propriétaire (ou plusieurs), si oui, laquelle (lesquelles)&nbsp;?
+</p>
+<p class="detail">
+Certaines applications ont démarré sur PostgreSql, pour d'autres il s'agit d'une migration depuis Oracle.
+</p>
+<p class="question">
+Si vous avez remplacé une technologie propriétaire par PostgreSQL: pourquoi&nbsp;?
+</p>
+<p class="detail">
+Le coût de licence nul est un argument de poids. D'autres arguments comme la légèreté, la facilité d'installation, une bonne réactivité de la communauté, des fonctionnalités équivalentes (dans notre utilisation des SGDBR), pré-compilateur C, standard SQL, ont plaidé pour PG.
+</p>
+<p class="question">
+Si vous avez remplacé une technologie propriétaire par PostgreSQL, avez vous testé d'autres SGBD Libres&nbsp;? Si oui, lesquels&nbsp;?
+</p>
+<p class="detail">
+Non pas vraiment.
+</p>
+<p class="question">
+Si vous avez testé d'autres SGBD/R libres: Pourquoi avoir choisi PostgreSQL au final ?
+</p>
+<p class="detail">
+Voir point précédent.
+</p>
+<p class="question">
+À présent, donnez des notes de 1 à 5 et commentez<br />
+1 = mauvais,<br />
+2 = passable,<br />
+3 = moyen,<br />
+4 = bon,<br />
+5 = très bon
+</p>
+<p class="question">
+Quel est votre ressenti sur PostgreSQL en termes de fiabilité ?
+</p>
+<p class="detail">
+4
+</p>
+<p class="question">
+...de robustesse ?
+</p>
+<p class="detail">
+4
+</p>
+<p class="question">
+...d'administration ?
+</p>
+<p class="detail">
+4: La montée de niveau reste pour le moment rustique (surtout pour une base de 3.5 Tera !)
+</p>
+<p class="question">
+...de facilité d'utilisation ?
+</p>
+<p class="detail">
+5
+</p>
+<p class="question">
+...de performances ?
+</p>
+<p class="detail">
+4<br><br />
+Performances satisfaisantes. Concernant les applications migrées sur PostgreSQL, elles ont fait (ou font) l'objet de tests de performances afin de s'assurer qu'il n'y a pas dégradation.
+</p>
+<p class="question">
+...d'extensibilité ?
+</p>
+<p class="detail">
+pas testé
+</p>
+<p class="question">
+...de « scalabilité » ?
+</p>
+<p class="detail">
+(pas de réponse)
+</p>
+<p class="question">
+...de « tuning » ?
+</p>
+<p class="detail">
+(pas de réponse)
+</p>
+<p class="question">
+...d'outils annexes ?"
+</p>
+<p class="detail">
+psql est bien fait (l'historique des commandes, l'aide en ligne, ...).  Petite utilisation de PhpPgAdmin.
+</p>
+<p class="question">
+Le support de la communauté PostgreSQL vous paraît-il efficace ?
+</p>
+<p class="detail">
+Oui, très réactif et efficace.
+</p>
+</body>
+<!-- Mirrored from drupal.postgresql.fr/?q=book/print/1538 by HTTrack Website Copier/3.x [XR&CO'2006], Sun, 12 Oct 2008 16:31:12 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+</html>

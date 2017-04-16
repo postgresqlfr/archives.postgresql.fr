@@ -1,0 +1,527 @@
+
+<!DOCTYPE
+ html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+ <html>
+ <!-- $Date: 2005/08/30 07:54:43 $ / $Revision: 1.29 $ / Last Theme Editor :$Author: jx $-->
+  
+<!-- Mirrored from drupal.postgresql.fr/?q=node/784 by HTTrack Website Copier/3.x [XR&CO'2006], Sun, 12 Oct 2008 17:21:00 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<base  />
+<style type="text/css" media="all">@import "misc/drupal.css";</style>
+   <title>TRACE de migration d'ORACLE vers POSTGRESQL - PostgreSQLFr</title>
+ <style type="text/css" media="screen" title="Normal Text">
+    @import url("layout/css/blue/fixed.css");
+    @import url(_guillaume/dotclear/themes/postgresql/style.html);
+ </style>
+ <style type="text/css" media="screen" title="Normal Text2">
+    @import url("layout/css/blue/pgfr.css");
+    @import url(_guillaume/dotclear/themes/postgresql/style.html);
+ </style>
+   </head>
+   <body>
+    <table border="0" cellspacing="5" cellpadding="0" width="100%">
+     <tr>
+      <!--td colspan="2" width="100%"-->
+      <td colspan="2">
+      <!-- Head -->
+       <table border="0" cellspacing="0" cellpadding="0" width="100%">
+        <tr>
+	 <td align="left">
+           <div id="pgHeader">
+	    <div id="pgHeaderLogoLeft">
+	     <a href="index.html" title="PostgreSQL"><img src="layout/images/hdr_left.png" width="230" height="80" alt="PostgreSQL" /></a>
+	    </div>
+	    <div id="pgHeaderLogoRight">
+	     <a href="index.html" title="La base de donn�es la plus sophistiqu�e au monde."><img src="layout/images/hdr_right.png" width="210" height="80" alt="La base de donn�es la plus sophistiqu�e au monde." /></a>
+	    </div>
+	   </div>
+         </td>
+	 <td align="right">
+         </td>
+	</tr>
+      </table> <!-- Head -->
+      <br />
+      <table border="0" cellspacing="0" cellpadding="0" width="100%">
+              <tr>
+	      	 <td align="left">
+
+		<div class="pgTopNav">
+		   <div class="pgTopNavLeft"> 
+		     <img src="layout/images/nav_lft.png" width="7" height="23" alt="" />
+		   </div>
+		   <div class="pgTopNavRight">
+		    <img src="layout/images/nav_rgt.png" width="7" height="23" alt="" />
+		  </div>
+		  <!--<ul class="pgTopNavList">-->
+		  <ul class="pgTopNavList">
+		   <li><a href="index03d2.html?q=" title="Retourner à la page principale.">accueil</a> </li>
+		   <li> <a href="indexf6e5.html?q=archive" title="Lire le contenu plus ancien dans notre archive.">archives</a> </li>
+		   <li> <a href="index71c4.html?q=blog" title="Lire les blogues les plus récents.">blogues</a> </li>
+
+		   <li> <a href="indexf6fe.html?q=book" title="Lire et contribuer aux livres collaboratifs.">livres</a> </li>
+		   <li> <a href="index79b7.html?q=forum">forums</a> </li>
+		   <li> <a href="index729f.html?q=poll" title="Voir la liste des sondages de ce site.">sondages</a> </li>
+		   <li> <a href="index4404.html?q=search" title="Chercher pour du contenu plus vieux.">recherche</a></li><li><a href="http://docs.postgresqlfr.org/" target="_blank">documentation </a></li>
+
+		  </ul>
+
+<!--
+		   <li><a href="?q=" title="Retourner à la page principale.">accueil</a> </li>
+		   <li> <a href="?q=archive" title="Lire le contenu plus ancien dans notre archive.">archives</a> </li>
+		   <li> <a href="?q=blog" title="Lire les blogues les plus récents.">blogues</a> </li>
+		   <li> <a href="?q=book" title="Lire et contribuer aux livres collaboratifs.">livres</a> </li>
+		   <li> <a href="?q=forum">forums</a> </li>
+		   <li> <a href="?q=poll" title="Voir la liste des sondages de ce site.">sondages</a> </li>
+		   <li> <a href="?q=search" title="Chercher pour du contenu plus vieux.">recherche</a></li><li><a href="http://docs.postgresqlfr.org/" target="_blank">documentation </a></li>
+-->
+		  </ul>
+	        </div>
+		</td>
+		</tr>
+		</table>
+      </td>
+     </tr>
+     <tr>
+    <td style="vertical-align: top; width: 20%;">
+<div class="block block-user" id="block-user-0">
+<div class="pgSideNav">    <h2>Ouverture de session</h2>    
+		    <div>
+			<form action="http://drupal.postgresql.fr/?q=user/login" method="post">
+<div class="user-login-block">
+<input type="hidden" name="edit[destination]" value="node/784" />
+<div class="form-item">
+ <label for="edit-name">Nom d'utilisateur:</label><br />
+ <input type="text" maxlength="64" class="form-text" name="edit[name]" id="edit-name" size="15" value="" />
+</div>
+<div class="form-item">
+ <label for="edit-pass">Mot de passe:</label><br />
+ <input type="password" class="form-password" maxlength="64" name="edit[pass]" id="edit-pass" size="15" value="" />
+</div>
+<input type="submit" class="form-submit" name="op" value="Identification"  />
+</div>
+
+</form>
+<div class="item-list"><ul><li><a href="indexc12c.html?q=user/password" title="Demander un nouveau mot de passe par e-mail.">Demander un nouveau mot de passe</a></li></ul></div>
+		    </div></div></div>
+<div class="block block-user" id="block-user-1">
+<div class="pgSideNav">    <h2>Navigation</h2>    
+		    <div>
+			<div class="menu">
+<ul>
+<li class="leaf"><a href="indexa499.html?q=tracker">messages récents</a></li>
+
+</ul>
+</div>
+		    </div></div></div>
+<div class="block block-block" id="block-block-4">
+<div class="pgSideNav">    <h2>Contactez-nous</h2>    
+		    <div>
+			<p><strong>Administration du site&nbsp;:</strong><br />
+"equipe chez postgresqlfr point org"<br><br />
+<strong>Contact presse&nbsp;:</strong><br />
+"fr chez postgresql point org"<br><br />
+<strong>Contact association&nbsp;:</strong><br />
+"bureau chez postgresqlfr point org"<br><br />
+<strong>Questions PostgreSQL&nbsp;:</strong><br />
+&nbsp;IRC&nbsp;:<br />
+&nbsp;&nbsp;serveur <strong>irc.freenode.net</strong><br />
+&nbsp;&nbsp;canal <strong>#postgresqlfr</strong></p>
+
+		    </div></div></div>
+<div class="block block-block" id="block-block-1">
+<div class="pgSideNav">    <h2>Liens</h2>    
+		    <div>
+			<p><small></p>
+<ul>
+<li>
+<a href="http://www.postgresqlfr.org/?q=node/view/162">Adhérer</a>
+</li>
+<li>
+<a href="http://www.postgresqlfr.org/?q=node/473">Faire un don</a>
+</li>
+<li>
+<a href="http://www.postgresqlfr.org/?q=node/163">Consulter les statuts</a>
+</li>
+</ul>
+<ul>
+<li>
+<a href="http://www.postgresql.org/" class="active">Site original<br />
+</a>
+</li>
+<li>
+<a href="http://docs.postgresqlfr.org/" class="active">Site de traduction</a>
+</li>
+<li>
+<a href="http://docs.postgresqlfr.org/8.3/">Doc v.8.3.x fr</a>
+</li>
+<li>
+<a href="http://docs.postgresqlfr.org/8.2/">Doc v.8.2.x fr</a>
+</li>
+<li>
+<a href="http://docs.postgresqlfr.org/8.1/">Doc v.8.1.x fr</a>
+</li>
+<li>
+<a href="http://docs.postgresqlfr.org/8.0/">Doc v.8.0.x fr</a>
+</li>
+<li>
+<a href="http://docs.postgresqlfr.org/7.4/">Doc v.7.4.x fr</a>
+</li>
+<li>
+<a href="http://www.postgis.fr/">PostGIS</a>
+</li>
+<li>
+<a href="http://www.postgresql.org/docs/techdocs">Techdocs</a>
+</li>
+<li>
+<a href="http://www.varlena.com/varlena/GeneralBits/Tidbits/">General TidBits</a>
+</li>
+<p><!--</p>
+<li>
+<a href="http://www.postgresqlfr.org/?q=node/view/58">Version Windows</a>
+</li>
+<p>--></p>
+<li>
+<a href="http://www.postgresqlfr.org/drupal/?q=node/view/63">Témoignages de pros</a>
+</li>
+<li>
+<a href="http://archives.postgresql.org/pgsql-fr-generale/">Liste de diffusion</a>
+</li>
+<li>
+<a href="http://wwwmaster.postgresql.org/download/mirrors-ftp">Télécharger</a>
+</li>
+</ul>
+<p></small></p>
+
+		    </div></div></div>
+<div class="block block-block" id="block-block-2">
+<div class="pgSideNav">    <h2>Recherche</h2>    
+		    <div>
+			<form action="http://drupal.postgresql.fr/?q=search" method="post">
+<div id="search">
+<input class="form-text" type="text" size="15" value="" name="keys" alt="Enter the terms you wish to search for." /><br />
+<input class="form-submit" type="submit" value="Recherche" />
+</div>
+</form>
+
+		    </div></div></div>
+<div class="block block-forum" id="block-forum-0">
+<div class="pgSideNav">    <h2>Sujets du forum</h2>    
+		    <div>
+			<div class="item-list"><h3>Sujets actifs</h3><ul><li><a href="index253f.html?q=node/1742">A LIRE : FERMETURE DES FORUMS DRUPAL</a></li><li><a href="indexfc2e.html?q=node/1739" title="2 commentaires">Problème  avec pg_dump</a></li><li><a href="index97c1.html?q=node/1731" title="5 commentaires">Connexions simultannées</a></li><li><a href="index32d3.html?q=node/1737" title="1 commentaire">Optimisation de la mémoire sous PostgreSQL</a></li><li><a href="index2483.html?q=node/1736" title="3 commentaires">[Résolu] Upgrade Postgre -> types et opérateurs</a></li></ul></div><div class="item-list"><h3>Nouveaux sujets:</h3><ul><li><a href="index253f.html?q=node/1742">A LIRE : FERMETURE DES FORUMS DRUPAL</a></li><li><a href="indexfc2e.html?q=node/1739" title="2 commentaires">Problème  avec pg_dump</a></li><li><a href="index32d3.html?q=node/1737" title="1 commentaire">Optimisation de la mémoire sous PostgreSQL</a></li><li><a href="index2483.html?q=node/1736" title="3 commentaires">[Résolu] Upgrade Postgre -> types et opérateurs</a></li><li><a href="index82c4.html?q=node/1734" title="2 commentaires">[RESOLU] Probleme de connection en odbc</a></li></ul></div><div class="more-link"><a href="index79b7.html?q=forum" title="Lire les derniers sujets.">en lire plus</a></div>
+		    </div></div></div>
+<div class="block block-archive" id="block-archive-0">
+<div class="pgSideNav">    <h2>Accéder aux archives</h2>    
+		    <div>
+			
+<!-- calendar -->
+<div class="calendar"><table summary="Un calendrier pour accéder aux archives.">
+ <caption><a href="index9dfb.html?q=archive/2008/09/12" title="Mois précédent">&laquo;</a> Octobre 2008 &nbsp;</caption>
+ <tr class="header-week">
+ <th abbr="Lundi">Lun</th>
+ <th abbr="Mardi">Mar</th>
+ <th abbr="Mercredi">Mer</th>
+ <th abbr="Jeudi">Jeu</th>
+ <th abbr="Vendredi">Ven</th>
+ <th abbr="Samedi">Sam</th>
+ <th abbr="Dimanche">Dim</th>
+</tr>
+ <tr class="row-week"><td class="day-blank" colspan="2">&nbsp;</td>
+  <td class="day-link"><a href="indexd3e2.html?q=archive/2008/10/1">1</a></td>
+  <td class="day-normal">2</td>
+  <td class="day-normal">3</td>
+  <td class="day-normal">4</td>
+  <td class="day-normal">5</td>
+ </tr>
+ <tr class="row-week">
+  <td class="day-normal">6</td>
+  <td class="day-normal">7</td>
+  <td class="day-normal">8</td>
+  <td class="day-normal">9</td>
+  <td class="day-normal">10</td>
+  <td class="day-normal">11</td>
+  <td class="day-today">12</td>
+ </tr>
+ <tr class="row-week">
+  <td class="day-future">13</td>
+  <td class="day-future">14</td>
+  <td class="day-future">15</td>
+  <td class="day-future">16</td>
+  <td class="day-future">17</td>
+  <td class="day-future">18</td>
+  <td class="day-future">19</td>
+ </tr>
+ <tr class="row-week">
+  <td class="day-future">20</td>
+  <td class="day-future">21</td>
+  <td class="day-future">22</td>
+  <td class="day-future">23</td>
+  <td class="day-future">24</td>
+  <td class="day-future">25</td>
+  <td class="day-future">26</td>
+ </tr>
+ <tr class="row-week">
+  <td class="day-future">27</td>
+  <td class="day-future">28</td>
+  <td class="day-future">29</td>
+  <td class="day-future">30</td>
+  <td class="day-future">31</td>
+  <td class="day-blank" colspan="2">&nbsp;</td>
+ </tr>
+</table></div>
+
+
+		    </div></div></div>
+<div class="block block-node" id="block-node-0">
+<div class="pgSideNav">    <h2>Syndication</h2>    
+		    <div>
+			<div class="xml-icon"><a href="index9637.html?q=rss.xml"><img src="misc/xml.png" width="36" height="14" alt="Flux XML" title="Flux XML" /></a></div>
+		    </div></div></div>
+<div class="block block-poll" id="block-poll-0">
+<div class="pgSideNav">    <h2>Sondage</h2>    
+		    <div>
+			<div class="poll"><div class="title">Quelle est la version de PostgreSQL la plus répandue sur vos serveurs ?</div><div class="text">8.3</div><div class="bar"><div style="width: 10%;" class="foreground"></div></div><div class="percent">10%</div><div class="text">8.2</div><div class="bar"><div style="width: 42%;" class="foreground"></div></div><div class="percent">42%</div><div class="text">8.1</div><div class="bar"><div style="width: 40%;" class="foreground"></div></div><div class="percent">40%</div><div class="text">8.0</div><div class="bar"><div style="width: 2%;" class="foreground"></div></div><div class="percent">2%</div><div class="text">7.4</div><div class="bar"><div style="width: 6%;" class="foreground"></div></div><div class="percent">6%</div><div class="text">7.3 ou antérieure</div><div class="bar"><div style="width: 0%;" class="foreground"></div></div><div class="percent">0%</div><div class="total">Nombre de votes: 48</div></div><div class="links"><a href="index8c57.html?q=node/1426#comment" title="Sauter au premier commentaire de ce message.">3 commentaires</a> | <a href="index729f.html?q=poll" title="Voir la liste des sondages de ce site.">anciens sondages</a></div>
+		    </div></div></div>
+    </td>
+
+      <td style="vertical-align: top; width: 80%"><div class="breadcrumb"><a href="index03d2.html?q=">Accueil</a> &raquo; <a href="index79b7.html?q=forum">forums</a> &raquo; <a href="indexc742.html?q=forum/21">Technique - installation</a></div><h2 class="title">TRACE de migration d'ORACLE vers POSTGRESQL</h2>
+<!-- begin content -->
+
+<!-- node: "TRACE de migration d'ORACLE vers POSTGRESQL" -->
+<!--<div class="pgFrontCenterUser">
+<div class="pgFrontUser">
+<div class="pgFrontUserInner">
+--><div class="pgFrontUserWrap">
+ <div class="pgFrontUserContent">	<h1 class="plop"><a href="indexa016.html?q=taxonomy/term/21">Technique - installation</a> | <a href="indexe9b8.html?q=node/784" class="active">TRACE de migration d'ORACLE vers POSTGRESQL</a></h1>
+		    <p>
+			    Par <a href="indexd35e.html?q=user/1728" title="Voir le profil utilisateur.">maouth</a> le 26/06/2006 - 16:18
+		    </p>	
+			    <p>"voila mes traces sur la migration d'oracle vers postgres si ca peu aider ;) "</p>
+<p>MIGRATION D’UNE BASE ORACLE VERS POSTGRES</p>
+<p>Transfert de la structure de données </p>
+<p>Un outil existe, ora2pg<br />
+Problème rencontré, l’outil a besoin d’une librairie d’oracle, ce qui nécessite une installation d’oracle. (L’accès à l’arborescence des fichiers sur l’ordinateur serveur, n’est pas autorisé) .L’outil peu être intéressant  si l’on a beaucoup de base à transférer.</p>
+<p>Solution retenue,<br />
+Récupération du code SQL oracle (on a utilisé TOAD pour le faire) suivie d’une exécution du code SQL sur postgresql.</p>
+<p>Problèmes rencontrés,<br />
+	-Certain type de données définies dans Oracle ne sont pas à la norme SQL 92. Il faut appliquer les transformations suivantes<br />
+NUMBER ([p[,n]])    NUMERIC<br />
+ 	VARCHAR2 (n BITE)  VARCHAR (n)<br />
+REMARQUE: postgresql traite de la même façon VARCHAR (n) et  VARCHAR ()<br />
+Mais pour rester conforme à la norme il vaut mieux utiliser  VARCHAR (n)</p>
+<p>	-Le code généré par TOAD pour les clés primaires n’est pas à la norme</p>
+<p>Transfert des données </p>
+<p>On a Transféré les données de la même façon grâce au code SQL, la méthode est décrite dans la documentation de postgresql plusieurs solutions sont possible :<br />
+	-Transférer directement avec l’outil PgAdminIII<br />
+	-L’outil psql<br />
+	- etc… voir manuel</p>
+<p>Problèmes rencontrés<br />
+	-L’outil PgAdminIII marche très bien pour de petit fichier, mais pour des fichiers de données plus volumineux (+ de 33 Mo pour nous) l’outil a bogué et le système d’exploitation (Windows) a perdu la main.<br />
+	-L’outil PgAdminIII semble rencontrer quelques problèmes sur l’OS Fédora – GNOME. </p>
+<p>Méthode à suivre avec psql :</p>
+<p>		>psql –U [superuser] –H[hote] [base de données]<br />
+		>>\i [file ]<br />
+		>>\q</p>
+<p>Transfert des fonctions et procédures PL/SQL vers PL/pgSQL </p>
+<p>Cette partie est la moins compatible et la plus longue. L’outil ora2pg ne fait pas la conversion.</p>
+<p>Solution retenue<br />
+Récupération du code SQL oracle (on a utilisé TOAD pour le faire) suivie d’une modification et d’une exécution du code sur postgresql.</p>
+<p>Problèmes rencontrés :<br />
+	-Les langages ne sont pas vraiment identiques.<br />
+	-Les déclarations de fonction et de procédure ne sont pas identiques   	</p>
+<p>(1) lors de la déclaration de fonction :</p>
+<p>	-Les types de données retournées sont déclarés par RETURNS<br />
+ 	RETURN  RETURNS</p>
+<p>-Les procédures n’existent pas en pl/pgsql, elles sont remplacées par des fonctions qui ont pour type de retour void<br />
+CREATE OR REPLACE PROCEDURE CALCUL_DONNEES<br />
+  <br />
+CREATE OR REPLACE FUNCTION CALCUL_DONNEES () RETURNS VOID</p>
+<p>	-Conversion des types de donnés oracles par des types normés SQL</p>
+<p>-Le ‘IS’ d’oracle pour déclarer le corps de la fonction devient AS lors de la déclaration du code pl/pgsql de la fonction  </p>
+<p>-Le corps du code pl/pgsql est défini entre deux doubles dollars<br />
+$$<br />
+[Corps]<br />
+$$   </p>
+<p>- Comme il existe d’autres langages gérés par postgresql on doit spécifier le langage utilisé par une déclaration LANGUAGE 'plpgsql' ; après les deux doubles dollars de la fin du corps.<br />
+NB : j’ai pas réussi a récupérer les labels<br />
+On remplacera donc :<br />
+END [nom_de_la_fonction];/     END ;$$ LANGUAGE 'plpgsql';</p>
+<p>(2) lors de la déclaration du corps de la fonction : </p>
+<p>-toutes les variables utilisées doivent être déclarées avant le début de BEGIN et doivent être précédées par DECLARE</p>
+<p>-les appels de fonctions ne sont pas implicite il faut les appeler avec le mot réservé PERFORM<br />
+Pour les procédures. (Pour les fonctions a voir)  </p>
+<p>-les fonctions de conversions prennent un deuxième paramètre, définissent le format d’entrer.<br />
+Exemple : TO_NUMBER(text , ‘…’) ; -- (voir documentation sur les formats)</p>
+<p>LES CURSEURS :</p>
+<p>-Les curseurs ne doivent pas être déclaré après la balise DECLARE mais à l’ouverture du curseur. Afin d’éviter lors d’appel successif de procédures de lancer une erreur si deux curseurs ont le même nom.<br />
+Code pgsql :<br />
+On déclarera une référence à ce curseur.</p>
+<p>DECLARE …<br />
+CURS_DONNEES REFCURSOR;  </p>
+<p>Lors de l’ouverture d’un curseur<br />
+	BEGIN …<br />
+OPEN CURS_DONNEES FOR<br />
+	 	   ‘Request’; </p>
+<p>code oracle:<br />
+CURSOR Curs_Stations_Enreg IS<br />
+	 	   SELECT DISTINCT idst FROM DONNEES_QUOT WHERE ETAT='2';<br />
+…<br />
+BEGIN<br />
+…<br />
+OPEN Curs_Stations_Enreg;</p>
+<p>-Les déclarations des variables d’enregistrement doivent être remplacées de la façon suivante :<br />
+enregStations Curs_Stations_Enreg%ROWTYPE;<br />
+<br />
+enregStations RECORD;</p>
+<p>LES FETCH s:<br />
+IL faut remplacer les %NOTFOUND par NOT FOUND<br />
+Attention FOUND est un état utilisé par plusieurs commandes, il faut faire le test de préférence juste après le FETCH  pour éviter des problèmes liés au changement d’état.<br />
+Exemple :<br />
+FETCH Curs_Stations_Enreg INTO enregStations;<br />
+EXIT WHEN Curs_Stations_Enreg%NOTFOUND;<br />
+	<br />
+FETCH Curs_Stations_Enreg INTO enregStations;<br />
+EXIT WHEN NOT FOUND;</p>
+<!--hr /--><div class="contentsLink">[ <a href="index1bad.html?q=node/372" title="mise à jour postgresql 8.0.3 sous mandrake 10.1">sujet précédent</a> | <a href="index3ce1.html?q=node/841" title="Postgresql le service ne demarre pas">sujet suivant</a> ]</div>
+		     </div></div>
+<!--</div>
+</div>
+</div>
+</div> -->
+<a id="comment"></a>
+<form method="post" action="http://drupal.postgresql.fr/?q=comment"><div>
+<div class="pgSideNav">    <h2>Options d'affichage des commentaires</h2>    
+		    <div>
+			<div class="form-item">
+ <select name="mode"> <option value="1">A plat - replié</option>
+ <option value="2">A plat - déplié</option>
+ <option value="3">Par discussions - replié</option>
+ <option value="4" selected="selected">Par discussions - déplié</option>
+</select>
+<select name="order"> <option value="1">Date - récents en premier</option>
+ <option value="2" selected="selected">Date - anciens en premier</option>
+</select>
+<select name="comments_per_page"> <option value="10">10 commentaires par page</option> <option value="30">30 commentaires par page</option> <option value="50" selected="selected">50 commentaires par page</option> <option value="70">70 commentaires par page</option> <option value="90">90 commentaires par page</option></select>
+<input type="hidden" name="threshold" value="0" />
+ <input type="submit" class="form-submit" name="op" value="Sauvegarder les paramètres"  />
+
+ <div class="description">Sélectionnez la méthode d'affichage des commentaires que vous préférez, puis cliquez sur "Sauvegarder les paramètres" pour activer vos changements.</div>
+</div>
+
+		    </div></div><input type="hidden" name="edit[nid]" value="784" />
+</div></form><form method="post" action="http://drupal.postgresql.fr/?q=comment"><div>
+<input type="hidden" name="edit[nid]" value="784" />
+<a id="comment-1103"></a>
+<div class="pgContentWrap"><h1 id="txtFrontFeatureHeading">Les versions</h1>
+		<p>
+		    <b><a href="indexb3f1.html?q=user/1013" title="Voir le profil utilisateur.">sparky</a></b>/ = 27 Juin, 2006 - 12:08
+		</p>
+		<p>
+		    <p>J'aurais aimé savoir quelle version d'oracle vers quelle version de Postgresql.</p>
+<p>Autre question pourquoi ne pas faire ceci pour executer les scripts ?</p>
+<p>pqsl -U user -H host BASE_DE_DONNE -a -f script.sql  -o script.log </p>
+<br /><!--hr /--><div class="contentsLink">[ Vous devez <a href="index7992.html?q=user/login">vous connecter</a> pour poster des commentaires ]</div>
+		</p></div><a id="comment-1120"></a>
+<div class="pgContentWrap"><h1 id="txtFrontFeatureHeading">les versions:
+Oracle : 9 
+P</h1>
+		<p>
+		    <b><a href="indexd35e.html?q=user/1728" title="Voir le profil utilisateur.">maouth</a></b>/ = 29 Juin, 2006 - 19:43
+		</p>
+		<p>
+		    <p>les versions:<br />
+Oracle : 9<br />
+Postgres : 8.1</p>
+<p>pour pqsl : parceque ca marche lol<br />
+sinon ce n'est pas sur le transfert des données ou des tables<br />
+qu'il y a des pb ,<br />
+les vrai problémes ce sont les procedures stocker<br />
+trigger et compagnie avec pl/pgsql<br />
+et les oracleries :D</p>
+<p>j'ai posté ces traces car je n'ai trouvé de thread sur le sujet des migrations et la doc est légére sur ce sujet .<br />
+et je pense qu'une grande parti des migrations viennent de Oracle    ;)</p>
+<br /><!--hr /--><div class="contentsLink">[ Vous devez <a href="index7992.html?q=user/login">vous connecter</a> pour poster des commentaires ]</div>
+		</p></div><a id="comment-1782"></a>
+<div class="pgContentWrap"><h1 id="txtFrontFeatureHeading">Moi aussi, je cherche toujour</h1>
+		<p>
+		    <b><a href="index9dd2.html?q=user/2338" title="Voir le profil utilisateur.">Bawttu</a></b>/ = 16 Mars, 2007 - 17:04
+		</p>
+		<p>
+		    <p>Moi aussi, je cherche toujours comment transférer les procédures Oracle vers Postgre   Oracle 817   PostgreSQL 8.2 </p>
+<br /><!--hr /--><div class="contentsLink">[ Vous devez <a href="index7992.html?q=user/login">vous connecter</a> pour poster des commentaires ]</div>
+		</p></div><a id="comment-1783"></a>
+<div class="pgContentWrap"><h1 id="txtFrontFeatureHeading">Bonjour
+
+Je vous conseille </h1>
+		<p>
+		    <b><a href="index0b33.html?q=user/22" title="Voir le profil utilisateur.">Christophe Chauvet</a></b>/ = 16 Mars, 2007 - 17:57
+		</p>
+		<p>
+		    <p>Bonjour</p>
+<p>Je vous conseille d'utiliser Ora2Pg, la partie requise pour oracle est la partie cliente, et peut être installer sur un autre poste que le serveur.</p>
+<p>il faudra juste configurer le fichier TNSNAME.ORA pour qu'il pointe vers le serveur Oracle.</p>
+<p>Cordialement.</p>
+<p>Christophe Chauvet<br />
+<a href="http://kryskool.org/" target="_blank">KrysKool.org</a></p>
+<br /><!--hr /--><div class="contentsLink">[ Vous devez <a href="index7992.html?q=user/login">vous connecter</a> pour poster des commentaires ]</div>
+		</p></div></div></form>
+<!-- end content -->
+              </td>
+
+    </tr>
+    <tr><td colspan="2">
+
+		<div class="pgTopNav">
+		   <div class="pgTopNavLeft"> 
+		     <img src="layout/images/nav_lft.png" width="7" height="23" alt="" />
+		   </div>
+		   <div class="pgTopNavRight">
+		    <img src="layout/images/nav_rgt.png" width="7" height="23" alt="" />
+		  </div>
+		  <!--<ul class="pgTopNavList">-->
+		  <ul class="pgTopNavList">
+		   <li><a href="index03d2.html?q=" title="Retourner à la page principale.">accueil</a> </li>
+		   <li> <a href="indexf6e5.html?q=archive" title="Lire le contenu plus ancien dans notre archive.">archives</a> </li>
+		   <li> <a href="index71c4.html?q=blog" title="Lire les blogues les plus récents.">blogues</a> </li>
+
+		   <li> <a href="indexf6fe.html?q=book" title="Lire et contribuer aux livres collaboratifs.">livres</a> </li>
+		   <li> <a href="index79b7.html?q=forum">forums</a> </li>
+		   <li> <a href="index729f.html?q=poll" title="Voir la liste des sondages de ce site.">sondages</a> </li>
+		   <li> <a href="index4404.html?q=search" title="Chercher pour du contenu plus vieux.">recherche</a></li><li><a href="http://docs.postgresqlfr.org/" target="_blank">documentation </a></li>
+
+		  </ul>
+
+<!--
+		   <li><a href="?q=" title="Retourner à la page principale.">accueil</a> </li>
+		   <li> <a href="?q=archive" title="Lire le contenu plus ancien dans notre archive.">archives</a> </li>
+		   <li> <a href="?q=blog" title="Lire les blogues les plus récents.">blogues</a> </li>
+		   <li> <a href="?q=book" title="Lire et contribuer aux livres collaboratifs.">livres</a> </li>
+		   <li> <a href="?q=forum">forums</a> </li>
+		   <li> <a href="?q=poll" title="Voir la liste des sondages de ce site.">sondages</a> </li>
+		   <li> <a href="?q=search" title="Chercher pour du contenu plus vieux.">recherche</a></li><li><a href="http://docs.postgresqlfr.org/" target="_blank">documentation </a></li>
+-->
+		  </ul>
+	        </div>
+    </td></tr>
+   </table>
+   <p style="text-align: center;">&copy;&nbsp;PostgreSQLFr, tous droits réservés.<br>
+Site déclaré à la CNIL sous le numéro 1074678, conformément à la Loi en vigueur.
+</p>
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-3921927-1");
+pageTracker._initData();
+pageTracker._trackPageview();
+</script>
+<p></p>
+   
+</body>
+
+<!-- Mirrored from drupal.postgresql.fr/?q=node/784 by HTTrack Website Copier/3.x [XR&CO'2006], Sun, 12 Oct 2008 17:21:00 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+</html>

@@ -1,0 +1,675 @@
+
+<!DOCTYPE
+ html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+ <html>
+ <!-- $Date: 2005/08/30 07:54:43 $ / $Revision: 1.29 $ / Last Theme Editor :$Author: jx $-->
+  
+<!-- Mirrored from drupal.postgresql.fr/?q=node/653 by HTTrack Website Copier/3.x [XR&CO'2006], Sun, 12 Oct 2008 17:23:13 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<base  />
+<style type="text/css" media="all">@import "misc/drupal.css";</style>
+   <title>Pb connection à une base de données : enregistrements lockés?? - PostgreSQLFr</title>
+ <style type="text/css" media="screen" title="Normal Text">
+    @import url("layout/css/blue/fixed.css");
+    @import url(_guillaume/dotclear/themes/postgresql/style.html);
+ </style>
+ <style type="text/css" media="screen" title="Normal Text2">
+    @import url("layout/css/blue/pgfr.css");
+    @import url(_guillaume/dotclear/themes/postgresql/style.html);
+ </style>
+   </head>
+   <body>
+    <table border="0" cellspacing="5" cellpadding="0" width="100%">
+     <tr>
+      <!--td colspan="2" width="100%"-->
+      <td colspan="2">
+      <!-- Head -->
+       <table border="0" cellspacing="0" cellpadding="0" width="100%">
+        <tr>
+	 <td align="left">
+           <div id="pgHeader">
+	    <div id="pgHeaderLogoLeft">
+	     <a href="index.html" title="PostgreSQL"><img src="layout/images/hdr_left.png" width="230" height="80" alt="PostgreSQL" /></a>
+	    </div>
+	    <div id="pgHeaderLogoRight">
+	     <a href="index.html" title="La base de donn�es la plus sophistiqu�e au monde."><img src="layout/images/hdr_right.png" width="210" height="80" alt="La base de donn�es la plus sophistiqu�e au monde." /></a>
+	    </div>
+	   </div>
+         </td>
+	 <td align="right">
+         </td>
+	</tr>
+      </table> <!-- Head -->
+      <br />
+      <table border="0" cellspacing="0" cellpadding="0" width="100%">
+              <tr>
+	      	 <td align="left">
+
+		<div class="pgTopNav">
+		   <div class="pgTopNavLeft"> 
+		     <img src="layout/images/nav_lft.png" width="7" height="23" alt="" />
+		   </div>
+		   <div class="pgTopNavRight">
+		    <img src="layout/images/nav_rgt.png" width="7" height="23" alt="" />
+		  </div>
+		  <!--<ul class="pgTopNavList">-->
+		  <ul class="pgTopNavList">
+		   <li><a href="index03d2.html?q=" title="Retourner à la page principale.">accueil</a> </li>
+		   <li> <a href="indexf6e5.html?q=archive" title="Lire le contenu plus ancien dans notre archive.">archives</a> </li>
+		   <li> <a href="index71c4.html?q=blog" title="Lire les blogues les plus récents.">blogues</a> </li>
+
+		   <li> <a href="indexf6fe.html?q=book" title="Lire et contribuer aux livres collaboratifs.">livres</a> </li>
+		   <li> <a href="index79b7.html?q=forum">forums</a> </li>
+		   <li> <a href="index729f.html?q=poll" title="Voir la liste des sondages de ce site.">sondages</a> </li>
+		   <li> <a href="index4404.html?q=search" title="Chercher pour du contenu plus vieux.">recherche</a></li><li><a href="http://docs.postgresqlfr.org/" target="_blank">documentation </a></li>
+
+		  </ul>
+
+<!--
+		   <li><a href="?q=" title="Retourner à la page principale.">accueil</a> </li>
+		   <li> <a href="?q=archive" title="Lire le contenu plus ancien dans notre archive.">archives</a> </li>
+		   <li> <a href="?q=blog" title="Lire les blogues les plus récents.">blogues</a> </li>
+		   <li> <a href="?q=book" title="Lire et contribuer aux livres collaboratifs.">livres</a> </li>
+		   <li> <a href="?q=forum">forums</a> </li>
+		   <li> <a href="?q=poll" title="Voir la liste des sondages de ce site.">sondages</a> </li>
+		   <li> <a href="?q=search" title="Chercher pour du contenu plus vieux.">recherche</a></li><li><a href="http://docs.postgresqlfr.org/" target="_blank">documentation </a></li>
+-->
+		  </ul>
+	        </div>
+		</td>
+		</tr>
+		</table>
+      </td>
+     </tr>
+     <tr>
+    <td style="vertical-align: top; width: 20%;">
+<div class="block block-user" id="block-user-0">
+<div class="pgSideNav">    <h2>Ouverture de session</h2>    
+		    <div>
+			<form action="http://drupal.postgresql.fr/?q=user/login" method="post">
+<div class="user-login-block">
+<input type="hidden" name="edit[destination]" value="node/653" />
+<div class="form-item">
+ <label for="edit-name">Nom d'utilisateur:</label><br />
+ <input type="text" maxlength="64" class="form-text" name="edit[name]" id="edit-name" size="15" value="" />
+</div>
+<div class="form-item">
+ <label for="edit-pass">Mot de passe:</label><br />
+ <input type="password" class="form-password" maxlength="64" name="edit[pass]" id="edit-pass" size="15" value="" />
+</div>
+<input type="submit" class="form-submit" name="op" value="Identification"  />
+</div>
+
+</form>
+<div class="item-list"><ul><li><a href="indexc12c.html?q=user/password" title="Demander un nouveau mot de passe par e-mail.">Demander un nouveau mot de passe</a></li></ul></div>
+		    </div></div></div>
+<div class="block block-user" id="block-user-1">
+<div class="pgSideNav">    <h2>Navigation</h2>    
+		    <div>
+			<div class="menu">
+<ul>
+<li class="leaf"><a href="indexa499.html?q=tracker">messages récents</a></li>
+
+</ul>
+</div>
+		    </div></div></div>
+<div class="block block-block" id="block-block-4">
+<div class="pgSideNav">    <h2>Contactez-nous</h2>    
+		    <div>
+			<p><strong>Administration du site&nbsp;:</strong><br />
+"equipe chez postgresqlfr point org"<br><br />
+<strong>Contact presse&nbsp;:</strong><br />
+"fr chez postgresql point org"<br><br />
+<strong>Contact association&nbsp;:</strong><br />
+"bureau chez postgresqlfr point org"<br><br />
+<strong>Questions PostgreSQL&nbsp;:</strong><br />
+&nbsp;IRC&nbsp;:<br />
+&nbsp;&nbsp;serveur <strong>irc.freenode.net</strong><br />
+&nbsp;&nbsp;canal <strong>#postgresqlfr</strong></p>
+
+		    </div></div></div>
+<div class="block block-block" id="block-block-1">
+<div class="pgSideNav">    <h2>Liens</h2>    
+		    <div>
+			<p><small></p>
+<ul>
+<li>
+<a href="http://www.postgresqlfr.org/?q=node/view/162">Adhérer</a>
+</li>
+<li>
+<a href="http://www.postgresqlfr.org/?q=node/473">Faire un don</a>
+</li>
+<li>
+<a href="http://www.postgresqlfr.org/?q=node/163">Consulter les statuts</a>
+</li>
+</ul>
+<ul>
+<li>
+<a href="http://www.postgresql.org/" class="active">Site original<br />
+</a>
+</li>
+<li>
+<a href="http://docs.postgresqlfr.org/" class="active">Site de traduction</a>
+</li>
+<li>
+<a href="http://docs.postgresqlfr.org/8.3/">Doc v.8.3.x fr</a>
+</li>
+<li>
+<a href="http://docs.postgresqlfr.org/8.2/">Doc v.8.2.x fr</a>
+</li>
+<li>
+<a href="http://docs.postgresqlfr.org/8.1/">Doc v.8.1.x fr</a>
+</li>
+<li>
+<a href="http://docs.postgresqlfr.org/8.0/">Doc v.8.0.x fr</a>
+</li>
+<li>
+<a href="http://docs.postgresqlfr.org/7.4/">Doc v.7.4.x fr</a>
+</li>
+<li>
+<a href="http://www.postgis.fr/">PostGIS</a>
+</li>
+<li>
+<a href="http://www.postgresql.org/docs/techdocs">Techdocs</a>
+</li>
+<li>
+<a href="http://www.varlena.com/varlena/GeneralBits/Tidbits/">General TidBits</a>
+</li>
+<p><!--</p>
+<li>
+<a href="http://www.postgresqlfr.org/?q=node/view/58">Version Windows</a>
+</li>
+<p>--></p>
+<li>
+<a href="http://www.postgresqlfr.org/drupal/?q=node/view/63">Témoignages de pros</a>
+</li>
+<li>
+<a href="http://archives.postgresql.org/pgsql-fr-generale/">Liste de diffusion</a>
+</li>
+<li>
+<a href="http://wwwmaster.postgresql.org/download/mirrors-ftp">Télécharger</a>
+</li>
+</ul>
+<p></small></p>
+
+		    </div></div></div>
+<div class="block block-block" id="block-block-2">
+<div class="pgSideNav">    <h2>Recherche</h2>    
+		    <div>
+			<form action="http://drupal.postgresql.fr/?q=search" method="post">
+<div id="search">
+<input class="form-text" type="text" size="15" value="" name="keys" alt="Enter the terms you wish to search for." /><br />
+<input class="form-submit" type="submit" value="Recherche" />
+</div>
+</form>
+
+		    </div></div></div>
+<div class="block block-forum" id="block-forum-0">
+<div class="pgSideNav">    <h2>Sujets du forum</h2>    
+		    <div>
+			<div class="item-list"><h3>Sujets actifs</h3><ul><li><a href="index253f.html?q=node/1742">A LIRE : FERMETURE DES FORUMS DRUPAL</a></li><li><a href="indexfc2e.html?q=node/1739" title="2 commentaires">Problème  avec pg_dump</a></li><li><a href="index97c1.html?q=node/1731" title="5 commentaires">Connexions simultannées</a></li><li><a href="index32d3.html?q=node/1737" title="1 commentaire">Optimisation de la mémoire sous PostgreSQL</a></li><li><a href="index2483.html?q=node/1736" title="3 commentaires">[Résolu] Upgrade Postgre -> types et opérateurs</a></li></ul></div><div class="item-list"><h3>Nouveaux sujets:</h3><ul><li><a href="index253f.html?q=node/1742">A LIRE : FERMETURE DES FORUMS DRUPAL</a></li><li><a href="indexfc2e.html?q=node/1739" title="2 commentaires">Problème  avec pg_dump</a></li><li><a href="index32d3.html?q=node/1737" title="1 commentaire">Optimisation de la mémoire sous PostgreSQL</a></li><li><a href="index2483.html?q=node/1736" title="3 commentaires">[Résolu] Upgrade Postgre -> types et opérateurs</a></li><li><a href="index82c4.html?q=node/1734" title="2 commentaires">[RESOLU] Probleme de connection en odbc</a></li></ul></div><div class="more-link"><a href="index79b7.html?q=forum" title="Lire les derniers sujets.">en lire plus</a></div>
+		    </div></div></div>
+<div class="block block-archive" id="block-archive-0">
+<div class="pgSideNav">    <h2>Accéder aux archives</h2>    
+		    <div>
+			
+<!-- calendar -->
+<div class="calendar"><table summary="Un calendrier pour accéder aux archives.">
+ <caption><a href="index9dfb.html?q=archive/2008/09/12" title="Mois précédent">&laquo;</a> Octobre 2008 &nbsp;</caption>
+ <tr class="header-week">
+ <th abbr="Lundi">Lun</th>
+ <th abbr="Mardi">Mar</th>
+ <th abbr="Mercredi">Mer</th>
+ <th abbr="Jeudi">Jeu</th>
+ <th abbr="Vendredi">Ven</th>
+ <th abbr="Samedi">Sam</th>
+ <th abbr="Dimanche">Dim</th>
+</tr>
+ <tr class="row-week"><td class="day-blank" colspan="2">&nbsp;</td>
+  <td class="day-link"><a href="indexd3e2.html?q=archive/2008/10/1">1</a></td>
+  <td class="day-normal">2</td>
+  <td class="day-normal">3</td>
+  <td class="day-normal">4</td>
+  <td class="day-normal">5</td>
+ </tr>
+ <tr class="row-week">
+  <td class="day-normal">6</td>
+  <td class="day-normal">7</td>
+  <td class="day-normal">8</td>
+  <td class="day-normal">9</td>
+  <td class="day-normal">10</td>
+  <td class="day-normal">11</td>
+  <td class="day-today">12</td>
+ </tr>
+ <tr class="row-week">
+  <td class="day-future">13</td>
+  <td class="day-future">14</td>
+  <td class="day-future">15</td>
+  <td class="day-future">16</td>
+  <td class="day-future">17</td>
+  <td class="day-future">18</td>
+  <td class="day-future">19</td>
+ </tr>
+ <tr class="row-week">
+  <td class="day-future">20</td>
+  <td class="day-future">21</td>
+  <td class="day-future">22</td>
+  <td class="day-future">23</td>
+  <td class="day-future">24</td>
+  <td class="day-future">25</td>
+  <td class="day-future">26</td>
+ </tr>
+ <tr class="row-week">
+  <td class="day-future">27</td>
+  <td class="day-future">28</td>
+  <td class="day-future">29</td>
+  <td class="day-future">30</td>
+  <td class="day-future">31</td>
+  <td class="day-blank" colspan="2">&nbsp;</td>
+ </tr>
+</table></div>
+
+
+		    </div></div></div>
+<div class="block block-node" id="block-node-0">
+<div class="pgSideNav">    <h2>Syndication</h2>    
+		    <div>
+			<div class="xml-icon"><a href="index9637.html?q=rss.xml"><img src="misc/xml.png" width="36" height="14" alt="Flux XML" title="Flux XML" /></a></div>
+		    </div></div></div>
+<div class="block block-poll" id="block-poll-0">
+<div class="pgSideNav">    <h2>Sondage</h2>    
+		    <div>
+			<div class="poll"><div class="title">Quelle est la version de PostgreSQL la plus répandue sur vos serveurs ?</div><div class="text">8.3</div><div class="bar"><div style="width: 10%;" class="foreground"></div></div><div class="percent">10%</div><div class="text">8.2</div><div class="bar"><div style="width: 42%;" class="foreground"></div></div><div class="percent">42%</div><div class="text">8.1</div><div class="bar"><div style="width: 40%;" class="foreground"></div></div><div class="percent">40%</div><div class="text">8.0</div><div class="bar"><div style="width: 2%;" class="foreground"></div></div><div class="percent">2%</div><div class="text">7.4</div><div class="bar"><div style="width: 6%;" class="foreground"></div></div><div class="percent">6%</div><div class="text">7.3 ou antérieure</div><div class="bar"><div style="width: 0%;" class="foreground"></div></div><div class="percent">0%</div><div class="total">Nombre de votes: 48</div></div><div class="links"><a href="index8c57.html?q=node/1426#comment" title="Sauter au premier commentaire de ce message.">3 commentaires</a> | <a href="index729f.html?q=poll" title="Voir la liste des sondages de ce site.">anciens sondages</a></div>
+		    </div></div></div>
+    </td>
+
+      <td style="vertical-align: top; width: 80%"><div class="breadcrumb"><a href="index03d2.html?q=">Accueil</a> &raquo; <a href="index79b7.html?q=forum">forums</a> &raquo; <a href="index0561.html?q=forum/10">Technique - général</a></div><h2 class="title">Pb connection à une base de données : enregistrements lockés??</h2>
+<!-- begin content -->
+
+<!-- node: "Pb connection à une base de données : enregistrements lockés??" -->
+<!--<div class="pgFrontCenterUser">
+<div class="pgFrontUser">
+<div class="pgFrontUserInner">
+--><div class="pgFrontUserWrap">
+ <div class="pgFrontUserContent">	<h1 class="plop"><a href="indexea60.html?q=taxonomy/term/10">Technique - général</a> | <a href="index9653.html?q=node/653" class="active">Pb connection à une base de données : enregistrements lockés??</a></h1>
+		    <p>
+			    Par <a href="indexf94e.html?q=user/854" title="Voir le profil utilisateur.">moneyboss</a> le 03/04/2006 - 19:09
+		    </p>	
+			    <p>Bonjour,</p>
+<p>Je rencontre des pb similaires à p.muck qui a posté un sujet au sujet d'enregistrements lockés.</p>
+<p>Configuration serveur SGBD : serveur Red Hat ( noyau 2.4.18-14 ) Postgres 7.2.2</p>
+<p>J'ai 5 postes clients qui viennent enregistrer des évènements dans 3 tables de la base de ce serveur.</p>
+<p>Par rapport à cette configuration, je rencontre 2 pbs majeurs :</p>
+<p>1> Le phénomène a commencé il y a un an et demi peut de temps après la mise en service de l'installation . J'ai remarqué lorsque l' 1 des tables contenaient à peu<br />
+près 1 millions d'enregistrements, s'il y avait un flux d'informations plus important que d'habitude ( suite à une relance d'un des 5 postes par ex ), le poste client ne pouvait plus enregistrer dans cette table ( messages d'erreurs inconnus par le pilote JDBC voir timeout ). En faisant un top sur le serveur, il y avait un nombre trop important de taches postmaster ( entre 15 et 20 ). Le seul moyen que j'avais trouvé à l'époque pour que le poste client puisse enregister à nouveau dans la table était de supprimer un grd nombre d'enregistrements de la table ( et de les sauvegarder dans une autre ) puis de relancer le service postgres. Si la table était de taille raisonnable ( < 600 000 ) je n'avais aucun pb lors de relance de mes postes. Pourant j'ai relancé ces 5 machines pendant 4 mois tous les 15 jours.</p>
+<p>2> Mon 2ème pb arrive seulement maintenant. Suite à une mise à jour de mon application , j'ai relancé mes 5 postes clients. Malgré que la taille de ma table soit très raisonnable ( 500 000 enregistrements ), toutes mes machines ne peuvent plus enregistrées. Mon serveur est à fond ( entre 15 et 20 taches postmaster ). La seule chose qui est changée depuis un an et demi c'est la taille de ma base. En effet, j'aavais initialement 3 tables qui devaient conserver des données pendant 3 mois. Suite au pb précédemment évoqué, chaque mois on a supprimé les données de la table qui est très importante pour la remettre dans une autre table. Ce qui fait qu'aujourd'hui je me retrouve dans ma base avec 2 tables contenant à peine 10 enregistrements et entre 15 et 20 tables de 500 000 enregistrements. Et je pense que c'est de là que vient mon pb.</p>
+<p>Par rapport à ces 2 anomalies constatés, je sollicite votre aide pour m'aider à diagnostiquer et corriger la ou les erreurs :</p>
+<p>- Est-ce un pb de capcaité de table de postgres ou autre ?<br />
+- Est-ce un pb de lock sur la table et comment puis je le savoir ?<br />
+- Est-ce mon applicatif qui ferme mal ses connections avec postgres?</p>
+<p>Merci d'avance pour votre aide</p>
+<!--hr /--><div class="contentsLink">[ <a href="indexaaac.html?q=node/965" title="Cohabitation avec MySQL">sujet précédent</a> | <a href="index6c30.html?q=node/1399" title="Index sensible à la casse">sujet suivant</a> ]</div>
+		     </div></div>
+<!--</div>
+</div>
+</div>
+</div> -->
+<a id="comment"></a>
+<form method="post" action="http://drupal.postgresql.fr/?q=comment"><div>
+<div class="pgSideNav">    <h2>Options d'affichage des commentaires</h2>    
+		    <div>
+			<div class="form-item">
+ <select name="mode"> <option value="1">A plat - replié</option>
+ <option value="2">A plat - déplié</option>
+ <option value="3">Par discussions - replié</option>
+ <option value="4" selected="selected">Par discussions - déplié</option>
+</select>
+<select name="order"> <option value="1">Date - récents en premier</option>
+ <option value="2" selected="selected">Date - anciens en premier</option>
+</select>
+<select name="comments_per_page"> <option value="10">10 commentaires par page</option> <option value="30">30 commentaires par page</option> <option value="50" selected="selected">50 commentaires par page</option> <option value="70">70 commentaires par page</option> <option value="90">90 commentaires par page</option></select>
+<input type="hidden" name="threshold" value="0" />
+ <input type="submit" class="form-submit" name="op" value="Sauvegarder les paramètres"  />
+
+ <div class="description">Sélectionnez la méthode d'affichage des commentaires que vous préférez, puis cliquez sur "Sauvegarder les paramètres" pour activer vos changements.</div>
+</div>
+
+		    </div></div><input type="hidden" name="edit[nid]" value="653" />
+</div></form><form method="post" action="http://drupal.postgresql.fr/?q=comment"><div>
+<input type="hidden" name="edit[nid]" value="653" />
+<a id="comment-863"></a>
+<div class="pgContentWrap"><h1 id="txtFrontFeatureHeading">Bonsoir
+
+Avez vous modfier </h1>
+		<p>
+		    <b><a href="index0b33.html?q=user/22" title="Voir le profil utilisateur.">Christophe Chauvet</a></b>/ = 5 Avril, 2006 - 21:05
+		</p>
+		<p>
+		    <p>Bonsoir</p>
+<p>Avez vous modfier la configuration de PostgreSQL ou du kernel ?
+<p>Est-ce un pb de capcaité de table de postgres ou autre ?</p>
+Je ne pense pas
+<p>- Est-ce un pb de lock sur la table et comment puis je le savoir ?</p>
+Peut être mais visiblement il n'est pas déclenché par votre applicatif.
+<p>- Est-ce mon applicatif qui ferme mal ses connections avec postgres?</p>
+un <b>ps</b> devrait vous indiquer le nombre de connection effectué, regardez également avec <b>netstat</b>.</p>
+<p>Autre question, est ce que des VACUUM sont éffectués? si oui à quel fréquence.</p>
+<p>Cordialement.</p>
+<p>Christophe Chauvet<br />
+http://kryskool.org/</p>
+<br /><!--hr /--><div class="contentsLink">[ Vous devez <a href="index7992.html?q=user/login">vous connecter</a> pour poster des commentaires ]</div>
+		</p></div><div style="margin-left:25px;">
+<a id="comment-864"></a>
+<div class="pgContentWrap"><h1 id="txtFrontFeatureHeading">Bonsoir,
+
+Merci de vous pen</h1>
+		<p>
+		    <b><a href="indexf94e.html?q=user/854" title="Voir le profil utilisateur.">moneyboss</a></b>/ = 5 Avril, 2006 - 21:25
+		</p>
+		<p>
+		    <p>Bonsoir,</p>
+<p>Merci de vous pencher sur mon problème.</p>
+<p>Je n'ai effectué de modif de configuration de postgres  ou du kernel. J'ai juste moidifier la variable tcp-ip dans le fichier de conf.</p>
+<p>Je n'ai jamais effectuer un ps lorsque j'ai ce type de pb. Je l'ai fait en temps normal et je constate que postgres relache certains process quand il le veut. Normalement on devrait voir un process par poste qui émet une requete et celui-ci devrait disparaitre juste apres. Ce n'est pas tout le temps le cas. On dirait qu'il garde un process permanent avec chaque poste.Est-ce lié au driber jdbc ??</p>
+<p>Un VACUUM est effectué chaque debut de mois lorsque je suprrime les données du mois précédent.</p>
+<p>Merci d'avance</p>
+<p>Cordialement</p>
+<br /><!--hr /--><div class="contentsLink">[ Vous devez <a href="index7992.html?q=user/login">vous connecter</a> pour poster des commentaires ]</div>
+		</p></div></div>
+<div style="margin-left:25px;">
+<a id="comment-867"></a>
+<div class="pgContentWrap"><h1 id="txtFrontFeatureHeading">Bonsoir, fais-tu régulièrem</h1>
+		<p>
+		    <b><a href="indexb3f1.html?q=user/1013" title="Voir le profil utilisateur.">sparky</a></b>/ = 6 Avril, 2006 - 21:09
+		</p>
+		<p>
+		    <p>Bonsoir, fais-tu régulièrement fonctionner le pg_vacuum ??? Si tu as assez de place disque, tu pourrais installer une nouvelle version de Postgresql, changer dans un autre répertoire et avec un port. Puis faire<br />
+la migration avec :<br />
+/vers_version7/pg_dump |/vers_version8/pg_restore (il manque les options), arrêter la version 7, changer le port de la 8  et  la tester.</p>
+<p>Sinon tu as des vues comme pg_xxxx qui te permettent de voir ce qui se passe</p>
+<br /><!--hr /--><div class="contentsLink">[ Vous devez <a href="index7992.html?q=user/login">vous connecter</a> pour poster des commentaires ]</div>
+		</p></div></div>
+<div style="margin-left:50px;">
+<a id="comment-868"></a>
+<div class="pgContentWrap"><h1 id="txtFrontFeatureHeading">Bonjour,
+
+J'effectue comme </h1>
+		<p>
+		    <b><a href="indexf94e.html?q=user/854" title="Voir le profil utilisateur.">moneyboss</a></b>/ = 7 Avril, 2006 - 10:42
+		</p>
+		<p>
+		    <p>Bonjour,</p>
+<p>J'effectue comme je l'ai dit auparavant un VACUUM chaque début de mois après suppression des données. Je pense que cette commande est la même que pg_vacuum.</p>
+<p>Je ne sais pas si la migration en version 8 arrangerait mon pb Tout d'abord il faudrait que je migre mon os red hat, que je m'assure qu'ensuite mon ancienne ppli fonctionne bien. Il faut que j'installe ensuite postgresql 8. et que je fasse des tests de non regression pour voir si la nouvelle version du driver jdc est compatible.Si c'est réellement nécessaire je le ferai mais comme je l'ai dit dans mon post d'origine, la personne nommée p.muck a posté un pb similaire au mien alors qu'il était en version 8.x</p>
+<p>Sinon pour les tables système pg_XXX, c'est un peu vague ce que tu me dits. Il faudrait que je me retrouve de nouveau en situation de blocage, ou que je le repoduise sur ma plateforme d'essai, et que je regarde ensuite des données précises pour identifier le pb excat. C'es pour cette raison que je poste un message afin que l'on me dise qu'est ce que je dois exactement regarder comme infos précises.<br />
+Je sais que la table pg_stat_activity est utile pour savoir le nombre de connexion à la base il y a en cours mais ceci reste encore un peu trop léger à mon gout pour résoudre mon pb.</p>
+<p>Voilà pour le moment. je suis à votre écoute pour toute manip à tester.</p>
+<p>Merci d'avance et bonne journée.</p>
+<p>PS : quelqu'un connaît un moyen simple et rapide surtout, pour insérer un très grd nombre de données dans une table</p>
+<br /><!--hr /--><div class="contentsLink">[ Vous devez <a href="index7992.html?q=user/login">vous connecter</a> pour poster des commentaires ]</div>
+		</p></div></div>
+<div style="margin-left:50px;">
+<a id="comment-870"></a>
+<div class="pgContentWrap"><h1 id="txtFrontFeatureHeading">Bonjour, 
+
+En réponse au p</h1>
+		<p>
+		    <b><a href="index6e6b.html?q=user/65" title="Voir le profil utilisateur.">SAS</a></b>/ = 7 Avril, 2006 - 17:45
+		</p>
+		<p>
+		    <p>Bonjour, </p>
+<p>En réponse au ps, avez-vous jeté un oeil du côté de COPY ?</p>
+<p>Stéphane Schildknecht</p>
+<br /><!--hr /--><div class="contentsLink">[ Vous devez <a href="index7992.html?q=user/login">vous connecter</a> pour poster des commentaires ]</div>
+		</p></div></div>
+<div style="margin-left:75px;">
+<a id="comment-879"></a>
+<div class="pgContentWrap"><h1 id="txtFrontFeatureHeading">Bonjour,
+
+Merci pour la com</h1>
+		<p>
+		    <b><a href="indexf94e.html?q=user/854" title="Voir le profil utilisateur.">moneyboss</a></b>/ = 10 Avril, 2006 - 13:37
+		</p>
+		<p>
+		    <p>Bonjour,</p>
+<p>Merci pour la commande, je la connaissais déjà mais je ne me souvenais plus de son utilité.</p>
+<p>Il ne me reste plus qu'à générer automatiquement un fichier contenant un certain nombre d'évènements et de le faire restaurer dans la table.</p>
+<p>Merci</p>
+<br /><!--hr /--><div class="contentsLink">[ Vous devez <a href="index7992.html?q=user/login">vous connecter</a> pour poster des commentaires ]</div>
+		</p></div></div>
+<div style="margin-left:50px;">
+<a id="comment-871"></a>
+<div class="pgContentWrap"><h1 id="txtFrontFeatureHeading">Il n'est pas utile de migrer </h1>
+		<p>
+		    <b><a href="indexb3f1.html?q=user/1013" title="Voir le profil utilisateur.">sparky</a></b>/ = 7 Avril, 2006 - 22:12
+		</p>
+		<p>
+		    <p>Il n'est pas utile de migrer l' OS pour installer une version 8.1 de postgresql : si les RPMS ne fonctionnent pas, reprends le tarball et compile-le puis installe le de manière bien séparée. (exemple ./configure &#038;& make --prefix=/usr/local/psql81 &#038;& make install)</p>
+<p>Mes explications sont un peu vagues mais la documentation l'est moins ;-)<br />
+http://docs.postgresqlfr.org/pgsql-7.4.12-fr/monitoring.html</p>
+<br /><!--hr /--><div class="contentsLink">[ Vous devez <a href="index7992.html?q=user/login">vous connecter</a> pour poster des commentaires ]</div>
+		</p></div></div>
+<div style="margin-left:75px;">
+<a id="comment-880"></a>
+<div class="pgContentWrap"><h1 id="txtFrontFeatureHeading">Bonjour,
+
+Etant donné que </h1>
+		<p>
+		    <b><a href="indexf94e.html?q=user/854" title="Voir le profil utilisateur.">moneyboss</a></b>/ = 10 Avril, 2006 - 13:49
+		</p>
+		<p>
+		    <p>Bonjour,</p>
+<p>Etant donné que je suis un simple utilisateur linux avec tres peu d'experience, je pensais qu'il était impératif de migrer l'OS pour installer.</p>
+<p>Est-il cependant indispensable de l'installer dans un autre répertoire? </p>
+<p>Concernant la surveillance de postgres, j'ai déjà testé la table pg_stat_activity au travers d'un script posté ici par une personne. J'ai aussi affiché simplement la liste des process postgres, mais tout ceci en fonctionnement normal.</p>
+<p>Il faudrait que je reproduise mon pb en insérant sur ma plateforme plus d'1 million d'enregistrement.</p>
+<p>Je posterai alors les résultats trouvés afin que vous puissiez m'apporter votre aide.</p>
+<p>Bonne journée. </p>
+<br /><!--hr /--><div class="contentsLink">[ Vous devez <a href="index7992.html?q=user/login">vous connecter</a> pour poster des commentaires ]</div>
+		</p></div></div>
+<div style="margin-left:75px;">
+<a id="comment-882"></a>
+<div class="pgContentWrap"><h1 id="txtFrontFeatureHeading">Bonjour</h1>
+		<p>
+		    <b><a href="index0b33.html?q=user/22" title="Voir le profil utilisateur.">Christophe Chauvet</a></b>/ = 10 Avril, 2006 - 16:17
+		</p>
+		<p>
+		    <p>Bonjour</p>
+<p>Il n'est peu être pas nécessaire d'installer une version plus recente de PG, mais par contre il va être necessaire d'affiner les réglages du postgresql.conf ainsi que les paramètre du noyau système.</p>
+<p>pour cela il nous faudrait quelques infos supplémentaires :</p>
+<p>Matérielle<br />
+Processeur (nombre et type)<br />
+RAM<br />
+Disque (taille, (RAID 0, 1, 5) ?)</p>
+<p>Software<br />
+Version du kernel (uname -r)<br />
+Les SHMMAX (cat /proc/sys/kernel/shmmax)<br />
+Les SHMALL (cat /proc/sys/kernel/shmall)</p>
+<p>Ainsi que le nombre de connexions simultanées.</p>
+<p>Le serveur est t'il dedié a PostgreSQL ?</p>
+<p>Cordialement.</p>
+<p>Christophe Chauvet<br />
+http://kryskool.org/</p>
+<br /><!--hr /--><div class="contentsLink">[ Vous devez <a href="index7992.html?q=user/login">vous connecter</a> pour poster des commentaires ]</div>
+		</p></div></div>
+<div style="margin-left:100px;">
+<a id="comment-884"></a>
+<div class="pgContentWrap"><h1 id="txtFrontFeatureHeading">Bonjour,
+
+Voici les informa</h1>
+		<p>
+		    <b><a href="indexf94e.html?q=user/854" title="Voir le profil utilisateur.">moneyboss</a></b>/ = 11 Avril, 2006 - 13:11
+		</p>
+		<p>
+		    <p>Bonjour,</p>
+<p>Voici les informations que vous m'avez demandées :</p>
+<p>Matérielle :<br />
+HP Proliant ML350 G2 début année 2003, processeur i686<br />
+1 Go de RAm<br />
+4 disques durs SCSI Hot Swapable 36 Go en raid 5 matériel ( carte smartarray 5i/532 )</p>
+<p>Software<br />
+Linux Red Hat 8 noyau 2.4.18-14<br />
+SHMMAX : 33554432<br />
+SHMALL : 2097152</p>
+<p>Le nombre de connexion simultanées dans postgresql est de 32, je pense car ma ligne est commentée. Par ailleurs, toutes les lignes de ce fichier sont commentées, exceptées celle de tcp_ip qui est à true</p>
+<p>Ce serveur sert :<br />
+ * serveur SGBD :<br />
+  - 5 serveurs applicatifs qui enregistrent des evts survenant sur le site<br />
+  - 3 postes clients qui à l'occasion consultent l'historique au travers 1/= à 2 requêtes</p>
+<p>  * serveur web applicatif :<br />
+au démarrage des serveurs, ceux-ci rapatrient des données. De la même façon, les serveurs sauvegardent quelques fichiers sur cette machine le soir</p>
+<p>De manière générale, le taux d'occupation processeur de la machine est de 5% environ</p>
+<p>Bonne journée </p>
+<br /><!--hr /--><div class="contentsLink">[ Vous devez <a href="index7992.html?q=user/login">vous connecter</a> pour poster des commentaires ]</div>
+		</p></div></div>
+<div style="margin-left:100px;">
+<a id="comment-891"></a>
+<div class="pgContentWrap"><h1 id="txtFrontFeatureHeading">Bonjour,
+
+J'ai effectué qu</h1>
+		<p>
+		    <b><a href="indexf94e.html?q=user/854" title="Voir le profil utilisateur.">moneyboss</a></b>/ = 12 Avril, 2006 - 17:02
+		</p>
+		<p>
+		    <p>Bonjour,</p>
+<p>J'ai effectué quelques tests aujourd'hui.<br />
+J'ai ajouté 1200000 enregistrements dans ma table des évènements. Mon serveur SGBD se trouvait alors en bon fonctionnement ( CPU peu utilisée, aucun pb d'archivage de mes serveurs applicatifs ... ).<br />
+J'ai alors relancé le serveur applicatif d'adresse Ip 192.192.1.12. j'ai constaté alors qu'il connaissait des pbs d'archivage avec le SGBD ( pas de réponse au bout 30s suite à une requête ).<br />
+En faisant un top sur le SGBD, j'ai constaté qu'il y avait une tâche postmaster qui durait environ 35s ( compteur linux ). Cette tâche disparaissait en suite puis revenait 2/3 secondes après. J'ai effectué ensuite la commande "ps auxww | grep ^postgres" qui affichait les lignes suivantes :</p>
+<p>postgres   743  0.0  0.1 10112 1732 ?        S    Apr11   0:00 /usr/bin/postmaster -i<br />
+postgres   745  0.0  0.1 10904 1504 ?        S    Apr11   0:00 postgres: stats buffer process<br />
+postgres   746  0.0  0.1  9952 1580 ?        S    Apr11   0:00 postgres: stats collector process<br />
+postgres 13974  0.0  0.1  4172 1432 pts/0    S    09:54   0:00 -bash<br />
+postgres 14912  0.0  0.1  4172 1424 pts/1    S    10:34   0:00 -bash<br />
+postgres 15582  0.0  0.1  5832 1708 pts/1    S    11:38   0:00 psql HISTO<br />
+postgres 15583  1.3  0.2 10536 3356 ?        S    11:38   0:13 postgres: postgres HISTO [local] idle<br />
+postgres 15695  0.3  0.2 10540 3416 ?        S    11:48   0:01 postgres: intravision HISTO 192.192.137.137 idle<br />
+postgres 15696  0.2  0.2 10536 3408 ?        S    11:48   0:00 postgres: intravision HISTO 192.192.137.136 idle<br />
+postgres 15805  0.4  0.2 10544 3396 ?        S    11:52   0:00 postgres: intravision HISTO 192.192.1.15 idle<br />
+postgres 15808  1.3  0.2 10544 3412 ?        S    11:52   0:01 postgres: intravision HISTO 192.192.1.14 idle<br />
+postgres 15810  0.3  0.2 10544 3396 ?        S    11:52   0:00 postgres: intravision HISTO 192.192.1.13 idle<br />
+postgres 15819 46.8  0.2 10804 3476 ?        R    11:52   0:47 postgres: intravision HISTO 192.192.1.12 SELECT<br />
+postgres 15854 39.3  0.2 10536 3344 ?        R    11:53   0:12 postgres: intravision HISTO 192.192.1.12 SELECT</p>
+<p>J'ai laissé tourné ensuite 3 heures sans rien faire et j'avais toujours le même problème.</p>
+<p>D'après moi, je me situais au prémice du pb que je cite depuis le début.</p>
+<p>J'ai ajouté après de nouveau 1200000 enregistrements et j'ai constaté alors une dizaine de tâches postmaster en faisant un top, ce qui occupaient 90% de la CPU.<br />
+Voici le résultat de la commande avec ps : </p>
+<p>postgres   743  0.0  0.1 10112 1732 ?        S    Apr11   0:00 /usr/bin/postmaster -i<br />
+postgres   745  0.0  0.1 10904 1516 ?        S    Apr11   0:00 postgres: stats buffer process<br />
+postgres   746  0.0  0.1  9960 1588 ?        S    Apr11   0:00 postgres: stats collector process<br />
+postgres 13974  0.0  0.1  4172 1432 pts/0    S    09:54   0:00 -bash<br />
+postgres 14912  0.0  0.1  4172 1424 pts/1    S    10:34   0:00 -bash<br />
+postgres 15582  0.0  0.1  5832 1708 pts/1    S    11:38   0:00 psql HISTO<br />
+postgres 15583  0.1  0.2 10544 3408 ?        S    11:38   0:20 postgres: postgres HISTO [local] idle<br />
+postgres 18122  8.7  0.2 10536 3348 ?        R    15:51   1:05 postgres: intravision HISTO 192.192.1.12 SELECT<br />
+postgres 18128  7.9  0.2 10536 3352 ?        R    15:52   0:54 postgres: intravision HISTO 192.192.1.12 SELECT<br />
+postgres 18136  7.8  0.2 10536 3344 ?        R    15:53   0:49 postgres: intravision HISTO 192.192.1.12 SELECT<br />
+postgres 18144  8.3  0.2 10536 3352 ?        R    15:54   0:47 postgres: intravision HISTO 192.192.1.12 SELECT<br />
+postgres 18170  7.9  0.2 10536 3344 ?        R    15:55   0:40 postgres: intravision HISTO 192.192.1.12 SELECT<br />
+postgres 18179  7.9  0.2 10536 3352 ?        R    15:56   0:35 postgres: intravision HISTO 192.192.1.12 SELECT<br />
+postgres 18188  7.3  0.2 10536 3352 ?        R    15:57   0:28 postgres: intravision HISTO 192.192.1.12 SELECT<br />
+postgres 18195  7.2  0.2 10536 3352 ?        R    15:58   0:23 postgres: intravision HISTO 192.192.1.12 SELECT<br />
+postgres 18203  6.3  0.2 10536 3352 ?        R    15:59   0:17 postgres: intravision HISTO 192.192.1.12 SELECT<br />
+postgres 18210  8.0  0.2 10536 3352 ?        R    16:00   0:16 postgres: intravision HISTO 192.192.1.12 SELECT<br />
+postgres 18220  9.6  0.2 10536 3348 ?        R    16:01   0:14 postgres: intravision HISTO 192.192.1.12 SELECT<br />
+postgres 18229 10.2  0.2 10536 3348 ?        R    16:02   0:08 postgres: intravision HISTO 192.192.1.12 SELECT<br />
+postgres 18237 16.4  0.2 10536 3328 ?        R    16:03   0:04 postgres: intravision HISTO 192.192.1.12 SELECT</p>
+<p>J'ai laissé le serveur dans l'état actuel au cas où vous auriez des manips à me faire exécuter.</p>
+<p>Par rapport aux résultats, j'ai quelque chose qui me chagrine. Si j'ai bien compris le principe des connexions à la base, je ne devrais trouvé qu'une seule ligne d'adresse 192.192.1.12 qui correspond à la connexion établie entre mon serveur SGBD et mon serveur applicatif, via le driver JDBC. Cette ligne devrait être permanente tant que le driver ne ferme pas la connexion et être à l'état "idle" la plupart du temps, lorsqu'il n'y a pas de requête de la part du serveur.<br />
+Or d'après le résultat du test 1, je constate que cette ligne disparaît 2/3 secondes, ce qui impliquerait une fermeture de la connexion de la part de mon serveur applicatif. Ceci me semble étrange mais ne me gêne pas encore de trop ( a voir dans le code ).</p>
+<p>Par contre, je ne m'explique pas pourquoi dans le 2ème test je me retrouve avec une dizaine de connexions postgres à l'état SELECT.</p>
+<p>Quelqu'un peut-il m'expliquer ce qu'il se produit exactement? Postgres ne serait-il pas en train d'essayer de traiter plusieurs fois la même requête?</p>
+<p>Merci d'avance pour votre aide</p>
+<br /><!--hr /--><div class="contentsLink">[ Vous devez <a href="index7992.html?q=user/login">vous connecter</a> pour poster des commentaires ]</div>
+		</p></div></div>
+<div style="margin-left:125px;">
+<a id="comment-919"></a>
+<div class="pgContentWrap"><h1 id="txtFrontFeatureHeading">Bonjour,
+
+Y-a-t-il quelqu'u</h1>
+		<p>
+		    <b><a href="indexf94e.html?q=user/854" title="Voir le profil utilisateur.">moneyboss</a></b>/ = 20 Avril, 2006 - 07:57
+		</p>
+		<p>
+		    <p>Bonjour,</p>
+<p>Y-a-t-il quelqu'un pour m'aider , je me désespère ????</p>
+<br /><!--hr /--><div class="contentsLink">[ Vous devez <a href="index7992.html?q=user/login">vous connecter</a> pour poster des commentaires ]</div>
+		</p></div></div>
+<div style="margin-left:125px;">
+<a id="comment-924"></a>
+<div class="pgContentWrap"><h1 id="txtFrontFeatureHeading">Bonjour</h1>
+		<p>
+		    <b><a href="index0b33.html?q=user/22" title="Voir le profil utilisateur.">Christophe Chauvet</a></b>/ = 20 Avril, 2006 - 16:44
+		</p>
+		<p>
+		    <p>Bonjour</p>
+<p>J'ai l'impression que votre applicatif lance ses requetes en paralelle, en ouvrant plusieur connection simultanée.</p>
+<p>Quel version du driver JDBC utilisé, j'ai trouvé quelque message en rapport avec un problème similaire en JDBC, mais aussi la façon d'implémenté les requêtes</p>
+<p>Essayé éventuellement de replacer le driver JDBC de la 7.2 par le dernier disponible http://jdbc.postgresql.org/download.html#jdbcselection</p>
+<p>Cordialement.</p>
+<p>Christophe Chauvet<br />
+http://kryskool.org/</p>
+<br /><!--hr /--><div class="contentsLink">[ Vous devez <a href="index7992.html?q=user/login">vous connecter</a> pour poster des commentaires ]</div>
+		</p></div></div>
+</div></form>
+<!-- end content -->
+              </td>
+
+    </tr>
+    <tr><td colspan="2">
+
+		<div class="pgTopNav">
+		   <div class="pgTopNavLeft"> 
+		     <img src="layout/images/nav_lft.png" width="7" height="23" alt="" />
+		   </div>
+		   <div class="pgTopNavRight">
+		    <img src="layout/images/nav_rgt.png" width="7" height="23" alt="" />
+		  </div>
+		  <!--<ul class="pgTopNavList">-->
+		  <ul class="pgTopNavList">
+		   <li><a href="index03d2.html?q=" title="Retourner à la page principale.">accueil</a> </li>
+		   <li> <a href="indexf6e5.html?q=archive" title="Lire le contenu plus ancien dans notre archive.">archives</a> </li>
+		   <li> <a href="index71c4.html?q=blog" title="Lire les blogues les plus récents.">blogues</a> </li>
+
+		   <li> <a href="indexf6fe.html?q=book" title="Lire et contribuer aux livres collaboratifs.">livres</a> </li>
+		   <li> <a href="index79b7.html?q=forum">forums</a> </li>
+		   <li> <a href="index729f.html?q=poll" title="Voir la liste des sondages de ce site.">sondages</a> </li>
+		   <li> <a href="index4404.html?q=search" title="Chercher pour du contenu plus vieux.">recherche</a></li><li><a href="http://docs.postgresqlfr.org/" target="_blank">documentation </a></li>
+
+		  </ul>
+
+<!--
+		   <li><a href="?q=" title="Retourner à la page principale.">accueil</a> </li>
+		   <li> <a href="?q=archive" title="Lire le contenu plus ancien dans notre archive.">archives</a> </li>
+		   <li> <a href="?q=blog" title="Lire les blogues les plus récents.">blogues</a> </li>
+		   <li> <a href="?q=book" title="Lire et contribuer aux livres collaboratifs.">livres</a> </li>
+		   <li> <a href="?q=forum">forums</a> </li>
+		   <li> <a href="?q=poll" title="Voir la liste des sondages de ce site.">sondages</a> </li>
+		   <li> <a href="?q=search" title="Chercher pour du contenu plus vieux.">recherche</a></li><li><a href="http://docs.postgresqlfr.org/" target="_blank">documentation </a></li>
+-->
+		  </ul>
+	        </div>
+    </td></tr>
+   </table>
+   <p style="text-align: center;">&copy;&nbsp;PostgreSQLFr, tous droits réservés.<br>
+Site déclaré à la CNIL sous le numéro 1074678, conformément à la Loi en vigueur.
+</p>
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-3921927-1");
+pageTracker._initData();
+pageTracker._trackPageview();
+</script>
+<p></p>
+   
+</body>
+
+<!-- Mirrored from drupal.postgresql.fr/?q=node/653 by HTTrack Website Copier/3.x [XR&CO'2006], Sun, 12 Oct 2008 17:23:13 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+</html>

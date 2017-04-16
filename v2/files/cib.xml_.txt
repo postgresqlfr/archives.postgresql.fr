@@ -1,0 +1,55 @@
+<cib>
+  <configuration>
+     <crm_config>
+       <cluster_property_set id="cib-bootstrap-options">
+         <attributes>
+           <nvpair id="cib-bootstrap-options-default_action_timeout" name="default-action-timeout" value="30s"/>
+           <nvpair id="cib-bootstrap-options-default_resource_failure_stickiness" name="default-resource-failure-stickiness" value="-INFINITY"/>
+           <nvpair id="cib-bootstrap-options-default_resource_stickiness" name="default-resource-stickiness" value="INFINITY"/>
+           <nvpair id="cib-bootstrap-options-is_managed_default" name="is-managed-default" value="true"/>
+           <nvpair id="cib-bootstrap-options-no_quorum_policy" name="no-quorum-policy" value="stop"/>
+           <nvpair id="cib-bootstrap-options-remove_after_stop" name="remove-after-stop" value="false"/>
+           <nvpair id="cib-bootstrap-options-short_resource_names" name="short-resource-names" value="true"/>
+           <nvpair id="cib-bootstrap-options-stonith_action" name="stonith-action" value="reboot"/>
+           <nvpair id="cib-bootstrap-options-stonith_enabled" name="stonith-enabled" value="false"/>
+           <nvpair id="cib-bootstrap-options-stop_orphan_actions" name="stop-orphan-actions" value="true"/>
+           <nvpair id="cib-bootstrap-options-stop_orphan_resources" name="stop-orphan-resources" value="false"/>
+           <nvpair id="cib-bootstrap-options-symmetric_cluster" name="symmetric-cluster" value="true"/>
+           <nvpair id="cib-bootstrap-options-transition_idle_timeout" name="transition-idle-timeout" value="1min"/>
+         </attributes>
+       </cluster_property_set>
+     </crm_config>
+     <nodes />
+     <resources>
+       <group id="pgbouncer">
+         <primitive class="ocf" id="pgbouncer_ipaddr" provider="heartbeat" type="IPaddr">
+           <instance_attributes id="pgbouncer_ipaddr_inst_attr">
+             <attributes>
+               <nvpair id="pgbouncer_ipaddr_attr_1" name="ip" value="192.168.0.1"/>
+             </attributes>
+           </instance_attributes>
+           <operations>
+             <op id="pgbouncer_ipaddr_mon" interval="3s" name="monitor" timeout="1s" start_delay="10s" prereq="fencing" on_fail="restart"/>
+           </operations>
+         </primitive>
+         <primitive class="ocf" id="pgbouncer_daemon" provider="heartbeat" type="pgbouncer">
+           <operations>
+             <op id="pgbouncer_daemon_mon" interval="3s" name="monitor" timeout="1s" start_delay="30s" prereq="fencing" on_fail="restart"/>
+           </operations>
+         </primitive>
+       </group>
+     </resources>
+     <constraints>
+       <rsc_location id="database_rsc_location_mem1" rsc="pgbouncer">
+         <rule id="pgbouncer_prefered_location_mem1" score="200">
+           <expression attribute="#uname" id="pgbouncer_prefered_location_mem1_expr" operation="eq" value="mem1"/>
+         </rule>
+       </rsc_location>
+       <rsc_location id="database_rsc_location_mem2" rsc="pgbouncer">
+         <rule id="pgbouncer_prefered_location_mem2" score="100">
+           <expression attribute="#uname" id="pgbouncer_prefered_location_mem2_expr" operation="eq" value="mem2"/>
+         </rule>
+       </rsc_location>
+     </constraints>
+   </configuration>
+ </cib>

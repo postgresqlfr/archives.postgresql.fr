@@ -1,0 +1,47 @@
+<html>
+<!-- Mirrored from drupal.postgresql.fr/?q=book/print/1088 by HTTrack Website Copier/3.x [XR&CO'2006], Sun, 12 Oct 2008 17:24:02 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+<head><title>Trouver facilement la taille d'une table, de ses index et son nombre de tuples</title><base  /><style type="text/css">
+@import url(misc/print.css);
+</style></head><body><h1 id="1088" name="1088" class="book-h1">Trouver facilement la taille d'une table, de ses index et son nombre de tuples</h1><p>On a besoin parfois d'avoir rapidement la taille sur disque d'une table et le nombre d'enregistrements qu'elle contient. Pour cela, on peut utiliser la fonction <code>pg_total_relation_size('nom de table')</code> qui permet de rapatrier la taille <b>totale</b> de la table sur disque, index inclus. Si on ne veut pas connaître la taille prise par les index, il suffit d'utiliser la fonction <code>pg_relation_size('nom de table')</code>. La soustraction des deux permet de connaître la taille des index!</p>
+<p>Tout cela nous permet de réaliser une vue fort sympathique pour l'administrateur de base de données. Attention à <b>lancer un ANALYZE avant tout requêtage de cette vue</b>:</p>
+<p><code font=fixed></p>
+<p>drop view vue_stats;</p>
+<p>create view vue_stats as<br />
+SELECT<br />
+  c.relname as nom,<br />
+  c.reltuples::bigint as tuples,<br />
+  pg_total_relation_size(c.relname) as volume_total,<br />
+  pg_relation_size(c.relname) as volume_donnees,<br />
+  pg_total_relation_size(c.relname)-pg_relation_size(c.relname) as volume_index<br />
+FROM pg_catalog.pg_class c<br />
+     JOIN pg_catalog.pg_roles r ON r.oid = c.relowner<br />
+     LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace<br />
+WHERE c.relkind = 'r'<br />
+      AND n.nspname NOT IN ('pg_catalog', 'pg_toast')<br />
+      AND pg_catalog.pg_table_is_visible(c.oid)<br />
+ORDER BY 1,2;<br />
+</code>
+<p>Merci à klando (Cédric) pour cet ajout, fort sympathique: il permet d'avoir les tailles des objets lisibles sous la forme <i>humaine</i>:<br><br />
+<code><br />
+drop view vue_stats_pretty ;</p>
+<p>create view vue_stats_pretty as<br />
+ SELECT<br />
+ nom,<br />
+ tuples,<br />
+ pg_size_pretty(volume_total) as volume_total,<br />
+ pg_size_pretty(volume_donnees) as volume_donnees,<br />
+ pg_size_pretty(volume_index) as volume_index<br />
+ FROM vue_stats;<br />
+</code><br />
+<br>Enjoy!
+</p>
+<p>
+--<br />
+Jean-Paul ARGUDO<br />
+<a href="http://dalibo.com/" title="dalibo - L'expertise PostgreSQL">http://dalibo.com</a> | <a href="http://dalibo.org/" title="dalibo - projets Open-Source">http://dalibo.org</a>
+</p>
+</body>
+<!-- Mirrored from drupal.postgresql.fr/?q=book/print/1088 by HTTrack Website Copier/3.x [XR&CO'2006], Sun, 12 Oct 2008 17:24:02 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+</html>

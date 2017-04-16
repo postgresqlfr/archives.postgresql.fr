@@ -1,0 +1,460 @@
+<html>
+<!-- Mirrored from drupal.postgresql.fr/?q=book/print/883 by HTTrack Website Copier/3.x [XR&CO'2006], Sun, 12 Oct 2008 16:01:00 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+<head><title>cookbook</title><base  /><style type="text/css">
+@import url(misc/print.css);
+</style></head><body><h1 id="883" name="883" class="book-h1">cookbook</h1><p>Un livre de recette SQL pour PostgreSQL : nos trucs et astuces ! N'hésitez pas à enrichir ce livre avec vos propres astuces SQL...</p>
+<h1 id="917" name="917" class="book-h1">aggregats et statistiques</h1><ul><p>Ah, les plaisirs des moving average et autres sommes intermédiaires...</p>
+</ul><h1 id="918" name="918" class="book-h2">Sommes intermédiaires</h1><ul><p>Un exemple qui nous viens tout droit du site <a href="http://www.udel.edu/evelyn/SQL-Class3/SQL3_Stat.html">http://www.udel.edu/evelyn/SQL-Class3/SQL3_Stat.html</a></p>
+<p>Il s'agit de calculer pour chaque ligne de résultat la somme des éléments déjà affichés jusque là, sans pour autant modifier la requête d'une quelconque autre façon. </p>
+<p>L'idée est d'utiliser une jointure sur la même table, et de limiter cette jointure aux tuples déjà pris en compte jusque-là. Vous aurez donc à adapter le code suivant à vos données, bien sûr, mais aussi à votre façon de limiter la somme intermédiaire :</p>
+<p class="code">
+SELECT   a.OrderID, a.OrderDate, Sum(b.OrderTotal) AS RunningTotal<br />
+FROM     RATTC_ForRunSum AS a, RATTC_ForRunSum AS b<br />
+WHERE    b.OrderDate <= a.OrderDate<br />
+GROUP BY a.OrderID, a.OrderDate;
+</pre>
+</ul><h1 id="1270" name="1270" class="book-h2">Tableau Accumulateur</h1><ul><p>Plutôt que de faire une somme, on peut avoir besoin de cumuler l'ensemble des valeurs différentes d'un <tt>GROUP BY</tt> dans un tableau. On peut à cet effet utiliser l'agrégat suivant :<br />
+<p class="code">
+CREATE AGGREGATE array_acc (<br />
+        BASETYPE = anyelement,<br />
+        SFUNC = array_append,<br />
+        STYPE = anyarray,<br />
+        INITCOND = '{}'<br />
+);
+</p>
+Il s'utilise tout simplement comme suit :<br />
+<p class="code">
+pgloader=# begin;<br />
+BEGIN<br />
+pgloader=# create table foo (a int, b text);<br />
+CREATE TABLE<br />
+pgloader=# insert into foo values(1, 'foo'), (1, 'bar'), (2, 'baz'), (1, 'zoinx');<br />
+INSERT 0 4<br />
+pgloader=# CREATE AGGREGATE array_acc (<br />
+pgloader(#         BASETYPE = anyelement,<br />
+pgloader(#         SFUNC = array_append,<br />
+pgloader(#         STYPE = anyarray,<br />
+pgloader(#         INITCOND = '{}'<br />
+pgloader(# );<br />
+CREATE AGGREGATE<br />
+pgloader=# select a, array_acc(b) from foo group by a;<br />
+ a |    array_acc<br />
+---+-----------------<br />
+ 2 | {baz}<br />
+ 1 | {foo,bar,zoinx}<br />
+(2 lignes)<br />
+pgloader=# rollback;<br />
+ROLLBACK<br />
+pgloader=# begin;<br />
+BEGIN<br />
+pgloader=# create table foo (a int, b text);<br />
+CREATE TABLE<br />
+pgloader=# insert into foo values(1, 'foo'), (1, 'bar'), (2, 'baz'), (1, 'zoinx');<br />
+INSERT 0 4<br />
+pgloader=# CREATE AGGREGATE array_acc (<br />
+pgloader(#         BASETYPE = anyelement,<br />
+pgloader(#         SFUNC = array_append,<br />
+pgloader(#         STYPE = anyarray,<br />
+pgloader(#         INITCOND = '{}'<br />
+pgloader(# );<br />
+CREATE AGGREGATE<br />
+pgloader=# select a, array_acc(b) from foo group by a;<br />
+ a |    array_acc<br />
+---+-----------------<br />
+ 2 | {baz}<br />
+ 1 | {foo,bar,zoinx}<br />
+(2 lignes)</p>
+<p>pgloader=# rollback;<br />
+ROLLBACK
+</p>
+</ul><h1 id="884" name="884" class="book-h1">fonctions sur les dates</h1><ul><p>Un chapitre de notre livre de recettes entièrement consacré à la manipulation de dates.</p>
+</ul><h1 id="886" name="886" class="book-h2">Nombre de jours dans chaque mois</h1><ul><p>La requête suivante permet de connaître pour chaque mois d'une période donnée (ici de l'année courante) son nombre de jours.</p>
+<pre class="programlisting">
+select to_char(month, 'FMMonth YYYY') as month,<br />
+       date_part('day',month + '1 month - 1 day'::interval) as lastday<br />
+from (<br />
+  select (date_part('year', current_date) || '-' || m || '-01')::date as month<br />
+  from   generate_series(1, 12) m) months;
+</pre>
+<p>On obtient le résultat suivant :</p>
+<pre class="programlisting">
+     month      | lastday<br />
+----------------+---------<br />
+ January 2006   |      31<br />
+ February 2006  |      28<br />
+ March 2006     |      31<br />
+ April 2006     |      30<br />
+ May 2006       |      31<br />
+ June 2006      |      30<br />
+ July 2006      |      31<br />
+ August 2006    |      31<br />
+ September 2006 |      30<br />
+ October 2006   |      31<br />
+ November 2006  |      30<br />
+ December 2006  |      31<br />
+(12 rows)</p>
+</pre>
+</ul><h1 id="885" name="885" class="book-h2">Nombre de mois contenus entre deux dates</h1><ul><p>Cela se fait avec les deux fontions suivantes :</p>
+<pre class="programlisting">
+create function extract_months(interval) returns integer language sql<br />
+  as $f$<br />
+    select 12 * extract(year from $1)::integer<br />
+           + extract(month from $1)::integer<br />
+$f$;
+</pre>
+<pre class="programlisting">
+create function months_between(date,date) returns integer language sql<br />
+  as $f$<br />
+    select extract_months(age($2,$1))<br />
+$f$;
+</pre>
+</ul><h1 id="1474" name="1474" class="book-h2">Nombre de semaines entre deux dates quelconques</h1><ul><p>Cette fois-ci il s'agit donc de trouver le nombre de semaines entre deux dates quelconques. Ce qui rend la solution un poil compliquée, c'est que toutes les années n'ont pas le même nombre de semaines (52*7 ça donne que 364 jours). </p>
+<p>On va donc faire ça en deux temps, d'abord trouver le nombre de semaines de chaque année faisant partie de l'intervalle, ensuite c'est facile.</p>
+<p>Déjà, trouver les années comprises entre deux dates, ainsi que le premier janvier de l'année suivante :<br />
+<p class=code>
+dim# select year, to_date(year+1, 'YYYY-01-01') as d<br />
+&nbsp;from generate_series(extract(year from (current_date - interval '4 years')::date)::int,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;extract(year from current_date)::int) as year;<br />
+&nbsp;year |     d<br />
+------+------------<br />
+&nbsp;2003 | 01-01-2004<br />
+&nbsp;2004 | 01-01-2005<br />
+&nbsp;2005 | 01-01-2006<br />
+&nbsp;2006 | 01-01-2007<br />
+&nbsp;2007 | 01-01-2008<br />
+(5 lignes)
+</p>
+<p>Maintenant, première ruse : si le premier janvier de l'année suivante est semaine 1, alors l'année donnée contient 52 semaines, sinon elle contient le nombre de semaine correspondant au numéro de semaine du premier janvier de l'année suivante :</p>
+<p class="code">
+dim=# select extract(year from d) - 1 as year,<br />
+dim-#        case when extract(week from d) = 1<br />
+dim-#             then extract(week from d - interval '1 week')<br />
+dim-#             else extract(week from d) end as nb_weeks<br />
+dim-#  from (<br />
+dim(#     select year, to_date(year+1, 'YYYY-01-01') as d<br />
+dim(#      from generate_series(extract(year from (current_date - interval '4 years')::date)::int,<br />
+dim(#                           extract(year from current_date)::int) as year) as x;<br />
+&nbsp;year | nb_weeks<br />
+------+----------<br />
+&nbsp;2003 |       52<br />
+&nbsp;2004 |       53<br />
+&nbsp;2005 |       52<br />
+&nbsp;2006 |       52<br />
+&nbsp;2007 |       52<br />
+(5 lignes)
+</p>
+<p>Il reste à additionner toutes les semaines des années intermédiaires et à ajouter le numéro de semaine de l'année courante pour avoir le nombre de semaines depuis le premier janvier de l'année de la date de début. On enlèvera donc de cette somme le numéro de semaine de la date de début pour avoir notre résultat :</p>
+<p class="code">
+create or replace function weeks(timestamp, timestamp) returns int language sql<br />
+as $$<br />
+&nbsp;&nbsp;select extract(week from $2)::int<br />
+&nbsp;&nbsp;+<br />
+&nbsp;&nbsp;coalesce(<br />
+&nbsp;&nbsp;&nbsp;sum( case when extract(week from d) = 1<br />
+&nbsp;&nbsp;&nbsp;&nbsp;then extract(week from d - interval '1 week')<br />
+&nbsp;&nbsp;&nbsp;&nbsp;else extract(week from d) end ),<br />
+&nbsp;&nbsp;&nbsp;0)::int<br />
+&nbsp;&nbsp;&nbsp;-<br />
+&nbsp;&nbsp;&nbsp;extract(week from $1)::int<br />
+&nbsp;&nbsp;from (<br />
+&nbsp;&nbsp;&nbsp;select year, to_date(year+1, 'YYYY-01-01') as d<br />
+&nbsp;&nbsp;&nbsp;from generate_series(extract(year from $1)::int,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;extract(year from $2)::int - 1) as year<br />
+&nbsp;&nbsp;&nbsp;) as x;<br />
+$$;<br />
+&nbsp;<br />
+dim=# select weeks(current_date - interval '18 months', current_date);<br />
+&nbsp;weeks<br />
+-------<br />
+&nbsp;&nbsp;&nbsp;79<br />
+(1 ligne)<br />
+&nbsp;<br />
+dim=# select weeks(current_date - interval '4 years', current_date);<br />
+&nbsp;weeks<br />
+-------<br />
+&nbsp;&nbsp;&nbsp;209<br />
+(1 ligne)
+</p>
+<p>Et voilà :)</p>
+<p>Note : on utilise <b>COALESCE()</b> sur le <b>SUM()</b> afin de savoir compter le nombre de semaines entre deux dates de la même année aussi !</p>
+</ul><h1 id="956" name="956" class="book-h2">timestamp PostgreSQL et timestamp Unix </h1><ul><p><b>Pour convertir d'un timestamp PostgreSQL vers un timestamp Unix:</b><br />
+<code><br />
+select extract(epoch from now())::bigint;</p>
+<p> date_part<br />
+------------<br />
+ 1162822549<br />
+(1 ligne)<br />
+</code></p>
+<p><b>Pour convertir d'un timestamp Unix vers un timestamp PostgreSQL:</b></p>
+<p><code><br />
+select to_timestamp(1162822549);</p>
+<p>      to_timestamp<br />
+------------------------<br />
+ 2006-11-06 15:15:49+01<br />
+(1 ligne)<br />
+</code></p>
+</ul><h1 id="906" name="906" class="book-h2">Filtrer des tuples à intervalle temporel régulier</h1><ul><p>
+<b>Conditions préalables</b><br>
+<blockquote>
+Imaginons une table contenant plusieurs colonnes dont une est une estampille. Par exemple la table mesures :
+<pre>
+CREATE TABLE mesures (
+     estampille TIMESTAMP WITH TIMEZONE PRIMARY KEY,
+     valeur DOUBLE PRECISION);
+</pre>
+
+Nous pouvons imaginer que les données sont temporellement réparties uniformément dans le temps (une donnée toutes les minutes par exemple)
+</blockquote>
+</p>
+<p>
+<b>Cas d'utilisation</b><br>
+<blockquote>
+On souhaite avoir les mesures entre deux dates en échantillonnant les données présentes dans la table mesures avec un intervalle régulier supérieur à la répartition initiale de la mesure (par exemple toutes les 5 minutes).
+</blockquote>
+</p>
+<p>
+<b>Requête</b><br>
+<blockquote>
+Nous allons utiliser la fonction EXTRACT avec comme argument EPOCH pour extraire le nombre de secondes écoulées depuis le 1er Janvier 1970 à minuit GMT sur l'estampille de chaque ligne. Nous pourrons ensuite utiliser la fonction modulo (%) pour fixer déterminer si la ligne est sélectionnable ou non.
+
+<pre>
+SELECT 
+ * 
+FROM 
+ mesures
+WHERE
+ estampille BETWEEN CURRENT_TIMESTAMP - '1 day'::INTERVAL AND CURRENT_TIMESTAMP
+AND
+ ( (EXTRACT(EPOCH FROM estampille)::INTEGER ) % (5 * 60) ) = 0;
+</pre>
+
+Ainsi chaque fois que la date EPOCH sera un multiple de 5*60 secondes (5 minutes) le modulo sera égal à 0 et notre ligne sera sélectionnée.
+</blockquote>
+</p></ul><h1 id="890" name="890" class="book-h1">fonctions système</h1><ul><br />
+</ul><h1 id="1672" name="1672" class="book-h2">Contrôler l'utilisation de HOT, à partir de la 8.3</h1><ul>Si comme moi vous avez prévu un fort besoin d'utiliser HOT sur vos tables (UPDATE fréquents sur des colonnes non indexées), vous aurez sûrement réglé un fillfactor largement inférieur à 100. Mais comment contrôler que HOT profite réellement de l'opportunité théorique ?
+
+La requête suivante permet de contrôler HOT:
+<!--break-->
+<pre>
+SELECT schemaname, relname,
+       n_tup_upd,n_tup_hot_upd,
+       case when n_tup_upd > 0
+            then ((n_tup_hot_upd::numeric/n_tup_upd::numeric)*100.0)::numeric(5,2) 
+            else NULL
+       end as hot_ratio
+
+ FROM pg_stat_all_tables;
+
+ schemaname | relname | n_tup_upd | n_tup_hot_upd | hot_ratio
+------------+---------+-----------+---------------+-----------
+ public     | table1  |         6 |             6 |    100.00
+ public     | table2  |   2551200 |       2549474 |     99.93
+
+</pre>
+
+Et si l'on souhaite ajouter à l'affichage le réglage actuel du fillfactor, c'est possible. Mais il faut se référer au catalogue système, où pg_class référence le schéma sous relnamespace qui est un OID de la table système pg_namespace, laquelle publie le nom du schéma sous la colonne nspname, retrouvée sous le nom schemaname dans les tables de stats...
+
+<pre>
+SELECT t.schemaname, t.relname, c.reloptions, 
+       t.n_tup_upd, t.n_tup_hot_upd, 
+       case when n_tup_upd > 0 
+            then ((n_tup_hot_upd::numeric/n_tup_upd::numeric)*100.0)::numeric(5,2)
+            else NULL
+        end as hot_ratio
+
+ FROM pg_stat_all_tables t 
+      join (pg_class c join pg_namespace n on c.relnamespace = n.oid) 
+        on n.nspname = t.schemaname and c.relname = t.relname
+
+ schemaname | relname |   reloptions    | n_tup_upd | n_tup_hot_upd | hot_ratio
+------------+---------+-----------------+-----------+---------------+-----------
+ public     | table1  | {fillfactor=50} |   1585920 |       1585246 |     99.96
+ public     | table2  | {fillfactor=50} |   2504880 |       2503154 |     99.93
+</pre>
+
+On dirait que les espoirs théoriques sont plutôt bien vérifiés en pratique... on peut donc continuer de suivre la documentation les yeux fermés^Wgrands ouverts ;)
+Merci PostgreSQL !</ul><h1 id="984" name="984" class="book-h2">Rétablir la sauvegarde et la restauration</h1><ul><p>Bonjour,</p>
+<p>La version 1.6.0 de pgadmin sous Windows ne permet pas d'utiliser par défaut les outils de sauvegarde et de restauration de PostgreSQL à savoir pg_dump.exe et pg_restore.exe. La solution à ce défaut est de rajouter dans la variable PATH de Windows le chemin d'accès vers le répertoire de pgadmin à savoir par défaut <b>C:\Program Files\pgAdmin III\1.6</b>. Après un redémarrage de votre machine, vous pourrez de nouveau sauvegarder et restaurer vos bases de données.</p>
+<p>Merci.</p>
+</ul><h1 id="1240" name="1240" class="book-h2">Supprimer les fonctions à l'intérieur d'un schéma</h1><ul><p>Trouvé sur un des <A HREF="http://www.postgresqlfr.org/?q=node/1192"> forums</a>, cette astuce qui mérite de figurer dans le cookbook.</p>
+<p>Pour supprimer toutes les fonctions d'un schéma, on peut utiliser la commande suivante, en shell&nbsp;:</p>
+<p><code><br />
+psql -U MON_USER MA_BASE -t -P format=unaligned -c "\df MON_SCHEMA.*"|awk -F '|' '{if (NF > 0 ) print "drop function "$2"("$4") cascade;";}' | psql -U MON_USER MA_BASE<br />
+</code></p>
+<p>Le cascade permet de gérer la présence d'une fonction d'agrégation.</p>
+<p>Il est utile pour le bon fonctionnement de la commande de mettre le mot de passe de l'utilisateur dans la variable d'environnement PGPASSWORD.</p>
+<p>Merci à jxemo pour cette astuce et à Sparky pour la piste.</p>
+</ul><h1 id="1254" name="1254" class="book-h2">Taille des tables TOAST</h1><ul><p>La requête suivante permet d'afficher la taille des tables de TOAST de votre système, pour celles dont la taille est supérieure à 0 octets. On utilise une sous-requête dans la clause <tt>FROM</tt> (cf. <a href="http://www.postgresql.org/docs/current/static/queries-table-expressions.html">queries-table-expressions</a>) afin de récupérer les informations brutes voulues, puis on les met en forme dans le <tt>SELECT</tt> en utilisant entre autres <tt>pg_size_pretty</tt>.</p>
+<pre>
+SELECT a, n, pg_relation_size(t), pg_size_pretty(pg_relation_size(t))</p>
+<p>FROM   (SELECT c.relname, c.reltoastrelid, d.relname<br />
+        FROM   pg_class c JOIN pg_class d ON c.reltoastrelid = d.oid<br />
+       ) as x(a, t, n)</p>
+<p>WHERE  t > 0 and pg_relation_size(t) > 0</p>
+<p>ORDER BY 3 DESC;
+</pre>
+<p>Et voici un exemple d'utilisation :</p>
+<pre>
+psql amarok < /home/dim/PostgreSQL/cookbook/size.toast.sql<br />
+     a      |       n       | pg_relation_size | pg_size_pretty<br />
+------------+---------------+------------------+----------------<br />
+ pg_rewrite | pg_toast_2618 |           139264 | 136 kB<br />
+(1 ligne)
+</pre>
+</ul><h1 id="1088" name="1088" class="book-h2">Trouver facilement la taille d'une table, de ses index et son nombre de tuples</h1><ul><p>On a besoin parfois d'avoir rapidement la taille sur disque d'une table et le nombre d'enregistrements qu'elle contient. Pour cela, on peut utiliser la fonction <code>pg_total_relation_size('nom de table')</code> qui permet de rapatrier la taille <b>totale</b> de la table sur disque, index inclus. Si on ne veut pas connaître la taille prise par les index, il suffit d'utiliser la fonction <code>pg_relation_size('nom de table')</code>. La soustraction des deux permet de connaître la taille des index!</p>
+<p>Tout cela nous permet de réaliser une vue fort sympathique pour l'administrateur de base de données. Attention à <b>lancer un ANALYZE avant tout requêtage de cette vue</b>:</p>
+<p><code font=fixed></p>
+<p>drop view vue_stats;</p>
+<p>create view vue_stats as<br />
+SELECT<br />
+  c.relname as nom,<br />
+  c.reltuples::bigint as tuples,<br />
+  pg_total_relation_size(c.relname) as volume_total,<br />
+  pg_relation_size(c.relname) as volume_donnees,<br />
+  pg_total_relation_size(c.relname)-pg_relation_size(c.relname) as volume_index<br />
+FROM pg_catalog.pg_class c<br />
+     JOIN pg_catalog.pg_roles r ON r.oid = c.relowner<br />
+     LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace<br />
+WHERE c.relkind = 'r'<br />
+      AND n.nspname NOT IN ('pg_catalog', 'pg_toast')<br />
+      AND pg_catalog.pg_table_is_visible(c.oid)<br />
+ORDER BY 1,2;<br />
+</code>
+<p>Merci à klando (Cédric) pour cet ajout, fort sympathique: il permet d'avoir les tailles des objets lisibles sous la forme <i>humaine</i>:<br><br />
+<code><br />
+drop view vue_stats_pretty ;</p>
+<p>create view vue_stats_pretty as<br />
+ SELECT<br />
+ nom,<br />
+ tuples,<br />
+ pg_size_pretty(volume_total) as volume_total,<br />
+ pg_size_pretty(volume_donnees) as volume_donnees,<br />
+ pg_size_pretty(volume_index) as volume_index<br />
+ FROM vue_stats;<br />
+</code><br />
+<br>Enjoy!
+</p>
+<p>
+--<br />
+Jean-Paul ARGUDO<br />
+<a href="http://dalibo.com/" title="dalibo - L'expertise PostgreSQL">http://dalibo.com</a> | <a href="http://dalibo.org/" title="dalibo - projets Open-Source">http://dalibo.org</a>
+</p>
+</ul><h1 id="891" name="891" class="book-h2">trouver le nom de l'objet associé à un OID</h1><ul><p>Il est possible de trouver le nom de l'objet associé à un OID en passant par la conversion regclass. Par exemple, pour connaître le nom de l'objet dont l'OID est 2613 :</p>
+<pre>
+guillaume=# select 2613::regclass;<br />
+    regclass<br />
+----------------<br />
+ pg_largeobject<br />
+(1 ligne)
+</pre>
+<p>L'OID 2613 correspond donc à la table système pg_largeobject.</p>
+</ul><h1 id="938" name="938" class="book-h1">fonctions texte</h1><ul><br />
+</ul><h1 id="939" name="939" class="book-h2">diviser un texte en plusieurs lignes</h1><ul><p>Que faire si vous avez une chaîne, que vous voulez la séparer en plusieurs morceaux suivant un pattern et que vous voulez récupérer chaque morceau sur une ligne ?</p>
+<p>Commencer par créer la fonction suivante :</p>
+<pre>
+CREATE OR REPLACE FUNCTION split_to_rows(TEXT,TEXT) RETURNS SETOF TEXT<br />
+AS $$<br />
+    SELECT (string_to_array($1, $2))[s.i]<br />
+    FROM generate_series(<br />
+        1,<br />
+        array_upper(string_to_array($1, $2), 1)<br />
+    ) AS s(i);<br />
+$$ language sql strict;
+</pre>
+<p>Pour l'utiliser, rien de plus simple :</p>
+<pre>dev=#select split_to_rows('aa--bb--cc','--');</p>
+<p>split_to_rows<br />
+---------------<br />
+ aa<br />
+ bb<br />
+ cc<br />
+(3 rows)
+</pre>
+<p>Cette fonction a été écrite par David Fetter (voir son <a href="http://archives.postgresql.org/pgsql-general/2005-12/msg00080.php">message sur pgsql-general</a>).</p>
+</ul><h1 id="907" name="907" class="book-h1">misc</h1><ul><br />
+</ul><h1 id="1055" name="1055" class="book-h2">Lister les tables filles d'une table</h1><ul><p>
+On remplacera "element" par la table père, on pourra bien sûr récupérer les informations de la table pg_class (c) ou pg_inherits (i) en fonction des besoins...<br />
+<br></p>
+<pre>
+SELECT relname<br />
+FROM pg_catalog.pg_class c,<br />
+     pg_catalog.pg_inherits i<br />
+WHERE i.inhparent=(select oid from pg_class where relname='element');
+</pre>
+</p>
+</ul><h1 id="1226" name="1226" class="book-h2">Modifier les droits d'un utilisateur sur toutes les tables d'un schéma.</h1><ul><p>Ci-dessous une requête qui permet de composer un script permettant d'affecter les droits <b>SELECT</b> sur toutes les tables du schéma <b>public</b></p>
+<pre class="code">
+select 'GRANT SELECT ON '||table_schema||'.'||table_name||' TO mon_user;'<br />
+from   information_schema.tables<br />
+where  table_type='BASE TABLE'<br />
+and    table_schema='public';
+</pre>
+<p>Enregistrer le contenu de cette requête dans un fichier et rejouer le script.</p>
+<p>Cette requête peut être modifier pour le faire sur plusieurs schéma ou bien ajouter des droits supplémentaires. </p>
+</ul><h1 id="1275" name="1275" class="book-h2">Récupérer le résultat d'une requête éxécutée dans une procédure stockée</h1><ul><p>En php on peut utiliser directement une requête pour obtenir un <i>recordset</i>.<br />
+Cependant si l'on veux récupérer un <i>recordset</i> via une procedure stockée -- pour appliquer des traitements sur des paramètres avant d'exécuter la requête par exemple -- on peut créer une fonction équivalent à celle qui suit.</p>
+<p>L'exemple renvoie un <i>setof</i> de la variable <i>out</i> nommée myset et qui est definie du type du champs convoité dans la table. (On utilise %TYPE pour recupérer le type du champs).</p>
+<pre class="code">
+CREATE OR REPLACE FUNCTION ma_fonction(out myset ma_table.mon_champ_pk%TYPE)<br />
+    RETURNS setof integer AS<br />
+$BODY$<br />
+    DECLARE<br />
+    -- On crée une variable de type record , on peut aussi suivant le besoin créer une variable de type %ROWTYPE<br />
+     myrecord record;<br />
+BEGIN</p>
+<p>    FOR myrecord in SELECT mon_pk FROM ma_table loop<br />
+        myset:= myrecord.mon_pk;<br />
+        RETURN NEXT;<br />
+    END LOOP;<br />
+    RETURN;<br />
+END;<br />
+$BODY$<br />
+    LANGUAGE 'plpgsql' VOLATILE;</p>
+<p>ALTER FUNCTION ma_fonction(out myset demande.demande_pk%TYPE) OWNER TO mon_user;
+</pre>
+<p>Pour récupérer l'ensemble des resultat on selectionne la procedure ainsi:</p>
+<pre class="code">
+SELECT * FROM  ma_fonction();
+</pre>
+<p>Les mots importants sont :<br />
+ - setof<br />
+ - record<br />
+ - %TYPE et %ROWTYPE<br />
+ - for...loop<br />
+ - return next</p>
+</ul><h1 id="908" name="908" class="book-h2">Trouver le 1er élément disponible dans une liste de numériques</h1><ul><p>On veut parfois trouver le 1er élément disponible dans une liste. C'est souvent le cas quand la clé primaire d'une table est un nombre mais qu'il n'est pas soumis à une séquence.. Ou alors qu'on a des trous dans la séquence et qu'on veut les combler.</p>
+<p>Soit la table nombres (a integer, [...]), la requête suivante retourne le 1er élement disponible:</p>
+<pre>
+explain<br />
+SELECT (x.a+1) AS id_disponible<br />
+FROM nombres x<br />
+     LEFT JOIN nombres y<br />
+     ON ((x.a + 1) = y.a)<br />
+WHERE y.a IS NULL<br />
+ORDER BY x.a LIMIT 1;</p>
+<p>                                    QUERY PLAN<br />
+-----------------------------------------------------------------------------------<br />
+ Limit  (cost=0.00..1.58 rows=1 width=4)<br />
+   ->  Nested Loop Left Join  (cost=0.00..22.09 rows=14 width=4)<br />
+         Join Filter: (("outer".a + 1) = "inner".a)<br />
+         Filter: ("inner".a IS NULL)<br />
+         ->  Index Scan using id_a on nombres x  (cost=0.00..3.15 rows=14 width=4<br />
+         ->  Seq Scan on nombres y  (cost=0.00..1.14 rows=14 width=4)<br />
+(6 lignes)</p>
+<p>test2=> SELECT (x.a+1) AS id_disponible FROM nombres x LEFT JOIN nombres<br />
+y ON ((x.a + 1) = y.a) WHERE y.a IS NULL ORDER BY x.a LIMIT 1;<br />
+ id_disponible<br />
+---------------<br />
+             4<br />
+(1 ligne)
+</pre>
+<p>Si vous constatez des lenteurs, il vous faudra créer un index sur a (si ce n'est pas déjà fait, ce dont je doute):</p>
+<pre>create unique index id_a on nombres(a);</pre>
+<p>Et un index fonctionnel comme suit:</p>
+<pre>create index id_a_suivant on nombres ((a+1));</pre>
+<p>Merci à John Hansen (appeljack) pour cette idée. </p>
+</ul></body>
+<!-- Mirrored from drupal.postgresql.fr/?q=book/print/883 by HTTrack Website Copier/3.x [XR&CO'2006], Sun, 12 Oct 2008 16:01:00 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+</html>

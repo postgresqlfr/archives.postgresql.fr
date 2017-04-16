@@ -1,0 +1,587 @@
+
+<!DOCTYPE
+ html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+ <html>
+ <!-- $Date: 2005/08/30 07:54:43 $ / $Revision: 1.29 $ / Last Theme Editor :$Author: jx $-->
+  
+<!-- Mirrored from drupal.postgresql.fr/?q=node/1364 by HTTrack Website Copier/3.x [XR&CO'2006], Sun, 12 Oct 2008 17:56:03 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<base  />
+<style type="text/css" media="all">@import "misc/drupal.css";</style>
+   <title>Shp2PGSQL choisir le schema pour l'insertion de la table - PostgreSQLFr</title>
+ <style type="text/css" media="screen" title="Normal Text">
+    @import url("layout/css/blue/fixed.css");
+    @import url(_guillaume/dotclear/themes/postgresql/style.html);
+ </style>
+ <style type="text/css" media="screen" title="Normal Text2">
+    @import url("layout/css/blue/pgfr.css");
+    @import url(_guillaume/dotclear/themes/postgresql/style.html);
+ </style>
+   </head>
+   <body>
+    <table border="0" cellspacing="5" cellpadding="0" width="100%">
+     <tr>
+      <!--td colspan="2" width="100%"-->
+      <td colspan="2">
+      <!-- Head -->
+       <table border="0" cellspacing="0" cellpadding="0" width="100%">
+        <tr>
+	 <td align="left">
+           <div id="pgHeader">
+	    <div id="pgHeaderLogoLeft">
+	     <a href="index.html" title="PostgreSQL"><img src="layout/images/hdr_left.png" width="230" height="80" alt="PostgreSQL" /></a>
+	    </div>
+	    <div id="pgHeaderLogoRight">
+	     <a href="index.html" title="La base de donn�es la plus sophistiqu�e au monde."><img src="layout/images/hdr_right.png" width="210" height="80" alt="La base de donn�es la plus sophistiqu�e au monde." /></a>
+	    </div>
+	   </div>
+         </td>
+	 <td align="right">
+         </td>
+	</tr>
+      </table> <!-- Head -->
+      <br />
+      <table border="0" cellspacing="0" cellpadding="0" width="100%">
+              <tr>
+	      	 <td align="left">
+
+		<div class="pgTopNav">
+		   <div class="pgTopNavLeft"> 
+		     <img src="layout/images/nav_lft.png" width="7" height="23" alt="" />
+		   </div>
+		   <div class="pgTopNavRight">
+		    <img src="layout/images/nav_rgt.png" width="7" height="23" alt="" />
+		  </div>
+		  <!--<ul class="pgTopNavList">-->
+		  <ul class="pgTopNavList">
+		   <li><a href="index03d2.html?q=" title="Retourner à la page principale.">accueil</a> </li>
+		   <li> <a href="indexf6e5.html?q=archive" title="Lire le contenu plus ancien dans notre archive.">archives</a> </li>
+		   <li> <a href="index71c4.html?q=blog" title="Lire les blogues les plus récents.">blogues</a> </li>
+
+		   <li> <a href="indexf6fe.html?q=book" title="Lire et contribuer aux livres collaboratifs.">livres</a> </li>
+		   <li> <a href="index79b7.html?q=forum">forums</a> </li>
+		   <li> <a href="index729f.html?q=poll" title="Voir la liste des sondages de ce site.">sondages</a> </li>
+		   <li> <a href="index4404.html?q=search" title="Chercher pour du contenu plus vieux.">recherche</a></li><li><a href="http://docs.postgresqlfr.org/" target="_blank">documentation </a></li>
+
+		  </ul>
+
+<!--
+		   <li><a href="?q=" title="Retourner à la page principale.">accueil</a> </li>
+		   <li> <a href="?q=archive" title="Lire le contenu plus ancien dans notre archive.">archives</a> </li>
+		   <li> <a href="?q=blog" title="Lire les blogues les plus récents.">blogues</a> </li>
+		   <li> <a href="?q=book" title="Lire et contribuer aux livres collaboratifs.">livres</a> </li>
+		   <li> <a href="?q=forum">forums</a> </li>
+		   <li> <a href="?q=poll" title="Voir la liste des sondages de ce site.">sondages</a> </li>
+		   <li> <a href="?q=search" title="Chercher pour du contenu plus vieux.">recherche</a></li><li><a href="http://docs.postgresqlfr.org/" target="_blank">documentation </a></li>
+-->
+		  </ul>
+	        </div>
+		</td>
+		</tr>
+		</table>
+      </td>
+     </tr>
+     <tr>
+    <td style="vertical-align: top; width: 20%;">
+<div class="block block-user" id="block-user-0">
+<div class="pgSideNav">    <h2>Ouverture de session</h2>    
+		    <div>
+			<form action="http://drupal.postgresql.fr/?q=user/login" method="post">
+<div class="user-login-block">
+<input type="hidden" name="edit[destination]" value="node/1364" />
+<div class="form-item">
+ <label for="edit-name">Nom d'utilisateur:</label><br />
+ <input type="text" maxlength="64" class="form-text" name="edit[name]" id="edit-name" size="15" value="" />
+</div>
+<div class="form-item">
+ <label for="edit-pass">Mot de passe:</label><br />
+ <input type="password" class="form-password" maxlength="64" name="edit[pass]" id="edit-pass" size="15" value="" />
+</div>
+<input type="submit" class="form-submit" name="op" value="Identification"  />
+</div>
+
+</form>
+<div class="item-list"><ul><li><a href="indexc12c.html?q=user/password" title="Demander un nouveau mot de passe par e-mail.">Demander un nouveau mot de passe</a></li></ul></div>
+		    </div></div></div>
+<div class="block block-user" id="block-user-1">
+<div class="pgSideNav">    <h2>Navigation</h2>    
+		    <div>
+			<div class="menu">
+<ul>
+<li class="leaf"><a href="indexa499.html?q=tracker">messages récents</a></li>
+
+</ul>
+</div>
+		    </div></div></div>
+<div class="block block-block" id="block-block-4">
+<div class="pgSideNav">    <h2>Contactez-nous</h2>    
+		    <div>
+			<p><strong>Administration du site&nbsp;:</strong><br />
+"equipe chez postgresqlfr point org"<br><br />
+<strong>Contact presse&nbsp;:</strong><br />
+"fr chez postgresql point org"<br><br />
+<strong>Contact association&nbsp;:</strong><br />
+"bureau chez postgresqlfr point org"<br><br />
+<strong>Questions PostgreSQL&nbsp;:</strong><br />
+&nbsp;IRC&nbsp;:<br />
+&nbsp;&nbsp;serveur <strong>irc.freenode.net</strong><br />
+&nbsp;&nbsp;canal <strong>#postgresqlfr</strong></p>
+
+		    </div></div></div>
+<div class="block block-block" id="block-block-1">
+<div class="pgSideNav">    <h2>Liens</h2>    
+		    <div>
+			<p><small></p>
+<ul>
+<li>
+<a href="http://www.postgresqlfr.org/?q=node/view/162">Adhérer</a>
+</li>
+<li>
+<a href="http://www.postgresqlfr.org/?q=node/473">Faire un don</a>
+</li>
+<li>
+<a href="http://www.postgresqlfr.org/?q=node/163">Consulter les statuts</a>
+</li>
+</ul>
+<ul>
+<li>
+<a href="http://www.postgresql.org/" class="active">Site original<br />
+</a>
+</li>
+<li>
+<a href="http://docs.postgresqlfr.org/" class="active">Site de traduction</a>
+</li>
+<li>
+<a href="http://docs.postgresqlfr.org/8.3/">Doc v.8.3.x fr</a>
+</li>
+<li>
+<a href="http://docs.postgresqlfr.org/8.2/">Doc v.8.2.x fr</a>
+</li>
+<li>
+<a href="http://docs.postgresqlfr.org/8.1/">Doc v.8.1.x fr</a>
+</li>
+<li>
+<a href="http://docs.postgresqlfr.org/8.0/">Doc v.8.0.x fr</a>
+</li>
+<li>
+<a href="http://docs.postgresqlfr.org/7.4/">Doc v.7.4.x fr</a>
+</li>
+<li>
+<a href="http://www.postgis.fr/">PostGIS</a>
+</li>
+<li>
+<a href="http://www.postgresql.org/docs/techdocs">Techdocs</a>
+</li>
+<li>
+<a href="http://www.varlena.com/varlena/GeneralBits/Tidbits/">General TidBits</a>
+</li>
+<p><!--</p>
+<li>
+<a href="http://www.postgresqlfr.org/?q=node/view/58">Version Windows</a>
+</li>
+<p>--></p>
+<li>
+<a href="http://www.postgresqlfr.org/drupal/?q=node/view/63">Témoignages de pros</a>
+</li>
+<li>
+<a href="http://archives.postgresql.org/pgsql-fr-generale/">Liste de diffusion</a>
+</li>
+<li>
+<a href="http://wwwmaster.postgresql.org/download/mirrors-ftp">Télécharger</a>
+</li>
+</ul>
+<p></small></p>
+
+		    </div></div></div>
+<div class="block block-block" id="block-block-2">
+<div class="pgSideNav">    <h2>Recherche</h2>    
+		    <div>
+			<form action="http://drupal.postgresql.fr/?q=search" method="post">
+<div id="search">
+<input class="form-text" type="text" size="15" value="" name="keys" alt="Enter the terms you wish to search for." /><br />
+<input class="form-submit" type="submit" value="Recherche" />
+</div>
+</form>
+
+		    </div></div></div>
+<div class="block block-forum" id="block-forum-0">
+<div class="pgSideNav">    <h2>Sujets du forum</h2>    
+		    <div>
+			<div class="item-list"><h3>Sujets actifs</h3><ul><li><a href="index253f.html?q=node/1742">A LIRE : FERMETURE DES FORUMS DRUPAL</a></li><li><a href="indexfc2e.html?q=node/1739" title="2 commentaires">Problème  avec pg_dump</a></li><li><a href="index97c1.html?q=node/1731" title="5 commentaires">Connexions simultannées</a></li><li><a href="index32d3.html?q=node/1737" title="1 commentaire">Optimisation de la mémoire sous PostgreSQL</a></li><li><a href="index2483.html?q=node/1736" title="3 commentaires">[Résolu] Upgrade Postgre -> types et opérateurs</a></li></ul></div><div class="item-list"><h3>Nouveaux sujets:</h3><ul><li><a href="index253f.html?q=node/1742">A LIRE : FERMETURE DES FORUMS DRUPAL</a></li><li><a href="indexfc2e.html?q=node/1739" title="2 commentaires">Problème  avec pg_dump</a></li><li><a href="index32d3.html?q=node/1737" title="1 commentaire">Optimisation de la mémoire sous PostgreSQL</a></li><li><a href="index2483.html?q=node/1736" title="3 commentaires">[Résolu] Upgrade Postgre -> types et opérateurs</a></li><li><a href="index82c4.html?q=node/1734" title="2 commentaires">[RESOLU] Probleme de connection en odbc</a></li></ul></div><div class="more-link"><a href="index79b7.html?q=forum" title="Lire les derniers sujets.">en lire plus</a></div>
+		    </div></div></div>
+<div class="block block-archive" id="block-archive-0">
+<div class="pgSideNav">    <h2>Accéder aux archives</h2>    
+		    <div>
+			
+<!-- calendar -->
+<div class="calendar"><table summary="Un calendrier pour accéder aux archives.">
+ <caption><a href="index9dfb.html?q=archive/2008/09/12" title="Mois précédent">&laquo;</a> Octobre 2008 &nbsp;</caption>
+ <tr class="header-week">
+ <th abbr="Lundi">Lun</th>
+ <th abbr="Mardi">Mar</th>
+ <th abbr="Mercredi">Mer</th>
+ <th abbr="Jeudi">Jeu</th>
+ <th abbr="Vendredi">Ven</th>
+ <th abbr="Samedi">Sam</th>
+ <th abbr="Dimanche">Dim</th>
+</tr>
+ <tr class="row-week"><td class="day-blank" colspan="2">&nbsp;</td>
+  <td class="day-link"><a href="indexd3e2.html?q=archive/2008/10/1">1</a></td>
+  <td class="day-normal">2</td>
+  <td class="day-normal">3</td>
+  <td class="day-normal">4</td>
+  <td class="day-normal">5</td>
+ </tr>
+ <tr class="row-week">
+  <td class="day-normal">6</td>
+  <td class="day-normal">7</td>
+  <td class="day-normal">8</td>
+  <td class="day-normal">9</td>
+  <td class="day-normal">10</td>
+  <td class="day-normal">11</td>
+  <td class="day-today">12</td>
+ </tr>
+ <tr class="row-week">
+  <td class="day-future">13</td>
+  <td class="day-future">14</td>
+  <td class="day-future">15</td>
+  <td class="day-future">16</td>
+  <td class="day-future">17</td>
+  <td class="day-future">18</td>
+  <td class="day-future">19</td>
+ </tr>
+ <tr class="row-week">
+  <td class="day-future">20</td>
+  <td class="day-future">21</td>
+  <td class="day-future">22</td>
+  <td class="day-future">23</td>
+  <td class="day-future">24</td>
+  <td class="day-future">25</td>
+  <td class="day-future">26</td>
+ </tr>
+ <tr class="row-week">
+  <td class="day-future">27</td>
+  <td class="day-future">28</td>
+  <td class="day-future">29</td>
+  <td class="day-future">30</td>
+  <td class="day-future">31</td>
+  <td class="day-blank" colspan="2">&nbsp;</td>
+ </tr>
+</table></div>
+
+
+		    </div></div></div>
+<div class="block block-node" id="block-node-0">
+<div class="pgSideNav">    <h2>Syndication</h2>    
+		    <div>
+			<div class="xml-icon"><a href="index9637.html?q=rss.xml"><img src="misc/xml.png" width="36" height="14" alt="Flux XML" title="Flux XML" /></a></div>
+		    </div></div></div>
+<div class="block block-poll" id="block-poll-0">
+<div class="pgSideNav">    <h2>Sondage</h2>    
+		    <div>
+			<div class="poll"><div class="title">Quelle est la version de PostgreSQL la plus répandue sur vos serveurs ?</div><div class="text">8.3</div><div class="bar"><div style="width: 10%;" class="foreground"></div></div><div class="percent">10%</div><div class="text">8.2</div><div class="bar"><div style="width: 42%;" class="foreground"></div></div><div class="percent">42%</div><div class="text">8.1</div><div class="bar"><div style="width: 40%;" class="foreground"></div></div><div class="percent">40%</div><div class="text">8.0</div><div class="bar"><div style="width: 2%;" class="foreground"></div></div><div class="percent">2%</div><div class="text">7.4</div><div class="bar"><div style="width: 6%;" class="foreground"></div></div><div class="percent">6%</div><div class="text">7.3 ou antérieure</div><div class="bar"><div style="width: 0%;" class="foreground"></div></div><div class="percent">0%</div><div class="total">Nombre de votes: 48</div></div><div class="links"><a href="index8c57.html?q=node/1426#comment" title="Sauter au premier commentaire de ce message.">3 commentaires</a> | <a href="index729f.html?q=poll" title="Voir la liste des sondages de ce site.">anciens sondages</a></div>
+		    </div></div></div>
+    </td>
+
+      <td style="vertical-align: top; width: 80%"><div class="breadcrumb"><a href="index03d2.html?q=">Accueil</a> &raquo; <a href="index79b7.html?q=forum">forums</a> &raquo; <a href="index0561.html?q=forum/10">Technique - général</a></div><h2 class="title">Shp2PGSQL choisir le schema pour l'insertion de la table</h2>
+<!-- begin content -->
+
+<!-- node: "Shp2PGSQL choisir le schema pour l'insertion de la table" -->
+<!--<div class="pgFrontCenterUser">
+<div class="pgFrontUser">
+<div class="pgFrontUserInner">
+--><div class="pgFrontUserWrap">
+ <div class="pgFrontUserContent">	<h1 class="plop"><a href="indexea60.html?q=taxonomy/term/10">Technique - général</a> | <a href="index74b5.html?q=node/1364" class="active">Shp2PGSQL choisir le schema pour l'insertion de la table</a></h1>
+		    <p>
+			    Par <a href="indexdc61.html?q=user/2426" title="Voir le profil utilisateur.">gglafouine</a> le 22/08/2007 - 14:54
+		    </p>	
+			    <p>Bonjour,</p>
+<p>je possède 2 schéma sur ma base de données titi (test et toto)</p>
+<p>je voudrai savoir comment je peux intégrer ma table dans le schéma toto via la commade shp2pgsql</p>
+<p>voila la commande que je rentre une fois dans le dossier:</p>
+<p>shp2pgsql -s 27582 -D -I forets foret titi | psql titi</p>
+<p>je n'arrive pas à trouver l'option me permetant de l'intégrer dans le bon schéma ducoup il passe dans le premier (test)</p>
+<p>Merci d'avance.</p>
+<!--hr /--><div class="contentsLink">[ <a href="index6aa0.html?q=node/915" title="passage de paramètres a un script sql">sujet précédent</a> | <a href="index19b9.html?q=node/1273" title="probleme import d'un dump d'une base postgresql">sujet suivant</a> ]</div>
+		     </div></div>
+<!--</div>
+</div>
+</div>
+</div> -->
+<a id="comment"></a>
+<form method="post" action="http://drupal.postgresql.fr/?q=comment"><div>
+<div class="pgSideNav">    <h2>Options d'affichage des commentaires</h2>    
+		    <div>
+			<div class="form-item">
+ <select name="mode"> <option value="1">A plat - replié</option>
+ <option value="2">A plat - déplié</option>
+ <option value="3">Par discussions - replié</option>
+ <option value="4" selected="selected">Par discussions - déplié</option>
+</select>
+<select name="order"> <option value="1">Date - récents en premier</option>
+ <option value="2" selected="selected">Date - anciens en premier</option>
+</select>
+<select name="comments_per_page"> <option value="10">10 commentaires par page</option> <option value="30">30 commentaires par page</option> <option value="50" selected="selected">50 commentaires par page</option> <option value="70">70 commentaires par page</option> <option value="90">90 commentaires par page</option></select>
+<input type="hidden" name="threshold" value="0" />
+ <input type="submit" class="form-submit" name="op" value="Sauvegarder les paramètres"  />
+
+ <div class="description">Sélectionnez la méthode d'affichage des commentaires que vous préférez, puis cliquez sur "Sauvegarder les paramètres" pour activer vos changements.</div>
+</div>
+
+		    </div></div><input type="hidden" name="edit[nid]" value="1364" />
+</div></form><form method="post" action="http://drupal.postgresql.fr/?q=comment"><div>
+<input type="hidden" name="edit[nid]" value="1364" />
+<a id="comment-2163"></a>
+<div class="pgContentWrap"><h1 id="txtFrontFeatureHeading">shp2pgsql - choisir le shéma pour insertion </h1>
+		<p>
+		    <b><a href="index040e.html?q=user/2679" title="Voir le profil utilisateur.">syracine</a></b>/ = 23 Août, 2007 - 15:01
+		</p>
+		<p>
+		    <p>Bonjour,</p>
+<p>Voici ce qu'il faut taper:</p>
+<p>shp2pgsql -s monSrid -D -I monfichiershp.shp -d monshema.matable | psql -U monutilisateur mabasededonnees</p>
+<p>Supposons que:<br />
+- ta base de données s'appelle 'titi'<br />
+- l'utilisateur 'pierre' a les droits d'écriture sur cette base de données<br />
+- tu as 2 shémas qui se nomment 'test' et 'toto'<br />
+- tu veux insérer le fichier 'forets.shp' dans la table 'arbre' qui se trouve dans le shéma 'toto'<br />
+- les données graphiques contenues dans 'forets.shp' sont référencées par le SRID 27582</p>
+<p>Alors, tu tapes :<br />
+shp2pgsql -s 27582 -D -I forets.shp -d toto.arbre | psql -U pierre titi</p>
+<p>Si tu as encore des erreurs, tu peux scinder ta commande en deux en envoyant la sortie de la commande shp2pgsql dans un fichier temporaire (ce qui est recommandable quand on fait ça la première fois):<br />
+shp2pgsql -s 27582 -D -I forets.shp -d toto.arbre >> insert.sql</p>
+<p>Puis compléter par:<br />
+pgsql -U pierre -f insert.sql titi</p>
+<p>Si tu as d'autres problèmes, n'hésite pas à reposter, car ce n'est pas évident la première fois.</p>
+<br /><!--hr /--><div class="contentsLink">[ Vous devez <a href="index7992.html?q=user/login">vous connecter</a> pour poster des commentaires ]</div>
+		</p></div><a id="comment-2165"></a>
+<div class="pgContentWrap"><h1 id="txtFrontFeatureHeading">shema</h1>
+		<p>
+		    <b><a href="index5498.html?q=user/2805" title="Voir le profil utilisateur.">devAno</a></b>/ = 23 Août, 2007 - 15:40
+		</p>
+		<p>
+		    <p>Bonjour j'ai aussi un probleme pour importer un shape.J'ai beau specifier dans quel shema je veux mettre ma table, j'ai une erreur comme quoi il ne triuve pas la fonction addGeometryColumn.?<br />
+Quelqu'un a-t-il une idée ?<br />
+Merci</p>
+<br /><!--hr /--><div class="contentsLink">[ Vous devez <a href="index7992.html?q=user/login">vous connecter</a> pour poster des commentaires ]</div>
+		</p></div><div style="margin-left:25px;">
+<a id="comment-2167"></a>
+<div class="pgContentWrap"><h1 id="txtFrontFeatureHeading">Ulisation de PostGIS</h1>
+		<p>
+		    <b><a href="index040e.html?q=user/2679" title="Voir le profil utilisateur.">syracine</a></b>/ = 23 Août, 2007 - 16:50
+		</p>
+		<p>
+		    <p>Bonjour,</p>
+<p>Je n'en ai pas parlé tout à l'heure, mais le sujet de ce post concerne l'extension PostGIS de PostgreSQL. </p>
+<p>Avez-vous installé PostGIS dans votre BD? PostGIS est une suite de fonctions écrites en plpgsql qui viennent s'ajouter directement dans la BD pour fournir des fonctionnalités géospatiales à PostgreSQL. La commande shp2pgsql accompagne cette suite de fonctions.</p>
+<p>Je vous suggère d'aller voir les sites suivants:<br />
+www.postgis.org (site d'origine, complet mais en anglais)<br />
+ou en français www.postgis.fr (Vous y trouverez de la documentation sur les commandes de base).</p>
+<p>Pour répondre à la question de devAno, shp2pgsql ne fonctionne pas car cette commande génère un script SQL qui contient la fonction addGeometryColumn() pour ajouter des données géomètriques. Il faut que cette fonction apparaisse dans la liste des fonctions de la BD dans laquelle on insère un fichier.shp.</p>
+<p>Si vous avez besoin d'informations sur la façon d'installer PostGIS et de configurer une base de données sous cette extension, je vous suggère de poster votre message (et de lire d'abord la documentation) sur les sites mentionnés plus tôt.</p>
+<p>Bonne chance</p>
+<br /><!--hr /--><div class="contentsLink">[ Vous devez <a href="index7992.html?q=user/login">vous connecter</a> pour poster des commentaires ]</div>
+		</p></div></div>
+<div style="margin-left:25px;">
+<a id="comment-2168"></a>
+<div class="pgContentWrap"><h1 id="txtFrontFeatureHeading">Oui j'ai installé PostGis.En</h1>
+		<p>
+		    <b><a href="index5498.html?q=user/2805" title="Voir le profil utilisateur.">devAno</a></b>/ = 23 Août, 2007 - 16:57
+		</p>
+		<p>
+		    <p>Oui j'ai installé PostGis.Ensuite nous avons cree 2 shema, juste pour "separer" les tables Geo des autres tables et nous avons migrer les fonction geometrique dans le shema qui contient les tables geo.Le probleme est peut être la.Dans la commande shp2pgsql, lorsque je dis que je veux creer ma table dans le shmea Geo, il n'a pas l'air de lire les fonctions associées à ce shema. Je ne suis peut être pas tres clair...<br />
+En fait lors de mes premiers tests je n'avais qu'un seul shema et j'avais bien reussi à utiliser le "shp2pgsql".</p>
+<br /><!--hr /--><div class="contentsLink">[ Vous devez <a href="index7992.html?q=user/login">vous connecter</a> pour poster des commentaires ]</div>
+		</p></div></div>
+<div style="margin-left:50px;">
+<a id="comment-2169"></a>
+<div class="pgContentWrap"><h1 id="txtFrontFeatureHeading">Postgis - Tables de référence de base</h1>
+		<p>
+		    <b><a href="index040e.html?q=user/2679" title="Voir le profil utilisateur.">syracine</a></b>/ = 23 Août, 2007 - 17:26
+		</p>
+		<p>
+		    <p>Bonjour,</p>
+<p>Vérifie d'abord qui est propriétaire du shéma 'Geo'. Est-ce le même utilisateur que pour l'autre shéma?</p>
+<p>Deuxième point à vérifier, PostGIS nécessite deux tables pour la gestion de la géoréférence spatiale. Il s'agit de la table 'geometry_columns' - qui contient les données relatives aux champs géométriques (nom de la base de données, nom de la table, nom du champ géométrique, SRID du champ, etc., et nom du SHÉMA entre autre) - et de la table 'spatial_ref_sys' - qui contient la liste des systèmes de projections cartographiques supportées par PostGIS. Les deux tables doivent être présentes pour utiliser la commande shp2pgsql.</p>
+<p>Vérifie si les deux tables existent dans ton shéma. Si la table 'geometry_columns' existe, vérifie si elle pointe vers le bon shéma, la bonne BD, la bonne table, le bon champ.</p>
+<p>Remarque: Si tu joues avec des données sensibles, fait un backup avant de jouer dans cette table!</p>
+<p>Cordialement</p>
+<br /><!--hr /--><div class="contentsLink">[ Vous devez <a href="index7992.html?q=user/login">vous connecter</a> pour poster des commentaires ]</div>
+		</p></div></div>
+<div style="margin-left:50px;">
+<a id="comment-2170"></a>
+<div class="pgContentWrap"><h1 id="txtFrontFeatureHeading">shema</h1>
+		<p>
+		    <b><a href="index5498.html?q=user/2805" title="Voir le profil utilisateur.">devAno</a></b>/ = 23 Août, 2007 - 17:31
+		</p>
+		<p>
+		    <p>J'ai migré les fonctions dans un shema "public" et maintenant ça marche.</p>
+<br /><!--hr /--><div class="contentsLink">[ Vous devez <a href="index7992.html?q=user/login">vous connecter</a> pour poster des commentaires ]</div>
+		</p></div></div>
+<div style="margin-left:50px;">
+<a id="comment-2171"></a>
+<div class="pgContentWrap"><h1 id="txtFrontFeatureHeading">2 shémas pour PostGIS = schizophrénie assurée</h1>
+		<p>
+		    <b><a href="index040e.html?q=user/2679" title="Voir le profil utilisateur.">syracine</a></b>/ = 23 Août, 2007 - 17:45
+		</p>
+		<p>
+		    <p>Bonjour,</p>
+<p>Je crois que vous avez pris la décision la plus sage qui soit. En effet, je ne vois pas trop l'utilité d'avoir un shéma distinct pour séparer les tables géométriques des autres tables. Cela vous conduisait inutilement vers des chemins hasardeux et compliqués!</p>
+<p>Cordialement</p>
+<br /><!--hr /--><div class="contentsLink">[ Vous devez <a href="index7992.html?q=user/login">vous connecter</a> pour poster des commentaires ]</div>
+		</p></div></div>
+<div style="margin-left:75px;">
+<a id="comment-2175"></a>
+<div class="pgContentWrap"><h1 id="txtFrontFeatureHeading">Bonjour, en fait la division </h1>
+		<p>
+		    <b><a href="indexdc61.html?q=user/2426" title="Voir le profil utilisateur.">gglafouine</a></b>/ = 24 Août, 2007 - 13:57
+		</p>
+		<p>
+		    <p>Bonjour, en fait la division des deux shémas été obligatoire pour notre infrastructure car pour les utilisateur de geonetwork avec postgreSQL nous oblige à définir un schéma portant le nom de l'utilisateur.</p>
+<p>merci pour votre explication mais il me reste un roblème. Ma table s'enregistre correctement avec les deux méthodes mais j'ai remarqué une erreur de taille. j'ai ouvert matable sous phppgadmin pour voir le resultat.</p>
+<p>>> tout les id sont =0</p>
+<p>du coup j'ai vérifier le fichier en faisant un more -d foret.sql<br />
+j'ai le premier champ de ma columg geométrie qui est vide. :|</p>
+<p>AddGeometryColumn('',</p>
+<p>Je pense pas que se soit normal mais es que je peux corriger cela?</p>
+<br /><!--hr /--><div class="contentsLink">[ Vous devez <a href="index7992.html?q=user/login">vous connecter</a> pour poster des commentaires ]</div>
+		</p></div></div>
+<div style="margin-left:100px;">
+<a id="comment-2176"></a>
+<div class="pgContentWrap"><h1 id="txtFrontFeatureHeading">en fait j'ai compris le premi</h1>
+		<p>
+		    <b><a href="indexdc61.html?q=user/2426" title="Voir le profil utilisateur.">gglafouine</a></b>/ = 24 Août, 2007 - 14:15
+		</p>
+		<p>
+		    <p>en fait j'ai compris le premier champs correspond au schéma quand il est pas stipulé dans la requète ;) </p>
+<p>bref mon erreur viens d'ailleur.</p>
+<br /><!--hr /--><div class="contentsLink">[ Vous devez <a href="index7992.html?q=user/login">vous connecter</a> pour poster des commentaires ]</div>
+		</p></div></div>
+<div style="margin-left:100px;">
+<a id="comment-2177"></a>
+<div class="pgContentWrap"><h1 id="txtFrontFeatureHeading">ID = 0</h1>
+		<p>
+		    <b><a href="index040e.html?q=user/2679" title="Voir le profil utilisateur.">syracine</a></b>/ = 24 Août, 2007 - 15:09
+		</p>
+		<p>
+		    <p>Bonjour,</p>
+<p>Concernant le premier champ de AddGeometryColumn, je crois qu'il est normal que ça soit vide (''). Ce champ dans cette fonction indique le nom du catalogue. D'après moi, cela n'a rien à voir avec ton problème d'ID.</p>
+<p>Pour les ID = 0, je crois que j'ai une piste. Vérifie dans ton script SQL si, au moment de la création de ta table, on attribut une valeur par défaut à ton champs, par exemple à une SEQUENCE. </p>
+<p>ex:  ID   int    DEFAULT nextval('monshema.masequence');</p>
+<p>Tel qu'indiqué dans mon exemple, il faut que le nom du shéma soit indiqué avant le nom de la séquence. De même, il faut indiquer le nom du shéma lors de la création de la séquence (plus haut dans ton script).</p>
+<p>Ex:  CREATE SEQUENCE monshema.masequence START 1;</p>
+<p>Si le nom du shéma n'apparaît pas avant le nom de la séquence, alors PostgreSQL cherche la séquence dans le shéma 'public'. Si ma piste est bonne, il faudrait que tu corriges manuellement le script avant de l'insérer dans ta table.</p>
+<p>Tiens-moi au courant.</p>
+<p>Bonne route</p>
+<br /><!--hr /--><div class="contentsLink">[ Vous devez <a href="index7992.html?q=user/login">vous connecter</a> pour poster des commentaires ]</div>
+		</p></div></div>
+<div style="margin-left:125px;">
+<a id="comment-2186"></a>
+<div class="pgContentWrap"><h1 id="txtFrontFeatureHeading">Bonjour,
+dans mon cas, le pr</h1>
+		<p>
+		    <b><a href="indexdc61.html?q=user/2426" title="Voir le profil utilisateur.">gglafouine</a></b>/ = 28 Août, 2007 - 15:26
+		</p>
+		<p>
+		    <p>Bonjour,<br />
+dans mon cas, le premier champ de addgeometrucolum est bien le schema public. </p>
+<p>voici un extrait du fichier sql avec le premier champs de la table:</p>
+<p>"id_tronc" int8,<br />
+"toponyme" varchar(50),<br />
+"etat" varchar(25),<br />
+"nature" varchar(25),<br />
+"code_hydro" varchar(8),<br />
+"cours_eau" varchar(8),<br />
+"code_bv" varchar(5),<br />
+"bv_riv" varchar(5),<br />
+"longueur_m" int8);<br />
+SELECT AddGeometryColumn('public','hydrologie_gers','the_geom','27582','MULTILINESTRING',2);<br />
+CREATE INDEX "hydrologie_gers_the_geom_gist" ON "public"."hydrologie_gers" using gist ("the_geom" gist_geometry_ops);<br />
+INSERT INTO "public"."hydrologie_gers" ("id_tronc","toponyme","etat","nature","code_hydro","cours_eau","code_bv","bv_riv","longueur_m",the_geom) VALUES ('320<br />
+00001','ruisseau l\'arçon','Intermittent','Cours d\'eau naturel','O6300590','O6--0250','O630','O621','1532','SRID=27582;0105000000010000000102000000260000002<br />
+DB29D6FCA5D1C41D34D623002213C4152B81E85BE5D1C41CDCCCCCC1D213C41621058B9CC5D1C410681958340213C412B8716D9D05D1C4185EB513854213C41CFF753E3EB5D1C411B2FDD046B213C<br />
+418FC2F5A8825E1C41F0A7C64BD0213C41C3F5285CB75E1C41B29DEF67F1213C411D5A643BD45E1C41448B6CE701223C41AC1C5AE4035F1C41DD2406011F223C41250681956F5F1C41EC51B8DE5C2<br />
+23C4133333333A55F1C4185EB51587B223C41FCA9F152B45F1C4160E5D08284223C41B0726811D85F1C411B2FDD4496223C413D0AD7232F601C41AE47E17AC9223C41D122DBF91A601C41CDCCCCCC<br />
+E2223C41F853E3A508601C41A245B6F3FD223C412B8716593D601C41D34D621014233C4139B4C8F67D601C41448B6C672A233C410C022B8706611C419CC420B063233C41AE47E1FA27611C419A999<br />
+9B989233C41E17A142E62611C419CC42030AF233C41DD240601A6611C41022B87D6DA233C418D976E1213621C412FDD24E6E7233C412FDD24065B621C4125068175FA233C41AAF1D24D9F621C415A<br />
+643B5F11243C4125068195F9621C413BDF4F6D4A243C418FC2F52835631C41BE9F1AAF61243C411904560EBA631C41C520B01297243C41EE7C3F3531641C4193180436CF243C41AAF1D24DFB641C4<br />
+13F355E9A34253C414A0C02AB54651C41FED478E949253C41F853E325DE651C41643BDFAF79253C41A8C64B374B661C41CBA14576A9253C410000008084661C4133333393B4253C41F4FDD4783F67<br />
+1C41D122DBF9D7253C411904568E49671C41D9CEF773EB253C41B6F3FD54B4671C412506819509263C4108AC1C5A48681C41759318642F263C41');</p>
+<br /><!--hr /--><div class="contentsLink">[ Vous devez <a href="index7992.html?q=user/login">vous connecter</a> pour poster des commentaires ]</div>
+		</p></div></div>
+<div style="margin-left:50px;">
+<a id="comment-2173"></a>
+<div class="pgContentWrap"><h1 id="txtFrontFeatureHeading">Bonjour,
+
+Je trouvais juste</h1>
+		<p>
+		    <b><a href="index5498.html?q=user/2805" title="Voir le profil utilisateur.">devAno</a></b>/ = 24 Août, 2007 - 08:21
+		</p>
+		<p>
+		    <p>Bonjour,</p>
+<p>Je trouvais juste que cela aurit pu être plus propre de séparer mais ce n'est pas grave.<br />
+Merci pour votre aide.</p>
+<br /><!--hr /--><div class="contentsLink">[ Vous devez <a href="index7992.html?q=user/login">vous connecter</a> pour poster des commentaires ]</div>
+		</p></div></div>
+</div></form>
+<!-- end content -->
+              </td>
+
+    </tr>
+    <tr><td colspan="2">
+
+		<div class="pgTopNav">
+		   <div class="pgTopNavLeft"> 
+		     <img src="layout/images/nav_lft.png" width="7" height="23" alt="" />
+		   </div>
+		   <div class="pgTopNavRight">
+		    <img src="layout/images/nav_rgt.png" width="7" height="23" alt="" />
+		  </div>
+		  <!--<ul class="pgTopNavList">-->
+		  <ul class="pgTopNavList">
+		   <li><a href="index03d2.html?q=" title="Retourner à la page principale.">accueil</a> </li>
+		   <li> <a href="indexf6e5.html?q=archive" title="Lire le contenu plus ancien dans notre archive.">archives</a> </li>
+		   <li> <a href="index71c4.html?q=blog" title="Lire les blogues les plus récents.">blogues</a> </li>
+
+		   <li> <a href="indexf6fe.html?q=book" title="Lire et contribuer aux livres collaboratifs.">livres</a> </li>
+		   <li> <a href="index79b7.html?q=forum">forums</a> </li>
+		   <li> <a href="index729f.html?q=poll" title="Voir la liste des sondages de ce site.">sondages</a> </li>
+		   <li> <a href="index4404.html?q=search" title="Chercher pour du contenu plus vieux.">recherche</a></li><li><a href="http://docs.postgresqlfr.org/" target="_blank">documentation </a></li>
+
+		  </ul>
+
+<!--
+		   <li><a href="?q=" title="Retourner à la page principale.">accueil</a> </li>
+		   <li> <a href="?q=archive" title="Lire le contenu plus ancien dans notre archive.">archives</a> </li>
+		   <li> <a href="?q=blog" title="Lire les blogues les plus récents.">blogues</a> </li>
+		   <li> <a href="?q=book" title="Lire et contribuer aux livres collaboratifs.">livres</a> </li>
+		   <li> <a href="?q=forum">forums</a> </li>
+		   <li> <a href="?q=poll" title="Voir la liste des sondages de ce site.">sondages</a> </li>
+		   <li> <a href="?q=search" title="Chercher pour du contenu plus vieux.">recherche</a></li><li><a href="http://docs.postgresqlfr.org/" target="_blank">documentation </a></li>
+-->
+		  </ul>
+	        </div>
+    </td></tr>
+   </table>
+   <p style="text-align: center;">&copy;&nbsp;PostgreSQLFr, tous droits réservés.<br>
+Site déclaré à la CNIL sous le numéro 1074678, conformément à la Loi en vigueur.
+</p>
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-3921927-1");
+pageTracker._initData();
+pageTracker._trackPageview();
+</script>
+<p></p>
+   
+</body>
+
+<!-- Mirrored from drupal.postgresql.fr/?q=node/1364 by HTTrack Website Copier/3.x [XR&CO'2006], Sun, 12 Oct 2008 17:56:03 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+</html>

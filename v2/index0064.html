@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE rss [<!ENTITY % HTMLlat1 PUBLIC "-//W3C//ENTITIES Latin 1 for XHTML//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml-lat1.ent">]>
+<rss version="0.92" xml:base="http://drupal.postgresql.fr">
+<channel>
+ <title>PostgreSQLFr - Technique - général</title>
+ <link>http://drupal.postgresql.fr/?q=taxonomy/term/10/0</link>
+ <description>Forum technique général</description>
+ <language>fr</language>
+<item>
+ <title>[Résolu] Upgrade Postgre -&gt; types et opérateurs</title>
+ <link>http://drupal.postgresql.fr/?q=node/1736</link>
+ <description>&lt;p&gt;Bonjour,&lt;/p&gt;
+&lt;p&gt;Ayant récemment upgradé PostgreSQL (8.1.x -&gt; 8.3.3), j'ai des soucis avec le typage que je n'avais pas auparavant.&lt;/p&gt;
+&lt;p&gt;Par exemple, l'opérateur LIKE sur une colonne de type DATE ne fonctionne plus ; ce qui est dommage car c'était bien pratique.&lt;/p&gt;
+&lt;p&gt;Le Warning conseille de recourir à un cast pour pallier le problème. Aucune autre solution ?&lt;/p&gt;
+&lt;p&gt;Il en va de même avec des tests d'égalités de type varchar = integer.&lt;/p&gt;
+</description>
+ <pubDate>Sat, 20 Sep 2008 06:04:54 +0200</pubDate>
+</item>
+<item>
+ <title>[Résolu] update auto-referencé</title>
+ <link>http://drupal.postgresql.fr/?q=node/1733</link>
+ <description>&lt;p&gt;Bonjour,&lt;/p&gt;
+&lt;p&gt;je ne sais pas si c'est un bug.&lt;/p&gt;
+&lt;p&gt;Mais je ne parviens pas a faire fonctionné ma requete.&lt;/p&gt;
+&lt;p&gt;UPDATE ma_table SET champ1=(champ1 || 'mon ajout') WHERE oid=1111&lt;/p&gt;
+&lt;p&gt;cela fonctionne dans le cas ou champ1 n'est pas vide mais pas dans l'autre cas???&lt;/p&gt;
+&lt;p&gt;Si quelqu'un a une solution?&lt;/p&gt;
+&lt;p&gt;Merci d'avance&lt;/p&gt;
+</description>
+ <pubDate>Fri, 12 Sep 2008 09:00:31 +0200</pubDate>
+</item>
+<item>
+ <title>Connexions simultannées</title>
+ <link>http://drupal.postgresql.fr/?q=node/1731</link>
+ <description>&lt;p&gt;Bonjour&lt;/p&gt;
+&lt;p&gt;Nous avons des bases de données de petites tailles (la somme &lt; 4 Go), qui sont utilisées pour synchroniser 120 autres bases : nous travaillons essentiellement en mode déconnecté.&lt;/p&gt;
+&lt;p&gt;Depuis peu, quelques tables sont accessibles en mode connecté, et le nombre maximum de connexions simultanées ne cessent d'être atteint. Notre max_connections est à 150.&lt;/p&gt;
+&lt;p&gt;Questions&lt;br /&gt;
+Quelle configuration (Ram, proc) dois-je prévoir pour la mise en place d'un serveur avec un max_connections à 500, tout en ayant un OS stable (on voudrait rester sous RedHat), et une performance acceptable ?&lt;/p&gt;
+</description>
+ <pubDate>Sun, 31 Aug 2008 03:15:36 +0200</pubDate>
+</item>
+<item>
+ <title>PB ? </title>
+ <link>http://drupal.postgresql.fr/?q=node/1728</link>
+ <description>&lt;p&gt;J'ai des messages intermittent du type : &lt;/p&gt;
+&lt;p&gt;La limite de réinitialisation de l'ID de transaction est 1075357581, limité par la base de données « asso_rd0214 »&lt;/p&gt;
+&lt;p&gt;sans que la base est l'air particulièrement affectée &lt;/p&gt;
+&lt;p&gt;Quelqu'un connait la signification de ceci ? &lt;/p&gt;
+&lt;p&gt;Merci &lt;/p&gt;
+</description>
+ <pubDate>Thu, 28 Aug 2008 17:53:15 +0200</pubDate>
+</item>
+<item>
+ <title>probleme de vitesse</title>
+ <link>http://drupal.postgresql.fr/?q=node/1720</link>
+ <description>&lt;p&gt;Bonjour,&lt;/p&gt;
+&lt;p&gt;J utilise postgresql 8.3.1 sur windows xp avec un programme realise en delphi,&lt;br /&gt;
+Mon probleme se trouve au niveau de la vitesse d ouverture d une table, qui met plus de 10 seconde a s ouvrir.&lt;br /&gt;
+Ma table a 238 colonne, 1 primary key, 10 index  et 9 foreign key.&lt;/p&gt;
+&lt;p&gt;La vitesse est elle normal sachant que l ancienne base utilise (sybase) ne mettai que 2 seconde a s ouvrir?&lt;/p&gt;
+&lt;p&gt;merci pour vos reponse pour plus de renseignement n hesitez pas a demander.&lt;/p&gt;
+</description>
+ <pubDate>Tue, 19 Aug 2008 11:57:26 +0200</pubDate>
+</item>
+<item>
+ <title>invalid page header in block</title>
+ <link>http://drupal.postgresql.fr/?q=node/1719</link>
+ <description>&lt;p&gt;Hi all,&lt;br /&gt;
+When executing&lt;br /&gt;
+select * from url ;&lt;br /&gt;
+I receive&lt;br /&gt;
+ERROR:  invalid page header in block 238233 of relation "url"&lt;br /&gt;
+and no selected lines.&lt;br /&gt;
+What has happened ?&lt;br /&gt;
+It is psql 7.4.7 on Linux 2.4.27-2-686-smp.&lt;br /&gt;
+Thanks in advance.&lt;/p&gt;
+</description>
+ <pubDate>Mon, 18 Aug 2008 10:42:41 +0200</pubDate>
+</item>
+<item>
+ <title>Partitionnement de table et clef serial</title>
+ <link>http://drupal.postgresql.fr/?q=node/1718</link>
+ <description>&lt;p&gt;Bonjour,&lt;/p&gt;
+&lt;p&gt;je suis actuellement en train de tester le partitionnement de table,&lt;br /&gt;
+et je me retrouve confronté à un problème de contrainte de clef étrangère&lt;/p&gt;
+&lt;p&gt;j'ai défini 4 table filles qui héritent d'une table mère (reference_test).&lt;br /&gt;
+j'ai posé un trigger qui défini où doivent être insérées/modifiées/effacées les données.&lt;br /&gt;
+j'ai aussi une table résultat qui possède une clef primaire étrangère (celle de la table mère)&lt;/p&gt;
+</description>
+ <pubDate>Thu, 14 Aug 2008 16:29:30 +0200</pubDate>
+</item>
+<item>
+ <title>recuperer le resultat d'un INSERT</title>
+ <link>http://drupal.postgresql.fr/?q=node/1715</link>
+ <description>&lt;p&gt;Salut à tous, je m'en viens solliciter votre aide !&lt;/p&gt;
+&lt;p&gt;Voilà, une tite question, j'espère assez simple, mais qui me pose quelques soucis, je vous expose le sujet :&lt;br /&gt;
+Une base de données contient (entre autres) 2 tables Membre et Objet. L'idée de base, c'est qu'un membre possède des objets (subtil, n'est-ce pas  :D ) La clé de chacune de ces 2 tables est un identifiant, dans le cas de la table Objet c'est un type "serial" (donc un entier à incrémentation automatique). Les cardinalités sont 0,n de chaque côté, donc je crée une table intermédiaire "possède" dont le clé est un ensemble id_membre + id_objet .&lt;/p&gt;
+</description>
+ <pubDate>Mon, 11 Aug 2008 11:21:51 +0200</pubDate>
+</item>
+<item>
+ <title>pg_standby - log shipping</title>
+ <link>http://drupal.postgresql.fr/?q=node/1713</link>
+ <description>&lt;p&gt;Salut,&lt;/p&gt;
+&lt;p&gt;J'essaie en vain de mettre en place une solution de wal shipping mais je galère. J'ai pour l'instant mis en route un premier serveur, le master, ce dernier possède son postgres et il envoie par scp les wal sur le serveur de secours.(archive_timeout de 5 minutes) Les fichiers arrivent correctement dans le répertoire /home/postgres/archivewal de mon serveur de secours et sont propriété de l'utilisateur postgres. Ma restore_command est "/usr/local/pgsql/bin/pg_standby -s 60 -m -d -t /tmp/standby.trigger /home/postgres/archivedir %f %p 2&gt;&gt; pg_log/standby.log". &lt;/p&gt;
+</description>
+ <pubDate>Wed, 06 Aug 2008 10:35:22 +0200</pubDate>
+</item>
+<item>
+ <title>TRUNCATE TABLE</title>
+ <link>http://drupal.postgresql.fr/?q=node/1704</link>
+ <description>&lt;p&gt;Bonjour, Je souhaite faire des truncate table, mais ca prend trop de temps (moins de 2000 lignes). Je suis oblige d'arrete le service et refaire la commande te la sas se fait en quelques milisecondes. Quelqu'un a une idee ?&lt;/p&gt;
+&lt;p&gt;Sire&lt;/p&gt;
+</description>
+ <pubDate>Sun, 27 Jul 2008 14:58:46 +0200</pubDate>
+</item>
+<item>
+ <title>Accès aux vecteurs de termes ?</title>
+ <link>http://drupal.postgresql.fr/?q=node/1696</link>
+ <description>&lt;p&gt;Bonjour,&lt;br /&gt;
+Je me demandais s'il était possible d'accéder aux vecteurs de termes lorsque l'on utilise la recherche FULLTEXT, par exemple pour générer des nuages de tags (en faisant par exemple une requête SQL demandant à avoir les 50 mots les plus fréquents avec le mot et sa fréquence) en PostgreSQL.&lt;br /&gt;
+Si oui, connaissez-vous une documentation là dessus ?&lt;br /&gt;
+Merci, &lt;/p&gt;
+</description>
+ <pubDate>Sun, 20 Jul 2008 12:54:00 +0200</pubDate>
+</item>
+<item>
+ <title>Hébergeur mutualisé avec PostgreSQL 8.3</title>
+ <link>http://drupal.postgresql.fr/?q=node/1695</link>
+ <description>&lt;p&gt;Bonjour,&lt;br /&gt;
+En fait, je cherche à dresser une liste d'hébergeurs mutualisés proposant PotgreSQL en version 8.3 (plus précisément, je suis intéressé par la fonctionnalité de recherche FULLTEXT). Cela existe-t-il? Actuellement, je connais Lost Oasis mais, à ma connaissance, ils sont encore sur une ancienne version de PostgreSQL.&lt;br /&gt;
+Cordialement,&lt;/p&gt;
+</description>
+ <pubDate>Sun, 20 Jul 2008 12:48:15 +0200</pubDate>
+</item>
+<item>
+ <title>création BD et encodage</title>
+ <link>http://drupal.postgresql.fr/?q=node/1694</link>
+ <description>&lt;p&gt;Bonjour,&lt;/p&gt;
+&lt;p&gt;je viens d'installer Postgrsql 8.3 et lorsque je souhaite créer ma BD  avec comme encodage LATIN9 comme suit :&lt;/p&gt;
+&lt;p&gt;createdb -O toto -E LATIN9 mabase&lt;/p&gt;
+&lt;p&gt;J'ai le message d'erreur suivant :&lt;/p&gt;
+&lt;p&gt;createdb : la création de la base de données a échoué : ERREUR:  l'encodage LATIN9 ne correspond pas à la locale fr_FR.UTF-8 du serveur&lt;br /&gt;
+DETAIL:  Le paramètre LC_CTYPE du serveur nécessite l'encodage UTF8.&lt;/p&gt;
+</description>
+ <pubDate>Fri, 18 Jul 2008 09:16:52 +0200</pubDate>
+</item>
+<item>
+ <title>Slony-I</title>
+ <link>http://drupal.postgresql.fr/?q=node/1693</link>
+ <description>&lt;p&gt;Bonjour,&lt;/p&gt;
+&lt;p&gt;Une petite question : Pour utiliser slony, faut-il que les deux bases postgresql aient la même version ? Par exemple si j'ai une base en version 8.1 et une autre en 8.3, peut-on faire tout de même de la réplication ?&lt;/p&gt;
+&lt;p&gt;En vous remerciant par avance&lt;/p&gt;
+</description>
+ <pubDate>Thu, 17 Jul 2008 16:48:48 +0200</pubDate>
+</item>
+<item>
+ <title>Documentation Fonctions C</title>
+ <link>http://drupal.postgresql.fr/?q=node/1691</link>
+ <description>&lt;p&gt;Bonjour à tous,&lt;/p&gt;
+&lt;p&gt;je développe à l'heure actuelle des fonctions C pour Postgre sur plateforme Windows avec le compilateur gcc de DevCpp.&lt;/p&gt;
+&lt;p&gt;Ma question principale est d'ordre général :&lt;br /&gt;
+Existe-t-il une documentation détaillée sur le développement de fonctions C pour Postgre SQL ?&lt;/p&gt;
+&lt;p&gt;Pour le moment, ormis le chapitre très succint de la doc postgre, je n'ai trouvé que la documentation de Joe Conway sur http://www.joeconway.com/tut_oscon_2004.pdf&lt;/p&gt;
+</description>
+ <pubDate>Wed, 16 Jul 2008 10:31:39 +0200</pubDate>
+</item>
+</channel>
+</rss>

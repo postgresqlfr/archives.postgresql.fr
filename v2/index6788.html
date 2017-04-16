@@ -1,0 +1,557 @@
+
+<!DOCTYPE
+ html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+ <html>
+ <!-- $Date: 2005/08/30 07:54:43 $ / $Revision: 1.29 $ / Last Theme Editor :$Author: jx $-->
+  
+<!-- Mirrored from drupal.postgresql.fr/?q=taxonomy/term/21&from=30 by HTTrack Website Copier/3.x [XR&CO'2006], Sun, 12 Oct 2008 16:57:20 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<base  />
+<style type="text/css" media="all">@import "misc/drupal.css";</style><link rel="alternate" type="application/rss+xml" title="RSS - Technique - installation" href="index50c7.html?q=taxonomy/term/21/0/feed" />
+
+   <title>Technique - installation - PostgreSQLFr</title>
+ <style type="text/css" media="screen" title="Normal Text">
+    @import url("layout/css/blue/fixed.css");
+    @import url(_guillaume/dotclear/themes/postgresql/style.html);
+ </style>
+ <style type="text/css" media="screen" title="Normal Text2">
+    @import url("layout/css/blue/pgfr.css");
+    @import url(_guillaume/dotclear/themes/postgresql/style.html);
+ </style>
+   </head>
+   <body>
+    <table border="0" cellspacing="5" cellpadding="0" width="100%">
+     <tr>
+      <!--td colspan="2" width="100%"-->
+      <td colspan="2">
+      <!-- Head -->
+       <table border="0" cellspacing="0" cellpadding="0" width="100%">
+        <tr>
+	 <td align="left">
+           <div id="pgHeader">
+	    <div id="pgHeaderLogoLeft">
+	     <a href="index.html" title="PostgreSQL"><img src="layout/images/hdr_left.png" width="230" height="80" alt="PostgreSQL" /></a>
+	    </div>
+	    <div id="pgHeaderLogoRight">
+	     <a href="index.html" title="La base de donn�es la plus sophistiqu�e au monde."><img src="layout/images/hdr_right.png" width="210" height="80" alt="La base de donn�es la plus sophistiqu�e au monde." /></a>
+	    </div>
+	   </div>
+         </td>
+	 <td align="right">
+         </td>
+	</tr>
+      </table> <!-- Head -->
+      <br />
+      <table border="0" cellspacing="0" cellpadding="0" width="100%">
+              <tr>
+	      	 <td align="left">
+
+		<div class="pgTopNav">
+		   <div class="pgTopNavLeft"> 
+		     <img src="layout/images/nav_lft.png" width="7" height="23" alt="" />
+		   </div>
+		   <div class="pgTopNavRight">
+		    <img src="layout/images/nav_rgt.png" width="7" height="23" alt="" />
+		  </div>
+		  <!--<ul class="pgTopNavList">-->
+		  <ul class="pgTopNavList">
+		   <li><a href="index03d2.html?q=" title="Retourner à la page principale.">accueil</a> </li>
+		   <li> <a href="indexf6e5.html?q=archive" title="Lire le contenu plus ancien dans notre archive.">archives</a> </li>
+		   <li> <a href="index71c4.html?q=blog" title="Lire les blogues les plus récents.">blogues</a> </li>
+
+		   <li> <a href="indexf6fe.html?q=book" title="Lire et contribuer aux livres collaboratifs.">livres</a> </li>
+		   <li> <a href="index79b7.html?q=forum">forums</a> </li>
+		   <li> <a href="index729f.html?q=poll" title="Voir la liste des sondages de ce site.">sondages</a> </li>
+		   <li> <a href="index4404.html?q=search" title="Chercher pour du contenu plus vieux.">recherche</a></li><li><a href="http://docs.postgresqlfr.org/" target="_blank">documentation </a></li>
+
+		  </ul>
+
+<!--
+		   <li><a href="?q=" title="Retourner à la page principale.">accueil</a> </li>
+		   <li> <a href="?q=archive" title="Lire le contenu plus ancien dans notre archive.">archives</a> </li>
+		   <li> <a href="?q=blog" title="Lire les blogues les plus récents.">blogues</a> </li>
+		   <li> <a href="?q=book" title="Lire et contribuer aux livres collaboratifs.">livres</a> </li>
+		   <li> <a href="?q=forum">forums</a> </li>
+		   <li> <a href="?q=poll" title="Voir la liste des sondages de ce site.">sondages</a> </li>
+		   <li> <a href="?q=search" title="Chercher pour du contenu plus vieux.">recherche</a></li><li><a href="http://docs.postgresqlfr.org/" target="_blank">documentation </a></li>
+-->
+		  </ul>
+	        </div>
+		</td>
+		</tr>
+		</table>
+      </td>
+     </tr>
+     <tr>
+    <td style="vertical-align: top; width: 20%;">
+<div class="block block-user" id="block-user-0">
+<div class="pgSideNav">    <h2>Ouverture de session</h2>    
+		    <div>
+			<form action="http://drupal.postgresql.fr/?q=user/login" method="post">
+<div class="user-login-block">
+<input type="hidden" name="edit[destination]" value="taxonomy/term/21" />
+<div class="form-item">
+ <label for="edit-name">Nom d'utilisateur:</label><br />
+ <input type="text" maxlength="64" class="form-text" name="edit[name]" id="edit-name" size="15" value="" />
+</div>
+<div class="form-item">
+ <label for="edit-pass">Mot de passe:</label><br />
+ <input type="password" class="form-password" maxlength="64" name="edit[pass]" id="edit-pass" size="15" value="" />
+</div>
+<input type="submit" class="form-submit" name="op" value="Identification"  />
+</div>
+
+</form>
+<div class="item-list"><ul><li><a href="indexc12c.html?q=user/password" title="Demander un nouveau mot de passe par e-mail.">Demander un nouveau mot de passe</a></li></ul></div>
+		    </div></div></div>
+<div class="block block-user" id="block-user-1">
+<div class="pgSideNav">    <h2>Navigation</h2>    
+		    <div>
+			<div class="menu">
+<ul>
+<li class="leaf"><a href="indexa499.html?q=tracker">messages récents</a></li>
+
+</ul>
+</div>
+		    </div></div></div>
+<div class="block block-block" id="block-block-4">
+<div class="pgSideNav">    <h2>Contactez-nous</h2>    
+		    <div>
+			<p><strong>Administration du site&nbsp;:</strong><br />
+"equipe chez postgresqlfr point org"<br><br />
+<strong>Contact presse&nbsp;:</strong><br />
+"fr chez postgresql point org"<br><br />
+<strong>Contact association&nbsp;:</strong><br />
+"bureau chez postgresqlfr point org"<br><br />
+<strong>Questions PostgreSQL&nbsp;:</strong><br />
+&nbsp;IRC&nbsp;:<br />
+&nbsp;&nbsp;serveur <strong>irc.freenode.net</strong><br />
+&nbsp;&nbsp;canal <strong>#postgresqlfr</strong></p>
+
+		    </div></div></div>
+<div class="block block-block" id="block-block-1">
+<div class="pgSideNav">    <h2>Liens</h2>    
+		    <div>
+			<p><small></p>
+<ul>
+<li>
+<a href="http://www.postgresqlfr.org/?q=node/view/162">Adhérer</a>
+</li>
+<li>
+<a href="http://www.postgresqlfr.org/?q=node/473">Faire un don</a>
+</li>
+<li>
+<a href="http://www.postgresqlfr.org/?q=node/163">Consulter les statuts</a>
+</li>
+</ul>
+<ul>
+<li>
+<a href="http://www.postgresql.org/" class="active">Site original<br />
+</a>
+</li>
+<li>
+<a href="http://docs.postgresqlfr.org/" class="active">Site de traduction</a>
+</li>
+<li>
+<a href="http://docs.postgresqlfr.org/8.3/">Doc v.8.3.x fr</a>
+</li>
+<li>
+<a href="http://docs.postgresqlfr.org/8.2/">Doc v.8.2.x fr</a>
+</li>
+<li>
+<a href="http://docs.postgresqlfr.org/8.1/">Doc v.8.1.x fr</a>
+</li>
+<li>
+<a href="http://docs.postgresqlfr.org/8.0/">Doc v.8.0.x fr</a>
+</li>
+<li>
+<a href="http://docs.postgresqlfr.org/7.4/">Doc v.7.4.x fr</a>
+</li>
+<li>
+<a href="http://www.postgis.fr/">PostGIS</a>
+</li>
+<li>
+<a href="http://www.postgresql.org/docs/techdocs">Techdocs</a>
+</li>
+<li>
+<a href="http://www.varlena.com/varlena/GeneralBits/Tidbits/">General TidBits</a>
+</li>
+<p><!--</p>
+<li>
+<a href="http://www.postgresqlfr.org/?q=node/view/58">Version Windows</a>
+</li>
+<p>--></p>
+<li>
+<a href="http://www.postgresqlfr.org/drupal/?q=node/view/63">Témoignages de pros</a>
+</li>
+<li>
+<a href="http://archives.postgresql.org/pgsql-fr-generale/">Liste de diffusion</a>
+</li>
+<li>
+<a href="http://wwwmaster.postgresql.org/download/mirrors-ftp">Télécharger</a>
+</li>
+</ul>
+<p></small></p>
+
+		    </div></div></div>
+<div class="block block-block" id="block-block-2">
+<div class="pgSideNav">    <h2>Recherche</h2>    
+		    <div>
+			<form action="http://drupal.postgresql.fr/?q=search" method="post">
+<div id="search">
+<input class="form-text" type="text" size="15" value="" name="keys" alt="Enter the terms you wish to search for." /><br />
+<input class="form-submit" type="submit" value="Recherche" />
+</div>
+</form>
+
+		    </div></div></div>
+<div class="block block-forum" id="block-forum-0">
+<div class="pgSideNav">    <h2>Sujets du forum</h2>    
+		    <div>
+			<div class="item-list"><h3>Sujets actifs</h3><ul><li><a href="index253f.html?q=node/1742">A LIRE : FERMETURE DES FORUMS DRUPAL</a></li><li><a href="indexfc2e.html?q=node/1739" title="2 commentaires">Problème  avec pg_dump</a></li><li><a href="index97c1.html?q=node/1731" title="5 commentaires">Connexions simultannées</a></li><li><a href="index32d3.html?q=node/1737" title="1 commentaire">Optimisation de la mémoire sous PostgreSQL</a></li><li><a href="index2483.html?q=node/1736" title="3 commentaires">[Résolu] Upgrade Postgre -> types et opérateurs</a></li></ul></div><div class="item-list"><h3>Nouveaux sujets:</h3><ul><li><a href="index253f.html?q=node/1742">A LIRE : FERMETURE DES FORUMS DRUPAL</a></li><li><a href="indexfc2e.html?q=node/1739" title="2 commentaires">Problème  avec pg_dump</a></li><li><a href="index32d3.html?q=node/1737" title="1 commentaire">Optimisation de la mémoire sous PostgreSQL</a></li><li><a href="index2483.html?q=node/1736" title="3 commentaires">[Résolu] Upgrade Postgre -> types et opérateurs</a></li><li><a href="index82c4.html?q=node/1734" title="2 commentaires">[RESOLU] Probleme de connection en odbc</a></li></ul></div><div class="more-link"><a href="index79b7.html?q=forum" title="Lire les derniers sujets.">en lire plus</a></div>
+		    </div></div></div>
+<div class="block block-archive" id="block-archive-0">
+<div class="pgSideNav">    <h2>Accéder aux archives</h2>    
+		    <div>
+			
+<!-- calendar -->
+<div class="calendar"><table summary="Un calendrier pour accéder aux archives.">
+ <caption><a href="index9dfb.html?q=archive/2008/09/12" title="Mois précédent">&laquo;</a> Octobre 2008 &nbsp;</caption>
+ <tr class="header-week">
+ <th abbr="Lundi">Lun</th>
+ <th abbr="Mardi">Mar</th>
+ <th abbr="Mercredi">Mer</th>
+ <th abbr="Jeudi">Jeu</th>
+ <th abbr="Vendredi">Ven</th>
+ <th abbr="Samedi">Sam</th>
+ <th abbr="Dimanche">Dim</th>
+</tr>
+ <tr class="row-week"><td class="day-blank" colspan="2">&nbsp;</td>
+  <td class="day-link"><a href="indexd3e2.html?q=archive/2008/10/1">1</a></td>
+  <td class="day-normal">2</td>
+  <td class="day-normal">3</td>
+  <td class="day-normal">4</td>
+  <td class="day-normal">5</td>
+ </tr>
+ <tr class="row-week">
+  <td class="day-normal">6</td>
+  <td class="day-normal">7</td>
+  <td class="day-normal">8</td>
+  <td class="day-normal">9</td>
+  <td class="day-normal">10</td>
+  <td class="day-normal">11</td>
+  <td class="day-today">12</td>
+ </tr>
+ <tr class="row-week">
+  <td class="day-future">13</td>
+  <td class="day-future">14</td>
+  <td class="day-future">15</td>
+  <td class="day-future">16</td>
+  <td class="day-future">17</td>
+  <td class="day-future">18</td>
+  <td class="day-future">19</td>
+ </tr>
+ <tr class="row-week">
+  <td class="day-future">20</td>
+  <td class="day-future">21</td>
+  <td class="day-future">22</td>
+  <td class="day-future">23</td>
+  <td class="day-future">24</td>
+  <td class="day-future">25</td>
+  <td class="day-future">26</td>
+ </tr>
+ <tr class="row-week">
+  <td class="day-future">27</td>
+  <td class="day-future">28</td>
+  <td class="day-future">29</td>
+  <td class="day-future">30</td>
+  <td class="day-future">31</td>
+  <td class="day-blank" colspan="2">&nbsp;</td>
+ </tr>
+</table></div>
+
+
+		    </div></div></div>
+<div class="block block-node" id="block-node-0">
+<div class="pgSideNav">    <h2>Syndication</h2>    
+		    <div>
+			<div class="xml-icon"><a href="index9637.html?q=rss.xml"><img src="misc/xml.png" width="36" height="14" alt="Flux XML" title="Flux XML" /></a></div>
+		    </div></div></div>
+<div class="block block-poll" id="block-poll-0">
+<div class="pgSideNav">    <h2>Sondage</h2>    
+		    <div>
+			<div class="poll"><div class="title">Quelle est la version de PostgreSQL la plus répandue sur vos serveurs ?</div><div class="text">8.3</div><div class="bar"><div style="width: 10%;" class="foreground"></div></div><div class="percent">10%</div><div class="text">8.2</div><div class="bar"><div style="width: 42%;" class="foreground"></div></div><div class="percent">42%</div><div class="text">8.1</div><div class="bar"><div style="width: 40%;" class="foreground"></div></div><div class="percent">40%</div><div class="text">8.0</div><div class="bar"><div style="width: 2%;" class="foreground"></div></div><div class="percent">2%</div><div class="text">7.4</div><div class="bar"><div style="width: 6%;" class="foreground"></div></div><div class="percent">6%</div><div class="text">7.3 ou antérieure</div><div class="bar"><div style="width: 0%;" class="foreground"></div></div><div class="percent">0%</div><div class="total">Nombre de votes: 48</div></div><div class="links"><a href="index8c57.html?q=node/1426#comment" title="Sauter au premier commentaire de ce message.">3 commentaires</a> | <a href="index729f.html?q=poll" title="Voir la liste des sondages de ce site.">anciens sondages</a></div>
+		    </div></div></div>
+    </td>
+
+      <td style="vertical-align: top; width: 80%"><div class="breadcrumb"><a href="index03d2.html?q=">Accueil</a></div><h2 class="title">Technique - installation</h2>
+<!-- begin content -->
+
+<!-- node: "migration d'une base d'un Mac OSX à un Linux/Ubuntu" -->
+<!--<div class="pgFrontCenterUser">
+<div class="pgFrontUser">
+<div class="pgFrontUserInner">
+--><div class="pgFrontUserWrap">
+ <div class="pgFrontUserContent">	<h1 class="plop"><a href="indexa016.html?q=taxonomy/term/21" class="active">Technique - installation</a> | <a href="indexa06b.html?q=node/1395">migration d'une base d'un Mac OSX à un Linux/Ubuntu</a></h1>
+		    <p>
+			    Par <a href="index41e6.html?q=user/2855" title="Voir le profil utilisateur.">brunal2496</a> le 21/09/2007 - 19:31
+		    </p>	
+			    <p>Bonjour,</p>
+<p>Je souhaite transférer une base installée sur un MAC OSX vers un serveur en Linux/ubuntu. Cette base est utilisée pour un wiki réaliser avec médiawiki.</p>
+<p>J'ai essayé les opérations de dump/restore, mais hélas voilà le résultat de la commande suivante :<br />
+pg_restore -d wikiinterndb wiki.tar</p>
+<p>[....]<br />
+pg_restore: [archiver (db)] Error from TOC entry 2104; 2620 17139 TRIGGER ts2_page_title wikiAdmin</p>
+<!--hr /--><div class="contentsLink">[ <a href="indexa06b.html?q=node/1395#comment" title="Sauter au premier commentaire de ce message.">6 commentaires</a> | <a href="indexa06b.html?q=node/1395" title="Lire le reste de cette contribution." class="read-more">lire plus</a> ]</div>
+		     </div></div>
+<!--</div>
+</div>
+</div>
+</div> -->
+
+<!-- node: "Besoin d'aide pour installer TSearch2 - Français" -->
+<!--<div class="pgFrontCenterUser">
+<div class="pgFrontUser">
+<div class="pgFrontUserInner">
+--><div class="pgFrontUserWrap">
+ <div class="pgFrontUserContent">	<h1 class="plop"><a href="indexa016.html?q=taxonomy/term/21" class="active">Technique - installation</a> | <a href="index8a38.html?q=node/1371">Besoin d'aide pour installer TSearch2 - Français</a></h1>
+		    <p>
+			    Par <a href="index6a2b-2.html?q=user/2817" title="Voir le profil utilisateur.">LoneEagle70</a> le 30/08/2007 - 22:02
+		    </p>	
+			    <p>Bonjour,</p>
+<p>Celà fait beaucoup de temps que je passe afin d'installer et essayer d'utiliser le FullTextSearch version française.</p>
+<p>Essai #1:<br />
+=========<br />
+1) J'ai commencé pas le site "http://www.sai.msu.su/~megera/postgres/gist/tsearch/V2/" et j'ai téléchargé "ispell-french.tar.gz".<br />
+2) J'ai extrait les fichiers dans "C:\Program Files\PostgreSQL\8.2\share\contrib".<br />
+3) J'ai trouvé sur un autre site un fichier "Stop" que j'ai copier au même endroit (french.stop).</p>
+<!--hr /--><div class="contentsLink">[ <a href="index8a38.html?q=node/1371#comment" title="Sauter au premier commentaire de ce message.">3 commentaires</a> | <a href="index8a38.html?q=node/1371" title="Lire le reste de cette contribution." class="read-more">lire plus</a> ]</div>
+		     </div></div>
+<!--</div>
+</div>
+</div>
+</div> -->
+
+<!-- node: "pg_config absent" -->
+<!--<div class="pgFrontCenterUser">
+<div class="pgFrontUser">
+<div class="pgFrontUserInner">
+--><div class="pgFrontUserWrap">
+ <div class="pgFrontUserContent">	<h1 class="plop"><a href="indexa016.html?q=taxonomy/term/21" class="active">Technique - installation</a> | <a href="index714e.html?q=node/1352">pg_config absent</a></h1>
+		    <p>
+			    Par <a href="index59f3.html?q=user/1838" title="Voir le profil utilisateur.">goutosig</a> le 06/08/2007 - 12:25
+		    </p>	
+			    <p>Bonjour,</p>
+<p>je suis sur fedora 6/pgsql 8.2.3 ; je cherche à installer PostGIS mais l'utilitaire pg_config est absent de mon système. J'ai demandé l'installation de postgresql au moment de l'installation de fedora.<br />
+Puis-je installer pg-config separément?<br />
+Est-il possible de spécifier les paramètres manuellement pour l'installation de postgis?<br />
+Serait-il plus judicieux de réinstaller entièrement postgresql?</p>
+<!--hr /--><div class="contentsLink">[ <a href="index714e.html?q=node/1352#comment" title="Sauter au premier commentaire de ce message.">3 commentaires</a> | <a href="index714e.html?q=node/1352" title="Lire le reste de cette contribution." class="read-more">lire plus</a> ]</div>
+		     </div></div>
+<!--</div>
+</div>
+</div>
+</div> -->
+
+<!-- node: "initdb : command not found" -->
+<!--<div class="pgFrontCenterUser">
+<div class="pgFrontUser">
+<div class="pgFrontUserInner">
+--><div class="pgFrontUserWrap">
+ <div class="pgFrontUserContent">	<h1 class="plop"><a href="indexa016.html?q=taxonomy/term/21" class="active">Technique - installation</a> | <a href="indexbaef.html?q=node/1338">initdb : command not found</a></h1>
+		    <p>
+			    Par <a href="index63b5.html?q=user/573" title="Voir le profil utilisateur.">jduv</a> le 20/07/2007 - 16:24
+		    </p>	
+			    <p>bonjour à tous,<br />
+J'ai installé postgresql-8.1-postgis avec une distib ubuntu server 6.06 upgradée en 7.04<br />
+sudo apt-get install postgresql-8.1-postgis<br />
+-j'ai créer un repertoire /data dans la partition /bd avec les droits pour postgres<br />
+sudo chown postgres:postgres /bd/data<br />
+et je me retrouve donc avec<br />
+drwxr-xr-x  4 root     root      4096 2007-07-20 14:09 .<br />
+drwxr-xr-x 22 root     root      4096 2007-07-20 15:44 ..</p>
+<!--hr /--><div class="contentsLink">[ <a href="indexbaef.html?q=node/1338#comment" title="Sauter au premier commentaire de ce message.">5 commentaires</a> | <a href="indexbaef.html?q=node/1338" title="Lire le reste de cette contribution." class="read-more">lire plus</a> ]</div>
+		     </div></div>
+<!--</div>
+</div>
+</div>
+</div> -->
+
+<!-- node: "[PostGresSQL 8.2] [Npgsql 1.0] Connexion refusée : client windows/.net/Npgsql  sur serveur ubuntu" -->
+<!--<div class="pgFrontCenterUser">
+<div class="pgFrontUser">
+<div class="pgFrontUserInner">
+--><div class="pgFrontUserWrap">
+ <div class="pgFrontUserContent">	<h1 class="plop"><a href="indexa016.html?q=taxonomy/term/21" class="active">Technique - installation</a> | <a href="index56e6.html?q=node/1330">[PostGresSQL 8.2] [Npgsql 1.0] Connexion refusée : client windows/.net/Npgsql  sur serveur ubuntu</a></h1>
+		    <p>
+			    Par <a href="indexb550.html?q=user/2705" title="Voir le profil utilisateur.">georgeduke</a> le 15/07/2007 - 19:27
+		    </p>	
+			    <p>Après deux après-midi, d'essais et de lecture de documentation, je n'arrive toujours pas à me connecter depuis une appli .net-Npgsl vers un serveur postgresql 8.2 Ubuntu.</p>
+<p>L'installation n'a fait apparaître aucun message d'erreur.</p>
+<p>Voici le paramétrage du fichier de config du serveur</p>
+<p>host all all 192.168.0.3 255.255.255.0 trust  (paramétrage permissif volontairement pour tests)</p>
+<p>Depuis l'appli, l'erreur est d'ordre Socket.Exception, Connexion expressement refusée...</p>
+<!--hr /--><div class="contentsLink">[ <a href="index56e6.html?q=node/1330#comment" title="Sauter au premier commentaire de ce message.">5 commentaires</a> | <a href="index56e6.html?q=node/1330" title="Lire le reste de cette contribution." class="read-more">lire plus</a> ]</div>
+		     </div></div>
+<!--</div>
+</div>
+</div>
+</div> -->
+
+<!-- node: "Assistance pour install PostSql 824 et phpPgAdmin" -->
+<!--<div class="pgFrontCenterUser">
+<div class="pgFrontUser">
+<div class="pgFrontUserInner">
+--><div class="pgFrontUserWrap">
+ <div class="pgFrontUserContent">	<h1 class="plop"><a href="indexa016.html?q=taxonomy/term/21" class="active">Technique - installation</a> | <a href="indexbd8e.html?q=node/1326">Assistance pour install PostSql 824 et phpPgAdmin</a></h1>
+		    <p>
+			    Par <a href="index9b01.html?q=user/2696" title="Voir le profil utilisateur.">zimedia</a> le 12/07/2007 - 16:32
+		    </p>	
+			    <p>bonjour,</p>
+<p>Je recherche de l'assistance pour vérifier l'install de PostSql 824, installer (ou comment faire ? je ne sais pas où je dois installer phpPgAdmin - la dir /ect/http/html n'existe pas sur ce server et j'ai du mal avec la manip de l'utilisateur PostgreSql) et enfin vérifier la sécurité de l'ensemble et la non altération/interaction avec MySql ; c'est pour faire tourner l'application SQL Ledger. Je manque de compétences sur cette base et je me suis un peu avancé auprès de mes collègues leur démontrant les bienfaits de SqlLedger ...</p>
+<!--hr /--><div class="contentsLink">[ <a href="indexbd8e.html?q=node/1326#comment" title="Sauter au premier commentaire de ce message.">4 commentaires</a> | <a href="indexbd8e.html?q=node/1326" title="Lire le reste de cette contribution." class="read-more">lire plus</a> ]</div>
+		     </div></div>
+<!--</div>
+</div>
+</div>
+</div> -->
+
+<!-- node: "Installation de postgresSQL 7.4" -->
+<!--<div class="pgFrontCenterUser">
+<div class="pgFrontUser">
+<div class="pgFrontUserInner">
+--><div class="pgFrontUserWrap">
+ <div class="pgFrontUserContent">	<h1 class="plop"><a href="indexa016.html?q=taxonomy/term/21" class="active">Technique - installation</a> | <a href="indexce7a.html?q=node/1318">Installation de postgresSQL 7.4</a></h1>
+		    <p>
+			    Par <a href="index355c.html?q=user/2669" title="Voir le profil utilisateur.">vivi</a> le 09/07/2007 - 13:23
+		    </p>	
+			    <p>Bonjour, </p>
+<p>Je debute et doit installer la version 7.4 de postgres mais je suis q'un utilisateur  alors je ne peux pas creer un l'utilisateur postgres  avant l'installation. Est ce obligatoire de commencer par là?<br />
+Merci</p>
+<!--hr /--><div class="contentsLink">[ <a href="indexce7a.html?q=node/1318#comment" title="Sauter au premier commentaire de ce message.">4 commentaires</a> ]</div>
+		     </div></div>
+<!--</div>
+</div>
+</div>
+</div> -->
+
+<!-- node: "Installation de la 8.2.3 sans nuire à l'utilisation de la 8.1.4 ???" -->
+<!--<div class="pgFrontCenterUser">
+<div class="pgFrontUser">
+<div class="pgFrontUserInner">
+--><div class="pgFrontUserWrap">
+ <div class="pgFrontUserContent">	<h1 class="plop"><a href="indexa016.html?q=taxonomy/term/21" class="active">Technique - installation</a> | <a href="index2444.html?q=node/1309">Installation de la 8.2.3 sans nuire à l'utilisation de la 8.1.4 ???</a></h1>
+		    <p>
+			    Par <a href="indexa5a5.html?q=user/2672" title="Voir le profil utilisateur.">pct</a> le 04/07/2007 - 11:44
+		    </p>	
+			    <p>Bonjour à tous,</p>
+<p>Je suis tout novice sur PostgreSql après plusieurs années de pratique de MySql.</p>
+<p>Mon environnement est un PC sous Windows XP. Je n'ai pas de possibilité de faire tourner Linux actuellement sur une autre bécane.</p>
+<p>Utilisant et faisant la promo de TinyErp, j'ai déjà une version de PG sur mon ordi, qui a été automatiquement mise en place par l'installeur de TinyErp. Il est évident que je ne veux pas nuire à l'utilisation de la version opérationnelle, une 8.1.4.</p>
+<!--hr /--><div class="contentsLink">[ <a href="index2444.html?q=node/1309#comment" title="Sauter au premier commentaire de ce message.">3 commentaires</a> | <a href="index2444.html?q=node/1309" title="Lire le reste de cette contribution." class="read-more">lire plus</a> ]</div>
+		     </div></div>
+<!--</div>
+</div>
+</div>
+</div> -->
+
+<!-- node: "Installation depuis CVS" -->
+<!--<div class="pgFrontCenterUser">
+<div class="pgFrontUser">
+<div class="pgFrontUserInner">
+--><div class="pgFrontUserWrap">
+ <div class="pgFrontUserContent">	<h1 class="plop"><a href="indexa016.html?q=taxonomy/term/21" class="active">Technique - installation</a> | <a href="index56a7.html?q=node/1294">Installation depuis CVS</a></h1>
+		    <p>
+			    Par <a href="index53d6.html?q=user/2639" title="Voir le profil utilisateur.">viddak</a> le 22/06/2007 - 07:06
+		    </p>	
+			    <p>Bonjour à tous,</p>
+<p>J'aimerai m'impliquer dans le pojet postgresql. Pour commencer j'aimerai donc compiler depuis CVS.<br />
+J'ai donc fait un checkout et un ./configure.<br />
+Mais la compilation ne passe pas. J4ai le message d'erreur suivant :</p>
+<p>gcc -O2 -Wall -Wmissing-prototypes -Wpointer-arith -Winline -Wdeclaration-after-statement -Wendif-labels -fno-strict-aliasing -I. -I../../../src/include -D_GNU_SOURCE   -c -o bootparse.o bootparse.c</p>
+<!--hr /--><div class="contentsLink">[ <a href="index56a7.html?q=node/1294#comment" title="Sauter au premier commentaire de ce message.">2 commentaires</a> | <a href="index56a7.html?q=node/1294" title="Lire le reste de cette contribution." class="read-more">lire plus</a> ]</div>
+		     </div></div>
+<!--</div>
+</div>
+</div>
+</div> -->
+
+<!-- node: "erreur lors de l'install de Postgres 8.2" -->
+<!--<div class="pgFrontCenterUser">
+<div class="pgFrontUser">
+<div class="pgFrontUserInner">
+--><div class="pgFrontUserWrap">
+ <div class="pgFrontUserContent">	<h1 class="plop"><a href="indexa016.html?q=taxonomy/term/21" class="active">Technique - installation</a> | <a href="index5f60-2.html?q=node/1288">erreur lors de l'install de Postgres 8.2</a></h1>
+		    <p>
+			    Par <a href="index0fb1.html?q=user/1748" title="Voir le profil utilisateur.">margalida</a> le 18/06/2007 - 14:14
+		    </p>	
+			    <p>lors de l'install de postgres 8.2.0.1 ou 8.2.4 j'ai une erreur du genre : "Echec lors de la création du processus initdb: Echec d'ouverture de session: l'utilisateur ne bénéficie pas du type d'ouverture de session demandé sur cet ordinateur.<br />
+Merci de votre aide.</p>
+<!--hr /--><div class="contentsLink">[ <a href="index5f60-2.html?q=node/1288#comment" title="Sauter au premier commentaire de ce message.">8 commentaires</a> ]</div>
+		     </div></div>
+<!--</div>
+</div>
+</div>
+</div> -->
+<div id="pager" class="container-inline"><div><a href="index5c79.html?q=taxonomy/term/21&amp;from=0">première page</a></div><div><a href="indexadf9.html?q=taxonomy/term/21&amp;from=20">page précédente</a></div><div><a href="index5c79.html?q=taxonomy/term/21&amp;from=0">1</a> <a href="indexcc6b.html?q=taxonomy/term/21&amp;from=10">2</a> <a href="indexadf9.html?q=taxonomy/term/21&amp;from=20">3</a> <strong>4</strong> <a href="index9e5d.html?q=taxonomy/term/21&amp;from=40">5</a> <a href="indexe003.html?q=taxonomy/term/21&amp;from=50">6</a> <a href="index3c60.html?q=taxonomy/term/21&amp;from=60">7</a> <a href="index8119.html?q=taxonomy/term/21&amp;from=70">8</a> <a href="indexd736-2.html?q=taxonomy/term/21&amp;from=80">9</a> ...</div><div><a href="index9e5d.html?q=taxonomy/term/21&amp;from=40">page suivante</a></div><div><a href="indexc016.html?q=taxonomy/term/21&amp;from=140">dernière page</a></div></div><div class="xml-icon"><a href="index50c7.html?q=taxonomy/term/21/0/feed"><img src="misc/xml.png" width="36" height="14" alt="Flux XML" title="Flux XML" /></a></div>
+<!-- end content -->
+              </td>
+
+    </tr>
+    <tr><td colspan="2">
+
+		<div class="pgTopNav">
+		   <div class="pgTopNavLeft"> 
+		     <img src="layout/images/nav_lft.png" width="7" height="23" alt="" />
+		   </div>
+		   <div class="pgTopNavRight">
+		    <img src="layout/images/nav_rgt.png" width="7" height="23" alt="" />
+		  </div>
+		  <!--<ul class="pgTopNavList">-->
+		  <ul class="pgTopNavList">
+		   <li><a href="index03d2.html?q=" title="Retourner à la page principale.">accueil</a> </li>
+		   <li> <a href="indexf6e5.html?q=archive" title="Lire le contenu plus ancien dans notre archive.">archives</a> </li>
+		   <li> <a href="index71c4.html?q=blog" title="Lire les blogues les plus récents.">blogues</a> </li>
+
+		   <li> <a href="indexf6fe.html?q=book" title="Lire et contribuer aux livres collaboratifs.">livres</a> </li>
+		   <li> <a href="index79b7.html?q=forum">forums</a> </li>
+		   <li> <a href="index729f.html?q=poll" title="Voir la liste des sondages de ce site.">sondages</a> </li>
+		   <li> <a href="index4404.html?q=search" title="Chercher pour du contenu plus vieux.">recherche</a></li><li><a href="http://docs.postgresqlfr.org/" target="_blank">documentation </a></li>
+
+		  </ul>
+
+<!--
+		   <li><a href="?q=" title="Retourner à la page principale.">accueil</a> </li>
+		   <li> <a href="?q=archive" title="Lire le contenu plus ancien dans notre archive.">archives</a> </li>
+		   <li> <a href="?q=blog" title="Lire les blogues les plus récents.">blogues</a> </li>
+		   <li> <a href="?q=book" title="Lire et contribuer aux livres collaboratifs.">livres</a> </li>
+		   <li> <a href="?q=forum">forums</a> </li>
+		   <li> <a href="?q=poll" title="Voir la liste des sondages de ce site.">sondages</a> </li>
+		   <li> <a href="?q=search" title="Chercher pour du contenu plus vieux.">recherche</a></li><li><a href="http://docs.postgresqlfr.org/" target="_blank">documentation </a></li>
+-->
+		  </ul>
+	        </div>
+    </td></tr>
+   </table>
+   <p style="text-align: center;">&copy;&nbsp;PostgreSQLFr, tous droits réservés.<br>
+Site déclaré à la CNIL sous le numéro 1074678, conformément à la Loi en vigueur.
+</p>
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-3921927-1");
+pageTracker._initData();
+pageTracker._trackPageview();
+</script>
+<p></p>
+   
+</body>
+
+<!-- Mirrored from drupal.postgresql.fr/?q=taxonomy/term/21&from=30 by HTTrack Website Copier/3.x [XR&CO'2006], Sun, 12 Oct 2008 16:57:20 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+</html>

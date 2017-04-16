@@ -1,0 +1,844 @@
+
+<!DOCTYPE
+ html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+ <html>
+ <!-- $Date: 2005/08/30 07:54:43 $ / $Revision: 1.29 $ / Last Theme Editor :$Author: jx $-->
+  
+<!-- Mirrored from drupal.postgresql.fr/?q=node/1012 by HTTrack Website Copier/3.x [XR&CO'2006], Sun, 12 Oct 2008 17:09:48 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<base  />
+<style type="text/css" media="all">@import "misc/drupal.css";</style>
+   <title>Export données Postgres vers SQL Server - PostgreSQLFr</title>
+ <style type="text/css" media="screen" title="Normal Text">
+    @import url("layout/css/blue/fixed.css");
+    @import url(_guillaume/dotclear/themes/postgresql/style.html);
+ </style>
+ <style type="text/css" media="screen" title="Normal Text2">
+    @import url("layout/css/blue/pgfr.css");
+    @import url(_guillaume/dotclear/themes/postgresql/style.html);
+ </style>
+   </head>
+   <body>
+    <table border="0" cellspacing="5" cellpadding="0" width="100%">
+     <tr>
+      <!--td colspan="2" width="100%"-->
+      <td colspan="2">
+      <!-- Head -->
+       <table border="0" cellspacing="0" cellpadding="0" width="100%">
+        <tr>
+	 <td align="left">
+           <div id="pgHeader">
+	    <div id="pgHeaderLogoLeft">
+	     <a href="index.html" title="PostgreSQL"><img src="layout/images/hdr_left.png" width="230" height="80" alt="PostgreSQL" /></a>
+	    </div>
+	    <div id="pgHeaderLogoRight">
+	     <a href="index.html" title="La base de donn�es la plus sophistiqu�e au monde."><img src="layout/images/hdr_right.png" width="210" height="80" alt="La base de donn�es la plus sophistiqu�e au monde." /></a>
+	    </div>
+	   </div>
+         </td>
+	 <td align="right">
+         </td>
+	</tr>
+      </table> <!-- Head -->
+      <br />
+      <table border="0" cellspacing="0" cellpadding="0" width="100%">
+              <tr>
+	      	 <td align="left">
+
+		<div class="pgTopNav">
+		   <div class="pgTopNavLeft"> 
+		     <img src="layout/images/nav_lft.png" width="7" height="23" alt="" />
+		   </div>
+		   <div class="pgTopNavRight">
+		    <img src="layout/images/nav_rgt.png" width="7" height="23" alt="" />
+		  </div>
+		  <!--<ul class="pgTopNavList">-->
+		  <ul class="pgTopNavList">
+		   <li><a href="index03d2.html?q=" title="Retourner à la page principale.">accueil</a> </li>
+		   <li> <a href="indexf6e5.html?q=archive" title="Lire le contenu plus ancien dans notre archive.">archives</a> </li>
+		   <li> <a href="index71c4.html?q=blog" title="Lire les blogues les plus récents.">blogues</a> </li>
+
+		   <li> <a href="indexf6fe.html?q=book" title="Lire et contribuer aux livres collaboratifs.">livres</a> </li>
+		   <li> <a href="index79b7.html?q=forum">forums</a> </li>
+		   <li> <a href="index729f.html?q=poll" title="Voir la liste des sondages de ce site.">sondages</a> </li>
+		   <li> <a href="index4404.html?q=search" title="Chercher pour du contenu plus vieux.">recherche</a></li><li><a href="http://docs.postgresqlfr.org/" target="_blank">documentation </a></li>
+
+		  </ul>
+
+<!--
+		   <li><a href="?q=" title="Retourner à la page principale.">accueil</a> </li>
+		   <li> <a href="?q=archive" title="Lire le contenu plus ancien dans notre archive.">archives</a> </li>
+		   <li> <a href="?q=blog" title="Lire les blogues les plus récents.">blogues</a> </li>
+		   <li> <a href="?q=book" title="Lire et contribuer aux livres collaboratifs.">livres</a> </li>
+		   <li> <a href="?q=forum">forums</a> </li>
+		   <li> <a href="?q=poll" title="Voir la liste des sondages de ce site.">sondages</a> </li>
+		   <li> <a href="?q=search" title="Chercher pour du contenu plus vieux.">recherche</a></li><li><a href="http://docs.postgresqlfr.org/" target="_blank">documentation </a></li>
+-->
+		  </ul>
+	        </div>
+		</td>
+		</tr>
+		</table>
+      </td>
+     </tr>
+     <tr>
+    <td style="vertical-align: top; width: 20%;">
+<div class="block block-user" id="block-user-0">
+<div class="pgSideNav">    <h2>Ouverture de session</h2>    
+		    <div>
+			<form action="http://drupal.postgresql.fr/?q=user/login" method="post">
+<div class="user-login-block">
+<input type="hidden" name="edit[destination]" value="node/1012" />
+<div class="form-item">
+ <label for="edit-name">Nom d'utilisateur:</label><br />
+ <input type="text" maxlength="64" class="form-text" name="edit[name]" id="edit-name" size="15" value="" />
+</div>
+<div class="form-item">
+ <label for="edit-pass">Mot de passe:</label><br />
+ <input type="password" class="form-password" maxlength="64" name="edit[pass]" id="edit-pass" size="15" value="" />
+</div>
+<input type="submit" class="form-submit" name="op" value="Identification"  />
+</div>
+
+</form>
+<div class="item-list"><ul><li><a href="indexc12c.html?q=user/password" title="Demander un nouveau mot de passe par e-mail.">Demander un nouveau mot de passe</a></li></ul></div>
+		    </div></div></div>
+<div class="block block-user" id="block-user-1">
+<div class="pgSideNav">    <h2>Navigation</h2>    
+		    <div>
+			<div class="menu">
+<ul>
+<li class="leaf"><a href="indexa499.html?q=tracker">messages récents</a></li>
+
+</ul>
+</div>
+		    </div></div></div>
+<div class="block block-block" id="block-block-4">
+<div class="pgSideNav">    <h2>Contactez-nous</h2>    
+		    <div>
+			<p><strong>Administration du site&nbsp;:</strong><br />
+"equipe chez postgresqlfr point org"<br><br />
+<strong>Contact presse&nbsp;:</strong><br />
+"fr chez postgresql point org"<br><br />
+<strong>Contact association&nbsp;:</strong><br />
+"bureau chez postgresqlfr point org"<br><br />
+<strong>Questions PostgreSQL&nbsp;:</strong><br />
+&nbsp;IRC&nbsp;:<br />
+&nbsp;&nbsp;serveur <strong>irc.freenode.net</strong><br />
+&nbsp;&nbsp;canal <strong>#postgresqlfr</strong></p>
+
+		    </div></div></div>
+<div class="block block-block" id="block-block-1">
+<div class="pgSideNav">    <h2>Liens</h2>    
+		    <div>
+			<p><small></p>
+<ul>
+<li>
+<a href="http://www.postgresqlfr.org/?q=node/view/162">Adhérer</a>
+</li>
+<li>
+<a href="http://www.postgresqlfr.org/?q=node/473">Faire un don</a>
+</li>
+<li>
+<a href="http://www.postgresqlfr.org/?q=node/163">Consulter les statuts</a>
+</li>
+</ul>
+<ul>
+<li>
+<a href="http://www.postgresql.org/" class="active">Site original<br />
+</a>
+</li>
+<li>
+<a href="http://docs.postgresqlfr.org/" class="active">Site de traduction</a>
+</li>
+<li>
+<a href="http://docs.postgresqlfr.org/8.3/">Doc v.8.3.x fr</a>
+</li>
+<li>
+<a href="http://docs.postgresqlfr.org/8.2/">Doc v.8.2.x fr</a>
+</li>
+<li>
+<a href="http://docs.postgresqlfr.org/8.1/">Doc v.8.1.x fr</a>
+</li>
+<li>
+<a href="http://docs.postgresqlfr.org/8.0/">Doc v.8.0.x fr</a>
+</li>
+<li>
+<a href="http://docs.postgresqlfr.org/7.4/">Doc v.7.4.x fr</a>
+</li>
+<li>
+<a href="http://www.postgis.fr/">PostGIS</a>
+</li>
+<li>
+<a href="http://www.postgresql.org/docs/techdocs">Techdocs</a>
+</li>
+<li>
+<a href="http://www.varlena.com/varlena/GeneralBits/Tidbits/">General TidBits</a>
+</li>
+<p><!--</p>
+<li>
+<a href="http://www.postgresqlfr.org/?q=node/view/58">Version Windows</a>
+</li>
+<p>--></p>
+<li>
+<a href="http://www.postgresqlfr.org/drupal/?q=node/view/63">Témoignages de pros</a>
+</li>
+<li>
+<a href="http://archives.postgresql.org/pgsql-fr-generale/">Liste de diffusion</a>
+</li>
+<li>
+<a href="http://wwwmaster.postgresql.org/download/mirrors-ftp">Télécharger</a>
+</li>
+</ul>
+<p></small></p>
+
+		    </div></div></div>
+<div class="block block-block" id="block-block-2">
+<div class="pgSideNav">    <h2>Recherche</h2>    
+		    <div>
+			<form action="http://drupal.postgresql.fr/?q=search" method="post">
+<div id="search">
+<input class="form-text" type="text" size="15" value="" name="keys" alt="Enter the terms you wish to search for." /><br />
+<input class="form-submit" type="submit" value="Recherche" />
+</div>
+</form>
+
+		    </div></div></div>
+<div class="block block-forum" id="block-forum-0">
+<div class="pgSideNav">    <h2>Sujets du forum</h2>    
+		    <div>
+			<div class="item-list"><h3>Sujets actifs</h3><ul><li><a href="index253f.html?q=node/1742">A LIRE : FERMETURE DES FORUMS DRUPAL</a></li><li><a href="indexfc2e.html?q=node/1739" title="2 commentaires">Problème  avec pg_dump</a></li><li><a href="index97c1.html?q=node/1731" title="5 commentaires">Connexions simultannées</a></li><li><a href="index32d3.html?q=node/1737" title="1 commentaire">Optimisation de la mémoire sous PostgreSQL</a></li><li><a href="index2483.html?q=node/1736" title="3 commentaires">[Résolu] Upgrade Postgre -> types et opérateurs</a></li></ul></div><div class="item-list"><h3>Nouveaux sujets:</h3><ul><li><a href="index253f.html?q=node/1742">A LIRE : FERMETURE DES FORUMS DRUPAL</a></li><li><a href="indexfc2e.html?q=node/1739" title="2 commentaires">Problème  avec pg_dump</a></li><li><a href="index32d3.html?q=node/1737" title="1 commentaire">Optimisation de la mémoire sous PostgreSQL</a></li><li><a href="index2483.html?q=node/1736" title="3 commentaires">[Résolu] Upgrade Postgre -> types et opérateurs</a></li><li><a href="index82c4.html?q=node/1734" title="2 commentaires">[RESOLU] Probleme de connection en odbc</a></li></ul></div><div class="more-link"><a href="index79b7.html?q=forum" title="Lire les derniers sujets.">en lire plus</a></div>
+		    </div></div></div>
+<div class="block block-archive" id="block-archive-0">
+<div class="pgSideNav">    <h2>Accéder aux archives</h2>    
+		    <div>
+			
+<!-- calendar -->
+<div class="calendar"><table summary="Un calendrier pour accéder aux archives.">
+ <caption><a href="index9dfb.html?q=archive/2008/09/12" title="Mois précédent">&laquo;</a> Octobre 2008 &nbsp;</caption>
+ <tr class="header-week">
+ <th abbr="Lundi">Lun</th>
+ <th abbr="Mardi">Mar</th>
+ <th abbr="Mercredi">Mer</th>
+ <th abbr="Jeudi">Jeu</th>
+ <th abbr="Vendredi">Ven</th>
+ <th abbr="Samedi">Sam</th>
+ <th abbr="Dimanche">Dim</th>
+</tr>
+ <tr class="row-week"><td class="day-blank" colspan="2">&nbsp;</td>
+  <td class="day-link"><a href="indexd3e2.html?q=archive/2008/10/1">1</a></td>
+  <td class="day-normal">2</td>
+  <td class="day-normal">3</td>
+  <td class="day-normal">4</td>
+  <td class="day-normal">5</td>
+ </tr>
+ <tr class="row-week">
+  <td class="day-normal">6</td>
+  <td class="day-normal">7</td>
+  <td class="day-normal">8</td>
+  <td class="day-normal">9</td>
+  <td class="day-normal">10</td>
+  <td class="day-normal">11</td>
+  <td class="day-today">12</td>
+ </tr>
+ <tr class="row-week">
+  <td class="day-future">13</td>
+  <td class="day-future">14</td>
+  <td class="day-future">15</td>
+  <td class="day-future">16</td>
+  <td class="day-future">17</td>
+  <td class="day-future">18</td>
+  <td class="day-future">19</td>
+ </tr>
+ <tr class="row-week">
+  <td class="day-future">20</td>
+  <td class="day-future">21</td>
+  <td class="day-future">22</td>
+  <td class="day-future">23</td>
+  <td class="day-future">24</td>
+  <td class="day-future">25</td>
+  <td class="day-future">26</td>
+ </tr>
+ <tr class="row-week">
+  <td class="day-future">27</td>
+  <td class="day-future">28</td>
+  <td class="day-future">29</td>
+  <td class="day-future">30</td>
+  <td class="day-future">31</td>
+  <td class="day-blank" colspan="2">&nbsp;</td>
+ </tr>
+</table></div>
+
+
+		    </div></div></div>
+<div class="block block-node" id="block-node-0">
+<div class="pgSideNav">    <h2>Syndication</h2>    
+		    <div>
+			<div class="xml-icon"><a href="index9637.html?q=rss.xml"><img src="misc/xml.png" width="36" height="14" alt="Flux XML" title="Flux XML" /></a></div>
+		    </div></div></div>
+<div class="block block-poll" id="block-poll-0">
+<div class="pgSideNav">    <h2>Sondage</h2>    
+		    <div>
+			<div class="poll"><div class="title">Quelle est la version de PostgreSQL la plus répandue sur vos serveurs ?</div><div class="text">8.3</div><div class="bar"><div style="width: 10%;" class="foreground"></div></div><div class="percent">10%</div><div class="text">8.2</div><div class="bar"><div style="width: 42%;" class="foreground"></div></div><div class="percent">42%</div><div class="text">8.1</div><div class="bar"><div style="width: 40%;" class="foreground"></div></div><div class="percent">40%</div><div class="text">8.0</div><div class="bar"><div style="width: 2%;" class="foreground"></div></div><div class="percent">2%</div><div class="text">7.4</div><div class="bar"><div style="width: 6%;" class="foreground"></div></div><div class="percent">6%</div><div class="text">7.3 ou antérieure</div><div class="bar"><div style="width: 0%;" class="foreground"></div></div><div class="percent">0%</div><div class="total">Nombre de votes: 48</div></div><div class="links"><a href="index8c57.html?q=node/1426#comment" title="Sauter au premier commentaire de ce message.">3 commentaires</a> | <a href="index729f.html?q=poll" title="Voir la liste des sondages de ce site.">anciens sondages</a></div>
+		    </div></div></div>
+    </td>
+
+      <td style="vertical-align: top; width: 80%"><div class="breadcrumb"><a href="index03d2.html?q=">Accueil</a> &raquo; <a href="index79b7.html?q=forum">forums</a> &raquo; <a href="index161a.html?q=forum/15">Technique - odbc</a></div><h2 class="title">Export données Postgres vers SQL Server</h2>
+<!-- begin content -->
+
+<!-- node: "Export données Postgres vers SQL Server" -->
+<!--<div class="pgFrontCenterUser">
+<div class="pgFrontUser">
+<div class="pgFrontUserInner">
+--><div class="pgFrontUserWrap">
+ <div class="pgFrontUserContent">	<h1 class="plop"><a href="index9732.html?q=taxonomy/term/15">Technique - odbc</a> | <a href="index425b.html?q=node/1012" class="active">Export données Postgres vers SQL Server</a></h1>
+		    <p>
+			    Par <a href="index6408.html?q=user/2089" title="Voir le profil utilisateur.">frafga</a> le 07/12/2006 - 12:08
+		    </p>	
+			    <p>Bonjour,</p>
+<p>Je souhaiterais savoir sous quel format (à part le fichier texte) il faut que j'exporte mes données Postgres pour pouvoir les importer rapidement dans SQL Server.<br />
+Je souhait réaliser cet export car j'ai des problèmes pour accéder aux données stockées dans Postgres. J'ai installé le dernier driver 08.02.02 et lorsque j'accède à mes données via SPSS (soft statistique) je visualise mes DB, mes tables mais lorsque je sélectionne une table, une fois sur 3 je ne visualise pas les colonnes.</p>
+<p>Je vous remercie.</p>
+<p>frafga</p>
+<!--hr /--><div class="contentsLink">[ <a href="index7a3f.html?q=node/613" title="Connection odbc ou autres sous windows">sujet précédent</a> | <a href="indexbffe.html?q=node/680" title="ODBC et selection de schema">sujet suivant</a> ]</div>
+		     </div></div>
+<!--</div>
+</div>
+</div>
+</div> -->
+<a id="comment"></a>
+<form method="post" action="http://drupal.postgresql.fr/?q=comment"><div>
+<div class="pgSideNav">    <h2>Options d'affichage des commentaires</h2>    
+		    <div>
+			<div class="form-item">
+ <select name="mode"> <option value="1">A plat - replié</option>
+ <option value="2">A plat - déplié</option>
+ <option value="3">Par discussions - replié</option>
+ <option value="4" selected="selected">Par discussions - déplié</option>
+</select>
+<select name="order"> <option value="1">Date - récents en premier</option>
+ <option value="2" selected="selected">Date - anciens en premier</option>
+</select>
+<select name="comments_per_page"> <option value="10">10 commentaires par page</option> <option value="30">30 commentaires par page</option> <option value="50" selected="selected">50 commentaires par page</option> <option value="70">70 commentaires par page</option> <option value="90">90 commentaires par page</option></select>
+<input type="hidden" name="threshold" value="0" />
+ <input type="submit" class="form-submit" name="op" value="Sauvegarder les paramètres"  />
+
+ <div class="description">Sélectionnez la méthode d'affichage des commentaires que vous préférez, puis cliquez sur "Sauvegarder les paramètres" pour activer vos changements.</div>
+</div>
+
+		    </div></div><input type="hidden" name="edit[nid]" value="1012" />
+</div></form><form method="post" action="http://drupal.postgresql.fr/?q=comment"><div>
+<input type="hidden" name="edit[nid]" value="1012" />
+<a id="comment-1471"></a>
+<div class="pgContentWrap"><h1 id="txtFrontFeatureHeading">Bonjour
+
+Je vous conseilera</h1>
+		<p>
+		    <b><a href="index0b33.html?q=user/22" title="Voir le profil utilisateur.">Christophe Chauvet</a></b>/ = 7 Décembre, 2006 - 15:47
+		</p>
+		<p>
+		    <p>Bonjour</p>
+<p>Je vous conseilerais d'activer le log sur le driver ODBC et de verifier qu'il n'y ai pas d'erreur qui apparait, si il y'en as une alors poster la ici pour que l'on vous guide dans la détermination du problème.</p>
+<p>Cordialement.</p>
+<p>P.S. PostgreSQL fonctionne très bien avec Business Object et Crystal Report.</p>
+<p>Christophe Chauvet<br />
+<a href="http://kryskool.org/" target="_blank">KrysKool.org</a></p>
+<br /><!--hr /--><div class="contentsLink">[ Vous devez <a href="index7992.html?q=user/login">vous connecter</a> pour poster des commentaires ]</div>
+		</p></div><div style="margin-left:25px;">
+<a id="comment-1481"></a>
+<div class="pgContentWrap"><h1 id="txtFrontFeatureHeading">Log du driver Postgres</h1>
+		<p>
+		    <b><a href="index6408.html?q=user/2089" title="Voir le profil utilisateur.">frafga</a></b>/ = 14 Décembre, 2006 - 11:08
+		</p>
+		<p>
+		    <p>Bonjour,</p>
+<p>Ci-dessous la log du driver Postgres :<br />
+conn = 02A13A10, PGAPI_Connect(DSN='NEOLANE', UID='neolane', PWD='xxxxx')<br />
+Global Options: Version='08.02.0200', fetch=100, socket=4096, unknown_sizes=0, max_varchar_size=254, max_longvarchar_size=8190<br />
+                disable_optimizer=1, ksqo=1, unique_index=1, use_declarefetch=0<br />
+                text_as_longvarchar=1, unknowns_as_longvarchar=0, bools_as_char=1 NAMEDATALEN=64<br />
+                extra_systable_prefixes='dd_;', conn_settings='' conn_encoding='OTHER'<br />
+    [ PostgreSQL version string = '8.1.4' ]<br />
+    [ PostgreSQL version number = '8.1' ]<br />
+conn=02A13A10, query='select oid, typbasetype from pg_type where typname = 'lo''<br />
+    [ fetched 0 rows ]<br />
+    [ Large Object oid = -999 ]<br />
+    [ Client encoding = 'LATIN1' (code = 8) ]<br />
+CONN ERROR: func=PGAPI_SetConnectOption, desc='', errnum=205, errmsg='Unknown connect option (Set)'<br />
+            ------------------------------------------------------------<br />
+            henv=02A12160, conn=02A13A10, status=1, num_stmts=16<br />
+            sock=02A12190, stmts=02A12258, lobj_type=-999<br />
+            ---------------- Socket Info -------------------------------<br />
+            socket=1588, reverse=0, errornumber=0, errormsg='(NULL)'<br />
+            buffer_in=44131672, buffer_out=44135776<br />
+            buffer_filled_in=77, buffer_filled_out=0, buffer_read_in=77<br />
+CONN ERROR: func=PGAPI_SetConnectOption, desc='fOption=1041, vParam=43720160', errnum=205, errmsg='Unknown connect option (Set)'<br />
+            ------------------------------------------------------------<br />
+            henv=02A12160, conn=02A13A10, status=1, num_stmts=16<br />
+            sock=02A12190, stmts=02A12258, lobj_type=-999<br />
+            ---------------- Socket Info -------------------------------<br />
+            socket=1588, reverse=0, errornumber=0, errormsg='(NULL)'<br />
+            buffer_in=44131672, buffer_out=44135776<br />
+            buffer_filled_in=77, buffer_filled_out=0, buffer_read_in=77<br />
+CONN ERROR: func=PGAPI_SetConnectOption, desc='', errnum=205, errmsg='Unknown connect option (Set)'<br />
+            ------------------------------------------------------------<br />
+            henv=02A12160, conn=02A13A10, status=1, num_stmts=16<br />
+            sock=02A12190, stmts=02A12258, lobj_type=-999<br />
+            ---------------- Socket Info -------------------------------<br />
+            socket=1588, reverse=0, errornumber=0, errormsg='(NULL)'<br />
+            buffer_in=44131672, buffer_out=44135776<br />
+            buffer_filled_in=77, buffer_filled_out=0, buffer_read_in=77<br />
+CONN ERROR: func=PGAPI_SetConnectOption, desc='fOption=1042, vParam=43720272', errnum=205, errmsg='Unknown connect option (Set)'<br />
+            ------------------------------------------------------------<br />
+            henv=02A12160, conn=02A13A10, status=1, num_stmts=16<br />
+            sock=02A12190, stmts=02A12258, lobj_type=-999<br />
+            ---------------- Socket Info -------------------------------<br />
+            socket=1588, reverse=0, errornumber=0, errormsg='(NULL)'<br />
+            buffer_in=44131672, buffer_out=44135776<br />
+            buffer_filled_in=77, buffer_filled_out=0, buffer_read_in=77<br />
+CONN ERROR: func=PGAPI_SetConnectOption, desc='', errnum=205, errmsg='Unknown connect option (Set)'<br />
+            ------------------------------------------------------------<br />
+            henv=02A12160, conn=02A13A10, status=1, num_stmts=16<br />
+            sock=02A12190, stmts=02A12258, lobj_type=-999<br />
+            ---------------- Socket Info -------------------------------<br />
+            socket=1588, reverse=0, errornumber=0, errormsg='(NULL)'<br />
+            buffer_in=44131672, buffer_out=44135776<br />
+            buffer_filled_in=77, buffer_filled_out=0, buffer_read_in=77<br />
+CONN ERROR: func=PGAPI_SetConnectOption, desc='fOption=1052, vParam=43720120', errnum=205, errmsg='Unknown connect option (Set)'<br />
+            ------------------------------------------------------------<br />
+            henv=02A12160, conn=02A13A10, status=1, num_stmts=16<br />
+            sock=02A12190, stmts=02A12258, lobj_type=-999<br />
+            ---------------- Socket Info -------------------------------<br />
+            socket=1588, reverse=0, errornumber=0, errormsg='(NULL)'<br />
+            buffer_in=44131672, buffer_out=44135776<br />
+            buffer_filled_in=77, buffer_filled_out=0, buffer_read_in=77<br />
+conn=02A13A10, query='select relname, nspname, relkind from pg_catalog.pg_class c, pg_catalog.pg_namespace n where relkind in ('r', 'v') and nspname like '%' and relname like '%' and nspname not in ('pg_catalog', 'information_schema', 'pg_toast', 'pg_temp_1') and n.oid = relnamespace order by nspname, relname'<br />
+    [ fetched 358 rows ]<br />
+conn=02A13A10, query='SELECT * FROM public.nmstrackinglog'<br />
+CONN ERROR: func=CC_send_query, desc='', errnum=109, errmsg='Out of memory while reading tuples.'<br />
+            ------------------------------------------------------------<br />
+            henv=02A12160, conn=02A13A10, status=3, num_stmts=16<br />
+            sock=02A12190, stmts=02A12258, lobj_type=-999<br />
+            ---------------- Socket Info -------------------------------<br />
+            socket=1588, reverse=0, errornumber=0, errormsg='(NULL)'<br />
+            buffer_in=44131672, buffer_out=44135776<br />
+            buffer_filled_in=1460, buffer_filled_out=0, buffer_read_in=1287<br />
+STATEMENT ERROR: func=SC_execute, desc='(null)', errnum=7, errmsg='Error while executing the query'<br />
+                 ------------------------------------------------------------<br />
+                 hdbc=02A13A10, stmt=02A18788, result=03CB37D8<br />
+                 prepare=3, internal=0<br />
+                 bindings=59407950, bindings_allocated=10<br />
+                 parameters=00000000, parameters_allocated=0<br />
+                 statement_type=0, statement='SELECT * FROM public.nmstrackinglog'<br />
+                 stmt_with_params='SELECT * FROM public.nmstrackinglog'<br />
+                 data_at_exec=-1, current_exec_param=-1, put_data=0<br />
+                 currTuple=-1, current_col=-1, lobj_fd=-1<br />
+                 maxRows=0, rowset_size=1, keyset_size=0, cursor_type=0, scroll_concurrency=1<br />
+                 cursor_name='SQL_CUR02A18788'<br />
+                 ----------------QResult Info -------------------------------<br />
+                 fields=02A1B990, backend_tuples=00000000, tupleField=0, conn=02A13A10<br />
+                 fetch_count=0, num_total_rows=3276800, num_fields=10, cursor='(NULL)'<br />
+                 message='Out of memory while reading tuples.', command='(NULL)', notice='(NULL)'<br />
+                 status=7, inTuples=1<br />
+CONN ERROR: func=SC_execute, desc='(null)', errnum=109, errmsg='Out of memory while reading tuples.'<br />
+            ------------------------------------------------------------<br />
+            henv=02A12160, conn=02A13A10, status=1, num_stmts=16<br />
+            sock=02A12190, stmts=02A12258, lobj_type=-999<br />
+            ---------------- Socket Info -------------------------------<br />
+            socket=1588, reverse=0, errornumber=0, errormsg='(NULL)'<br />
+            buffer_in=44131672, buffer_out=44135776<br />
+            buffer_filled_in=1460, buffer_filled_out=0, buffer_read_in=1287<br />
+STATEMENT ERROR: func=PGAPI_NumResultCols, desc='', errnum=1, errmsg='No query has been executed with that handle'<br />
+                 ------------------------------------------------------------<br />
+                 hdbc=02A13A10, stmt=02A18788, result=03CB37D8<br />
+                 prepare=3, internal=0<br />
+                 bindings=59407950, bindings_allocated=10<br />
+                 parameters=00000000, parameters_allocated=0<br />
+                 statement_type=0, statement='SELECT * FROM public.nmstrackinglog'<br />
+                 stmt_with_params='SELECT * FROM public.nmstrackinglog'<br />
+                 data_at_exec=-1, current_exec_param=-1, put_data=0<br />
+                 currTuple=-1, current_col=-1, lobj_fd=-1<br />
+                 maxRows=0, rowset_size=1, keyset_size=0, cursor_type=0, scroll_concurrency=1<br />
+                 cursor_name='SQL_CUR02A18788'<br />
+                 ----------------QResult Info -------------------------------<br />
+                 fields=02A1B990, backend_tuples=00000000, tupleField=0, conn=02A13A10<br />
+                 fetch_count=0, num_total_rows=3276800, num_fields=10, cursor='(NULL)'<br />
+                 message='Out of memory while reading tuples.', command='(NULL)', notice='(NULL)'<br />
+                 status=7, inTuples=1<br />
+CONN ERROR: func=PGAPI_NumResultCols, desc='', errnum=109, errmsg='Out of memory while reading tuples.'<br />
+            ------------------------------------------------------------<br />
+            henv=02A12160, conn=02A13A10, status=1, num_stmts=16<br />
+            sock=02A12190, stmts=02A12258, lobj_type=-999<br />
+            ---------------- Socket Info -------------------------------<br />
+            socket=1588, reverse=0, errornumber=0, errormsg='(NULL)'<br />
+            buffer_in=44131672, buffer_out=44135776<br />
+            buffer_filled_in=1460, buffer_filled_out=0, buffer_read_in=1287<br />
+conn=02A13A10, query='select n.nspname, c.relname, a.attname, a.atttypid, t.typname, a.attnum, a.attlen, a.atttypmod, a.attnotnull, c.relhasrules, c.relkind, c.oid, d.adsrc from (((pg_catalog.pg_class c inner join pg_catalog.pg_namespace n on n.oid = c.relnamespace and c.relname like 'nmstrackinglog' and n.nspname like 'public') inner join pg_catalog.pg_attribute a on (not a.attisdropped) and a.attnum > 0 and a.attrelid = c.oid) inner join pg_catalog.pg_type t on t.oid = a.atttypid) left outer join pg_attrdef d on a.atthasdef and d.adrelid = a.attrelid and d.adnum = a.attnum order by n.nspname, c.relname, attnum'<br />
+conn=02A13A10, query='SELECT * FROM public.nmstrackinglog'<br />
+conn=02A13A10, query='SELECT * FROM public.nmstrackinglog'<br />
+conn=02A13A10, PGAPI_Disconnect</p>
+<br /><!--hr /--><div class="contentsLink">[ Vous devez <a href="index7992.html?q=user/login">vous connecter</a> pour poster des commentaires ]</div>
+		</p></div></div>
+<div style="margin-left:25px;">
+<a id="comment-1482"></a>
+<div class="pgContentWrap"><h1 id="txtFrontFeatureHeading">Bonjour
+
+Avez vous dans vot</h1>
+		<p>
+		    <b><a href="index0b33.html?q=user/22" title="Voir le profil utilisateur.">Christophe Chauvet</a></b>/ = 14 Décembre, 2006 - 15:08
+		</p>
+		<p>
+		    <p>Bonjour</p>
+<p>Avez vous dans votre connexion ODBC -> options datasource la case "Use Declare/Fecth" de cocher ? si oui essayé en la décochant.</p>
+<p>Voir aussi en augmentant le paramètre Cache Size</p>
+<p>Cordialement.</p>
+<p>Christophe Chauvet<br />
+<a href="http://kryskool.org/" target="_blank">KrysKool.org</a></p>
+<br /><!--hr /--><div class="contentsLink">[ Vous devez <a href="index7992.html?q=user/login">vous connecter</a> pour poster des commentaires ]</div>
+		</p></div></div>
+<div style="margin-left:50px;">
+<a id="comment-1483"></a>
+<div class="pgContentWrap"><h1 id="txtFrontFeatureHeading">Bonjour,
+
+J'ai vérifié la</h1>
+		<p>
+		    <b><a href="index6408.html?q=user/2089" title="Voir le profil utilisateur.">frafga</a></b>/ = 14 Décembre, 2006 - 15:48
+		</p>
+		<p>
+		    <p>Bonjour,</p>
+<p>J'ai vérifié la case "Use Declare/Fecth" n'était pas cochée.</p>
+<p>Par contre j'ai nettement augmenté la "cache size", je suis passé de 100 à 512.</p>
+<p>Malheureusement ce changement n'a eu aucun effet, j'accède toujours au table, mais pas aux colonnes de tables postgres.</p>
+<p>Je vous mets ci-dessous ma nouvelle Log.</p>
+<p>Merci de votre aide</p>
+<p>Cdlt,</p>
+<p>frafga</p>
+<p>conn = 02A13A10, PGAPI_Connect(DSN='NEOLANE', UID='neolane', PWD='xxxxx')<br />
+Global Options: Version='08.02.0200', fetch=500, socket=4096, unknown_sizes=0, max_varchar_size=254, max_longvarchar_size=8190<br />
+                disable_optimizer=1, ksqo=1, unique_index=1, use_declarefetch=0<br />
+                text_as_longvarchar=1, unknowns_as_longvarchar=0, bools_as_char=1 NAMEDATALEN=64<br />
+                extra_systable_prefixes='dd_;', conn_settings='' conn_encoding='OTHER'<br />
+    [ PostgreSQL version string = '8.1.4' ]<br />
+    [ PostgreSQL version number = '8.1' ]<br />
+conn=02A13A10, query='select oid, typbasetype from pg_type where typname = 'lo''<br />
+    [ fetched 0 rows ]<br />
+    [ Large Object oid = -999 ]<br />
+    [ Client encoding = 'LATIN1' (code = 8) ]<br />
+CONN ERROR: func=PGAPI_SetConnectOption, desc='', errnum=205, errmsg='Unknown connect option (Set)'<br />
+            ------------------------------------------------------------<br />
+            henv=02A12160, conn=02A13A10, status=1, num_stmts=16<br />
+            sock=02A12190, stmts=02A12258, lobj_type=-999<br />
+            ---------------- Socket Info -------------------------------<br />
+            socket=1588, reverse=0, errornumber=0, errormsg='(NULL)'<br />
+            buffer_in=44131672, buffer_out=44135776<br />
+            buffer_filled_in=77, buffer_filled_out=0, buffer_read_in=77<br />
+CONN ERROR: func=PGAPI_SetConnectOption, desc='fOption=1041, vParam=43720160', errnum=205, errmsg='Unknown connect option (Set)'<br />
+            ------------------------------------------------------------<br />
+            henv=02A12160, conn=02A13A10, status=1, num_stmts=16<br />
+            sock=02A12190, stmts=02A12258, lobj_type=-999<br />
+            ---------------- Socket Info -------------------------------<br />
+            socket=1588, reverse=0, errornumber=0, errormsg='(NULL)'<br />
+            buffer_in=44131672, buffer_out=44135776<br />
+            buffer_filled_in=77, buffer_filled_out=0, buffer_read_in=77<br />
+CONN ERROR: func=PGAPI_SetConnectOption, desc='', errnum=205, errmsg='Unknown connect option (Set)'<br />
+            ------------------------------------------------------------<br />
+            henv=02A12160, conn=02A13A10, status=1, num_stmts=16<br />
+            sock=02A12190, stmts=02A12258, lobj_type=-999<br />
+            ---------------- Socket Info -------------------------------<br />
+            socket=1588, reverse=0, errornumber=0, errormsg='(NULL)'<br />
+            buffer_in=44131672, buffer_out=44135776<br />
+            buffer_filled_in=77, buffer_filled_out=0, buffer_read_in=77<br />
+CONN ERROR: func=PGAPI_SetConnectOption, desc='fOption=1042, vParam=43720272', errnum=205, errmsg='Unknown connect option (Set)'<br />
+            ------------------------------------------------------------<br />
+            henv=02A12160, conn=02A13A10, status=1, num_stmts=16<br />
+            sock=02A12190, stmts=02A12258, lobj_type=-999<br />
+            ---------------- Socket Info -------------------------------<br />
+            socket=1588, reverse=0, errornumber=0, errormsg='(NULL)'<br />
+            buffer_in=44131672, buffer_out=44135776<br />
+            buffer_filled_in=77, buffer_filled_out=0, buffer_read_in=77<br />
+CONN ERROR: func=PGAPI_SetConnectOption, desc='', errnum=205, errmsg='Unknown connect option (Set)'<br />
+            ------------------------------------------------------------<br />
+            henv=02A12160, conn=02A13A10, status=1, num_stmts=16<br />
+            sock=02A12190, stmts=02A12258, lobj_type=-999<br />
+            ---------------- Socket Info -------------------------------<br />
+            socket=1588, reverse=0, errornumber=0, errormsg='(NULL)'<br />
+            buffer_in=44131672, buffer_out=44135776<br />
+            buffer_filled_in=77, buffer_filled_out=0, buffer_read_in=77<br />
+CONN ERROR: func=PGAPI_SetConnectOption, desc='fOption=1052, vParam=43720120', errnum=205, errmsg='Unknown connect option (Set)'<br />
+            ------------------------------------------------------------<br />
+            henv=02A12160, conn=02A13A10, status=1, num_stmts=16<br />
+            sock=02A12190, stmts=02A12258, lobj_type=-999<br />
+            ---------------- Socket Info -------------------------------<br />
+            socket=1588, reverse=0, errornumber=0, errormsg='(NULL)'<br />
+            buffer_in=44131672, buffer_out=44135776<br />
+            buffer_filled_in=77, buffer_filled_out=0, buffer_read_in=77<br />
+conn=02A13A10, query='select relname, nspname, relkind from pg_catalog.pg_class c, pg_catalog.pg_namespace n where relkind in ('r', 'v') and nspname like '%' and relname like '%' and nspname not in ('pg_catalog', 'information_schema', 'pg_toast', 'pg_temp_1') and n.oid = relnamespace order by nspname, relname'<br />
+    [ fetched 358 rows ]<br />
+conn=02A13A10, query='SELECT * FROM public.nmstrackinglog'<br />
+CONN ERROR: func=CC_send_query, desc='', errnum=109, errmsg='Out of memory while reading tuples.'<br />
+            ------------------------------------------------------------<br />
+            henv=02A12160, conn=02A13A10, status=3, num_stmts=16<br />
+            sock=02A12190, stmts=02A12258, lobj_type=-999<br />
+            ---------------- Socket Info -------------------------------<br />
+            socket=1588, reverse=0, errornumber=0, errormsg='(NULL)'<br />
+            buffer_in=44131672, buffer_out=44135776<br />
+            buffer_filled_in=1460, buffer_filled_out=0, buffer_read_in=1287<br />
+STATEMENT ERROR: func=SC_execute, desc='(null)', errnum=7, errmsg='Error while executing the query'<br />
+                 ------------------------------------------------------------<br />
+                 hdbc=02A13A10, stmt=02A18788, result=03CB37D8<br />
+                 prepare=3, internal=0<br />
+                 bindings=59407950, bindings_allocated=10<br />
+                 parameters=00000000, parameters_allocated=0<br />
+                 statement_type=0, statement='SELECT * FROM public.nmstrackinglog'<br />
+                 stmt_with_params='SELECT * FROM public.nmstrackinglog'<br />
+                 data_at_exec=-1, current_exec_param=-1, put_data=0<br />
+                 currTuple=-1, current_col=-1, lobj_fd=-1<br />
+                 maxRows=0, rowset_size=1, keyset_size=0, cursor_type=0, scroll_concurrency=1<br />
+                 cursor_name='SQL_CUR02A18788'<br />
+                 ----------------QResult Info -------------------------------<br />
+                 fields=02A1B990, backend_tuples=00000000, tupleField=0, conn=02A13A10<br />
+                 fetch_count=0, num_total_rows=3276800, num_fields=10, cursor='(NULL)'<br />
+                 message='Out of memory while reading tuples.', command='(NULL)', notice='(NULL)'<br />
+                 status=7, inTuples=1<br />
+CONN ERROR: func=SC_execute, desc='(null)', errnum=109, errmsg='Out of memory while reading tuples.'<br />
+            ------------------------------------------------------------<br />
+            henv=02A12160, conn=02A13A10, status=1, num_stmts=16<br />
+            sock=02A12190, stmts=02A12258, lobj_type=-999<br />
+            ---------------- Socket Info -------------------------------<br />
+            socket=1588, reverse=0, errornumber=0, errormsg='(NULL)'<br />
+            buffer_in=44131672, buffer_out=44135776<br />
+            buffer_filled_in=1460, buffer_filled_out=0, buffer_read_in=1287<br />
+STATEMENT ERROR: func=PGAPI_NumResultCols, desc='', errnum=1, errmsg='No query has been executed with that handle'<br />
+                 ------------------------------------------------------------<br />
+                 hdbc=02A13A10, stmt=02A18788, result=03CB37D8<br />
+                 prepare=3, internal=0<br />
+                 bindings=59407950, bindings_allocated=10<br />
+                 parameters=00000000, parameters_allocated=0<br />
+                 statement_type=0, statement='SELECT * FROM public.nmstrackinglog'<br />
+                 stmt_with_params='SELECT * FROM public.nmstrackinglog'<br />
+                 data_at_exec=-1, current_exec_param=-1, put_data=0<br />
+                 currTuple=-1, current_col=-1, lobj_fd=-1<br />
+                 maxRows=0, rowset_size=1, keyset_size=0, cursor_type=0, scroll_concurrency=1<br />
+                 cursor_name='SQL_CUR02A18788'<br />
+                 ----------------QResult Info -------------------------------<br />
+                 fields=02A1B990, backend_tuples=00000000, tupleField=0, conn=02A13A10<br />
+                 fetch_count=0, num_total_rows=3276800, num_fields=10, cursor='(NULL)'<br />
+                 message='Out of memory while reading tuples.', command='(NULL)', notice='(NULL)'<br />
+                 status=7, inTuples=1<br />
+CONN ERROR: func=PGAPI_NumResultCols, desc='', errnum=109, errmsg='Out of memory while reading tuples.'<br />
+            ------------------------------------------------------------<br />
+            henv=02A12160, conn=02A13A10, status=1, num_stmts=16<br />
+            sock=02A12190, stmts=02A12258, lobj_type=-999<br />
+            ---------------- Socket Info -------------------------------<br />
+            socket=1588, reverse=0, errornumber=0, errormsg='(NULL)'<br />
+            buffer_in=44131672, buffer_out=44135776<br />
+            buffer_filled_in=1460, buffer_filled_out=0, buffer_read_in=1287<br />
+conn=02A13A10, query='select n.nspname, c.relname, a.attname, a.atttypid, t.typname, a.attnum, a.attlen, a.atttypmod, a.attnotnull, c.relhasrules, c.relkind, c.oid, d.adsrc from (((pg_catalog.pg_class c inner join pg_catalog.pg_namespace n on n.oid = c.relnamespace and c.relname like 'nmstrackinglog' and n.nspname like 'public') inner join pg_catalog.pg_attribute a on (not a.attisdropped) and a.attnum > 0 and a.attrelid = c.oid) inner join pg_catalog.pg_type t on t.oid = a.atttypid) left outer join pg_attrdef d on a.atthasdef and d.adrelid = a.attrelid and d.adnum = a.attnum order by n.nspname, c.relname, attnum'<br />
+conn=02A13A10, query='SELECT * FROM public.nmstrackinglog'</p>
+<br /><!--hr /--><div class="contentsLink">[ Vous devez <a href="index7992.html?q=user/login">vous connecter</a> pour poster des commentaires ]</div>
+		</p></div></div>
+<div style="margin-left:75px;">
+<a id="comment-1484"></a>
+<div class="pgContentWrap"><h1 id="txtFrontFeatureHeading">J'ai poussé le vice en augme</h1>
+		<p>
+		    <b><a href="index6408.html?q=user/2089" title="Voir le profil utilisateur.">frafga</a></b>/ = 14 Décembre, 2006 - 16:54
+		</p>
+		<p>
+		    <p>J'ai poussé le vice en augmentant la cache size à 1500, mais le résultat ne varie pas. </p>
+<p>Voici ma log:</p>
+<p>conn = 02A13A10, PGAPI_Connect(DSN='NEOLANE', UID='neolane', PWD='xxxxx')<br />
+Global Options: Version='08.02.0200', fetch=1500, socket=4096, unknown_sizes=0, max_varchar_size=254, max_longvarchar_size=8190<br />
+                disable_optimizer=1, ksqo=1, unique_index=1, use_declarefetch=0<br />
+                text_as_longvarchar=1, unknowns_as_longvarchar=0, bools_as_char=1 NAMEDATALEN=64<br />
+                extra_systable_prefixes='dd_;', conn_settings='' conn_encoding='OTHER'<br />
+    [ PostgreSQL version string = '8.1.4' ]<br />
+    [ PostgreSQL version number = '8.1' ]<br />
+conn=02A13A10, query='select oid, typbasetype from pg_type where typname = 'lo''<br />
+    [ fetched 0 rows ]<br />
+    [ Large Object oid = -999 ]<br />
+    [ Client encoding = 'LATIN1' (code = 8) ]<br />
+CONN ERROR: func=PGAPI_SetConnectOption, desc='', errnum=205, errmsg='Unknown connect option (Set)'<br />
+            ------------------------------------------------------------<br />
+            henv=02A12160, conn=02A13A10, status=1, num_stmts=16<br />
+            sock=02A12190, stmts=02A12258, lobj_type=-999<br />
+            ---------------- Socket Info -------------------------------<br />
+            socket=1588, reverse=0, errornumber=0, errormsg='(NULL)'<br />
+            buffer_in=44131672, buffer_out=44135776<br />
+            buffer_filled_in=77, buffer_filled_out=0, buffer_read_in=77<br />
+CONN ERROR: func=PGAPI_SetConnectOption, desc='fOption=1041, vParam=43720160', errnum=205, errmsg='Unknown connect option (Set)'<br />
+            ------------------------------------------------------------<br />
+            henv=02A12160, conn=02A13A10, status=1, num_stmts=16<br />
+            sock=02A12190, stmts=02A12258, lobj_type=-999<br />
+            ---------------- Socket Info -------------------------------<br />
+            socket=1588, reverse=0, errornumber=0, errormsg='(NULL)'<br />
+            buffer_in=44131672, buffer_out=44135776<br />
+            buffer_filled_in=77, buffer_filled_out=0, buffer_read_in=77<br />
+CONN ERROR: func=PGAPI_SetConnectOption, desc='', errnum=205, errmsg='Unknown connect option (Set)'<br />
+            ------------------------------------------------------------<br />
+            henv=02A12160, conn=02A13A10, status=1, num_stmts=16<br />
+            sock=02A12190, stmts=02A12258, lobj_type=-999<br />
+            ---------------- Socket Info -------------------------------<br />
+            socket=1588, reverse=0, errornumber=0, errormsg='(NULL)'<br />
+            buffer_in=44131672, buffer_out=44135776<br />
+            buffer_filled_in=77, buffer_filled_out=0, buffer_read_in=77<br />
+CONN ERROR: func=PGAPI_SetConnectOption, desc='fOption=1042, vParam=43720272', errnum=205, errmsg='Unknown connect option (Set)'<br />
+            ------------------------------------------------------------<br />
+            henv=02A12160, conn=02A13A10, status=1, num_stmts=16<br />
+            sock=02A12190, stmts=02A12258, lobj_type=-999<br />
+            ---------------- Socket Info -------------------------------<br />
+            socket=1588, reverse=0, errornumber=0, errormsg='(NULL)'<br />
+            buffer_in=44131672, buffer_out=44135776<br />
+            buffer_filled_in=77, buffer_filled_out=0, buffer_read_in=77<br />
+CONN ERROR: func=PGAPI_SetConnectOption, desc='', errnum=205, errmsg='Unknown connect option (Set)'<br />
+            ------------------------------------------------------------<br />
+            henv=02A12160, conn=02A13A10, status=1, num_stmts=16<br />
+            sock=02A12190, stmts=02A12258, lobj_type=-999<br />
+            ---------------- Socket Info -------------------------------<br />
+            socket=1588, reverse=0, errornumber=0, errormsg='(NULL)'<br />
+            buffer_in=44131672, buffer_out=44135776<br />
+            buffer_filled_in=77, buffer_filled_out=0, buffer_read_in=77<br />
+CONN ERROR: func=PGAPI_SetConnectOption, desc='fOption=1052, vParam=43720120', errnum=205, errmsg='Unknown connect option (Set)'<br />
+            ------------------------------------------------------------<br />
+            henv=02A12160, conn=02A13A10, status=1, num_stmts=16<br />
+            sock=02A12190, stmts=02A12258, lobj_type=-999<br />
+            ---------------- Socket Info -------------------------------<br />
+            socket=1588, reverse=0, errornumber=0, errormsg='(NULL)'<br />
+            buffer_in=44131672, buffer_out=44135776<br />
+            buffer_filled_in=77, buffer_filled_out=0, buffer_read_in=77<br />
+conn=02A13A10, query='select relname, nspname, relkind from pg_catalog.pg_class c, pg_catalog.pg_namespace n where relkind in ('r', 'v') and nspname like '%' and relname like '%' and nspname not in ('pg_catalog', 'information_schema', 'pg_toast', 'pg_temp_1') and n.oid = relnamespace order by nspname, relname'<br />
+    [ fetched 358 rows ]<br />
+conn=02A13A10, query='SELECT * FROM public.nmstrackinglog'<br />
+CONN ERROR: func=CC_send_query, desc='', errnum=109, errmsg='Out of memory while reading tuples.'<br />
+            ------------------------------------------------------------<br />
+            henv=02A12160, conn=02A13A10, status=3, num_stmts=16<br />
+            sock=02A12190, stmts=02A12258, lobj_type=-999<br />
+            ---------------- Socket Info -------------------------------<br />
+            socket=1588, reverse=0, errornumber=0, errormsg='(NULL)'<br />
+            buffer_in=44131672, buffer_out=44135776<br />
+            buffer_filled_in=1460, buffer_filled_out=0, buffer_read_in=1287<br />
+STATEMENT ERROR: func=SC_execute, desc='(null)', errnum=7, errmsg='Error while executing the query'<br />
+                 ------------------------------------------------------------<br />
+                 hdbc=02A13A10, stmt=02A18788, result=03CB37D8<br />
+                 prepare=3, internal=0<br />
+                 bindings=59407950, bindings_allocated=10<br />
+                 parameters=00000000, parameters_allocated=0<br />
+                 statement_type=0, statement='SELECT * FROM public.nmstrackinglog'<br />
+                 stmt_with_params='SELECT * FROM public.nmstrackinglog'<br />
+                 data_at_exec=-1, current_exec_param=-1, put_data=0<br />
+                 currTuple=-1, current_col=-1, lobj_fd=-1<br />
+                 maxRows=0, rowset_size=1, keyset_size=0, cursor_type=0, scroll_concurrency=1<br />
+                 cursor_name='SQL_CUR02A18788'<br />
+                 ----------------QResult Info -------------------------------<br />
+                 fields=02A1B990, backend_tuples=00000000, tupleField=0, conn=02A13A10<br />
+                 fetch_count=0, num_total_rows=3276800, num_fields=10, cursor='(NULL)'<br />
+                 message='Out of memory while reading tuples.', command='(NULL)', notice='(NULL)'<br />
+                 status=7, inTuples=1<br />
+CONN ERROR: func=SC_execute, desc='(null)', errnum=109, errmsg='Out of memory while reading tuples.'<br />
+            ------------------------------------------------------------<br />
+            henv=02A12160, conn=02A13A10, status=1, num_stmts=16<br />
+            sock=02A12190, stmts=02A12258, lobj_type=-999<br />
+            ---------------- Socket Info -------------------------------<br />
+            socket=1588, reverse=0, errornumber=0, errormsg='(NULL)'<br />
+            buffer_in=44131672, buffer_out=44135776<br />
+            buffer_filled_in=1460, buffer_filled_out=0, buffer_read_in=1287<br />
+STATEMENT ERROR: func=PGAPI_NumResultCols, desc='', errnum=1, errmsg='No query has been executed with that handle'<br />
+                 ------------------------------------------------------------<br />
+                 hdbc=02A13A10, stmt=02A18788, result=03CB37D8<br />
+                 prepare=3, internal=0<br />
+                 bindings=59407950, bindings_allocated=10<br />
+                 parameters=00000000, parameters_allocated=0<br />
+                 statement_type=0, statement='SELECT * FROM public.nmstrackinglog'<br />
+                 stmt_with_params='SELECT * FROM public.nmstrackinglog'<br />
+                 data_at_exec=-1, current_exec_param=-1, put_data=0<br />
+                 currTuple=-1, current_col=-1, lobj_fd=-1<br />
+                 maxRows=0, rowset_size=1, keyset_size=0, cursor_type=0, scroll_concurrency=1<br />
+                 cursor_name='SQL_CUR02A18788'<br />
+                 ----------------QResult Info -------------------------------<br />
+                 fields=02A1B990, backend_tuples=00000000, tupleField=0, conn=02A13A10<br />
+                 fetch_count=0, num_total_rows=3276800, num_fields=10, cursor='(NULL)'<br />
+                 message='Out of memory while reading tuples.', command='(NULL)', notice='(NULL)'<br />
+                 status=7, inTuples=1<br />
+CONN ERROR: func=PGAPI_NumResultCols, desc='', errnum=109, errmsg='Out of memory while reading tuples.'<br />
+            ------------------------------------------------------------<br />
+            henv=02A12160, conn=02A13A10, status=1, num_stmts=16<br />
+            sock=02A12190, stmts=02A12258, lobj_type=-999<br />
+            ---------------- Socket Info -------------------------------<br />
+            socket=1588, reverse=0, errornumber=0, errormsg='(NULL)'<br />
+            buffer_in=44131672, buffer_out=44135776<br />
+            buffer_filled_in=1460, buffer_filled_out=0, buffer_read_in=1287<br />
+conn=02A13A10, query='select n.nspname, c.relname, a.attname, a.atttypid, t.typname, a.attnum, a.attlen, a.atttypmod, a.attnotnull, c.relhasrules, c.relkind, c.oid, d.adsrc from (((pg_catalog.pg_class c inner join pg_catalog.pg_namespace n on n.oid = c.relnamespace and c.relname like 'nmstrackinglog' and n.nspname like 'public') inner join pg_catalog.pg_attribute a on (not a.attisdropped) and a.attnum > 0 and a.attrelid = c.oid) inner join pg_catalog.pg_type t on t.oid = a.atttypid) left outer join pg_attrdef d on a.atthasdef and d.adrelid = a.attrelid and d.adnum = a.attnum order by n.nspname, c.relname, attnum'<br />
+conn=02A13A10, PGAPI_Disconnect</p>
+<br /><!--hr /--><div class="contentsLink">[ Vous devez <a href="index7992.html?q=user/login">vous connecter</a> pour poster des commentaires ]</div>
+		</p></div></div>
+<div style="margin-left:75px;">
+<a id="comment-1485"></a>
+<div class="pgContentWrap"><h1 id="txtFrontFeatureHeading">bon ben vaut mieux rester sou</h1>
+		<p>
+		    <b><a href="indexb3f1.html?q=user/1013" title="Voir le profil utilisateur.">sparky</a></b>/ = 14 Décembre, 2006 - 16:54
+		</p>
+		<p>
+		    <p>bon ben vaut mieux rester sous postgres alors :-)</p>
+<br /><!--hr /--><div class="contentsLink">[ Vous devez <a href="index7992.html?q=user/login">vous connecter</a> pour poster des commentaires ]</div>
+		</p></div></div>
+</div></form>
+<!-- end content -->
+              </td>
+
+    </tr>
+    <tr><td colspan="2">
+
+		<div class="pgTopNav">
+		   <div class="pgTopNavLeft"> 
+		     <img src="layout/images/nav_lft.png" width="7" height="23" alt="" />
+		   </div>
+		   <div class="pgTopNavRight">
+		    <img src="layout/images/nav_rgt.png" width="7" height="23" alt="" />
+		  </div>
+		  <!--<ul class="pgTopNavList">-->
+		  <ul class="pgTopNavList">
+		   <li><a href="index03d2.html?q=" title="Retourner à la page principale.">accueil</a> </li>
+		   <li> <a href="indexf6e5.html?q=archive" title="Lire le contenu plus ancien dans notre archive.">archives</a> </li>
+		   <li> <a href="index71c4.html?q=blog" title="Lire les blogues les plus récents.">blogues</a> </li>
+
+		   <li> <a href="indexf6fe.html?q=book" title="Lire et contribuer aux livres collaboratifs.">livres</a> </li>
+		   <li> <a href="index79b7.html?q=forum">forums</a> </li>
+		   <li> <a href="index729f.html?q=poll" title="Voir la liste des sondages de ce site.">sondages</a> </li>
+		   <li> <a href="index4404.html?q=search" title="Chercher pour du contenu plus vieux.">recherche</a></li><li><a href="http://docs.postgresqlfr.org/" target="_blank">documentation </a></li>
+
+		  </ul>
+
+<!--
+		   <li><a href="?q=" title="Retourner à la page principale.">accueil</a> </li>
+		   <li> <a href="?q=archive" title="Lire le contenu plus ancien dans notre archive.">archives</a> </li>
+		   <li> <a href="?q=blog" title="Lire les blogues les plus récents.">blogues</a> </li>
+		   <li> <a href="?q=book" title="Lire et contribuer aux livres collaboratifs.">livres</a> </li>
+		   <li> <a href="?q=forum">forums</a> </li>
+		   <li> <a href="?q=poll" title="Voir la liste des sondages de ce site.">sondages</a> </li>
+		   <li> <a href="?q=search" title="Chercher pour du contenu plus vieux.">recherche</a></li><li><a href="http://docs.postgresqlfr.org/" target="_blank">documentation </a></li>
+-->
+		  </ul>
+	        </div>
+    </td></tr>
+   </table>
+   <p style="text-align: center;">&copy;&nbsp;PostgreSQLFr, tous droits réservés.<br>
+Site déclaré à la CNIL sous le numéro 1074678, conformément à la Loi en vigueur.
+</p>
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-3921927-1");
+pageTracker._initData();
+pageTracker._trackPageview();
+</script>
+<p></p>
+   
+</body>
+
+<!-- Mirrored from drupal.postgresql.fr/?q=node/1012 by HTTrack Website Copier/3.x [XR&CO'2006], Sun, 12 Oct 2008 17:09:48 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+</html>

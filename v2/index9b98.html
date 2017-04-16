@@ -1,0 +1,25 @@
+<html>
+<!-- Mirrored from drupal.postgresql.fr/?q=book/print/956 by HTTrack Website Copier/3.x [XR&CO'2006], Sun, 12 Oct 2008 17:23:57 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+<head><title>timestamp PostgreSQL et timestamp Unix </title><base  /><style type="text/css">
+@import url(misc/print.css);
+</style></head><body><h1 id="956" name="956" class="book-h1">timestamp PostgreSQL et timestamp Unix </h1><p><b>Pour convertir d'un timestamp PostgreSQL vers un timestamp Unix:</b><br />
+<code><br />
+select extract(epoch from now())::bigint;</p>
+<p> date_part<br />
+------------<br />
+ 1162822549<br />
+(1 ligne)<br />
+</code></p>
+<p><b>Pour convertir d'un timestamp Unix vers un timestamp PostgreSQL:</b></p>
+<p><code><br />
+select to_timestamp(1162822549);</p>
+<p>      to_timestamp<br />
+------------------------<br />
+ 2006-11-06 15:15:49+01<br />
+(1 ligne)<br />
+</code></p>
+</body>
+<!-- Mirrored from drupal.postgresql.fr/?q=book/print/956 by HTTrack Website Copier/3.x [XR&CO'2006], Sun, 12 Oct 2008 17:23:57 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+</html>

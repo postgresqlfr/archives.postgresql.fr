@@ -1,0 +1,538 @@
+
+<!DOCTYPE
+ html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+ <html>
+ <!-- $Date: 2005/08/30 07:54:43 $ / $Revision: 1.29 $ / Last Theme Editor :$Author: jx $-->
+  
+<!-- Mirrored from drupal.postgresql.fr/?q=node/130 by HTTrack Website Copier/3.x [XR&CO'2006], Sun, 12 Oct 2008 16:20:34 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<base  />
+<style type="text/css" media="all">@import "misc/drupal.css";</style>
+   <title>Sortie de PostgreSQL 8.0.0 - PostgreSQLFr</title>
+ <style type="text/css" media="screen" title="Normal Text">
+    @import url("layout/css/blue/fixed.css");
+    @import url(_guillaume/dotclear/themes/postgresql/style.html);
+ </style>
+ <style type="text/css" media="screen" title="Normal Text2">
+    @import url("layout/css/blue/pgfr.css");
+    @import url(_guillaume/dotclear/themes/postgresql/style.html);
+ </style>
+   </head>
+   <body>
+    <table border="0" cellspacing="5" cellpadding="0" width="100%">
+     <tr>
+      <!--td colspan="2" width="100%"-->
+      <td colspan="2">
+      <!-- Head -->
+       <table border="0" cellspacing="0" cellpadding="0" width="100%">
+        <tr>
+	 <td align="left">
+           <div id="pgHeader">
+	    <div id="pgHeaderLogoLeft">
+	     <a href="index.html" title="PostgreSQL"><img src="layout/images/hdr_left.png" width="230" height="80" alt="PostgreSQL" /></a>
+	    </div>
+	    <div id="pgHeaderLogoRight">
+	     <a href="index.html" title="La base de donn�es la plus sophistiqu�e au monde."><img src="layout/images/hdr_right.png" width="210" height="80" alt="La base de donn�es la plus sophistiqu�e au monde." /></a>
+	    </div>
+	   </div>
+         </td>
+	 <td align="right">
+         </td>
+	</tr>
+      </table> <!-- Head -->
+      <br />
+      <table border="0" cellspacing="0" cellpadding="0" width="100%">
+              <tr>
+	      	 <td align="left">
+
+		<div class="pgTopNav">
+		   <div class="pgTopNavLeft"> 
+		     <img src="layout/images/nav_lft.png" width="7" height="23" alt="" />
+		   </div>
+		   <div class="pgTopNavRight">
+		    <img src="layout/images/nav_rgt.png" width="7" height="23" alt="" />
+		  </div>
+		  <!--<ul class="pgTopNavList">-->
+		  <ul class="pgTopNavList">
+		   <li><a href="index03d2.html?q=" title="Retourner à la page principale.">accueil</a> </li>
+		   <li> <a href="indexf6e5.html?q=archive" title="Lire le contenu plus ancien dans notre archive.">archives</a> </li>
+		   <li> <a href="index71c4.html?q=blog" title="Lire les blogues les plus récents.">blogues</a> </li>
+
+		   <li> <a href="indexf6fe.html?q=book" title="Lire et contribuer aux livres collaboratifs.">livres</a> </li>
+		   <li> <a href="index79b7.html?q=forum">forums</a> </li>
+		   <li> <a href="index729f.html?q=poll" title="Voir la liste des sondages de ce site.">sondages</a> </li>
+		   <li> <a href="index4404.html?q=search" title="Chercher pour du contenu plus vieux.">recherche</a></li><li><a href="http://docs.postgresqlfr.org/" target="_blank">documentation </a></li>
+
+		  </ul>
+
+<!--
+		   <li><a href="?q=" title="Retourner à la page principale.">accueil</a> </li>
+		   <li> <a href="?q=archive" title="Lire le contenu plus ancien dans notre archive.">archives</a> </li>
+		   <li> <a href="?q=blog" title="Lire les blogues les plus récents.">blogues</a> </li>
+		   <li> <a href="?q=book" title="Lire et contribuer aux livres collaboratifs.">livres</a> </li>
+		   <li> <a href="?q=forum">forums</a> </li>
+		   <li> <a href="?q=poll" title="Voir la liste des sondages de ce site.">sondages</a> </li>
+		   <li> <a href="?q=search" title="Chercher pour du contenu plus vieux.">recherche</a></li><li><a href="http://docs.postgresqlfr.org/" target="_blank">documentation </a></li>
+-->
+		  </ul>
+	        </div>
+		</td>
+		</tr>
+		</table>
+      </td>
+     </tr>
+     <tr>
+    <td style="vertical-align: top; width: 20%;">
+<div class="block block-user" id="block-user-0">
+<div class="pgSideNav">    <h2>Ouverture de session</h2>    
+		    <div>
+			<form action="http://drupal.postgresql.fr/?q=user/login" method="post">
+<div class="user-login-block">
+<input type="hidden" name="edit[destination]" value="node/130" />
+<div class="form-item">
+ <label for="edit-name">Nom d'utilisateur:</label><br />
+ <input type="text" maxlength="64" class="form-text" name="edit[name]" id="edit-name" size="15" value="" />
+</div>
+<div class="form-item">
+ <label for="edit-pass">Mot de passe:</label><br />
+ <input type="password" class="form-password" maxlength="64" name="edit[pass]" id="edit-pass" size="15" value="" />
+</div>
+<input type="submit" class="form-submit" name="op" value="Identification"  />
+</div>
+
+</form>
+<div class="item-list"><ul><li><a href="indexc12c.html?q=user/password" title="Demander un nouveau mot de passe par e-mail.">Demander un nouveau mot de passe</a></li></ul></div>
+		    </div></div></div>
+<div class="block block-user" id="block-user-1">
+<div class="pgSideNav">    <h2>Navigation</h2>    
+		    <div>
+			<div class="menu">
+<ul>
+<li class="leaf"><a href="indexa499.html?q=tracker">messages récents</a></li>
+
+</ul>
+</div>
+		    </div></div></div>
+<div class="block block-block" id="block-block-4">
+<div class="pgSideNav">    <h2>Contactez-nous</h2>    
+		    <div>
+			<p><strong>Administration du site&nbsp;:</strong><br />
+"equipe chez postgresqlfr point org"<br><br />
+<strong>Contact presse&nbsp;:</strong><br />
+"fr chez postgresql point org"<br><br />
+<strong>Contact association&nbsp;:</strong><br />
+"bureau chez postgresqlfr point org"<br><br />
+<strong>Questions PostgreSQL&nbsp;:</strong><br />
+&nbsp;IRC&nbsp;:<br />
+&nbsp;&nbsp;serveur <strong>irc.freenode.net</strong><br />
+&nbsp;&nbsp;canal <strong>#postgresqlfr</strong></p>
+
+		    </div></div></div>
+<div class="block block-block" id="block-block-1">
+<div class="pgSideNav">    <h2>Liens</h2>    
+		    <div>
+			<p><small></p>
+<ul>
+<li>
+<a href="http://www.postgresqlfr.org/?q=node/view/162">Adhérer</a>
+</li>
+<li>
+<a href="http://www.postgresqlfr.org/?q=node/473">Faire un don</a>
+</li>
+<li>
+<a href="http://www.postgresqlfr.org/?q=node/163">Consulter les statuts</a>
+</li>
+</ul>
+<ul>
+<li>
+<a href="http://www.postgresql.org/" class="active">Site original<br />
+</a>
+</li>
+<li>
+<a href="http://docs.postgresqlfr.org/" class="active">Site de traduction</a>
+</li>
+<li>
+<a href="http://docs.postgresqlfr.org/8.3/">Doc v.8.3.x fr</a>
+</li>
+<li>
+<a href="http://docs.postgresqlfr.org/8.2/">Doc v.8.2.x fr</a>
+</li>
+<li>
+<a href="http://docs.postgresqlfr.org/8.1/">Doc v.8.1.x fr</a>
+</li>
+<li>
+<a href="http://docs.postgresqlfr.org/8.0/">Doc v.8.0.x fr</a>
+</li>
+<li>
+<a href="http://docs.postgresqlfr.org/7.4/">Doc v.7.4.x fr</a>
+</li>
+<li>
+<a href="http://www.postgis.fr/">PostGIS</a>
+</li>
+<li>
+<a href="http://www.postgresql.org/docs/techdocs">Techdocs</a>
+</li>
+<li>
+<a href="http://www.varlena.com/varlena/GeneralBits/Tidbits/">General TidBits</a>
+</li>
+<p><!--</p>
+<li>
+<a href="http://www.postgresqlfr.org/?q=node/view/58">Version Windows</a>
+</li>
+<p>--></p>
+<li>
+<a href="http://www.postgresqlfr.org/drupal/?q=node/view/63">Témoignages de pros</a>
+</li>
+<li>
+<a href="http://archives.postgresql.org/pgsql-fr-generale/">Liste de diffusion</a>
+</li>
+<li>
+<a href="http://wwwmaster.postgresql.org/download/mirrors-ftp">Télécharger</a>
+</li>
+</ul>
+<p></small></p>
+
+		    </div></div></div>
+<div class="block block-block" id="block-block-2">
+<div class="pgSideNav">    <h2>Recherche</h2>    
+		    <div>
+			<form action="http://drupal.postgresql.fr/?q=search" method="post">
+<div id="search">
+<input class="form-text" type="text" size="15" value="" name="keys" alt="Enter the terms you wish to search for." /><br />
+<input class="form-submit" type="submit" value="Recherche" />
+</div>
+</form>
+
+		    </div></div></div>
+<div class="block block-forum" id="block-forum-0">
+<div class="pgSideNav">    <h2>Sujets du forum</h2>    
+		    <div>
+			<div class="item-list"><h3>Sujets actifs</h3><ul><li><a href="index253f.html?q=node/1742">A LIRE : FERMETURE DES FORUMS DRUPAL</a></li><li><a href="indexfc2e.html?q=node/1739" title="2 commentaires">Problème  avec pg_dump</a></li><li><a href="index97c1.html?q=node/1731" title="5 commentaires">Connexions simultannées</a></li><li><a href="index32d3.html?q=node/1737" title="1 commentaire">Optimisation de la mémoire sous PostgreSQL</a></li><li><a href="index2483.html?q=node/1736" title="3 commentaires">[Résolu] Upgrade Postgre -> types et opérateurs</a></li></ul></div><div class="item-list"><h3>Nouveaux sujets:</h3><ul><li><a href="index253f.html?q=node/1742">A LIRE : FERMETURE DES FORUMS DRUPAL</a></li><li><a href="indexfc2e.html?q=node/1739" title="2 commentaires">Problème  avec pg_dump</a></li><li><a href="index32d3.html?q=node/1737" title="1 commentaire">Optimisation de la mémoire sous PostgreSQL</a></li><li><a href="index2483.html?q=node/1736" title="3 commentaires">[Résolu] Upgrade Postgre -> types et opérateurs</a></li><li><a href="index82c4.html?q=node/1734" title="2 commentaires">[RESOLU] Probleme de connection en odbc</a></li></ul></div><div class="more-link"><a href="index79b7.html?q=forum" title="Lire les derniers sujets.">en lire plus</a></div>
+		    </div></div></div>
+<div class="block block-archive" id="block-archive-0">
+<div class="pgSideNav">    <h2>Accéder aux archives</h2>    
+		    <div>
+			
+<!-- calendar -->
+<div class="calendar"><table summary="Un calendrier pour accéder aux archives.">
+ <caption><a href="index9dfb.html?q=archive/2008/09/12" title="Mois précédent">&laquo;</a> Octobre 2008 &nbsp;</caption>
+ <tr class="header-week">
+ <th abbr="Lundi">Lun</th>
+ <th abbr="Mardi">Mar</th>
+ <th abbr="Mercredi">Mer</th>
+ <th abbr="Jeudi">Jeu</th>
+ <th abbr="Vendredi">Ven</th>
+ <th abbr="Samedi">Sam</th>
+ <th abbr="Dimanche">Dim</th>
+</tr>
+ <tr class="row-week"><td class="day-blank" colspan="2">&nbsp;</td>
+  <td class="day-link"><a href="indexd3e2.html?q=archive/2008/10/1">1</a></td>
+  <td class="day-normal">2</td>
+  <td class="day-normal">3</td>
+  <td class="day-normal">4</td>
+  <td class="day-normal">5</td>
+ </tr>
+ <tr class="row-week">
+  <td class="day-normal">6</td>
+  <td class="day-normal">7</td>
+  <td class="day-normal">8</td>
+  <td class="day-normal">9</td>
+  <td class="day-normal">10</td>
+  <td class="day-normal">11</td>
+  <td class="day-today">12</td>
+ </tr>
+ <tr class="row-week">
+  <td class="day-future">13</td>
+  <td class="day-future">14</td>
+  <td class="day-future">15</td>
+  <td class="day-future">16</td>
+  <td class="day-future">17</td>
+  <td class="day-future">18</td>
+  <td class="day-future">19</td>
+ </tr>
+ <tr class="row-week">
+  <td class="day-future">20</td>
+  <td class="day-future">21</td>
+  <td class="day-future">22</td>
+  <td class="day-future">23</td>
+  <td class="day-future">24</td>
+  <td class="day-future">25</td>
+  <td class="day-future">26</td>
+ </tr>
+ <tr class="row-week">
+  <td class="day-future">27</td>
+  <td class="day-future">28</td>
+  <td class="day-future">29</td>
+  <td class="day-future">30</td>
+  <td class="day-future">31</td>
+  <td class="day-blank" colspan="2">&nbsp;</td>
+ </tr>
+</table></div>
+
+
+		    </div></div></div>
+<div class="block block-node" id="block-node-0">
+<div class="pgSideNav">    <h2>Syndication</h2>    
+		    <div>
+			<div class="xml-icon"><a href="index9637.html?q=rss.xml"><img src="misc/xml.png" width="36" height="14" alt="Flux XML" title="Flux XML" /></a></div>
+		    </div></div></div>
+<div class="block block-poll" id="block-poll-0">
+<div class="pgSideNav">    <h2>Sondage</h2>    
+		    <div>
+			<div class="poll"><div class="title">Quelle est la version de PostgreSQL la plus répandue sur vos serveurs ?</div><div class="text">8.3</div><div class="bar"><div style="width: 10%;" class="foreground"></div></div><div class="percent">10%</div><div class="text">8.2</div><div class="bar"><div style="width: 42%;" class="foreground"></div></div><div class="percent">42%</div><div class="text">8.1</div><div class="bar"><div style="width: 40%;" class="foreground"></div></div><div class="percent">40%</div><div class="text">8.0</div><div class="bar"><div style="width: 2%;" class="foreground"></div></div><div class="percent">2%</div><div class="text">7.4</div><div class="bar"><div style="width: 6%;" class="foreground"></div></div><div class="percent">6%</div><div class="text">7.3 ou antérieure</div><div class="bar"><div style="width: 0%;" class="foreground"></div></div><div class="percent">0%</div><div class="total">Nombre de votes: 48</div></div><div class="links"><a href="index8c57.html?q=node/1426#comment" title="Sauter au premier commentaire de ce message.">3 commentaires</a> | <a href="index729f.html?q=poll" title="Voir la liste des sondages de ce site.">anciens sondages</a></div>
+		    </div></div></div>
+    </td>
+
+      <td style="vertical-align: top; width: 80%"><div class="breadcrumb"><a href="index03d2.html?q=">Accueil</a></div><h2 class="title">Sortie de PostgreSQL 8.0.0</h2>
+<!-- begin content -->
+
+<!-- node: "Sortie de PostgreSQL 8.0.0" -->
+<!--<div class="pgFrontCenterUser">
+<div class="pgFrontUser">
+<div class="pgFrontUserInner">
+--><div class="pgFrontUserWrap">
+ <div class="pgFrontUserContent">	<h1 class="plop"><a href="index8c63.html?q=taxonomy/term/4">Dans les bacs</a> | <a href="index0c91.html?q=node/130" class="active">Sortie de PostgreSQL 8.0.0</a></h1>
+		    <p>
+			    Par <a href="indexf8ec.html?q=user/10" title="Voir le profil utilisateur.">Jean-Christophe Arnu</a> le 19/01/2005 - 10:46
+		    </p>	
+			    <p><i>Traduction officielle du dossier de presse de PostgreSQL 8.0</i></p>
+<p>NewYork, le 19 Janvier 2005<br>Le groupe de Développement Global de PostgreSQL vient de produire la version 8.0 du système de gestion de bases de données PostgreSQL, confortant sa place de système de bases de données open source le plus sophistiqué du monde. Cette version, en proposant des fonctionnalités qui n'étaient jusqu'alors présentes que dans les systèmes de bases de données propriétaires les plus coûteux, devrait largement favoriser l'adoption de PosgreSQL par les utilisateurs et les éditeurs de solutions informatiques.
+</p>
+<p>
+En plus des améliorations significatives sur l'extensibilité, les fonctionnalités et la performance, PostgreSQL 8.0 fait la preuve de l'efficacité sans égal du développement open source. Plus d'une douzaine de compagnies, incluant Red Hat, Fujitsu, Afilias, Software Research Associates Inc., 2nd Quadrant et Command Prompt Inc., ainsi que des centaines de développeurs individuels ont contribué à l'ajout des fonctionnalités majeures de la 8.0, dans des proportions qui dépassent toutes les versions précédentes.
+</p>
+<p>
+M. Takyuki Nakazawa, Directeur du groupe base de données open source s'exprime en ces termes : « Nous sommes persuadés que ces fonctionnalités professionnelles attireront beaucoup de nouveaux utilisateurs vers PostgreSQL. » . « Fujitsu est fier du soutien apporté aux contributions de PostgreSQL et de son travail avec la communauté PostgreSQL. Nous souhaitons aider PostgreSQL à devenir le SGBD dominant. »
+<p>
+Les nouvelles fonctionnalités comprennent:</p>
+<ul>
+<li><b>Support natif de Windows</b> : PostgreSQL fonctionne maintenant de manière native avec les systèmes Windows et ne nécessite aucune couche d'émulation. Ceci améliore de façon considérable les performances du logiciel par rapport à la version précédente et constitue une alternative très séduisante aux logiciels de base de données propriétaires pour les fournisseurs indépendants de logiciels, les utilisateurs professionnels et les développeurs individuels sous Windows.
+</li>
+<li>
+<b>Points de retournement</b> : Cette fonction standard de SQL permet des retours sur des points spécifiques d'une transaction sur la base de données sans que l'ensemble de l'opération soit annulée. Ceci est un avantage pour les développeurs d'applications métiers qui ont besoin de pouvoir effectuer des transactions complexes utilisant des reprises sur erreur.
+</li>
+<li>
+<b>Récupération par rapport à un point dans le temps</b> : Cette fonctionnalité permet la restauration compléte des données à partir d'une sauvegarde automatique et continue des transactions effectuées. Ceci est une alternative longtemps attendue aux sauvegardes horaires ou journalières pour les services utilisant PostgreSQL pour des données critiques.
+</li>
+<li>
+<b>Espaces de tables</b> : Cruciaux pour les administrateurs de systèmes de data warehouse de multiples-gigaoctets, les espaces de tables permettent le placement des grandes tables et index sur leurs propres disques ou grappes, afin d'améliorer les performances.
+</li>
+<li><b>Améliorations de la gestion de la mémoire et des entrées sorties</b> : L'utilisation des disques et de la mémoire a été optimisée au travers de l'emploi de l'algorithme de Cache à Remplacement Adaptatif, d'un nouveau système d'écriture en tâche de fond et d'une nouvelle fonctionnalité permettant d'effectuer des vacuum différés. Ceci résulte en une charge plus prévisible ainsi qu'une performance plus cohérente lors des pics de charge.
+</li>
+</ul>
+<p>
+Javier Soltero, architecte en chef chez Hyperic LLC, a dit « PostgreSQL 8.0 nous apporte un haut niveau de simultanéité d'accès et le débit nécessaire pour notre produit de surveillance HQ. PostgreSQL 8.0 disposant du support natif de Windows, nous pouvons maintenant inclure PostgreSQL dans nos produits et bénéficier de l'extensibilité et de la performance d'ores et déjà prouvées de PostgreSQL. Sa licence nous permet de l'inclure dans notre distribution sans souci de redevances commerciales. »
+</p>
+<p>En plus de toutes les fonctionnalités incluses dans cette version, PostgreSQL a été étendu par le développement accéléré de composants additifs et optionnels tout au long de l'année passée. L'outil de réplication Slony-I et l'utilitaire de pooling/brokering de connection pgPool sont d'ores et déjà utilisés pour des ensemble de serveurs haute disponibilité. Plusieurs langages de procédures stockées ont été ajoutés ou largement étendus comme PL/Java, PL/PHP et PL/Perl. Les sources de données Npgsql et PGsqlClient .NET ont été améliorées afin de fournir un support aux nouveaux utilisateurs de Windows.
+</p>
+<p>
+Pour obtenir la liste complète et la description de toutes les nouvelles fonctionnalités de la 8.0, référez-vous à notre <a href="http://www.postgresql.org/about/press/presskit80.html.fr">dossier de presse</a>.</p>
+<p>
+<b>A propos de PostgreSQL</b> : PostgreSQL est le fruit du travail collectif de centaines de développeurs, s'appuyant sur un développement entamé il y a presque vingt ans à l'Université de Californie à Berkeley. Avec son support de longue date des fonctionnalités nécessaires dans l'entreprise telles que les transactions, les procédures et fonctions stockées, les triggers, les sous-requêtes, PostgreSQL est utilisé dans les branches métiers ou les agences gouvernementales les plus exigentes. PostgreSQL est distribué sous licence BSD, permettant l'utilisation et la distribution sans rétribution pour les utilisations commerciales et non commerciales.</p>
+<p>Pour plus d'information concernant PostgreSQL ou pour le télécharger, visitez: <a href="http://www.postgresqlfr.org/">http://www.postgresqlfr.org/</a> ou <a href="http://www.postgresql.org/">http://www.postgresql.org</a></p>
+<h2>Fonctionnalités supplémentaires dans cette version</h2>
+<p>En plus des fonctionnalités majeures décrites ci-dessus, d'autres fonctionnalités trés intéressantes pour les utilisateurs de PostgreSQL ont été soit ajoutées soit améliorées.</p>
+<ul>
+<li><b>Fonctions</b> : les fonctions PostgreSQL disposent maintenant de la possibilité de placer une variable à l'intérieur d'une chaîne, permettant ainsi de limiter les erreurs dues à l'imbrication des apostrophes. Par ailleurs, grâce aux nouveaux points de sauvegarde (Savepoints), les fonctions PL/pgSQL sont capables d'une gestion limitée des exceptions grâce à l'utilisation de la clause <code>EXCEPTION</code>.</b></li>
+<li><b>Conception de base de données</b> : l'administrateur de la base de données peut maintenant changer le type d'une colonne existante en utilisant ALTER TABLE. La déclaration de colonnes utilisant des types de données composites peut aussi être utilisée, comme il est prévu dans le standard SQL. Enfin, tous les objets de la base supportent <code>CHANGE OWNER</code>.</li>
+<li><b>Import/Export de données</b> : La commande <code>COPY</code> permet maintenant l'utilisation du format de fichier texte très répandu CSV (valeurs séparées par des virgules). Ceci rend les imports et les exports vers d'autres logiciels plus faciles à réaliser.</li>
+<li><b>Amélioration de l'optimiseur de requêtes</b> : le planificateur et l'exécuteur de requêtes utiliseront maintenant les index pour des types de données compatibles, réduisant grandement le recours aux transtypages de valeurs constantes. Cette version inclut également des améliorations dans l'utilisation des index, une optimisation des clauses OR, un échantillonnage amélioré pour <code>ANALYZE</code>, un <code>TRUNCATE</code> plus rapide, une meilleure génération des plans de requêtes préparées, plus un grand nombre d'améliorations mineures, trop nombreuses pour être citées.</li>
+<li><b>Journalisation</b> : les administrateurs peuvent désormais configurer la rotation des fichiers de journalisation de PostgreSQL au travers du fichier postgresql.conf. Le fichier de journalisation de PostgreSQL est encore plus configurable que précédemment, grâce à l'inclusion de préfixes de lignes dont le format aura été défini par l'administrateur, le traçage de types de requêtes SQL particuliers et le traçage des déconnexions.</li>
+<li><b>Sauvegarde</b> : l'utilitaire de sauvegarde portable, pg_dump, a été en grande partie réécrit. Cette version ajoute de nouvelles possibilités comme les heures de début et de fin, ainsi que l'élimination des problèmes résiduels concernant la portabilité et la dépendance entre les fichiers de sauvegardes.</li>
+</ul>
+<p>Bien sûr, d'autres changements et améliorations sont inclus dans cette version. Référez-vous à la page <a href="http://www.postgresql.org/docs/8.0/static/release.html">Notes de version</a> pour une liste complète.</p>
+<h2>Citations complètes</h2>
+<p>
+M. Takyuki Nakazawa, Directeur du groupe base de données Open Source s'exprime en ces termes : "Nous sommes très satisfaits des nouvelles fonctionnalités de PostgreSQL 8.0. Nous sommes persuadés que ces fonctionnalités professionnelles attireront beaucoup de nouveaux utilisateurs vers PostgreSQL. Fujitsu est fier de financer le développement de nouvelles fonctions de PostgreSQL et de son travail avec la communauté PostgreSQL. Nous souhaitons aider PostgreSQL à devenir le SGBD dominant."
+</p><p>
+Javier Soltero, architecte en chef chez Hyperic LLC, a dit: "PostgreSQL 8.0 nous apporte le haut niveau de simultanéité d'accès et le débit nécessaire à notre produit de surveillance HQ. Notre équipe a évalué des bases de données multi-plateformes commerciales et Open Source en Java, mais aucune ne remplissait nos attentes. PostgreSQL 8.0 disposant du support natif de Windows, nous pouvons maintenant inclure PostgreSQL dans nos produits et bénéficier de l'extensibilité et de la performance d'ores et déjà reconnues de PostgreSQL. Sa licence nous permet de l'inclure dans notre distribution sans souci de redevances commerciales. Le groupe de développement de PostgreSQL a une réputation de qualité largement méritée, qui nous a été confirmé dès notre évaluation de la première version beta publique."
+</p>
+<h2>Sites de téléchargement pour PostgreSQL 8.0</h2>
+<ul>
+<li><a href="download/mirrors-ftp.html">Liste des mirroirs FTP</a></li>
+<li><a href="download/bittorrent.html">Bittorrent</a></li>
+<li><a href="http://pgfoundry.org/projects/pginstaller/">Installeur Windows</a> (également disponible via Bittorrent)</li>
+<li><a href="http://sourceforge.net/projects/pgsql/">Sourceforge</a> (incluant l'installeur Windows)</li>
+</ul>
+<h2>Contact pour plus d'informations</h2>
+<p>En français:
+    <p>François Suter<br />
+    +41 22 777 01 50<br />
+    <a href="mailto%20fr%20at%20postgresql.html">fr@postgresql.org</a></p>
+<p>
+ Ou en anglais:<br />
+    Josh Berkus<br />
+    PostgreSQL Project<br />
+    +1-415-752-2500<br />
+<a href="mailto:josh at postgresql.org">josh at postgresql.org</a></p>
+<h2>Liens vers d'autres ressources concernant PostgreSQL</h2>
+<h3>Documentation</h3>
+<ul>
+<li><a href="docs.html">Documentation officielle</a></li>
+<li><a href="http://techdocs.postgresql.org/">Documents techniques</a></li>
+<li><a href="http://www.varlena.com/GeneralBits">General Bits</a></li>
+</ul>
+<h3>Pilotes</h3>
+<ul>
+<li><a href="http://jdbc.postgresql.org/">JDBC</a></li>
+<li><a href="http://gborg.postgresql.org/project/psqlodbc/projdisplay.php">ODBC</a></li>
+<li><a href="http://gborg.postgresql.org/project/npgsql/projdisplay.php">.Net</a></li>
+</ul>
+<h3>Interfaces graphiques:</h3>
+<ul>
+<li><a href="http://www.pgadmin.org/">pgAdminIII</a></li>
+<li><a href="http://phppgadmin.sourceforge.net/">phpPgAdmin</a></li>
+<li><a href="http://www.pgaccess.org/">pgAccess</a></li>
+<li><a href="http://techdocs.postgresql.org/guides/GUITools">Liste des autres IHM</a></li>
+</ul>
+<h3>Réplication</h3>
+<ul>
+<li><a href="http://www.slony.info/">Slony-I</a></li>
+<li><a href="http://pgfoundry.org/projects/pgpool/">pgPool</a></li>
+<li><a href="http://www.erserver.com/">eRServer</a></li>
+</ul>
+<h3>Projets relatifs à PostgreSQL</h3>
+<ul>
+<li><a href="http://projects.postgresql.org/">pgFoundry</a></li>
+<li><a href="http://gborg.postgresql.org/">GBorg</a></li>
+</ul>
+<h2>Informations concernant les sociétés citées</h2>
+<p><b>A propos de Fujitsu</b> : Fujitsu est un des premiers fournisseurs de systèmes d'informations orientés clientèle et de solutions de communication pour le marché international. Des technologies de pointe, des plateformes de communication et de calculs particulièrement fiables, ainsi qu'un panel mondial d'experts en systèmes et en services permettent à Fujitsu de proposer des solutions globales qui apportent des possibilités infinies pour le succès de ses clients. Basée à Tokyo, Fujitsu Limited (TSE: 6702) a publié son chiffre d'affaire consolidé de 4700 milliards de yen (soit 45 milliards de dollars) pour l'année fiscale se terminant au 31 mars 2004. Vous pourrez trouver des informations complémentaires sur Fujitsu sur le site : <a href="http://www.fujitsu.com/">http://www.fujitsu.com</a>. Les détails concernant l'initiative Fujitsu Supported PosgreSQL (FSP) et un livre blanc à ce sujet sont disponibles sur le site : <a href="http://fastware.com.au.postgresql.html./">http://fastware.com.au.postgresql.html</a>. Veuillez envoyer vos questions à Liam O'Douibhir, Fujitsu Australia Software Technology <a href="mailto:liamod at fast.fujitsu.com.au">liamod at fast.fujitsu.com.au</a>, téléphone (61-2) 9452 9068.</p>
+<p><a>A propos d'Hyperic</a> : Hyperic LLC est un fournisseur de solutions pour la gestion d'infrastructures de technologies de l'information Open Source et commerciales. Son produit phare se présente comme une alternative aux outils de gestion coûteux et dépassés en fournissant une plate-forme ouverte et extensible basée sur le web, apportant ainsi un support complet pour toutes les technologies utilisée de nos jours. Pour plus d'informations, contactez <a href="mailto:press at hyperic.net">press at hyperic.net</a>  (en anglais ou en espagnol).</p>
+
+		     </div></div>
+<!--</div>
+</div>
+</div>
+</div> -->
+<a id="comment"></a>
+<form method="post" action="http://drupal.postgresql.fr/?q=comment"><div>
+<div class="pgSideNav">    <h2>Options d'affichage des commentaires</h2>    
+		    <div>
+			<div class="form-item">
+ <select name="mode"> <option value="1">A plat - replié</option>
+ <option value="2">A plat - déplié</option>
+ <option value="3">Par discussions - replié</option>
+ <option value="4" selected="selected">Par discussions - déplié</option>
+</select>
+<select name="order"> <option value="1">Date - récents en premier</option>
+ <option value="2" selected="selected">Date - anciens en premier</option>
+</select>
+<select name="comments_per_page"> <option value="10">10 commentaires par page</option> <option value="30">30 commentaires par page</option> <option value="50" selected="selected">50 commentaires par page</option> <option value="70">70 commentaires par page</option> <option value="90">90 commentaires par page</option></select>
+<input type="hidden" name="threshold" value="0" />
+ <input type="submit" class="form-submit" name="op" value="Sauvegarder les paramètres"  />
+
+ <div class="description">Sélectionnez la méthode d'affichage des commentaires que vous préférez, puis cliquez sur "Sauvegarder les paramètres" pour activer vos changements.</div>
+</div>
+
+		    </div></div><input type="hidden" name="edit[nid]" value="130" />
+</div></form><form method="post" action="http://drupal.postgresql.fr/?q=comment"><div>
+<input type="hidden" name="edit[nid]" value="130" />
+<a id="comment-37"></a>
+<div class="pgContentWrap"><h1 id="txtFrontFeatureHeading">Drivers natif pour Delphi - dbExpress ?</h1>
+		<p>
+		    <b><a href="index1da8.html?q=user/368" title="Voir le profil utilisateur.">paca_mike</a></b>/ = 20 Janvier, 2005 - 12:57
+		</p>
+		<p>
+		    <p>Il manque un drivers natifs utilisable avec les composants dbExpress pour pouvoir enfin développer des applications windows avec DELPHI(Borland)<br />
+je crois qu'actuellement il existe seulement des drivers pour ADO.Net(framework dot.net) et JDBC(API Java) !!</p>
+<br /><!--hr /--><div class="contentsLink">[ Vous devez <a href="index7992.html?q=user/login">vous connecter</a> pour poster des commentaires ]</div>
+		</p></div><div style="margin-left:25px;">
+<a id="comment-45"></a>
+<div class="pgContentWrap"><h1 id="txtFrontFeatureHeading">pgExpress driver beta v.3.00</h1>
+		<p>
+		    <b><a href="indexec55.html?q=user/2" title="Voir le profil utilisateur.">Jean-Paul Argudo</a></b>/ = 27 Janvier, 2005 - 01:17
+		</p>
+		<p>
+		    <p>Les Dieux du Logiciel Libre ont entendu ta prière:</p>
+<p>http://www.vitavoom.com/Downloads/Files/pgeDriver-3.00-beta.zip</p>
+<p>Enjoy!</p>
+<p>NB: je fais une news demain sur le sujet!</p>
+<p>--<br />
+Jean-Paul ARGUDO<br />
+www.PostgreSQLFr.org</p>
+<br /><!--hr /--><div class="contentsLink">[ Vous devez <a href="index7992.html?q=user/login">vous connecter</a> pour poster des commentaires ]</div>
+		</p></div></div>
+<a id="comment-38"></a>
+<div class="pgContentWrap"><h1 id="txtFrontFeatureHeading">Install PG 8.00</h1>
+		<p>
+		    <b><a href="index42bf.html?q=user/347" title="Voir le profil utilisateur.">hdkpgs</a></b>/ = 20 Janvier, 2005 - 19:15
+		</p>
+		<p>
+		    <p>Les installers fonctionnent parfaitement.</p>
+<p>Serait il envisageable d'obtenir en standard</p>
+<p>LibpqXX.</p>
+<p>Merci.</p>
+<br /><!--hr /--><div class="contentsLink">[ Vous devez <a href="index7992.html?q=user/login">vous connecter</a> pour poster des commentaires ]</div>
+		</p></div><a id="comment-259"></a>
+<div class="pgContentWrap"><h1 id="txtFrontFeatureHeading">ARG !!!!!</h1>
+		<p>
+		    <b><a href="index3f29.html?q=user/856" title="Voir le profil utilisateur.">francois.robert</a></b>/ = 13 Juillet, 2005 - 08:53
+		</p>
+		<p>
+		    <p>Et c'est payant !!!!</p>
+<p>Quelqu'un a t'il une solution free ?</p>
+<p>Cordialement</p>
+<br /><!--hr /--><div class="contentsLink">[ Vous devez <a href="index7992.html?q=user/login">vous connecter</a> pour poster des commentaires ]</div>
+		</p></div></div></form>
+<!-- end content -->
+              </td>
+
+    </tr>
+    <tr><td colspan="2">
+
+		<div class="pgTopNav">
+		   <div class="pgTopNavLeft"> 
+		     <img src="layout/images/nav_lft.png" width="7" height="23" alt="" />
+		   </div>
+		   <div class="pgTopNavRight">
+		    <img src="layout/images/nav_rgt.png" width="7" height="23" alt="" />
+		  </div>
+		  <!--<ul class="pgTopNavList">-->
+		  <ul class="pgTopNavList">
+		   <li><a href="index03d2.html?q=" title="Retourner à la page principale.">accueil</a> </li>
+		   <li> <a href="indexf6e5.html?q=archive" title="Lire le contenu plus ancien dans notre archive.">archives</a> </li>
+		   <li> <a href="index71c4.html?q=blog" title="Lire les blogues les plus récents.">blogues</a> </li>
+
+		   <li> <a href="indexf6fe.html?q=book" title="Lire et contribuer aux livres collaboratifs.">livres</a> </li>
+		   <li> <a href="index79b7.html?q=forum">forums</a> </li>
+		   <li> <a href="index729f.html?q=poll" title="Voir la liste des sondages de ce site.">sondages</a> </li>
+		   <li> <a href="index4404.html?q=search" title="Chercher pour du contenu plus vieux.">recherche</a></li><li><a href="http://docs.postgresqlfr.org/" target="_blank">documentation </a></li>
+
+		  </ul>
+
+<!--
+		   <li><a href="?q=" title="Retourner à la page principale.">accueil</a> </li>
+		   <li> <a href="?q=archive" title="Lire le contenu plus ancien dans notre archive.">archives</a> </li>
+		   <li> <a href="?q=blog" title="Lire les blogues les plus récents.">blogues</a> </li>
+		   <li> <a href="?q=book" title="Lire et contribuer aux livres collaboratifs.">livres</a> </li>
+		   <li> <a href="?q=forum">forums</a> </li>
+		   <li> <a href="?q=poll" title="Voir la liste des sondages de ce site.">sondages</a> </li>
+		   <li> <a href="?q=search" title="Chercher pour du contenu plus vieux.">recherche</a></li><li><a href="http://docs.postgresqlfr.org/" target="_blank">documentation </a></li>
+-->
+		  </ul>
+	        </div>
+    </td></tr>
+   </table>
+   <p style="text-align: center;">&copy;&nbsp;PostgreSQLFr, tous droits réservés.<br>
+Site déclaré à la CNIL sous le numéro 1074678, conformément à la Loi en vigueur.
+</p>
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-3921927-1");
+pageTracker._initData();
+pageTracker._trackPageview();
+</script>
+<p></p>
+   
+</body>
+
+<!-- Mirrored from drupal.postgresql.fr/?q=node/130 by HTTrack Website Copier/3.x [XR&CO'2006], Sun, 12 Oct 2008 16:21:05 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+</html>

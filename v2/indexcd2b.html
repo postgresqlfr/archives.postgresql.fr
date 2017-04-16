@@ -1,0 +1,783 @@
+
+<!DOCTYPE
+ html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+ <html>
+ <!-- $Date: 2005/08/30 07:54:43 $ / $Revision: 1.29 $ / Last Theme Editor :$Author: jx $-->
+  
+<!-- Mirrored from drupal.postgresql.fr/?q=node/1024 by HTTrack Website Copier/3.x [XR&CO'2006], Sun, 12 Oct 2008 17:15:18 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<base  />
+<style type="text/css" media="all">@import "misc/drupal.css";</style>
+   <title>Problème compatibilité postgresql/ubuntu - PostgreSQLFr</title>
+ <style type="text/css" media="screen" title="Normal Text">
+    @import url("layout/css/blue/fixed.css");
+    @import url(_guillaume/dotclear/themes/postgresql/style.html);
+ </style>
+ <style type="text/css" media="screen" title="Normal Text2">
+    @import url("layout/css/blue/pgfr.css");
+    @import url(_guillaume/dotclear/themes/postgresql/style.html);
+ </style>
+   </head>
+   <body>
+    <table border="0" cellspacing="5" cellpadding="0" width="100%">
+     <tr>
+      <!--td colspan="2" width="100%"-->
+      <td colspan="2">
+      <!-- Head -->
+       <table border="0" cellspacing="0" cellpadding="0" width="100%">
+        <tr>
+	 <td align="left">
+           <div id="pgHeader">
+	    <div id="pgHeaderLogoLeft">
+	     <a href="index.html" title="PostgreSQL"><img src="layout/images/hdr_left.png" width="230" height="80" alt="PostgreSQL" /></a>
+	    </div>
+	    <div id="pgHeaderLogoRight">
+	     <a href="index.html" title="La base de donn�es la plus sophistiqu�e au monde."><img src="layout/images/hdr_right.png" width="210" height="80" alt="La base de donn�es la plus sophistiqu�e au monde." /></a>
+	    </div>
+	   </div>
+         </td>
+	 <td align="right">
+         </td>
+	</tr>
+      </table> <!-- Head -->
+      <br />
+      <table border="0" cellspacing="0" cellpadding="0" width="100%">
+              <tr>
+	      	 <td align="left">
+
+		<div class="pgTopNav">
+		   <div class="pgTopNavLeft"> 
+		     <img src="layout/images/nav_lft.png" width="7" height="23" alt="" />
+		   </div>
+		   <div class="pgTopNavRight">
+		    <img src="layout/images/nav_rgt.png" width="7" height="23" alt="" />
+		  </div>
+		  <!--<ul class="pgTopNavList">-->
+		  <ul class="pgTopNavList">
+		   <li><a href="index03d2.html?q=" title="Retourner à la page principale.">accueil</a> </li>
+		   <li> <a href="indexf6e5.html?q=archive" title="Lire le contenu plus ancien dans notre archive.">archives</a> </li>
+		   <li> <a href="index71c4.html?q=blog" title="Lire les blogues les plus récents.">blogues</a> </li>
+
+		   <li> <a href="indexf6fe.html?q=book" title="Lire et contribuer aux livres collaboratifs.">livres</a> </li>
+		   <li> <a href="index79b7.html?q=forum">forums</a> </li>
+		   <li> <a href="index729f.html?q=poll" title="Voir la liste des sondages de ce site.">sondages</a> </li>
+		   <li> <a href="index4404.html?q=search" title="Chercher pour du contenu plus vieux.">recherche</a></li><li><a href="http://docs.postgresqlfr.org/" target="_blank">documentation </a></li>
+
+		  </ul>
+
+<!--
+		   <li><a href="?q=" title="Retourner à la page principale.">accueil</a> </li>
+		   <li> <a href="?q=archive" title="Lire le contenu plus ancien dans notre archive.">archives</a> </li>
+		   <li> <a href="?q=blog" title="Lire les blogues les plus récents.">blogues</a> </li>
+		   <li> <a href="?q=book" title="Lire et contribuer aux livres collaboratifs.">livres</a> </li>
+		   <li> <a href="?q=forum">forums</a> </li>
+		   <li> <a href="?q=poll" title="Voir la liste des sondages de ce site.">sondages</a> </li>
+		   <li> <a href="?q=search" title="Chercher pour du contenu plus vieux.">recherche</a></li><li><a href="http://docs.postgresqlfr.org/" target="_blank">documentation </a></li>
+-->
+		  </ul>
+	        </div>
+		</td>
+		</tr>
+		</table>
+      </td>
+     </tr>
+     <tr>
+    <td style="vertical-align: top; width: 20%;">
+<div class="block block-user" id="block-user-0">
+<div class="pgSideNav">    <h2>Ouverture de session</h2>    
+		    <div>
+			<form action="http://drupal.postgresql.fr/?q=user/login" method="post">
+<div class="user-login-block">
+<input type="hidden" name="edit[destination]" value="node/1024" />
+<div class="form-item">
+ <label for="edit-name">Nom d'utilisateur:</label><br />
+ <input type="text" maxlength="64" class="form-text" name="edit[name]" id="edit-name" size="15" value="" />
+</div>
+<div class="form-item">
+ <label for="edit-pass">Mot de passe:</label><br />
+ <input type="password" class="form-password" maxlength="64" name="edit[pass]" id="edit-pass" size="15" value="" />
+</div>
+<input type="submit" class="form-submit" name="op" value="Identification"  />
+</div>
+
+</form>
+<div class="item-list"><ul><li><a href="indexc12c.html?q=user/password" title="Demander un nouveau mot de passe par e-mail.">Demander un nouveau mot de passe</a></li></ul></div>
+		    </div></div></div>
+<div class="block block-user" id="block-user-1">
+<div class="pgSideNav">    <h2>Navigation</h2>    
+		    <div>
+			<div class="menu">
+<ul>
+<li class="leaf"><a href="indexa499.html?q=tracker">messages récents</a></li>
+
+</ul>
+</div>
+		    </div></div></div>
+<div class="block block-block" id="block-block-4">
+<div class="pgSideNav">    <h2>Contactez-nous</h2>    
+		    <div>
+			<p><strong>Administration du site&nbsp;:</strong><br />
+"equipe chez postgresqlfr point org"<br><br />
+<strong>Contact presse&nbsp;:</strong><br />
+"fr chez postgresql point org"<br><br />
+<strong>Contact association&nbsp;:</strong><br />
+"bureau chez postgresqlfr point org"<br><br />
+<strong>Questions PostgreSQL&nbsp;:</strong><br />
+&nbsp;IRC&nbsp;:<br />
+&nbsp;&nbsp;serveur <strong>irc.freenode.net</strong><br />
+&nbsp;&nbsp;canal <strong>#postgresqlfr</strong></p>
+
+		    </div></div></div>
+<div class="block block-block" id="block-block-1">
+<div class="pgSideNav">    <h2>Liens</h2>    
+		    <div>
+			<p><small></p>
+<ul>
+<li>
+<a href="http://www.postgresqlfr.org/?q=node/view/162">Adhérer</a>
+</li>
+<li>
+<a href="http://www.postgresqlfr.org/?q=node/473">Faire un don</a>
+</li>
+<li>
+<a href="http://www.postgresqlfr.org/?q=node/163">Consulter les statuts</a>
+</li>
+</ul>
+<ul>
+<li>
+<a href="http://www.postgresql.org/" class="active">Site original<br />
+</a>
+</li>
+<li>
+<a href="http://docs.postgresqlfr.org/" class="active">Site de traduction</a>
+</li>
+<li>
+<a href="http://docs.postgresqlfr.org/8.3/">Doc v.8.3.x fr</a>
+</li>
+<li>
+<a href="http://docs.postgresqlfr.org/8.2/">Doc v.8.2.x fr</a>
+</li>
+<li>
+<a href="http://docs.postgresqlfr.org/8.1/">Doc v.8.1.x fr</a>
+</li>
+<li>
+<a href="http://docs.postgresqlfr.org/8.0/">Doc v.8.0.x fr</a>
+</li>
+<li>
+<a href="http://docs.postgresqlfr.org/7.4/">Doc v.7.4.x fr</a>
+</li>
+<li>
+<a href="http://www.postgis.fr/">PostGIS</a>
+</li>
+<li>
+<a href="http://www.postgresql.org/docs/techdocs">Techdocs</a>
+</li>
+<li>
+<a href="http://www.varlena.com/varlena/GeneralBits/Tidbits/">General TidBits</a>
+</li>
+<p><!--</p>
+<li>
+<a href="http://www.postgresqlfr.org/?q=node/view/58">Version Windows</a>
+</li>
+<p>--></p>
+<li>
+<a href="http://www.postgresqlfr.org/drupal/?q=node/view/63">Témoignages de pros</a>
+</li>
+<li>
+<a href="http://archives.postgresql.org/pgsql-fr-generale/">Liste de diffusion</a>
+</li>
+<li>
+<a href="http://wwwmaster.postgresql.org/download/mirrors-ftp">Télécharger</a>
+</li>
+</ul>
+<p></small></p>
+
+		    </div></div></div>
+<div class="block block-block" id="block-block-2">
+<div class="pgSideNav">    <h2>Recherche</h2>    
+		    <div>
+			<form action="http://drupal.postgresql.fr/?q=search" method="post">
+<div id="search">
+<input class="form-text" type="text" size="15" value="" name="keys" alt="Enter the terms you wish to search for." /><br />
+<input class="form-submit" type="submit" value="Recherche" />
+</div>
+</form>
+
+		    </div></div></div>
+<div class="block block-forum" id="block-forum-0">
+<div class="pgSideNav">    <h2>Sujets du forum</h2>    
+		    <div>
+			<div class="item-list"><h3>Sujets actifs</h3><ul><li><a href="index253f.html?q=node/1742">A LIRE : FERMETURE DES FORUMS DRUPAL</a></li><li><a href="indexfc2e.html?q=node/1739" title="2 commentaires">Problème  avec pg_dump</a></li><li><a href="index97c1.html?q=node/1731" title="5 commentaires">Connexions simultannées</a></li><li><a href="index32d3.html?q=node/1737" title="1 commentaire">Optimisation de la mémoire sous PostgreSQL</a></li><li><a href="index2483.html?q=node/1736" title="3 commentaires">[Résolu] Upgrade Postgre -> types et opérateurs</a></li></ul></div><div class="item-list"><h3>Nouveaux sujets:</h3><ul><li><a href="index253f.html?q=node/1742">A LIRE : FERMETURE DES FORUMS DRUPAL</a></li><li><a href="indexfc2e.html?q=node/1739" title="2 commentaires">Problème  avec pg_dump</a></li><li><a href="index32d3.html?q=node/1737" title="1 commentaire">Optimisation de la mémoire sous PostgreSQL</a></li><li><a href="index2483.html?q=node/1736" title="3 commentaires">[Résolu] Upgrade Postgre -> types et opérateurs</a></li><li><a href="index82c4.html?q=node/1734" title="2 commentaires">[RESOLU] Probleme de connection en odbc</a></li></ul></div><div class="more-link"><a href="index79b7.html?q=forum" title="Lire les derniers sujets.">en lire plus</a></div>
+		    </div></div></div>
+<div class="block block-archive" id="block-archive-0">
+<div class="pgSideNav">    <h2>Accéder aux archives</h2>    
+		    <div>
+			
+<!-- calendar -->
+<div class="calendar"><table summary="Un calendrier pour accéder aux archives.">
+ <caption><a href="index9dfb.html?q=archive/2008/09/12" title="Mois précédent">&laquo;</a> Octobre 2008 &nbsp;</caption>
+ <tr class="header-week">
+ <th abbr="Lundi">Lun</th>
+ <th abbr="Mardi">Mar</th>
+ <th abbr="Mercredi">Mer</th>
+ <th abbr="Jeudi">Jeu</th>
+ <th abbr="Vendredi">Ven</th>
+ <th abbr="Samedi">Sam</th>
+ <th abbr="Dimanche">Dim</th>
+</tr>
+ <tr class="row-week"><td class="day-blank" colspan="2">&nbsp;</td>
+  <td class="day-link"><a href="indexd3e2.html?q=archive/2008/10/1">1</a></td>
+  <td class="day-normal">2</td>
+  <td class="day-normal">3</td>
+  <td class="day-normal">4</td>
+  <td class="day-normal">5</td>
+ </tr>
+ <tr class="row-week">
+  <td class="day-normal">6</td>
+  <td class="day-normal">7</td>
+  <td class="day-normal">8</td>
+  <td class="day-normal">9</td>
+  <td class="day-normal">10</td>
+  <td class="day-normal">11</td>
+  <td class="day-today">12</td>
+ </tr>
+ <tr class="row-week">
+  <td class="day-future">13</td>
+  <td class="day-future">14</td>
+  <td class="day-future">15</td>
+  <td class="day-future">16</td>
+  <td class="day-future">17</td>
+  <td class="day-future">18</td>
+  <td class="day-future">19</td>
+ </tr>
+ <tr class="row-week">
+  <td class="day-future">20</td>
+  <td class="day-future">21</td>
+  <td class="day-future">22</td>
+  <td class="day-future">23</td>
+  <td class="day-future">24</td>
+  <td class="day-future">25</td>
+  <td class="day-future">26</td>
+ </tr>
+ <tr class="row-week">
+  <td class="day-future">27</td>
+  <td class="day-future">28</td>
+  <td class="day-future">29</td>
+  <td class="day-future">30</td>
+  <td class="day-future">31</td>
+  <td class="day-blank" colspan="2">&nbsp;</td>
+ </tr>
+</table></div>
+
+
+		    </div></div></div>
+<div class="block block-node" id="block-node-0">
+<div class="pgSideNav">    <h2>Syndication</h2>    
+		    <div>
+			<div class="xml-icon"><a href="index9637.html?q=rss.xml"><img src="misc/xml.png" width="36" height="14" alt="Flux XML" title="Flux XML" /></a></div>
+		    </div></div></div>
+<div class="block block-poll" id="block-poll-0">
+<div class="pgSideNav">    <h2>Sondage</h2>    
+		    <div>
+			<div class="poll"><div class="title">Quelle est la version de PostgreSQL la plus répandue sur vos serveurs ?</div><div class="text">8.3</div><div class="bar"><div style="width: 10%;" class="foreground"></div></div><div class="percent">10%</div><div class="text">8.2</div><div class="bar"><div style="width: 42%;" class="foreground"></div></div><div class="percent">42%</div><div class="text">8.1</div><div class="bar"><div style="width: 40%;" class="foreground"></div></div><div class="percent">40%</div><div class="text">8.0</div><div class="bar"><div style="width: 2%;" class="foreground"></div></div><div class="percent">2%</div><div class="text">7.4</div><div class="bar"><div style="width: 6%;" class="foreground"></div></div><div class="percent">6%</div><div class="text">7.3 ou antérieure</div><div class="bar"><div style="width: 0%;" class="foreground"></div></div><div class="percent">0%</div><div class="total">Nombre de votes: 48</div></div><div class="links"><a href="index8c57.html?q=node/1426#comment" title="Sauter au premier commentaire de ce message.">3 commentaires</a> | <a href="index729f.html?q=poll" title="Voir la liste des sondages de ce site.">anciens sondages</a></div>
+		    </div></div></div>
+    </td>
+
+      <td style="vertical-align: top; width: 80%"><div class="breadcrumb"><a href="index03d2.html?q=">Accueil</a> &raquo; <a href="index79b7.html?q=forum">forums</a> &raquo; <a href="index0561.html?q=forum/10">Technique - général</a></div><h2 class="title">Problème compatibilité postgresql/ubuntu</h2>
+<!-- begin content -->
+
+<!-- node: "Problème compatibilité postgresql/ubuntu" -->
+<!--<div class="pgFrontCenterUser">
+<div class="pgFrontUser">
+<div class="pgFrontUserInner">
+--><div class="pgFrontUserWrap">
+ <div class="pgFrontUserContent">	<h1 class="plop"><a href="indexea60.html?q=taxonomy/term/10">Technique - général</a> | <a href="indexcd2b.html?q=node/1024" class="active">Problème compatibilité postgresql/ubuntu</a></h1>
+		    <p>
+			    Par <a href="index6c94.html?q=user/2116" title="Voir le profil utilisateur.">ljouneau</a> le 18/12/2006 - 10:32
+		    </p>	
+			    <p>Bonjour à tous,</p>
+<p>Je travaille sur un serveur Linux Ubuntu 6.06 LTS avec une version de postgreSQL 8.1.4</p>
+<p>Après un reboot, le serveur se comporte tout à fait normalement, mais après avoir lancé une instance de postgreSQL, le système est extrèmement lent et a des problèmes très étranges:<br />
+Quand on lance la commande "date", 3 fois à 5 secondes d'intervalle, la deuxiième commande date donne une heure identique à la première, tandis que la dernière donne une heure antérieure !</p>
+<p>J'ajoute que je n'ai rien modifié dans la config par défaut, ni du système, ni de postgreSQL.</p>
+<p>Je voulais savoir si certains d'entre vous ont déjà rencontrés des incompatibilités entre postgreSQL et certaines distributions Linux, ou si des experts system peuvent m'expliquer ce qui se passe.</p>
+<p>Merci pour vos réponses,<br />
+Luc </p>
+<!--hr /--><div class="contentsLink">[ <a href="index3fd4.html?q=node/1348" title="Résultats différents pour LIKE et ILIKE malgré une recherche identique... Problème d'accents ?">sujet précédent</a> | <a href="index97b2.html?q=node/769" title="requete insensible a la casse et au accents">sujet suivant</a> ]</div>
+		     </div></div>
+<!--</div>
+</div>
+</div>
+</div> -->
+<a id="comment"></a>
+<form method="post" action="http://drupal.postgresql.fr/?q=comment"><div>
+<div class="pgSideNav">    <h2>Options d'affichage des commentaires</h2>    
+		    <div>
+			<div class="form-item">
+ <select name="mode"> <option value="1">A plat - replié</option>
+ <option value="2">A plat - déplié</option>
+ <option value="3">Par discussions - replié</option>
+ <option value="4" selected="selected">Par discussions - déplié</option>
+</select>
+<select name="order"> <option value="1">Date - récents en premier</option>
+ <option value="2" selected="selected">Date - anciens en premier</option>
+</select>
+<select name="comments_per_page"> <option value="10">10 commentaires par page</option> <option value="30">30 commentaires par page</option> <option value="50" selected="selected">50 commentaires par page</option> <option value="70">70 commentaires par page</option> <option value="90">90 commentaires par page</option></select>
+<input type="hidden" name="threshold" value="0" />
+ <input type="submit" class="form-submit" name="op" value="Sauvegarder les paramètres"  />
+
+ <div class="description">Sélectionnez la méthode d'affichage des commentaires que vous préférez, puis cliquez sur "Sauvegarder les paramètres" pour activer vos changements.</div>
+</div>
+
+		    </div></div><input type="hidden" name="edit[nid]" value="1024" />
+</div></form><form method="post" action="http://drupal.postgresql.fr/?q=comment"><div>
+<input type="hidden" name="edit[nid]" value="1024" />
+<a id="comment-1490"></a>
+<div class="pgContentWrap"><h1 id="txtFrontFeatureHeading">Initialisation PostgreSQL sous Ubuntu</h1>
+		<p>
+		    <b><a href="indexb009.html?q=user/2121" title="Voir le profil utilisateur.">aandre</a></b>/ = 19 Décembre, 2006 - 12:28
+		</p>
+		<p>
+		    <p>J´utilise concurremment windows XP Pro SP2 et Ubuntu 6.10 sur la même machine. J´ai installé PostgreSQL 8.1 et PGAdmin III sous les deux OS.<br />
+Sous Windows, un superutilisateur postgres est bien créé à l´installation, ce qui me permet ensuite de créer un utilisateur courant.<br />
+En revanche, sous Ubuntu 6.10, PGAdmin III m´indique que le nombre de serveurs installés est nul (0). postgres n´a pas été créé par défaut et je ne parviens pas à aller plus loin, même en suivant les recommandations de la doc de Ubuntu-fr en mode terminal.</p>
+<p>Que me conseilleriez-vous? Merci d´avance</p>
+<p>aandre</p>
+<br /><!--hr /--><div class="contentsLink">[ Vous devez <a href="index7992.html?q=user/login">vous connecter</a> pour poster des commentaires ]</div>
+		</p></div><div style="margin-left:25px;">
+<a id="comment-1493"></a>
+<div class="pgContentWrap"><h1 id="txtFrontFeatureHeading">Recréer une location d'insta</h1>
+		<p>
+		    <b><a href="index6c94.html?q=user/2116" title="Voir le profil utilisateur.">ljouneau</a></b>/ = 19 Décembre, 2006 - 16:53
+		</p>
+		<p>
+		    <p>Recréer une location d'instance dans un autre répertoire que celui par défaut, à l'aide de initdb -U suivi du nom du super utilisateur de ton choix. Il sera créé en même temps que la nouvelle instance.</p>
+<br /><!--hr /--><div class="contentsLink">[ Vous devez <a href="index7992.html?q=user/login">vous connecter</a> pour poster des commentaires ]</div>
+		</p></div></div>
+<div style="margin-left:50px;">
+<a id="comment-1658"></a>
+<div class="pgContentWrap"><h1 id="txtFrontFeatureHeading">Message d'erreur</h1>
+		<p>
+		    <b><a href="indexb009.html?q=user/2121" title="Voir le profil utilisateur.">aandre</a></b>/ = 16 Février, 2007 - 07:25
+		</p>
+		<p>
+		    <p>initdb -U postgres, ou sudo initdb -U postgres donnent le message "Commande introuvable"</p>
+<p>A. Andre<br />
+-------------------------------------------------------<br />
+Long est le chemin qui mène à la connaissance!</p>
+<br /><!--hr /--><div class="contentsLink">[ Vous devez <a href="index7992.html?q=user/login">vous connecter</a> pour poster des commentaires ]</div>
+		</p></div></div>
+<div style="margin-left:25px;">
+<a id="comment-1495"></a>
+<div class="pgContentWrap"><h1 id="txtFrontFeatureHeading">Etonnant</h1>
+		<p>
+		    <b><a href="index6e6b.html?q=user/65" title="Voir le profil utilisateur.">SAS</a></b>/ = 20 Décembre, 2006 - 11:18
+		</p>
+		<p>
+		    <p>Bonjour, </p>
+<p>Je suis surpris de ce comportement. En effet, l'installation de PostgreSQL sur Ubuntu à l'aide des paquets officiels crée une instance, un utilisateur système postgres et un superutilisateur BDD postgres.<br />
+L'installation s'est-elle correctement déroulée ?</p>
+<p>Librement,<br />
+Stéphane Schildknecht<br />
+<a href="http://www.dalibo.com/">dalibo</a><br />
+<a href="http://www.postgresqlfr.org/">PostgreSQLFr</a></p>
+<br /><!--hr /--><div class="contentsLink">[ Vous devez <a href="index7992.html?q=user/login">vous connecter</a> pour poster des commentaires ]</div>
+		</p></div></div>
+<div style="margin-left:50px;">
+<a id="comment-1647"></a>
+<div class="pgContentWrap"><h1 id="txtFrontFeatureHeading">Installation et démarrage PostgreSQL 8.2</h1>
+		<p>
+		    <b><a href="indexb009.html?q=user/2121" title="Voir le profil utilisateur.">aandre</a></b>/ = 13 Février, 2007 - 18:13
+		</p>
+		<p>
+		    <p>OS: Ubuntu Edgy Eft</p>
+<p>J'ai récemment viré Windows XP et installé Edgy Eft comme seul OS.<br />
+Ce faisant, je réinstalle les logiciels utiles. En particulier, j'ai réinstallé PostgreSQL 8.2<br />
+Il semble bien que cette fois le super-utilisateur postgres ait été créé, car lorsque je tape la commande adduser postgres j'obtiens le message "l'utilisateur postgres existe déjà"<br />
+Maintenant je recherche comment créer un compte utilisateur et démarrer PostgreSQL. Je n'ai pas encore trouvé dans la doc, mais je vais continuer à fouiller.</p>
+<p>Affaire à suivre. Merci de vos conseils.</p>
+<br /><!--hr /--><div class="contentsLink">[ Vous devez <a href="index7992.html?q=user/login">vous connecter</a> pour poster des commentaires ]</div>
+		</p></div></div>
+<div style="margin-left:50px;">
+<a id="comment-1648"></a>
+<div class="pgContentWrap"><h1 id="txtFrontFeatureHeading">Bonjour
+
+normalement si vou</h1>
+		<p>
+		    <b><a href="index0b33.html?q=user/22" title="Voir le profil utilisateur.">Christophe Chauvet</a></b>/ = 13 Février, 2007 - 18:22
+		</p>
+		<p>
+		    <p>Bonjour</p>
+<p>normalement si vous faite :<br />
+<code><br />
+sudo<br />
+</code><br />
+puis<br />
+<code><br />
+su - postgres<br />
+psql<br />
+</code></p>
+<p>vous devriez arrivé a vous connecter sinon marqué nous les messages d'erreur que vous avez</p>
+<p>Cordialement.</p>
+<p>Christophe Chauvet<br />
+<a href="http://kryskool.org/" target="_blank">KrysKool.org</a></p>
+<br /><!--hr /--><div class="contentsLink">[ Vous devez <a href="index7992.html?q=user/login">vous connecter</a> pour poster des commentaires ]</div>
+		</p></div></div>
+<div style="margin-left:75px;">
+<a id="comment-1649"></a>
+<div class="pgContentWrap"><h1 id="txtFrontFeatureHeading">Démarrage PostgreSQL</h1>
+		<p>
+		    <b><a href="indexb009.html?q=user/2121" title="Voir le profil utilisateur.">aandre</a></b>/ = 14 Février, 2007 - 02:29
+		</p>
+		<p>
+		    <p>(Suite)</p>
+<p>J'ai donc téléchargé et installé PostgreSQL 8.2 selon les directives fournies dans la doc Ubuntu, ainsi que PGAdmin3.<br />
+J'ai créé un super-utilisateur UNIX appelé postgres avec son mot de passe avec<br />
+$ sudo passwd postgres<br />
+J'ai créé un utilisateur avec son mot de passe, avec<br />
+$ sudo su postgres<br />
+$ createuser -a -d -e -P Moi<br />
+Toujours, suivant les instructions pas à pas, j'ai créé une base de données<br />
+$ createdb MaBase<br />
+J'ai ensuite installé le connecteur PHP5:<br />
+$ sudo aptitude install php5-pgsql</p>
+<p>Là s'arrêtent les instructions de la doc Ubuntu-fr</p>
+<p>J'ai ouvert PGAdmin3. Dans la fenêtre s'affiche serveur(0). Il n'y a pas de rôle postgres d'ouvert comme je l'avais eu sous Windows.<br />
+J'ai voulu ajouter un serveur sur la machine locale, en laissant le champ "Adresse" en blanc, ce qui correspond à localhost ou 127.0.0.1<br />
+Le rôle proposé par défaut est postgres.<br />
+J'ai tapé le mot de passe de postgres, mais j'ai eu un message d'erreur "Erreur d'identification". Pareil avec le mot de passe de l'utilisateur courant ou le mot de passe système Ubuntu.</p>
+<p>Une erreur s'est produite :</p>
+<p>Error connecting to the server: FATAL:  authentification Ident échouée pour l'utilisateur «postgres»</p>
+<p>Voici le contenu de pgadmin.log<br />
+2007-02-13 23:54:49 ERROR  : Error connecting to the server: FATAL:  authentification Ident échouée pour l'utilisateur «postgres»</p>
+<p>2007-02-13 23:55:27 ERROR  : Error connecting to the server: FATAL:  authentification Ident échouée pour l'utilisateur «postgres»</p>
+<p>2007-02-13 23:55:49 ERROR  : Error connecting to the server: FATAL:  authentification Ident échouée pour l'utilisateur «postgres»</p>
+<p>2007-02-13 23:56:17 ERROR  : Error connecting to the server: FATAL:  authentification Ident échouée pour l'utilisateur «postgres»</p>
+<p>2007-02-13 23:58:47 ERROR  : Error connecting to the server: FATAL:  authentification Ident échouée pour l'utilisateur «postgres»</p>
+<p>2007-02-13 23:59:30 ERROR  : Error connecting to the server: FATAL:  authentification Ident échouée pour l'utilisateur «postgres»</p>
+<p>2007-02-14 00:34:51 ERROR  : Error connecting to the server: FATAL:  authentification Ident échouée pour l'utilisateur «postgres»</p>
+<p>2007-02-14 00:36:38 ERROR  : There is nothing in the SQL pane to save!<br />
+2007-02-14 00:37:36 ERROR  : Error connecting to the server: FATAL:  authentification par mot de passe échouée pour l'utilisateur  «postgres»</p>
+<p>Je ne sais plus quoi faire. HELP, HELP.<br />
+Merci d'avance</p>
+<br /><!--hr /--><div class="contentsLink">[ Vous devez <a href="index7992.html?q=user/login">vous connecter</a> pour poster des commentaires ]</div>
+		</p></div></div>
+<div style="margin-left:100px;">
+<a id="comment-1653"></a>
+<div class="pgContentWrap"><h1 id="txtFrontFeatureHeading">authentification Ident échou</h1>
+		<p>
+		    <b><a href="indexb3f1.html?q=user/1013" title="Voir le profil utilisateur.">sparky</a></b>/ = 14 Février, 2007 - 17:31
+		</p>
+		<p>
+		    <p>authentification Ident échouée pour l'utilisateur «postgres»<br />
+Veut dire qu'il essaie d'identifier l'utilisateur par l'OS or ici ce n'est pas possible puisque tu es sous windows, il faut changer dans pg_hba.conf ident par md5 :-)</p>
+<br /><!--hr /--><div class="contentsLink">[ Vous devez <a href="index7992.html?q=user/login">vous connecter</a> pour poster des commentaires ]</div>
+		</p></div></div>
+<div style="margin-left:125px;">
+<a id="comment-1659"></a>
+<div class="pgContentWrap"><h1 id="txtFrontFeatureHeading">Identification</h1>
+		<p>
+		    <b><a href="indexb009.html?q=user/2121" title="Voir le profil utilisateur.">aandre</a></b>/ = 16 Février, 2007 - 07:27
+		</p>
+		<p>
+		    <p>Je ne suis pas sous Windows, mais sous Edgy Eft, et il n'y a pas de système Windows installé sur ma machine.</p>
+<p>A. Andre<br />
+-------------------------------------------------------<br />
+Long est le chemin qui mène à la connaissance!</p>
+<br /><!--hr /--><div class="contentsLink">[ Vous devez <a href="index7992.html?q=user/login">vous connecter</a> pour poster des commentaires ]</div>
+		</p></div></div>
+<div style="margin-left:150px;">
+<a id="comment-1660"></a>
+<div class="pgContentWrap"><h1 id="txtFrontFeatureHeading">bon fais  le changement quand</h1>
+		<p>
+		    <b><a href="indexb3f1.html?q=user/1013" title="Voir le profil utilisateur.">sparky</a></b>/ = 16 Février, 2007 - 12:36
+		</p>
+		<p>
+		    <p>bon fais  le changement quand même, le server apache n'a pas l'ident de postgres donc cela ne marchera qu'avec md5 ou trust</p>
+<br /><!--hr /--><div class="contentsLink">[ Vous devez <a href="index7992.html?q=user/login">vous connecter</a> pour poster des commentaires ]</div>
+		</p></div></div>
+<div style="margin-left:50px;">
+<a id="comment-1657"></a>
+<div class="pgContentWrap"><h1 id="txtFrontFeatureHeading">Utilisation PostgreSQL</h1>
+		<p>
+		    <b><a href="indexb009.html?q=user/2121" title="Voir le profil utilisateur.">aandre</a></b>/ = 16 Février, 2007 - 07:22
+		</p>
+		<p>
+		    <p>J'ai téléchargé et installé les paquets de pG 8.2, puis PGAdmin3 depuis le dépôt Ubuntu. Aucun message d'erreur.<br />
+Puis j'ai créé le superutilisateur postgres au niveau système avec son mot de passe.<br />
+Je me suis assuré d'avoir lancé le serveur et j'ai accédé à PostgreSQL via PGAdmin. Et là, je ne sais plus comment ajouter un serveur, le super-utilisateur postgres et un utilisateur courant.<br />
+Encore une fois, sous Windows tout cela s'était fait automatiquement. Y a-t-il une étape que j'aurais omise?</p>
+<p>Merci de vos lumières.</p>
+<p>A. Andre<br />
+-------------------------------------------------------<br />
+Long est le chemin qui mène à la connaissance!</p>
+<br /><!--hr /--><div class="contentsLink">[ Vous devez <a href="index7992.html?q=user/login">vous connecter</a> pour poster des commentaires ]</div>
+		</p></div></div>
+<div style="margin-left:25px;">
+<a id="comment-1650"></a>
+<div class="pgContentWrap"><h1 id="txtFrontFeatureHeading">Lancement de Postgres</h1>
+		<p>
+		    <b><a href="indexb009.html?q=user/2121" title="Voir le profil utilisateur.">aandre</a></b>/ = 14 Février, 2007 - 03:11
+		</p>
+		<p>
+		    <p>Je continue mes recherches. Je me suis dit que mes problèmes venaient peut-être de ce que le serveur PostgreSQL n'était pas lancé. Comme indiqué dans la doc, j'ai entré la commande:</p>
+<p>$ postgres -d /usr/local/pgsql/data<br />
+password: Je tape le mot de passe de postgres</p>
+<p>et je reviens à un prompt $ sans que rien d'autre ne se passe.</p>
+<p>Je suis alors allé vérifier dans l'arborescence. /usr/local/pgsql et /pgsql/data n'existent pas. Faut-il les créer manuellement, ou devraient-ils être créés à l'installation?</p>
+<p>Je continue mes recherches, mais je trouve que c'était plus simple sous Windows.</p>
+<p>-----------------------------------------------------------------<br />
+Long est le chemin qui mène à la connaissance...</p>
+<br /><!--hr /--><div class="contentsLink">[ Vous devez <a href="index7992.html?q=user/login">vous connecter</a> pour poster des commentaires ]</div>
+		</p></div></div>
+<div style="margin-left:25px;">
+<a id="comment-1651"></a>
+<div class="pgContentWrap"><h1 id="txtFrontFeatureHeading">Erreur de manip.
+-------------------</h1>
+		<p>
+		    <b><a href="indexb009.html?q=user/2121" title="Voir le profil utilisateur.">aandre</a></b>/ = 14 Février, 2007 - 03:19
+		</p>
+		<p>
+		    <p>Excusez cette erreur de manipulation. Merci</p>
+<br /><!--hr /--><div class="contentsLink">[ Vous devez <a href="index7992.html?q=user/login">vous connecter</a> pour poster des commentaires ]</div>
+		</p></div></div>
+<div style="margin-left:25px;">
+<a id="comment-1663"></a>
+<div class="pgContentWrap"><h1 id="txtFrontFeatureHeading">Installation PostgreSQL</h1>
+		<p>
+		    <b><a href="indexb009.html?q=user/2121" title="Voir le profil utilisateur.">aandre</a></b>/ = 17 Février, 2007 - 10:54
+		</p>
+		<p>
+		    <p>J'ai désinstallé complètement, puis réinstallé PostgreSQL 8.2 à partir du dépôt. Ensuite j'ai suivi les instructions d'installation de la doc Ubuntu-fr. Voici le résultat:</p>
+<p>whiskey@laptop:~$ sudo passwd postgres<br />
+Enter new UNIX password:   "mot de passe postgres"<br />
+Retype new UNIX password:  "mot de passe postgres"<br />
+passwd : le mot de passe a été mis à jour avec succès<br />
+whiskey@laptop:~$ sudo su postgres<br />
+postgres@laptop:/home/whiskey$ createuser -a -d -e -P user01<br />
+Saisissez le mot de passe pour le nouvel rôle :   "mot de passe user01"<br />
+Saisissez-le à nouveau : "mot de passe user01"<br />
+Mot de passe : "mot de passe postgres"<br />
+createuser : n'a pas pu se connecter à la base de données postgres: FATAL:  authentification par mot de passe échouée pour l'utilisateur  «postgres»</p>
+<p>Manifestement, le dernier mot de passe n'est pas reconnu. Quel serait le mot de passe à taper pour que la commande createuser soit acceptée?</p>
+<p>Merci de votre aide et votre patience.</p>
+<p>PS. Je vais bientôt repartir en expatriation. Si je ne peux parvenir à démarrer mes bases de données et préparer ma mission, je serai obligé d'envisager d'autres solutions.</p>
+<p>A. Andre<br />
+-------------------------------------------------------<br />
+Long est le chemin qui mène à la connaissance!</p>
+<br /><!--hr /--><div class="contentsLink">[ Vous devez <a href="index7992.html?q=user/login">vous connecter</a> pour poster des commentaires ]</div>
+		</p></div></div>
+<div style="margin-left:25px;">
+<a id="comment-1664"></a>
+<div class="pgContentWrap"><h1 id="txtFrontFeatureHeading">Lire la doc plus dans le détail....</h1>
+		<p>
+		    <b><a href="index6e6b.html?q=user/65" title="Voir le profil utilisateur.">SAS</a></b>/ = 18 Février, 2007 - 11:19
+		</p>
+		<p>
+		    <p>Bonjour, </p>
+<p>Il y a une vraie différence entre postgres, utilisateur système et postgres utilisateur BDD. Il n'y a *aucun* rapport entre ces deux utilisateurs.</p>
+<p>Librement,<br />
+Stéphane Schildknecht<br />
+<a href="http://www.dalibo.com/">dalibo</a><br />
+<a href="http://www.postgresqlfr.org/">PostgreSQLFr</a></p>
+<br /><!--hr /--><div class="contentsLink">[ Vous devez <a href="index7992.html?q=user/login">vous connecter</a> pour poster des commentaires ]</div>
+		</p></div></div>
+<div style="margin-left:50px;">
+<a id="comment-1666"></a>
+<div class="pgContentWrap"><h1 id="txtFrontFeatureHeading">Lire la doc...</h1>
+		<p>
+		    <b><a href="indexb009.html?q=user/2121" title="Voir le profil utilisateur.">aandre</a></b>/ = 19 Février, 2007 - 03:59
+		</p>
+		<p>
+		    <p>J'ai parfaitement compris que ces deux super-utilisateurs étaient différents. Il y en a un au niveau OS, et l'autre au niveau du serveur SGBD. Mais la doc indique que le dernier est créé automatiquement à l'installation. J'ai passé beaucoup de temps à lire la doc dans tous les sens.</p>
+<p>Si je prends le temps de poster un message, c'est parce que je n'ai pas trouvé comment faire. Si vous prenez le temps d'y répondre, indiquez-moi plutôt une voie vers la solution plutôt que de me renvoyer dans mes buts. La doc d'installation de PG 8.2.3 présente sur ce site présuppose une installation à partir des sources. Moi, je pars des binaires en dépôt Ubuntu, et je ne vois pas à quel point de la procédure je commence à rentrer les commandes spécifiées.</p>
+<p>whiskey@laptop:~$ sudo adduser postgres<br />
+Password:  pwd superutilisateur root<br />
+adduser: L'utilisateur « postgres » existe déjà.<br />
+whiskey@laptop:~$ sudo mkdir /usr/local/pgsql<br />
+whiskey@laptop:~$ sudo mkdir /usr/local/pgsql/data<br />
+whiskey@laptop:~$ chown postgres /usr/local/pgsql/data<br />
+chown: changement de propriétaire pour `/usr/local/pgsql/data': Opération non permise<br />
+whiskey@laptop:~$ sudo chown postgres /usr/local/pgsql/data<br />
+whiskey@laptop:~$ su - postgres<br />
+Password:<br />
+su : Authentication failure<br />
+Désolé.<br />
+whiskey@laptop:~$ sudo su - postgres<br />
+postgres@laptop:~$ /usr/local/pgsql/bin/initdb -D /usr/local/pgsql/data<br />
+-su: /usr/local/pgsql/bin/initdb: Aucun fichier ou répertoire de ce type<br />
+postgres@laptop:~$ initdb<br />
+-su: initdb : commande introuvable<br />
+postgres@laptop:~$ sudo su - postgres<br />
+Password:   pwd superuser postgres<br />
+postgres@laptop:~$ /usr/local/pgsql/bin/initdb -D /usr/local/pgsql/data<br />
+-su: /usr/local/pgsql/bin/initdb: Aucun fichier ou répertoire de ce type<br />
+postgres@laptop:~$ </p>
+<p>[quote]This chapter describes the installation of PostgreSQL from the source code distribution. (If you are installing a pre-packaged distribution, such as an RPM or Debian package, ignore this chapter and read the packager's instructions instead.)[/quote] J'ai suivi les instructions d'Ubuntu, mais je ne parviens toujours pas à crér un serveur et un rôle d'utilisateur.</p>
+<p>Merci d'avamce.</p>
+<p>A. Andre<br />
+-------------------------------------------------------<br />
+Long est le chemin qui mène à la connaissance!</p>
+<br /><!--hr /--><div class="contentsLink">[ Vous devez <a href="index7992.html?q=user/login">vous connecter</a> pour poster des commentaires ]</div>
+		</p></div></div>
+<div style="margin-left:50px;">
+<a id="comment-1670"></a>
+<div class="pgContentWrap"><h1 id="txtFrontFeatureHeading">Installation PostgreSQL</h1>
+		<p>
+		    <b><a href="indexb009.html?q=user/2121" title="Voir le profil utilisateur.">aandre</a></b>/ = 19 Février, 2007 - 16:19
+		</p>
+		<p>
+		    <p>Quels que soient mes essais, je ne parviens pas à créer le rôle postgres ni le rôle utilisateur dans postgreSQL. C'est d'autant plus irritant que, lorsque j'avais installé PostgreSQL sous Windows XP tout s'était déroulé automatiquement, j'avais pu créer le rôle utilisateur ainsi qu'une première base de données de test. Mais je ne suis plus sous Windows...</p>
+<p>Comme l'installer InstallShield n'est ni plus ni moins qu'un script, cela signifie qu'une ou plusieurs étapes accomplies automatiquement sous Windows me manquent sous Ubuntu. Mais je ne parviens pas à identifier lesquelles.</p>
+<p>Merci de votre aide</p>
+<p>A. Andre<br />
+-------------------------------------------------------<br />
+Long est le chemin qui mène à la connaissance!</p>
+<br /><!--hr /--><div class="contentsLink">[ Vous devez <a href="index7992.html?q=user/login">vous connecter</a> pour poster des commentaires ]</div>
+		</p></div></div>
+<div style="margin-left:50px;">
+<a id="comment-1671"></a>
+<div class="pgContentWrap"><h1 id="txtFrontFeatureHeading">Installation PostgreSQL 8.2</h1>
+		<p>
+		    <b><a href="indexb009.html?q=user/2121" title="Voir le profil utilisateur.">aandre</a></b>/ = 20 Février, 2007 - 04:41
+		</p>
+		<p>
+		    <p>J'ai tout désinstallé, puis réinstallé en utilisant la commande:<br />
+whiskey@laptop:~$ sudo aptitude install postgresql-8.2<br />
+Ont suivi toute une série de messages confirmant la bonne installation et le lancement du serveur.<br />
+Puis, suivant la doc Ubuntu-fr j'ai tapé<br />
+whiskey@laptop:~$ sudo passwd postgres<br />
+Enter new UNIX password:<br />
+Retype new UNIX password:<br />
+passwd : le mot de passe a été mis à jour avec succès<br />
+whiskey@laptop:~$ sudo su postgres<br />
+postgres@laptop:/home/whiskey$ createuser -a -d -e -P user01<br />
+Saisissez le mot de passe pour le nouvel rôle :<br />
+Saisissez-le à nouveau :<br />
+Mot de passe :<br />
+createuser : n'a pas pu se connecter à la base de données postgres: FATAL:  authentification par mot de passe échouée pour l'utilisateur  «postgres»<br />
+postgres@laptop:/home/whiskey$ </p>
+<p>Quel est donc ce mot de passe attendu? J'ai successivement accompli l'opération avec les trois mots de passe déclarés: pwd user01, pwd postgres, pwd root. Toujours le même message d'erreur.</p>
+<p>Merci d'avance pour vos lumières.<br />
+A. Andre<br />
+-------------------------------------------------------<br />
+Long est le chemin qui mène à la connaissance!</p>
+<br /><!--hr /--><div class="contentsLink">[ Vous devez <a href="index7992.html?q=user/login">vous connecter</a> pour poster des commentaires ]</div>
+		</p></div></div>
+<div style="margin-left:50px;">
+<a id="comment-1672"></a>
+<div class="pgContentWrap"><h1 id="txtFrontFeatureHeading">
+
+Ce motde passe est celui </h1>
+		<p>
+		    <b><a href="indexb3f1.html?q=user/1013" title="Voir le profil utilisateur.">sparky</a></b>/ = 20 Février, 2007 - 15:16
+		</p>
+		<p>
+		    <p>
+Ce motde passe est celui que tu lui as donné avec la commande : alter user... dans psql.</p>
+<p>Si tu ne l'as jamais fait :<br />
+tu dois rechanger ton pg_hba.conf pour permettre l'authentification par ident, relancer, te connecter, ajouter un mot de passe, modifier pg_hba.conf et puis relancer.</p>
+<br /><!--hr /--><div class="contentsLink">[ Vous devez <a href="index7992.html?q=user/login">vous connecter</a> pour poster des commentaires ]</div>
+		</p></div></div>
+<div style="margin-left:75px;">
+<a id="comment-1697"></a>
+<div class="pgContentWrap"><h1 id="txtFrontFeatureHeading">Je n'ai pas utilisé la comma</h1>
+		<p>
+		    <b><a href="indexb009.html?q=user/2121" title="Voir le profil utilisateur.">aandre</a></b>/ = 27 Février, 2007 - 16:45
+		</p>
+		<p>
+		    <p>Je n'ai pas utilisé la commande "alter user ..." Toutes les commandes, et les seules commandes que j'ai utilisées sont stipulées ci-dessus.</p>
+<p>Je ne comprends absolument pas ce que la seconde ligne me propose de faire. Merci d'être un peu plus explicite.</p>
+<p>A. Andre<br />
+-------------------------------------------------------<br />
+Long est le chemin qui mène à la connaissance!</p>
+<br /><!--hr /--><div class="contentsLink">[ Vous devez <a href="index7992.html?q=user/login">vous connecter</a> pour poster des commentaires ]</div>
+		</p></div></div>
+<div style="margin-left:100px;">
+<a id="comment-1731"></a>
+<div class="pgContentWrap"><h1 id="txtFrontFeatureHeading">Il me semble qu'il y a une co</h1>
+		<p>
+		    <b><a href="indexdb6e.html?q=user/647" title="Voir le profil utilisateur.">Sebastien Lardiere</a></b>/ = 8 Mars, 2007 - 12:32
+		</p>
+		<p>
+		    <p>Il me semble qu'il y a une confusion générale dans ton approche : </p>
+<p>- Le compte postgres du système hôte n'a rien à voir avec le compte du serveur PostgreSQL. Il n'y pas besoin de changer ou même initialiser un mot de passe pour le compte système.</p>
+<p>- PgAdmin 3 est une application indépendante du serveur PostgreSQL : il n'y a donc à priori aucune raison qu'il y ait un serveur pré-configuré dans l'interface de PgAdmin 3 : Il faut donc ajouter une connexion en cliquant sur le bon outil dans la barre d'outil : l'espece de prise electrique , tout à gauche de la barre d'outil de PgAdmin 3. Il faut ensuite savoir comme joindre le serveur, et comment s'y connecter.</p>
+<p>- PostgreSQL a son propre controle des connexions, essentiellement basé sur le fichier pg_hba.conf et les roles existants dans le serveur. Il est donc nécessaire d'apprendre à configurer ce fichier, et à créer et modifier des rôles dans le serveur.</p>
+<p>- Ce n'est pas parce que l'installeur pour Windows mache tout le travail qu'il ne faut pas passer par une phase d'aprentissage minimum sur PostgreSQL et ses outils connexes.</p>
+<p>--<br />
+Sébastien Lardière</p>
+<br /><!--hr /--><div class="contentsLink">[ Vous devez <a href="index7992.html?q=user/login">vous connecter</a> pour poster des commentaires ]</div>
+		</p></div></div>
+<div style="margin-left:75px;">
+<a id="comment-1699"></a>
+<div class="pgContentWrap"><h1 id="txtFrontFeatureHeading">Bon plus lentement, la sécur</h1>
+		<p>
+		    <b><a href="indexb3f1.html?q=user/1013" title="Voir le profil utilisateur.">sparky</a></b>/ = 28 Février, 2007 - 12:31
+		</p>
+		<p>
+		    <p>Bon plus lentement, la sécurité de postgresql est paramètré par pg_hba.conf, peux-tu me dire ce qu'il contient ???</p>
+<br /><!--hr /--><div class="contentsLink">[ Vous devez <a href="index7992.html?q=user/login">vous connecter</a> pour poster des commentaires ]</div>
+		</p></div></div>
+</div></form>
+<!-- end content -->
+              </td>
+
+    </tr>
+    <tr><td colspan="2">
+
+		<div class="pgTopNav">
+		   <div class="pgTopNavLeft"> 
+		     <img src="layout/images/nav_lft.png" width="7" height="23" alt="" />
+		   </div>
+		   <div class="pgTopNavRight">
+		    <img src="layout/images/nav_rgt.png" width="7" height="23" alt="" />
+		  </div>
+		  <!--<ul class="pgTopNavList">-->
+		  <ul class="pgTopNavList">
+		   <li><a href="index03d2.html?q=" title="Retourner à la page principale.">accueil</a> </li>
+		   <li> <a href="indexf6e5.html?q=archive" title="Lire le contenu plus ancien dans notre archive.">archives</a> </li>
+		   <li> <a href="index71c4.html?q=blog" title="Lire les blogues les plus récents.">blogues</a> </li>
+
+		   <li> <a href="indexf6fe.html?q=book" title="Lire et contribuer aux livres collaboratifs.">livres</a> </li>
+		   <li> <a href="index79b7.html?q=forum">forums</a> </li>
+		   <li> <a href="index729f.html?q=poll" title="Voir la liste des sondages de ce site.">sondages</a> </li>
+		   <li> <a href="index4404.html?q=search" title="Chercher pour du contenu plus vieux.">recherche</a></li><li><a href="http://docs.postgresqlfr.org/" target="_blank">documentation </a></li>
+
+		  </ul>
+
+<!--
+		   <li><a href="?q=" title="Retourner à la page principale.">accueil</a> </li>
+		   <li> <a href="?q=archive" title="Lire le contenu plus ancien dans notre archive.">archives</a> </li>
+		   <li> <a href="?q=blog" title="Lire les blogues les plus récents.">blogues</a> </li>
+		   <li> <a href="?q=book" title="Lire et contribuer aux livres collaboratifs.">livres</a> </li>
+		   <li> <a href="?q=forum">forums</a> </li>
+		   <li> <a href="?q=poll" title="Voir la liste des sondages de ce site.">sondages</a> </li>
+		   <li> <a href="?q=search" title="Chercher pour du contenu plus vieux.">recherche</a></li><li><a href="http://docs.postgresqlfr.org/" target="_blank">documentation </a></li>
+-->
+		  </ul>
+	        </div>
+    </td></tr>
+   </table>
+   <p style="text-align: center;">&copy;&nbsp;PostgreSQLFr, tous droits réservés.<br>
+Site déclaré à la CNIL sous le numéro 1074678, conformément à la Loi en vigueur.
+</p>
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-3921927-1");
+pageTracker._initData();
+pageTracker._trackPageview();
+</script>
+<p></p>
+   
+</body>
+
+<!-- Mirrored from drupal.postgresql.fr/?q=node/1024 by HTTrack Website Copier/3.x [XR&CO'2006], Sun, 12 Oct 2008 17:15:18 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+</html>

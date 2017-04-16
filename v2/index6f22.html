@@ -1,0 +1,23 @@
+<html>
+<!-- Mirrored from drupal.postgresql.fr/?q=book/print/885 by HTTrack Website Copier/3.x [XR&CO'2006], Sun, 12 Oct 2008 17:23:53 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+<head><title>Nombre de mois contenus entre deux dates</title><base  /><style type="text/css">
+@import url(misc/print.css);
+</style></head><body><h1 id="885" name="885" class="book-h1">Nombre de mois contenus entre deux dates</h1><p>Cela se fait avec les deux fontions suivantes :</p>
+<pre class="programlisting">
+create function extract_months(interval) returns integer language sql<br />
+  as $f$<br />
+    select 12 * extract(year from $1)::integer<br />
+           + extract(month from $1)::integer<br />
+$f$;
+</pre>
+<pre class="programlisting">
+create function months_between(date,date) returns integer language sql<br />
+  as $f$<br />
+    select extract_months(age($2,$1))<br />
+$f$;
+</pre>
+</body>
+<!-- Mirrored from drupal.postgresql.fr/?q=book/print/885 by HTTrack Website Copier/3.x [XR&CO'2006], Sun, 12 Oct 2008 17:23:53 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+</html>

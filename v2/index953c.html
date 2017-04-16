@@ -1,0 +1,40 @@
+<html>
+<!-- Mirrored from drupal.postgresql.fr/?q=book/print/908 by HTTrack Website Copier/3.x [XR&CO'2006], Sun, 12 Oct 2008 17:24:08 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+<head><title>Trouver le 1er élément disponible dans une liste de numériques</title><base  /><style type="text/css">
+@import url(misc/print.css);
+</style></head><body><h1 id="908" name="908" class="book-h1">Trouver le 1er élément disponible dans une liste de numériques</h1><p>On veut parfois trouver le 1er élément disponible dans une liste. C'est souvent le cas quand la clé primaire d'une table est un nombre mais qu'il n'est pas soumis à une séquence.. Ou alors qu'on a des trous dans la séquence et qu'on veut les combler.</p>
+<p>Soit la table nombres (a integer, [...]), la requête suivante retourne le 1er élement disponible:</p>
+<pre>
+explain<br />
+SELECT (x.a+1) AS id_disponible<br />
+FROM nombres x<br />
+     LEFT JOIN nombres y<br />
+     ON ((x.a + 1) = y.a)<br />
+WHERE y.a IS NULL<br />
+ORDER BY x.a LIMIT 1;</p>
+<p>                                    QUERY PLAN<br />
+-----------------------------------------------------------------------------------<br />
+ Limit  (cost=0.00..1.58 rows=1 width=4)<br />
+   ->  Nested Loop Left Join  (cost=0.00..22.09 rows=14 width=4)<br />
+         Join Filter: (("outer".a + 1) = "inner".a)<br />
+         Filter: ("inner".a IS NULL)<br />
+         ->  Index Scan using id_a on nombres x  (cost=0.00..3.15 rows=14 width=4<br />
+         ->  Seq Scan on nombres y  (cost=0.00..1.14 rows=14 width=4)<br />
+(6 lignes)</p>
+<p>test2=> SELECT (x.a+1) AS id_disponible FROM nombres x LEFT JOIN nombres<br />
+y ON ((x.a + 1) = y.a) WHERE y.a IS NULL ORDER BY x.a LIMIT 1;<br />
+ id_disponible<br />
+---------------<br />
+             4<br />
+(1 ligne)
+</pre>
+<p>Si vous constatez des lenteurs, il vous faudra créer un index sur a (si ce n'est pas déjà fait, ce dont je doute):</p>
+<pre>create unique index id_a on nombres(a);</pre>
+<p>Et un index fonctionnel comme suit:</p>
+<pre>create index id_a_suivant on nombres ((a+1));</pre>
+<p>Merci à John Hansen (appeljack) pour cette idée. </p>
+</body>
+<!-- Mirrored from drupal.postgresql.fr/?q=book/print/908 by HTTrack Website Copier/3.x [XR&CO'2006], Sun, 12 Oct 2008 17:24:08 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+</html>

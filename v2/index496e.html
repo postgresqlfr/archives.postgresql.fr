@@ -1,0 +1,541 @@
+
+<!DOCTYPE
+ html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+ <html>
+ <!-- $Date: 2005/08/30 07:54:43 $ / $Revision: 1.29 $ / Last Theme Editor :$Author: jx $-->
+  
+<!-- Mirrored from drupal.postgresql.fr/?q=node/1681 by HTTrack Website Copier/3.x [XR&CO'2006], Sun, 12 Oct 2008 16:03:48 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<base  />
+<style type="text/css" media="all">@import "misc/drupal.css";</style>
+   <title>TYPE COMPOSITE en clé primaire ? - PostgreSQLFr</title>
+ <style type="text/css" media="screen" title="Normal Text">
+    @import url("layout/css/blue/fixed.css");
+    @import url(_guillaume/dotclear/themes/postgresql/style.html);
+ </style>
+ <style type="text/css" media="screen" title="Normal Text2">
+    @import url("layout/css/blue/pgfr.css");
+    @import url(_guillaume/dotclear/themes/postgresql/style.html);
+ </style>
+   </head>
+   <body>
+    <table border="0" cellspacing="5" cellpadding="0" width="100%">
+     <tr>
+      <!--td colspan="2" width="100%"-->
+      <td colspan="2">
+      <!-- Head -->
+       <table border="0" cellspacing="0" cellpadding="0" width="100%">
+        <tr>
+	 <td align="left">
+           <div id="pgHeader">
+	    <div id="pgHeaderLogoLeft">
+	     <a href="index.html" title="PostgreSQL"><img src="layout/images/hdr_left.png" width="230" height="80" alt="PostgreSQL" /></a>
+	    </div>
+	    <div id="pgHeaderLogoRight">
+	     <a href="index.html" title="La base de donn�es la plus sophistiqu�e au monde."><img src="layout/images/hdr_right.png" width="210" height="80" alt="La base de donn�es la plus sophistiqu�e au monde." /></a>
+	    </div>
+	   </div>
+         </td>
+	 <td align="right">
+         </td>
+	</tr>
+      </table> <!-- Head -->
+      <br />
+      <table border="0" cellspacing="0" cellpadding="0" width="100%">
+              <tr>
+	      	 <td align="left">
+
+		<div class="pgTopNav">
+		   <div class="pgTopNavLeft"> 
+		     <img src="layout/images/nav_lft.png" width="7" height="23" alt="" />
+		   </div>
+		   <div class="pgTopNavRight">
+		    <img src="layout/images/nav_rgt.png" width="7" height="23" alt="" />
+		  </div>
+		  <!--<ul class="pgTopNavList">-->
+		  <ul class="pgTopNavList">
+		   <li><a href="index03d2.html?q=" title="Retourner à la page principale.">accueil</a> </li>
+		   <li> <a href="indexf6e5.html?q=archive" title="Lire le contenu plus ancien dans notre archive.">archives</a> </li>
+		   <li> <a href="index71c4.html?q=blog" title="Lire les blogues les plus récents.">blogues</a> </li>
+
+		   <li> <a href="indexf6fe.html?q=book" title="Lire et contribuer aux livres collaboratifs.">livres</a> </li>
+		   <li> <a href="index79b7.html?q=forum">forums</a> </li>
+		   <li> <a href="index729f.html?q=poll" title="Voir la liste des sondages de ce site.">sondages</a> </li>
+		   <li> <a href="index4404.html?q=search" title="Chercher pour du contenu plus vieux.">recherche</a></li><li><a href="http://docs.postgresqlfr.org/" target="_blank">documentation </a></li>
+
+		  </ul>
+
+<!--
+		   <li><a href="?q=" title="Retourner à la page principale.">accueil</a> </li>
+		   <li> <a href="?q=archive" title="Lire le contenu plus ancien dans notre archive.">archives</a> </li>
+		   <li> <a href="?q=blog" title="Lire les blogues les plus récents.">blogues</a> </li>
+		   <li> <a href="?q=book" title="Lire et contribuer aux livres collaboratifs.">livres</a> </li>
+		   <li> <a href="?q=forum">forums</a> </li>
+		   <li> <a href="?q=poll" title="Voir la liste des sondages de ce site.">sondages</a> </li>
+		   <li> <a href="?q=search" title="Chercher pour du contenu plus vieux.">recherche</a></li><li><a href="http://docs.postgresqlfr.org/" target="_blank">documentation </a></li>
+-->
+		  </ul>
+	        </div>
+		</td>
+		</tr>
+		</table>
+      </td>
+     </tr>
+     <tr>
+    <td style="vertical-align: top; width: 20%;">
+<div class="block block-user" id="block-user-0">
+<div class="pgSideNav">    <h2>Ouverture de session</h2>    
+		    <div>
+			<form action="http://drupal.postgresql.fr/?q=user/login" method="post">
+<div class="user-login-block">
+<input type="hidden" name="edit[destination]" value="node/1681" />
+<div class="form-item">
+ <label for="edit-name">Nom d'utilisateur:</label><br />
+ <input type="text" maxlength="64" class="form-text" name="edit[name]" id="edit-name" size="15" value="" />
+</div>
+<div class="form-item">
+ <label for="edit-pass">Mot de passe:</label><br />
+ <input type="password" class="form-password" maxlength="64" name="edit[pass]" id="edit-pass" size="15" value="" />
+</div>
+<input type="submit" class="form-submit" name="op" value="Identification"  />
+</div>
+
+</form>
+<div class="item-list"><ul><li><a href="indexc12c.html?q=user/password" title="Demander un nouveau mot de passe par e-mail.">Demander un nouveau mot de passe</a></li></ul></div>
+		    </div></div></div>
+<div class="block block-user" id="block-user-1">
+<div class="pgSideNav">    <h2>Navigation</h2>    
+		    <div>
+			<div class="menu">
+<ul>
+<li class="leaf"><a href="indexa499.html?q=tracker">messages récents</a></li>
+
+</ul>
+</div>
+		    </div></div></div>
+<div class="block block-block" id="block-block-4">
+<div class="pgSideNav">    <h2>Contactez-nous</h2>    
+		    <div>
+			<p><strong>Administration du site&nbsp;:</strong><br />
+"equipe chez postgresqlfr point org"<br><br />
+<strong>Contact presse&nbsp;:</strong><br />
+"fr chez postgresql point org"<br><br />
+<strong>Contact association&nbsp;:</strong><br />
+"bureau chez postgresqlfr point org"<br><br />
+<strong>Questions PostgreSQL&nbsp;:</strong><br />
+&nbsp;IRC&nbsp;:<br />
+&nbsp;&nbsp;serveur <strong>irc.freenode.net</strong><br />
+&nbsp;&nbsp;canal <strong>#postgresqlfr</strong></p>
+
+		    </div></div></div>
+<div class="block block-block" id="block-block-1">
+<div class="pgSideNav">    <h2>Liens</h2>    
+		    <div>
+			<p><small></p>
+<ul>
+<li>
+<a href="http://www.postgresqlfr.org/?q=node/view/162">Adhérer</a>
+</li>
+<li>
+<a href="http://www.postgresqlfr.org/?q=node/473">Faire un don</a>
+</li>
+<li>
+<a href="http://www.postgresqlfr.org/?q=node/163">Consulter les statuts</a>
+</li>
+</ul>
+<ul>
+<li>
+<a href="http://www.postgresql.org/" class="active">Site original<br />
+</a>
+</li>
+<li>
+<a href="http://docs.postgresqlfr.org/" class="active">Site de traduction</a>
+</li>
+<li>
+<a href="http://docs.postgresqlfr.org/8.3/">Doc v.8.3.x fr</a>
+</li>
+<li>
+<a href="http://docs.postgresqlfr.org/8.2/">Doc v.8.2.x fr</a>
+</li>
+<li>
+<a href="http://docs.postgresqlfr.org/8.1/">Doc v.8.1.x fr</a>
+</li>
+<li>
+<a href="http://docs.postgresqlfr.org/8.0/">Doc v.8.0.x fr</a>
+</li>
+<li>
+<a href="http://docs.postgresqlfr.org/7.4/">Doc v.7.4.x fr</a>
+</li>
+<li>
+<a href="http://www.postgis.fr/">PostGIS</a>
+</li>
+<li>
+<a href="http://www.postgresql.org/docs/techdocs">Techdocs</a>
+</li>
+<li>
+<a href="http://www.varlena.com/varlena/GeneralBits/Tidbits/">General TidBits</a>
+</li>
+<p><!--</p>
+<li>
+<a href="http://www.postgresqlfr.org/?q=node/view/58">Version Windows</a>
+</li>
+<p>--></p>
+<li>
+<a href="http://www.postgresqlfr.org/drupal/?q=node/view/63">Témoignages de pros</a>
+</li>
+<li>
+<a href="http://archives.postgresql.org/pgsql-fr-generale/">Liste de diffusion</a>
+</li>
+<li>
+<a href="http://wwwmaster.postgresql.org/download/mirrors-ftp">Télécharger</a>
+</li>
+</ul>
+<p></small></p>
+
+		    </div></div></div>
+<div class="block block-block" id="block-block-2">
+<div class="pgSideNav">    <h2>Recherche</h2>    
+		    <div>
+			<form action="http://drupal.postgresql.fr/?q=search" method="post">
+<div id="search">
+<input class="form-text" type="text" size="15" value="" name="keys" alt="Enter the terms you wish to search for." /><br />
+<input class="form-submit" type="submit" value="Recherche" />
+</div>
+</form>
+
+		    </div></div></div>
+<div class="block block-forum" id="block-forum-0">
+<div class="pgSideNav">    <h2>Sujets du forum</h2>    
+		    <div>
+			<div class="item-list"><h3>Sujets actifs</h3><ul><li><a href="index253f.html?q=node/1742">A LIRE : FERMETURE DES FORUMS DRUPAL</a></li><li><a href="indexfc2e.html?q=node/1739" title="2 commentaires">Problème  avec pg_dump</a></li><li><a href="index97c1.html?q=node/1731" title="5 commentaires">Connexions simultannées</a></li><li><a href="index32d3.html?q=node/1737" title="1 commentaire">Optimisation de la mémoire sous PostgreSQL</a></li><li><a href="index2483.html?q=node/1736" title="3 commentaires">[Résolu] Upgrade Postgre -> types et opérateurs</a></li></ul></div><div class="item-list"><h3>Nouveaux sujets:</h3><ul><li><a href="index253f.html?q=node/1742">A LIRE : FERMETURE DES FORUMS DRUPAL</a></li><li><a href="indexfc2e.html?q=node/1739" title="2 commentaires">Problème  avec pg_dump</a></li><li><a href="index32d3.html?q=node/1737" title="1 commentaire">Optimisation de la mémoire sous PostgreSQL</a></li><li><a href="index2483.html?q=node/1736" title="3 commentaires">[Résolu] Upgrade Postgre -> types et opérateurs</a></li><li><a href="index82c4.html?q=node/1734" title="2 commentaires">[RESOLU] Probleme de connection en odbc</a></li></ul></div><div class="more-link"><a href="index79b7.html?q=forum" title="Lire les derniers sujets.">en lire plus</a></div>
+		    </div></div></div>
+<div class="block block-archive" id="block-archive-0">
+<div class="pgSideNav">    <h2>Accéder aux archives</h2>    
+		    <div>
+			
+<!-- calendar -->
+<div class="calendar"><table summary="Un calendrier pour accéder aux archives.">
+ <caption><a href="index9dfb.html?q=archive/2008/09/12" title="Mois précédent">&laquo;</a> Octobre 2008 &nbsp;</caption>
+ <tr class="header-week">
+ <th abbr="Lundi">Lun</th>
+ <th abbr="Mardi">Mar</th>
+ <th abbr="Mercredi">Mer</th>
+ <th abbr="Jeudi">Jeu</th>
+ <th abbr="Vendredi">Ven</th>
+ <th abbr="Samedi">Sam</th>
+ <th abbr="Dimanche">Dim</th>
+</tr>
+ <tr class="row-week"><td class="day-blank" colspan="2">&nbsp;</td>
+  <td class="day-link"><a href="indexd3e2.html?q=archive/2008/10/1">1</a></td>
+  <td class="day-normal">2</td>
+  <td class="day-normal">3</td>
+  <td class="day-normal">4</td>
+  <td class="day-normal">5</td>
+ </tr>
+ <tr class="row-week">
+  <td class="day-normal">6</td>
+  <td class="day-normal">7</td>
+  <td class="day-normal">8</td>
+  <td class="day-normal">9</td>
+  <td class="day-normal">10</td>
+  <td class="day-normal">11</td>
+  <td class="day-today">12</td>
+ </tr>
+ <tr class="row-week">
+  <td class="day-future">13</td>
+  <td class="day-future">14</td>
+  <td class="day-future">15</td>
+  <td class="day-future">16</td>
+  <td class="day-future">17</td>
+  <td class="day-future">18</td>
+  <td class="day-future">19</td>
+ </tr>
+ <tr class="row-week">
+  <td class="day-future">20</td>
+  <td class="day-future">21</td>
+  <td class="day-future">22</td>
+  <td class="day-future">23</td>
+  <td class="day-future">24</td>
+  <td class="day-future">25</td>
+  <td class="day-future">26</td>
+ </tr>
+ <tr class="row-week">
+  <td class="day-future">27</td>
+  <td class="day-future">28</td>
+  <td class="day-future">29</td>
+  <td class="day-future">30</td>
+  <td class="day-future">31</td>
+  <td class="day-blank" colspan="2">&nbsp;</td>
+ </tr>
+</table></div>
+
+
+		    </div></div></div>
+<div class="block block-node" id="block-node-0">
+<div class="pgSideNav">    <h2>Syndication</h2>    
+		    <div>
+			<div class="xml-icon"><a href="index9637.html?q=rss.xml"><img src="misc/xml.png" width="36" height="14" alt="Flux XML" title="Flux XML" /></a></div>
+		    </div></div></div>
+<div class="block block-poll" id="block-poll-0">
+<div class="pgSideNav">    <h2>Sondage</h2>    
+		    <div>
+			<div class="poll"><div class="title">Quelle est la version de PostgreSQL la plus répandue sur vos serveurs ?</div><div class="text">8.3</div><div class="bar"><div style="width: 10%;" class="foreground"></div></div><div class="percent">10%</div><div class="text">8.2</div><div class="bar"><div style="width: 42%;" class="foreground"></div></div><div class="percent">42%</div><div class="text">8.1</div><div class="bar"><div style="width: 40%;" class="foreground"></div></div><div class="percent">40%</div><div class="text">8.0</div><div class="bar"><div style="width: 2%;" class="foreground"></div></div><div class="percent">2%</div><div class="text">7.4</div><div class="bar"><div style="width: 6%;" class="foreground"></div></div><div class="percent">6%</div><div class="text">7.3 ou antérieure</div><div class="bar"><div style="width: 0%;" class="foreground"></div></div><div class="percent">0%</div><div class="total">Nombre de votes: 48</div></div><div class="links"><a href="index8c57.html?q=node/1426#comment" title="Sauter au premier commentaire de ce message.">3 commentaires</a> | <a href="index729f.html?q=poll" title="Voir la liste des sondages de ce site.">anciens sondages</a></div>
+		    </div></div></div>
+    </td>
+
+      <td style="vertical-align: top; width: 80%"><div class="breadcrumb"><a href="index03d2.html?q=">Accueil</a> &raquo; <a href="index79b7.html?q=forum">forums</a> &raquo; <a href="index0561.html?q=forum/10">Technique - général</a></div><h2 class="title">TYPE COMPOSITE en clé primaire ?</h2>
+<!-- begin content -->
+
+<!-- node: "TYPE COMPOSITE en clé primaire ?" -->
+<!--<div class="pgFrontCenterUser">
+<div class="pgFrontUser">
+<div class="pgFrontUserInner">
+--><div class="pgFrontUserWrap">
+ <div class="pgFrontUserContent">	<h1 class="plop"><a href="indexea60.html?q=taxonomy/term/10">Technique - général</a> | <a href="index496e.html?q=node/1681" class="active">TYPE COMPOSITE en clé primaire ?</a></h1>
+		    <p>
+			    Par <a href="index02fe.html?q=user/3465" title="Voir le profil utilisateur.">genamiga</a> le 07/07/2008 - 18:29
+		    </p>	
+			    <p>Bonjour,</p>
+<p>J'ai un type composite que je voudrais utilisé en clé primaire.</p>
+<p>CREATE TYPE "public"."super_id" AS (<br />
+  "annee" "public"."annee",<br />
+  "mois" "public"."mois",<br />
+  "num" INTEGER<br />
+);</p>
+<p>Pour info mes DOMAIN annee et mois sont : </p>
+<p>CREATE DOMAIN "public"."annee" AS<br />
+  smallint NULL;<br />
+ALTER DOMAIN "public"."annee"<br />
+  ADD CONSTRAINT "annee_chk" CHECK ((VALUE > 999) AND (VALUE <= 9999));</p>
+<p>CREATE DOMAIN "public"."mois" AS<br />
+  smallint NULL;<br />
+ALTER DOMAIN "public"."mois"<br />
+  ADD CONSTRAINT "mois_chk" CHECK ((VALUE > 0) AND (VALUE <= 12));</p>
+<p>Mais lorsque je déclare une colonne de ce type en clé primaire j'ai un beau message d'erreur :</p>
+<p>ERREUR:  le type de données super_id n'a pas de classe d'opérateurs par défaut pour la<br />
+méthode d'accès « btree »<br />
+HINT:  Vous devez spécifier une classe d'opérateur pour l'index ou définir une<br />
+classe d'opérateur par défaut pour le type de données.</p>
+<p>Je ne vois pas trop ce que devrais faire ?</p>
+<p>Ce type "super_id" sera utilisé comme clé primaire dans différentes tables : ventes, livraisons, commandes... et aussi comme clé étrangère bien-sûr.</p>
+<p>Si qlq pourrait m'aidez...</p>
+<p>Par ailleurs, "Num" devrait être gerer par une sequence réinitialisée en début d'année. Un trigger ferait-il l'affaire ? là aussi un peu d'aide serait la bien venue...</p>
+<p>Merci d'avance.</p>
+<!--hr /--><div class="contentsLink">[ <a href="index9fb2.html?q=node/1713" title="pg_standby - log shipping">sujet précédent</a> | <a href="index4aea.html?q=node/1704" title="TRUNCATE TABLE">sujet suivant</a> ]</div>
+		     </div></div>
+<!--</div>
+</div>
+</div>
+</div> -->
+<a id="comment"></a>
+<form method="post" action="http://drupal.postgresql.fr/?q=comment"><div>
+<div class="pgSideNav">    <h2>Options d'affichage des commentaires</h2>    
+		    <div>
+			<div class="form-item">
+ <select name="mode"> <option value="1">A plat - replié</option>
+ <option value="2">A plat - déplié</option>
+ <option value="3">Par discussions - replié</option>
+ <option value="4" selected="selected">Par discussions - déplié</option>
+</select>
+<select name="order"> <option value="1">Date - récents en premier</option>
+ <option value="2" selected="selected">Date - anciens en premier</option>
+</select>
+<select name="comments_per_page"> <option value="10">10 commentaires par page</option> <option value="30">30 commentaires par page</option> <option value="50" selected="selected">50 commentaires par page</option> <option value="70">70 commentaires par page</option> <option value="90">90 commentaires par page</option></select>
+<input type="hidden" name="threshold" value="0" />
+ <input type="submit" class="form-submit" name="op" value="Sauvegarder les paramètres"  />
+
+ <div class="description">Sélectionnez la méthode d'affichage des commentaires que vous préférez, puis cliquez sur "Sauvegarder les paramètres" pour activer vos changements.</div>
+</div>
+
+		    </div></div><input type="hidden" name="edit[nid]" value="1681" />
+</div></form><form method="post" action="http://drupal.postgresql.fr/?q=comment"><div>
+<input type="hidden" name="edit[nid]" value="1681" />
+<a id="comment-5034"></a>
+<div class="pgContentWrap"><h1 id="txtFrontFeatureHeading">Apparement il faut créer des</h1>
+		<p>
+		    <b><a href="index02fe.html?q=user/3465" title="Voir le profil utilisateur.">genamiga</a></b>/ = 12 Juillet, 2008 - 13:49
+		</p>
+		<p>
+		    <p>Apparement il faut créer des OPERATOR pour que PG sache comment trier les super_id...ça semble fort complexe et surtout pas portable...donc Voilà après qlq réflexion j'ai trouvé une autre méthode pour faire ce que je veux...</p>
+<p>Au lieu du type composite super_id j'ai testé avec un BIGINT que je construit moi même, je m'explique. Le but est d'avoir un un numéro de vente sous la forme AAAMM999999, par ex 200807000214</p>
+<p>Donc une colonne PRIMARY KEY  vente_id en BIGINT, une sequence pour le numéro et un TRIGGER BEFORE INSERT qui construit tout ça et qui réinitialise la sequence pour la 1ère vente de l'année.</p>
+<p>DECLARE<br />
+  an_dern_rec BIGINT;<br />
+  an BIGINT;<br />
+  mois BIGINT;<br />
+  nbid INTEGER := 100000; -- nombre d'id max par an<br />
+BEGIN<br />
+  an := EXTRACT(year from now());<br />
+  mois := EXTRACT(month from now());</p>
+<p>  SELECT INTO an_dern_rec EXTRACT(year from max("date_vente")) FROM ventes;</p>
+<p>  IF (an_dern_rec IS NULL) OR (an > an_dern_rec) THEN ALTER SEQUENCE vente_id_seq RESTART WITH 1;<br />
+  END IF;</p>
+<p>  NEW.vente_id := (an * nbid * 100) + (mois * nbid) + nextval('vente_id_seq');</p>
+<p>  RETURN NEW;<br />
+END;</p>
+<p>et...</p>
+<p>CREATE TRIGGER "ajout_vente" BEFORE INSERT<br />
+ON "public"."ventes" FOR EACH ROW<br />
+EXECUTE PROCEDURE "public"."calc_vente_id"();</p>
+<p>Tout cela fonctionne très bien...mais si l'INSERT échoue la sequence est quand même incrémentée.</p>
+<p>J'ai testé avec currval('vente_id_seq')+1 dans le TRIGGER BEFORE INSERT et nextval('vente_id_seq') dans un TRIGGER AFTER INSERT mais ça ne fonctionne pas, au currval erreur "la sequence n'est pas initialisée dans cette sesson".</p>
+<p>Plusieures questions :</p>
+<p>1. Si je n'utilise pas de sequence mais que j'extrait le numéro de la dernière vente et que je l'incremente dans le TRIGGER BEFORE INSERT, dans une utilsation multi-utilisateur est ce que je n'aurais pas de problème de doublons ?</p>
+<p>2.Comment puis-je me faire une fonction independante (calc_id(table) ou calc_id(table, sequence)) du trigger qui prendrait en paramètre la table ou son nom et eventuellement la sequence ou son nom et puis je ferais un trigger différent pour chaque table qui appelerait la fonction avec différents paramètres.</p>
+<p>Ou si vous savez une autre idée merci d'avance.</p>
+<br /><!--hr /--><div class="contentsLink">[ Vous devez <a href="index7992.html?q=user/login">vous connecter</a> pour poster des commentaires ]</div>
+		</p></div><a id="comment-5041"></a>
+<div class="pgContentWrap"><h1 id="txtFrontFeatureHeading">Problème de concurrence</h1>
+		<p>
+		    <b><a href="index6e6b.html?q=user/65" title="Voir le profil utilisateur.">SAS</a></b>/ = 22 Juillet, 2008 - 15:00
+		</p>
+		<p>
+		    <p>Bonjour, </p>
+<p>Les séquences ont pour principal avantage d'être modifiées en dehors de toute transaction, ce qui permet d'éviter les doublons.</p>
+<p>Si vous vous affranchissez des séquences, vous risquez d'être confronté à des problèmes de doublons dans votre clé primaire (tentative d'insertion de valeur déjà stockée).</p>
+<p>La difficulté revient à gérer la concurrence au niveeau de la séquence, à plus forte raison, si vous ne pouvez accepter de trou dans la séquence.</p>
+<p>Vous pourriez éventuellement englober votre insertion complète dans une fonction qui teste la réussite ou l'erreur de l'insertion. Dans le dernier cas, réinitialiser la séquence. Mais là encore, vous ne pourrez garantir qu'aucune autre transaction n'a inséré une nouvelle ligne, et donc incrémenté la séquence.</p>
+<p>Librement,<br />
+Stéphane Schildknecht<br />
+<a href="http://www.dalibo.com/">Dalibo</a><br />
+<a href="http://www.postgresqlfr.org/">PostgreSQLFr</a></p>
+<br /><!--hr /--><div class="contentsLink">[ Vous devez <a href="index7992.html?q=user/login">vous connecter</a> pour poster des commentaires ]</div>
+		</p></div><a id="comment-5044"></a>
+<div class="pgContentWrap"><h1 id="txtFrontFeatureHeading">Merci pour remarques.
+
+Que </h1>
+		<p>
+		    <b><a href="index02fe.html?q=user/3465" title="Voir le profil utilisateur.">genamiga</a></b>/ = 23 Juillet, 2008 - 20:12
+		</p>
+		<p>
+		    <p>Merci pour remarques.</p>
+<p>Que pensez-vous de ceci ?</p>
+<p>J'ai encore fait qlq modifications mineures et aussi fais qlq test de performance vu le "coût" de MAX (qui est fait sur vente_id BIGINT PRIMARY KEY).</p>
+<p>J'utilise maintenant LOCK TABLE ventes IN SHARE UPDATE EXCLUSIVE MODE dans le TRIGGER et pas dans le programme Java, ce qui est moins restrictif que le EXCLUSIVE MODE...si j'ai bien compris la doc PG...</p>
+<p>L'exemple porte sur une table de ventes mais je vais utiliser la même technique pour différentes tables (envois, receptions, commandes, livraisons, etc...)</p>
+<p>Donc d'abord une FUNCTION qui sera utlisée dans tous les TRIGGER.</p>
+<p>CREATE OR REPLACE FUNCTION "public"."calc_id" (dern_rec bigint, nbdigit integer) RETURNS bigint AS<br />
+$body$<br />
+DECLARE<br />
+	an BIGINT;		-- année courante<br />
+	mois BIGINT;		-- mois courant</p>
+<p>	dern_rec_str TEXT;	-- dernier id en string<br />
+	dern_id BIGINT := 0;	-- dernier id<br />
+	nouv_id BIGINT;		-- nouvel id</p>
+<p>	an_dern_rec_str TEXT;	-- année correspondante au dernier id en string<br />
+	an_dern_rec SMALLINT;	-- année correspondante au dernier id</p>
+<p>	nbid INTEGER;		-- nombre max d'id<br />
+BEGIN<br />
+	nbid := 10 ^ nbdigit;	-- nombre max d'id<br />
+	an := EXTRACT(year FROM now());<br />
+	mois := EXTRACT(month FROM now());</p>
+<p>	-- s'il n'y a pas de vente, on ne fait rien, dern_id == 0<br />
+	IF (dern_rec IS NOT NULL) THEN<br />
+	-- convertion du dernier id en string pour extraire facilement l'année et le numéro<br />
+	dern_rec_str := '' || dern_rec;<br />
+    	-- extraction de l'année et convertion en SMALLINT pour comparaison avec l'année courante<br />
+        an_dern_rec_str := SUBSTRING(dern_rec_str, 1,4);<br />
+        an_dern_rec := CAST (an_dern_rec_str AS SMALLINT);</p>
+<p>        -- si le dernier id n'est pas dans l'année courante, on ne fait rien, dern_id == 0<br />
+	IF (an_dern_rec >= an) THEN<br />
+        	-- extraction du numéro du dernier id de l'année et convertion en BIGINT pour incrémentation<br />
+		dern_id := CAST(SUBSTRING(dern_rec_str, 7, nbdigit) AS BIGINT);<br />
+		END IF;<br />
+	END IF;<br />
+	-- calcul du nouvel id<br />
+	nouv_id := (an * nbid * 100) + (mois * nbid) + dern_id + 1;<br />
+	RETURN nouv_id;<br />
+END;<br />
+$body$<br />
+LANGUAGE 'plpgsql' VOLATILE CALLED ON NULL INPUT SECURITY INVOKER;</p>
+<p>et le TRIGGER BEFORE INSERT sur table ventes</p>
+<p>DECLARE<br />
+	dern_vente BIGINT;	-- vente_id du la dernière vente<br />
+BEGIN<br />
+	LOCK TABLE ventes IN SHARE UPDATE EXCLUSIVE MODE;<br />
+	-- on récupére la dernière vente<br />
+	SELECT INTO dern_vente max("vente_id") FROM ventes;</p>
+<p>	NEW.vente_id := calc_id(dern_vente, 5);  -- 10 ^ 5 ventes = 99999 max par an<br />
+	RETURN NEW;<br />
+END;</p>
+<p>Quand au performances, avec qlq valeurs de test, l'INSERT de 50000 ventes ce fait en 36 sec sur une table vide, 37 sec sur une table contenant 500000 ventes et 38 sec sur une table contenant 1000000 de ventes...</p>
+<p>Précision sur les performances...en accès concurents</p>
+<p>5 processus lancés en même temps qui créent 20000 ventes chacuns 5min08sec sur une table vide, puis 5min32sec sur une table contenant 100000 ventes et 5min54sec sur une table contenant 200000 ventes...</p>
+<p>Voilà...;)</p>
+<br /><!--hr /--><div class="contentsLink">[ Vous devez <a href="index7992.html?q=user/login">vous connecter</a> pour poster des commentaires ]</div>
+		</p></div><a id="comment-5052"></a>
+<div class="pgContentWrap"><h1 id="txtFrontFeatureHeading">Performances</h1>
+		<p>
+		    <b><a href="index6e6b.html?q=user/65" title="Voir le profil utilisateur.">SAS</a></b>/ = 28 Juillet, 2008 - 11:26
+		</p>
+		<p>
+		    <p>Bonjour, </p>
+<p>Comme vous l'avez remarqué, les performances lors d'accès concurrents vont être assez médiocres. </p>
+<p>Il n'y a que vous pour savoir jusqu'à quel point cela reste tolérable.</p>
+<p>Librement,<br />
+Stéphane Schildknecht<br />
+<a href="http://www.dalibo.com/">Dalibo</a><br />
+<a href="http://www.postgresqlfr.org/">PostgreSQLFr</a></p>
+<br /><!--hr /--><div class="contentsLink">[ Vous devez <a href="index7992.html?q=user/login">vous connecter</a> pour poster des commentaires ]</div>
+		</p></div></div></form>
+<!-- end content -->
+              </td>
+
+    </tr>
+    <tr><td colspan="2">
+
+		<div class="pgTopNav">
+		   <div class="pgTopNavLeft"> 
+		     <img src="layout/images/nav_lft.png" width="7" height="23" alt="" />
+		   </div>
+		   <div class="pgTopNavRight">
+		    <img src="layout/images/nav_rgt.png" width="7" height="23" alt="" />
+		  </div>
+		  <!--<ul class="pgTopNavList">-->
+		  <ul class="pgTopNavList">
+		   <li><a href="index03d2.html?q=" title="Retourner à la page principale.">accueil</a> </li>
+		   <li> <a href="indexf6e5.html?q=archive" title="Lire le contenu plus ancien dans notre archive.">archives</a> </li>
+		   <li> <a href="index71c4.html?q=blog" title="Lire les blogues les plus récents.">blogues</a> </li>
+
+		   <li> <a href="indexf6fe.html?q=book" title="Lire et contribuer aux livres collaboratifs.">livres</a> </li>
+		   <li> <a href="index79b7.html?q=forum">forums</a> </li>
+		   <li> <a href="index729f.html?q=poll" title="Voir la liste des sondages de ce site.">sondages</a> </li>
+		   <li> <a href="index4404.html?q=search" title="Chercher pour du contenu plus vieux.">recherche</a></li><li><a href="http://docs.postgresqlfr.org/" target="_blank">documentation </a></li>
+
+		  </ul>
+
+<!--
+		   <li><a href="?q=" title="Retourner à la page principale.">accueil</a> </li>
+		   <li> <a href="?q=archive" title="Lire le contenu plus ancien dans notre archive.">archives</a> </li>
+		   <li> <a href="?q=blog" title="Lire les blogues les plus récents.">blogues</a> </li>
+		   <li> <a href="?q=book" title="Lire et contribuer aux livres collaboratifs.">livres</a> </li>
+		   <li> <a href="?q=forum">forums</a> </li>
+		   <li> <a href="?q=poll" title="Voir la liste des sondages de ce site.">sondages</a> </li>
+		   <li> <a href="?q=search" title="Chercher pour du contenu plus vieux.">recherche</a></li><li><a href="http://docs.postgresqlfr.org/" target="_blank">documentation </a></li>
+-->
+		  </ul>
+	        </div>
+    </td></tr>
+   </table>
+   <p style="text-align: center;">&copy;&nbsp;PostgreSQLFr, tous droits réservés.<br>
+Site déclaré à la CNIL sous le numéro 1074678, conformément à la Loi en vigueur.
+</p>
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-3921927-1");
+pageTracker._initData();
+pageTracker._trackPageview();
+</script>
+<p></p>
+   
+</body>
+
+<!-- Mirrored from drupal.postgresql.fr/?q=node/1681 by HTTrack Website Copier/3.x [XR&CO'2006], Sun, 12 Oct 2008 16:03:48 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+</html>

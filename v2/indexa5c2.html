@@ -1,0 +1,654 @@
+
+<!DOCTYPE
+ html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+ <html>
+ <!-- $Date: 2005/08/30 07:54:43 $ / $Revision: 1.29 $ / Last Theme Editor :$Author: jx $-->
+  
+<!-- Mirrored from drupal.postgresql.fr/?q=node/1465 by HTTrack Website Copier/3.x [XR&CO'2006], Sun, 12 Oct 2008 16:08:42 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<base  />
+<style type="text/css" media="all">@import "misc/drupal.css";</style>
+   <title>Transaction de 1h30, parfois.... - PostgreSQLFr</title>
+ <style type="text/css" media="screen" title="Normal Text">
+    @import url("layout/css/blue/fixed.css");
+    @import url(_guillaume/dotclear/themes/postgresql/style.html);
+ </style>
+ <style type="text/css" media="screen" title="Normal Text2">
+    @import url("layout/css/blue/pgfr.css");
+    @import url(_guillaume/dotclear/themes/postgresql/style.html);
+ </style>
+   </head>
+   <body>
+    <table border="0" cellspacing="5" cellpadding="0" width="100%">
+     <tr>
+      <!--td colspan="2" width="100%"-->
+      <td colspan="2">
+      <!-- Head -->
+       <table border="0" cellspacing="0" cellpadding="0" width="100%">
+        <tr>
+	 <td align="left">
+           <div id="pgHeader">
+	    <div id="pgHeaderLogoLeft">
+	     <a href="index.html" title="PostgreSQL"><img src="layout/images/hdr_left.png" width="230" height="80" alt="PostgreSQL" /></a>
+	    </div>
+	    <div id="pgHeaderLogoRight">
+	     <a href="index.html" title="La base de donn�es la plus sophistiqu�e au monde."><img src="layout/images/hdr_right.png" width="210" height="80" alt="La base de donn�es la plus sophistiqu�e au monde." /></a>
+	    </div>
+	   </div>
+         </td>
+	 <td align="right">
+         </td>
+	</tr>
+      </table> <!-- Head -->
+      <br />
+      <table border="0" cellspacing="0" cellpadding="0" width="100%">
+              <tr>
+	      	 <td align="left">
+
+		<div class="pgTopNav">
+		   <div class="pgTopNavLeft"> 
+		     <img src="layout/images/nav_lft.png" width="7" height="23" alt="" />
+		   </div>
+		   <div class="pgTopNavRight">
+		    <img src="layout/images/nav_rgt.png" width="7" height="23" alt="" />
+		  </div>
+		  <!--<ul class="pgTopNavList">-->
+		  <ul class="pgTopNavList">
+		   <li><a href="index03d2.html?q=" title="Retourner à la page principale.">accueil</a> </li>
+		   <li> <a href="indexf6e5.html?q=archive" title="Lire le contenu plus ancien dans notre archive.">archives</a> </li>
+		   <li> <a href="index71c4.html?q=blog" title="Lire les blogues les plus récents.">blogues</a> </li>
+
+		   <li> <a href="indexf6fe.html?q=book" title="Lire et contribuer aux livres collaboratifs.">livres</a> </li>
+		   <li> <a href="index79b7.html?q=forum">forums</a> </li>
+		   <li> <a href="index729f.html?q=poll" title="Voir la liste des sondages de ce site.">sondages</a> </li>
+		   <li> <a href="index4404.html?q=search" title="Chercher pour du contenu plus vieux.">recherche</a></li><li><a href="http://docs.postgresqlfr.org/" target="_blank">documentation </a></li>
+
+		  </ul>
+
+<!--
+		   <li><a href="?q=" title="Retourner à la page principale.">accueil</a> </li>
+		   <li> <a href="?q=archive" title="Lire le contenu plus ancien dans notre archive.">archives</a> </li>
+		   <li> <a href="?q=blog" title="Lire les blogues les plus récents.">blogues</a> </li>
+		   <li> <a href="?q=book" title="Lire et contribuer aux livres collaboratifs.">livres</a> </li>
+		   <li> <a href="?q=forum">forums</a> </li>
+		   <li> <a href="?q=poll" title="Voir la liste des sondages de ce site.">sondages</a> </li>
+		   <li> <a href="?q=search" title="Chercher pour du contenu plus vieux.">recherche</a></li><li><a href="http://docs.postgresqlfr.org/" target="_blank">documentation </a></li>
+-->
+		  </ul>
+	        </div>
+		</td>
+		</tr>
+		</table>
+      </td>
+     </tr>
+     <tr>
+    <td style="vertical-align: top; width: 20%;">
+<div class="block block-user" id="block-user-0">
+<div class="pgSideNav">    <h2>Ouverture de session</h2>    
+		    <div>
+			<form action="http://drupal.postgresql.fr/?q=user/login" method="post">
+<div class="user-login-block">
+<input type="hidden" name="edit[destination]" value="node/1465" />
+<div class="form-item">
+ <label for="edit-name">Nom d'utilisateur:</label><br />
+ <input type="text" maxlength="64" class="form-text" name="edit[name]" id="edit-name" size="15" value="" />
+</div>
+<div class="form-item">
+ <label for="edit-pass">Mot de passe:</label><br />
+ <input type="password" class="form-password" maxlength="64" name="edit[pass]" id="edit-pass" size="15" value="" />
+</div>
+<input type="submit" class="form-submit" name="op" value="Identification"  />
+</div>
+
+</form>
+<div class="item-list"><ul><li><a href="indexc12c.html?q=user/password" title="Demander un nouveau mot de passe par e-mail.">Demander un nouveau mot de passe</a></li></ul></div>
+		    </div></div></div>
+<div class="block block-user" id="block-user-1">
+<div class="pgSideNav">    <h2>Navigation</h2>    
+		    <div>
+			<div class="menu">
+<ul>
+<li class="leaf"><a href="indexa499.html?q=tracker">messages récents</a></li>
+
+</ul>
+</div>
+		    </div></div></div>
+<div class="block block-block" id="block-block-4">
+<div class="pgSideNav">    <h2>Contactez-nous</h2>    
+		    <div>
+			<p><strong>Administration du site&nbsp;:</strong><br />
+"equipe chez postgresqlfr point org"<br><br />
+<strong>Contact presse&nbsp;:</strong><br />
+"fr chez postgresql point org"<br><br />
+<strong>Contact association&nbsp;:</strong><br />
+"bureau chez postgresqlfr point org"<br><br />
+<strong>Questions PostgreSQL&nbsp;:</strong><br />
+&nbsp;IRC&nbsp;:<br />
+&nbsp;&nbsp;serveur <strong>irc.freenode.net</strong><br />
+&nbsp;&nbsp;canal <strong>#postgresqlfr</strong></p>
+
+		    </div></div></div>
+<div class="block block-block" id="block-block-1">
+<div class="pgSideNav">    <h2>Liens</h2>    
+		    <div>
+			<p><small></p>
+<ul>
+<li>
+<a href="http://www.postgresqlfr.org/?q=node/view/162">Adhérer</a>
+</li>
+<li>
+<a href="http://www.postgresqlfr.org/?q=node/473">Faire un don</a>
+</li>
+<li>
+<a href="http://www.postgresqlfr.org/?q=node/163">Consulter les statuts</a>
+</li>
+</ul>
+<ul>
+<li>
+<a href="http://www.postgresql.org/" class="active">Site original<br />
+</a>
+</li>
+<li>
+<a href="http://docs.postgresqlfr.org/" class="active">Site de traduction</a>
+</li>
+<li>
+<a href="http://docs.postgresqlfr.org/8.3/">Doc v.8.3.x fr</a>
+</li>
+<li>
+<a href="http://docs.postgresqlfr.org/8.2/">Doc v.8.2.x fr</a>
+</li>
+<li>
+<a href="http://docs.postgresqlfr.org/8.1/">Doc v.8.1.x fr</a>
+</li>
+<li>
+<a href="http://docs.postgresqlfr.org/8.0/">Doc v.8.0.x fr</a>
+</li>
+<li>
+<a href="http://docs.postgresqlfr.org/7.4/">Doc v.7.4.x fr</a>
+</li>
+<li>
+<a href="http://www.postgis.fr/">PostGIS</a>
+</li>
+<li>
+<a href="http://www.postgresql.org/docs/techdocs">Techdocs</a>
+</li>
+<li>
+<a href="http://www.varlena.com/varlena/GeneralBits/Tidbits/">General TidBits</a>
+</li>
+<p><!--</p>
+<li>
+<a href="http://www.postgresqlfr.org/?q=node/view/58">Version Windows</a>
+</li>
+<p>--></p>
+<li>
+<a href="http://www.postgresqlfr.org/drupal/?q=node/view/63">Témoignages de pros</a>
+</li>
+<li>
+<a href="http://archives.postgresql.org/pgsql-fr-generale/">Liste de diffusion</a>
+</li>
+<li>
+<a href="http://wwwmaster.postgresql.org/download/mirrors-ftp">Télécharger</a>
+</li>
+</ul>
+<p></small></p>
+
+		    </div></div></div>
+<div class="block block-block" id="block-block-2">
+<div class="pgSideNav">    <h2>Recherche</h2>    
+		    <div>
+			<form action="http://drupal.postgresql.fr/?q=search" method="post">
+<div id="search">
+<input class="form-text" type="text" size="15" value="" name="keys" alt="Enter the terms you wish to search for." /><br />
+<input class="form-submit" type="submit" value="Recherche" />
+</div>
+</form>
+
+		    </div></div></div>
+<div class="block block-forum" id="block-forum-0">
+<div class="pgSideNav">    <h2>Sujets du forum</h2>    
+		    <div>
+			<div class="item-list"><h3>Sujets actifs</h3><ul><li><a href="index253f.html?q=node/1742">A LIRE : FERMETURE DES FORUMS DRUPAL</a></li><li><a href="indexfc2e.html?q=node/1739" title="2 commentaires">Problème  avec pg_dump</a></li><li><a href="index97c1.html?q=node/1731" title="5 commentaires">Connexions simultannées</a></li><li><a href="index32d3.html?q=node/1737" title="1 commentaire">Optimisation de la mémoire sous PostgreSQL</a></li><li><a href="index2483.html?q=node/1736" title="3 commentaires">[Résolu] Upgrade Postgre -> types et opérateurs</a></li></ul></div><div class="item-list"><h3>Nouveaux sujets:</h3><ul><li><a href="index253f.html?q=node/1742">A LIRE : FERMETURE DES FORUMS DRUPAL</a></li><li><a href="indexfc2e.html?q=node/1739" title="2 commentaires">Problème  avec pg_dump</a></li><li><a href="index32d3.html?q=node/1737" title="1 commentaire">Optimisation de la mémoire sous PostgreSQL</a></li><li><a href="index2483.html?q=node/1736" title="3 commentaires">[Résolu] Upgrade Postgre -> types et opérateurs</a></li><li><a href="index82c4.html?q=node/1734" title="2 commentaires">[RESOLU] Probleme de connection en odbc</a></li></ul></div><div class="more-link"><a href="index79b7.html?q=forum" title="Lire les derniers sujets.">en lire plus</a></div>
+		    </div></div></div>
+<div class="block block-archive" id="block-archive-0">
+<div class="pgSideNav">    <h2>Accéder aux archives</h2>    
+		    <div>
+			
+<!-- calendar -->
+<div class="calendar"><table summary="Un calendrier pour accéder aux archives.">
+ <caption><a href="index9dfb.html?q=archive/2008/09/12" title="Mois précédent">&laquo;</a> Octobre 2008 &nbsp;</caption>
+ <tr class="header-week">
+ <th abbr="Lundi">Lun</th>
+ <th abbr="Mardi">Mar</th>
+ <th abbr="Mercredi">Mer</th>
+ <th abbr="Jeudi">Jeu</th>
+ <th abbr="Vendredi">Ven</th>
+ <th abbr="Samedi">Sam</th>
+ <th abbr="Dimanche">Dim</th>
+</tr>
+ <tr class="row-week"><td class="day-blank" colspan="2">&nbsp;</td>
+  <td class="day-link"><a href="indexd3e2.html?q=archive/2008/10/1">1</a></td>
+  <td class="day-normal">2</td>
+  <td class="day-normal">3</td>
+  <td class="day-normal">4</td>
+  <td class="day-normal">5</td>
+ </tr>
+ <tr class="row-week">
+  <td class="day-normal">6</td>
+  <td class="day-normal">7</td>
+  <td class="day-normal">8</td>
+  <td class="day-normal">9</td>
+  <td class="day-normal">10</td>
+  <td class="day-normal">11</td>
+  <td class="day-today">12</td>
+ </tr>
+ <tr class="row-week">
+  <td class="day-future">13</td>
+  <td class="day-future">14</td>
+  <td class="day-future">15</td>
+  <td class="day-future">16</td>
+  <td class="day-future">17</td>
+  <td class="day-future">18</td>
+  <td class="day-future">19</td>
+ </tr>
+ <tr class="row-week">
+  <td class="day-future">20</td>
+  <td class="day-future">21</td>
+  <td class="day-future">22</td>
+  <td class="day-future">23</td>
+  <td class="day-future">24</td>
+  <td class="day-future">25</td>
+  <td class="day-future">26</td>
+ </tr>
+ <tr class="row-week">
+  <td class="day-future">27</td>
+  <td class="day-future">28</td>
+  <td class="day-future">29</td>
+  <td class="day-future">30</td>
+  <td class="day-future">31</td>
+  <td class="day-blank" colspan="2">&nbsp;</td>
+ </tr>
+</table></div>
+
+
+		    </div></div></div>
+<div class="block block-node" id="block-node-0">
+<div class="pgSideNav">    <h2>Syndication</h2>    
+		    <div>
+			<div class="xml-icon"><a href="index9637.html?q=rss.xml"><img src="misc/xml.png" width="36" height="14" alt="Flux XML" title="Flux XML" /></a></div>
+		    </div></div></div>
+<div class="block block-poll" id="block-poll-0">
+<div class="pgSideNav">    <h2>Sondage</h2>    
+		    <div>
+			<div class="poll"><div class="title">Quelle est la version de PostgreSQL la plus répandue sur vos serveurs ?</div><div class="text">8.3</div><div class="bar"><div style="width: 10%;" class="foreground"></div></div><div class="percent">10%</div><div class="text">8.2</div><div class="bar"><div style="width: 42%;" class="foreground"></div></div><div class="percent">42%</div><div class="text">8.1</div><div class="bar"><div style="width: 40%;" class="foreground"></div></div><div class="percent">40%</div><div class="text">8.0</div><div class="bar"><div style="width: 2%;" class="foreground"></div></div><div class="percent">2%</div><div class="text">7.4</div><div class="bar"><div style="width: 6%;" class="foreground"></div></div><div class="percent">6%</div><div class="text">7.3 ou antérieure</div><div class="bar"><div style="width: 0%;" class="foreground"></div></div><div class="percent">0%</div><div class="total">Nombre de votes: 48</div></div><div class="links"><a href="index8c57.html?q=node/1426#comment" title="Sauter au premier commentaire de ce message.">3 commentaires</a> | <a href="index729f.html?q=poll" title="Voir la liste des sondages de ce site.">anciens sondages</a></div>
+		    </div></div></div>
+    </td>
+
+      <td style="vertical-align: top; width: 80%"><div class="breadcrumb"><a href="index03d2.html?q=">Accueil</a> &raquo; <a href="index79b7.html?q=forum">forums</a> &raquo; <a href="index395f.html?q=forum/12">Technique - optimisation</a></div><h2 class="title">Transaction de 1h30, parfois....</h2>
+<!-- begin content -->
+
+<!-- node: "Transaction de 1h30, parfois...." -->
+<!--<div class="pgFrontCenterUser">
+<div class="pgFrontUser">
+<div class="pgFrontUserInner">
+--><div class="pgFrontUserWrap">
+ <div class="pgFrontUserContent">	<h1 class="plop"><a href="indexeb61.html?q=taxonomy/term/12">Technique - optimisation</a> | <a href="indexa5c2.html?q=node/1465" class="active">Transaction de 1h30, parfois....</a></h1>
+		    <p>
+			    Par <a href="index7803.html?q=user/2997" title="Voir le profil utilisateur.">Yves Prélot</a> le 16/11/2007 - 20:04
+		    </p>	
+			    <p>Bonjour!</p>
+<p>Je rencontre un gros problème de performances.<br />
+Mon application reçoit des données régulièrement, et après traîtmenet, j'insère les informations pertinentes dans la base de données. ; dans la majorité des cas, tout se passe bien et la transaction globale dure moins d'une seconde. Cependant, de temps à autre (une fois sur vingt ?), la transaction met un temps extraordinairement long pour s'achever (avec succès!) ; extraordinairement long signifie en l'occurence environ 1h30 (une heure et trente minutes!!!) mesuré directement dans les logs de postgresql (duration).<br />
+Au moment où le problème se produit, je n'ai a priori pas de connexion concurrente, tout au plus une. Je ne pose pas de lock sur mes tables (donc pas de deadlock) ; d'ailleurs le fichier de log indique qu'il ne se passe rien en parallèle...</p>
+<p>Ma question est donc simple : qu'est-ce qui peut causer un tel problème ? toute idée bienvenue.</p>
+<p>Yves</p>
+<p>Afin de faciliter votre compréhension, je donne ici des informations complémentaires sur les tables utilisées et les opérations effectuées pendant la transaction:</p>
+<p>tables impactées:</p>
+<p>CREATE TABLE X<br />
+(<br />
+   Idx       serial NOT NULL UNIQUE PRIMARY KEY,<br />
+   V         VARCHAR NOT NULL UNIQUE<br />
+);</p>
+<p>CREATE TABLE Y<br />
+(<br />
+   Idx       serial NOT NULL UNIQUE PRIMARY KEY,<br />
+   W         VARCHAR NOT NULL UNIQUE<br />
+);</p>
+<p>CREATE TABLE XY<br />
+(<br />
+   Idx          serial NOT NULL UNIQUE PRIMARY KEY,<br />
+   Vx           int REFERENCES X(idx),<br />
+   Vy           int REFERENCES Y(idx),<br />
+   UNIQUE (Vx, Vy)<br />
+);</p>
+<p>CREATE TABLE Z (<br />
+   Idx        serial NOT NULL UNIQUE PRIMARY KEY,<br />
+   A          int NOT NULL,<br />
+   B          DATE NOT NULL,<br />
+   C          CHAR(4) NOT NULL,<br />
+   xy         int REFERENCES XY(idx),<br />
+   nbliste    VARCHAR<br />
+   ...<br />
+   UNIQUE (A, B, C)<br />
+);</p>
+<p>CREATE INDEX date_idx ON Z(Date);</p>
+<p>CREATE TABLE XYZ (<br />
+   Idx      int REFERENCES Z(idx) ON DELETE CASCADE,<br />
+   IdxXY    int REFERENCES XY(idx),<br />
+   UNIQUE (Idx,IdxXY)<br />
+);</p>
+<p>CREATE TABLE H (<br />
+   Idx      int REFERENCES Z(idx) ON DELETE CASCADE,<br />
+   data     bytea,<br />
+   UNIQUE (Idx)<br />
+);</p>
+<p>Donc toutes les tables sont de structure assez simple ; elles sont normalement accédées par l'intermédiaire de leur clé primaire.<br />
+Les données A,B,C de la table Z sont juste indiquées parce qu'elles établissent une clé unique, sinon elles n'ont rien de spécial.<br />
+Liste contient des informations de couples de données (V,W) qui seront d'une part insérées dans les tables X,Y,XY, et d'autre part dans la table XYZ permettant d'établir le lien global associant la liste de couples associés à un élément de Z.<br />
+La table H contient un binaire de taille éventuellement importante, associé de manière biunivoque à un élément de Z ; cet élément aurait pu appartenir directement à la table Z, mais il m'a semblé plus judicieux (??) de le séparer.</p>
+<p>Un objet à insérer est donc consituté de:<br />
+a, b, c : un triplet identifiant l'objet de manière unique<br />
+v, w : un couple spécifique<br />
+(v1,w1), (v2,w2), ... (vn,wn) : une liste d'autres couples (de nature similaire, mais sémantiquement différent, du couple précédent)<br />
+date : la date de l'opération<br />
+data : un binaire</p>
+<p>Les données sont insérées en plusieurs étapes, par l'intermédiaires de procédures stockées que je détaillerai ultérieurement.<br />
+En pratique:<br />
+1) vérifier que l'élément de clé (a,b,c) n'existe pas déjà (select sur clé unique)<br />
+2) placer le couple (v,w) dans les table X,Y,XY et récupérer l'index résultant (opérations simples sur des tables indexées)<br />
+3) insérer le nouvel élément de clé (a, b, c) dans la table Z (l'index précédent placé dans xy)<br />
+4) récupérer l'index associé au nouvel élément dans sa table Z_idx_seq<br />
+5) analyser la liste des couples (v1,w1), (v2,w2), ... (vn,wn) (découpage d'une chaine de caractères) :<br />
+5a) pour chaque nouveau couple, l'insérer si nécessaire dans les tables X,Y,XY et récupérer l'index résultant<br />
+5b) puis insérer le couple (index Z, index couple) dans la table XYZ<br />
+6) vérifier (et le cas échéant mettre à jour) le nombre d'éléments de la liste pour l'objet<br />
+7) insérer les données associées à l'objet dans la table H </p>
+<p>Pour information, les procédures stockées (simplifées) sont, pour les plus importantes:</p>
+<p>La première, qui, gère les données des tables X,Y,XY:<br />
+---------------------------------------------------------------------------------------------<br />
+Essentiellement, elle prend un couple (W,V), place les valeurs dans les tables et retourne l'index associé au couple.<br />
+Cette procédure permet de masquer entièrement les tables X,Y,XY pour toute opération<br />
+---------------------------------------------------------------------------------------------<br />
+// This function inserts (W,V) into the sublying tables and returns the associated XY index.<br />
+CREATE OR REPLACE FUNCTION getXY (IN W text, IN V text, OUT idx integer) AS $$<br />
+DECLARE<br />
+   idxY integer;<br />
+   idxX integer;<br />
+   res integer := 0;<br />
+   Y0 text = lower(W);<br />
+   X0 text = lower(V);<br />
+BEGIN<br />
+   idx:=-1;</p>
+<p>   //insert W into Y if not present and get the associated index in all cases<br />
+   SELECT idx FROM Y WHERE Y=Y0 INTO idxY;<br />
+   IF NOT FOUND THEN<br />
+      INSERT INTO Y VALUES (DEFAULT, Y0);<br />
+      GET DIAGNOSTICS res = ROW_COUNT;<br />
+      IF res=0 THEN RETURN; END IF;<br />
+      SELECT currval('Y_idx_seq') INTO idxY;<br />
+   END IF;</p>
+<p>   //insert V into X if not present and get the associated index in all cases<br />
+   SELECT idx FROM X WHERE X=X0 INTO idxX;<br />
+   IF NOT FOUND THEN<br />
+      INSERT INTO X VALUES (DEFAULT, X0);<br />
+      GET DIAGNOSTICS res = ROW_COUNT;<br />
+      IF res=0 THEN RETURN; END IF;<br />
+      SELECT currval('X_idx_seq') INTO idxX;<br />
+   END IF;</p>
+<p>   //insert (idxX,idxY) into XY if not present and get the associated index in all cases<br />
+   SELECT idx INTO idx FROM XY<br />
+      WHERE Vy=idxY AND Vx=idxX;<br />
+   IF NOT FOUND THEN<br />
+      INSERT INTO XY VALUES (DEFAULT, Vx, Vy);<br />
+      GET DIAGNOSTICS res = ROW_COUNT;<br />
+      IF res=0 THEN RETURN; END IF;<br />
+      SELECT currval('XY_idx_seq') INTO idx;<br />
+   END IF;</p>
+<p>END<br />
+$$ LANGUAGE plpgsql VOLATILE;<br />
+---------------------------------------------------------------------------------------------</p>
+<p>La seconde permet de faire l'opération équivalente, mais sur une liste de couple de données.<br />
+Cette procedure permet d'inserer une liste de couple associée à un index d'objets sans jamais voir les tables X,Y,XYZ<br />
+---------------------------------------------------------------------------------------------<br />
+CREATE OR REPLACE FUNCTION setXYZ (IN idx integer, IN liste text, OUT nb integer) AS $$<br />
+DECLARE<br />
+   n     integer := 0;<br />
+   idxXY integer := 0;<br />
+BEGIN<br />
+   IF liste<>'' THEN<br />
+       LOOP<br />
+           -- some simple code to find the next element to insert into X,Y,XY<br />
+           SELECT * FROM setXY(elt) INTO idxXY;<br />
+           -- check that the couple is not present (we don't want doubles here)<br />
+           SELECT t.idxDest FROM XYZ t WHERE t.idx=idx AND d.IdxXY=idxXY;<br />
+           IF NOT FOUND THEN<br />
+		INSERT INTO XYZ VALUES (idx, idxXY);<br />
+	        n := n+1;<br />
+	   END IF;<br />
+	   -- some exit con dition here where the list is finished;<br />
+       END LOOP;<br />
+   END IF;<br />
+   nb := n;<br />
+END<br />
+$$ LANGUAGE plpgsql VOLATILE;<br />
+---------------------------------------------------------------------------------------------</p>
+<p>La trosième insère les données dans la table Z an faisant appel aux précédentes.<br />
+---------------------------------------------------------------------------------------------<br />
+CREATE OR REPLACE FUNCTION insertZ<br />
+   (<br />
+     IN  abc            text,<br />
+     IN  vw             text,<br />
+     IN  listevw        text,<br />
+     IN  nbdansliste    integer,<br />
+     OUT idx            integer<br />
+   ) AS $$<br />
+DECLARE<br />
+   nb    integer := 0;<br />
+   idxvw integer;<br />
+   idxZ  integer := -1;<br />
+BEGIN<br />
+   -- checks if element abc is already in Z<br />
+   idx:=findZ(abc);<br />
+   IF idx=1 THEN<br />
+      RETURN;<br />
+   END IF;<br />
+   -- push the first (V,W) into the XYZ tables and get the associated index<br />
+   SELECT * FROM setXY(vw) INTO idxvw;<br />
+   -- push the Z table data into the table ; this should work since we already know abc is not present<br />
+   IF idxvw<>-1 THEN<br />
+       INSERT INTO Z VALUES (DEFAULT, a, b, c, idxvw, nbdansliste, ...);<br />
+       GET DIAGNOSTICS nb = ROW_COUNT;<br />
+   END IF;<br />
+   IF nb=1 THEN<br />
+       SELECT currval('Z_idx_seq') INTO idxZ;<br />
+       -- push the list of (V,W) into the tables, with the association to the new element we put in Z<br />
+       SELECT * INTO nb FROM setXYZ(idxZ,listevw);<br />
+       -- update the number of elements in the list if we did not pass the right number of elements in the first place (duplicates maybe)<br />
+       IF nb<>0 THEN<br />
+	   IF nbdansliste<>nb THEN<br />
+               UPDATE Z SET nbliste=nb WHERE idx=idxZ;<br />
+           END IF;<br />
+           idx := idxZ;<br />
+       END IF;<br />
+   END IF;<br />
+END<br />
+$$ LANGUAGE plpgsql VOLATILE;</p>
+<p>La dernière opération (insertion du binaire dans H) est un simple insert sans rien de spécial.</p>
+<p>L'ensemble est appelé par du code java s'éxécutant dans tomcat (thread indépendant) ; lors de la réception d'un nouvel objet, le code se déroule ainsi:</p>
+<p>_db : connexion already created<br />
+_insertZ : prepared statement for calling insertZ<br />
+_insertData : a simple prepared statement for INSERT INTO h VALUES (?, ?) </p>
+<p>public int SQLimport()  throws Exception {<br />
+        int idx;<br />
+	if (_db==null || !_db.isAlive()) return NODB;<br />
+	_insertZ.setString(1,abc);<br />
+	_insertZ.setString(2,vw);<br />
+	_insertZ.setString(3,listevw);<br />
+	_insertZ.setInt(4,nblistevw);</p>
+<p>	_db.setAutoCommit(false);<br />
+	ResultSet rs = _is.executeQuery(_insert);<br />
+	if (rs.next()) {<br />
+		idx = rs.getInt(1);<br />
+		rs.close();<br />
+                if (idx>0)<br />
+		    StoreData(idx);<br />
+	}<br />
+	if (idx>=0)  _db.commit();<br />
+	else         _db.rollback();<br />
+	_db.setAutoCommit(true);<br />
+}</p>
+<p>private void StoreData(int idx) throws Exception {<br />
+	FileInputStream   fis = null;<br />
+	try {<br />
+		fis = new FileInputStream(_file);<br />
+		_insertData.setInt(1, idx);<br />
+		_insertData.setBinaryStream(2, fis, (int)_file.length());<br />
+		_is.executeUpdate(_insertBody);<br />
+	}<br />
+	finally {<br />
+		if (fis!=null) fis.close();<br />
+	}<br />
+}</p>
+<!--hr /--><div class="contentsLink">[ <a href="index5cd4.html?q=node/1476" title="Reqête très lente">sujet précédent</a> | <a href="index8956.html?q=node/752" title="Gestion d'arbre avec un index sur champs text + lien symbolique">sujet suivant</a> ]</div>
+		     </div></div>
+<!--</div>
+</div>
+</div>
+</div> -->
+<a id="comment"></a>
+<form method="post" action="http://drupal.postgresql.fr/?q=comment"><div>
+<div class="pgSideNav">    <h2>Options d'affichage des commentaires</h2>    
+		    <div>
+			<div class="form-item">
+ <select name="mode"> <option value="1">A plat - replié</option>
+ <option value="2">A plat - déplié</option>
+ <option value="3">Par discussions - replié</option>
+ <option value="4" selected="selected">Par discussions - déplié</option>
+</select>
+<select name="order"> <option value="1">Date - récents en premier</option>
+ <option value="2" selected="selected">Date - anciens en premier</option>
+</select>
+<select name="comments_per_page"> <option value="10">10 commentaires par page</option> <option value="30">30 commentaires par page</option> <option value="50" selected="selected">50 commentaires par page</option> <option value="70">70 commentaires par page</option> <option value="90">90 commentaires par page</option></select>
+<input type="hidden" name="threshold" value="0" />
+ <input type="submit" class="form-submit" name="op" value="Sauvegarder les paramètres"  />
+
+ <div class="description">Sélectionnez la méthode d'affichage des commentaires que vous préférez, puis cliquez sur "Sauvegarder les paramètres" pour activer vos changements.</div>
+</div>
+
+		    </div></div><input type="hidden" name="edit[nid]" value="1465" />
+</div></form><form method="post" action="http://drupal.postgresql.fr/?q=comment"><div>
+<input type="hidden" name="edit[nid]" value="1465" />
+<a id="comment-4649"></a>
+<div class="pgContentWrap"><h1 id="txtFrontFeatureHeading">Bonjour
+
+Pourriez vous nous</h1>
+		<p>
+		    <b><a href="index0b33.html?q=user/22" title="Voir le profil utilisateur.">Christophe Chauvet</a></b>/ = 17 Novembre, 2007 - 13:43
+		</p>
+		<p>
+		    <p>Bonjour</p>
+<p>Pourriez vous nous indiquer votre version de PostgreSQL, quel OS, config machine, Est ce que des VACUUM régulier sont fait, etc.</p>
+<p>Cordialement.</p>
+<p>Christophe Chauvet<br />
+<a href="http://kryskool.org/" target="_blank">KrysKool.org</a><br />
+<a href="http://www.postgresqlfr.org/">Membre de PostgreSQLfr</a></p>
+<br /><!--hr /--><div class="contentsLink">[ Vous devez <a href="index7992.html?q=user/login">vous connecter</a> pour poster des commentaires ]</div>
+		</p></div><div style="margin-left:25px;">
+<a id="comment-4655"></a>
+<div class="pgContentWrap"><h1 id="txtFrontFeatureHeading">Ces informations m'ont été </h1>
+		<p>
+		    <b><a href="index7803.html?q=user/2997" title="Voir le profil utilisateur.">Yves Prélot</a></b>/ = 19 Novembre, 2007 - 20:31
+		</p>
+		<p>
+		    <p>Ces informations m'ont été fournies par mon ingénieur système:</p>
+<p>linux distribution gentoo<br />
+noyau 2.6.20 avec patch grsecurity &#038; pax<br />
+glibc 2.3<br />
+postgresql 8.1.8</p>
+<p>des vacuums sont faits régulièrement (une fois par jour).</p>
+<p>Merci</p>
+<br /><!--hr /--><div class="contentsLink">[ Vous devez <a href="index7992.html?q=user/login">vous connecter</a> pour poster des commentaires ]</div>
+		</p></div></div>
+<a id="comment-4650"></a>
+<div class="pgContentWrap"><h1 id="txtFrontFeatureHeading">Est ce qu'il y a une forte ac</h1>
+		<p>
+		    <b><a href="indexeace-2.html?q=user/757" title="Voir le profil utilisateur.">jmreymond</a></b>/ = 17 Novembre, 2007 - 16:29
+		</p>
+		<p>
+		    <p>Est ce qu'il y a une forte activité disque pendant les 1h30 ? </p>
+<p>Jean-Max Reymond<br />
+CKR Solutions Open Source<br />
+http://www.ckr-solutions.com</p>
+<br /><!--hr /--><div class="contentsLink">[ Vous devez <a href="index7992.html?q=user/login">vous connecter</a> pour poster des commentaires ]</div>
+		</p></div><div style="margin-left:25px;">
+<a id="comment-4656"></a>
+<div class="pgContentWrap"><h1 id="txtFrontFeatureHeading">Non, pas a priori. Mon applic</h1>
+		<p>
+		    <b><a href="index7803.html?q=user/2997" title="Voir le profil utilisateur.">Yves Prélot</a></b>/ = 19 Novembre, 2007 - 20:36
+		</p>
+		<p>
+		    <p>Non, pas a priori. Mon application (un serveur web) est la seule sur la machine ; en phase de développement, les accès y sont encore rares, et totalement sous contrôle. Mon application ne fait que peu d'écritures disques (le plus lourd est l'introduction des données en base de données, donc là où se pose le problème) ; en accès web, il pourrait y avoir de nombreuses lectures, mais ça n'est pas encore le cas.</p>
+<p>Merci</p>
+<br /><!--hr /--><div class="contentsLink">[ Vous devez <a href="index7992.html?q=user/login">vous connecter</a> pour poster des commentaires ]</div>
+		</p></div></div>
+</div></form>
+<!-- end content -->
+              </td>
+
+    </tr>
+    <tr><td colspan="2">
+
+		<div class="pgTopNav">
+		   <div class="pgTopNavLeft"> 
+		     <img src="layout/images/nav_lft.png" width="7" height="23" alt="" />
+		   </div>
+		   <div class="pgTopNavRight">
+		    <img src="layout/images/nav_rgt.png" width="7" height="23" alt="" />
+		  </div>
+		  <!--<ul class="pgTopNavList">-->
+		  <ul class="pgTopNavList">
+		   <li><a href="index03d2.html?q=" title="Retourner à la page principale.">accueil</a> </li>
+		   <li> <a href="indexf6e5.html?q=archive" title="Lire le contenu plus ancien dans notre archive.">archives</a> </li>
+		   <li> <a href="index71c4.html?q=blog" title="Lire les blogues les plus récents.">blogues</a> </li>
+
+		   <li> <a href="indexf6fe.html?q=book" title="Lire et contribuer aux livres collaboratifs.">livres</a> </li>
+		   <li> <a href="index79b7.html?q=forum">forums</a> </li>
+		   <li> <a href="index729f.html?q=poll" title="Voir la liste des sondages de ce site.">sondages</a> </li>
+		   <li> <a href="index4404.html?q=search" title="Chercher pour du contenu plus vieux.">recherche</a></li><li><a href="http://docs.postgresqlfr.org/" target="_blank">documentation </a></li>
+
+		  </ul>
+
+<!--
+		   <li><a href="?q=" title="Retourner à la page principale.">accueil</a> </li>
+		   <li> <a href="?q=archive" title="Lire le contenu plus ancien dans notre archive.">archives</a> </li>
+		   <li> <a href="?q=blog" title="Lire les blogues les plus récents.">blogues</a> </li>
+		   <li> <a href="?q=book" title="Lire et contribuer aux livres collaboratifs.">livres</a> </li>
+		   <li> <a href="?q=forum">forums</a> </li>
+		   <li> <a href="?q=poll" title="Voir la liste des sondages de ce site.">sondages</a> </li>
+		   <li> <a href="?q=search" title="Chercher pour du contenu plus vieux.">recherche</a></li><li><a href="http://docs.postgresqlfr.org/" target="_blank">documentation </a></li>
+-->
+		  </ul>
+	        </div>
+    </td></tr>
+   </table>
+   <p style="text-align: center;">&copy;&nbsp;PostgreSQLFr, tous droits réservés.<br>
+Site déclaré à la CNIL sous le numéro 1074678, conformément à la Loi en vigueur.
+</p>
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-3921927-1");
+pageTracker._initData();
+pageTracker._trackPageview();
+</script>
+<p></p>
+   
+</body>
+
+<!-- Mirrored from drupal.postgresql.fr/?q=node/1465 by HTTrack Website Copier/3.x [XR&CO'2006], Sun, 12 Oct 2008 16:08:42 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+</html>

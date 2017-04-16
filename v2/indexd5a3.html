@@ -1,0 +1,40 @@
+<html>
+<!-- Mirrored from drupal.postgresql.fr/?q=book/print/1275 by HTTrack Website Copier/3.x [XR&CO'2006], Sun, 12 Oct 2008 17:19:13 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+<head><title>Récupérer le résultat d'une requête éxécutée dans une procédure stockée</title><base  /><style type="text/css">
+@import url(misc/print.css);
+</style></head><body><h1 id="1275" name="1275" class="book-h1">Récupérer le résultat d'une requête éxécutée dans une procédure stockée</h1><p>En php on peut utiliser directement une requête pour obtenir un <i>recordset</i>.<br />
+Cependant si l'on veux récupérer un <i>recordset</i> via une procedure stockée -- pour appliquer des traitements sur des paramètres avant d'exécuter la requête par exemple -- on peut créer une fonction équivalent à celle qui suit.</p>
+<p>L'exemple renvoie un <i>setof</i> de la variable <i>out</i> nommée myset et qui est definie du type du champs convoité dans la table. (On utilise %TYPE pour recupérer le type du champs).</p>
+<pre class="code">
+CREATE OR REPLACE FUNCTION ma_fonction(out myset ma_table.mon_champ_pk%TYPE)<br />
+    RETURNS setof integer AS<br />
+$BODY$<br />
+    DECLARE<br />
+    -- On crée une variable de type record , on peut aussi suivant le besoin créer une variable de type %ROWTYPE<br />
+     myrecord record;<br />
+BEGIN</p>
+<p>    FOR myrecord in SELECT mon_pk FROM ma_table loop<br />
+        myset:= myrecord.mon_pk;<br />
+        RETURN NEXT;<br />
+    END LOOP;<br />
+    RETURN;<br />
+END;<br />
+$BODY$<br />
+    LANGUAGE 'plpgsql' VOLATILE;</p>
+<p>ALTER FUNCTION ma_fonction(out myset demande.demande_pk%TYPE) OWNER TO mon_user;
+</pre>
+<p>Pour récupérer l'ensemble des resultat on selectionne la procedure ainsi:</p>
+<pre class="code">
+SELECT * FROM  ma_fonction();
+</pre>
+<p>Les mots importants sont :<br />
+ - setof<br />
+ - record<br />
+ - %TYPE et %ROWTYPE<br />
+ - for...loop<br />
+ - return next</p>
+</body>
+<!-- Mirrored from drupal.postgresql.fr/?q=book/print/1275 by HTTrack Website Copier/3.x [XR&CO'2006], Sun, 12 Oct 2008 17:19:13 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+</html>

@@ -1,0 +1,172 @@
+<html>
+<!-- Mirrored from drupal.postgresql.fr/?q=book/print/884 by HTTrack Website Copier/3.x [XR&CO'2006], Sun, 12 Oct 2008 16:34:02 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+<head><title>fonctions sur les dates</title><base  /><style type="text/css">
+@import url(misc/print.css);
+</style></head><body><h1 id="884" name="884" class="book-h1">fonctions sur les dates</h1><p>Un chapitre de notre livre de recettes entièrement consacré à la manipulation de dates.</p>
+<h1 id="886" name="886" class="book-h1">Nombre de jours dans chaque mois</h1><ul><p>La requête suivante permet de connaître pour chaque mois d'une période donnée (ici de l'année courante) son nombre de jours.</p>
+<pre class="programlisting">
+select to_char(month, 'FMMonth YYYY') as month,<br />
+       date_part('day',month + '1 month - 1 day'::interval) as lastday<br />
+from (<br />
+  select (date_part('year', current_date) || '-' || m || '-01')::date as month<br />
+  from   generate_series(1, 12) m) months;
+</pre>
+<p>On obtient le résultat suivant :</p>
+<pre class="programlisting">
+     month      | lastday<br />
+----------------+---------<br />
+ January 2006   |      31<br />
+ February 2006  |      28<br />
+ March 2006     |      31<br />
+ April 2006     |      30<br />
+ May 2006       |      31<br />
+ June 2006      |      30<br />
+ July 2006      |      31<br />
+ August 2006    |      31<br />
+ September 2006 |      30<br />
+ October 2006   |      31<br />
+ November 2006  |      30<br />
+ December 2006  |      31<br />
+(12 rows)</p>
+</pre>
+</ul><h1 id="885" name="885" class="book-h1">Nombre de mois contenus entre deux dates</h1><ul><p>Cela se fait avec les deux fontions suivantes :</p>
+<pre class="programlisting">
+create function extract_months(interval) returns integer language sql<br />
+  as $f$<br />
+    select 12 * extract(year from $1)::integer<br />
+           + extract(month from $1)::integer<br />
+$f$;
+</pre>
+<pre class="programlisting">
+create function months_between(date,date) returns integer language sql<br />
+  as $f$<br />
+    select extract_months(age($2,$1))<br />
+$f$;
+</pre>
+</ul><h1 id="1474" name="1474" class="book-h1">Nombre de semaines entre deux dates quelconques</h1><ul><p>Cette fois-ci il s'agit donc de trouver le nombre de semaines entre deux dates quelconques. Ce qui rend la solution un poil compliquée, c'est que toutes les années n'ont pas le même nombre de semaines (52*7 ça donne que 364 jours). </p>
+<p>On va donc faire ça en deux temps, d'abord trouver le nombre de semaines de chaque année faisant partie de l'intervalle, ensuite c'est facile.</p>
+<p>Déjà, trouver les années comprises entre deux dates, ainsi que le premier janvier de l'année suivante :<br />
+<p class=code>
+dim# select year, to_date(year+1, 'YYYY-01-01') as d<br />
+&nbsp;from generate_series(extract(year from (current_date - interval '4 years')::date)::int,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;extract(year from current_date)::int) as year;<br />
+&nbsp;year |     d<br />
+------+------------<br />
+&nbsp;2003 | 01-01-2004<br />
+&nbsp;2004 | 01-01-2005<br />
+&nbsp;2005 | 01-01-2006<br />
+&nbsp;2006 | 01-01-2007<br />
+&nbsp;2007 | 01-01-2008<br />
+(5 lignes)
+</p>
+<p>Maintenant, première ruse : si le premier janvier de l'année suivante est semaine 1, alors l'année donnée contient 52 semaines, sinon elle contient le nombre de semaine correspondant au numéro de semaine du premier janvier de l'année suivante :</p>
+<p class="code">
+dim=# select extract(year from d) - 1 as year,<br />
+dim-#        case when extract(week from d) = 1<br />
+dim-#             then extract(week from d - interval '1 week')<br />
+dim-#             else extract(week from d) end as nb_weeks<br />
+dim-#  from (<br />
+dim(#     select year, to_date(year+1, 'YYYY-01-01') as d<br />
+dim(#      from generate_series(extract(year from (current_date - interval '4 years')::date)::int,<br />
+dim(#                           extract(year from current_date)::int) as year) as x;<br />
+&nbsp;year | nb_weeks<br />
+------+----------<br />
+&nbsp;2003 |       52<br />
+&nbsp;2004 |       53<br />
+&nbsp;2005 |       52<br />
+&nbsp;2006 |       52<br />
+&nbsp;2007 |       52<br />
+(5 lignes)
+</p>
+<p>Il reste à additionner toutes les semaines des années intermédiaires et à ajouter le numéro de semaine de l'année courante pour avoir le nombre de semaines depuis le premier janvier de l'année de la date de début. On enlèvera donc de cette somme le numéro de semaine de la date de début pour avoir notre résultat :</p>
+<p class="code">
+create or replace function weeks(timestamp, timestamp) returns int language sql<br />
+as $$<br />
+&nbsp;&nbsp;select extract(week from $2)::int<br />
+&nbsp;&nbsp;+<br />
+&nbsp;&nbsp;coalesce(<br />
+&nbsp;&nbsp;&nbsp;sum( case when extract(week from d) = 1<br />
+&nbsp;&nbsp;&nbsp;&nbsp;then extract(week from d - interval '1 week')<br />
+&nbsp;&nbsp;&nbsp;&nbsp;else extract(week from d) end ),<br />
+&nbsp;&nbsp;&nbsp;0)::int<br />
+&nbsp;&nbsp;&nbsp;-<br />
+&nbsp;&nbsp;&nbsp;extract(week from $1)::int<br />
+&nbsp;&nbsp;from (<br />
+&nbsp;&nbsp;&nbsp;select year, to_date(year+1, 'YYYY-01-01') as d<br />
+&nbsp;&nbsp;&nbsp;from generate_series(extract(year from $1)::int,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;extract(year from $2)::int - 1) as year<br />
+&nbsp;&nbsp;&nbsp;) as x;<br />
+$$;<br />
+&nbsp;<br />
+dim=# select weeks(current_date - interval '18 months', current_date);<br />
+&nbsp;weeks<br />
+-------<br />
+&nbsp;&nbsp;&nbsp;79<br />
+(1 ligne)<br />
+&nbsp;<br />
+dim=# select weeks(current_date - interval '4 years', current_date);<br />
+&nbsp;weeks<br />
+-------<br />
+&nbsp;&nbsp;&nbsp;209<br />
+(1 ligne)
+</p>
+<p>Et voilà :)</p>
+<p>Note : on utilise <b>COALESCE()</b> sur le <b>SUM()</b> afin de savoir compter le nombre de semaines entre deux dates de la même année aussi !</p>
+</ul><h1 id="956" name="956" class="book-h1">timestamp PostgreSQL et timestamp Unix </h1><ul><p><b>Pour convertir d'un timestamp PostgreSQL vers un timestamp Unix:</b><br />
+<code><br />
+select extract(epoch from now())::bigint;</p>
+<p> date_part<br />
+------------<br />
+ 1162822549<br />
+(1 ligne)<br />
+</code></p>
+<p><b>Pour convertir d'un timestamp Unix vers un timestamp PostgreSQL:</b></p>
+<p><code><br />
+select to_timestamp(1162822549);</p>
+<p>      to_timestamp<br />
+------------------------<br />
+ 2006-11-06 15:15:49+01<br />
+(1 ligne)<br />
+</code></p>
+</ul><h1 id="906" name="906" class="book-h1">Filtrer des tuples à intervalle temporel régulier</h1><ul><p>
+<b>Conditions préalables</b><br>
+<blockquote>
+Imaginons une table contenant plusieurs colonnes dont une est une estampille. Par exemple la table mesures :
+<pre>
+CREATE TABLE mesures (
+     estampille TIMESTAMP WITH TIMEZONE PRIMARY KEY,
+     valeur DOUBLE PRECISION);
+</pre>
+
+Nous pouvons imaginer que les données sont temporellement réparties uniformément dans le temps (une donnée toutes les minutes par exemple)
+</blockquote>
+</p>
+<p>
+<b>Cas d'utilisation</b><br>
+<blockquote>
+On souhaite avoir les mesures entre deux dates en échantillonnant les données présentes dans la table mesures avec un intervalle régulier supérieur à la répartition initiale de la mesure (par exemple toutes les 5 minutes).
+</blockquote>
+</p>
+<p>
+<b>Requête</b><br>
+<blockquote>
+Nous allons utiliser la fonction EXTRACT avec comme argument EPOCH pour extraire le nombre de secondes écoulées depuis le 1er Janvier 1970 à minuit GMT sur l'estampille de chaque ligne. Nous pourrons ensuite utiliser la fonction modulo (%) pour fixer déterminer si la ligne est sélectionnable ou non.
+
+<pre>
+SELECT 
+ * 
+FROM 
+ mesures
+WHERE
+ estampille BETWEEN CURRENT_TIMESTAMP - '1 day'::INTERVAL AND CURRENT_TIMESTAMP
+AND
+ ( (EXTRACT(EPOCH FROM estampille)::INTEGER ) % (5 * 60) ) = 0;
+</pre>
+
+Ainsi chaque fois que la date EPOCH sera un multiple de 5*60 secondes (5 minutes) le modulo sera égal à 0 et notre ligne sera sélectionnée.
+</blockquote>
+</p></ul></body>
+<!-- Mirrored from drupal.postgresql.fr/?q=book/print/884 by HTTrack Website Copier/3.x [XR&CO'2006], Sun, 12 Oct 2008 16:34:02 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+</html>

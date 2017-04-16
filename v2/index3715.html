@@ -1,0 +1,31 @@
+<html>
+<!-- Mirrored from drupal.postgresql.fr/?q=book/print/939 by HTTrack Website Copier/3.x [XR&CO'2006], Sun, 12 Oct 2008 17:24:03 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+<head><title>diviser un texte en plusieurs lignes</title><base  /><style type="text/css">
+@import url(misc/print.css);
+</style></head><body><h1 id="939" name="939" class="book-h1">diviser un texte en plusieurs lignes</h1><p>Que faire si vous avez une chaîne, que vous voulez la séparer en plusieurs morceaux suivant un pattern et que vous voulez récupérer chaque morceau sur une ligne ?</p>
+<p>Commencer par créer la fonction suivante :</p>
+<pre>
+CREATE OR REPLACE FUNCTION split_to_rows(TEXT,TEXT) RETURNS SETOF TEXT<br />
+AS $$<br />
+    SELECT (string_to_array($1, $2))[s.i]<br />
+    FROM generate_series(<br />
+        1,<br />
+        array_upper(string_to_array($1, $2), 1)<br />
+    ) AS s(i);<br />
+$$ language sql strict;
+</pre>
+<p>Pour l'utiliser, rien de plus simple :</p>
+<pre>dev=#select split_to_rows('aa--bb--cc','--');</p>
+<p>split_to_rows<br />
+---------------<br />
+ aa<br />
+ bb<br />
+ cc<br />
+(3 rows)
+</pre>
+<p>Cette fonction a été écrite par David Fetter (voir son <a href="http://archives.postgresql.org/pgsql-general/2005-12/msg00080.php">message sur pgsql-general</a>).</p>
+</body>
+<!-- Mirrored from drupal.postgresql.fr/?q=book/print/939 by HTTrack Website Copier/3.x [XR&CO'2006], Sun, 12 Oct 2008 17:24:03 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+</html>

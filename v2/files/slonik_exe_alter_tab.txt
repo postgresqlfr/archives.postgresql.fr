@@ -1,0 +1,10 @@
+#!/bin/sh
+slonik <<_EOF_
+cluster name = qsr_repl;
+node 1 admin conninfo = 'dbname=infoctr host=10.60.29.38 user=postgres';
+node 2 admin conninfo = 'dbname=infoctr host=10.60.29.49 user=postgres';
+node 3 admin conninfo = 'dbname=infoctr host=10.60.29.120 user=postgres';
+
+execute script ( set id = 1, filename = 'alter_table_g_qsrmain.sql');
+_EOF_
+
