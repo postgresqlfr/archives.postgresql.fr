@@ -1,0 +1,304 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+
+<!-- Mirrored from archive.postgresqlfr.org/usecases/benigni.php by HTTrack Website Copier/3.x [XR&CO'2006], Mon, 13 Oct 2008 18:02:23 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=iso-8859-1"><!-- /Added by HTTrack -->
+<head>
+<title>PostgreSQL</title>
+<meta http-equiv="Expires" 
+content="Mon, 06 Jan 1990 00:00:01 GMT">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="Author" content="Jean-Paul ARGUDO">
+<meta name="keyword" content="PostgreSQL, database, dbms, 
+postgres, postgres95, pgsql, relational, SQL, ODBC, JDBC"><link rel="stylesheet" href="../include/postgresqlfr.css" 
+type="text/css">
+</head>
+<body>
+<div class="menu-container"></div>
+<div class="menu">
+<a href="#" title="PostgreSQL France"><img src="../images/postgresqlfr.png" alt="Logo PostgreSQL"></a><br>
+<a href="../index.html">Présentation</a><br>
+<a href="../comment.html">Comment
+participer?</a>
+<br><a href="index.html">Premiers
+témoignages!</a>
+</div>
+<div class="content">
+<h1>Yves-Jean Benigni, Administrateur Système & Réseaux, benigni.org</h1>
+<p>
+
+<p class="question">Contexte</p>
+
+<p class="detail">
+Haaaaaaa PostgreSQL... Au départ j'ai travaillé sur Ingres.
+J'utilisais quotidiennement Ultrix (Unix de chez Digital) et une base de 
+donnée UNIFY de chez UNIFY pour gérer la gestion des Donneurs de sang et
+toute la chaine de contrôle de celui-ci jusqu'au médicament (plaquette).
+Je travaillais au CNTS. En 1995 il a fallu équiper les collectes de 
+sangs mobiles d'outils informatiques afin de garantir la sécurité 
+transfusionnelle. Nous développions l'ensmble des applications en 
+internes et donc il fallait le faire là encore en interne avec des 
+moyens financiers qui couvraient à peine l'achat de portables. Une étude 
+a été menée sur la possibilité d'utiliser Linux (RH5.2) et une base de 
+donnée. L'idée était de refaire un shéma de base assez proche de celui 
+d'Unify, les écrans "curses" d'UNIFY, les menus, et de décharger 
+certaines informations de la base de production vers ce systeme. Je 
+simplifie...
+</p>
+
+<p class="detail">
+A l'époque la base utilisée  était Ingres sous Linux sur un portables 
+486, et la programmation d'une application en C avec le preprocessing 
+Ingres n'était pas très intuitif, de plus le langages n'était pas du
+SQL, alors qu'UNIFY avait un SQL pas trop normé, mais proche d'un SQL de
+base. Malgré des tests concluants et une bonne intégration le projet est
+resté a l'état de projet et finalement l'etablissement a préféré
+attendre, des directives gouvernemantales était dans les starting blocs.
+Mais le pas était fait et l'intégration d'un SGBD sous LINUX dans les
+process de production était envisageable.
+Je passe l'intranet avec apache+Msql pour arriver a 1998 et le fameux
+passage a l'an 2000.
+Les serveurs de marque DIGITAL étaient de deux types, des DEC5000 non 
+valider 2K par Digital et deux Alpha 2000 valider pour l'an 2000. Sauf
+que la base Unify n'avait pas été porté sur les Alpha serveur (2 proc
+alpha300Mhz/OS: OSF/1).
+Il fallait soit changer de marque de serveur (HP, SUN,  IBM) soit
+changer de SGBD.
+</p>
+
+<p class="detail">
+C'est à ce moment là que l'AFS a énoncé un certain nombre de
+dispositions, comme celle de ne plus avoir d'equipe de developpement
+dans les ETS, de n'avoir recour qu'a des progiciels validés par eux,
+sonnant le glas de notre service et surtout migration du bazzar sous un
+progiciel. Mais le prestataire ne voulait/pouvait pas reprendre tout
+l'historique des dons, des années 1981 à 1998, il fallait donc trouver
+une solution, économiquement et téchniquement envisageable.
+Le problème était le suivant, de maniere juridique un service d'enquète
+existe dans les ETS et doit avoir accés de maniere informatique à
+l'ensemble des dons, donneurs, transfusions à des fins d'enquètes 
+ascendentes. En gros c'est la traçabilite d'un don jusqu'au donneur(s). 
+Il s'agissait d'une base attaquée uniquement en consultation.  Or le 
+fait de ne pas reprendre l'intégralité des données nous mettait dans
+l'inégalité la plus total.
+</p>
+
+<p class="detail">
+A ce moment là l'intranet était sous Apache+PosgreSql (6.0) il n'y avait
+pas encore de php et gérait les procédures, la documentation interne et
+les formulaires standards pour la DRH et d'autres services, mais aussi
+un bonne partie de la documentation des différents programmes, tout en
+cgi en C ou en SQL et était hebergé sur un PC.
+</p>
+
+
+<p class="detail">
+L'idée premiere a été de se tourner vers Unify en leurs demandant si 
+leur sgbd était porté sous Linux ix86, la réponse a été affirmative et
+un devis leur a été demandé, de mon coté la DSI, sous mes conseils, me
+demanda de plancher en paralelle sur une migration sous PostgeSql à 
+l'image de ce qui avait été proposé en 1997, començant à mieux connaitre 
+PostgreSql et a mieux y intégrer php, j'envisageais un web acces, plutôt 
+qu'un acces via curses, les postes clients étant tous ou presque passés 
+des VT420 à des postes PC. Et finalement deux projets ont étés proposé, 
+l'un fort cher et l'autre nettement moins, mais un peu en désaccord avec 
+les directives de l'AFS... puisque développement interne.
+</p>
+
+<p class="detail">
+Néanmoins fin 2000 un intranet spécialisé a vu le jour, avec accés 
+sécurisé, merci apache, cryptage des flux, merci SSL, et l'ensemble de 
+toutes les données de la base Unify.
+</p>
+
+<p class="detail">
+Pour le serveur, j'était assez content puisque j'avais pu récuperer un 
+Alpha bi-pro avec OSF/1, ou j'avais commencer le travail de compilation 
+d'Apache, de PostgreSql et de PHP, tout a définitivement basculer sous 
+Linux lors de l'ajout d'un processeur.
+</p>
+
+<p class="detail">
+En effet à la demande du prestataire qui fournaissait le progiciel, il a 
+fallu sur les machines de prod envisager un accroissement de puissance 
+... changer les deux proc Alpha 300Mhz par des 600Mhz, mais il ne 
+reprenait pas les anciens processeurs. J'ai donc décider dans mettre un 
+de plus dans le serveur qui hebergerai Apache...
+</p>
+
+<p class="detail">
+Mais il fallait des licences supplémentaires et oui c'est le monde du 
+propriétaire et comme le budget n'était pas là, j'ai fini pas virer 
+OSF/1 et j'y ai mis une RedHat 6.0 pour Alpha évidemment...
+</p>
+
+<p class="detail">
+En deux mois la migration était faite et les intérrogation via 
+apache+php+postgresql était largement plus rapide que l'ancienne base 
+mais sous des DEC5000.
+</p>
+
+<p class="detail">
+Pour info, la table la plus importante faisait et fait encore 3
+millions d'entrée et l'index est fait sur un chaine de 11 carracteres 
+alphabétiques. L'ensemble des tables fait a peu pres 600 Mo une fois 
+compressé.
+</p>
+
+<p class="detail">
+Ce serveur tourne toujour, avec ces 5 disque de 2Go, dont 2 en RAID 1 
+pour le systeme et 3 en RAID 5 pour les datas...
+PostgreSQL fait toujours son bouleau, il est question de remplacer 
+l'ensemble par un serveur Intel que j'imagine sous Win2k3... Ils 
+n'aiment ni Unix ni Linux ni Alpha dans la transfusion moderne&nbsp;?
+Perso j'aime Unix, Linux et les Alpha, d'ailleurs j'ai du Linux, et une 
+Alfa 164 !!! (Alfa powered !!)
+</p>
+
+<p class="question">Dans quelle structure commerciale, associative 
+ou administrative utilisez-vous PostgreSQL au quotidien&nbsp;?</p>
+
+<p class="detail">
+CNTS puis EFS Ile de France
+</p>
+
+<p class="question">Pour quelle application PostgreSQL est-il utilisé?</p>
+
+<p class="detail">
+Consultations des données de dons de 1981 a 1998
+</p>
+
+<p class="question">
+Utilisiez-vous une BDD propriétaire avant&nbsp;?
+</p>
+
+<p class="detail">
+Unify version 5.
+</p>
+
+<p class="question">
+PostgreSQL vous satisfait-il&nbsp;?
+</p>
+
+<p class="detail">
+Oui, complètement&nbsp;!
+</p>
+
+<p class="question">
+Pourquoi l'avez-vous choisi plutot qu'un autre SGBRD&nbsp;?
+</p>
+
+<p class="detail">
+Pour l'architecture sous-jacente et sa licence libre (BSD)
+</p>
+
+<p class="question">
+Utilisez-vous d'autres SGBDR libres (MySQL, SAPDb, Firebird...)&nbsp;?
+</p>
+
+<p class="detail">
+Mysql pour l'intranet (PHP-NUKE)
+</p>
+
+<p class="question">
+Quelle performances avez-vous avec PostgreSQL&nbsp;?
+</p>
+
+<p class="detail">
+Pas trop d'info, mais de mémoire un requete complete sur 7 tables (5 
+jouintures ..)  prennait moins d'une seconde avec le reseau et 
+l'affichage (Apache+PHP+PG) la table principales fait plus de 3 Millions d'entrées.
+</p>
+
+<p class="question">
+Quel type de serveur abrite PostgreSQL&nbsp;?
+</p>
+
+<p class="detail">
+Alpha 2000 Tri processeur cadencés 300Mhz
+</p>
+
+<p class="question">
+Quelle est l'architecture autour du serveur (autres serveurs, clients,
+réseau...)&nbsp;?
+</p>
+
+<p class="detail">
+des PC dans un réseau 100Mb
+</p>
+
+<p class="question">
+Pouvez-vous nous donner une idée de la volumétrie des bases&nbsp;?
+</p>
+
+<p class="detail">
+30 tables, 40 indexes
+</p>
+
+<p class="question">
+Quel est votre ressenti sur la stabilité, la fiabilité...&nbsp;?
+</p>
+
+<p class="detail">
+Increvable, Unbreakable dirait l'Oracle.
+</p>
+
+<p class="question">
+Et sur l'administrabilité &nbsp;?
+</p>
+
+<p class="detail">
+Je ne connais que la ligne de commande, et ça suffit pour ce que j'en fait.
+</p>
+
+<p class="question">
+Sur la facilité d'approche&nbsp;?
+</p>
+
+<p class="detail">
+Je comprends pourquoi Mysql fait plus d'émule, mais pour avoir pu 
+expliquer et montrer PG a mes collègues, je pense que leur choix 
+aujord'hui serait tout autre. PHPGroupeWare est en test sous PG et non 
+plus Mysql&nbsp;!
+</p>
+
+<p class="question">
+D'autres commentaires sur PostgreSQL&nbsp;?
+</p>
+
+<p class="detail">
+La programmation d'applications en C sous PG est un plaisir&nbsp;!
+</p>
+
+<p>
+<ul>
+<li>Yves-Jean Benigni</li>
+<li>Administrateur Systèmes et Réseaux</li>
+<li>http://www.Benigni.org</li>
+<li>yves-jean@benigni.org</li>
+</ul>
+</p>
+
+
+<p>
+<a href="index-2.html">
+Retour à la liste des témoignages
+</a>
+</p>
+
+<p style="text-align: right;">
+<a href="http://www.argudo.org/">
+Jean-Paul Argudo</a></p>
+</body>
+
+<!-- Mirrored from archive.postgresqlfr.org/usecases/benigni.php by HTTrack Website Copier/3.x [XR&CO'2006], Mon, 13 Oct 2008 18:02:23 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=iso-8859-1"><!-- /Added by HTTrack -->
+</html>
+
+</div>
+</body>
+
+<!-- Mirrored from archive.postgresqlfr.org/usecases/benigni.php by HTTrack Website Copier/3.x [XR&CO'2006], Mon, 13 Oct 2008 18:02:23 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=iso-8859-1"><!-- /Added by HTTrack -->
+</html>

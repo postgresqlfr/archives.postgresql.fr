@@ -1,0 +1,424 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+
+<!-- Mirrored from archive.postgresqlfr.org/usecases/elma.php by HTTrack Website Copier/3.x [XR&CO'2006], Mon, 13 Oct 2008 18:02:23 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=iso-8859-1"><!-- /Added by HTTrack -->
+<head>
+<title>PostgreSQL</title>
+<meta http-equiv="Expires" 
+content="Mon, 06 Jan 1990 00:00:01 GMT">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="Author" content="Jean-Paul ARGUDO">
+<meta name="keyword" content="PostgreSQL, database, dbms, 
+postgres, postgres95, pgsql, relational, SQL, ODBC, JDBC"><link rel="stylesheet" href="../include/postgresqlfr.css" 
+type="text/css">
+</head>
+<body>
+<div class="menu-container"></div>
+<div class="menu">
+<a href="#" title="PostgreSQL France"><img src="../images/postgresqlfr.png" alt="Logo PostgreSQL"></a><br>
+<a href="../index.html">Présentation</a><br>
+<a href="../comment.html">Comment
+participer?</a>
+<br><a href="index.html">Premiers
+témoignages!</a>
+</div>
+<div class="content">
+<h1>Elma Ingénierie Informatique</h1>
+
+<p class="question">
+Êtes vous d'accord pour que votre nom, prénom, courriel, nom d'organisation et
+votre fonction dans celle-ci soit connue du public ?
+</p>
+
+<p class="detail">Sans aucun soucis.</p>
+<p class="detail">
+<ul>
+<li>Nom : Piedvache;</li>
+<li>Prénom : Hervé;</li>
+<li>Société : Elma Ingénierie Informatique;</li>
+<li>Date de création : 1998;</li>
+<li>Activité : SSII - Développement d'applications sur mesure de préférence en
+environnement OpenSource;</li>
+<li>Situation : Paris - France;</li>
+<li>Fonction : Directeur Général;</li>
+<li>Chiffre d'affaire 2003 : 650&nbsp;000 M&euro; environ;</li>
+<li>Effectif : 6 (5 ingénieurs dont moi et un commercial);</li>
+<li>Site web : http://www.elma.fr;</li>
+<li>Filiale du groupe Maximiles/Dateos;</li>
+<li>Start-up dont les actionnaires sont la SNCF, Innovacom (France-Télécom),
+Sofinnova, CIC, SPEF (Banques Populaires);</li>
+<li>Effectif de 30 personnes;</li>
+<li>CA 2003 environ 4 M&euro;;</li>
+<li>Leader en France de la fidélisation par Internet;</li>
+<li>Site public : http://www.maximiles.co;</li>
+<li>Site B2B : http://www.dateos.com;</li>
+</ul>
+</p>
+
+<p class="detail">
+Nous développons principalement pour le compte de notre filiale Maximiles des
+applications de fidélisation, d'incentive, ou de gestion pure de base de
+données.</p>
+
+<p class="detail">
+Les clients représentent des entreprises nationales et internationales, les
+principales références sont&nbsp;:
+<ul>
+<li>
+Le programme Maximiles.com multi-enseignes, il regroupe des partenaires comme
+Voyages-sncf.com, American Express, Aquarelle.com, Mistergooddeal,
+Marcopoly.com, Ticketnet, Avis, Promod.com, etc. Cela représente 700&nbsp;000 membres 
+inscrits à fin 2003;
+</li>
+
+<li>Banque CIC (France)&nbsp;: 
+Gestion complète du programme Parcours J regroupant plus de 300 000 clients;
+</li>
+
+<li>BRED&nbsp;: Gestion des programmes d¹animation et avantage à destination des 
+clientèles professionnelles Métropole et Outremer et clientèle particuliers
+Outremer;</li>
+
+<li>
+Banque Populaire&nbsp;: Gestion complète du programme jeune axé autour du 
+cinéma (Cinepop.fr);
+</li>
+
+<li>Banque Monte Dei Paschi Di Sienna (Italie)&nbsp;: Programme on-line puis off-line, 
+destiné à accueillir des centaines de partenaires;
+</li>
+
+<li>Coca-Cola (France)&nbsp;: Programme de génération de leads destiné à l¹ensemble 
+des employés;
+</li>
+
+<li>IBM (France et Belgique)&nbsp;: Conception, Gestion, Animation du programme de 
+stimulation de l'ensemble des employés du groupe IBM France (Système intégré à l'intranet 
+des employés);
+</li>
+
+<li>SNCM (France)&nbsp;: Programme d'incentive à destination des réseaux de
+distribution;
+</li>
+
+<li>Cegetel (France)&nbsp;: Programme destiné au réseau RSS des professionnels de 
+la santé;
+</li>
+
+<li>Solly Azar (France)&nbsp;: Programme d'incentive destiné à l¹animation du réseau 
+de distribution (courtiers);
+</li>
+
+<li>Gestion de la Base de données&nbsp;: Carte UGC Illimitée (France et
+Belgique), Orange Thaïlande (base de qualification du réseau GSM)
+</li>
+</ul>
+</p>
+
+<p class="question">
+À quoi sert la(les) bases de données que vous utilisez dans votre
+organisation&nbsp;?
+</p>
+
+<p class="detail">
+PostgreSQL est la seule base de données utilisée pour tous nos développements.
+Toutes nos applications nécessitant une base de données reposent sur
+PostgreSQL.</p>
+
+<p class="detail">
+Dans le cadre de nos applications de fidélisation, PostgreSQL, sert donc à 
+l'inscription des membres, la gestion de tous les gains de points, tous les
+programmes d'avantages avec paiement sécurisé), etc.
+</p>
+
+<p class="detail">
+Nous avons choisi PostgreSQL après avoir exploité plusieurs mois sous Oracle.
+Lorsque nous avons ouvert nos filiales en Belgique et en Espagne, le coûts
+des licences Oracle nous a fait réfléchir à la nécessité de trouver une
+alternative économique. Nous avons donc opéré des tests sur les principales
+solutions du marché. PostgreSQL s'avérait correspondre le mieux, tant en
+terme de taux de charge supporté, que des fonctionnalités à la fois proche
+d'Oracle (procédures internes, triggers, respect du langage SQL, système de
+transaction). Qui plus est la communauté a toujours été très réactive quant
+aux problèmes que nous avons pu rencontrer. Depuis 4 ans que nous utilisons
+PostgreSQL nous n'avons jamais buté sur un bug ou un dysfonctionnement plus
+de 2 jours ... ce que nous n'avions jamais vécu au préalable avec Oracle par
+exemple.
+</p>
+
+<p class="question">
+La(les) bases de données gérées sont critiques pour votre l'organisation&nbsp;?
+</p>
+
+<p class="detail">
+C'est le coeur même de l'activité de notre filiale. Nous exploitons, et
+hébergeons nous même les applications de nos clients. Des taux de qualité de
+service proche de 99,9% nous sont demandées ... Les bases de données sont
+donc très critiques.
+</p>
+
+<p class="question">
+Quel est le nombre de bases de données distinctes par rapport au nombre total
+de bases de données de votre organisation&nbsp;?
+</p>
+
+<p class="detail">
+1 base de données, sous PostgreSQL.
+</p>
+
+<p class="question">
+Quel est le nombre minimum/maximum/moyen de tables par base de données&nbsp;?
+</p>
+
+<p class="detail">
+<ul>
+<li>Minimum : 43 tables;</li>
+<li>Maximum : 190 tables;</li>
+<li>Moyen : 150 tables;</li>
+</ul>
+
+<p class="question">
+Quelle est la taille minimum/max/moyenne des bases gérées (en méga octets)&nbsp;?
+</p>
+
+<p class="detail">
+<ul>
+<li>Minimum : 1.2 Go;</li>
+<li>Maximum :  46 Go;</li>
+<li>Moyen : 8 Go;</li>
+</ul>
+
+<p class="question">
+PostgreSQL est utilisée dans un contexte transactionnel ou plutôt de type 
+datamining/datawarehouse&nbsp;?
+</p>
+
+<p class="detail">
+Les deux.
+</p>
+
+<p class="question">
+Quelle est la version utilisée&nbsp;?
+</p>
+
+<p class="détail">
+90% du parc est en v7.4.1, 10% du parc est en v7.3.5.
+</p>
+
+<p class="question">
+Le serveur sur lequel est installé PostgreSQL est de quel type&nbsp;?
+</p>
+
+<p class="detail">
+Le parc de serveurs (30 environs) est entièrement sous Debian Woody.
+En revanche la version de PostgreSQL utilisée est à chaque fois compilée par
+nos soins.
+</p>
+
+<p class="detail">
+Les machines sont à 99% à base de Pentium, et 1% sous SUN.
+Les configurations sont toujours à base de bi-processeurs, et oscille du
+Pentium Xeon 600 Mhz à du Pentium Xeon 1,8 Go.
+Les configurations mémoire sont entre 1 et 2 Go.
+Les systèmes sont en général en RAID 1 pour l'OS, et en RAID 5 pour les
+données de la base. Elles oscillent de 36 Go à 150 Go.
+</p>
+
+<p class="question">
+Quelle est la part des logiciels libres dans votre organisation&nbsp;?
+</p>
+
+<p class="detail">
+<ul>
+<li>
+100% des serveurs sont en opensource. (apache, php, postgresql, postfix);
+</li>
+<li>
+90% des postes clients en opensource (openoffice, Gimp, kdevelop);
+</li>
+<li>
+5% sous Windows (office2000, photoshop, illustrator, Borland C++/Delphi);
+</li>
+<li>
+5% sous MacOS (office98, photoshop, illustrator, codewarrior);
+</li>
+</ul>
+</p>
+
+<p class="question">
+Quel est le "nombre de serveurs en technologies libres (globalement)"&nbsp;?
+</p>
+
+<p class="detail">
+30 serveurs environs en technologie libre.
+</p>
+
+<p class="question">
+Depuis combien de temps PostgreSQL est utilisé dans l'organisation et/ou depuis 
+quelle version&nbsp;?
+</p>
+
+<p class="detail">
+4 ans, depuis la version 7.0.4 de mémoire.
+</p>
+
+<p class="question">
+PostgreSQL est-il venu en remplacement d'une technologie propriétaire (ou plusieurs), 
+si oui, laquelle (lesquelles)&nbsp;?
+</p>
+
+<p class="detail">
+Oui - Oracle - 1 fois et définitive. Nous avons remplacé toutes nos applications, et 
+migré tous nos clients vers PostgreSQL, nous ne proposons plus que cette base de données.
+</p>
+
+<p class="question">
+Si vous avez remplacé une technologie propriétaire par PostgreSQL&nbsp;:
+Pourquoi&nbsp;?
+</p>
+
+<p class="detail">
+Expliqué plus haut... :o)
+</p>
+
+<p class="question">
+Si vous avez remplacé une technologie propriétaire par PostgreSQL&nbsp;: Avez vous
+testé d'autres SGBD Libres&nbsp;? Si oui, lesquels&nbsp;?
+</p>
+
+<p class="detail">
+MySQL, Interbase.
+</p>
+
+<p class="question">
+Si vous avez testé d'autres SGBD/R libres&nbsp;: Pourquoi avoir choisi PostgreSQL au
+final&nbsp;?
+</p>
+
+<p class="detail">
+PostgreSQL était en particulier celui qui tenait le mieux la charge sur des pics d'accès 
+simultanés, alors que MySQL s'écroulait, et qu'Interbase avait déjà perdu les pédales 
+depuis longtemps.
+</p>
+
+<p class="question">
+Quel est votre ressenti sur PostgreSQL en termes de fiabilité&nbsp;?
+</p>
+
+<p class="detail">
+Note 5 sur 5&nbsp;:100% satisfait de la fiabilité&nbsp;!
+</p>
+
+<p class="question">
+de robustesse&nbsp;?
+</p>
+
+<p class="detail">
+Note 5 sur 5&nbsp;:Nous avons eu des expériences de crash machine, et toujours nous sommes repartis bon pied 
+bon oeil ;o) Le concept technologique employé nous a toujours énormément satisfait.
+</p>
+
+<p class="question">
+d'administration&nbsp;?
+</p>
+
+<p class="detail">
+Note 4 sur 5&nbsp;:Un vrai régal en comparaison à Oracle. On regrettera une documentation parfois 
+confuse pour certaines options.
+</p>
+
+<p class="question">
+de facilité d'utilisation&nbsp;?
+</p>
+
+<p class="detail">
+Note 5 sur 5&nbsp;:De nombreux outils à disposition pour attaquer la base, de nombreux moyens et langages supportés... 
+que demander de plus&nbsp;?
+</p>
+
+<p class="question">
+de performances&nbsp;?
+</p>
+
+<p class="detail">
+Note 5 sur 5&nbsp;:Jusqu'à aujourd'hui nous en avons toujours été satisfaits.
+</p>
+
+<p class="question">
+d'extensibilité&nbsp;?
+</p>
+
+<p class="detail">
+Note 5 sur 5&nbsp;:C'est tout l'avantage de PostgreSQL, ne jamais se trouver
+bloqué, avoir un outil très souple, et en plus une communauté ouverte qui est prête à écouter
+et à améliorer le produit.
+</p>
+
+<p class="question">
+de «&nbsp;scalabilité&nbsp;»&nbsp;?
+</p>
+
+<p class="detail">
+Note 5 sur 5&nbsp;:Sans soucis.
+</p>
+
+<p class="question">
+de «&nbsp;tuning&nbsp;»&nbsp;?
+</p>
+
+<p class="detail">
+Note 4 sur 5&nbsp;:Le tuning est facile sous PostgreSQL, mais il est des fois délicat de
+constater vraiment la finesse des réglages. Le tuning de l'utilisation
+mémoire est parfois assez subtile pour une véritable utilisation performante.
+</p>
+
+<p class="question">
+d'outils annexes&nbsp;?
+</p>
+
+<p class="detail">
+Nous n'utilisons pratiquement que psql... et nous en sommes très satisfait&nbsp;!
+</p>
+
+<p class="question">
+Le support de la communauté PostgreSQL vous parraît-il efficace&nbsp;?
+</p>
+
+<p class="detail">
+Déjà explicité... c'est un vrai régal... il nous ait même arrivé que des
+membres important de la communauté viennent nous aider à debugger le produit
+sur nos machines en direct ... une chose incroyable avec des produits
+propriétaires&nbsp;!
+</p>
+
+<p>
+Hervé Piedvache<br>
+Elma Ingénierie Informatique<br>
+6 rue du Faubourg Saint-Honoré<br>
+F-75008 - Paris - France<br>
+Pho. 33-144949901<br>
+Fax. 33-144949902<br>
+</p>
+
+<p>
+<a href="index-2.html">
+Retour à la liste des témoignages
+</a>
+</p>
+
+<p style="text-align: right;">
+<a href="http://www.argudo.org/">
+Jean-Paul Argudo</a></p>
+</body>
+
+<!-- Mirrored from archive.postgresqlfr.org/usecases/elma.php by HTTrack Website Copier/3.x [XR&CO'2006], Mon, 13 Oct 2008 18:02:23 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=iso-8859-1"><!-- /Added by HTTrack -->
+</html>
+</div>
+</body>
+
+<!-- Mirrored from archive.postgresqlfr.org/usecases/elma.php by HTTrack Website Copier/3.x [XR&CO'2006], Mon, 13 Oct 2008 18:02:23 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=iso-8859-1"><!-- /Added by HTTrack -->
+</html>

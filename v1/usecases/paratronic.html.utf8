@@ -1,0 +1,258 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+
+<!-- Mirrored from archive.postgresqlfr.org/usecases/paratronic.php by HTTrack Website Copier/3.x [XR&CO'2006], Mon, 13 Oct 2008 18:02:23 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=iso-8859-1"><!-- /Added by HTTrack -->
+<head>
+<title>PostgreSQL</title>
+<meta http-equiv="Expires" 
+content="Mon, 06 Jan 1990 00:00:01 GMT">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="Author" content="Jean-Paul ARGUDO">
+<meta name="keyword" content="PostgreSQL, database, dbms, 
+postgres, postgres95, pgsql, relational, SQL, ODBC, JDBC"><link rel="stylesheet" href="../include/postgresqlfr.css" 
+type="text/css">
+</head>
+<body>
+<div class="menu-container"></div>
+<div class="menu">
+<a href="#" title="PostgreSQL France"><img src="../images/postgresqlfr.png" alt="Logo PostgreSQL"></a><br>
+<a href="../index.html">Présentation</a><br>
+<a href="../comment.html">Comment
+participer?</a>
+<br><a href="index.html">Premiers
+témoignages!</a>
+</div>
+<div class="content">
+<h1>Jean-Christophe ARNU, Développeur/Concepteur chez Paratronic (SA)</h1>
+
+<p class="question">
+Êtes vous d'accord pour que votre nom, prénom, courriel, nom d'organisation 
+et votre fonction dans celle-ci soit connue du public&nbsp;?
+</p>
+
+<p class="detail">
+<ul>
+<li>Nom : Arnu</li>
+<li>Prénom : Jean-Christophe</li>
+<li>Courriel : arnu at paratronic dot fr</li>
+<li>Organisation : Paratronic (SA)</li>
+<li>Fonction : Développeur/Concepteur</li>
+</ul>
+</p>
+
+<p class="question">Vous faites partie d'une organisation à but lucratif, associatif 
+ou gouvernementale&nbsp;?
+</p>
+
+<p class="detail">Je suis membre co-fondateur (et honorifique) du CULTe (Club des 
+Utilisateurs de Linux Toulousain). Mais c'est au sein de la société qui 
+m'emploie que nous utilisons réellement PostgreSQL
+</p>
+
+<p class="question">Quelle est la taille de votre organisation en nombre de 
+collaborateurs&nbsp;?</p>
+
+<p class="detail">Nous sommes une PME d'une vingtaine de personnes.</p>
+
+<p class="question">À quoi sert la(les) bases de données que vous utilisez dans votre 
+organisation&nbsp;?</p>
+
+<p class="detail">Ma société intégre PostgreSQL dans un produit de collecte, de stockage 
+et d'exploitation de mesures environnementales. Ce produit est 
+actuellement utilisé au niveau des services d'annonces de crues et au 
+sein des futures Services de Prévision de Crues afin de stocker les 
+côtes des riviéres et la pluviométrie (par exemple ici nous recevons des 
+mesures du terrain à un pas de 5 à 6 minutes). Le développement logiciel 
+que nous avons mis en oeuvre à l'interface de postgres permet notamment 
+l'appel vocal des personnels en cas de problémes sur les mesures ou sur 
+le systéme. PostgreSQL est donc intégré dans une application critique 
+fonctionnant en 24/7 où la performance et la sécurité des données 
+devaient être au rendez-vous.
+</p>
+
+<p class="question">La(les) bases de donnéess gérées sont critiques pour votre 
+l'organisation&nbsp;?</p>
+
+<p class="detail">Par pour nous directement. Elle est critique pour les gens qui 
+l'exploite mais par transitivité il a fallu que nous nous assurions de 
+la fiabilité et de la performances des différents produits libres avant 
+de se lancer et nous avons choisi PostgreSQL.</p>
+
+<p class="question">Quel est le nombre de bases de données distinctes par rapport au 
+nombre total de bases de données de votre organisation&nbsp;?</p>
+
+<p class="detail">Je n'ai actuellement aucune idée du ratio PostgreSQL/autres bases de 
+données chez nos clients. En interne nous n'utilisons PostgreSQL que 
+pour l'intégration de notre produit. Cependant nous pensons l'utiliser 
+dans le futur pour d'autres types d'applications internes.</p>
+
+<p class="question">Quel est le nombre minimum/maximum/moyen de tables par base de 
+données&nbsp;?</p>
+
+<p class="detail">Nous avons un nombre fixe de tables qui est actuellement de
+41.</p>
+
+<p class="question">Quelle est la taille minimum/max/moyenne des bases gérées (en 
+méga octets)&nbsp;?</p>
+
+<p class="detail">Suivant le type de base (nous avons une base glissante et une base de 
+stockage)  nous avons une base qui se situe au alentours de 2Go (c'est 
+la plus petite). La plus grosse que nous ayons fait 7.9Go. Cette 
+dernière valeur aurait tendance à augmenter avec le temps car nos 
+clients souhaitent conserver toutes les données mesurées sur plusieurs 
+années.</p>
+
+<p class="question">PostgreSQL est utilisée dans un contexte transactionnel ou plutôt 
+de type datamining/datawarehouse&nbsp;?</p>
+
+<p class="detail">Nous utilisont PostgreSQL dans les deux cas. Nous avons une première 
+base qui nécessite d'être trés rapide a des fins de collecte terrain. 
+Nous l'utilisons donc de manière transactionnelle. L'autre serveur est 
+utilisé pour faire du datamining.</p>
+
+<p class="question">Quelle est la version utilisée&nbsp;?</p>
+
+<p class="detail">Nous travaillons à l'heure actuelle sur des versions 7.3.2 mais 
+nous projetons de passer en 7.4 l'ensemble des serveurs afin de gagner 
+en "temps de maintenance" et surtout pour bénéficier des nouvelles 
+avancées de la base.</p>
+
+<p class="question">Le serveur sur lequel est installé PostgreSQL est de quel
+type&nbsp;?</p>
+
+<p class="detail">
+<ul>
+<li>Distribution : Linux Red Hat 8.x</li>
+<li>Matériel : DELL PowerEdge 1650 ou 2650 allant du P3 monoprocesseur ou 
+P3Xeon biprocesseur. Nous avons toujours un sous systéme disque RAID 
+(PERC - donc adaptec). Nous avons sur tous les serveurs entre 512Mo et 
+1Go de RAM</li>
+</ul>
+</p>
+
+<p class="question">Quelle est la part des logiciels libres dans votre organisation&nbsp;? 
+Au niveau des serveurs&nbsp;? Et au niveau des postes clients&nbsp;?</p>
+
+<p class="detail">Au niveau de notre équipe R&#38;D nous sommes à 90% logiciels libres. Au 
+niveau du poste client c'est du 100% Windows. Sur les serveurs nous 
+fonctionnons uniquement en logiciels libres.</p>
+
+<p class="question">Quel est le "nombre de serveurs en technologies libres 
+(globalement)"&nbsp;? et le nombre de serveurs au total, dans votre 
+organisation&nbsp;?</p>
+
+<p class="detail">Je n'ai pas ce genre d'information pour nos clients. Au sein de notre 
+entreprise nous sommes à 50/50%</p>
+
+<p class="question">Depuis combien de temps PostgreSQL est utilisé dans 
+l'organisation et/ou depuis quelle version&nbsp;?</p>
+
+<p class="detail">Nous utilisons PostgreSQL depuis 3 ans (version 7.1).</p>
+
+<p class="question">PostgreSQL est-il venu en remplacement d'une technologie 
+propriétaire (ou plusieurs), si oui, laquelle (lesquelles)&nbsp;?</p>
+
+<p class="detail">Non.</p>
+
+<p class="question">Si vous avez remplacé une technologie propriétaire par 
+PostgreSQL: Pourquoi&nbsp;?</p>
+
+<p class="detail">Sans objet.</p>
+
+<p class="question"> Si vous avez remplacé une technologie propriétaire par 
+PostgreSQL: Avez vous testé d'autres SGBD Libres&nbsp;? Si oui, lesquels&nbsp;?</p>
+
+<p class="detail">Nous avons évalué MySQL avant de choisir PostgreSQL.</p>
+
+<p class="question">Si vous avez testé d'autres SGBD/R libres: Pourquoi avoir choisi 
+PostgreSQL au final&nbsp;?</p>
+
+<p class="detail">Pour sa gestion transactionnelle, ses procédures stockées, sa 
+vérification de l'intégrité, la sécurité (reprise aprés crash etc...) et 
+la performance qu'il laissait présager pour le futur.</p>
+
+<p class="commentaire">À présent, donnez des notes de 1 à 5 et commentez</p>
+<p class="commentaire">1 = mauvais, 2 = passable, 3 = moyen, 4 = bon, 5 = très
+bon</p>
+
+<p class="question">Quel est votre ressenti sur PostgreSQL en termes de
+fiabilité&nbsp;?</p>
+
+<p class="detail">4</p>
+
+<p class="question">de robustesse&nbsp;?</p>
+
+<p class="detail">5</p>
+
+<p class="question">d'administration&nbsp;?</p>
+
+<p class="detail">4, peu d'admin au final</p>
+
+<p class="question">de facilité d'utilisation&nbsp;?</p>
+
+<p class="detail">5</p>
+
+<p class="question">de performances&nbsp;?</p>
+
+<p class="detail">4</p>
+
+<p class="question">d'extensibilité&nbsp;?</p>
+
+<p class="detail">5, nous avons testé les procédures stockées en PL/pgsql et C et en
+Python</p>
+
+<p class="question">de «&nbsp;scalabilité&nbsp;»&nbsp;?</p>
+
+<p class="detail">Je ne peux me prononcer, nous sommes en pleine étude sur le sujet. 
+Cependant par rapport à l'intégration du produit à une machine 
+spécifique nous avons pu constater que PostgreSQL avait tout l'outillage 
+de configuration nécessaire pour tirer partie des sous systémes disques 
+et des architectures particuliéres.</p>
+
+<p class="question">de «&nbsp;tuning&nbsp;»&nbsp;?</p>
+
+<p class="detail">3, difficile de trouver de la documentation ou du retour 
+d'expérience concret sur le sujet. La note 3 est surtout attribué à ce 
+manque. Sinon je mettrais un 4 car comme je le disais précédemment les 
+possibilités d'adaptation au matériel sont trés correctes.</p>
+
+<p class="question">d'outils annexes&nbsp;?</p>
+
+<p class="detail">5, psql est bien fait. Je n'utilise pas pgadmin3 mais ça pourrait 
+venir étant donné que j'avais bien aimé pgadmin2.</p>
+
+<p class="question">Le support de la communauté PostgreSQL vous parraît-il
+efficace&nbsp;?</p>
+
+<p class="detail">5, j'utilise les listes et l'irc pour mes questions. Les 
+réponses sont relativement rapides à venir. J'en suis trés heureux.</p>
+
+<p>
+--<br>
+Jean-Christophe Arnu<br>
+Paratronic<br>
+</p>
+
+<p>
+<a href="index-2.html">
+Retour à la liste des témoignages
+</a>
+</p>
+
+<p style="text-align: right;">
+<a href="http://www.argudo.org/">
+Jean-Paul Argudo</a></p>
+</body>
+
+<!-- Mirrored from archive.postgresqlfr.org/usecases/paratronic.php by HTTrack Website Copier/3.x [XR&CO'2006], Mon, 13 Oct 2008 18:02:23 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=iso-8859-1"><!-- /Added by HTTrack -->
+</html>
+
+</div>
+</body>
+
+<!-- Mirrored from archive.postgresqlfr.org/usecases/paratronic.php by HTTrack Website Copier/3.x [XR&CO'2006], Mon, 13 Oct 2008 18:02:23 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=iso-8859-1"><!-- /Added by HTTrack -->
+</html>

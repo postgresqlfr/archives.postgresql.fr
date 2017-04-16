@@ -1,0 +1,174 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+
+<!-- Mirrored from archive.postgresqlfr.org/usecases/malatray.php by HTTrack Website Copier/3.x [XR&CO'2006], Mon, 13 Oct 2008 18:02:23 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=iso-8859-1"><!-- /Added by HTTrack -->
+<head>
+<title>PostgreSQL</title>
+<meta http-equiv="Expires" 
+content="Mon, 06 Jan 1990 00:00:01 GMT">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="Author" content="Jean-Paul ARGUDO">
+<meta name="keyword" content="PostgreSQL, database, dbms, 
+postgres, postgres95, pgsql, relational, SQL, ODBC, JDBC"><link rel="stylesheet" href="../include/postgresqlfr.css" 
+type="text/css">
+</head>
+<body>
+<div class="menu-container"></div>
+<div class="menu">
+<a href="#" title="PostgreSQL France"><img src="../images/postgresqlfr.png" alt="Logo PostgreSQL"></a><br>
+<a href="../index.html">Présentation</a><br>
+<a href="../comment.html">Comment
+participer?</a>
+<br><a href="index.html">Premiers
+témoignages!</a>
+</div>
+<div class="content">
+<h1>Pierre-Louis Malatray, développeur indépendant</h1>
+
+<p>
+<p class="question">Contexte</p>
+
+<p class="detail">
+Je suis développeur indépendant et je travaille avec PG dans de petites 
+entreprises 
+qui recherchent le moindre coût et le maximum de fiabilité.
+</p>
+
+<p class="detail">
+La fiabilité, c'est aussi pour moi, parce que je ne veux pas courrir 
+remettre en route
+les serveurs chez mes clients&nbsp;!
+Il faut que ça tourne tout seul.
+</p>
+
+<p class="question">
+Premier exemple&nbsp;:
+</p>
+
+<p class="detail">
+J'ai développé un logiciel spécifique pour gérer des créances dans une 
+société de recouvrement.
+Il fonctionne en client/serveur avec 5 postes clients sous Windows 98 
+par ODBC, 6 jours sur 7.
+</p>
+
+<p class="detail">
+Initialement, le moteur de base de données (Sybase SQL Anywhere) 
+tournait sur un des postes client.
+Solution techniquement loin d'être idéale mais économique. La base 
+comptait 200 Mo lorsque les
+utilisateurs ont commencé à se plaindre de la lenteur du système, 
+c'était en 1999.
+</p>
+
+<p class="detail">
+Il a donc fallu trouver une solution fiable et économique pour mettre en 
+place un serveur dédié.
+J'ai choisi GNU/Linux et PostgreSQL après quelques essais sur différents 
+moteurs.
+Les performances étaient équivalentes avec la base que j'utilisais.
+A l'époque, les moteurs SQL libres n'étaient pas légion.
+PostgreSQL était purement en license GPL, ce qui a finalement emporté 
+mon choix pour des
+raisons de perrennité et de transparence.
+J'ai été impressionné, en lisant les mails qui circulaient sur la liste 
+de PG, de voir avec quelle
+célérité les problèmes des administrateurs de bases de données étaient 
+résolus&nbsp;!
+</p>
+
+<p class="detail">
+Finalement, le logiciel tourne avec PostgreSQL version 6.4, une base de 
+400 Mo, aujourd'hui,
+avec 19 tables appuyé sur une RedHat 6.0.
+Ce serveur tourne depuis 1999 en 24/24 avec un VACUUM (régénération des 
+index et purge du soft delete)
+hebdomadaire et un reboot mensuel, tout ceci depuis la cron donc en 
+automatique.
+</p>
+
+<p class="detail">
+Quelque remarques&nbsp;:
+Ce serveur a subi, au fil du temps, quelques avaries, mort de la carte 
+mère, onduleur HS, court circuit
+sur le câble réseau par écrasement de celui-ci.
+Des resets répétés des utilisateurs qui trouvaient que le serveur ne 
+démarrait pas assez vite
+après une coupure de courant prolongée.
+PostgreSQL = 0 défaut. Pas une ombre au tableau :-)
+</p>
+
+<p class="detail">
+Lorsque je codais les requêtes SQL pour migrer sous PG, j'avais quelques 
+inquiétudes au sujet de la syntaxe
+notamment pour la conversion des entiers. Tout ceci s'est dissipé à 
+partir de la version 7.0 :)
+</p>
+
+<p class="question">
+Deuxième exemple
+</p>
+
+<p class="detail">
+J'utilise PG sur un logiciel personnel qui me sert à faire mes comptes.
+PostgreSQL version 7.2, une base de 50 Mo avec 8 tables.
+Cette appli me sert essentiellement 'd'éclaireur' pour les essais divers 
+et variés
+de moteurs SQL, d'outils de développement etc...
+Le serveur tourne sous ma propre distribution (noyau 2.4.21) et je ne 
+m'en occupe jamais
+sauf pour installer une distribution plus récente.
+PG fonctionne parfaitement.
+</p>
+
+<p class="question">Conclusion</p>
+
+<p class="detail">
+PostgreSQL est aujourd'hui un moteur SQL qui n'a pas à rougir devant ses 
+concurrents commerciaux.
+Les connectivités ODBC, JDBC sont implémentées et fiables.
+Il supporte toute la puissance du langage SQL ANSI92.
+La mise en route et la sécurisation sont simples et logiques.
+</p>
+
+<p class="detail">
+La documentation est très bien faite.
+Le volume des bases que j'utilise est faible, j'aimerais tester des 
+volumes plus importants (plusieurs Go)
+mais je n'ai réussi à convaincre personne pour l'instant :-(
+</p>
+
+<p class="detail">
+Voici mon humble témoignage, espérant qu'il amènera sa pierre à 
+l'édifice :-)
+</p>
+
+<p class="detail">
+Pierre-Louis Malatray
+</p>
+
+
+<p>
+<a href="index-2.html">
+Retour à la liste des témoignages
+</a>
+</p>
+
+
+<p style="text-align: right;">
+<a href="http://www.argudo.org/">
+Jean-Paul Argudo</a></p>
+</body>
+
+<!-- Mirrored from archive.postgresqlfr.org/usecases/malatray.php by HTTrack Website Copier/3.x [XR&CO'2006], Mon, 13 Oct 2008 18:02:23 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=iso-8859-1"><!-- /Added by HTTrack -->
+</html>
+
+</div>
+</body>
+
+<!-- Mirrored from archive.postgresqlfr.org/usecases/malatray.php by HTTrack Website Copier/3.x [XR&CO'2006], Mon, 13 Oct 2008 18:02:23 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=iso-8859-1"><!-- /Added by HTTrack -->
+</html>
