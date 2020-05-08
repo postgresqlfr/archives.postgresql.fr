@@ -1,0 +1,242 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr">
+
+<!-- Mirrored from blog2.postgresql.fr/index.php?post/2009/07/10/Nouvelles-hebdomadaires-de-PostgreSQL-5-juillet-2009 by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 May 2020 21:40:20 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="MSSmartTagsPreventParsing" content="TRUE" />
+  <meta name="ROBOTS" content="INDEX, FOLLOW" />
+  
+  <title>Nouvelles hebdomadaires de PostgreSQL - 5 juillet 2009 - PostgreSQLfr.org</title>
+  <meta name="description" lang="fr" content="Publication de PostgreSQL 8.4.0 : http://www.postgresql.org/about/press/features84.html Relecteurs de patchs demandés de toute urgence ! Mail à robertmhaas (chez) gmail [point] com" />
+  <meta name="copyright" content="" />
+  <meta name="author" content="chl" />
+  <meta name="date" scheme="ISO8601" content="2009-07-10T00:40:00+02:00" />
+  
+  <link rel="schema.dc" href="http://purl.org/dc/elements/1.1/" />
+  <meta name="dc.title" content="Nouvelles hebdomadaires de PostgreSQL - 5 juillet 2009" />
+  <meta name="dc.description" lang="fr" content="Publication de PostgreSQL 8.4.0 : http://www.postgresql.org/about/press/features84.html Relecteurs de patchs demandés de toute urgence ! Mail à robertmhaas (chez) gmail [point] com" />
+  <meta name="dc.creator" content="chl" />
+  <meta name="dc.language" content="fr" />
+  <meta name="dc.publisher" content="" />
+  <meta name="dc.rights" content="" />
+  <meta name="dc.date" scheme="ISO8601" content="2009-07-10T00:40:00+02:00" />
+  <meta name="dc.type" content="text" />
+  <meta name="dc.format" content="text/html" />
+  
+  <link rel="top" href="indexd41d.html?" title="Accueil" />
+  <link rel="contents" href="index888d.html?archive" title="Archives" />
+  
+  <link rel="next" href="index90f3.html?post/2009/07/17/Nouvelles-hebdomadaires-de-PostgreSQL-12-juillet-2009"
+  title="Nouvelles hebdomadaires de PostgreSQL - 12 juillet 2009" />
+  
+  <link rel="previous" href="index95af.html?post/2009/07/09/ma-fonctionnalit%C3%A9-8.4-pr%C3%A9f%C3%A9r%C3%A9e-%3A-pg_stat_statement"
+  title="ma fonctionnalité 8.4 préférée : pg_stat_statement" />
+  
+  <link rel="alternate" type="application/atom+xml" title="Atom 1.0" href="index4ca3.php?feed/atom" />
+  
+  <style type="text/css" media="screen">
+@import url(themes/postgresql/style.css);
+</style>
+<style type="text/css" media="print">
+@import url(themes/default/print.css);
+</style>
+
+<script type="text/javascript" src="themes/default/js/jquery.js"></script>
+<script type="text/javascript" src="themes/default/js/jquery.cookie.js"></script>
+
+  
+  <script type="text/javascript" src="themes/default/js/post.js"></script>
+  <script type="text/javascript">
+  //<![CDATA[
+  var post_remember_str = 'Se souvenir de moi sur ce blog';
+  //]]>
+  </script>
+</head>
+
+<body class="dc-post">
+<div id="page">
+
+
+<div id="top">
+  <div id="pgHeader">
+    <span id="pgHeaderLogoLeft">
+      <a href="index.html" title="PostgreSQL"><img src="https://blog.postgresql.fr/themes/postgresql/img/hdr_left.png" width="230" height="80" alt="PostgreSQL" /></a>
+    </span>
+    <span id="pgHeaderLogoRight">
+      <a href="index.html" title="La base de donnees la plus sophistiquee au monde."><img src="https://blog.postgresql.fr/themes/postgresql/img/hdr_right.png" width="210" height="80" alt="La base de donnees la plus sophistiquee au monde." /></a>
+    </span>
+  </div>
+
+  </div>
+
+<div class="pgTopNav">
+  <div class="pgTopNavLeft"> 
+    <img src="https://blog.postgresql.fr/themes/postgresql/img/nav_lft.png" width="7" height="23" alt="" />
+  </div>
+  <div class="pgTopNavRight">
+    <img src="https://blog.postgresql.fr/themes/postgresql/img/nav_rgt.png" width="7" height="23" alt="" />
+  </div>
+  <ul class="pgTopNavList">
+    <li><a href="https://www.postgresql.fr/" title="Accueil">Accueil</a></li>
+    <li><a href="https://blog.postgresql.fr/" title="Lire les actualités">Actualités</a></li>
+    <li><a href="https://docs.postgresql.fr/" title="Lire la documentation officielle">Documentation</a></li>
+    <li><a href="https://forums.postgresql.fr/" title="Pour poser des questions">Forums</a></li>
+    <li><a href="https://www.postgresql.fr/asso/" title="La vie de l'association">Association</a></li>
+    <li><a href="https://www.postgresql.fr/devel:accueil" title="Informations pour les développeurs/traducteurs">Développeurs</a></li>
+    <li><a href="https://planete.postgresql.fr/" title="La planète francophone sur PostgreSQL">Planète</a></li>
+    <li><a href="https://www.postgresql.fr/support/" title="Support sur PostgreSQL">Support</a></li>
+  </ul>
+</div>
+
+<div id="wrapper">
+
+<div id="pgContent">
+
+  <div id="pgSideWrap">
+  <div id="pgSideNav">
+    <div id="blognav">
+      <div id="search"><h2><label for="q">Rechercher</label></h2><form action="http://blog2.postgresql.fr/index.php?" method="get"><fieldset><p><input type="text" size="10" maxlength="255" id="q" name="q" value="" /> <input class="submit" type="submit" value="ok" /></p></fieldset></form></div><div class="categories"><h2>Catégories</h2><ul><li><a href="index199b.html?category/Articles">Articles</a></li><li><a href="indexb4c6.html?category/Dans-les-bacs">Dans les bacs</a></li><li><a href="index025a.html?category/Evenements">Événements</a></li><li class="category-current"><a href="index8c6d.html?category/PostgreSQL-Weekly-News">PostgreSQL Weekly News</a></li><li><a href="index1835.html?category/Securite">Sécurité</a></li><li><a href="index2251.html?category/Vie-de-l-association">Vie de l'association</a></li><li><a href="index91de.html?category/Vie-du-site">Vie du site</a></li></ul></div><div class="text"><h2>Licence</h2>Tous les articles de ce blog sont disponibles sous la <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/">license Creative Commons BY-NC-SA 3.0</a>.</div>    </div> <!-- End #blognav -->
+  
+    <div id="blogextra">
+      <div class="syndicate"><h2>S'abonner</h2><ul><li><a type="application/atom+xml" href="index4ca3.php?feed/atom" title="Fil Atom des billets de ce blog" class="feed">Fil des billets</a></li></ul></div>    </div> <!-- End #blogextra -->
+  </div>
+  </div>
+
+  <div id="pgContentWrap">
+  <div id="pgDownloadsWrap">
+  <div id="content">
+
+  <p id="navlinks">
+  <a href="index95af.html?post/2009/07/09/ma-fonctionnalit%C3%A9-8.4-pr%C3%A9f%C3%A9r%C3%A9e-%3A-pg_stat_statement"
+  title="ma fonctionnalité 8.4 préférée : pg_stat_statement" class="prev">&#171; ma fonctionnalité 8.4 préférée : pg_stat_statement</a>
+   <span>-</span> <a href="index90f3.html?post/2009/07/17/Nouvelles-hebdomadaires-de-PostgreSQL-12-juillet-2009"
+  title="Nouvelles hebdomadaires de PostgreSQL - 12 juillet 2009" class="next">Nouvelles hebdomadaires de PostgreSQL - 12 juillet &#187;</a>
+  </p>
+  
+  <div class="post">
+    <h2 id="p493" class="post-title">Nouvelles hebdomadaires de PostgreSQL - 5 juillet 2009</h2>
+    
+    <p class="post-info">Par chl    le vendredi 10 juillet 2009, 00:40        - <a href="index8c6d.html?category/PostgreSQL-Weekly-News">PostgreSQL Weekly News</a>
+        - <a href="indexb468.html?post/2009/07/10/Nouvelles-hebdomadaires-de-PostgreSQL-5-juillet-2009">Lien permanent</a>
+    </p>
+    
+    
+    
+          <div class="post-excerpt"><p>Publication de PostgreSQL 8.4.0&nbsp;: 
+<a target="_blank" href="http://www.postgresql.org/about/press/features84.html">http://www.postgresql.org/about/press/features84.html</a></p>
+<p>Relecteurs de patchs demand&eacute;s de toute urgence&nbsp;! Mail &agrave; robertmhaas (chez) gmail [point] com pour se porter volontaire&nbsp;: 
+<a target="_blank" href="http://wiki.postgresql.org/wiki/Reviewing_a_Patch">http://wiki.postgresql.org/wiki/Reviewing_a_Patch</a></p>
+<p><strong>Les nouveaut&eacute;s des produits d&eacute;riv&eacute;s</strong></p>
+<ul>
+<li>PostgreSQL + Replication 8.3-1.8 Beta 6, anciennement Mammoth Replicator&nbsp;: 
+<a target="_blank" href="https://projects.commandprompt.com/public/replicator">https://projects.commandprompt.com/public/replicator</a></li>
+<li>pgAdmin 1.10, une interface de gestion pour PostgreSQL&nbsp;: 
+<a target="_blank" href="http://www.pgadmin.org/">http://www.pgadmin.org/</a></li>
+<li>pgloader 2.3.2, un chargeur de donn&eacute;es en masse pour PostgreSQL&nbsp;: 
+<a target="_blank" href="http://pgfoundry.org/projects/pgloader/">http://pgfoundry.org/projects/pgloader/</a></li>
+<li>pgSphere 1.1.0, un module permettant de travailler en coordonn&eacute;es sph&eacute;riques&nbsp;: 
+<a target="_blank" href="http://pgfoundry.org/projects/pgsphere/">http://pgfoundry.org/projects/pgsphere/</a></li>
+</ul>
+<p>(<a target="_blank" href="http://www.postgresql.org/community/weeklynews/pwn20090705">lien vers l'article original</a>)</p></div>
+        
+    <div class="post-content"><p><strong>Offres d'emplois autour de PostgreSQL en juillet</strong></p>
+<ul>
+<li><a target="_blank" href="http://archives.postgresql.org/pgsql-jobs/2009-07/threads.php">http://archives.postgresql.org/pgsql-jobs/2009-07/threads.php</a></li>
+</ul>
+<p><strong>PostgreSQL Local</strong></p>
+<ul>
+<li>Le pgDay San Jose est programm&eacute; pour le dimanche 19 juillet, juste avant l'OSCON. Inscription ci-dessous&nbsp;: 
+<a target="_blank" href="http://postgresql.meetup.com/1/calendar/10626647">http://postgresql.meetup.com/1/calendar/10626647</a></li>
+<li>L'"OpenSQL Camp" aura lieu les 22 &amp; 23 ao&ucirc;t &agrave; S<sup>t</sup> Augustin (All.), pr&egrave;s de Bonn et de Cologne. La date limite pour les propositions de conf&eacute;rences est le 19 juillet 2009&nbsp;: 
+<a target="_blank" href="http://opensqlcamp.org/Events/2009/Call_for_Participation">http://opensqlcamp.org/Events/2009/Call_for_Participation</a></li>
+<li>Le PUG allemand a obtenu un emplacement d&eacute;veloppeur au FrOSCon le dimanche 23 ao&ucirc;t 2009. L'appel &agrave; conf&eacute;rences est ouvert&nbsp;: 
+<a target="_blank" href="http://andreas.scherbaum.la/blog/archives/573-Call-for-Papers-fuer-den-PostgreSQL-Devroom-auf-der-FrOSCon-2009.html">http://andreas.scherbaum.la/blog/archives/573-Call-for-Papers-fuer-den-PostgreSQL-Devroom-auf-der-FrOSCon-2009.html</a></li>
+<li>L'appel &agrave; conf&eacute;rences pour la "PyCon Argentina" est lanc&eacute; jusqu'&agrave; la date du 29 juin 2009, 23h59 ART [ndt: UTC-3 ?]. La conf&eacute;rence elle-m&ecirc;me aura lieu &agrave; Buenos Aires les 4 &amp; 5 septembre 2009&nbsp;: 
+<a target="_blank" href="http://ar.pycon.org/2009/rfp/">http://ar.pycon.org/2009/rfp/</a></li>
+<li>Andreas (ads) Scherbaum enseignera au centre pour adultes de Magdeburg (All.) du 7 au 11 septembre 2009 sur le sujet "PostgreSQL for Corporate Use". D&eacute;tails ci-dessous&nbsp;: 
+<a target="_blank" href="http://andreas.scherbaum.la/blog/archives/574-PostgreSQL-als-Bildungsurlaub.html">http://andreas.scherbaum.la/blog/archives/574-PostgreSQL-als-Bildungsurlaub.html</a></li>
+<li style="list-style: none; display: inline">
+<p>Il y aura une conf&eacute;rence &agrave; Athens (Georgie, &Eacute;tats-Unis) le 19 septembre 2009. L'appel aux conf&eacute;rences est ouvert&nbsp;: 
+<a target="_blank" href="http://www.postgresqlconference.org/2009/pgday/athens">http://www.postgresqlconference.org/2009/pgday/athens</a></p>
+</li>
+<li>Une suite de conf&eacute;rences est organis&eacute;e &agrave; Seattle (&Eacute;tat de Washington, &Eacute;tats-Unis) du 16 au 18 octobre 2009. L'appel &agrave; conf&eacute;rences est ouvert&nbsp;: 
+<a target="_blank" href="http://www.postgresqlconference.org/2009/west">http://www.postgresqlconference.org/2009/west</a></li>
+<li>La "PGCon Brazil" prendra place &agrave; l'Unicamp de Campinas (&Eacute;tat de S&atilde;o Paulo) les 23 &amp; 24 octobre 2009. L'appel &agrave; conf&eacute;rences est lanc&eacute;&nbsp;: 
+<a target="_blank" href="http://pgcon.postgresql.org.br/2009/chamadas.en.php">http://pgcon.postgresql.org.br/2009/chamadas.en.php</a></li>
+<li>Le PGDay.EU 2009 est programm&eacute; pour les 6 &amp; 7 novembre 2009 &agrave; Telecom ParisTech [ndt: ENST ?]&nbsp;: 
+<a target="_blank" href="http://www.pgday.eu/">http://www.pgday.eu/</a></li>
+<li>Vos propositions de conf&eacute;rences sont attendues pour le 10<sup>&egrave;me</sup> anniversaire du JPUG. Le rassemblement aura lieu les 20 &amp; 21 novembre 2009 &agrave; Tokyo, Japan&nbsp;: 
+<a target="_blank" href="http://archives.postgresql.org/pgsql-announce/2009-05/msg00018.php">http://archives.postgresql.org/pgsql-announce/2009-05/msg00018.php</a></li>
+</ul>
+<p><strong>PostgreSQL dans les m&eacute;dia</strong></p>
+<ul>
+<li>Planet PostgreSQL&nbsp;: 
+<a target="_blank" href="http://planet.postgresql.org/">http://planet.postgresql.org/</a></li>
+<li>Planet PostgreSQLFr&nbsp;: 
+<a target="_blank" href="http://planete.postgresql.fr/">http://planete.postgresql.fr/</a></li>
+</ul>
+<p><i>PostgreSQL Weekly News / les nouvelles hebdomadaires vous sont offertes cette semaine par David Fetter, Josh Berkus et Devrim Gunduz. Traduction par l'&eacute;quipe PostgreSQLFr sous licence CC BY-NC-SA.</i></p>
+<p><i>Proposez vos articles ou annonces avant dimanche 15:00 (heure du Pacifique). Merci de les envoyer en anglais &agrave; david (a) fetter.org, en allemand &agrave; pwn (a) pgug.de, en italien &agrave; pwn (a) itpug.org.</i></p>
+<p><strong>Correctifs appliqu&eacute;s</strong></p>
+<p>Tom Lane a commit&eacute;&nbsp;:</p>
+<ul>
+<li>In pgsql/src/include/Makefile, add missed src/include/foreign subdirectory to the set installed into INSTALLDIR/include/server/. Itagaki Takahiro</li>
+<li>Stamp HEAD as 8.5devel.</li>
+<li>Remove useless References column for pg_listener catalog description. Per Shigehiro Honda.</li>
+<li>In pgsql/src/bin/pg_dump/pg_dump.c, fix up pg_dump's --binary-upgrade option so that it behaves properly with inherited columns and check constraints. Per my recent trouble report.</li>
+<li>Fix handling of changed-Param signaling for CteScan plan nodes. We were using the "cteParam" as a proxy for the possibility that the underlying CTE plan depends on outer-level variables or Params, but that doesn't work very well because it sometimes causes calling subqueries to be treated as SubPlans when they could be InitPlans. This is inefficient and also causes the outright failure exhibited in bug #4902. Instead, leave the cteParam out of it and copy the underlying CTE plan's extParams directly. Per bug #4902 from Marko (johto) Tiikkaja.</li>
+<li>In pgsql/src/backend/parser/gram.y, per SQL spec (in particular, the grammar in SQL:2008 7.13) we should allow parentheses around the &lt;query expression body&gt; that follows a WITH clause, eg with cte(foo) as ( values(0) ) ((select foo from cte)); This seems to be just an oversight/thinko in gram.y. Noted while experimenting with bug #4902.</li>
+</ul>
+<p>Peter Eisentraut a commit&eacute;&nbsp;:</p>
+<ul>
+<li>Regression test for XML mapping functionality. I wrote this one while chasing down some bugs in the closing days of 8.4. It could be useful in the long run. This area of the code had no test coverage at all before.</li>
+<li>Upgrade to Autoconf 2.63. This upgrades the configure infrastructure to the latest Autoconf version. Some notable news are: the workaround for the broken fseeko() test is gone, checking for unknown options is now provided by Autoconf itself, and fixes for Mac OS X.</li>
+<li>In pgsql/src/bin/psql/describe.c, have \d show child tables that inherit from the specified parent. As per discussion, \d shows only the number of child tables, because that could be hundreds, when used for partitioning. \d+ shows the actual list. Damien Clochard</li>
+<li>Add log_line_prefix placeholder %e to contain the current SQL state. Guillaume Smet</li>
+</ul>
+<p><strong>Correctifs rejet&eacute;s (&agrave; ce jour)</strong></p>
+<ul>
+<li>Pas de d&eacute;ception cette semaine&nbsp;:-)</li>
+</ul>
+<p><strong>Correctifs en attente</strong></p>
+<ul>
+<li>Lars Kanis sent in a patch to extend user mappings in pg_ident.conf.</li>
+<li>Robert Haas sent in another revision of his generated header file handling patch.</li>
+<li>Jeremy Kerr sent in three revisions of a patch to avoid manual shift-and-test logic in AllocSetFreeIndex.</li>
+<li>Robert Haas sent in a patch to autogenerate headers and bki.</li>
+<li>KaiGai Kohei sent in another revision of his SE-PostgreSQL patches.</li>
+<li>Hans-Juergen Schoenig sent in a patch to transform a tsvector to table format.</li>
+<li>Petr (PJMODOS) Jelinek sent in another revision of his GRANT ON ALL IN SCHEMA patch.</li>
+<li>Fujii Masao sent in a patch to provide support for multiplexing the SIGUSR1 signal.</li>
+<li>Fujii Masao sent in a patch to provide support for non-blocking communication between a frontend and a backend.</li>
+<li>Zoltan Boszormenyi sent in two revisions of a patch to add a "string" pseudo-type to ECPG.</li>
+<li>Gregory Stark sent in a WIP patch to add a Merge Append node, part of querying partitioned tables more efficiently.</li>
+<li>Jeff Davis sent in a WIP patch to allow generalized UNIQUE constraints such as "doesn't overlap."</li>
+<li>Dimitri Fontaine sent in a patch to allow people to run process_local_preload_libraries from within a transaction.</li>
+</ul></div>
+
+      </div>
+
+  
+
+    
+  
+    
+    
+    </div>
+</div> <!-- End #main -->
+
+</div> <!-- End #wrapper -->
+
+<div id="pgFooter">
+  <p>Propulsé par <a href="http://dotclear.org/">Dotclear</a></p>
+</div>
+
+</div> <!-- End #page -->
+</body>
+
+<!-- Mirrored from blog2.postgresql.fr/index.php?post/2009/07/10/Nouvelles-hebdomadaires-de-PostgreSQL-5-juillet-2009 by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 May 2020 21:40:20 GMT -->
+</html>

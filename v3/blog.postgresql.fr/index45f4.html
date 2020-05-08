@@ -1,0 +1,184 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr">
+
+<!-- Mirrored from blog2.postgresql.fr/index.php?post/drupal/61 by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 May 2020 21:40:20 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="MSSmartTagsPreventParsing" content="TRUE" />
+  <meta name="ROBOTS" content="INDEX, FOLLOW" />
+  
+  <title>==PostgreSQL Weekly News  - 4 janvier 2005 == - PostgreSQLfr.org</title>
+  <meta name="description" lang="fr" content="== Nouvelles hebdomadaires de PostgreSQL - 4 janvier 2005 == Sur la liste pg-annouce, Robert Treat nous annonçait cette semaine PostgreSQL 8.0.0 RC3 est sortie ce weekend et doit" />
+  <meta name="copyright" content="" />
+  <meta name="author" content="jca" />
+  <meta name="date" scheme="ISO8601" content="2005-01-04T15:43:00+00:00" />
+  
+  <link rel="schema.dc" href="http://purl.org/dc/elements/1.1/" />
+  <meta name="dc.title" content="==PostgreSQL Weekly News  - 4 janvier 2005 ==" />
+  <meta name="dc.description" lang="fr" content="== Nouvelles hebdomadaires de PostgreSQL - 4 janvier 2005 == Sur la liste pg-annouce, Robert Treat nous annonçait cette semaine PostgreSQL 8.0.0 RC3 est sortie ce weekend et doit" />
+  <meta name="dc.creator" content="jca" />
+  <meta name="dc.language" content="fr" />
+  <meta name="dc.publisher" content="" />
+  <meta name="dc.rights" content="" />
+  <meta name="dc.date" scheme="ISO8601" content="2005-01-04T15:43:00+00:00" />
+  <meta name="dc.type" content="text" />
+  <meta name="dc.format" content="text/html" />
+  
+  <link rel="top" href="indexd41d.html?" title="Accueil" />
+  <link rel="contents" href="index888d.html?archive" title="Archives" />
+  
+  <link rel="next" href="indexc316.html?post/drupal/62"
+  title="PostgreSQL 8.0 Release Candidate 4" />
+  
+  <link rel="previous" href="index6ee6.html?post/drupal/60"
+  title="Sortie de PostgreSQL 8.0.0 Release Candidate 3" />
+  
+  <link rel="alternate" type="application/atom+xml" title="Atom 1.0" href="index4ca3.php?feed/atom" />
+  
+  <style type="text/css" media="screen">
+@import url(themes/postgresql/style.css);
+</style>
+<style type="text/css" media="print">
+@import url(themes/default/print.css);
+</style>
+
+<script type="text/javascript" src="themes/default/js/jquery.js"></script>
+<script type="text/javascript" src="themes/default/js/jquery.cookie.js"></script>
+
+  
+  <script type="text/javascript" src="themes/default/js/post.js"></script>
+  <script type="text/javascript">
+  //<![CDATA[
+  var post_remember_str = 'Se souvenir de moi sur ce blog';
+  //]]>
+  </script>
+</head>
+
+<body class="dc-post">
+<div id="page">
+
+
+<div id="top">
+  <div id="pgHeader">
+    <span id="pgHeaderLogoLeft">
+      <a href="index.html" title="PostgreSQL"><img src="https://blog.postgresql.fr/themes/postgresql/img/hdr_left.png" width="230" height="80" alt="PostgreSQL" /></a>
+    </span>
+    <span id="pgHeaderLogoRight">
+      <a href="index.html" title="La base de donnees la plus sophistiquee au monde."><img src="https://blog.postgresql.fr/themes/postgresql/img/hdr_right.png" width="210" height="80" alt="La base de donnees la plus sophistiquee au monde." /></a>
+    </span>
+  </div>
+
+  </div>
+
+<div class="pgTopNav">
+  <div class="pgTopNavLeft"> 
+    <img src="https://blog.postgresql.fr/themes/postgresql/img/nav_lft.png" width="7" height="23" alt="" />
+  </div>
+  <div class="pgTopNavRight">
+    <img src="https://blog.postgresql.fr/themes/postgresql/img/nav_rgt.png" width="7" height="23" alt="" />
+  </div>
+  <ul class="pgTopNavList">
+    <li><a href="https://www.postgresql.fr/" title="Accueil">Accueil</a></li>
+    <li><a href="https://blog.postgresql.fr/" title="Lire les actualités">Actualités</a></li>
+    <li><a href="https://docs.postgresql.fr/" title="Lire la documentation officielle">Documentation</a></li>
+    <li><a href="https://forums.postgresql.fr/" title="Pour poser des questions">Forums</a></li>
+    <li><a href="https://www.postgresql.fr/asso/" title="La vie de l'association">Association</a></li>
+    <li><a href="https://www.postgresql.fr/devel:accueil" title="Informations pour les développeurs/traducteurs">Développeurs</a></li>
+    <li><a href="https://planete.postgresql.fr/" title="La planète francophone sur PostgreSQL">Planète</a></li>
+    <li><a href="https://www.postgresql.fr/support/" title="Support sur PostgreSQL">Support</a></li>
+  </ul>
+</div>
+
+<div id="wrapper">
+
+<div id="pgContent">
+
+  <div id="pgSideWrap">
+  <div id="pgSideNav">
+    <div id="blognav">
+      <div id="search"><h2><label for="q">Rechercher</label></h2><form action="http://blog2.postgresql.fr/index.php?" method="get"><fieldset><p><input type="text" size="10" maxlength="255" id="q" name="q" value="" /> <input class="submit" type="submit" value="ok" /></p></fieldset></form></div><div class="categories"><h2>Catégories</h2><ul><li><a href="index199b.html?category/Articles">Articles</a></li><li><a href="indexb4c6.html?category/Dans-les-bacs">Dans les bacs</a></li><li><a href="index025a.html?category/Evenements">Événements</a></li><li class="category-current"><a href="index8c6d.html?category/PostgreSQL-Weekly-News">PostgreSQL Weekly News</a></li><li><a href="index1835.html?category/Securite">Sécurité</a></li><li><a href="index2251.html?category/Vie-de-l-association">Vie de l'association</a></li><li><a href="index91de.html?category/Vie-du-site">Vie du site</a></li></ul></div><div class="text"><h2>Licence</h2>Tous les articles de ce blog sont disponibles sous la <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/">license Creative Commons BY-NC-SA 3.0</a>.</div>    </div> <!-- End #blognav -->
+  
+    <div id="blogextra">
+      <div class="syndicate"><h2>S'abonner</h2><ul><li><a type="application/atom+xml" href="index4ca3.php?feed/atom" title="Fil Atom des billets de ce blog" class="feed">Fil des billets</a></li></ul></div>    </div> <!-- End #blogextra -->
+  </div>
+  </div>
+
+  <div id="pgContentWrap">
+  <div id="pgDownloadsWrap">
+  <div id="content">
+
+  <p id="navlinks">
+  <a href="index6ee6.html?post/drupal/60"
+  title="Sortie de PostgreSQL 8.0.0 Release Candidate 3" class="prev">&#171; Sortie de PostgreSQL 8.0.0 Release Candidate 3</a>
+   <span>-</span> <a href="indexc316.html?post/drupal/62"
+  title="PostgreSQL 8.0 Release Candidate 4" class="next">PostgreSQL 8.0 Release Candidate 4 &#187;</a>
+  </p>
+  
+  <div class="post">
+    <h2 id="p61" class="post-title">==PostgreSQL Weekly News  - 4 janvier 2005 ==</h2>
+    
+    <p class="post-info">Par jca    le mardi  4 janvier 2005, 15:43        - <a href="index8c6d.html?category/PostgreSQL-Weekly-News">PostgreSQL Weekly News</a>
+        - <a href="index45f4.html?post/drupal/61">Lien permanent</a>
+    </p>
+    
+    
+    
+          <div class="post-excerpt"><p></p></div>
+        
+    <div class="post-content"><h1>== Nouvelles hebdomadaires de PostgreSQL  - 4 janvier 2005 ==</h1>
+<h2>Sur la liste pg-annouce, Robert Treat nous annonçait cette semaine</h2>
+<p>
+PostgreSQL 8.0.0 RC3 est sortie ce weekend et doit effectivement être la dernière version candidate avant la version finale. Si vous utilisez PostgreSQL sur une plateforme n'ayant pas été répertoriée comme effectivement fonctionnelle, prière de télécharger la dernière version candidate et de tester la RC3. Ce sera votre dernière chance d'obtenir des modifications et des corrections avant la version finale.
+</p>
+<p>
+Comme les choses ont commencé à se calmer, il n'y a eu que quelques corrections mineures cette semaine. Quelques points concernant la mémoire partagée sur windows ont été pris en compte. Un point concernant le compilateur SunOS4 a été corrigé. Un autre concernant un interblocage dans le gestionnaire de mémoire tampon a été également corrigé. Et pour finir, des modifications de la documentation incluant le travail sur les projets externes, les règles, les déclancheurs et les différents langages de procédures stockées ont été mis à jour.
+</p>
+<p>
+Le travail sur le site web de PostgreSQL continue cette semaine après beaucoup d'éloges et que plusieurs rapports de bugs aient été adressés à l'équipe de développement. Un bug en particulier, le problème du pied de page empiétant sur certaines versions de navigateurs basés sur Mozilla, a été corrigé. D'autre mises à jours vont suivre, donc continuez à nous faire des retours.
+</p>
+<h2>== Nouvelles sur les produits autour de PostgreSQL ==</h2>
+<p>
+PhpMyFAQ 1.5.0 alpha1 ajoute le support de PostgreSQL. <br />
+<a href="http://devblog.phpmyfaq.de/archive/2004/339/phpmyfaq-150-alpha1-released/">http://devblog.phpmyfaq.de/archive/2004/339/phpmyfaq-150-alpha1-released/</a>
+</p>
+<h2>== PostgreSQL dans les médias ==</h2>
+<p>
+The Free Database Niche - Response<br />
+<a href="http://www.ibphoenix.com/main.nfs?a=ibphoenix&amp;page=ibp_conputerwoche_response">http://www.ibphoenix.com/main.nfs?a=ibphoenix&amp;page=ibp_conputerwoche_response</a>
+</p>
+<h2>== Evénements autour de PostgreSQL ==</h2>
+<p>
+Linux Solutions: Paris, France: du 1 au 3 février<br />
+PostgreSQL aura un stand où plusieurs membres de la communauté seront présents<br />
+<a href="http://www.solutionslinux.fr/en/index.php">http://www.solutionslinux.fr/en/index.php</a>
+</p>
+<h2>== Nouvelles hebdomadaires de PostgreSQL - 4 janvier 2005 ==</h2>
+<p>
+Sur le Web en anglais<br />
+<a href="http://www.postgresql.org/">http://www.postgresql.org</a>
+</p></div>
+
+      </div>
+
+  
+
+    
+  
+    
+    
+    </div>
+</div> <!-- End #main -->
+
+</div> <!-- End #wrapper -->
+
+<div id="pgFooter">
+  <p>Propulsé par <a href="http://dotclear.org/">Dotclear</a></p>
+</div>
+
+</div> <!-- End #page -->
+</body>
+
+<!-- Mirrored from blog2.postgresql.fr/index.php?post/drupal/61 by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 May 2020 21:40:20 GMT -->
+</html>

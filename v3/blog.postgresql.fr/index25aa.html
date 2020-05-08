@@ -1,0 +1,268 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr">
+
+<!-- Mirrored from blog2.postgresql.fr/index.php?post/2010/09/26/Nouvelles-hebdomadaires-de-PostgreSQL-19-septembre-2010 by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 May 2020 21:40:20 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="MSSmartTagsPreventParsing" content="TRUE" />
+  <meta name="ROBOTS" content="INDEX, FOLLOW" />
+  
+  <title>Nouvelles hebdomadaires de PostgreSQL - 19 septembre 2010 - PostgreSQLfr.org</title>
+  <meta name="description" lang="fr" content="Sauf catastrophe, PostgreSQL 9.0.0, avec à présent, parmi de nombreuses nouvelles fonctionnalités, un système de réplication intégré, sera disponible le 20 septembre. Réjouissances" />
+  <meta name="copyright" content="" />
+  <meta name="author" content="chl" />
+  <meta name="date" scheme="ISO8601" content="2010-09-26T13:12:00+02:00" />
+  
+  <link rel="schema.dc" href="http://purl.org/dc/elements/1.1/" />
+  <meta name="dc.title" content="Nouvelles hebdomadaires de PostgreSQL - 19 septembre 2010" />
+  <meta name="dc.description" lang="fr" content="Sauf catastrophe, PostgreSQL 9.0.0, avec à présent, parmi de nombreuses nouvelles fonctionnalités, un système de réplication intégré, sera disponible le 20 septembre. Réjouissances" />
+  <meta name="dc.creator" content="chl" />
+  <meta name="dc.language" content="fr" />
+  <meta name="dc.publisher" content="" />
+  <meta name="dc.rights" content="" />
+  <meta name="dc.date" scheme="ISO8601" content="2010-09-26T13:12:00+02:00" />
+  <meta name="dc.type" content="text" />
+  <meta name="dc.format" content="text/html" />
+  
+  <link rel="top" href="indexd41d.html?" title="Accueil" />
+  <link rel="contents" href="index888d.html?archive" title="Archives" />
+  
+  <link rel="next" href="indexa0e9.html?post/2010/09/29/Nouvelles-hebdomadaires-de-PostgreSQL-26-septembre-2010"
+  title="Nouvelles hebdomadaires de PostgreSQL - 26 septembre 2010" />
+  
+  <link rel="previous" href="index9b49.html?post/2010/09/20/Sortie-de-PostgreSQL-9.0"
+  title="Sortie de PostgreSQL 9.0" />
+  
+  <link rel="alternate" type="application/atom+xml" title="Atom 1.0" href="index4ca3.php?feed/atom" />
+  
+  <style type="text/css" media="screen">
+@import url(themes/postgresql/style.css);
+</style>
+<style type="text/css" media="print">
+@import url(themes/default/print.css);
+</style>
+
+<script type="text/javascript" src="themes/default/js/jquery.js"></script>
+<script type="text/javascript" src="themes/default/js/jquery.cookie.js"></script>
+
+  
+  <script type="text/javascript" src="themes/default/js/post.js"></script>
+  <script type="text/javascript">
+  //<![CDATA[
+  var post_remember_str = 'Se souvenir de moi sur ce blog';
+  //]]>
+  </script>
+</head>
+
+<body class="dc-post">
+<div id="page">
+
+
+<div id="top">
+  <div id="pgHeader">
+    <span id="pgHeaderLogoLeft">
+      <a href="index.html" title="PostgreSQL"><img src="https://blog.postgresql.fr/themes/postgresql/img/hdr_left.png" width="230" height="80" alt="PostgreSQL" /></a>
+    </span>
+    <span id="pgHeaderLogoRight">
+      <a href="index.html" title="La base de donnees la plus sophistiquee au monde."><img src="https://blog.postgresql.fr/themes/postgresql/img/hdr_right.png" width="210" height="80" alt="La base de donnees la plus sophistiquee au monde." /></a>
+    </span>
+  </div>
+
+  </div>
+
+<div class="pgTopNav">
+  <div class="pgTopNavLeft"> 
+    <img src="https://blog.postgresql.fr/themes/postgresql/img/nav_lft.png" width="7" height="23" alt="" />
+  </div>
+  <div class="pgTopNavRight">
+    <img src="https://blog.postgresql.fr/themes/postgresql/img/nav_rgt.png" width="7" height="23" alt="" />
+  </div>
+  <ul class="pgTopNavList">
+    <li><a href="https://www.postgresql.fr/" title="Accueil">Accueil</a></li>
+    <li><a href="https://blog.postgresql.fr/" title="Lire les actualités">Actualités</a></li>
+    <li><a href="https://docs.postgresql.fr/" title="Lire la documentation officielle">Documentation</a></li>
+    <li><a href="https://forums.postgresql.fr/" title="Pour poser des questions">Forums</a></li>
+    <li><a href="https://www.postgresql.fr/asso/" title="La vie de l'association">Association</a></li>
+    <li><a href="https://www.postgresql.fr/devel:accueil" title="Informations pour les développeurs/traducteurs">Développeurs</a></li>
+    <li><a href="https://planete.postgresql.fr/" title="La planète francophone sur PostgreSQL">Planète</a></li>
+    <li><a href="https://www.postgresql.fr/support/" title="Support sur PostgreSQL">Support</a></li>
+  </ul>
+</div>
+
+<div id="wrapper">
+
+<div id="pgContent">
+
+  <div id="pgSideWrap">
+  <div id="pgSideNav">
+    <div id="blognav">
+      <div id="search"><h2><label for="q">Rechercher</label></h2><form action="http://blog2.postgresql.fr/index.php?" method="get"><fieldset><p><input type="text" size="10" maxlength="255" id="q" name="q" value="" /> <input class="submit" type="submit" value="ok" /></p></fieldset></form></div><div class="categories"><h2>Catégories</h2><ul><li><a href="index199b.html?category/Articles">Articles</a></li><li><a href="indexb4c6.html?category/Dans-les-bacs">Dans les bacs</a></li><li><a href="index025a.html?category/Evenements">Événements</a></li><li class="category-current"><a href="index8c6d.html?category/PostgreSQL-Weekly-News">PostgreSQL Weekly News</a></li><li><a href="index1835.html?category/Securite">Sécurité</a></li><li><a href="index2251.html?category/Vie-de-l-association">Vie de l'association</a></li><li><a href="index91de.html?category/Vie-du-site">Vie du site</a></li></ul></div><div class="text"><h2>Licence</h2>Tous les articles de ce blog sont disponibles sous la <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/">license Creative Commons BY-NC-SA 3.0</a>.</div>    </div> <!-- End #blognav -->
+  
+    <div id="blogextra">
+      <div class="syndicate"><h2>S'abonner</h2><ul><li><a type="application/atom+xml" href="index4ca3.php?feed/atom" title="Fil Atom des billets de ce blog" class="feed">Fil des billets</a></li></ul></div>    </div> <!-- End #blogextra -->
+  </div>
+  </div>
+
+  <div id="pgContentWrap">
+  <div id="pgDownloadsWrap">
+  <div id="content">
+
+  <p id="navlinks">
+  <a href="index9b49.html?post/2010/09/20/Sortie-de-PostgreSQL-9.0"
+  title="Sortie de PostgreSQL 9.0" class="prev">&#171; Sortie de PostgreSQL 9.0</a>
+   <span>-</span> <a href="indexa0e9.html?post/2010/09/29/Nouvelles-hebdomadaires-de-PostgreSQL-26-septembre-2010"
+  title="Nouvelles hebdomadaires de PostgreSQL - 26 septembre 2010" class="next">Nouvelles hebdomadaires de PostgreSQL - 26 &#187;</a>
+  </p>
+  
+  <div class="post">
+    <h2 id="p568" class="post-title">Nouvelles hebdomadaires de PostgreSQL - 19 septembre 2010</h2>
+    
+    <p class="post-info">Par chl    le dimanche 26 septembre 2010, 13:12        - <a href="index8c6d.html?category/PostgreSQL-Weekly-News">PostgreSQL Weekly News</a>
+        - <a href="index25aa.html?post/2010/09/26/Nouvelles-hebdomadaires-de-PostgreSQL-19-septembre-2010">Lien permanent</a>
+    </p>
+    
+    
+    
+          <div class="post-excerpt"><p>Sauf catastrophe, PostgreSQL 9.0.0, avec &agrave; pr&eacute;sent, parmi de nombreuses nouvelles fonctionnalit&eacute;s, un syst&egrave;me de r&eacute;plication int&eacute;gr&eacute;, sera disponible le 20 septembre. R&eacute;jouissances&nbsp;! 
+<a target="_blank" href="http://www.postgresql.org/">http://www.postgresql.org/</a></p>
+<p>Pour les l&egrave;ve-t&ocirc;t, les inscriptions &agrave; la JDCon West 2010 [ndt: 2-4 nov.] sont ouvertes&nbsp;: 
+<a target="_blank" href="https://www.postgresqlconference.org/content/pgwest-2010-registration">https://www.postgresqlconference.org/content/pgwest-2010-registration</a></p>
+<p>Surge 2010, le salon sur l'&eacute;volutivit&eacute; et la performance, aura lieu &agrave; Baltimore (Maryland, &Eacute;tats-Unis) du 30 septembre au 1<sup>er</sup> octobre 2010&nbsp;: 
+<a target="_blank" href="http://omniti.com/surge/2010">http://omniti.com/surge/2010</a></p>
+<p><strong>Les nouveaut&eacute;s des produits d&eacute;riv&eacute;s</strong></p>
+<ul>
+<li>Another PostgreSQL Diff Tool 2.0.2, un outil de comparaison de bases de donn&eacute;es&nbsp;: 
+<a target="_blank" href="http://apgdiff.sourceforge.net/">http://apgdiff.sourceforge.net/</a></li>
+<li>Benetl 3.6, un ETL pour fichiers, utilisant PostgreSQL&nbsp;: 
+<a target="_blank" href="http://www.benetl.net/">http://www.benetl.net</a></li>
+<li>phpPgAdmin 5.0-beta1, une interface web d'administration pour PostgreSQL&nbsp;: 
+<a target="_blank" href="http://phppgadmin.sourceforge.net/">http://phppgadmin.sourceforge.net/</a></li>
+</ul>
+<p><strong>Offres d'emplois autour de PostgreSQL en septembre</strong></p>
+<ul>
+<li>Internationales&nbsp;: 
+<a target="_blank" href="http://archives.postgresql.org/pgsql-jobs/2010-09/threads.php">http://archives.postgresql.org/pgsql-jobs/2010-09/threads.php</a>;</li>
+<li>Francophones&nbsp;: 
+<a target="_blank" href="http://forums.postgresql.fr/viewforum.php?id=4">http://forums.postgresql.fr/viewforum.php?id=4</a>.</li>
+</ul>
+<p><strong>PostgreSQL Local</strong></p>
+<ul>
+<li>Surge 2010, le salon sur l'&eacute;volutivit&eacute; et la performance, aura lieu &agrave; Baltimore (Maryland, &Eacute;tats-Unis) du 30 septembre au 1<sup>er</sup> octobre 2010&nbsp;: 
+<a target="_blank" href="http://omniti.com/surge/2010">http://omniti.com/surge/2010</a></li>
+<li>L'appel &agrave; conf&eacute;renciers pour le PGDay.EU 2010, tenu du 6 au 8 d&eacute;cembre &agrave; Stuttgart (All.), est lanc&eacute;&nbsp;: 
+<a target="_blank" href="http://2010.pgday.eu/callforpapers">http://2010.pgday.eu/callforpapers</a></li>
+</ul>
+<p><strong>PostgreSQL dans les m&eacute;dia</strong></p>
+<ul>
+<li>Planet PostgreSQL&nbsp;: 
+<a target="_blank" href="http://planet.postgresql.org/">http://planet.postgresql.org/</a></li>
+<li>Planet PostgreSQLFr&nbsp;: 
+<a target="_blank" href="http://planete.postgresql.fr/">http://planete.postgresql.fr/</a></li>
+</ul>
+<p><i>PostgreSQL Weekly News / les nouvelles hebdomadaires vous sont offertes cette semaine par David Fetter. Traduction par l'&eacute;quipe PostgreSQLFr sous licence CC BY-NC-SA.</i></p>
+<p><i>Proposez vos articles ou annonces avant dimanche 15:00 (heure du Pacifique). Merci de les envoyer en anglais &agrave; david (a) fetter.org, en allemand &agrave; pwn (a) pgug.de, en italien &agrave; pwn (a) itpug.org et en espagnol &agrave; pwn (a) arpug.com.ar.</i></p>
+<p>(<a target="_blank" href="http://www.postgresql.org/community/weeklynews/pwn20100919">lien vers l'article original</a>)</p></div>
+        
+    <div class="post-content"><p><strong>Revues</strong></p>
+<p>- Abhijit Menon-Sen reviewed the "Our CLUSTER implementation is pessimal" patch and found two chunks that did not apply cleanly, along with some possible bit rot on copy_heap_data().</p>
+<p>- KaiGai Kohei reviewed Peter Eisentraut's patch to extend ALTER TYPE.</p>
+<p>- ITAGAKI Takahiro reviewed the SQL/MED(FDW) patch and found some unused new types, a missing error check, a place to improve an error message, and some places to improve consistency in type checks between TABLE and FOREIGN TABLE.</p>
+<p>- Tom Lane reviewed Sushant Sinha's url-part extention for text search.</p>
+<p>- Hitoshi Harada reviewed Pavel Stehule's WIP patch for median() and percentile(), and found that it left out changes to contrib, had some cosmetic coding style issues, has a possible new out-of-memory condition due to the extra tuplesorts added, contained neither documentation nor new regression tests, doesn't work in windowing function context.</p>
+<p><strong>Correctifs appliqu&eacute;s</strong></p>
+<p>Heikki Linnakangas a commit&eacute;&nbsp;:</p>
+<ul>
+<li>In pgsql/src/backend/utils/init/postinit.c, process options from the startup packed in walsender. Only few options make sense for walsender, but for example application_name and client_encoding do. We still don't apply per-role settings from pg_db_role_setting, because that would require connecting to a database to read the table. Fujii Masao</li>
+<li>In pgsql/src/include/replication/walreceiver.h, remove prototype for non-existent function from walreceiver.h. Tidy up by separating prototypes for functions in walreceiver.c and walreceiverfuncs.c with comments.</li>
+<li>In pgsql/src/backend/port/unix_latch.c, add a comment noting that the owner_pid test in OwnLatch is just a sanity check, per request by Jeff Davis.</li>
+<li>In pgsql/src/bin/pg_ctl/pg_ctl.c, don't warn about an in-progress online backup, when we're recovering from an online backup instead of performing one. pg_ctl can detect that by checking if recovery.conf exists. Backup label file is renamed away early in recovery, so the window where backup label exists during recovery is normally very small, but you can run into it e.g if restore_command is set incorrectly and the startup process never finds even the first WAL segment containing the checkpoint record to start recovery from. Fujii Masao with comments by me.</li>
+<li>In pgsql/src/backend/replication/walsender.c, oops, the timeout argument to WaitLatchOrSocket is in microseconds, not milliseconds.</li>
+<li>In pgsql/src/backend/replication/walsender.c, don't call OwnLatch while holding a spinlock. OwnLatch can elog() under some "can't happen" scenarios, and spinlocks should only be held for a few instructions anyway. As pointed out by Fujii Masao.</li>
+<li>Simplify Windows implementation of latches. There's no need to keep a dynamic pool of event handles, we can permanently assign one for each shared latch. Thanks to that, we no longer need a separate shared memory block for latches, and we don't need to know in advance how many shared latches there is, so you no longer need to remember to update NumSharedLatches when you introduce a new latch to the system.</li>
+<li>Use a latch to make startup process wake up and replay immediately when new WAL arrives via streaming replication. This reduces the latency, and also allows us to use a longer polling interval, which is good for energy efficiency. We still need to poll to check for the appearance of a trigger file, but the interval is now 5 seconds (instead of 100ms), like when waiting for a new WAL segment to appear in WAL archive.</li>
+<li>In pgsql/src/backend/access/transam/xlog.c, fix two typos in comments, spotted by Fujii Masao and Thom Brown.</li>
+</ul>
+<p>Robert Haas a commit&eacute;&nbsp;:</p>
+<ul>
+<li>In pgsql/doc/src/sgml/catalogs.sgml, elaborate on what gets stored in pg_authid.rolpasswd. Also, add cross-reference from pg_shadow.passwd to pg_authid.rolpasswd and fix a bit of markup I muffed in my previous commit. Per discussion with Josh Kupershmidt.</li>
+<li>In pgsql/src/backend/commands/comment.c, remove duplicated code left behind by my recent refactoring of comment.c. These checks are also present in objectaddress.c, so there's no need to recheck here.</li>
+<li>In pgsql/doc/src/sgml/catalogs.sgml, move pg_db_role_setting docs to correct place in alphabetical order.</li>
+</ul>
+<p>Tom Lane a commit&eacute;&nbsp;:</p>
+<ul>
+<li>Fix join-removal logic for pseudoconstant and outerjoin-delayed quals. In these cases a qual can get marked with the removable rel in its required_relids, but this is just to schedule its evaluation correctly, not because it really depends on the rel. We were assuming that, in effect, we could throw away *all* quals so marked, which is nonsense. Tighten up the logic to be a little more paranoid about which quals belong to the outer join being considered for removal, and arrange for all quals that don't belong to be updated so they will still get evaluated correctly. Also fix another problem that happened to be exposed by this test case, which was that make_join_rel() was failing to notice some cases where a constant-false qual could be used to prove a join relation empty. If it's a pushed-down constant false, then the relation is empty even if it's an outer join, because the qual applies after the outer join expansion. Per report from Nathan Grange. Back-patch into 9.0.</li>
+<li>In pgsql/doc/src/sgml/release-9.0.sgml, add a compatibility note about plpgsql's treatment of SELECT INTO rec.fld when fld is of composite type. Per discussion of bug #5644 from Valentine Gogichashvili.</li>
+<li>Fix two new-in-9.0 bugs in hstore. There was an incorrect Assert in hstoreValidOldFormat(), which would cause immediate core dumps when attempting to work with pre-9.0 hstore data, but of course only in an assert-enabled build. Also, ghstore_decompress() incorrectly applied DatumGetHStoreP() to a datum that wasn't actually an hstore, but rather a ghstore (ie, a gist signature bitstring). That used to be harmless, but could now result in misbehavior if the hstore format conversion code happened to trigger. In reality, since ghstore is not marked toastable (and doesn't need to be), this function is useless anyway; we can lobotomize it down to returning the passed-in pointer. Both bugs found by Andrew Gierth, though this isn't exactly his proposed patch.</li>
+<li>In pgsql/doc/src/sgml/plpgsql.sgml, fix bad grammar.</li>
+<li>Stamp 9.0 release notes with expected release date; also some last-minute copy-editing.</li>
+<li>In pgsql/src/backend/access/transam/README, add some documentation about how we WAL-log filesystem actions. Per a question from Robert Haas.</li>
+<li>In pgsql/src/backend/parser/analyze.c, give a suitable HINT when an INSERT's data source is a RowExpr containing the same number of columns expected by the insert. This suggests that there were extra parentheses that converted the intended column list into a row expression. Original patch by Marko Tiikkaja, rather heavily editorialized by me.</li>
+<li>In pgsql/src/backend/commands/copy.c, make sure we wait for protocol-level EOF when ending binary COPY IN. The previous coding just terminated the COPY immediately after seeing the EOF marker (-1 where a row field count is expected). The expected CopyDone or CopyFail message just got thrown away later, since we weren't in COPY mode anymore. This behavior complicated matters for the JDBC driver, and arguably was the wrong thing in any case since a CopyFail message after the marker wouldn't be honored. Note that there is a behavioral change here: extra data after the EOF marker was silently ignored before, but now it will cause an error. Hence not back-patching, although this is arguably a bug. Per report and patch by Kris Jurka.</li>
+<li>Fix several broken $PostgreSQL$ keywords. Noted while experimenting with Magnus's script to remove these.</li>
+<li>In pgsql/src/backend/utils/mb/Unicode/UCS_to_GB18030.pl, replace last remaining $Id$ with $PostgreSQL$.</li>
+</ul>
+<p>Peter Eisentraut a commit&eacute;&nbsp;:</p>
+<ul>
+<li>Translation updates for 9.0.0.</li>
+</ul>
+<p>Magnus Hagander a commit&eacute;&nbsp;:</p>
+<ul>
+<li>In pgsql/src/backend/postmaster/postmaster.c, treat exit code 128 (ERROR_WAIT_NO_CHILDREN) as non-fatal on Win32, since it can happen when a process fails to start when the system is under high load. Per several bug reports and many peoples investigation. Back-patch to 8.4, which is as far back as the "deadman-switch" for shared memory access exists.</li>
+</ul>
+<p>Marc Fournier a commit&eacute;&nbsp;:</p>
+<ul>
+<li>Tag v9.0.0 ... the big day approaches.</li>
+</ul>
+<p>Bruce Momjian a commit&eacute;&nbsp;:</p>
+<ul>
+<li>In pgsql/src/backend/access/heap/README.HOT, update HOT README about when single-page vacuums happen.</li>
+</ul>
+<p><strong>Correctifs rejet&eacute;s (&agrave; ce jour)</strong></p>
+<ul>
+<li>Pas de d&eacute;ception cette semaine&nbsp;:-)</li>
+</ul>
+<p><strong>Correctifs en attente</strong></p>
+<ul>
+<li>Teodor Sigaev sent in another revision of the patches to add K-Nearest-Neighbor support to GiST indexes.</li>
+<li>Heikki Linnakangas sent in two revisions of a patch using the new latch facility to reduce walreceiver latency.</li>
+<li>Hitoshi Harada sent in two revisions of a patch to allow top-level DML (INSERT, UPDATE, DELETE) in CTEs (WITH queries).</li>
+<li>KaiGai Kohei sent in another revision of the security label patch.</li>
+<li>Kevin Grittner sent in another revision of the patch to do serializable snapshot isolation.</li>
+<li>Bernd Helmle sent in another revision of the patch to fix a mismatch between ALTER TABLE ... ALTER COLUMN and table inheritance.</li>
+<li>Fujii Masao sent in two more revisions of the synchronous replication patch.</li>
+<li>ITAGAKI Takahiro sent in a patch, inspired by Joseph Adams's Google Summer of Code work, to add JSON. Joseph Adams sent in a patch based on it.</li>
+<li>SAKAMOTO Masahiko sent in three revisions of a patch to add FDW (foreign data wrapper) support, which is part of SQL/MED (Management of External Data).</li>
+<li>Peter Eisentraut sent in another WIP patch to implement per-column collation.</li>
+<li>Fujii Masao sent in a patch to adjust signal handling during recovery.</li>
+<li>Fujii Masao sent in two revisions of a patch to add a user-callable function to trigger failover in replication.</li>
+<li>Simon Riggs sent in a WIP patch which uses latches to adjust behavior of the startup process.</li>
+<li>Peter Eisentraut sent in another revision of the patch to extend ALTER TYPE for composite types.</li>
+<li>Fujii Masao sent in a patch to add a new function to libpq which is used to send an ACK back from walreceiver.</li>
+<li>Kevin Grittner sent in another revision of the patch to do serializable row locks.</li>
+<li>Robert Haas sent in a patch to add a pg_opfamily_is_visible() function.</li>
+</ul></div>
+
+      </div>
+
+  
+
+    
+  
+    
+    
+    </div>
+</div> <!-- End #main -->
+
+</div> <!-- End #wrapper -->
+
+<div id="pgFooter">
+  <p>Propulsé par <a href="http://dotclear.org/">Dotclear</a></p>
+</div>
+
+</div> <!-- End #page -->
+</body>
+
+<!-- Mirrored from blog2.postgresql.fr/index.php?post/2010/09/26/Nouvelles-hebdomadaires-de-PostgreSQL-19-septembre-2010 by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 May 2020 21:40:20 GMT -->
+</html>

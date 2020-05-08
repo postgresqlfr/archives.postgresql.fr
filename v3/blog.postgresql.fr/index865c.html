@@ -1,0 +1,244 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr">
+
+<!-- Mirrored from blog2.postgresql.fr/index.php?post/drupal/49 by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 May 2020 21:40:20 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="MSSmartTagsPreventParsing" content="TRUE" />
+  <meta name="ROBOTS" content="INDEX, FOLLOW" />
+  
+  <title>== Nouvelles Hebdomadaires de PostgreSQL - 9 Novembre 2004 == - PostgreSQLfr.org</title>
+  <meta name="description" lang="fr" content="Dans son mail du 9 novembre, Robert Treat nous annonçait ceci : Avec la résolution des problèmes persistants concernant les tablespace, il ne restait plus qu'une paire de points à" />
+  <meta name="copyright" content="" />
+  <meta name="author" content="jca" />
+  <meta name="date" scheme="ISO8601" content="2004-11-10T10:37:00+00:00" />
+  
+  <link rel="schema.dc" href="http://purl.org/dc/elements/1.1/" />
+  <meta name="dc.title" content="== Nouvelles Hebdomadaires de PostgreSQL - 9 Novembre 2004 ==" />
+  <meta name="dc.description" lang="fr" content="Dans son mail du 9 novembre, Robert Treat nous annonçait ceci : Avec la résolution des problèmes persistants concernant les tablespace, il ne restait plus qu'une paire de points à" />
+  <meta name="dc.creator" content="jca" />
+  <meta name="dc.language" content="fr" />
+  <meta name="dc.publisher" content="" />
+  <meta name="dc.rights" content="" />
+  <meta name="dc.date" scheme="ISO8601" content="2004-11-10T10:37:00+00:00" />
+  <meta name="dc.type" content="text" />
+  <meta name="dc.format" content="text/html" />
+  
+  <link rel="top" href="indexd41d.html?" title="Accueil" />
+  <link rel="contents" href="index888d.html?archive" title="Archives" />
+  
+  <link rel="next" href="index9997-2.html?post/drupal/50"
+  title="== PostgreSQL Weekly News - 15 novembre 2004 ==" />
+  
+  <link rel="previous" href="indexbe33.html?post/drupal/48"
+  title="Le centre informatique de l'Université d'Oxford a migré à PostgreSQL" />
+  
+  <link rel="alternate" type="application/atom+xml" title="Atom 1.0" href="index4ca3.php?feed/atom" />
+  
+  <style type="text/css" media="screen">
+@import url(themes/postgresql/style.css);
+</style>
+<style type="text/css" media="print">
+@import url(themes/default/print.css);
+</style>
+
+<script type="text/javascript" src="themes/default/js/jquery.js"></script>
+<script type="text/javascript" src="themes/default/js/jquery.cookie.js"></script>
+
+  
+  <script type="text/javascript" src="themes/default/js/post.js"></script>
+  <script type="text/javascript">
+  //<![CDATA[
+  var post_remember_str = 'Se souvenir de moi sur ce blog';
+  //]]>
+  </script>
+</head>
+
+<body class="dc-post">
+<div id="page">
+
+
+<div id="top">
+  <div id="pgHeader">
+    <span id="pgHeaderLogoLeft">
+      <a href="index.html" title="PostgreSQL"><img src="https://blog.postgresql.fr/themes/postgresql/img/hdr_left.png" width="230" height="80" alt="PostgreSQL" /></a>
+    </span>
+    <span id="pgHeaderLogoRight">
+      <a href="index.html" title="La base de donnees la plus sophistiquee au monde."><img src="https://blog.postgresql.fr/themes/postgresql/img/hdr_right.png" width="210" height="80" alt="La base de donnees la plus sophistiquee au monde." /></a>
+    </span>
+  </div>
+
+  </div>
+
+<div class="pgTopNav">
+  <div class="pgTopNavLeft"> 
+    <img src="https://blog.postgresql.fr/themes/postgresql/img/nav_lft.png" width="7" height="23" alt="" />
+  </div>
+  <div class="pgTopNavRight">
+    <img src="https://blog.postgresql.fr/themes/postgresql/img/nav_rgt.png" width="7" height="23" alt="" />
+  </div>
+  <ul class="pgTopNavList">
+    <li><a href="https://www.postgresql.fr/" title="Accueil">Accueil</a></li>
+    <li><a href="https://blog.postgresql.fr/" title="Lire les actualités">Actualités</a></li>
+    <li><a href="https://docs.postgresql.fr/" title="Lire la documentation officielle">Documentation</a></li>
+    <li><a href="https://forums.postgresql.fr/" title="Pour poser des questions">Forums</a></li>
+    <li><a href="https://www.postgresql.fr/asso/" title="La vie de l'association">Association</a></li>
+    <li><a href="https://www.postgresql.fr/devel:accueil" title="Informations pour les développeurs/traducteurs">Développeurs</a></li>
+    <li><a href="https://planete.postgresql.fr/" title="La planète francophone sur PostgreSQL">Planète</a></li>
+    <li><a href="https://www.postgresql.fr/support/" title="Support sur PostgreSQL">Support</a></li>
+  </ul>
+</div>
+
+<div id="wrapper">
+
+<div id="pgContent">
+
+  <div id="pgSideWrap">
+  <div id="pgSideNav">
+    <div id="blognav">
+      <div id="search"><h2><label for="q">Rechercher</label></h2><form action="http://blog2.postgresql.fr/index.php?" method="get"><fieldset><p><input type="text" size="10" maxlength="255" id="q" name="q" value="" /> <input class="submit" type="submit" value="ok" /></p></fieldset></form></div><div class="categories"><h2>Catégories</h2><ul><li><a href="index199b.html?category/Articles">Articles</a></li><li><a href="indexb4c6.html?category/Dans-les-bacs">Dans les bacs</a></li><li><a href="index025a.html?category/Evenements">Événements</a></li><li class="category-current"><a href="index8c6d.html?category/PostgreSQL-Weekly-News">PostgreSQL Weekly News</a></li><li><a href="index1835.html?category/Securite">Sécurité</a></li><li><a href="index2251.html?category/Vie-de-l-association">Vie de l'association</a></li><li><a href="index91de.html?category/Vie-du-site">Vie du site</a></li></ul></div><div class="text"><h2>Licence</h2>Tous les articles de ce blog sont disponibles sous la <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/">license Creative Commons BY-NC-SA 3.0</a>.</div>    </div> <!-- End #blognav -->
+  
+    <div id="blogextra">
+      <div class="syndicate"><h2>S'abonner</h2><ul><li><a type="application/atom+xml" href="index4ca3.php?feed/atom" title="Fil Atom des billets de ce blog" class="feed">Fil des billets</a></li></ul></div>    </div> <!-- End #blogextra -->
+  </div>
+  </div>
+
+  <div id="pgContentWrap">
+  <div id="pgDownloadsWrap">
+  <div id="content">
+
+  <p id="navlinks">
+  <a href="indexbe33.html?post/drupal/48"
+  title="Le centre informatique de l'Université d'Oxford a migré à PostgreSQL" class="prev">&#171; Le centre informatique de l'Université d'Oxford a</a>
+   <span>-</span> <a href="index9997-2.html?post/drupal/50"
+  title="== PostgreSQL Weekly News - 15 novembre 2004 ==" class="next">== PostgreSQL Weekly News - 15 novembre 2004 == &#187;</a>
+  </p>
+  
+  <div class="post">
+    <h2 id="p49" class="post-title">== Nouvelles Hebdomadaires de PostgreSQL - 9 Novembre 2004 ==</h2>
+    
+    <p class="post-info">Par jca    le mercredi 10 novembre 2004, 10:37        - <a href="index8c6d.html?category/PostgreSQL-Weekly-News">PostgreSQL Weekly News</a>
+        - <a href="index865c.html?post/drupal/49">Lien permanent</a>
+    </p>
+    
+    
+    
+          <div class="post-excerpt"><em>Dans son mail du 9 novembre, Robert Treat nous annonçait ceci :</em><br />
+<p>Avec la résolution des problèmes persistants concernant les
+<em>tablespace</em>, il ne restait plus qu'une paire de points à régler
+concernant Win32 et quelques modifications mineures avant qu'il ne
+soit possible de sortir la version candidate officielle. Une
+discussion sur la liste <tt>hackers</tt> a permis d'établir qu'il sera
+produit une ou plusieurs versions béta qui sera suivie d'un gel.
+Cet événement aura lieu probablement dans le courant de la semaine,
+donc gardez l'oeil ouvert sur l'annonce de la sortie officielle.
+</p>
+<p>
+Comme il est dit au-dessus, le grand changement de la semaine a été
+l'implantation d'un espace de tables (<em>tablespace</em>) par défaut pour GUC dont le but est d'être utilisée implicitement chaque fois qu'il ne sera pas donné de <em>tablespace</em> explicite. Ceci permet de corriger les restaurations de <tt>pg_dump</tt> sur des bases de données avec des implémentations de <em>tablespace</em> différentes. Nous avons
+également pu voir des améliorations du code dans <tt>path.c</tt> et <tt>exec.c</tt>
+afin de prendre en compte les points concernant les disques
+Windows et les spécifications réseau et afin de se débarrasser de
+«&nbsp;.&nbsp;» et de «&nbsp;..&nbsp;» lors de la construction de chemins à partir de
+différents éléments le constituant. Du code a été ajouté à la
+fonction interne <tt>find_my_exec()</tt> afin de lui permettre de résoudre
+les liens symboliques vers leur emplacement réel. Une partie du
+code de <tt>SocAddr_cidr_mask</tt> qui n'était pas portable a été corrigé.
+Un bug dans la commande <tt>REVOKE</tt> dans <tt>ecpg</tt> a été corrigé. Les
+fichiers temporaires dans le paquetage <tt>findoidjoins</tt> des
+contributions sont maintenant créés de manière sécurisée. Quelques
+fichiers additionnels ont été ajoutés dans <tt>dbmirror</tt> afin d'en
+améliorer l'installation. Les paquetages <tt>contrib/xml</tt> et
+<tt>contrib/xml2</tt> ont été modifié afin de prendre en compte les options
+pour <tt>libxml2</tt>. Les commandes <tt>\e</tt> et <tt>\</tt>! de <tt>psql</tt> ont été corrigées pour
+win32. La complétion automatique (tab) pour les arguments de <tt>CREATE
+TABLESPACE</tt> dans <tt>psq</tt>l a été ajoutée. Les messages d'erreur on été
+clarifiés à plusieurs endroits dans le backend et des mises à jour
+de la documentation pour reindex, la configuration en cours de
+fonctionnement, PITR et les variables GUC.
+</p>
+<p>
+L'autre grand sujet de discussion de cette semaine a été la
+retranscription des listes de mails PostgreSQL en newsgroup
+officiels par opposition à la situation actuelle où ils sont
+officieux et que certains serveurs les prennent en compte alors que
+d'autres non. Comme les listes ont toujours été une passerelle vers
+usenet, celà nous offre l'opportunié de se comporter
+de manière civilisée (au sens internaute du terme) tout en ayant un
+faible impact sur les utilisateurs actuels. Si vous souhaitez suivre
+la discussion, vous pouvez lire la «&nbsp;requête de discussion&nbsp;» sur <a href="http://groups.google.com/groups?q=g:thl849962492d&amp;dq=&amp;hl=en&amp;lr=&amp;selm=1099584239.20542%40isc.org">http://groups.google.com/groups?q=g:thl849962492d&amp;dq=&amp;hl=en&amp;lr=&amp;selm=1099584239.20542%40isc.org  </a>
+</p></div>
+        
+    <div class="post-content"><h2>== Nouvelles concernant les produits autour de PostgreSQL ==</h2>
+<p>
+SHSQL - SQL pour les scripts shell LINUX/UNIX<br />
+<a href="http://archives.postgresql.org/pgsql-general/2004-11/msg00142.php">http://archives.postgresql.org/pgsql-general/2004-11/msg00142.php</a>
+</p>
+<h2>== PostgreSQL dans la presse ==</h2>
+<p>
+Les ordinateurs du centre informatique de l'Université d'Oxford
+migrent vers PostgreSQL<br />
+<a href="http://news.zdnet.co.uk/software/applications/0,39020384,39173013,00.htm">http://news.zdnet.co.uk/software/applications/0,39020384,39173013,00.htm</a>
+</p>
+<p>
+L'open source améliore les processus dans les laboratoires de
+retraitement des eaux<br />
+<a href="http://www.tectonic.co.za/view.php?id=377">http://www.tectonic.co.za/view.php?id=377</a>
+</p>
+<p>
+Mathématiques amusantes avec MySQL (blog)<br />
+<a href="http://joseph.randomnetworks.com/archives/2004/11/08/mysqls-funny-math/">http://joseph.randomnetworks.com/archives/2004/11/08/mysqls-funny-math/</a>
+</p>
+<p>
+PostgreSQL et les systèmes de fichiers Linux (blog)<br />
+<a href="http://blog.linuxinternet.org/archives/2004/11/03/postgresql-and-linux-filesystems/">http://blog.linuxinternet.org/archives/2004/11/03/postgresql-and-linux-filesystems/</a>
+</p>
+<h2>== Evénements autour de PostgreSQL ==</h2>
+<p>
+PostgreSQL à la conférence CaFeLUG : Buenos Aires, Argentine: 12 Novembre<br />
+Christian Kuroki parlera des fonctionnalités et des bénéfices de
+PostgreSQL<br />
+<a href="http://www.cafelug.org.ar/">http://www.cafelug.org.ar</a>
+</p>
+<p>
+Vanmtagem + Developers 2004: Lisbonne, Portugal: du 15 au 19 Novembre<br />
+Plusieurs sessions sur PostgreSQL, modélisation relationnelle, SQL
+et plus<br />
+<a href="http://www.v-developers.com/">http://www.v-developers.com</a>
+</p>
+<p>
+Séminaire PostgreSQL : Ankara, Turquie: 1er December<br />
+Devrim Gunduz présentera un séminaore sur les futures
+fonctionnalités de PostgreSQL 8.0<br />
+<a href="http://seminer.linux.org.tr/">http://seminer.linux.org.tr</a>
+</p>
+<p>
+== Nouvelles hebdomadaires de PostgreSQL Weekly - 9 Novembre 2004 ==
+Sur le Web:<br />
+<a href="http://www.postgresql.org/">http://www.postgresql.org</a>
+</p></div>
+
+      </div>
+
+  
+
+    
+  
+    
+    
+    </div>
+</div> <!-- End #main -->
+
+</div> <!-- End #wrapper -->
+
+<div id="pgFooter">
+  <p>Propulsé par <a href="http://dotclear.org/">Dotclear</a></p>
+</div>
+
+</div> <!-- End #page -->
+</body>
+
+<!-- Mirrored from blog2.postgresql.fr/index.php?post/drupal/49 by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 May 2020 21:40:20 GMT -->
+</html>

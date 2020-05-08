@@ -1,0 +1,298 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr">
+
+<!-- Mirrored from blog2.postgresql.fr/index.php?post/drupal/215 by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 May 2020 21:40:20 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="MSSmartTagsPreventParsing" content="TRUE" />
+  <meta name="ROBOTS" content="INDEX, FOLLOW" />
+  
+  <title>PGWN - 12 novembre 2006 - PostgreSQLfr.org</title>
+  <meta name="description" lang="fr" content="Nouvelles hebdomadaires de PostgreSQL - 12 Novembre 2006 PostgreSQL 8.2 beta3 réalisé. Merci de la tester. Simon Riggs a initié un fil de discussion sur -hackers sur la fçon de" />
+  <meta name="copyright" content="" />
+  <meta name="author" content="SAS" />
+  <meta name="date" scheme="ISO8601" content="2006-11-14T14:33:00+00:00" />
+  
+  <link rel="schema.dc" href="http://purl.org/dc/elements/1.1/" />
+  <meta name="dc.title" content="PGWN - 12 novembre 2006" />
+  <meta name="dc.description" lang="fr" content="Nouvelles hebdomadaires de PostgreSQL - 12 Novembre 2006 PostgreSQL 8.2 beta3 réalisé. Merci de la tester. Simon Riggs a initié un fil de discussion sur -hackers sur la fçon de" />
+  <meta name="dc.creator" content="SAS" />
+  <meta name="dc.language" content="fr" />
+  <meta name="dc.publisher" content="" />
+  <meta name="dc.rights" content="" />
+  <meta name="dc.date" scheme="ISO8601" content="2006-11-14T14:33:00+00:00" />
+  <meta name="dc.type" content="text" />
+  <meta name="dc.format" content="text/html" />
+  
+  <link rel="top" href="indexd41d.html?" title="Accueil" />
+  <link rel="contents" href="index888d.html?archive" title="Archives" />
+  
+  <link rel="next" href="index0edb.html?post/drupal/219"
+  title="pgAdminIII 1.6" />
+  
+  <link rel="previous" href="index2a13.html?post/drupal/214"
+  title="PostgreSQL 8.2 beta3 et PgAdmin3 1.6 RC2" />
+  
+  <link rel="alternate" type="application/atom+xml" title="Atom 1.0" href="index4ca3.php?feed/atom" />
+  
+  <style type="text/css" media="screen">
+@import url(themes/postgresql/style.css);
+</style>
+<style type="text/css" media="print">
+@import url(themes/default/print.css);
+</style>
+
+<script type="text/javascript" src="themes/default/js/jquery.js"></script>
+<script type="text/javascript" src="themes/default/js/jquery.cookie.js"></script>
+
+  
+  <script type="text/javascript" src="themes/default/js/post.js"></script>
+  <script type="text/javascript">
+  //<![CDATA[
+  var post_remember_str = 'Se souvenir de moi sur ce blog';
+  //]]>
+  </script>
+</head>
+
+<body class="dc-post">
+<div id="page">
+
+
+<div id="top">
+  <div id="pgHeader">
+    <span id="pgHeaderLogoLeft">
+      <a href="index.html" title="PostgreSQL"><img src="https://blog.postgresql.fr/themes/postgresql/img/hdr_left.png" width="230" height="80" alt="PostgreSQL" /></a>
+    </span>
+    <span id="pgHeaderLogoRight">
+      <a href="index.html" title="La base de donnees la plus sophistiquee au monde."><img src="https://blog.postgresql.fr/themes/postgresql/img/hdr_right.png" width="210" height="80" alt="La base de donnees la plus sophistiquee au monde." /></a>
+    </span>
+  </div>
+
+  </div>
+
+<div class="pgTopNav">
+  <div class="pgTopNavLeft"> 
+    <img src="https://blog.postgresql.fr/themes/postgresql/img/nav_lft.png" width="7" height="23" alt="" />
+  </div>
+  <div class="pgTopNavRight">
+    <img src="https://blog.postgresql.fr/themes/postgresql/img/nav_rgt.png" width="7" height="23" alt="" />
+  </div>
+  <ul class="pgTopNavList">
+    <li><a href="https://www.postgresql.fr/" title="Accueil">Accueil</a></li>
+    <li><a href="https://blog.postgresql.fr/" title="Lire les actualités">Actualités</a></li>
+    <li><a href="https://docs.postgresql.fr/" title="Lire la documentation officielle">Documentation</a></li>
+    <li><a href="https://forums.postgresql.fr/" title="Pour poser des questions">Forums</a></li>
+    <li><a href="https://www.postgresql.fr/asso/" title="La vie de l'association">Association</a></li>
+    <li><a href="https://www.postgresql.fr/devel:accueil" title="Informations pour les développeurs/traducteurs">Développeurs</a></li>
+    <li><a href="https://planete.postgresql.fr/" title="La planète francophone sur PostgreSQL">Planète</a></li>
+    <li><a href="https://www.postgresql.fr/support/" title="Support sur PostgreSQL">Support</a></li>
+  </ul>
+</div>
+
+<div id="wrapper">
+
+<div id="pgContent">
+
+  <div id="pgSideWrap">
+  <div id="pgSideNav">
+    <div id="blognav">
+      <div id="search"><h2><label for="q">Rechercher</label></h2><form action="http://blog2.postgresql.fr/index.php?" method="get"><fieldset><p><input type="text" size="10" maxlength="255" id="q" name="q" value="" /> <input class="submit" type="submit" value="ok" /></p></fieldset></form></div><div class="categories"><h2>Catégories</h2><ul><li><a href="index199b.html?category/Articles">Articles</a></li><li><a href="indexb4c6.html?category/Dans-les-bacs">Dans les bacs</a></li><li><a href="index025a.html?category/Evenements">Événements</a></li><li class="category-current"><a href="index8c6d.html?category/PostgreSQL-Weekly-News">PostgreSQL Weekly News</a></li><li><a href="index1835.html?category/Securite">Sécurité</a></li><li><a href="index2251.html?category/Vie-de-l-association">Vie de l'association</a></li><li><a href="index91de.html?category/Vie-du-site">Vie du site</a></li></ul></div><div class="text"><h2>Licence</h2>Tous les articles de ce blog sont disponibles sous la <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/">license Creative Commons BY-NC-SA 3.0</a>.</div>    </div> <!-- End #blognav -->
+  
+    <div id="blogextra">
+      <div class="syndicate"><h2>S'abonner</h2><ul><li><a type="application/atom+xml" href="index4ca3.php?feed/atom" title="Fil Atom des billets de ce blog" class="feed">Fil des billets</a></li></ul></div>    </div> <!-- End #blogextra -->
+  </div>
+  </div>
+
+  <div id="pgContentWrap">
+  <div id="pgDownloadsWrap">
+  <div id="content">
+
+  <p id="navlinks">
+  <a href="index2a13.html?post/drupal/214"
+  title="PostgreSQL 8.2 beta3 et PgAdmin3 1.6 RC2" class="prev">&#171; PostgreSQL 8.2 beta3 et PgAdmin3 1.6 RC2</a>
+   <span>-</span> <a href="index0edb.html?post/drupal/219"
+  title="pgAdminIII 1.6" class="next">pgAdminIII 1.6 &#187;</a>
+  </p>
+  
+  <div class="post">
+    <h2 id="p215" class="post-title">PGWN - 12 novembre 2006</h2>
+    
+    <p class="post-info">Par SAS    le mardi 14 novembre 2006, 14:33        - <a href="index8c6d.html?category/PostgreSQL-Weekly-News">PostgreSQL Weekly News</a>
+        - <a href="index32c4.html?post/drupal/215">Lien permanent</a>
+    </p>
+    
+    
+    
+          <div class="post-excerpt"><p><strong>Nouvelles hebdomadaires de PostgreSQL - 12 Novembre 2006</strong></p>
+<p>
+PostgreSQL 8.2 beta3 réalisé. Merci de la tester.
+</p>
+<p>
+Simon Riggs a initié un fil de discussion sur -hackers sur la fçon de résoudre les problèmes de "hot tables".  Il a également proposé une nouvelle conception. La discussion continue.
+</p>
+<p>
+Lorenzo Alberton a réalisé un mémento pour PostgreSQL.
+<a target="_blank" href="http://www.alberton.info/postgresql_cheat_sheet.html">http://www.alberton.info/postgresql_cheat_sheet.html</a>
+</p></div>
+        
+    <div class="post-content"><strong>Les nouveautés des produits dérivés</strong>
+<ul>
+<li>
+Nairo, www.nairo.eu, est un système de jeu en ligne qui tourne avec Apache, PHP4 et PostgreSQL 8.1.x ou suivant.  Le projet NairoGMS project est conçu pour aider la création de jeuns en ligne. Les mises à jour sont sur le site pgfoundry.
+<a target="_blank" href="http://pgfoundry.org/projects/nairogms/">http://pgfoundry.org/projects/nairogms/</a>
+</li>
+<li>
+Navicat PostgreSQL 7.2.8 pour Windows réalisé.
+<a target="_blank" href="http://pgsql.navicat.com/">http://pgsql.navicat.com/</a>
+</li>
+<li>
+pgAdmin III v1.6 Release Candidate 2 est sorti.
+<a target="_blank" href="http://www.pgadmin.org/download/">http://www.pgadmin.org/download/</a>
+</li>
+<li>
+MicroOLAP PostgresDAC 2.3.6 réalisé.
+<a target="_blank" href="http://microolap.com/products/connectivity/postgresdac/">http://microolap.com/products/connectivity/postgresdac/</a>
+</li>
+<li>
+Continuent.org's Sequoia 3.0 Beta réalisé.
+<a target="_blank" href="http://www.continuent.com/index.php?option=com_content&amp;task=view&amp;id=348&amp;Itemid=88">http://www.continuent.com/index.php?option=com_content&amp;task=view&amp;id=348&amp;Itemid=88</a>
+</li>
+</ul>
+<p><strong>Les jobs PostgreSQL de novembre</strong></p>
+<p>
+<a target="_blank" href="http://archives.postgresql.org/pgsql-jobs/2006-11/threads.php">http://archives.postgresql.org/pgsql-jobs/2006-11/threads.php</a>
+</p>
+<p><strong>PostgreSQL Local</strong></p>
+<p>
+Que du mondial cette semaine.
+</p>
+<p><strong>PostgreSQL dans les média</strong></p>
+<ul>
+<li>
+Planet PostgreSQL:
+<a target="_blank" href="http://www.planetpostgresql.org/">http://www.planetpostgresql.org/</a>
+</li>
+<li>
+General Bits, archives et nouveaux articles&nbsp;:
+<a target="_blank" href="http://www.varlena.com/GeneralBits/">http://www.varlena.com/GeneralBits/</a>
+</li>
+</ul>
+<p><em>
+PostgreSQL Weekly News vous est présenté cette semaine par David Fetter et Dave Page.
+Adaptation francophone de Stéphane Schildknecht.</em>
+</p>
+<p><strong>Correctifs appliqués</strong></p>
+<p>
+Tom Lane a comitté&nbsp;:</p>
+<ul>
+<li>
+la suppression de quelques avertissement de 'variable non initialisée' émis par gcc en -O3 et supérieurs uniquement (probablement parce qu'il incorpore plus de choses). D'après une remarque de Mark Mielke&nbsp;;</li>
+<li>
+la correction de pg_get_serial_sequence(), qui peut retourner, à tort, le nom d'un index sur une colonne de type <em>serial</em> au lieu du nom de la séquence associée. Provient de changements récents dans l'installation des dépendances pour le type serial. D'après le bogue #2732 relevé par Basil Evseenko&nbsp;;</li>
+<li>
+le nettoyage de certaines références qui décrivent, à tort, %p comme un chemin absolu, d'après Simon Riggs&nbsp;;</li>
+<li>
+l'amélioration du formattage de la description des arguments de PQexecParams, d'après Theo Kramer&nbsp;;</li>
+<li>
+la mise en exergue, dans create_function.sgml, du fait que les fonctions immutable et stable ne peuvent modifier la base. xfunc.sgml est assez à jour de ce point de vue, mais cela ne fera pas de mal de le clarifier également&nbsp;;</li>
+<li>
+la correction des erreurs de la colonne key_column_usage.position_in_unique_constraint récemment ajoutée dans  information_schema (d'après un ajout du SQL2003). Le code original échouait si une colonne référencée participait à plus d'une entrée dans pg_constraint. Cela ne fonctionnait pas non plus si un FK reposait directement sur un index unique sans syntaxe de contrainte. Ce cas réside en dehors des spécifications du SQL, mais PG l'a toujours supporté. Il est donc raisonnable qu'information_schema le gère. D'après le bogue #2750 relevé par Stephen Haberman&nbsp;;</li>
+<li>
+un correctif de set_joinrel_size_estimates() qui permet d'estimer la taille des jointures externes avec plus de précision&nbsp;: il faut distinguer les effets des clauses ON propres à la jointure des effets des clauses ajoutées. Cela a fait l'objet d'un hack rapide il y a longtemps. Mais il est temps de mieux faire. D'après un exemple de Thomas Hallgren&nbsp;;</li>
+<li>
+la modification des substituts rename et unlink pour Windows pour imposer un timeout de 30 secondes en lieu et place de tentatives infinies. Modification également de  xlog.c so de façon à délier un vieux segment xlog qu'elle ne parviendrait pas à renommer vers un slot futur. D'après la discussion du bogue #2712, dans laquelle il apparaissait que Windows peut délier un fichier resté ouvert, mais pas le renommer&nbsp;;</li>
+<li>
+la modification de aset.c pour récupérer explicitement la taille du la prochaine allocation de bloque. Le code précédent reposait sur la taille réellement allouéee au bloc précédant, ce qui donnait de drôles de résultats si la première allocation est plus grande que ALLOC_CHUNK_LIMIT&nbsp;: les allocations suivantes reposaient sur cette taille et non sur la série attendue de tailles de blocs. Relevé lors de l'étude des pertes mémoires par Tatsuo Ishii&nbsp;;</li>
+<li>
+la modification de accumArrayResult() pour doubler la taille des tableaux de travail lorsque plus d'espace est requis, plutôt que de l'augmenter d'une taille fixe. L'ancienne méthode perdait beaucoup de place et de temps lorsque la taille totale était importance. D'après Tatsuo Ishii&nbsp;;</li>
+<li>
+la correction des problèmes de performance de replace_text(), replace_text_regexp(), et text_to_array()&nbsp;: ils avaient tous un comportement en O(N^2) sur les longues chaînes de caractères en encodage multi-octet, du fait de parcours répétés du texte entré pour identifier les sous-chaînes dont les positions et longueurs étaient calculées en caractères et non en octets. Correction par la recherche dans le code source des positions par pointeur de caractère et et par comptage de caractères. Suppression d'opération spalloc inutiles. text_to_array() était la cause de fuite mémoire par omission de pfree sur les chaînes temporaires. D'après Tatsuo Ishii&nbsp;;</li>
+<li>
+la correction du bogue #2694 qui concerne une construction ARRAY[] dont les entrées sont composées de sous-tableaux vides. Après discussion, si toutes les entrées sont composées de tableaux vides, le résultat doit être un tableau vide, tandis qu'un mélange de tableaux vides et pleins doit (ce qui est le cas) retourner une erreur. Dans la branche arrière, la construction est stricte&nbsp;: toute entrée NULL conduit immédiatement à une sortie NULL. Du coup, j'ai laissé ce comportement. HEAD ignorait tout simplement les sous-tableaux NULL, ce qui ne se voyait pas vraiment. Devant l'absence de meilleure idée, il traite maintenant les sous-tableaux NULL comme les vides&nbsp;;</li>
+<li>
+la suppression du code de débogage spécifique à Windows&nbsp;; il semble que le problème avec fopen() qui n'utilise pas FILE_SHARE_DELETE était en fait le bogue que nous cherchions&amp;nbp;;</li>
+<li>
+la mise à jour des notes de version en préparation pour la RC1&nbsp;;</li>
+<li>
+la retour à la méthode pre-8.2 method de test de libm, à savoir toujours l'inclure si le lien est correct. Il semble trop risqué d'assumer que les fonctions standard telles que pow() ne sont pas reconnues comme particulière par le compilateur. D'après le rapport de Andreas Lange dont la construction a échoué avec le comilateur Solaris cc avec l'option -fast. Même si nous ne la considérons pas comme une option supportée, je crains que de tels problèmes ne surviennent avec d'autres comilateurs&nbsp;;</li>
+<li>
+la suppression de certaines dépendances inutiles de DataDir&nbsp;: quand cela est possible, le backend doit plutôt se servir du paramétrage de répertoire de travail. Quelques travaux sur le style des messages dans contrib/adminpack&nbsp;;</li>
+<li>
+un correctif arrière de la récupération des PITR dans 8.1. Cela devrait être corrigé également dans la version 8.0, mais cela demande un travail de codage trop conséquent, parce que la 8.0 n'a pas de parcours aisé de pg_database sur lequel se baser. Une solution manuelle au problème est possible dans 8.0 (suppression des fichiers pg_internal.init avant de rejouer les WAL), ce qui peut représenter une réponse suffisante&nbsp;;</li>
+<li>
+la correction du problème récemment découvert de récupération des PITR&nbsp;: la sauvegarde peut contenir des fichiers d'initialisation (pg_internal.init) relcache bloqués, et il n'y a pas de mécanismes pour les actualiser pendant que les WAL sont rejoués. La solution la plus simple est de supprimer les fichiers d'initialisation après le démarrage, et de laisser le premier backend démarré de chaque base reconstruire le fichier d'initialisation. Simon Riggs et Tom Lane&nbsp;;</li>
+<li>
+la correction des problèmes récemment compris de gestion des XID gelés, en particulier dans les scénarios PITR. Dans les journaux WAL est maintenant tracé le remplacement des vieux XIDs par FrozenTransactionId, de sorte que ce remplacement est assurément propagé aux bases esclaces PITR. De plus, plutôt que de penser que les mises à jour sont préservées, pg_clog n'est pas tronqué tant que toutes les instances d'un XID doivent être remplacées par FrozenTransactionId. Ajout de nouvelles variables GUC et de colonnes pg_autovacuum pour permettre la gestion de la politique de gel, de telle sorte que les utilisateurs puissent modifier la taille de pg_clog en fonction de la taille du travail de gel effectué. Révision du code existant qui impose l'autovacuum des tables qui s'approchent du point de bouclage pour le sécuriser&nbsp;; révision de la logique d'autovacuum pour que le vacuum anti-bouclage intervienne par table et non par base. initdb est forcé du fait de modifications dans les catalogues pg_class, pg_database et pg_autovacuum. Heikki Linnakangas, Simon Riggs et Tom Lane.
+</li>
+</ul>
+<p>
+Neil Conway a commité&nbsp;: </p>
+<ul><li>
+la correction dans le code GIN de plusieurs typos dans les commentaires&nbsp;;</li>
+<li>
+la relecture active du chapitre sur les systèmes de catalogues. Capitalisation du contenu de la colonne "Description", mais suppression du 'point' terminal, d'après la convention en vigueur dans le reste de la documentation. Suppression de la colonne "References" des catalogues qui ne sont pas référencés. Correctifs grammaticaux et de SGML&nbsp;;</li>
+<li>
+de petites améliorations dans la description d'archive_timeout&nbsp;;</li>
+<li>
+de petits nettoyages du code de pgcrypto&nbsp;: puisque les UDF sont déclarés strict, la vérification de la nullité des arguments de la fonction représente du code perdu&nbsp;;</li>
+<li>
+la correction de deux typos dans le README de tsearch2&nbsp;;</li>
+<li>
+la correction d'une fuite mémoire dans psql&nbsp;: nous perdons quelques gestionnaires PGresult si une erreur de connexion survient lors de l'exécution d'une des requêtes de "\d <em>table</em>". Pas grave, mais intéressant à corriger. Correctif de Brendan Jurd&nbsp;;</li>
+<li>
+la suppression d'un vieux commentaire (15 ans) concernant le fonctionnement maintenant bien connu&nbsp;: référencer un paramètre indéfini doit résulter en une erreur, pas NULL&nbsp;;</li>
+<li>
+de petits correctifs à l'authentification LDAP&nbsp;: si une erreur survient, il faut relâcher le gestionnaire LDAP manuellement à l'aide de ldap_unbind(). Ce n'est pas un réel problème dans la pratique, parce qu'une erreur aboutit généralement à la quitter le processus, mais cela peut être corrigé sans trop d'efforts. Au passage, correction d'une erreur dans l'utilisation de snprintf()&nbsp;: le paramètre "size"  de snprintf() est la taille du buffer de destination, incluant l'espace du terminateur NUL. De plus, en fonction de la valeur de NAMEDATALEN, l'ancien code pouvait permettre un dépassement de tampon (buffer overflow).</li>
+</ul>
+<p>
+Michael Meskes a commité&nbsp;:</p>
+<ul><li>
+l'application, dans ecpg, d'un correctif de Peter Harris qui libère la structure auto_mem structure à la connexion.</li>
+</ul>
+<p>
+Peter Sigaev a commité&nbsp;:</p>
+<ul><li>
+un nouveau README pour tsearch2.</li>
+</ul>
+<p><strong>Correctifs rejetés (à ce jour)</strong></p>
+<p>
+Pas de déception cette semaine :-)
+</p>
+<p><strong>Correctifs en attente</strong></p>
+<ul>
+<li>
+Andrew Dunstan a soumis un correctif d'un problème potentiel lorsque des modules chargés par PL/PerlU sont visibles dans le code PL/Perl&nbsp;;</li>
+<li>
+Brendan Jurd a envoyé un correctif qui permet de différencier les déclencheurs actifs de ceux qui sont désactivés avec le \d de psql&nbsp;;</li>
+<li>
+Heikki Linnakangas a envoyé un correctif pour la 8.3 d'optimisation des accès en lecture des tables en CLUSTER contenant de petites colonnes&nbsp;;</li>
+<li>
+Brendan Jurd a envoyé un correctif modifiant le correctif de Guillaume Lelarge pour utiliser IYYY et IDDD pour le formattage ISO des années et semaines&nbsp;;</li>
+<li>
+Magnus Hagander a envoyé un correctif de mise à jour de la FAQ mingw FAQ.</li>
+</ul></div>
+
+      </div>
+
+  
+
+    
+  
+    
+    
+    </div>
+</div> <!-- End #main -->
+
+</div> <!-- End #wrapper -->
+
+<div id="pgFooter">
+  <p>Propulsé par <a href="http://dotclear.org/">Dotclear</a></p>
+</div>
+
+</div> <!-- End #page -->
+</body>
+
+<!-- Mirrored from blog2.postgresql.fr/index.php?post/drupal/215 by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 May 2020 21:40:20 GMT -->
+</html>

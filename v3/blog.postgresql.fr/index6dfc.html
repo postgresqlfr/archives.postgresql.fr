@@ -1,0 +1,272 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr">
+
+<!-- Mirrored from blog2.postgresql.fr/index.php?post/2016/01/05/Nouvelles-hebdomadaires-de-PostgreSQL-3-janvier-2016 by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 May 2020 21:40:19 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="MSSmartTagsPreventParsing" content="TRUE" />
+  <meta name="ROBOTS" content="INDEX, FOLLOW" />
+  
+  <title>Nouvelles hebdomadaires de PostgreSQL - 3 janvier 2016 - PostgreSQLfr.org</title>
+  <meta name="description" lang="fr" content="Les nouveautés des produits dérivés Database Designer pour PostgreSQL 1.11.0 : http://microolap.com/products/database/postgresql-designer/download/ pglogical, un système de" />
+  <meta name="copyright" content="" />
+  <meta name="author" content="chl" />
+  <meta name="date" scheme="ISO8601" content="2016-01-05T21:45:00+01:00" />
+  
+  <link rel="schema.dc" href="http://purl.org/dc/elements/1.1/" />
+  <meta name="dc.title" content="Nouvelles hebdomadaires de PostgreSQL - 3 janvier 2016" />
+  <meta name="dc.description" lang="fr" content="Les nouveautés des produits dérivés Database Designer pour PostgreSQL 1.11.0 : http://microolap.com/products/database/postgresql-designer/download/ pglogical, un système de" />
+  <meta name="dc.creator" content="chl" />
+  <meta name="dc.language" content="fr" />
+  <meta name="dc.publisher" content="" />
+  <meta name="dc.rights" content="" />
+  <meta name="dc.date" scheme="ISO8601" content="2016-01-05T21:45:00+01:00" />
+  <meta name="dc.type" content="text" />
+  <meta name="dc.format" content="text/html" />
+  
+  <link rel="top" href="indexd41d.html?" title="Accueil" />
+  <link rel="contents" href="index888d.html?archive" title="Archives" />
+  
+  <link rel="next" href="indexc1e3.html?post/2016/01/06/PG-Day-France-2016-%C3%A0-Lille-%3A-Appel-%C3%A0-Orateurs"
+  title="PG Day France 2016 à Lille : Appel à Orateurs" />
+  
+  <link rel="previous" href="indexd39a.html?post/2016/01/01/Nouvelles-hebdomadaires-de-PostgreSQL-27-d%C3%A9cembre-2015"
+  title="Nouvelles hebdomadaires de PostgreSQL - 27 décembre 2015" />
+  
+  <link rel="alternate" type="application/atom+xml" title="Atom 1.0" href="index4ca3.php?feed/atom" />
+  
+  <style type="text/css" media="screen">
+@import url(themes/postgresql/style.css);
+</style>
+<style type="text/css" media="print">
+@import url(themes/default/print.css);
+</style>
+
+<script type="text/javascript" src="themes/default/js/jquery.js"></script>
+<script type="text/javascript" src="themes/default/js/jquery.cookie.js"></script>
+
+  
+  <script type="text/javascript" src="themes/default/js/post.js"></script>
+  <script type="text/javascript">
+  //<![CDATA[
+  var post_remember_str = 'Se souvenir de moi sur ce blog';
+  //]]>
+  </script>
+</head>
+
+<body class="dc-post">
+<div id="page">
+
+
+<div id="top">
+  <div id="pgHeader">
+    <span id="pgHeaderLogoLeft">
+      <a href="index.html" title="PostgreSQL"><img src="https://blog.postgresql.fr/themes/postgresql/img/hdr_left.png" width="230" height="80" alt="PostgreSQL" /></a>
+    </span>
+    <span id="pgHeaderLogoRight">
+      <a href="index.html" title="La base de donnees la plus sophistiquee au monde."><img src="https://blog.postgresql.fr/themes/postgresql/img/hdr_right.png" width="210" height="80" alt="La base de donnees la plus sophistiquee au monde." /></a>
+    </span>
+  </div>
+
+  </div>
+
+<div class="pgTopNav">
+  <div class="pgTopNavLeft"> 
+    <img src="https://blog.postgresql.fr/themes/postgresql/img/nav_lft.png" width="7" height="23" alt="" />
+  </div>
+  <div class="pgTopNavRight">
+    <img src="https://blog.postgresql.fr/themes/postgresql/img/nav_rgt.png" width="7" height="23" alt="" />
+  </div>
+  <ul class="pgTopNavList">
+    <li><a href="https://www.postgresql.fr/" title="Accueil">Accueil</a></li>
+    <li><a href="https://blog.postgresql.fr/" title="Lire les actualités">Actualités</a></li>
+    <li><a href="https://docs.postgresql.fr/" title="Lire la documentation officielle">Documentation</a></li>
+    <li><a href="https://forums.postgresql.fr/" title="Pour poser des questions">Forums</a></li>
+    <li><a href="https://www.postgresql.fr/asso/" title="La vie de l'association">Association</a></li>
+    <li><a href="https://www.postgresql.fr/devel:accueil" title="Informations pour les développeurs/traducteurs">Développeurs</a></li>
+    <li><a href="https://planete.postgresql.fr/" title="La planète francophone sur PostgreSQL">Planète</a></li>
+    <li><a href="https://www.postgresql.fr/support/" title="Support sur PostgreSQL">Support</a></li>
+  </ul>
+</div>
+
+<div id="wrapper">
+
+<div id="pgContent">
+
+  <div id="pgSideWrap">
+  <div id="pgSideNav">
+    <div id="blognav">
+      <div id="search"><h2><label for="q">Rechercher</label></h2><form action="http://blog2.postgresql.fr/index.php?" method="get"><fieldset><p><input type="text" size="10" maxlength="255" id="q" name="q" value="" /> <input class="submit" type="submit" value="ok" /></p></fieldset></form></div><div class="categories"><h2>Catégories</h2><ul><li><a href="index199b.html?category/Articles">Articles</a></li><li><a href="indexb4c6.html?category/Dans-les-bacs">Dans les bacs</a></li><li><a href="index025a.html?category/Evenements">Événements</a></li><li class="category-current"><a href="index8c6d.html?category/PostgreSQL-Weekly-News">PostgreSQL Weekly News</a></li><li><a href="index1835.html?category/Securite">Sécurité</a></li><li><a href="index2251.html?category/Vie-de-l-association">Vie de l'association</a></li><li><a href="index91de.html?category/Vie-du-site">Vie du site</a></li></ul></div><div class="text"><h2>Licence</h2>Tous les articles de ce blog sont disponibles sous la <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/">license Creative Commons BY-NC-SA 3.0</a>.</div>    </div> <!-- End #blognav -->
+  
+    <div id="blogextra">
+      <div class="syndicate"><h2>S'abonner</h2><ul><li><a type="application/atom+xml" href="index4ca3.php?feed/atom" title="Fil Atom des billets de ce blog" class="feed">Fil des billets</a></li></ul></div>    </div> <!-- End #blogextra -->
+  </div>
+  </div>
+
+  <div id="pgContentWrap">
+  <div id="pgDownloadsWrap">
+  <div id="content">
+
+  <p id="navlinks">
+  <a href="indexd39a.html?post/2016/01/01/Nouvelles-hebdomadaires-de-PostgreSQL-27-d%C3%A9cembre-2015"
+  title="Nouvelles hebdomadaires de PostgreSQL - 27 décembre 2015" class="prev">&#171; Nouvelles hebdomadaires de PostgreSQL - 27</a>
+   <span>-</span> <a href="indexc1e3.html?post/2016/01/06/PG-Day-France-2016-%C3%A0-Lille-%3A-Appel-%C3%A0-Orateurs"
+  title="PG Day France 2016 à Lille : Appel à Orateurs" class="next">PG Day France 2016 à Lille : Appel à Orateurs &#187;</a>
+  </p>
+  
+  <div class="post">
+    <h2 id="p886" class="post-title">Nouvelles hebdomadaires de PostgreSQL - 3 janvier 2016</h2>
+    
+    <p class="post-info">Par chl    le mardi  5 janvier 2016, 21:45        - <a href="index8c6d.html?category/PostgreSQL-Weekly-News">PostgreSQL Weekly News</a>
+        - <a href="index6dfc.html?post/2016/01/05/Nouvelles-hebdomadaires-de-PostgreSQL-3-janvier-2016">Lien permanent</a>
+    </p>
+    
+    
+    
+          <div class="post-excerpt"><h2>Les nouveaut&eacute;s des produits d&eacute;riv&eacute;s</h2>
+<ul>
+<li>Database Designer pour PostgreSQL 1.11.0&nbsp;: <a target="_blank" href="http://microolap.com/products/database/postgresql-designer/download/">http://microolap.com/products/database/postgresql-designer/download/</a></li>
+<li>pglogical, un syst&egrave;me de r&eacute;plication bas&eacute; sur les WAL logiques&nbsp;: <a target="_blank" href="http://2ndquadrant.com/pglogical">http://2ndquadrant.com/pglogical</a></li>
+</ul>
+<h2>Offres d'emplois autour de PostgreSQL en janvier</h2>
+<ul>
+<li>Internationales : <a target="_blank" href="http://archives.postgresql.org/pgsql-jobs/2016-01/">http://archives.postgresql.org/pgsql-jobs/2016-01/</a></li>
+<li>Francophones : <a target="_blank" href="http://forums.postgresql.fr/viewforum.php?id=4">http://forums.postgresql.fr/viewforum.php?id=4</a></li>
+</ul>
+<h2>PostgreSQL Local</h2>
+<ul>
+<li>PostgreSQL@SCaLE est un &eacute;v&eacute;nement de deux jours avec deux programmes qui aura lieu les 21 et 22 janvier 2016 au Pasadena Convention Center &agrave; l'occasion du SCaLE 14X. <a target="_blank" href="https://www.socallinuxexpo.org/scale/14x/cfp">https://www.socallinuxexpo.org/scale/14x/cfp</a></li>
+<li>FOSDEM PGDay est une conf&eacute;rence d'une journ&eacute;e qui sera tenue avant le FOSDEM &agrave; Bruxelles (Belgique) le 29 janvier 2015. D&eacute;tails et appel &agrave; conf&eacute;renciers ci-apr&egrave;s&nbsp;: <a target="_blank" href="http://fosdem2016.pgconf.eu/">http://fosdem2016.pgconf.eu/</a></li>
+<li>Prague PostgreSQL Developer Day 2016 (P2D2 2016) est une conf&eacute;rence sur deux jours, les 17 et 18 f&eacute;vrier 2016, &agrave; Prague (R&eacute;publique Tch&egrave;que). Site en tch&egrave;que&nbsp;: <a target="_blank" href="http://www.p2d2.cz/">http://www.p2d2.cz/</a></li>
+<li>Le PGday annuel indien se tiendra &agrave; Bangalore (&Eacute;tat du Karnataka en Inde) le 26 f&eacute;vrier 2016. L'appel &agrave; conf&eacute;renciers est lanc&eacute;&nbsp;: <a target="_blank" href="http://pgday.in/">http://pgday.in</a></li>
+<li>La premi&egrave;re conf&eacute;rence PostgreSQL pan-asiatique se tiendra les 16 et 17 mars 2016 &agrave; Singapour. L'appel &agrave; conf&eacute;renciers est ouvert&nbsp;: <a target="_blank" href="http://2016.pgday.asia/">http://2016.pgday.asia/</a></li>
+<li>Le PGDay nordique, une s&eacute;rie de conf&eacute;rences sur une seule journ&eacute;e, aura lieu &agrave; Helsinki (Finlande) le 17 mars 2016. L'appel &agrave; conf&eacute;renciers est lanc&eacute;&nbsp;: <a target="_blank" href="http://2016.nordicpgday.org/">http://2016.nordicpgday.org/</a></li>
+<li>La <em>PGConf US 2016</em> aura lieu les 18, 19 et 20 avril &agrave; New-York. L'appel &agrave; conf&eacute;renciers expire au 31 janvier 2016, 23:59EST&nbsp;: <a target="_blank" href="http://www.pgconf.us/2016/">http://www.pgconf.us/2016/</a></li>
+<li>La <em>PGCon 2016</em> se tiendra du 17 au 21 mai 2016 &agrave; Ottawa. L'appel &agrave; conf&eacute;renciers a &eacute;t&eacute; lanc&eacute;&nbsp;: <a target="_blank" href="http://www.pgcon.org/">http://www.pgcon.org/</a></li>
+</ul>
+<h2>PostgreSQL dans les m&eacute;dia</h2>
+<ul>
+<li>Planet PostgreSQL : <a target="_blank" href="http://planet.postgresql.org/">http://planet.postgresql.org/</a></li>
+<li>Planet PostgreSQLFr : <a target="_blank" href="http://planete.postgresql.fr/">http://planete.postgresql.fr/</a></li>
+</ul>
+<p>PostgreSQL Weekly News / les nouvelles hebdomadaires vous sont offertes cette semaine par David Fetter. Traduction par l'&eacute;quipe PostgreSQLFr sous licence CC BY-NC-SA. La version originale se trouve &agrave; l'adresse suivante : <a target="_blank" href="http://www.postgresql.org/message-id/20160104004346.GH30007@fetter.org">http://www.postgresql.org/message-id/20160104004346.GH30007@fetter.org</a></p>
+<p>Proposez vos articles ou annonces avant dimanche 15:00 (heure du Pacifique). Merci de les envoyer en anglais &agrave; david (a) fetter.org, en allemand &agrave; pwn (a) pgug.de, en italien &agrave; pwn (a) itpug.org et en espagnol &agrave; pwn (a) arpug.com.ar.</p></div>
+        
+    <div class="post-content"><h2>Correctifs appliqu&eacute;s</h2>
+<p>&Atilde;lvaro Herrera pushed:</p>
+<ul>
+<li>Fix translation domain in pg_basebackup. For some reason, we've been overlooking the fact that pg_receivexlog and pg_recvlogical are using wrong translation domains all along, so their output hasn't ever been translated. The right domain is pg_basebackup, not their own executable names. Noticed by Ioseph Kim, who's been working on the Korean translation. Backpatch pg_receivexlog to 9.2 and pg_recvlogical to 9.4. <a target="_blank" href="http://git.postgresql.org/pg/commitdiff/fc995bfdbfa52ddc50a6737ae4cc37be39215dd8">http://git.postgresql.org/pg/commitdiff/fc995bfdbfa52ddc50a6737ae4cc37be39215dd8</a></li>
+<li>doc: pg_committs -&gt; pg_commit_ts. Reported by: Alain Laporte (#13836) <a target="_blank" href="http://git.postgresql.org/pg/commitdiff/151c4ffe41a7a6fc76df373e7bfbbb59e8d694d6">http://git.postgresql.org/pg/commitdiff/151c4ffe41a7a6fc76df373e7bfbbb59e8d694d6</a></li>
+<li>Document brin_summarize_new_pages. Pointer out by Jeff Janes <a target="_blank" href="http://git.postgresql.org/pg/commitdiff/ac443d1034d9888c543ae8147befc51cf4eb7839">http://git.postgresql.org/pg/commitdiff/ac443d1034d9888c543ae8147befc51cf4eb7839</a></li>
+</ul>
+<p>Tom Lane pushed:</p>
+<ul>
+<li>Update documentation about pseudo-types. Tone down an overly strong statement about which pseudo-types PLs are likely to allow. Add "event_trigger" to the list, as well as "pg_ddl_command" in 9.5/HEAD. Back-patch to 9.3 where event_trigger was added. <a target="_blank" href="http://git.postgresql.org/pg/commitdiff/731dfc7d5f07fac2c3c72f47c29a947e363acee9">http://git.postgresql.org/pg/commitdiff/731dfc7d5f07fac2c3c72f47c29a947e363acee9</a></li>
+<li>Fix omission of -X (--no-psqlrc) in some psql invocations. As of commit d5563d7df, psql -c no longer implies -X, but not all of our regression testing scripts had gotten that memo. To ensure consistency of results across different developers, make sure that *all* invocations of psql in all scripts in our tree use -X, even where this is not what previously happened. Michael Paquier and Tom Lane <a target="_blank" href="http://git.postgresql.org/pg/commitdiff/870df2b3b77414a536d6533566628f11f8f309ec">http://git.postgresql.org/pg/commitdiff/870df2b3b77414a536d6533566628f11f8f309ec</a></li>
+<li>Document the exponentiation operator as associating left to right. Common mathematical convention is that exponentiation associates right to left. We aren't going to change the parser for this, but we could note it in the operator's description. (It's already noted in the operator precedence/associativity table, but users might not look there.) Per bug #13829 from Henrik Pauli. <a target="_blank" href="http://git.postgresql.org/pg/commitdiff/54aaafe95f65c95fd9ba085826af87d778c94613">http://git.postgresql.org/pg/commitdiff/54aaafe95f65c95fd9ba085826af87d778c94613</a></li>
+<li>Code and docs review for cube kNN support. Commit 33bd250f6c4cc309f4eeb657da80f1e7743b3e5c could have done with some more review: Adjust coding so that compilers unfamiliar with elog/ereport don't complain about uninitialized values. Fix misuse of PG_GETARG_INT16 to retrieve arguments declared as "integer" at the SQL level. (This was evidently copied from cube_ll_coord and cube_ur_coord, but those were wrong too.) Fix non-style-guide-conforming error messages. Fix underparenthesized if statements, which pgindent would have made a hash of, and remove some unnecessary parens elsewhere. Run pgindent over new code. Revise documentation: repeated accretion of more operators without any rethinking of the text already there had left things in a bit of a mess. Merge all the cube operators into one table and adjust surrounding text appropriately. David Rowley and Tom Lane <a target="_blank" href="http://git.postgresql.org/pg/commitdiff/81ee726d87ec67c4f2846110c99f72e8a20dcd07">http://git.postgresql.org/pg/commitdiff/81ee726d87ec67c4f2846110c99f72e8a20dcd07</a></li>
+<li>Put back one copyObject() in rewriteTargetView(). Commit 6f8cb1e23485bd6d tried to centralize rewriteTargetView's copying of a target view's Query struct. However, it ignored the fact that the jointree-&gt;quals field was used twice. This only accidentally failed to fail immediately because the same ChangeVarNodes mutation is applied in both cases, so that we end up with logically identical expression trees for both uses (and, as the code stands, the second ChangeVarNodes call actually does nothing). However, we end up linking *physically* identical expression trees into both an RTE's securityQuals list and the WithCheckOption list. That's pretty dangerous, mainly because prepsecurity.c is utterly cavalier about further munging such structures without copying them first. There may be no live bug in HEAD as a consequence of the fact that we apply preprocess_expression in between here and prepsecurity.c, and that will make a copy of the tree anyway. Or it may just be that the regression tests happen to not trip over it. (I noticed this only because things fell over pretty badly when I tried to relocate the planner's call of expand_security_quals to before expression preprocessing.) In any case it's very fragile because if anyone tried to make the securityQuals and WithCheckOption trees diverge before we reach preprocess_expression, it would not work. The fact that the current code will preprocess securityQuals and WithCheckOptions lists at completely different times in different query levels does nothing to increase my trust that that can't happen. In view of the fact that 9.5.0 is almost upon us and the aforesaid commit has seen exactly zero field testing, the prudent course is to make an extra copy of the quals so that the behavior is not different from what has been in the field during beta. <a target="_blank" href="http://git.postgresql.org/pg/commitdiff/fd1952575618cacf7afa544d8b89ddb77be9eaee">http://git.postgresql.org/pg/commitdiff/fd1952575618cacf7afa544d8b89ddb77be9eaee</a></li>
+<li>Add some comments about division of labor between rewriter and planner. The rationale for the way targetlist processing is done wasn't clearly stated anywhere, and I for one had forgotten some of the details. Having just painfully re-learned them, add some breadcrumbs for the next person. <a target="_blank" href="http://git.postgresql.org/pg/commitdiff/efe4c9d7049f0bf832b792bfad05c92aaf86aa3c">http://git.postgresql.org/pg/commitdiff/efe4c9d7049f0bf832b792bfad05c92aaf86aa3c</a></li>
+<li>Minor hacking on contrib/cube documentation. Improve markup, particularly of the table of functions; add or improve examples for some of the functions; wordsmith some of the function descriptions. <a target="_blank" href="http://git.postgresql.org/pg/commitdiff/e5e5267a91f4880c121bf50865cbc38078441989">http://git.postgresql.org/pg/commitdiff/e5e5267a91f4880c121bf50865cbc38078441989</a></li>
+<li>Avoid useless truncation attempts during VACUUM. VACUUM can skip heap pages altogether when there's a run of consecutive pages that are all-visible according to the visibility map. This causes it to not update its nonempty_pages count, just as if those pages were empty, which means that at the end we will think they are candidates for deletion. Thus, we may take the table's AccessExclusive lock only to find that no pages are really truncatable. This usually causes no real problems on a master server, thanks to the lock being acquired only conditionally; but on hot-standby servers, the same lock must be acquired unconditionally which can result in unnecessary query cancellations. To improve matters, force examination of the table's last page whenever we reach there with a nonempty_pages count that would allow a truncation attempt. If it's not empty, we'll advance nonempty_pages and thereby prevent the truncation attempt. If we are unable to acquire cleanup lock on that page, there's no need to force it, unless we're doing an anti-wraparound vacuum. We can just check for tuples with a shared buffer lock and then give up. (When we are doing an anti-wraparound vacuum, and decide it's okay to skip the page because it contains no freezable tuples, this patch still improves matters because nonempty_pages is properly updated, which it was not before.) Since only the last page is special-cased in this way, we might attempt a truncation that will release many fewer pages than the normal heuristic would suggest; at worst, only one page would be truncated. But that seems all right, because the situation won't repeat during the next vacuum. The real problem with the old logic is that the useless truncation attempt happens every time we vacuum, so long as the state of the last few dozen pages doesn't change. This is a longstanding deficiency, but since the consequences aren't very severe in most scenarios, I'm not going to risk a back-patch. Jeff Janes and Tom Lane <a target="_blank" href="http://git.postgresql.org/pg/commitdiff/e842908233bb9c5cea0e765fc828b52badd8228e">http://git.postgresql.org/pg/commitdiff/e842908233bb9c5cea0e765fc828b52badd8228e</a></li>
+<li>Dept of second thoughts: the !scan_all exit mustn't increase scanned_pages. In the extreme edge case where contended pages are the only ones that escape being scanned, the previous commit would have allowed us to think that relfrozenxid could be advanced, which is exactly wrong. <a target="_blank" href="http://git.postgresql.org/pg/commitdiff/e5d06f2b12a7c75f2b0c7fd2055a14efaa2b59ec">http://git.postgresql.org/pg/commitdiff/e5d06f2b12a7c75f2b0c7fd2055a14efaa2b59ec</a></li>
+<li>Fix ALTER OPERATOR to update dependencies properly. Fix an oversight in commit 321eed5f0f7563a0: replacing an operator's selectivity functions needs to result in a corresponding update in pg_depend. We have a function that can handle that, but it was not called by AlterOperator(). To fix this without enlarging pg_operator.h's #include list beyond what clients can safely include, split off the function definitions into a new file pg_operator_fn.h, similarly to what we've done for some other catalog header files. It's not entirely clear whether any client-side code needs to include pg_operator.h, but it seems prudent to assume that there is some such code somewhere. <a target="_blank" href="http://git.postgresql.org/pg/commitdiff/0dab5ef39b3d9d86e45bbbb2f6ea60b4f5517d9a">http://git.postgresql.org/pg/commitdiff/0dab5ef39b3d9d86e45bbbb2f6ea60b4f5517d9a</a></li>
+<li>Add a comment noting that FDWs don't have to implement EXCEPT or LIMIT TO. postgresImportForeignSchema pays attention to IMPORT's EXCEPT and LIMIT TO options, but only as an efficiency hack, not for correctness' sake. The FDW documentation does explain that, but someone using postgres_fdw.c as a coding guide might not remember it, so let's add a comment here. Per question from Regina Obe. <a target="_blank" href="http://git.postgresql.org/pg/commitdiff/5f36096b77fe47015cbac130d1a20d089f202a1e">http://git.postgresql.org/pg/commitdiff/5f36096b77fe47015cbac130d1a20d089f202a1e</a></li>
+<li>Add some more defenses against silly estimates to gincostestimate(). A report from Andy Colson showed that gincostestimate() was not being nearly paranoid enough about whether to believe the statistics it finds in the index metapage. The problem is that the metapage stats (other than the pending-pages count) are only updated by VACUUM, and in the worst case could still reflect the index's original empty state even when it has grown to many entries. We attempted to deal with that by scaling up the stats to match the current index size, but if nEntries is zero then scaling it up still gives zero. Moreover, the proportion of pages that are entry pages vs. data pages vs. pending pages is unlikely to be estimated very well by scaling if the index is now orders of magnitude larger than before. We can improve matters by expanding the use of the rule-of-thumb estimates I introduced in commit 7fb008c5ee59b040: if the index has grown by more than a cutoff amount (here set at 4X growth) since VACUUM, then use the rule-of-thumb numbers instead of scaling. This might not be exactly right but it seems much less likely to produce insane estimates. I also improved both the scaling estimate and the rule-of-thumb estimate to account for numPendingPages, since it's reasonable to expect that that is accurate in any case, and certainly pages that are in the pending list are not either entry or data pages. As a somewhat separate issue, adjust the estimation equations that are concerned with extra fetches for partial-match searches. These equations suppose that a fraction partialEntries / numEntries of the entry and data pages will be visited as a consequence of a partial-match search. Now, it's physically impossible for that fraction to exceed one, but our estimate of partialEntries is mostly bunk, and our estimate of numEntries isn't exactly gospel either, so we could arrive at a silly value. In the example presented by Andy we were coming out with a value of 100, leading to insane cost estimates. Clamp the fraction to one to avoid that. Like the previous patch, back-patch to all supported branches; this problem can be demonstrated in one form or another in all of them. <a target="_blank" href="http://git.postgresql.org/pg/commitdiff/3c93a60f6019768f5742b7893a93db93fb67e71f">http://git.postgresql.org/pg/commitdiff/3c93a60f6019768f5742b7893a93db93fb67e71f</a></li>
+<li>Teach flatten_reloptions() to quote option values safely. flatten_reloptions() supposed that it didn't really need to do anything beyond inserting commas between reloption array elements. However, in principle the value of a reloption could be nearly anything, since the grammar allows a quoted string there. Any restrictions on it would come from validity checking appropriate to the particular option, if any. A reloption value that isn't a simple identifier or number could thus lead to dump/reload failures due to syntax errors in CREATE statements issued by pg_dump. We've gotten away with not worrying about this so far with the core-supported reloptions, but extensions might allow reloption values that cause trouble, as in bug #13840 from Kouhei Sutou. To fix, split the reloption array elements explicitly, and then convert any value that doesn't look like a safe identifier to a string literal. (The details of the quoting rule could be debated, but this way is safe and requires little code.) While we're at it, also quote reloption names if they're not safe identifiers; that may not be a likely problem in the field, but we might as well try to be bulletproof here. It's been like this for a long time, so back-patch to all supported branches. Kouhei Sutou, adjusted some by me <a target="_blank" href="http://git.postgresql.org/pg/commitdiff/c7e27becd2e6eb93b20965b9f22701eaad42a764">http://git.postgresql.org/pg/commitdiff/c7e27becd2e6eb93b20965b9f22701eaad42a764</a></li>
+<li>Update copyright for 2016 Manually fix some copyright lines missed by the automated script. <a target="_blank" href="http://git.postgresql.org/pg/commitdiff/ad08bf5c8b96c2a3a70d96f5be1c04cb83b4ed6e">http://git.postgresql.org/pg/commitdiff/ad08bf5c8b96c2a3a70d96f5be1c04cb83b4ed6e</a></li>
+<li>Update copyright for 2016 On closer inspection, the reason copyright.pl was missing files is that it is looking for 'Copyright (c)' and they had 'Copyright (C)'. Fix that, and update a couple more that grepping for that revealed. <a target="_blank" href="http://git.postgresql.org/pg/commitdiff/48c9f2889a4ad25a771d13b88f2778a306f2d970">http://git.postgresql.org/pg/commitdiff/48c9f2889a4ad25a771d13b88f2778a306f2d970</a></li>
+<li>Make copyright.pl cope with nonstandard case choices in copyright notices. The need for this is shown by the files it missed in Bruce's recent run. I fixed it so that it will actually adjust the case when needed. In passing, also make it skip .po files, since those will just get overwritten anyway from the translation repository. <a target="_blank" href="http://git.postgresql.org/pg/commitdiff/de7c8dbea1a17a0e1709c4b12371615d28e21c13">http://git.postgresql.org/pg/commitdiff/de7c8dbea1a17a0e1709c4b12371615d28e21c13</a></li>
+<li>Adjust back-branch release note description of commits a2a718b22 et al. As pointed out by Michael Paquier, recovery_min_apply_delay didn't exist in 9.0-9.3, making the release note text not very useful. Instead make it talk about recovery_target_xid, which did exist then. 9.0 is already out of support, but we can fix the text in the newer branches' copies of its release notes. <a target="_blank" href="http://git.postgresql.org/pg/commitdiff/df35af2ca7b5545d32b978a88b665bac2b9fa638">http://git.postgresql.org/pg/commitdiff/df35af2ca7b5545d32b978a88b665bac2b9fa638</a></li>
+<li>Fix overly-strict assertions in spgtextproc.c. spg_text_inner_consistent is capable of reconstructing an empty string to pass down to the next index level; this happens if we have an empty string coming in, no prefix, and a dummy node label. (In practice, what is needed to trigger that is insertion of a whole bunch of empty-string values.) Then, we will arrive at the next level with in-&gt;level == 0 and a non-NULL (but zero length) in-&gt;reconstructedValue, which is valid but the Assert tests weren't expecting it. Per report from Andreas Seltenreich. This has no impact in non-Assert builds, so should not be a problem in production, but back-patch to all affected branches anyway. In passing, remove a couple of useless variable initializations and shorten the code by not duplicating DatumGetPointer() calls. <a target="_blank" href="http://git.postgresql.org/pg/commitdiff/7157fe80f42476db249e062b4f6eef6a3994b234">http://git.postgresql.org/pg/commitdiff/7157fe80f42476db249e062b4f6eef6a3994b234</a></li>
+<li>Teach pg_dump to quote reloption values safely. Commit c7e27becd2e6eb93 fixed this on the backend side, but we neglected the fact that several code paths in pg_dump were printing reloptions values that had not gotten massaged by ruleutils. Apply essentially the same quoting logic in those places, too. <a target="_blank" href="http://git.postgresql.org/pg/commitdiff/b416c0bb622ce5d33fdbec3bbce00451132f10ec">http://git.postgresql.org/pg/commitdiff/b416c0bb622ce5d33fdbec3bbce00451132f10ec</a></li>
+<li>Fix treatment of *lpNumberOfBytesRecvd == 0: that's a completion condition. pgwin32_recv() has treated a non-error return of zero bytes from WSARecv() as being a reason to block ever since the current implementation was introduced in commit a4c40f140d23cefb. However, so far as one can tell from Microsoft's documentation, that is just wrong: what it means is graceful connection closure (in stream protocols) or receipt of a zero-length message (in message protocols), and neither case should result in blocking here. The only reason the code worked at all was that control then fell into the retry loop, which did *not* treat zero bytes specially, so we'd get out after only wasting some cycles. But as of 9.5 we do not normally reach the retry loop and so the bug is exposed, as reported by Shay Rojansky and diagnosed by Andres Freund. Remove the unnecessary test on the byte count, and rearrange the code in the retry loop so that it looks identical to the initial sequence. Back-patch to 9.5. The code is wrong all the way back, AFAICS, but since it's relatively harmless in earlier branches we'll leave it alone. <a target="_blank" href="http://git.postgresql.org/pg/commitdiff/90e61df8130dc7051a108ada1219fb0680cb3eb6">http://git.postgresql.org/pg/commitdiff/90e61df8130dc7051a108ada1219fb0680cb3eb6</a></li>
+<li>Do a final round of copy-editing on the 9.5 release notes. <a target="_blank" href="http://git.postgresql.org/pg/commitdiff/027989197aab9e555328721b003ebd1839a16704">http://git.postgresql.org/pg/commitdiff/027989197aab9e555328721b003ebd1839a16704</a></li>
+<li>Do some copy-editing on the docs for replication origins. Minor grammar and markup improvements. <a target="_blank" href="http://git.postgresql.org/pg/commitdiff/c6aeba353a15d71f584488a7482fb88337f843e3">http://git.postgresql.org/pg/commitdiff/c6aeba353a15d71f584488a7482fb88337f843e3</a></li>
+<li>Guard against null arguments in binary_upgrade_create_empty_extension(). The CHECK_IS_BINARY_UPGRADE macro is not sufficient security protection if we're going to dereference pass-by-reference arguments before it. But in any case we really need to explicitly check PG_ARGISNULL for all the arguments of a non-strict function, not only the ones we expect null values for. Oversight in commits 30982be4e5019684e1772dd9170aaa53f5a8e894 and f92fc4c95ddcc25978354a8248d3df22269201bc. Found by Andreas Seltenreich. (The other usages in pg_upgrade_support.c seem safe.) <a target="_blank" href="http://git.postgresql.org/pg/commitdiff/939d10cd8711fdeb7f0ff62c9c6b08e3eddbba3e">http://git.postgresql.org/pg/commitdiff/939d10cd8711fdeb7f0ff62c9c6b08e3eddbba3e</a></li>
+</ul>
+<p>Joe Conway pushed:</p>
+<ul>
+<li>Rename (new|old)estCommitTs to (new|old)estCommitTsXid. The variables newestCommitTs and oldestCommitTs sound as if they are timestamps, but in fact they are the transaction Ids that correspond to the newest and oldest timestamps rather than the actual timestamps. Rename these variables to reflect that they are actually xids: to wit newestCommitTsXid and oldestCommitTsXid respectively. Also modify related code in a similar fashion, particularly the user facing output emitted by pg_controldata and pg_resetxlog. Complaint and patch by me, review by Tom Lane and Alvaro Herrera. Backpatch to 9.5 where these variables were first introduced. <a target="_blank" href="http://git.postgresql.org/pg/commitdiff/241448b23adf3432988f2b4012ff90a338b4d0bf">http://git.postgresql.org/pg/commitdiff/241448b23adf3432988f2b4012ff90a338b4d0bf</a></li>
+</ul>
+<p>Peter Eisentraut pushed:</p>
+<ul>
+<li>doc: Add index entries and better documentation link for Linux OOM <a target="_blank" href="http://git.postgresql.org/pg/commitdiff/805ac78aaba1c5f71e878c3bc50bec8b82e076bb">http://git.postgresql.org/pg/commitdiff/805ac78aaba1c5f71e878c3bc50bec8b82e076bb</a></li>
+<li>doc: Remove redundant duplicate URLs from ulink elements. Empty ulink elements default to displaying the URL, so there is no need to specify the URL again. This was already done for most occurrences, but some cases didn't follow this convention. <a target="_blank" href="http://git.postgresql.org/pg/commitdiff/253de19b8414b8b91e0fd710c2b492dc6375f9fa">http://git.postgresql.org/pg/commitdiff/253de19b8414b8b91e0fd710c2b492dc6375f9fa</a></li>
+</ul>
+<p>Noah Misch pushed:</p>
+<ul>
+<li>Fix comments about WAL rule "write xlog before data" versus pg_multixact. Recovery does not achieve its goal of zeroing all pg_multixact entries whose accompanying WAL records never reached disk. Remove that claim and justify its expendability. Detail the need for TrimMultiXact(), which has little in common with the TrimCLOG() rationale. Merge two tightly-related comments. Stop presenting pg_multixact as specific to heap_lock_tuple(); PostgreSQL 9.3 extended its use to heap_update(). Noticed while investigating a report from Andres Freund. <a target="_blank" href="http://git.postgresql.org/pg/commitdiff/3cd1ba147e5619199914e5b71e0edbd188a763d2">http://git.postgresql.org/pg/commitdiff/3cd1ba147e5619199914e5b71e0edbd188a763d2</a></li>
+<li>Cover heap_page_prune_opt()'s cleanup lock tactic in README. Jeff Janes, reviewed by Jim Nasby. <a target="_blank" href="http://git.postgresql.org/pg/commitdiff/dfcd9cb30237f882b7308bdcbfb0318b22b1e224">http://git.postgresql.org/pg/commitdiff/dfcd9cb30237f882b7308bdcbfb0318b22b1e224</a></li>
+</ul>
+<p>Bruce Momjian pushed:</p>
+<ul>
+<li>Update copyright for 2016 Backpatch certain files through 9.1 <a target="_blank" href="http://git.postgresql.org/pg/commitdiff/ee943004466418595363d567f18c053bae407792">http://git.postgresql.org/pg/commitdiff/ee943004466418595363d567f18c053bae407792</a></li>
+</ul>
+<h2>Correctifs rejet&eacute;s (&agrave; ce jour)</h2>
+<p>No one was disappointed this week :-)</p>
+<h2>Correctifs en attente</h2>
+<p>Peter Geoghegan sent in another revision of a patch to use quicksort when performing external sorts.</p>
+<p>Jeff Janes sent in another revision of a patch to add a gin_clean_pending_list() function.</p>
+<p>David Rowley sent in two more revisions of a patch to fix some typos.</p>
+<p>Grzegorz Sampolski sent in a patch to add rhost as an option for PAM auth.</p>
+<p>Haribabu Kommi and Alexander Shulgin traded patches to add a pg_hba_lookup() function.</p>
+<p>Dmitry Ivanov sent in a patch to add an array_elemtype() function.</p>
+<p>Aleksander Alekseev sent in three more revisions of a patch to fix lock contention for HASHHDR.mutex.</p>
+<p>Andreas Karlsson sent in a patch to implement tab completion in psql for COPY with a query.</p>
+<p>Joe Conway sent in another revision of a patch to expose pg_controldata and pg_config as functions.</p>
+<p>Haribabu Kommi sent in another revision of a patch to implement multi-tenancy with RLS.</p>
+<p>Thomas Munro sent in another revision of a patch to implement causal reads.</p>
+<p>Tom Lane sent in a patch to better detail logging for password auth failures.</p>
+<p>Michael Paquier sent in three revisions of a patch to add support for a case-sensitive comparison facility to psql's tab completion.</p>
+<p>Bruce Momjian sent in a patch to ensure that the correct .h files are installed on Windows.</p>
+<p>Amit Kapila sent in two more revisions of a patch to refactor LWLock tranches.</p>
+<p>Andreas Karlsson sent in a patch to improve psql's tab completion for FDW DDL.</p>
+<p>Stas Kelvich sent in another revision of a patch to add Tsvector editing functions.</p>
+<p>Pavel St&Auml;&rsaquo;hule sent in another revision of a patch to add a custom function for converting human-readable sizes to bytes.</p>
+<p>&Atilde;lvaro Herrera sent in another revision of a patch to implement column stores.</p>
+<p>Corey Huinker sent in another revision of a patch to allow FETCH to be limited by a specification measured in bytes rather than rows.</p>
+<p>Tom Lane sent in a patch to improve the rows estimate for BRIN indexes.</p>
+<p>Pavel St&Auml;&rsaquo;hule sent in another revision of a patch to make a PL/PythonU version of ereport().</p>
+<p>Dilip Kumar sent in another revision of a patch to scale relation extensibility.</p>
+<p>David Steele sent in a patch to add a pg_audit extension.</p>
+<p>Tomas Vondra sent in another revision of a patch to postpone building buckets to the end of Hash (in HashJoin).</p>
+<p>Tomas Vondra sent in another revision of a patch to add a Bloom filter in Hash Joins with batches.</p>
+<p>Tomas Vondra sent in a patch to extend the hyperloglog API by adding initHyperLogLogError() and freeHyperLogLog().</p>
+<p>Petr Jel&Atilde;&shy;nek sent in a patch to add pglogical, a logical replication contrib module.</p>
+<p>Petr Jel&Atilde;&shy;nek sent in another revision of a patch to add a sequence access method.</p>
+<p>Petr Jel&Atilde;&shy;nek sent in a patch to fix a copy-paste error in the logical decoding docs.</p>
+<p>Petr Jel&Atilde;&shy;nek sent in a patch to implement generic WAL logical messages.</p>
+<p>Simon Riggs sent in a WIP patch to implement failover slots.</p>
+<p>Michael Paquier sent in another revision of a patch to fix how pg_dump locks tables.</p>
+<p>Jim Nasby sent in two revisions of a patch to improve error reporting in format().</p>
+<p>Amit Kapila and Andres Freund traded patches to fix an issue with backend processes not terminating properly.</p>
+<p>SAWADA Masahiko sent in another revision of a patch to support N synchronous standby servers for N&gt;1.</p>
+<p>Simon Riggs sent in another revision of a patch to avoid standby pin scans.</p>
+<p>Andreas Karlsson sent in two approaches to a patch to fix some infelicities between psql's \x auto feature and EXPLAIN.</p>
+<p>Pavel St&Auml;&rsaquo;hule sent in another revision of a patch to implement a num_nulls() function.</p></div>
+
+      </div>
+
+  
+
+    
+  
+    
+    
+    </div>
+</div> <!-- End #main -->
+
+</div> <!-- End #wrapper -->
+
+<div id="pgFooter">
+  <p>Propulsé par <a href="http://dotclear.org/">Dotclear</a></p>
+</div>
+
+</div> <!-- End #page -->
+</body>
+
+<!-- Mirrored from blog2.postgresql.fr/index.php?post/2016/01/05/Nouvelles-hebdomadaires-de-PostgreSQL-3-janvier-2016 by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 May 2020 21:40:19 GMT -->
+</html>

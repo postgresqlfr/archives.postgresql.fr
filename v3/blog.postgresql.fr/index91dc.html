@@ -1,0 +1,204 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr">
+
+<!-- Mirrored from blog2.postgresql.fr/index.php?post/drupal/165 by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 May 2020 21:40:20 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="MSSmartTagsPreventParsing" content="TRUE" />
+  <meta name="ROBOTS" content="INDEX, FOLLOW" />
+  
+  <title>== PostgreSQL Weekly News - 26 février 2006 == - PostgreSQLfr.org</title>
+  <meta name="description" lang="fr" content="Il y a eu des discussions bien animées à propos du back-end (serveur) cette semaine. Y ont pris part de nouvelles personnes et d'autres de retour après une absence prolongée. ==" />
+  <meta name="copyright" content="" />
+  <meta name="author" content="Jean-Paul Argudo" />
+  <meta name="date" scheme="ISO8601" content="2006-03-09T08:14:00+00:00" />
+  
+  <link rel="schema.dc" href="http://purl.org/dc/elements/1.1/" />
+  <meta name="dc.title" content="== PostgreSQL Weekly News - 26 février 2006 ==" />
+  <meta name="dc.description" lang="fr" content="Il y a eu des discussions bien animées à propos du back-end (serveur) cette semaine. Y ont pris part de nouvelles personnes et d'autres de retour après une absence prolongée. ==" />
+  <meta name="dc.creator" content="Jean-Paul Argudo" />
+  <meta name="dc.language" content="fr" />
+  <meta name="dc.publisher" content="" />
+  <meta name="dc.rights" content="" />
+  <meta name="dc.date" scheme="ISO8601" content="2006-03-09T08:14:00+00:00" />
+  <meta name="dc.type" content="text" />
+  <meta name="dc.format" content="text/html" />
+  
+  <link rel="top" href="indexd41d.html?" title="Accueil" />
+  <link rel="contents" href="index888d.html?archive" title="Archives" />
+  
+  <link rel="next" href="index9f42.html?post/drupal/166"
+  title="== PostgreSQL Weekly News - 5 mars 2006 ==" />
+  
+  <link rel="previous" href="index47ac.html?post/drupal/163"
+  title="Réussir des petits gateaux en forme d'éléphant" />
+  
+  <link rel="alternate" type="application/atom+xml" title="Atom 1.0" href="index4ca3.php?feed/atom" />
+  
+  <style type="text/css" media="screen">
+@import url(themes/postgresql/style.css);
+</style>
+<style type="text/css" media="print">
+@import url(themes/default/print.css);
+</style>
+
+<script type="text/javascript" src="themes/default/js/jquery.js"></script>
+<script type="text/javascript" src="themes/default/js/jquery.cookie.js"></script>
+
+  
+  <script type="text/javascript" src="themes/default/js/post.js"></script>
+  <script type="text/javascript">
+  //<![CDATA[
+  var post_remember_str = 'Se souvenir de moi sur ce blog';
+  //]]>
+  </script>
+</head>
+
+<body class="dc-post">
+<div id="page">
+
+
+<div id="top">
+  <div id="pgHeader">
+    <span id="pgHeaderLogoLeft">
+      <a href="index.html" title="PostgreSQL"><img src="https://blog.postgresql.fr/themes/postgresql/img/hdr_left.png" width="230" height="80" alt="PostgreSQL" /></a>
+    </span>
+    <span id="pgHeaderLogoRight">
+      <a href="index.html" title="La base de donnees la plus sophistiquee au monde."><img src="https://blog.postgresql.fr/themes/postgresql/img/hdr_right.png" width="210" height="80" alt="La base de donnees la plus sophistiquee au monde." /></a>
+    </span>
+  </div>
+
+  </div>
+
+<div class="pgTopNav">
+  <div class="pgTopNavLeft"> 
+    <img src="https://blog.postgresql.fr/themes/postgresql/img/nav_lft.png" width="7" height="23" alt="" />
+  </div>
+  <div class="pgTopNavRight">
+    <img src="https://blog.postgresql.fr/themes/postgresql/img/nav_rgt.png" width="7" height="23" alt="" />
+  </div>
+  <ul class="pgTopNavList">
+    <li><a href="https://www.postgresql.fr/" title="Accueil">Accueil</a></li>
+    <li><a href="https://blog.postgresql.fr/" title="Lire les actualités">Actualités</a></li>
+    <li><a href="https://docs.postgresql.fr/" title="Lire la documentation officielle">Documentation</a></li>
+    <li><a href="https://forums.postgresql.fr/" title="Pour poser des questions">Forums</a></li>
+    <li><a href="https://www.postgresql.fr/asso/" title="La vie de l'association">Association</a></li>
+    <li><a href="https://www.postgresql.fr/devel:accueil" title="Informations pour les développeurs/traducteurs">Développeurs</a></li>
+    <li><a href="https://planete.postgresql.fr/" title="La planète francophone sur PostgreSQL">Planète</a></li>
+    <li><a href="https://www.postgresql.fr/support/" title="Support sur PostgreSQL">Support</a></li>
+  </ul>
+</div>
+
+<div id="wrapper">
+
+<div id="pgContent">
+
+  <div id="pgSideWrap">
+  <div id="pgSideNav">
+    <div id="blognav">
+      <div id="search"><h2><label for="q">Rechercher</label></h2><form action="http://blog2.postgresql.fr/index.php?" method="get"><fieldset><p><input type="text" size="10" maxlength="255" id="q" name="q" value="" /> <input class="submit" type="submit" value="ok" /></p></fieldset></form></div><div class="categories"><h2>Catégories</h2><ul><li><a href="index199b.html?category/Articles">Articles</a></li><li><a href="indexb4c6.html?category/Dans-les-bacs">Dans les bacs</a></li><li><a href="index025a.html?category/Evenements">Événements</a></li><li class="category-current"><a href="index8c6d.html?category/PostgreSQL-Weekly-News">PostgreSQL Weekly News</a></li><li><a href="index1835.html?category/Securite">Sécurité</a></li><li><a href="index2251.html?category/Vie-de-l-association">Vie de l'association</a></li><li><a href="index91de.html?category/Vie-du-site">Vie du site</a></li></ul></div><div class="text"><h2>Licence</h2>Tous les articles de ce blog sont disponibles sous la <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/">license Creative Commons BY-NC-SA 3.0</a>.</div>    </div> <!-- End #blognav -->
+  
+    <div id="blogextra">
+      <div class="syndicate"><h2>S'abonner</h2><ul><li><a type="application/atom+xml" href="index4ca3.php?feed/atom" title="Fil Atom des billets de ce blog" class="feed">Fil des billets</a></li></ul></div>    </div> <!-- End #blogextra -->
+  </div>
+  </div>
+
+  <div id="pgContentWrap">
+  <div id="pgDownloadsWrap">
+  <div id="content">
+
+  <p id="navlinks">
+  <a href="index47ac.html?post/drupal/163"
+  title="Réussir des petits gateaux en forme d'éléphant" class="prev">&#171; Réussir des petits gateaux en forme d'éléphant</a>
+   <span>-</span> <a href="index9f42.html?post/drupal/166"
+  title="== PostgreSQL Weekly News - 5 mars 2006 ==" class="next">== PostgreSQL Weekly News - 5 mars 2006 == &#187;</a>
+  </p>
+  
+  <div class="post">
+    <h2 id="p165" class="post-title">== PostgreSQL Weekly News - 26 février 2006 ==</h2>
+    
+    <p class="post-info">Par Jean-Paul Argudo    le jeudi  9 mars 2006, 08:14        - <a href="index8c6d.html?category/PostgreSQL-Weekly-News">PostgreSQL Weekly News</a>
+        - <a href="index91dc.html?post/drupal/165">Lien permanent</a>
+    </p>
+    
+    
+    
+          <div class="post-excerpt"><p>
+Il y a eu des discussions bien animées à propos du <em>back-end</em> (serveur) cette semaine. Y ont pris part de nouvelles personnes et d'autres de retour après une absence prolongée.</p></div>
+        
+    <div class="post-content"><h3>== Nouveaux produits autour de PostgreSQL ==</h3>
+<p>
+Sortie de l'Advanced Server 8.1 d'EnterpriseDB:
+<a href="http://www.enterprisedb.com/news_events/press_releases/02_14_06b.do" target="_blank">http://www.enterprisedb.com/news_events/press_releases/02_14_06b.do</a>
+</p>
+<p>
+Sortie de Mindscript Open Source 0.97, qui supporte PostgreSQL à présent:
+<a href="http://mindscript.sourceforge.net/" target="_blank">http://mindscript.sourceforge.net/</a>
+</p>
+<p>
+Sortie de DBD::Pg 1.44, avec un échappement de caractères amélioré et une méthode do() plus rapide:
+<a href="http://search.cpan.org/~dbdpg/DBD-Pg-1.44/" target="_blank">http://search.cpan.org/~dbdpg/DBD-Pg-1.44/</a>
+</p>
+<p>
+Sortie de PostgreSQLDirect .NET 2.50 Beta:
+<a href="http://www.crlab.com/pgsqlnet" target="_blank">http://www.crlab.com/pgsqlnet</a>
+</p>
+<p>
+Sortie de pgEdit 1.2 beta:
+<a href="http://pgedit.com/beta/pgedit" target="_blank">http://pgedit.com/beta/pgedit</a>
+</p>
+<p>
+Sortie de PyGreSQL v3.8:
+<a href="ftp://ftp.postgresql.org/pub/distrib/PyGreSQL-3.8.tgz" target="_blank">ftp://ftp.postgresql.org/pub/distrib/PyGreSQL-3.8.tgz</a>
+</p>
+<h3>== PostgreSQL Local ==</h3>
+<p>
+Volkan Yazici a écrit un livre en turc sur PostgreSQL&nbsp;:
+<a href="http://www.students.itu.edu.tr/~yazicivo/doc/postgresql-ile-programlama.html" target="_blank">http://www.students.itu.edu.tr/~yazicivo/doc/postgresql-ile-programlama.html</a>
+</p>
+<h3>== PostgreSQL dans les News ==</h3>
+<p>
+Pervasive a créé un site communautaire autour de PostgreSQL:
+<a href="http://biz.yahoo.com/prnews/060222/daw017.html?.v=41" target="_blank">http://biz.yahoo.com/prnews/060222/daw017.html?.v=41</a>
+<a href="http://www.pervasivepostgres.com/postgresql/pgd/index.asp" target="_blank">http://www.pervasivepostgres.com/postgresql/pgd/index.asp</a>
+</p>
+<p>
+Simon Riggs donnera une conférence au UKUUG LISA 2006 à Durham (Angleterre) le mardi 23 mars, de 9h à 10h&nbsp;:
+«&nbsp;Administration de grosses bases de données sous PostgreSQL&nbsp;»:
+<a href="http://www.ukuug.org/events/spring2006/programme/" target="_blank">http://www.ukuug.org/events/spring2006/programme/</a>
+</p>
+<p>
+Planet PostgreSQL: <a href="http://www.planetpostgresql.org/" target="_blank">http://www.planetpostgresql.org/</a>
+</p>
+<p>
+General Bits, publié tous les mardi: <a href="http://www.varlena.com/GeneralBits/" target="_blank">http://www.varlena.com/GeneralBits/</a>
+</p>
+<p>
+PostgreSQL Weekly News a été rédigé cette semaine par David Fetter.
+<em>(Traduit de l'Anglais par Jean-Paul Argudo)</em>
+</p></div>
+
+      </div>
+
+  
+
+    
+  
+    
+    
+    </div>
+</div> <!-- End #main -->
+
+</div> <!-- End #wrapper -->
+
+<div id="pgFooter">
+  <p>Propulsé par <a href="http://dotclear.org/">Dotclear</a></p>
+</div>
+
+</div> <!-- End #page -->
+</body>
+
+<!-- Mirrored from blog2.postgresql.fr/index.php?post/drupal/165 by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 May 2020 21:40:20 GMT -->
+</html>

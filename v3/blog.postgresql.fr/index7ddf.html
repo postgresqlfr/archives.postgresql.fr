@@ -1,0 +1,442 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr">
+
+<!-- Mirrored from blog2.postgresql.fr/index.php?post/drupal/397 by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 May 2020 21:40:18 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="MSSmartTagsPreventParsing" content="TRUE" />
+  <meta name="ROBOTS" content="INDEX, FOLLOW" />
+  
+  <title>Sécuriser votre base PostgreSQL - PostgreSQLfr.org</title>
+  <meta name="description" lang="fr" content="Article écrit par Hubert Lubaczewski et traduit par Damien Clochard, le 18 août 2007. La version originale est disponible sur le blog de l'auteur où se trouvent beaucoup d'autres" />
+  <meta name="copyright" content="" />
+  <meta name="author" content="gleu" />
+  <meta name="date" scheme="ISO8601" content="2007-09-05T17:04:00+00:00" />
+  
+  <link rel="schema.dc" href="http://purl.org/dc/elements/1.1/" />
+  <meta name="dc.title" content="Sécuriser votre base PostgreSQL" />
+  <meta name="dc.description" lang="fr" content="Article écrit par Hubert Lubaczewski et traduit par Damien Clochard, le 18 août 2007. La version originale est disponible sur le blog de l'auteur où se trouvent beaucoup d'autres" />
+  <meta name="dc.creator" content="gleu" />
+  <meta name="dc.language" content="fr" />
+  <meta name="dc.publisher" content="" />
+  <meta name="dc.rights" content="" />
+  <meta name="dc.date" scheme="ISO8601" content="2007-09-05T17:04:00+00:00" />
+  <meta name="dc.type" content="text" />
+  <meta name="dc.format" content="text/html" />
+  
+  <link rel="top" href="indexd41d.html?" title="Accueil" />
+  <link rel="contents" href="index888d.html?archive" title="Archives" />
+  
+  <link rel="next" href="index74b8.html?post/drupal/393"
+  title="Index inversé, en C" />
+  
+  <link rel="previous" href="indexcaf7.html?post/drupal/411"
+  title="Nouvelles neuves de PG" />
+  
+  <link rel="alternate" type="application/atom+xml" title="Atom 1.0" href="index4ca3.php?feed/atom" />
+  
+  <style type="text/css" media="screen">
+@import url(themes/postgresql/style.css);
+</style>
+<style type="text/css" media="print">
+@import url(themes/default/print.css);
+</style>
+
+<script type="text/javascript" src="themes/default/js/jquery.js"></script>
+<script type="text/javascript" src="themes/default/js/jquery.cookie.js"></script>
+
+  
+  <script type="text/javascript" src="themes/default/js/post.js"></script>
+  <script type="text/javascript">
+  //<![CDATA[
+  var post_remember_str = 'Se souvenir de moi sur ce blog';
+  //]]>
+  </script>
+</head>
+
+<body class="dc-post">
+<div id="page">
+
+
+<div id="top">
+  <div id="pgHeader">
+    <span id="pgHeaderLogoLeft">
+      <a href="index.html" title="PostgreSQL"><img src="https://blog.postgresql.fr/themes/postgresql/img/hdr_left.png" width="230" height="80" alt="PostgreSQL" /></a>
+    </span>
+    <span id="pgHeaderLogoRight">
+      <a href="index.html" title="La base de donnees la plus sophistiquee au monde."><img src="https://blog.postgresql.fr/themes/postgresql/img/hdr_right.png" width="210" height="80" alt="La base de donnees la plus sophistiquee au monde." /></a>
+    </span>
+  </div>
+
+  </div>
+
+<div class="pgTopNav">
+  <div class="pgTopNavLeft"> 
+    <img src="https://blog.postgresql.fr/themes/postgresql/img/nav_lft.png" width="7" height="23" alt="" />
+  </div>
+  <div class="pgTopNavRight">
+    <img src="https://blog.postgresql.fr/themes/postgresql/img/nav_rgt.png" width="7" height="23" alt="" />
+  </div>
+  <ul class="pgTopNavList">
+    <li><a href="https://www.postgresql.fr/" title="Accueil">Accueil</a></li>
+    <li><a href="https://blog.postgresql.fr/" title="Lire les actualités">Actualités</a></li>
+    <li><a href="https://docs.postgresql.fr/" title="Lire la documentation officielle">Documentation</a></li>
+    <li><a href="https://forums.postgresql.fr/" title="Pour poser des questions">Forums</a></li>
+    <li><a href="https://www.postgresql.fr/asso/" title="La vie de l'association">Association</a></li>
+    <li><a href="https://www.postgresql.fr/devel:accueil" title="Informations pour les développeurs/traducteurs">Développeurs</a></li>
+    <li><a href="https://planete.postgresql.fr/" title="La planète francophone sur PostgreSQL">Planète</a></li>
+    <li><a href="https://www.postgresql.fr/support/" title="Support sur PostgreSQL">Support</a></li>
+  </ul>
+</div>
+
+<div id="wrapper">
+
+<div id="pgContent">
+
+  <div id="pgSideWrap">
+  <div id="pgSideNav">
+    <div id="blognav">
+      <div id="search"><h2><label for="q">Rechercher</label></h2><form action="http://blog2.postgresql.fr/index.php?" method="get"><fieldset><p><input type="text" size="10" maxlength="255" id="q" name="q" value="" /> <input class="submit" type="submit" value="ok" /></p></fieldset></form></div><div class="categories"><h2>Catégories</h2><ul><li class="category-current"><a href="index199b.html?category/Articles">Articles</a></li><li><a href="indexb4c6.html?category/Dans-les-bacs">Dans les bacs</a></li><li><a href="index025a.html?category/Evenements">Événements</a></li><li><a href="index8c6d.html?category/PostgreSQL-Weekly-News">PostgreSQL Weekly News</a></li><li><a href="index1835.html?category/Securite">Sécurité</a></li><li><a href="index2251.html?category/Vie-de-l-association">Vie de l'association</a></li><li><a href="index91de.html?category/Vie-du-site">Vie du site</a></li></ul></div><div class="text"><h2>Licence</h2>Tous les articles de ce blog sont disponibles sous la <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/">license Creative Commons BY-NC-SA 3.0</a>.</div>    </div> <!-- End #blognav -->
+  
+    <div id="blogextra">
+      <div class="syndicate"><h2>S'abonner</h2><ul><li><a type="application/atom+xml" href="index4ca3.php?feed/atom" title="Fil Atom des billets de ce blog" class="feed">Fil des billets</a></li></ul></div>    </div> <!-- End #blogextra -->
+  </div>
+  </div>
+
+  <div id="pgContentWrap">
+  <div id="pgDownloadsWrap">
+  <div id="content">
+
+  <p id="navlinks">
+  <a href="indexcaf7.html?post/drupal/411"
+  title="Nouvelles neuves de PG" class="prev">&#171; Nouvelles neuves de PG</a>
+   <span>-</span> <a href="index74b8.html?post/drupal/393"
+  title="Index inversé, en C" class="next">Index inversé, en C &#187;</a>
+  </p>
+  
+  <div class="post">
+    <h2 id="p397" class="post-title">Sécuriser votre base PostgreSQL</h2>
+    
+    <p class="post-info">Par gleu    le mercredi  5 septembre 2007, 17:04        - <a href="index199b.html?category/Articles">Articles</a>
+        - <a href="index7ddf.html?post/drupal/397">Lien permanent</a>
+    </p>
+    
+    
+    
+          <div class="post-excerpt"><em>Article écrit par <a href="mailto:depesz@depesz.com">Hubert Lubaczewski</a> et traduit par <a href="mailto:damien@dalibo.com">Damien Clochard</a>, le 18 août 2007. La <a href="http://www.depesz.com/index.php/2007/08/18/securing-your-postgresql-database/">version originale</a> est disponible sur le <a href="http://www.depesz.com/">blog de l'auteur</a> où se trouvent beaucoup d'autres articles intéressants.</em></div>
+        
+    <div class="post-content"><p>Il y a quelques temps j'ai décrit <a href="http://www.depesz.com/index.php/2007/08/12/hacking-with-postgresql/">comment « <code>pirater<code> » un système en utilisant PostgreSQL</code></code></a>. Aujourd'hui, je vais décrire comment sécuriser au maximum une installation PostgreSQL1.</p>
+<p>Je passerai par différentes étapes, en décrivant ce qui est possible, ce qui est simple et ce qui n'est pas si simple :)</p>
+<p>Commençons donc le tutoriel...</p>
+<!-- break -->
+<p>Tout d'abord, je suppose que vous voulez protéger la base des mauvais agissements d'un utilisateur PostgreSQL. Je n'évoquerai pas la protection contre les utilisateurs système ou les administreurs.</p>
+<p>La première chose à faire consiste à interdire les connexions distantes pour les super-utilisateurs. C'est une modification basique qui se fait simplement.</p>
+<p>Cherchons tout d'abord le fichier <cite>pg_hba.conf</cite>. Sur mon système, il se trouve dans <cite>/home/pgdba/data/pg_hba.conf</cite>. Sur le vôtre, il est certainement ailleurs. Vous pouvez vérifier son emplacement en exécutant cette requête&nbsp;:</p>
+<p class="code">
+# show hba_file ;
+hba_file
+------------------------------
+/home/pgdba/data/pg_hba.conf
+(1 row)
+</p>
+<p>Bien. Maintenant, voici le contenu de ce fichier sur ma machine&nbsp;:</p>
+<p class="code">
+local all all trust
+host all all 127.0.0.1/32 trust
+host all all ::1/128 trust
+host all all 0.0.0.0/0 md5
+</p>
+<p>Si vous ne comprenez pas ce que cela signifie, consultez le <a class="reference" href="http://docs.postgresqlfr.org/8.2/client-authentication.html#auth-pg-hba-conf">manuel</a>.</p>
+<p>Maintenant, pour certaines raisons, j'ai trois comptes super-utilisateurs
+sur la machine&nbsp;: <cite>pgdba</cite>, <cite>postgres</cite> et <cite>depesz</cite>. Nous allons effectuer les modifications afin que ces comptes ne puissent être utilisés que par connexion locale (socket unix) et en fournissant un mot de passe. Toute autre tentative de connexion à ces comptes sera interdite.</p>
+<p>Voici le nouveau fichier <cite>pg_hba.conf</cite>&nbsp;:</p>
+<p class="code">
+local all @admins md5
+local all all trust
+host all @admins 0.0.0.0/0 reject
+host all all 127.0.0.1/32 trust
+host all all ::1/128 trust
+host all all 0.0.0.0/0 md5
+</p>
+<p>Je viens également de créer un nouveau fichier, /home/pgdba/data/admins</p>
+<p class="code">
+depesz
+pgdba
+postgres
+</p>
+<p>Remarque&nbsp;: N'oubliez pas qu'après chaque modification de votre fichier <cite>pg_hba.conf</cite>, vous devez redémarrer le serveur.</p>
+<p>Comme nous le voyons clairement, le fichier <cite>admins</cite> contient les noms des trois utilisateurs auxquels je souhaite limiter l'accès.</p>
+<p>Lorsque PostgreSQL vérifie le fichier <cite>pg_hab.conf</cite>, il s'arrête à la première ligne pertinente. Ainsi il est nécessaire de placer la ligne <cite>local all all trust</cite> <em>après</em> la ligne concernant le groupe d'administrateur ( <cite>local all @admins md5</cite> ). Cependant, si l'on changeait l'ordre de la manière suivante :</p>
+<p class="code">
+local all all trust
+local all @admins md5
+host all @admins 0.0.0.0/0 reject
+...
+</p>
+<p>alors tous les utilisateurs seraient autorisés à se connecter sur n'importe quel compte PostgreSQL. Ceci serait regrettable donc soyez prudent en configurant le fichier <cite>pg_hba.conf</cite></p>
+<p>Certaines personnes (notamment celles qui utilisent debian) sont fans de l'authentification <cite>ident sameuser</cite>. Les mots me manquent pour dire à quel point je déteste cela. Je ne vais pas rentrer dans les détails mais ce que je peux vous dire, c'est que j'utilise <cite>trust</cite> sur ma machine de développement (ordinateur portable) et uniquement <cite>md5</cite> sur les serveurs de production. Je pense que l'authentification <cite>ident</cite> peut être utile dans certains cas, mais je n'ai pas trouvé lesquels. Pour le moment.</p>
+<p>Bref, la première étape était relatiment simple : nous avons protéger la base contre des utilisateurs inopportuns qui voudraient se connecter en tant que super-utilisateurs (à distance, tout du moins).</p>
+<p>Avant de poursuivre, évoquons les outils nommés <cite>dblink</cite> et <cite>dbilink</cite>. Souvenez-vous qu'utiliser ces modules abaissent la sécurité de votre système car ils modifient l'adresse IP depuis laquelle vous vous connectez. Je ne dis pas que ces modules sont mauvais : ils sont parfaitement sains, mais leur utilisation impose de réfléchir en préalable aux implications en terme de sécurité.</p>
+<p>Revenons maintenant à notre tutoriel.</p>
+<p>Nous avons notre base super top-secrète qui contient les orientations sexuelles de tout le monde. Nous ne voulons pas que n'importe quel utilisateur Postgres se connecte à la base à l'exception des utilisateurs dédiés (via une application web).</p>
+<p>Comment faire ?</p>
+<p>Revenons simplement au fichier pg_hba.conf et modifions-le :</p>
+<p class="code">
+local all @admins md5
+local secret webapp md5
+local secret all reject
+local all all trust
+host all @admins 0.0.0.0/0 reject
+host all all 127.0.0.1/32 trust
+host all all ::1/128 trust
+host all all 0.0.0.0/0 md5
+</p>
+<p>Avec les lignes 2 et 3 (avec le mot 'secret'), j'autorise l'utisateur <cite>webapp</cite> à se connecter à la base <cite>secret</cite> en mode <cite>md5</cite> et je rejette toutes les autres connections.</p>
+<p>Il est important de laisser <cite>local all @admins md5</cite> en première ligne. En effet, si je plaçais cette ligne après la ligne <cite>local secret all reject</cite>, cela interdirait les connexions super-utilisateurs.</p>
+<p>Théoriquement, cette configuration semble correcte, mais vous devez procéder à deux configurations :</p>
+<blockquote>
+<ol class="arabic simple">
+<li>Un compte super-utilisateur est équivalent à un accès shell, donc quelqu'un avec ce niveau d'accès pourrait modifier le fichier pg_hba.conf et recharger la configuration du serveur. Donc il n'y a pas de protection contre les super-utilisateurs.</li>
+<li>Désactiver les accès super-utilisateurs implique que chaque fois que vous exécuterez des opérations de haut niveau (ajout d'un nouveau langage, ajout de fonctions C), vous devrez modifier le fichier pg_hba.conf, ce qui augmente le risque d'erreur.</li>
+</ol>
+</blockquote>
+<p>Pour ma part, je pense que laisser un accès aux super-utilisateurs est une bonne chose.</p>
+<p>Maintenant, lorsque je tente de me connecter avec un autre utilisateur (disons l'utilisateur <cite>test</cite>), la connexion est rejetée :</p>
+<p class="code">
+=&gt; psql -U test -d secret
+psql: FATAL: no pg_hba.conf entry for host "[local]", user "test",
+database "secret", SSL off
+</p>
+<p>Parfait. Personne ne peut se connecter à la base, à l'exception d'un utilisateur précis (<cite>webapp</cite>). Mais voici un problème : si quelqu'un obtenait l'accès à ce compte <cite>webapp</cite>, il/elle pourrait faire ce qu'il/elle veut. Supprimer des tables ? Pas de problème. Vider des tables ? Pas de problème. Mettre à jour ? insérer des données ? tout cela fonctionnera.</p>
+<p>Nous ne pouvons retirer ses droits au proprétaires des tables. Donc nous allons avoir besoin d'un utilisateur supplémentaire. Créons un utilisateur <cite>admin</cite> (qui ne serait pas super-utilisateur mais simplement administrateur de la base). L'utilisateur <cite>webapp</cite> sera dédié à l'application web et aura des droits restreints.</p>
+<p>Nous devons alors :</p>
+<blockquote>
+<ul class="simple">
+<li>créer l'utilisateur <cite>admin</cite></li>
+<li>déclarer <cite>admin</cite> propriétaire de tous les objets de la base</li>
+<li>donner à <cite>admin</cite> la possibilité de se connecter</li>
+<li>accorder et révoquer certains droits à <cite>webapp</cite></li>
+</ul>
+</blockquote>
+<p>Cela semble simple. La commande <cite>create user</cite> est triviale. Le changement de propriétaire est fastidieux mais simple. Attribuer les droits d'administration requiert simplement d'ajouter la ligne suivant dans le fichier <cite>pg_hba.conf</cite> :</p>
+<p class="code">
+local secret admin md5
+</p>
+<p>avant la ligne :</p>
+<p class="code">
+local secret all reject
+</p>
+<p>(et bien sûr redémarrer le serveur).</p>
+<p>Maintenant, passons à la partie revoke/grant :)</p>
+<p>Notre base a une table (et une sequence) :</p>
+<p class="code">
+&gt; \d
+List of relations
+Schema  | Name         | Type     | Owner
+--------+--------------+----------+-------
+public  | users        | table    | admin
+public  | users_id_seq | sequence | admin
+(2 rows)
+&nbsp;
+&gt;\d users
+Table "public.users"
+Column         | Type    | Modifiers
+---------------+---------+----------------------------------------------------
+id             | integer | not null default nextval('users_id_seq'::regclass)
+username       | text    | not null
+sex_preference | text    |
+Indexes:
+"users_pkey" PRIMARY KEY, btree (id)
+"users_username_key" UNIQUE, btree (username)
+&nbsp;
+&gt; select * from users;
+id  | username | sex_preference
+----+----------+----------------
+&nbsp;&nbsp;1 | aa       | qqq
+&nbsp;&nbsp;2 | bb       | www
+&nbsp;&nbsp;3 | cc       | eee
+(3 rows)
+</p>
+<p>Rien de bien passionant, juste quelques données de test.</p>
+<p>Bien sûr, maintenant, <cite>webapp</cite> ne peut plus rien lire dans la table <cite>users</cite> :</p>
+<p class="code">
+(webapp@[local]:5830) 22:56:51 [secret]
+&gt; select * from users;
+ERROR: permission denied for relation users
+</p>
+<p>Maintenant, le problème est qu'un utilisateur malveillant peut (par exemple) créer une table et la remplir aléatoirement, juste pour planter PostgreSQL.</p>
+<p>La solution est simple :</p>
+<blockquote>
+<ul class="simple">
+<li>se connecter à la base <cite>secret</cite> en tant que super-utilisateur</li>
+<li>révoquer les droits de création au groupe <cite>public</cite> (le groupe qui contient tout les utilisateurs.</li>
+<li>accorder les droits de création à l'utilisateur <cite>admin</cite></li>
+</ul>
+</blockquote>
+<p>Ce qui nous donne :</p>
+<p class="code">
+(admin@[local]:5830) 23:12:06 [secret]
+&nbsp;
+&gt; \c - depesz
+Password for user "depesz":
+You are now connected to database "secret" as user "depesz".
+(depesz@[local]:5830) 23:12:10 [secret]
+&nbsp;
+# revoke create on schema public from public;
+REVOKE
+(depesz@[local]:5830) 23:12:15 [secret]
+&nbsp;
+# grant create on schema public to admin;
+GRANT
+(depesz@[local]:5830) 23:12:24 [secret]
+&nbsp;
+# \c - admin
+Password for user "admin":
+You are now connected to database "secret" as user "admin".
+</p>
+<p>Il est nécessaire de se connecter à un compte super-utilisateur car le schéma <cite>public</cite> appartient aux super-utilisateurs et non pas au propriétaire de la base.</p>
+<p>OK. Résumons la situation :</p>
+<blockquote>
+<ol class="arabic simple">
+<li>Les super-utilisateurs peuvent se connecter uniquement via sockets unix, c'est-à-dire uniquement en local.</li>
+<li>Seuls deux utilisateurs peuvent se connecter à la base <cite>secret</cite> : <cite>admin</cite> et <cite>webapp</cite>.</li>
+<li>L'utilisateur <cite>admin</cite> peut faire ce qu'il veut</li>
+<li>L'utilisateur <cite>webapp</cite> peut se connecter et c'est à peu près tout. Il peut voir les noms des tables mais ne peut ni créer des tables, ni sélectionner/insérer/modifier/supprimer des données dans les tables existantes.</li>
+</ol>
+</blockquote>
+<p>Nous souhaitons maintenant que l'utilisateur <cite>webapp</cite> puisse lire les donnée. Nous pourrions faire quelque chose comme :</p>
+<p class="code">
+grant select on table users to webapp;
+</p>
+<p>Mais ce n'est pas très cool. Les données de la table <cite>users</cite> sont très sensibles et nous ne voulons pas que l'utilisateur puisse éxecuter la commande : <cite>select * from users;</cite> et ainsi obtenir des informations sur la sexualité de millions de personnes. Nous voulons que l'utilisateur <cite>webapp</cite> soit capable de lire les donnée pour un utilisateur précis (les opérations INSERT, UPDATE et DELETE ne seront pas évoquées car la méthode est très similaire)</p>
+<p>Comment pouvons-nous réaliser cela ? Avec les procédures stockées bien sûr. Connectez-vous sur le compte <cite>admin</cite> et créez une fonction :</p>
+<p class="code">
+CREATE OR REPLACE FUNCTION get_user_record(in_user TEXT) RETURNS setof
+users as $BODY$
+DECLARE
+temprec users;
+BEGIN
+for temprec in SELECT * FROM users WHERE username = in_user LOOP
+RETURN next temprec;
+END loop;
+RETURN;
+END;
+$BODY$ language plpgsql SECURITY DEFINER;
+</p>
+<p>Cependant, puisque la fonction est écrite en <cite>plpgsql</cite>, elle est disponible par défaut pour tout le monde. Améliorons la sécurité  :</p>
+<p class="code">
+(admin@[local]:5830) 23:24:21 [secret]
+&gt; revoke execute on function get_user_record (text) from public;
+REVOKE
+&nbsp;
+(admin@[local]:5830) 23:26:00 [secret]
+&gt; grant execute on function get_user_record(text) to webapp;
+GRANT
+</p>
+<p>Désormais notre utilisateur <cite>webapp</cite> peut appeler la fonction en donnant le nom exact qu'il recherche :</p>
+<p class="code">
+(webapp@[local]:5830) 23:26:10 [secret]
+&gt; select * from get_user_record('aa');
+id | username | sex_preference
+---+----------+----------------
+1  | aa       | qqq
+(1 row)
+</p>
+<p>mais il ne pourra pas obtenir tous les enregistrement de la table.</p>
+<p>Ce qui est plus important : pour que la fonction soit fonctionnelle, nous n'avons pas besoin de d'autoriser la selection (<cite>grant select</cite>) sur la table <cite>users</cite> pour l'utilisateur <cite>webapp</cite>. Ce tour de magie est opéré par la déclaration du gestionnaire de sécurité ( <cite>SECURITY DEFINER</cite> ) dans la définition de la fonction.</p>
+<p>Si vous n'êtes pas familier avec cette fonctionnalité, sachez qu'elle fonctionne plus ou moins comme <cite>suid</cite> sur les systèmes UNIX. Tous les utilisateurs appelant la fonction seront vus par PostgreSQL comme l'utilisateur qui a créé la fonction.</p>
+<p>Ce qui nous amène aux recommandation suivantes :</p>
+<blockquote>
+<ul class="simple">
+<li>Vous devez être très prudent en écrivant des functions "<cite>security definer</cite>". Cela a été longtemps discuté et la conclusion est que dans une base ouverte (où les simples utilisateurs peuvent créer des objets), les fonctions "<cite>security definer</cite>" peuvent être utilisées pour contourner les limitations.</li>
+<li>Si vous utilisez <cite>current_user</cite> pour quoi que ce soit, cela ne fonctionnera pas. Vous obtiendrez invariablement le nom du créateur de la fonction.</li>
+</ul>
+</blockquote>
+<p>Dans notre situation, tout est bon : <cite>webapp</cite> ne pourra pas créer ses propres objets, ainsi il ne sera pas capable d'utiliser la fonction pour pirater la base, de plus  <cite>current_user</cite> n'est pas réellement utile dans une base qui ne possède que deux utilisateurs :)</p>
+<p>Les fonctions "<cite>security definer</cite>" peuvent aussi définir des opérations INSERT/UPDATE/DELETE, qui feront les vérifications de paramètres nécessaires et exécuteront les actions requises, éventuellement acommpagnées par des traitements connexes, tel que le changement de login, la sauvegarde, la dénormalisation et ainsi de suite.</p>
+<p>Une dernière point à aborder : l'utilisateur <cite>webapp</cite> peut voir les noms des tables. Personnellement, cela ne me dérange pas, mais certaines personne peuvent souhaiter cacher les noms d'objets. Je n'ai pas vraiment creuser ce point, mais cela parait simple à faire. Cette fois, nous allons modifier les droits du schema <cite>pg_catalog</cite> :</p>
+<p class="code">
+(admin@[local]:5830) 23:36:17 [secret]
+&gt; \c - depesz
+Password for user "depesz":
+You are now connected to database "secret" as user "depesz".
+&nbsp;
+(depesz@[local]:5830) 23:36:21 [secret]
+# revoke usage on schema pg_catalog from public;
+REVOKE
+&nbsp;
+(depesz@[local]:5830) 23:36:27 [secret]
+# grant usage on schema pg_catalog to admin;
+GRANT
+&nbsp;
+(depesz@[local]:5830) 23:36:38 [secret]
+# \c - admin
+Password for user "admin":
+You are now connected to database "secret" as user "admin".
+</p>
+<p>(notez bien qu'il existe aussi un schéma d'informations, qui devra être modifié de la même façon, sinon il suffira d'interroger les tables et des vues du schéma <cite>information_schema</cite> pour obtenir les noms des objets !).</p>
+<p>Après ceci, l'utilisateur <cite>admin</cite> peut toujours travailler commme avant tandis que l'utilisateur <cite>webapp</cite> est contraint à certaines limitations :</p>
+<p class="code">
+(webapp@[local]:5830) 23:34:49 [secret]
+&gt; \d
+ERROR: permission denied for schema pg_catalog
+&nbsp;
+(webapp@[local]:5830) 23:37:41 [secret]
+&gt; select * from get_user_record('aa');
+id  | username | sex_preference
+----+----------+----------------
+&nbsp;&nbsp;1 | aa | qqq
+(1 row)
+&nbsp;
+(webapp@[local]:5830) 23:37:46 [secret]
+&gt; \df+ get_user_record
+ERROR: permission denied for schema pg_catalog
+(webapp@[local]:5830) 23:37:52 [secret]
+&gt; \df get_user_record
+ERROR: permission denied for schema pg_catalog
+</p>
+<p>Comme vous pouvez le voir, l'utilisateur <cite>webapp</cite> ne peut pas voir la liste des tables, mais il est capable d'appeler la fonction <cite>get_user_record()</cite>. Par ailleurs, ce qui est important, c'est qu'il
+n'est pas capable de voir le code source de la fonction, ni même les informations comme le nombre d'arguments.</p>
+<p>Il est possible dans certains cas que révoquer les droits du schéma <cite>pg_catalog</cite> provoque de mauvais résultats, mais (comme vous le constatez dans l'exemple ci-dessus) cela fonctionne et c'est assez simple à mettre en place.</p>
+<p>Récapitulons à nouveau ce que nous avons accompli :</p>
+<blockquote>
+<ol class="arabic simple">
+<li>Les super-utilisateurs peuvent se connecter uniquement via sockets unix, c'est-à-dire uniquement en local.</li>
+<li>Seuls deux utilisateurs peuvent se connecter à la base <cite>secret</cite> : <cite>admin</cite> et <cite>webapp</cite>.</li>
+<li>L'utilisateur <cite>admin</cite> peut faire ce qu'il veut</li>
+<li>L'utilisateur <cite>webapp</cite> peut se connecter à la base</li>
+<li>L'utilisateur <cite>webapp</cite> ne peut pas voir les noms des objets (tables, vues, fonctions) ni leurs définitions.</li>
+<li>L'utilisateur <cite>webapp</cite> ne peut pas interroger les tables directement.</li>
+<li>L'utilisateur <cite>webapp</cite> a accès aux données via des fonctions qui impliquent des vérifications de données.</li>
+</ol>
+</blockquote>
+<p>Pour finir, voici quelques remarques :</p>
+<p>1. En dehors des fonctions, les vues permettent également de limiter les droits d'accès : l'utilisateur n'a pas accès à la table mais a une vue batie sur celle-ci, ce qui permet de proposer une vue qui ne montre qu'une seule colonne de la table. Je n'en ai pas discuté ici car les vues n'ont pas la même flexibilité que les fonctions. De plus, dans les nouvelles versions de PostgreSQL, les fonctions sont presque aussi rapides que les vues.</p>
+<p>2. Si vous avez déjà tout construit avec des fonctions, vous êtes prêt à utiliser l'outil <cite>pl/proxy</cite> pour effectuer de la répartition de charge (load-balancing).</p>
+<p>3. Théoriquement on peut supposer qu'un utilisateur malveillant pourrait appeler la fonction get_user_record avec tous les noms possibles. C'est vrai, mais puisque nous pouvons écrire ce que nous voulons dans la fonction, il est assez simple de programmer la fonction afin qu'elle se bloque après le 3ème appel infructueux ou avertir l'administrateur par e-mail ou exécuter la commande <cite>pg_ctl stop</cite> pour empêcher immédiatement tout perte de données :)</p>
+<p>4. Quand une base est protégée et en sécurité, souvenez-vous des sauvegardes. Je ne parle pas de sauvegarder la base. je parle de sauvegarder la base en toute sécurrité. Ne faites pas un simple dump de la base dans un fichier que vous entreposerez ailleurs. Chiffrer le fichier dump : au moins en utilisant "zip -e" au mieux avec gpg/pgp.</p></div>
+
+      </div>
+
+  
+
+    
+  
+    
+    
+    </div>
+</div> <!-- End #main -->
+
+</div> <!-- End #wrapper -->
+
+<div id="pgFooter">
+  <p>Propulsé par <a href="http://dotclear.org/">Dotclear</a></p>
+</div>
+
+</div> <!-- End #page -->
+</body>
+
+<!-- Mirrored from blog2.postgresql.fr/index.php?post/drupal/397 by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 May 2020 21:40:18 GMT -->
+</html>

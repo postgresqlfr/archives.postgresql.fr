@@ -1,0 +1,189 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr">
+
+<!-- Mirrored from blog2.postgresql.fr/index.php?post/drupal/17 by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 May 2020 21:40:21 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="MSSmartTagsPreventParsing" content="TRUE" />
+  <meta name="ROBOTS" content="INDEX, FOLLOW" />
+  
+  <title>Sortie de pgpool v.2.0 - PostgreSQLfr.org</title>
+  <meta name="description" lang="fr" content="Tatsuo Ishii, sur la liste pgsql-announce@postgresql.org, nous apprenait le 22 juin que pgpool 2.0. était sorti, ci après une traduction de l'annonce: La nouvelle version de" />
+  <meta name="copyright" content="" />
+  <meta name="author" content="Jean-Paul Argudo" />
+  <meta name="date" scheme="ISO8601" content="2004-06-28T12:03:00+00:00" />
+  
+  <link rel="schema.dc" href="http://purl.org/dc/elements/1.1/" />
+  <meta name="dc.title" content="Sortie de pgpool v.2.0" />
+  <meta name="dc.description" lang="fr" content="Tatsuo Ishii, sur la liste pgsql-announce@postgresql.org, nous apprenait le 22 juin que pgpool 2.0. était sorti, ci après une traduction de l'annonce: La nouvelle version de" />
+  <meta name="dc.creator" content="Jean-Paul Argudo" />
+  <meta name="dc.language" content="fr" />
+  <meta name="dc.publisher" content="" />
+  <meta name="dc.rights" content="" />
+  <meta name="dc.date" scheme="ISO8601" content="2004-06-28T12:03:00+00:00" />
+  <meta name="dc.type" content="text" />
+  <meta name="dc.format" content="text/html" />
+  
+  <link rel="top" href="indexd41d.html?" title="Accueil" />
+  <link rel="contents" href="index888d.html?archive" title="Archives" />
+  
+  <link rel="next" href="index35b0.html?post/drupal/369"
+  title="PostgreSQL Weekly News - 7 juin 2004" />
+  
+  <link rel="previous" href="index6c6c.html?post/drupal/16"
+  title="Arrivée de Glom en version Alpha." />
+  
+  <link rel="alternate" type="application/atom+xml" title="Atom 1.0" href="index4ca3.php?feed/atom" />
+  
+  <style type="text/css" media="screen">
+@import url(themes/postgresql/style.css);
+</style>
+<style type="text/css" media="print">
+@import url(themes/default/print.css);
+</style>
+
+<script type="text/javascript" src="themes/default/js/jquery.js"></script>
+<script type="text/javascript" src="themes/default/js/jquery.cookie.js"></script>
+
+  
+  <script type="text/javascript" src="themes/default/js/post.js"></script>
+  <script type="text/javascript">
+  //<![CDATA[
+  var post_remember_str = 'Se souvenir de moi sur ce blog';
+  //]]>
+  </script>
+</head>
+
+<body class="dc-post">
+<div id="page">
+
+
+<div id="top">
+  <div id="pgHeader">
+    <span id="pgHeaderLogoLeft">
+      <a href="index.html" title="PostgreSQL"><img src="https://blog.postgresql.fr/themes/postgresql/img/hdr_left.png" width="230" height="80" alt="PostgreSQL" /></a>
+    </span>
+    <span id="pgHeaderLogoRight">
+      <a href="index.html" title="La base de donnees la plus sophistiquee au monde."><img src="https://blog.postgresql.fr/themes/postgresql/img/hdr_right.png" width="210" height="80" alt="La base de donnees la plus sophistiquee au monde." /></a>
+    </span>
+  </div>
+
+  </div>
+
+<div class="pgTopNav">
+  <div class="pgTopNavLeft"> 
+    <img src="https://blog.postgresql.fr/themes/postgresql/img/nav_lft.png" width="7" height="23" alt="" />
+  </div>
+  <div class="pgTopNavRight">
+    <img src="https://blog.postgresql.fr/themes/postgresql/img/nav_rgt.png" width="7" height="23" alt="" />
+  </div>
+  <ul class="pgTopNavList">
+    <li><a href="https://www.postgresql.fr/" title="Accueil">Accueil</a></li>
+    <li><a href="https://blog.postgresql.fr/" title="Lire les actualités">Actualités</a></li>
+    <li><a href="https://docs.postgresql.fr/" title="Lire la documentation officielle">Documentation</a></li>
+    <li><a href="https://forums.postgresql.fr/" title="Pour poser des questions">Forums</a></li>
+    <li><a href="https://www.postgresql.fr/asso/" title="La vie de l'association">Association</a></li>
+    <li><a href="https://www.postgresql.fr/devel:accueil" title="Informations pour les développeurs/traducteurs">Développeurs</a></li>
+    <li><a href="https://planete.postgresql.fr/" title="La planète francophone sur PostgreSQL">Planète</a></li>
+    <li><a href="https://www.postgresql.fr/support/" title="Support sur PostgreSQL">Support</a></li>
+  </ul>
+</div>
+
+<div id="wrapper">
+
+<div id="pgContent">
+
+  <div id="pgSideWrap">
+  <div id="pgSideNav">
+    <div id="blognav">
+      <div id="search"><h2><label for="q">Rechercher</label></h2><form action="http://blog2.postgresql.fr/index.php?" method="get"><fieldset><p><input type="text" size="10" maxlength="255" id="q" name="q" value="" /> <input class="submit" type="submit" value="ok" /></p></fieldset></form></div><div class="categories"><h2>Catégories</h2><ul><li><a href="index199b.html?category/Articles">Articles</a></li><li class="category-current"><a href="indexb4c6.html?category/Dans-les-bacs">Dans les bacs</a></li><li><a href="index025a.html?category/Evenements">Événements</a></li><li><a href="index8c6d.html?category/PostgreSQL-Weekly-News">PostgreSQL Weekly News</a></li><li><a href="index1835.html?category/Securite">Sécurité</a></li><li><a href="index2251.html?category/Vie-de-l-association">Vie de l'association</a></li><li><a href="index91de.html?category/Vie-du-site">Vie du site</a></li></ul></div><div class="text"><h2>Licence</h2>Tous les articles de ce blog sont disponibles sous la <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/">license Creative Commons BY-NC-SA 3.0</a>.</div>    </div> <!-- End #blognav -->
+  
+    <div id="blogextra">
+      <div class="syndicate"><h2>S'abonner</h2><ul><li><a type="application/atom+xml" href="index4ca3.php?feed/atom" title="Fil Atom des billets de ce blog" class="feed">Fil des billets</a></li></ul></div>    </div> <!-- End #blogextra -->
+  </div>
+  </div>
+
+  <div id="pgContentWrap">
+  <div id="pgDownloadsWrap">
+  <div id="content">
+
+  <p id="navlinks">
+  <a href="index6c6c.html?post/drupal/16"
+  title="Arrivée de Glom en version Alpha." class="prev">&#171; Arrivée de Glom en version Alpha.</a>
+   <span>-</span> <a href="index35b0.html?post/drupal/369"
+  title="PostgreSQL Weekly News - 7 juin 2004" class="next">PostgreSQL Weekly News - 7 juin 2004 &#187;</a>
+  </p>
+  
+  <div class="post">
+    <h2 id="p17" class="post-title">Sortie de pgpool v.2.0</h2>
+    
+    <p class="post-info">Par Jean-Paul Argudo    le lundi 28 juin 2004, 12:03        - <a href="indexb4c6.html?category/Dans-les-bacs">Dans les bacs</a>
+        - <a href="indexa76a.html?post/drupal/17">Lien permanent</a>
+    </p>
+    
+    
+    
+          <div class="post-excerpt"><p></p></div>
+        
+    <div class="post-content">Tatsuo Ishii, sur la liste pgsql-announce@postgresql.org, nous apprenait le 22 juin que pgpool 2.0. était sorti, ci après une traduction de l'annonce:
+<p>
+La nouvelle version de pgpool, qui est un serveur de connections/réplication pour PostgreSQL, est disponible sur:
+</p>
+<center>
+<a href="ftp://ftp.sra.co.jp/pub/cmd/postgres/pgpool/pgpool-2.0.tar.gz">ftp://ftp.sra.co.jp/pub/cmd/postgres/pgpool/pgpool-2.0.tar.gz
+</a>
+</center>
+<p>
+pgpool est serveur de réplication simple basé sur les requêtes et synchrone. Il fait office de serveur proxy entre le client PostgreSQL et le serveur PostgreSQL. Aucune modification applicative est nécessaire pour utiliser pgpool.
+</p>
+<p>Les fonctionalités de pgpool sont les suivantes:
+</p>
+<ul>
+<li>pooling de connections. Cela réduira la surcharge due à l'établissement des connections;</li>
+<li>pre-fork des processus enfants. Comme avec Apache, pgpool fournit ainsi un démarage plus rapide de ses services;</li>
+<li>dégénération: dans le mode réplication, is un des serveurs PostgreSQL tombe, pgpool détache le serveur défectueux et continue de fonctionner avec le serveur survivant;</li>
+<li>fail-over: dans le mode pooling de connections, si le serveur PostgreSQL maître tombe, pgpool détache le serveur cassé et continue de fonctionner avec le serveur PostgreSQL en Stand-By (NDT: le mot choisi de «Stand By» n'est pas anodin...);</li>
+<li>
+pgpool 2.0 supporte nativement le protocole V3, ce qui devrait rendre pgpool plus rapide avec PostgreSQL V.7.4 ou supérieur;
+</li>
+<li>
+pgpool 2.0 supporte aussi la répartition de charge (load balancing) entre le serveur maître et le serveur secondaire. Cela améliore considérablement les performances des ordres de type SELECT.
+</li>
+<p>
+Pour plus de détails, veuillez consulter la page du projet:
+</p>
+<center>
+<a href="http://www2b.biglobe.ne.jp/~caco/pgpool/index-e.html">
+http://www2b.biglobe.ne.jp/~caco/pgpool/index-e.html</a>
+</center>
+<p>
+Enjoy,
+--
+Tatsuo Ishii
+</p>
+</ul></div>
+
+      </div>
+
+  
+
+    
+  
+    
+    
+    </div>
+</div> <!-- End #main -->
+
+</div> <!-- End #wrapper -->
+
+<div id="pgFooter">
+  <p>Propulsé par <a href="http://dotclear.org/">Dotclear</a></p>
+</div>
+
+</div> <!-- End #page -->
+</body>
+
+<!-- Mirrored from blog2.postgresql.fr/index.php?post/drupal/17 by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 May 2020 21:40:21 GMT -->
+</html>

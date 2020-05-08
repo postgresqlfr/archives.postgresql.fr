@@ -1,0 +1,159 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr">
+
+<!-- Mirrored from blog2.postgresql.fr/index.php?post/drupal/37 by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 May 2020 21:40:21 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="MSSmartTagsPreventParsing" content="TRUE" />
+  <meta name="ROBOTS" content="INDEX, FOLLOW" />
+  
+  <title>Utiliser du Python côté serveur - PostgreSQLfr.org</title>
+  <meta name="description" lang="fr" content="Python est un langage largement utilisé de nos jours. Il permet de s'interfacer avec un grand nombre de bases de données et PostgreSQL n'échappe pas à la règle. Bien que Python" />
+  <meta name="copyright" content="" />
+  <meta name="author" content="jca" />
+  <meta name="date" scheme="ISO8601" content="2004-09-30T15:39:00+00:00" />
+  
+  <link rel="schema.dc" href="http://purl.org/dc/elements/1.1/" />
+  <meta name="dc.title" content="Utiliser du Python côté serveur" />
+  <meta name="dc.description" lang="fr" content="Python est un langage largement utilisé de nos jours. Il permet de s'interfacer avec un grand nombre de bases de données et PostgreSQL n'échappe pas à la règle. Bien que Python" />
+  <meta name="dc.creator" content="jca" />
+  <meta name="dc.language" content="fr" />
+  <meta name="dc.publisher" content="" />
+  <meta name="dc.rights" content="" />
+  <meta name="dc.date" scheme="ISO8601" content="2004-09-30T15:39:00+00:00" />
+  <meta name="dc.type" content="text" />
+  <meta name="dc.format" content="text/html" />
+  
+  <link rel="top" href="indexd41d.html?" title="Accueil" />
+  <link rel="contents" href="index888d.html?archive" title="Archives" />
+  
+  <link rel="next" href="index88e8.html?post/drupal/38"
+  title="Autodoc : documentez vos bases de données facilement!" />
+  
+  <link rel="previous" href="indexc4e1.html?post/drupal/36"
+  title="PostgreSQL 8.0.0 Beta 3 disponible!" />
+  
+  <link rel="alternate" type="application/atom+xml" title="Atom 1.0" href="index4ca3.php?feed/atom" />
+  
+  <style type="text/css" media="screen">
+@import url(themes/postgresql/style.css);
+</style>
+<style type="text/css" media="print">
+@import url(themes/default/print.css);
+</style>
+
+<script type="text/javascript" src="themes/default/js/jquery.js"></script>
+<script type="text/javascript" src="themes/default/js/jquery.cookie.js"></script>
+
+  
+  <script type="text/javascript" src="themes/default/js/post.js"></script>
+  <script type="text/javascript">
+  //<![CDATA[
+  var post_remember_str = 'Se souvenir de moi sur ce blog';
+  //]]>
+  </script>
+</head>
+
+<body class="dc-post">
+<div id="page">
+
+
+<div id="top">
+  <div id="pgHeader">
+    <span id="pgHeaderLogoLeft">
+      <a href="index.html" title="PostgreSQL"><img src="https://blog.postgresql.fr/themes/postgresql/img/hdr_left.png" width="230" height="80" alt="PostgreSQL" /></a>
+    </span>
+    <span id="pgHeaderLogoRight">
+      <a href="index.html" title="La base de donnees la plus sophistiquee au monde."><img src="https://blog.postgresql.fr/themes/postgresql/img/hdr_right.png" width="210" height="80" alt="La base de donnees la plus sophistiquee au monde." /></a>
+    </span>
+  </div>
+
+  </div>
+
+<div class="pgTopNav">
+  <div class="pgTopNavLeft"> 
+    <img src="https://blog.postgresql.fr/themes/postgresql/img/nav_lft.png" width="7" height="23" alt="" />
+  </div>
+  <div class="pgTopNavRight">
+    <img src="https://blog.postgresql.fr/themes/postgresql/img/nav_rgt.png" width="7" height="23" alt="" />
+  </div>
+  <ul class="pgTopNavList">
+    <li><a href="https://www.postgresql.fr/" title="Accueil">Accueil</a></li>
+    <li><a href="https://blog.postgresql.fr/" title="Lire les actualités">Actualités</a></li>
+    <li><a href="https://docs.postgresql.fr/" title="Lire la documentation officielle">Documentation</a></li>
+    <li><a href="https://forums.postgresql.fr/" title="Pour poser des questions">Forums</a></li>
+    <li><a href="https://www.postgresql.fr/asso/" title="La vie de l'association">Association</a></li>
+    <li><a href="https://www.postgresql.fr/devel:accueil" title="Informations pour les développeurs/traducteurs">Développeurs</a></li>
+    <li><a href="https://planete.postgresql.fr/" title="La planète francophone sur PostgreSQL">Planète</a></li>
+    <li><a href="https://www.postgresql.fr/support/" title="Support sur PostgreSQL">Support</a></li>
+  </ul>
+</div>
+
+<div id="wrapper">
+
+<div id="pgContent">
+
+  <div id="pgSideWrap">
+  <div id="pgSideNav">
+    <div id="blognav">
+      <div id="search"><h2><label for="q">Rechercher</label></h2><form action="http://blog2.postgresql.fr/index.php?" method="get"><fieldset><p><input type="text" size="10" maxlength="255" id="q" name="q" value="" /> <input class="submit" type="submit" value="ok" /></p></fieldset></form></div><div class="categories"><h2>Catégories</h2><ul><li class="category-current"><a href="index199b.html?category/Articles">Articles</a></li><li><a href="indexb4c6.html?category/Dans-les-bacs">Dans les bacs</a></li><li><a href="index025a.html?category/Evenements">Événements</a></li><li><a href="index8c6d.html?category/PostgreSQL-Weekly-News">PostgreSQL Weekly News</a></li><li><a href="index1835.html?category/Securite">Sécurité</a></li><li><a href="index2251.html?category/Vie-de-l-association">Vie de l'association</a></li><li><a href="index91de.html?category/Vie-du-site">Vie du site</a></li></ul></div><div class="text"><h2>Licence</h2>Tous les articles de ce blog sont disponibles sous la <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/">license Creative Commons BY-NC-SA 3.0</a>.</div>    </div> <!-- End #blognav -->
+  
+    <div id="blogextra">
+      <div class="syndicate"><h2>S'abonner</h2><ul><li><a type="application/atom+xml" href="index4ca3.php?feed/atom" title="Fil Atom des billets de ce blog" class="feed">Fil des billets</a></li></ul></div>    </div> <!-- End #blogextra -->
+  </div>
+  </div>
+
+  <div id="pgContentWrap">
+  <div id="pgDownloadsWrap">
+  <div id="content">
+
+  <p id="navlinks">
+  <a href="indexc4e1.html?post/drupal/36"
+  title="PostgreSQL 8.0.0 Beta 3 disponible!" class="prev">&#171; PostgreSQL 8.0.0 Beta 3 disponible!</a>
+   <span>-</span> <a href="index88e8.html?post/drupal/38"
+  title="Autodoc : documentez vos bases de données facilement!" class="next">Autodoc : documentez vos bases de données &#187;</a>
+  </p>
+  
+  <div class="post">
+    <h2 id="p37" class="post-title">Utiliser du Python côté serveur</h2>
+    
+    <p class="post-info">Par jca    le jeudi 30 septembre 2004, 15:39        - <a href="index199b.html?category/Articles">Articles</a>
+        - <a href="index9651.html?post/drupal/37">Lien permanent</a>
+    </p>
+    
+    
+    
+          <div class="post-excerpt"><p></p></div>
+        
+    <div class="post-content"><p>Python est un langage largement utilisé de nos jours. Il permet de s'interfacer avec un grand nombre de bases de données et PostgreSQL n'échappe pas à la règle. Bien que Python soit connu pour le développement de requêtage des serveurs PostgreSQL (applications, maintenance, ...), un support est aussi intégré «côté serveur» dans PostgreSQL. Hors, dans le «&nbsp;ChangeLog&nbsp;» de la version de 7.4 de PostgreSQL (version 7.4 du changelog également), on trouve la petite phrase suivante dans la section «&nbsp;côté serveur&nbsp;»&nbsp;:</p>
+<!--break-->
+<pre>Make PL/Python an untrusted language, now called plpythonu (Kevin Jacobs, Tom)<br /><br />The Python language no longer supports a restricted execution environment, <br />so the trusted version of PL/Python was removed. If this situation changes, <br />a version of PL/Python that can be used by non-superusers will be readded. </pre>
+<p>Comme il y est dit, Python ne supporte plus un environnement d'exécution restreint et, de ce fait, PostgreSQL ne supporte plus Python (ou PL/Python) comme langage «accrédité». Mais quel est cet environnement d'exécution restreint en Python&nbsp;? Qu'est-ce qu'un langage «&nbsp;accrédité&nbsp;»&nbsp;? Pourquoi les développeurs de PostgreSQL ont décidé de placer Python en langage «&nbsp;non accrédité&nbsp;» et qu'est-ce que cela implique&nbsp;?</p>
+<p>Python est un langage script relativement répandu et répondant à un grand nombre de problématique. Comme tout langage de cette génération, Python intégrait la possibilité de lancer des scripts chargés dynamiquement à l'intérieur d'un environnement d'exécution où certaines fonctionnalités seraient permises et où d'autres seraient inaccessibles. Cette fonctionnalité d'environnement restreint permettait donc de rendre l'application qui l'implantait capable de limiter les actions des utilisateurs et de rendre l'application plus robuste vis à vis de l'ingéniosité de ces derniers. Plusieurs environnements Python d'exécution restreinte existent comme <em>rexec</em> ou <em>Bastion</em>. Jusqu'à récemment, PostgreSQL utilisait <em>rexec</em> mais les développeurs de Python ont décidé de rendre ces modules inactifs dans les version 2.2 et 2.3 de Python (voir <a href="http://www.python.org/2.3/NEWS.html">[1]</a>). En effet, plusieurs failles dans ces modules ont été trouvées (voir le fil de discussion commençant par <a href="http://mail.python.org/pipermail/python-dev/2002-December/031160.html">[2]</a>). Reste à savoir pourquoi l'équipe PostgreSQL a fait le choix de placer Python en langage non accrédité.</p>
+<p>PostgreSQL permet d'utiliser plusieurs langages dans les procédures stockées, les déclencheurs, etc... Chaque langage côté serveur dispose donc d'une entrée dans une table <code>pg_language</code> et de permissions d'exécution. Il existe, sans trop rentrer dans les détails, deux types de langages : les langages dits «&nbsp;accrédités&nbsp;» (<em>trusted</em>) qui ont la possibilité d'être exécutés par n'importe quel utilisateur sans restriction et les langages «&nbsp;non accrédités&nbsp;» (<em>untrusted</em>) qui ne peuvent être exécutés que par le super utilisateur de la base (souvent il s'agit de l'utilisateur <em>postgres</em>). Ainsi donc, Python est devenu un langage «non accrédité» car l'environnement d'exécution restreint de Python utilisé par PostgreSQL n'était de toute évidence pas sûr. L'équipe PostgreSQL a donc préféré laisser la fonctionnalité Pl/Python mais avec certaines restriction sur son utilisation. Seul le super utilisateur aura donc la possibilité d'utiliser ce langage. Pour plus d'information sur Pl/Python, je vous conseille la lecture de <a href="http://traduc.postgresqlfr.org/pgsql-fr/plpython.html">[3]</a> (des volontaires pour faire la traduction&nbsp;?).</p>
+<p>Pour conclure, nous pouvons souhaiter que Python réintègre rapidement un environnement d'exécution limité de manière à ce que les utilisateurs puissent bénéficier de la puissance de ce langage sur PostgreSQL et côté serveur.</p></div>
+
+      </div>
+
+  
+
+    
+  
+    
+    
+    </div>
+</div> <!-- End #main -->
+
+</div> <!-- End #wrapper -->
+
+<div id="pgFooter">
+  <p>Propulsé par <a href="http://dotclear.org/">Dotclear</a></p>
+</div>
+
+</div> <!-- End #page -->
+</body>
+
+<!-- Mirrored from blog2.postgresql.fr/index.php?post/drupal/37 by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 May 2020 21:40:21 GMT -->
+</html>

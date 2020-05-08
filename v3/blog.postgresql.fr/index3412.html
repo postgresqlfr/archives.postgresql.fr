@@ -1,0 +1,243 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr">
+
+<!-- Mirrored from blog2.postgresql.fr/index.php?post/drupal/220 by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 May 2020 21:40:20 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="MSSmartTagsPreventParsing" content="TRUE" />
+  <meta name="ROBOTS" content="INDEX, FOLLOW" />
+  
+  <title>Nouvelles neuves de PG - PostgreSQLfr.org</title>
+  <meta name="description" lang="fr" content="Nouvelles hebdomadaires de PostgreSQL - 13 Mai 2007 Il y a quelques discussions animées sur la mailing list -patches. Les nouveautés des produits dérivés PostgreSQL Code Factory" />
+  <meta name="copyright" content="" />
+  <meta name="author" content="SAS" />
+  <meta name="date" scheme="ISO8601" content="2007-05-15T14:51:00+00:00" />
+  
+  <link rel="schema.dc" href="http://purl.org/dc/elements/1.1/" />
+  <meta name="dc.title" content="Nouvelles neuves de PG" />
+  <meta name="dc.description" lang="fr" content="Nouvelles hebdomadaires de PostgreSQL - 13 Mai 2007 Il y a quelques discussions animées sur la mailing list -patches. Les nouveautés des produits dérivés PostgreSQL Code Factory" />
+  <meta name="dc.creator" content="SAS" />
+  <meta name="dc.language" content="fr" />
+  <meta name="dc.publisher" content="" />
+  <meta name="dc.rights" content="" />
+  <meta name="dc.date" scheme="ISO8601" content="2007-05-15T14:51:00+00:00" />
+  <meta name="dc.type" content="text" />
+  <meta name="dc.format" content="text/html" />
+  
+  <link rel="top" href="indexd41d.html?" title="Accueil" />
+  <link rel="contents" href="index888d.html?archive" title="Archives" />
+  
+  <link rel="next" href="index66e2.html?post/drupal/4"
+  title="Avis aux développeurs et administrateurs des versions 8.0 et 8.1 sous Windows" />
+  
+  <link rel="previous" href="indexb0ba.html?post/drupal/251"
+  title="Nouvelles neuves de PG" />
+  
+  <link rel="alternate" type="application/atom+xml" title="Atom 1.0" href="index4ca3.php?feed/atom" />
+  
+  <style type="text/css" media="screen">
+@import url(themes/postgresql/style.css);
+</style>
+<style type="text/css" media="print">
+@import url(themes/default/print.css);
+</style>
+
+<script type="text/javascript" src="themes/default/js/jquery.js"></script>
+<script type="text/javascript" src="themes/default/js/jquery.cookie.js"></script>
+
+  
+  <script type="text/javascript" src="themes/default/js/post.js"></script>
+  <script type="text/javascript">
+  //<![CDATA[
+  var post_remember_str = 'Se souvenir de moi sur ce blog';
+  //]]>
+  </script>
+</head>
+
+<body class="dc-post">
+<div id="page">
+
+
+<div id="top">
+  <div id="pgHeader">
+    <span id="pgHeaderLogoLeft">
+      <a href="index.html" title="PostgreSQL"><img src="https://blog.postgresql.fr/themes/postgresql/img/hdr_left.png" width="230" height="80" alt="PostgreSQL" /></a>
+    </span>
+    <span id="pgHeaderLogoRight">
+      <a href="index.html" title="La base de donnees la plus sophistiquee au monde."><img src="https://blog.postgresql.fr/themes/postgresql/img/hdr_right.png" width="210" height="80" alt="La base de donnees la plus sophistiquee au monde." /></a>
+    </span>
+  </div>
+
+  </div>
+
+<div class="pgTopNav">
+  <div class="pgTopNavLeft"> 
+    <img src="https://blog.postgresql.fr/themes/postgresql/img/nav_lft.png" width="7" height="23" alt="" />
+  </div>
+  <div class="pgTopNavRight">
+    <img src="https://blog.postgresql.fr/themes/postgresql/img/nav_rgt.png" width="7" height="23" alt="" />
+  </div>
+  <ul class="pgTopNavList">
+    <li><a href="https://www.postgresql.fr/" title="Accueil">Accueil</a></li>
+    <li><a href="https://blog.postgresql.fr/" title="Lire les actualités">Actualités</a></li>
+    <li><a href="https://docs.postgresql.fr/" title="Lire la documentation officielle">Documentation</a></li>
+    <li><a href="https://forums.postgresql.fr/" title="Pour poser des questions">Forums</a></li>
+    <li><a href="https://www.postgresql.fr/asso/" title="La vie de l'association">Association</a></li>
+    <li><a href="https://www.postgresql.fr/devel:accueil" title="Informations pour les développeurs/traducteurs">Développeurs</a></li>
+    <li><a href="https://planete.postgresql.fr/" title="La planète francophone sur PostgreSQL">Planète</a></li>
+    <li><a href="https://www.postgresql.fr/support/" title="Support sur PostgreSQL">Support</a></li>
+  </ul>
+</div>
+
+<div id="wrapper">
+
+<div id="pgContent">
+
+  <div id="pgSideWrap">
+  <div id="pgSideNav">
+    <div id="blognav">
+      <div id="search"><h2><label for="q">Rechercher</label></h2><form action="http://blog2.postgresql.fr/index.php?" method="get"><fieldset><p><input type="text" size="10" maxlength="255" id="q" name="q" value="" /> <input class="submit" type="submit" value="ok" /></p></fieldset></form></div><div class="categories"><h2>Catégories</h2><ul><li><a href="index199b.html?category/Articles">Articles</a></li><li><a href="indexb4c6.html?category/Dans-les-bacs">Dans les bacs</a></li><li><a href="index025a.html?category/Evenements">Événements</a></li><li class="category-current"><a href="index8c6d.html?category/PostgreSQL-Weekly-News">PostgreSQL Weekly News</a></li><li><a href="index1835.html?category/Securite">Sécurité</a></li><li><a href="index2251.html?category/Vie-de-l-association">Vie de l'association</a></li><li><a href="index91de.html?category/Vie-du-site">Vie du site</a></li></ul></div><div class="text"><h2>Licence</h2>Tous les articles de ce blog sont disponibles sous la <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/">license Creative Commons BY-NC-SA 3.0</a>.</div>    </div> <!-- End #blognav -->
+  
+    <div id="blogextra">
+      <div class="syndicate"><h2>S'abonner</h2><ul><li><a type="application/atom+xml" href="index4ca3.php?feed/atom" title="Fil Atom des billets de ce blog" class="feed">Fil des billets</a></li></ul></div>    </div> <!-- End #blogextra -->
+  </div>
+  </div>
+
+  <div id="pgContentWrap">
+  <div id="pgDownloadsWrap">
+  <div id="content">
+
+  <p id="navlinks">
+  <a href="indexb0ba.html?post/drupal/251"
+  title="Nouvelles neuves de PG" class="prev">&#171; Nouvelles neuves de PG</a>
+   <span>-</span> <a href="index66e2.html?post/drupal/4"
+  title="Avis aux développeurs et administrateurs des versions 8.0 et 8.1 sous Windows" class="next">Avis aux développeurs et administrateurs des &#187;</a>
+  </p>
+  
+  <div class="post">
+    <h2 id="p220" class="post-title">Nouvelles neuves de PG</h2>
+    
+    <p class="post-info">Par SAS    le mardi 15 mai 2007, 14:51        - <a href="index8c6d.html?category/PostgreSQL-Weekly-News">PostgreSQL Weekly News</a>
+        - <a href="index3412.html?post/drupal/220">Lien permanent</a>
+    </p>
+    
+    
+    
+          <div class="post-excerpt"><p><strong>Nouvelles hebdomadaires de PostgreSQL - 13 Mai 2007</strong></p>
+<p>Il y a quelques discussions animées sur la
+<a target="_blank" href="http://archives.postgresql.org/pgsql-patches/2007-05/threads.php">mailing list -patches.</a></p></div>
+        
+    <div class="post-content"><strong>Les nouveautés des produits dérivés</strong>
+<ul>
+<li>PostgreSQL Code Factory est sortie.
+<a target="_blank" href="http://www.sqlmaestro.com/products/postgresql/codefactory/">http://www.sqlmaestro.com/products/postgresql/codefactory/</a></li>
+<li>EnterpriseDB est à présent disponible sur Red Hat Exchange.
+<a target="_blank" href="http://www.marketwire.com/mw/release_html_b1?release_id=250943">http://www.marketwire.com/mw/release_html_b1?release_id=250943</a></li>
+<li>MediaWiki 1.10 a été publié.
+<a target="_blank" href="http://www.mediawiki.org/wiki/MediaWiki">http://www.mediawiki.org/wiki/MediaWiki</a></li>
+<li>Sortie de PostgresDAC 2.3.9-beta2.
+<a target="_blank" href="http://microolap.com/products/connectivity/postgresdac/">http://microolap.com/products/connectivity/postgresdac/</a></li>
+</ul>
+<p><strong>Les jobs PostgreSQL en Mai</strong></p>
+<p><a target="_blank" href="http://archives.postgresql.org/pgsql-jobs/2007-05/threads.php">http://archives.postgresql.org/pgsql-jobs/2007-05/threads.php</a></p>
+<p><strong>PostgreSQL Local</strong></p>
+<p>En route pour le PgDay!
+<a target="_blank" href="http://www.pgday.it/en/node/95">http://www.pgday.it/en/node/95</a></p>
+<p>Les inscriptions sont toujours ouvertes pour les PGCon 2007
+<a target="_blank" href="http://www.pgcon.org/2007/registration.php">http://www.pgcon.org/2007/registration.php</a></p>
+<p><strong>PostgreSQL dans les média</strong></p>
+<ul>
+<li>Planet PostgreSQL&nbsp;:
+<a target="_blank" href="http://www.planetpostgresql.org/">http://www.planetpostgresql.org/</a></li>
+<li>General Bits, Archives et articles occasionnels&nbsp;:
+<a target="_blank" href="http://www.varlena.com/GeneralBits/">http://www.varlena.com/GeneralBits/</a></li>
+</ul>
+<p><em>Les PostgreSQL Weekly News vous sont présentées cette semaine par David Fetter. Adaptation francophone de ...</em></p>
+<p><em>Vos propositions d'informations doivent parvenir avant dimanche minuit à david@fetter.org. Les propositions en allemand peuvent être envoyées à pwn@pgug.de.</em></p>
+<p><strong>Correctifs appliqués</strong></p>
+<p>Magnus Hagander a commité&nbsp;:</p>
+<ul>
+<li>Document that CLUSTER breaks MVCC visibility rules. (Not needed in cvs head, because CLUSTER itself is fixed there). Heikki Linnakangas. Back-patched to 7.4.</li>
+<li>In pgsql/src/tools/msvc/Install.pm, log directory we're installing into. Per request from Andrew Dunstan.</li>
+</ul>
+<p>Bruce Momjian a commité&nbsp;:</p>
+<ul>
+<li>Mark TODO as done: "Add support for arrays of complex types."</li>
+<li>Add to TODO: "Have configure choose integer datetimes by default."</li>
+<li>Add to TODO: "Allow data to be passed in native language formats, rather than only text.</li>
+</ul>
+<p>Michael Meskes a commité&nbsp;:</p>
+<ul>
+<li>Added some more error logging to pgsql/src/interfaces/ecpg/ecpglib/data.c.</li>
+<li>Synced parser and keyword list for ECPG. Renamed update test in the hope that it will run on Vista.</li>
+</ul>
+<p>Neil Conway a commité&nbsp;:</p>
+<ul>
+<li>Improvements to the SGML docs for TRUNCATE and CLUSTER.</li>
+<li>Add a hash function for "numeric". Mark the equality operator for numerics as "oprcanhash", and make the corresponding system catalog updates. As a result, hash indexes, hashed aggregation, and hash joins can now be used with the numeric type. Bump the catversion. The only tricky aspect to doing this is writing a correct hash function: it's possible for two Numerics to be equal according to their equality operator, but have different in-memory bit patterns. To cope with this, the hash function doesn't consider the Numeric's "scale" or "sign", and explictly skips any leading or trailing zeros in the Numeric's digit buffer (the current implementation should suppress any such zeros, but it seems unwise to rely upon this). See discussion on pgsql-patches for more details.</li>
+</ul>
+<p>Tom Lane a commité&nbsp;:</p>
+<ul>
+<li>Ajout du support pour les tableaux d'éléments composites, incluant les lignes de tables régulières et de vues (mais pas des catalogues systèmes, ni des séquences ou des
+<a target="_blank" href="http://docs.postgresqlfr.org/pgsql-8.2.4-fr/storage-toast.html">tables TOASTées</a>).
+Se débarasser des conventions voulant que le type d'un tableau soit exactement "_type". On utilise plutôt une nouvelle colonne pg_type.typarray pour assurer le lien. (Ca sera toujours nommé "_type" pourtant, à l'exception de cas extraordinaires comme les noms de types de longueur maximale.)
+Dans la foulée, le suivi des dépendances du schéma et du propriétaire pour le types est rendu plus uniforme : un type créé par l'utilisateur a ces dépendances tandis qu'une ligne de table ou un tableau auto-produit ne l'auront pas, mais dépendront de l'objet parent. David Fetter, Andrew Dunstan, Tom Lane</li>
+<li>Improve predicate_refuted_by_simple_clause() to handle IS NULL and IS NOT NULL more completely. The motivation for having it understand IS NULL at all was to allow use of "foo IS NULL" as one of the subsets of a partitioning on "foo", but as reported by Aleksander Kmetec, it wasn't really getting the job done. Backpatch to 8.2 since this is arguably a performance bug.</li>
+<li>Fix the problem that creating a user-defined type named _foo, followed by one named foo, would work but the other ordering would not. If a user-specified type or table name collides with an existing auto-generated array name, just rename the array type out of the way by prepending more underscores. This should not create any backward-compatibility issues, since the cases in which this will happen would have failed outright in prior releases. Also fix an oversight in the arrays-of-composites patch: ALTER TABLE RENAME renamed the table's rowtype but not its array type.</li>
+<li>Fix my oversight in enabling domains-of-domains: ALTER DOMAIN ADD CONSTRAINT needs to check the new constraint against columns of derived domains too. Also, make it error out if the domain to be modified is used within any composite-type columns. Eventually we should support that case, but it seems a bit painful, and not suitable for a back-patch. For the moment just let the user know we can't do it. Backpatch to 8.2, which is the only released version that allows nested domains. Possibly the other part should be back-patched further.</li>
+<li>Support arrays of composite types, including the rowtypes of regular tables and views (but not system catalogs, nor sequences or toast tables). Get rid of the hardwired convention that a type's array type is named exactly "_type", instead using a new column pg_type.typarray to provide the linkage. (It still will be named "_type", though, except in odd corner cases such as maximum-length type names.) Along the way, make tracking of owner and schema dependencies for types more uniform: a type directly created by the user has these dependencies, while a table rowtype or auto-generated array type does not have them, but depends on its parent object instead. David Fetter, Andrew Dunstan, Tom Lane</li>
+<li>Reserve some pg_statistic "kind" codes for use by the ESRI ST_Geometry datatype project. Per request from Ale Raza (araza at esri.com).</li>
+<li>Add an explicit comment about POSIX time zone names having the reverse sign convention from everyplace else in Postgres. I don't suppose that this will stop people from being confused, but at least we can say that it's documented.</li>
+</ul>
+<p>Peter Eisentraut a commité:</p>
+<ul>
+<li>The appended patch addresses the outstanding issues of the recent guc patch. It makes PGCLIENTENCODING work again and uses bsearch() instead of iterating over the array of guc variables in guc_get_index().</li>
+</ul>
+<p>Alvaro Herrera a commité:</p>
+<ul>
+<li>Make sure we don't skip databases that are supposed to be vacuumed "exactly now". This can happen if the time granularity is not very high. Per ITAGAKI Takahiro.</li>
+</ul>
+<p>Peter Eisentraut a commité:</p>
+<ul>
+<li>Grammar correction in pgsql/doc/src/sgml/func.sgml.</li>
+</ul>
+<p><strong>Correctifs rejetés (à ce jour)</strong></p>
+<ul>
+<li>Pas de déception cette semaine :-)</li>
+</ul>
+<p><strong>Correctifs en attente</strong></p>
+<ul>
+<li>Pavan Deolassee sent in a flock of patches for HOT, broken out per discussion.</li>
+<li>William Lawrance sent in two revisions of a patch for ECPG that makes it use PQprepare and PQexecPrepared functions to cache SQL statements.</li>
+<li>Tomas Doran sent in three revisions of a patch which exposes a current_query() function to SQL.</li>
+<li>Zoltan Boszormenyi sent in another version of his GENERATED patch.</li>
+<li>Gregory Stark sent in a doc patch explaining how to use packed varlenas.</li>
+<li>Jim Nasby a proposé un patch pour que les vacuums émettent un warning lorsqu'ils tombent à court de maintenance_work_mem.</li>
+<li>CK Tan sent in a patch which improves the performance of scans on big relations.</li>
+<li>Gregory Stark sent in another revision of his concurrent psql patch.</li>
+</ul></div>
+
+      </div>
+
+  
+
+    
+  
+    
+    
+    </div>
+</div> <!-- End #main -->
+
+</div> <!-- End #wrapper -->
+
+<div id="pgFooter">
+  <p>Propulsé par <a href="http://dotclear.org/">Dotclear</a></p>
+</div>
+
+</div> <!-- End #page -->
+</body>
+
+<!-- Mirrored from blog2.postgresql.fr/index.php?post/drupal/220 by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 May 2020 21:40:20 GMT -->
+</html>

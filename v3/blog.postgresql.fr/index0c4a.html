@@ -1,0 +1,199 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr">
+
+<!-- Mirrored from blog2.postgresql.fr/index.php?post/drupal/44 by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 May 2020 21:40:21 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="MSSmartTagsPreventParsing" content="TRUE" />
+  <meta name="ROBOTS" content="INDEX, FOLLOW" />
+  
+  <title>Réponse à l'article de Décision Informatique n°606 du 04/10/2004 - PostgreSQLfr.org</title>
+  <meta name="description" lang="fr" content="Dans le n°606 du 4 octobre 2004 du journal Décision Informatique, est paru un comparatif de cinq systèmes de gestion de bases de données (SGBD): Microsoft SQL Server, Oracle, BD2," />
+  <meta name="copyright" content="" />
+  <meta name="author" content="Jean-Paul Argudo" />
+  <meta name="date" scheme="ISO8601" content="2004-10-25T14:47:00+00:00" />
+  
+  <link rel="schema.dc" href="http://purl.org/dc/elements/1.1/" />
+  <meta name="dc.title" content="Réponse à l'article de Décision Informatique n°606 du 04/10/2004" />
+  <meta name="dc.description" lang="fr" content="Dans le n°606 du 4 octobre 2004 du journal Décision Informatique, est paru un comparatif de cinq systèmes de gestion de bases de données (SGBD): Microsoft SQL Server, Oracle, BD2," />
+  <meta name="dc.creator" content="Jean-Paul Argudo" />
+  <meta name="dc.language" content="fr" />
+  <meta name="dc.publisher" content="" />
+  <meta name="dc.rights" content="" />
+  <meta name="dc.date" scheme="ISO8601" content="2004-10-25T14:47:00+00:00" />
+  <meta name="dc.type" content="text" />
+  <meta name="dc.format" content="text/html" />
+  
+  <link rel="top" href="indexd41d.html?" title="Accueil" />
+  <link rel="contents" href="index888d.html?archive" title="Archives" />
+  
+  <link rel="next" href="indexe1a7.html?post/drupal/45"
+  title="Sortie de PostgreSQL 8.0.0 BETA 4 : cherchons testeurs!" />
+  
+  <link rel="previous" href="index78ff.html?post/drupal/43"
+  title="Important: Versions de sécurité pour PostgreSQL pour 7.2, 7.3 et 7.4!" />
+  
+  <link rel="alternate" type="application/atom+xml" title="Atom 1.0" href="index4ca3.php?feed/atom" />
+  
+  <style type="text/css" media="screen">
+@import url(themes/postgresql/style.css);
+</style>
+<style type="text/css" media="print">
+@import url(themes/default/print.css);
+</style>
+
+<script type="text/javascript" src="themes/default/js/jquery.js"></script>
+<script type="text/javascript" src="themes/default/js/jquery.cookie.js"></script>
+
+  
+  <script type="text/javascript" src="themes/default/js/post.js"></script>
+  <script type="text/javascript">
+  //<![CDATA[
+  var post_remember_str = 'Se souvenir de moi sur ce blog';
+  //]]>
+  </script>
+</head>
+
+<body class="dc-post">
+<div id="page">
+
+
+<div id="top">
+  <div id="pgHeader">
+    <span id="pgHeaderLogoLeft">
+      <a href="index.html" title="PostgreSQL"><img src="https://blog.postgresql.fr/themes/postgresql/img/hdr_left.png" width="230" height="80" alt="PostgreSQL" /></a>
+    </span>
+    <span id="pgHeaderLogoRight">
+      <a href="index.html" title="La base de donnees la plus sophistiquee au monde."><img src="https://blog.postgresql.fr/themes/postgresql/img/hdr_right.png" width="210" height="80" alt="La base de donnees la plus sophistiquee au monde." /></a>
+    </span>
+  </div>
+
+  </div>
+
+<div class="pgTopNav">
+  <div class="pgTopNavLeft"> 
+    <img src="https://blog.postgresql.fr/themes/postgresql/img/nav_lft.png" width="7" height="23" alt="" />
+  </div>
+  <div class="pgTopNavRight">
+    <img src="https://blog.postgresql.fr/themes/postgresql/img/nav_rgt.png" width="7" height="23" alt="" />
+  </div>
+  <ul class="pgTopNavList">
+    <li><a href="https://www.postgresql.fr/" title="Accueil">Accueil</a></li>
+    <li><a href="https://blog.postgresql.fr/" title="Lire les actualités">Actualités</a></li>
+    <li><a href="https://docs.postgresql.fr/" title="Lire la documentation officielle">Documentation</a></li>
+    <li><a href="https://forums.postgresql.fr/" title="Pour poser des questions">Forums</a></li>
+    <li><a href="https://www.postgresql.fr/asso/" title="La vie de l'association">Association</a></li>
+    <li><a href="https://www.postgresql.fr/devel:accueil" title="Informations pour les développeurs/traducteurs">Développeurs</a></li>
+    <li><a href="https://planete.postgresql.fr/" title="La planète francophone sur PostgreSQL">Planète</a></li>
+    <li><a href="https://www.postgresql.fr/support/" title="Support sur PostgreSQL">Support</a></li>
+  </ul>
+</div>
+
+<div id="wrapper">
+
+<div id="pgContent">
+
+  <div id="pgSideWrap">
+  <div id="pgSideNav">
+    <div id="blognav">
+      <div id="search"><h2><label for="q">Rechercher</label></h2><form action="http://blog2.postgresql.fr/index.php?" method="get"><fieldset><p><input type="text" size="10" maxlength="255" id="q" name="q" value="" /> <input class="submit" type="submit" value="ok" /></p></fieldset></form></div><div class="categories"><h2>Catégories</h2><ul><li><a href="index199b.html?category/Articles">Articles</a></li><li><a href="indexb4c6.html?category/Dans-les-bacs">Dans les bacs</a></li><li class="category-current"><a href="index025a.html?category/Evenements">Événements</a></li><li><a href="index8c6d.html?category/PostgreSQL-Weekly-News">PostgreSQL Weekly News</a></li><li><a href="index1835.html?category/Securite">Sécurité</a></li><li><a href="index2251.html?category/Vie-de-l-association">Vie de l'association</a></li><li><a href="index91de.html?category/Vie-du-site">Vie du site</a></li></ul></div><div class="text"><h2>Licence</h2>Tous les articles de ce blog sont disponibles sous la <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/">license Creative Commons BY-NC-SA 3.0</a>.</div>    </div> <!-- End #blognav -->
+  
+    <div id="blogextra">
+      <div class="syndicate"><h2>S'abonner</h2><ul><li><a type="application/atom+xml" href="index4ca3.php?feed/atom" title="Fil Atom des billets de ce blog" class="feed">Fil des billets</a></li></ul></div>    </div> <!-- End #blogextra -->
+  </div>
+  </div>
+
+  <div id="pgContentWrap">
+  <div id="pgDownloadsWrap">
+  <div id="content">
+
+  <p id="navlinks">
+  <a href="index78ff.html?post/drupal/43"
+  title="Important: Versions de sécurité pour PostgreSQL pour 7.2, 7.3 et 7.4!" class="prev">&#171; Important: Versions de sécurité pour PostgreSQL</a>
+   <span>-</span> <a href="indexe1a7.html?post/drupal/45"
+  title="Sortie de PostgreSQL 8.0.0 BETA 4 : cherchons testeurs!" class="next">Sortie de PostgreSQL 8.0.0 BETA 4 : cherchons &#187;</a>
+  </p>
+  
+  <div class="post">
+    <h2 id="p44" class="post-title">Réponse à l'article de Décision Informatique n°606 du 04/10/2004</h2>
+    
+    <p class="post-info">Par Jean-Paul Argudo    le lundi 25 octobre 2004, 14:47        - <a href="index025a.html?category/Evenements">Événements</a>
+        - <a href="index0c4a.html?post/drupal/44">Lien permanent</a>
+    </p>
+    
+    
+    
+          <div class="post-excerpt"><p></p></div>
+        
+    <div class="post-content"><p>
+Dans le n°606 du 4 octobre 2004 du journal Décision Informatique, est paru un comparatif de cinq systèmes de gestion de bases de données (SGBD): Microsoft SQL Server, Oracle, BD2, MySQL et PostgreSQL. Notre communauté a été contactée par le mandataire des tests, afin de l'aider à optimiser l'installation de PostgreSQL. Par contre, la communauté n'a jamais été sollicitée sur d'autres points et il en résulte un certain nombre d'erreurs, d'imprécisions et de confusions, qui auraient facilement pu être évitées.
+</p>
+<p>
+Nous souhaitons donc ici corriger ces problèmes et donner de PostgreSQL une image plus juste.
+</p>
+<h3>Erreurs</h3>
+<ul>
+<li>
+"uniquement GPL" (p.34): PostgreSQL est géré par une license BSD, encore plus ouverte que la GPL. Ainsi, PostgreSQL est totalement gratuit. Il peut donc être inclus dans un produit commercial, sans qu'aucune redevance ne doive être payée à qui que ce soit. De même, PostgreSQL peut être installé sur autant de serveurs qu'on le souhaite (par exemple, développement, pré-production, production), sans coût supplémentaire.
+</li>
+<li>
+"Pas de sauvegarde à chaud" (p.30 et ailleurs): c'est tout simplement faux. Des outils de base (tels que pg_dump et pg_dumpall) permettent de faire des sauvegardes sans arrêter la base de données.
+</li>
+<li>
+"Les SGBD propriétaires proposent en plus la gestion de XML" (p.31 et ailleurs): PostgreSQL dispose également d'outils permettant de gérer le XML. Il est vrai qu'ils ne font pas partie de l'installation de base, mais se trouvent sous forme de contributions séparées. Néanmoins, ces outils existent.
+</li>
+<li>
+"(PostgreSQL): son installation laborieuse nécessite des compétences très pointues, rarement disponibles en PME" (p.29), "(PostgreSQL) installation et paramÈtrage: 90 Minutes" et "(PostgreSQL) nécessite des compétences pointues" (p.31): c'est très largement exagéré. Tout d'abord, pour la plupart des distributions de Linux, PostgreSQL est disponible sous forme d'installeur (RPM). Le paramétrage par défaut est excellent pour des besoins courants, notamment ceux d'une PME. Seul le paramétrage de la sécurité peut paraître un peu compliqué la première fois, mais il est très vite appris. Par ailleurs, l'importante documentation (en partie traduite en français; et l'effort continue), facilement accessible, est à plusieurs niveaux et permet au néophyte d'apprendre rapidement les principes et à l'expert de retrouver efficacement une référence.<br />
+L'administration d'une base PostgreSQL est également d'une grande simplicité. Dans la plupart des cas, un petit script d'optimisation agendé pour tourner chaque jour suffit amplement.
+</li>
+<li>
+"Les bases de données propriétaires disposent en plus de fonctions supplémentaires qui garantissent une reprise sur incident rapide (option cluster, contrôle d'intégrité en continu, etc.)." (p.30): PostgreSQL propose la reprise sur incident rapide par le biais du mécanisme de "Write Ahead Log". Il s'agit d'un mécanisme équivalent à celui d'Oracle qui garantit une reprise sur incident au plus près.
+Quant au "contrôle d'intégrité en continu", doit-on comprendre que l'article insinue qu'une base de données PostgreSQL pourrait contenir, à un instant donné, des données incohérentes? Si c'est le cas, c'est absolument faux. PostgreSQL utilise le mécanisme MVCC (MultiVersion Concurrency Control), tout comme Oracle (documentation: <a href="http://www.postgresql.org/docs/current/static/mvcc.html">http://www.postgresql.org/docs/current/static/mvcc.html</a>). Ce mécanisme garantit la cohérence des données de manière formelle.
+</li>
+</ul>
+<h3>Imprécisions</h3>
+<ul>
+<li>"Pas de mécanisme de réplication" (p.31): certes, il n'y a pas de solution de réplication proposée par défaut et il n'existe pas non plus de solution synchrone. Mais on trouve des contributions, telles que Slony-1 (<a href="http://gborg.postgresql.org/project/slony1/projdisplay.php">http://gborg.postgresql.org/project/slony1/projdisplay.php</a>) qui permettent de faire de la réplication asynchrone, plus que suffisante dans la plupart des cas.
+</li>
+<li>
+"IBM annonce par exemple avoir réduit de 65% la charge nécessaire à l'administration quotidienne de sa dernière génération de serveurs." (p.29): voilà qui est choquant. Après avoir affirmé que PostgreSQL était difficile à administrer, pour son concurrent DB2 l'article se contente de citer une annonce d'IBM. Le mandataire n'aurait donc pas testé réellement la charge que représente l'administration de chaque SGBD?
+</li>
+<li>
+"assistance technique annuelle : 4500 euros TTC" (p.34): il serait intéressant de savoir d'où vient ce chiffre. A titre de comparaison, PostgreSQL Inc., société de service spécialisée dans PostgreSQL propose un plan "Bronze" à partir de 1100$ par an, soit moins de 900 euros.
+</li>
+</ul>
+<h3>Confusions</h3>
+<ul>
+<li>
+"Les outils open source sont fonctionnellement plus pauvres. Ils se limitent aux fonctionnalités de base (SQL). PostgreSQL, par exemple, ne prend pas en compte XML, ni les services web." (p.28) et d'autres phrases de la même trempe, tout au long de l'article: ces affirmations sont révélatrices d'une grande confusion, qui biaise les résultats du test. La fonctionnalité principale et essentielle d'une base de données est bien de gérer les données, avec un accès par le langage SQL. Microsoft SQL Server, Oracle et DB2 se présentent sous la forme de "serveurs d'applications" qui fournissent de nombreux services, entre autres et en particulier un SGBD.
+</li>
+<li>
+A ce titre-là, le monde Open Source n'est pas plus pauvre, et de loin, que le monde du logiciel propriétaire. Faut-il seulement rappeler qu'Apache est le serveur web le plus utilisé au monde?
+Le comparatif ne peut mériter ce titre que s'il compare des produits équivalents, ce qui n'est pas le cas.
+</li>
+</ul></div>
+
+      </div>
+
+  
+
+    
+  
+    
+    
+    </div>
+</div> <!-- End #main -->
+
+</div> <!-- End #wrapper -->
+
+<div id="pgFooter">
+  <p>Propulsé par <a href="http://dotclear.org/">Dotclear</a></p>
+</div>
+
+</div> <!-- End #page -->
+</body>
+
+<!-- Mirrored from blog2.postgresql.fr/index.php?post/drupal/44 by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 May 2020 21:40:21 GMT -->
+</html>

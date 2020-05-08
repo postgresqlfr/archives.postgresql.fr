@@ -1,0 +1,2205 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr">
+
+<!-- Mirrored from blog2.postgresql.fr/index.php?category/Articles by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 May 2020 21:40:17 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="MSSmartTagsPreventParsing" content="TRUE" />
+  <meta name="ROBOTS" content="NOINDEX, FOLLOW" />
+  
+  <title>Articles - PostgreSQLfr.org</title>
+  <meta name="description" lang="fr" content="" />
+  <meta name="copyright" content="" />
+  <meta name="author" content="" />
+  <meta name="date" scheme="ISO8601" content="2020-04-26T22:23:31+01:00" />
+  
+  <link rel="schema.dc" href="http://purl.org/dc/elements/1.1/" />
+  <meta name="dc.title" lang="fr" content="Articles - PostgreSQLfr.org" />
+  <meta name="dc.description" lang="fr" content="" />
+  <meta name="dc.language" content="fr" />
+  <meta name="dc.publisher" content="" />
+  <meta name="dc.rights" content="" />
+  <meta name="dc.date" scheme="ISO8601" content="2020-04-26T22:23:31+01:00" />
+  <meta name="dc.type" content="text" />
+  <meta name="dc.format" content="text/html" />
+  
+  <link rel="top" href="indexd41d.html?" title="Accueil" />
+  <link rel="contents" href="index888d.html?archive" title="Archives" />
+  
+                            <link rel="previous" title="billets précédents" href="indexc8c6.html?category/Articles/page/2" />
+                
+                      
+    <link rel="chapter" href="index9dd6.html?post/2010/10/03/iiii" title="Premiers pas avec Postgresql" />
+          
+    <link rel="chapter" href="index4080.html?post/2010/09/26/Premiers-pas-avec-PostgreSQL-9.0" title="Premiers pas avec PostgreSQL 9.0" />
+          
+    <link rel="chapter" href="index3d98.html?post/2010/06/16/Pr%C3%A9sentation-de-la-version-9.0-de-PostgreSQL2" title="Présentation de la version 9.0 de PostgreSQL" />
+          
+    <link rel="chapter" href="index95af.html?post/2009/07/09/ma-fonctionnalit%C3%A9-8.4-pr%C3%A9f%C3%A9r%C3%A9e-%3A-pg_stat_statement" title="ma fonctionnalité 8.4 préférée : pg_stat_statement" />
+          
+    <link rel="chapter" href="index4722.html?post/2009/06/20/Guide-de-demarrage-rapide-avec-PostgreSQL" title="Guide de démarrage rapide avec PostgreSQL" />
+          
+    <link rel="chapter" href="index07f0.html?post/2009/06/11/Postgresql-et-l-authentification-Apache" title="Postgresql et l'authentification Apache" />
+          
+    <link rel="chapter" href="index2539.html?post/2009/04/28/Nouveaut%C3%A9s-PostgreSQL-8.4" title="Nouveautés PostgreSQL 8.4" />
+          
+    <link rel="chapter" href="indexa0d0.html?post/2009/01/22/Sun-fait-un-point-sur-l-acquisition-de-MySQL" title="Sun fait un point sur l'acquisition de MySQL" />
+          
+    <link rel="chapter" href="index7fc6.html?post/drupal/303" title="Écrire et utiliser des fonctions retournant une valeur de type composite (ROWTYPE)" />
+          
+    <link rel="chapter" href="index0145.html?post/drupal/292" title="Script OCF (heartbeat-2) pour pgbouncer" />
+          
+    <link rel="chapter" href="index84f9.html?post/drupal/222" title="Script OCF (heartbeat-2) pour pgbouncer" />
+          
+    <link rel="chapter" href="index48de.html?post/drupal/268" title="Un article de 01net" />
+          
+    <link rel="chapter" href="index1b04.html?post/drupal/264" title="PostgreSQL et Ruby" />
+          
+    <link rel="chapter" href="index645f.html?post/drupal/216" title="Pourquoi préférer PostgreSQL à MySQL" />
+          
+    <link rel="chapter" href="index74b8.html?post/drupal/393" title="Index inversé, en C" />
+          
+    <link rel="chapter" href="index7ddf.html?post/drupal/397" title="Sécuriser votre base PostgreSQL" />
+          
+    <link rel="chapter" href="indexfe05.html?post/drupal/396" title="Utiliser un index pour les recherches sur des motifs tels que « colonne LIKE '%chaîne' »" />
+          
+    <link rel="chapter" href="index4df6.html?post/drupal/199" title="Debian Sarge, PostgreSQL 8.1, XID Wraparound et Single User Mode" />
+          
+    <link rel="chapter" href="index4d9a.html?post/drupal/174" title="Problèmes de récupération après crash" />
+          
+    <link rel="chapter" href="index8e43.html?post/drupal/390" title="Beginning Databases With PostgreSQL" />
+    
+  <link rel="alternate" type="application/atom+xml" title="Atom 1.0" href="index6c6f.php?feed/category/Articles/atom" />
+  
+  <style type="text/css" media="screen">
+@import url(themes/postgresql/style.css);
+</style>
+<style type="text/css" media="print">
+@import url(themes/default/print.css);
+</style>
+
+<script type="text/javascript" src="themes/default/js/jquery.js"></script>
+<script type="text/javascript" src="themes/default/js/jquery.cookie.js"></script>
+
+</head>
+
+<body class="dc-category">
+<div id="page">
+<div id="top">
+  <div id="pgHeader">
+    <span id="pgHeaderLogoLeft">
+      <a href="index.html" title="PostgreSQL"><img src="https://blog.postgresql.fr/themes/postgresql/img/hdr_left.png" width="230" height="80" alt="PostgreSQL" /></a>
+    </span>
+    <span id="pgHeaderLogoRight">
+      <a href="index.html" title="La base de donnees la plus sophistiquee au monde."><img src="https://blog.postgresql.fr/themes/postgresql/img/hdr_right.png" width="210" height="80" alt="La base de donnees la plus sophistiquee au monde." /></a>
+    </span>
+  </div>
+
+  </div>
+
+<div class="pgTopNav">
+  <div class="pgTopNavLeft"> 
+    <img src="https://blog.postgresql.fr/themes/postgresql/img/nav_lft.png" width="7" height="23" alt="" />
+  </div>
+  <div class="pgTopNavRight">
+    <img src="https://blog.postgresql.fr/themes/postgresql/img/nav_rgt.png" width="7" height="23" alt="" />
+  </div>
+  <ul class="pgTopNavList">
+    <li><a href="https://www.postgresql.fr/" title="Accueil">Accueil</a></li>
+    <li><a href="https://blog.postgresql.fr/" title="Lire les actualités">Actualités</a></li>
+    <li><a href="https://docs.postgresql.fr/" title="Lire la documentation officielle">Documentation</a></li>
+    <li><a href="https://forums.postgresql.fr/" title="Pour poser des questions">Forums</a></li>
+    <li><a href="https://www.postgresql.fr/asso/" title="La vie de l'association">Association</a></li>
+    <li><a href="https://www.postgresql.fr/devel:accueil" title="Informations pour les développeurs/traducteurs">Développeurs</a></li>
+    <li><a href="https://planete.postgresql.fr/" title="La planète francophone sur PostgreSQL">Planète</a></li>
+    <li><a href="https://www.postgresql.fr/support/" title="Support sur PostgreSQL">Support</a></li>
+  </ul>
+</div>
+
+<div id="wrapper">
+
+<div id="pgContent">
+
+  <div id="pgSideWrap">
+  <div id="pgSideNav">
+    <div id="blognav">
+      <div id="search"><h2><label for="q">Rechercher</label></h2><form action="http://blog2.postgresql.fr/index.php?" method="get"><fieldset><p><input type="text" size="10" maxlength="255" id="q" name="q" value="" /> <input class="submit" type="submit" value="ok" /></p></fieldset></form></div><div class="categories"><h2>Catégories</h2><ul><li class="category-current"><a href="index199b.html?category/Articles">Articles</a></li><li><a href="indexb4c6.html?category/Dans-les-bacs">Dans les bacs</a></li><li><a href="index025a.html?category/Evenements">Événements</a></li><li><a href="index8c6d.html?category/PostgreSQL-Weekly-News">PostgreSQL Weekly News</a></li><li><a href="index1835.html?category/Securite">Sécurité</a></li><li><a href="index2251.html?category/Vie-de-l-association">Vie de l'association</a></li><li><a href="index91de.html?category/Vie-du-site">Vie du site</a></li></ul></div><div class="text"><h2>Licence</h2>Tous les articles de ce blog sont disponibles sous la <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/">license Creative Commons BY-NC-SA 3.0</a>.</div>    </div> <!-- End #blognav -->
+  
+    <div id="blogextra">
+      <div class="syndicate"><h2>S'abonner</h2><ul><li><a type="application/atom+xml" href="index4ca3.php?feed/atom" title="Fil Atom des billets de ce blog" class="feed">Fil des billets</a></li></ul></div>    </div> <!-- End #blogextra -->
+  </div>
+  </div>
+
+  <div id="pgContentWrap">
+  <div id="pgDownloadsWrap">
+  <div id="content">
+
+  <div id="content-info">
+    <h2>Articles</h2>
+      
+    <p><a type="application/atom+xml" href="index6c6f.php?feed/category/Articles/atom"
+    title="Fil Atom des billets de cette catégorie" class="feed">Fil des billets</a>
+    
+        </p>
+  </div>
+  
+      <div class="post odd first" lang="fr" xml:lang="fr">
+
+    <p class="day-date">mercredi  7 décembre 2011</p>    
+    <h2 id="p571" class="post-title"><a
+    href="index9dd6.html?post/2010/10/03/iiii">Premiers pas avec Postgresql</a></h2>
+    
+    <p class="post-info">Par florence    le mercredi  7 décembre 2011, 13:35</p>
+    
+    
+    
+    
+          <div class="post-content"><h2>I  Introduction</h2>
+
+<h3>A. Pourquoi ce document?</h3>
+
+<p>J'ai commencé à développer sous PostgreSQL assez récemment après une longue expérience sous Oracle. La documentation générale de PostgreSQL est excellente, et très riche, mais j'avais besoin d'un document plus léger expliquant la procédure d'installation sur différents systèmes et comment démarrer (créer un cluster, configurer les connexions), ainsi que des informations sur ce qu'on pouvait faire avec PostgreSQL. Je ne l'ai pas trouvé.
+Après quelques mois d'utilisation, je me suis rendu compte que les problèmes des débutants étaient toujours les mêmes. Ainsi, j'ai compilé mes notes des débuts et ce que j'ai appris depuis dans ce document.
+Voici le résultat, en espérant qu'il vous aide à débuter et qu'il vous encourage à continuer avec PostgreSQL.</p>
+
+
+<h3>B. À qui s'adresse ce document?</h3>
+
+<pre></pre>
+
+<p>Ce document a pour but de vous aider à installer PostgreSQL sous Windows ou sous Linux, et à commencer à développer.</p>
+
+
+<p>Il est écrit pour vous faire gagner du temps dans vos premiers pas avec PostgreSQL, tout en vous expliquant les points importants afin que vous puissiez progresser par vous-même.
+Il s'adresse donc principalement aux développeurs d'applications, afin de leur permettre de découvrir ce puissant moteur sur une petite base de test, ou aux personnes qui débutent complètement avec PostgreSQL. Vous n'aurez pas besoin de connaissances système avancées pour suivre ce document.</p>
+
+
+<p>Une fois que vous aurez terminé la lecture de ce document, vous pourrez continuer par la lecture de la documentation officielle pour apprendre à administrer PostgreSQL ou devenir un développeur aguerri. La dernière section de ce document vous donne les liens et références nécessaires pour continuer à progresser.
+Parfois les informations ne sont volontairement pas complètes, et lorsque la documentation de référence est plus claire et précise que ce qui aurait pu être fait ici, les liens sont fournis vers la documentation française.</p>
+
+
+<p>Ce document a été écrit initialement pour la version 8.3, puis mis à jour pour la version 9.0 (voir le chapitre sur les versions).</p>
+
+
+<p><ins>Avertissement</ins>&nbsp;: ce document n'est en aucun cas un document sur le tuning de la base. Il n'est pas fait non plus pour vous apprendre à administrer une base de production.</p>
+
+
+<h2>II  Présentation de PostgreSQL</h2>
+
+
+<p>PostgreSQL est un moteur de bases de données relationnelle.
+C'est un moteur adapté à des bases métier, donc riche en fonctionnalités et puissant. Son installation est cependant plutôt simple. Il faut juste comprendre quelques principes de base (ce que cette présentation s'efforce de faire)</p>
+
+
+<p>Si vous ne connaissez pas les principes relationnels ou le SQL, le mieux est de vous procurer un bon ouvrage sur le sujet. L'article de Wikipedia peut être une bonne introduction (<a href="http://fr.wikipedia.org/wiki/SQL">http://fr.wikipedia.org/wiki/SQL</a>), et donne de nombreuses références. Le tutoriel de la documentation PostgreSQL peut également vous rendre service  si vous avez besoin de vous rafraîchir la mémoire&nbsp;: <a href="http://docs.postgresqlfr.org/9.0/tutorial-sql.html">http://docs.postgresqlfr.org/9.0/tutorial-sql.html</a></p>
+
+
+<h3>A. Licence</h3>
+
+<p>La licence de PostgreSQL est une licence de type BSD, ce qui permet son utilisation sans restriction, dans un logiciel libre ou propriétaire. C'est un avantage certain, car cela permet par exemple d'utiliser PostgreSQL comme base de données pour un logiciel propriétaire.</p>
+
+
+<p>PostgreSQL est un projet indépendant. Il n'est détenu par aucune entreprise. La communauté PostgreSQL est très réactive (allez voir les mailings-lists si vous voulez vérifier). De nombreuses entreprises soutiennent et participent également au développement de PostgreSQL.</p>
+
+
+<h3>B. Caractéristiques et fonctionnalités&nbsp;:</h3>
+
+<p>PostgreSQL comporte de nombreuses fonctionnalités intéressantes. Parmi celles-ci, on peut citer par exemple&nbsp;:
+moteur transactionnel
+respect des normes SQL
+MVCC (mécanisme permettant une concurrence efficace sans verrouiller les enregistrements pour assurer l'isolation des transactions)
+procédures stockées dans de nombreux langages
+triggers
+réplication maître-esclaves en continu par application des journaux binaires (archives WAL), esclaves accessibles en lecture.</p>
+
+
+<p>PostgreSQL est conçu pour être robuste (aucune version ne sort sans avoir subi une suite extensive de tests) et peut supporter des volumes importants de données (ainsi par exemple Météo France gère une base de 3,5To).</p>
+
+
+<p>PostgreSQL est conçu pour pouvoir supporter des extensions. Des extensions et outils sont disponibles pour compléter le moteur, par exemple&nbsp;:</p>
+<ul>
+<li>PostGis&nbsp;: moteur de données spatiales.</li>
+<li>Slony&nbsp;: réplication maître-esclaves.</li>
+<li>Et de nombreux autres.</li>
+</ul>
+
+<h2>III  Installation</h2>
+
+<p>Avant de passer aux procédures d'installation proprement dites, il est nécessaire de comprendre certaines notions fondamentales.</p>
+
+<h3>A. Vocabulaire</h3>
+
+<h4>1. Base</h4>
+
+<p>Une base est un ensemble structuré de données. On utilise généralement une base de donnée par application.
+Pour pouvoir créer une base de données, vous devez disposer d'un cluster de bases de données.</p>
+
+<h4>2. Cluster (ou grappe de base de données)</h4>
+
+<p>Un cluster est un ensemble de bases de données qui partagent les mêmes ressources (processus, mémoire, disque...) .</p>
+
+<h4>3. Schéma</h4>
+
+<p>Un schéma est un espace de nommage au sein d'une base de données.</p>
+
+
+<h3>B. Principes de base</h3>
+
+<h4>1. Comptes système</h4>
+
+<p>Les processus de PostgreSQL utilisent un compte système. Généralement c'est le compte postgres qui est utilisé pour cela, sauf si vous avez installé PostgreSQL sur votre compte (voir la partie compilation).</p>
+
+<h4>2. Rôles</h4>
+
+<p>Les droits de la base de données sont gérés par des rôles. Avant de pouvoir vous connecter à la base de données, le rôle que vous utilisez doit avoir les autorisation nécessaires.</p>
+
+
+<p>http://docs.postgresql.fr/9.0/user-manag.html</p>
+
+
+<p><ins>À retenir: les comptes systèmes et les rôles de base de données sont distincts!</ins> Même s'il y a des possibilités de mapping entre les deux (cf. paragraphe sur pg_hba.conf)
+La confusion entre ces 2 notions est une des causes fréquentes d'erreurs et de problèmes d'installation pour les débutants.</p>
+
+
+<h4>3. Versions (mineures/majeures)</h4>
+
+<p>Les versions majeures comprennent le chiffre avant le point et un chiffre après. Exemple&nbsp;: 8.2 et 8.3 sont des versions majeures différentes.
+Les versions mineures incrémentent la 3ème partie&nbsp;: exemple&nbsp;: 8.3.7
+Pour changer de version mineure, il suffit de mettre à jour le moteur. Mais pour changer de version majeure, il est nécessaire de décharger puis recharger les données.</p>
+
+
+<p>Plus d'informations ici&nbsp;:
+<a href="http://www.postgresql.org/support/versioning">http://www.postgresql.org/support/versioning</a></p>
+
+<h4>4. Client/serveur</h4>
+
+<p>PostgreSQL est une application client/serveur. Le serveur gère les fichiers de la base de données, accepte les connexions des clients, et effectue les opérations demandées par les clients (requêtes...)
+Le client peut prendre de nombreuses formes. Il existe par exemple un client en ligne de commande (psql), des clients graphiques (par exemple pgAdmin3)... Le client peut être sur la même machine que le serveur, ou bien communiquer avec lui par le réseau.</p>
+
+<h4>5. Processus serveur</h4>
+
+<p>Sous Windows, le serveur PostgreSQL tourne en tant que service.
+Sous Linux, ce sont des démons système qui effectuent ces tâches.
+(si vous êtes curieux, vous pouvez aller voir cet article&nbsp;: http://dalibo.org/glmf112_les_processus_de_postgresql)
+Il ne faut pas arrêter les processus du serveur n'importe comment. Pour arrêter le serveur, il faut utiliser les outils fournis (voir la section sur l'arrêt et le démarrage du serveur).
+<ins>NB</ins>&nbsp;: par défaut, PostgreSQL est configuré pour écouter sur le port 5432. Les outils se connectent par défaut sur ce port&nbsp;: pensez à cela si vous devez modifier ce paramètre.</p>
+
+
+<h4>6. Module de contribution</h4>
+
+<p>Ce sont des extensions intéressantes, maintenues par le projet, mais non intégrées au coeur du moteur.
+<ins>Exemples&nbsp;: </ins></p>
+<ul>
+<li>adminpack (fonctions supplémentaires, utilisées par les outils d'administrations comme pgAdmin3)</li>
+<li>pg_buffercache (pour savoir ce qui est présent dans le cache)</li>
+<li>pg_freespacemap&nbsp;: donne la liste des blocs vides et partiellement vides des tables et index (quantité d'espace libre dans chaque objet de la base)</li>
+<li>pgcrypto&nbsp;: fonctions de cryptographie</li>
+</ul>
+<h3>C. Exemple</h3>
+
+<p>Pour l'installation et la suite, nous prendrons l'exemple de la création d'une base de données mabase, qui sera utilisée et gérée par un utilisateur <em>tom</em>.</p>
+
+
+<h3>D. Sous Windows</h3>
+
+<p>À partir de la version 8.0, PostgreSQL fonctionne nativement sous Windows (Windows XP, Windows 2000, Windows 2003, Vista, Windows 2008...). Malgré tout, seules les versions à partir de la 8.2 sont supportées sous Windows. Il s'installe en tant que service.</p>
+
+
+<p><strong>NB</strong>&nbsp;: si vous regardez dans la liste des processus, plusieurs processus postgres sont présents. Gardez à l'esprit que la mémoire est partagée entre ces processus&nbsp;: la mémoire utilisée par PostgreSQL est donc inférieure à la somme de la mémoire utilisée par chaque processus qui est affichée dans le gestionnaire de tâches...</p>
+
+<h4>1. Où trouver PostgreSQL pour Windows?</h4>
+
+<p>Vous pouvez trouver deux types d'installeurs pour Windows&nbsp;: l'installeur "en un clic", ou l'installeur "pgInstaller". Le premier est créé par EnterpriseDB, le seconde par la communauté. Vous les trouverez à partir d'ici&nbsp;:
+<a href="http://www.postgresql.org/download/windows">http://www.postgresql.org/download/windows</a>
+"pgInstaller" n'est disponible que pour les versions 8.2 et 8.3, le document détaille donc le processus d'installation pour l'installeur «en un clic ».
+<strong>NB:</strong>
+il est possible de récupérer les binaires sans l'installeur (pour utilisateurs avancés uniquement), ou de  faire une installation silencieuse (voir sur le site de EnterpriseDB)</p>
+
+
+<h3>2. Installation</h3>
+
+<p>Lancez l'installeur (pour Postgresql 9.0, le fichier s'appelle&nbsp;: postgresql-9.0.0-1-windows.exe )</p>
+
+
+
+<p><strong>NB:</strong> L'installeur logue toutes ses actions dans un fichier install-postgresql.log qui est dans le répertoire %TEMP% de Windows. En cas de problème, consulter ce fichier.</p>
+
+
+<p><img src="public/install_windows_v9_0/.3_repertoire_m.jpg" alt="3_repertoire.jpg" title="3_repertoire.jpg, avr. 2011" /></p>
+
+
+<p>Le répertoire est celui où vont s'installer le programme serveur (postgres.exe) et les outils client (psql, pgdump...), ainsi que la documentation, etc...</p>
+
+
+<p>L'installeur ne permet actuellement pas d'installer les outils client et le serveur séparément.</p>
+
+
+<p><img src="public/install_windows_v9_0/.4_donnees_m.jpg" alt="4_donnees.jpg" title="4_donnees.jpg, avr. 2011" /></p>
+
+
+<p>L'installeur demande ensuite où sera créé le cluster de données.
+Il sera par la suite toujours possible de créér d'autres cluster avec l'outil initdb.</p>
+
+
+<p><img src="public/install_windows_v9_0/.5_mot_passe_m.jpg" alt="5_mot_passe.jpg" title="5_mot_passe.jpg, avr. 2011" /></p>
+
+
+<p>L'installeur demande le mot de passe de l'utilisateur postgres. Attention, en réalité ceci recouvre 2 notions différentes&nbsp;:
+un utilisateur du système d'exploitation, celui sur le compte duquel fonctionnent les programmes du serveur,
+le super-utilisateur de base de données.
+Ils peuvent très bien avoir des noms et des mots de passe différents, mais pour cet installeur, il a été choisi de donner le même nom et le même mot de passe.</p>
+
+
+<p>Si l'utilisateur postgres du système d'exploitation existe déjà, il faut donner le mot de passe existant. Si vous l'avez oublié, vous pouvez le changer dans une console avec la commande net user&nbsp;:
+<code>net user postgres &lt;motdepasse&gt;</code></p>
+
+
+<p><ins>Attention à ne pas mettre un mot de passe trivial à l'utilisateur postgres</ins> (c'est encore plus important si vous autorisez les connexions à partir du réseau!). Évitez également de lui donner le même mot de passe que celui de l'utilisateur système postgres. En effet, l'utilisateur postgres dispose de tous les droits sur le cluster.</p>
+
+
+<p><img src="public/install_windows_v9_0/.6_port_m.jpg" alt="6_port.jpg" title="6_port.jpg, avr. 2011" /></p>
+
+
+<p>Par défaut, le port sur lequel le serveur attend les connexions est le port 5432. Vous pouvez changer le numéro de port d'écoute. Attention dans ce cas à configurer correctement vos clients (JDBC, etc...)</p>
+
+
+<p><ins>Remarque :</ins> par défaut, postgres n'acceptera pas les connexions à partir du réseau. Ceci est parfait sur un poste de développement autonome, mais pas pour un serveur. <ins>Cela pourra être modifié par configuration.</ins></p>
+
+
+<p><img src="public/install_windows_v9_0/.7_locale_m.jpg" alt="7_locale.jpg" title="7_locale.jpg, avr. 2011" /></p>
+
+
+<p>La locale définit le comportement du cluster pour les opérations de tri (ordre alphabétique) …
+Par défaut, c'est celle du système qui est utilisée, mais vous pouvez en préférer une autre.</p>
+
+
+<p><img src="public/install_windows_v9_0/.8_pret_m.jpg" alt="8_pret.jpg" title="8_pret.jpg, avr. 2011" /></p>
+
+
+<p>Si vous êtes certain(e) du paramétrage, vous pouvez cliquer sur « Suivant».</p>
+
+
+<p><img src="public/install_windows_v9_0/.9_fin_m.jpg" alt="9_fin.jpg" title="9_fin.jpg, avr. 2011" /></p>
+
+
+<p>L'installation est terminée. Si vous souhaitez installer des modules complémentaires (phppgAdmin, Slony...), lancez l' outil Stackbuilder.</p>
+
+
+<p><img src="public/install_windows_v9_0/.110_utilisation_flou_m.jpg" alt="110_utilisation_flou.jpg" title="110_utilisation_flou.jpg, avr. 2011" /></p>
+
+
+<p>L'installation sous Windows est prête à être utilisée.
+Dans le menu démarrer, vous pouvez retrouver tous les outils utiles pour gérer le serveur.</p>
+
+
+<p>Si vous avez conservé les options par défaut, les fichiers du cluster se trouvent dans C:\Program Files\PostgreSQL\9.0, et vous trouverez l'outil pour désinstaller dans le même répertoire.</p>
+
+
+<p><ins>NB&nbsp;: notes sur la console Windows et psql</ins>
+La console Windows est par défaut dans un encodage compatible DOS (par exemple CP850). Lorsque vous démarrerez psql pour la première fois,  vous aurez le message d'avertissement suivant&nbsp;:</p>
+
+
+<pre>Attention : l'encodage console (850) diffère de l'encodage Windows (1252).
+Les caractères 8 bits peuvent ne pas fonctionner correctement.
+Voir la section « Notes aux utilisateurs de Windows » de la page
+référence de psql pour les détails.</pre>
+
+
+<p>Il est recommandé de modifier l'encodage de la console,
+Pour éviter cela, vous pouvez éditer le fichier C:\Program Files\PostgreSQL\9.0\scripts\runpsql.bat en ajoutant la ligne&nbsp;:</p>
+
+
+<p><code>chcp 1252</code></p>
+
+
+<p>avant le lancement de psql.</p>
+
+
+<p><ins>Remarque importante :</ins> si vous avez installé PostgreSQL sur un poste de travail (dans le but par exemple de l'évaluer ou de vous familiariser avec lui), vous avez maintenant une installation qui fonctionne « à la sortie de la boîte », et vous pouvez commencer à l'utiliser via l'outil pgAdmin (crééer des bases, etc...). Mais si vous souhaitez autoriser des connexions distantes, il est indispensable de lire la suite du document. Il apporte également des informations qui pourraient vous être utiles (emplacement et rôle des différents répertoires...) même si vous utilisez peu les outils en ligne de commande.
+Vous pouvez maintenant passer à la section « après l'installation » si vous le souhaitez.</p>
+
+
+<h2>IV  Après l'installation</h2>
+
+<p>Dans toute la suite du document, nous supposons que l'utilisateur système sous lequel PostgreSQL a été installé est postgres. Si ce n'est pas le cas, remplacez par l'utilisateur qui démarre le serveur.
+Conseil&nbsp;: avant toute modification de fichier de configuration, pensez à sauvegarder la version initiale du fichier! Une erreur est si vite arrivée...</p>
+
+
+<h3>A. Processus et emplacement des fichiers.</h3>
+
+<p>L'emplacement des fichiers de configuration et des fichiers du cluster dépend de votre distribution.
+Le répertoire contenant les fichiers du cluster est couramment appelé PGDATA (du nom de la variable d'environnement correspondante). Par exemple&nbsp;: /var/lib/pgsql/data (Linux) ou C:\Program Files\PostgreSQL\9.0\data (Windows)
+Normalement, le  fichier postgresql.conf est dans le répertoire du cluster. Cependant, cela peut être autrement (sur Debian, tous les fichiers de configuration doivent être dans /etc)
+Voici un moyen de retrouver leur emplacement sous Linux ou Unix si vous l'avez oublié.
+Liste des processus nommés "postgres"&nbsp;:
+(exemple sur une Debian):</p>
+
+
+<pre>flo:~# ps -ef | grep postgres | grep -v grep
+postgres  2797     1  0 06:14 ?        00:00:00 /usr/lib/postgresql/9.0/bin/postgres -D /var/lib/postgresql/9.0/main -c config_file=/etc/postgresql   /9.0/main/postgresql.conf
+postgres  2798  2797  0 06:14 ?        00:00:00 postgres: logger process                                                                                        
+postgres  2800  2797  0 06:14 ?        00:00:00 postgres: writer process                                                                                        
+postgres  2801  2797  0 06:14 ?        00:00:00 postgres: wal writer process                                                                                    
+postgres  2802  2797  0 06:14 ?        00:00:00 postgres: autovacuum launcher process                                                                           
+postgres  2803  2797  0 06:14 ?        00:00:00 postgres: stats collector process                                                                               
+flo:~#</pre>
+
+
+<p>Voyez que le processus 2797 est le père de tous les autres&nbsp;:</p>
+
+
+<pre>postgres  2797     1  0 06:14 ?        00:00:00 /usr/lib/postgresql/9.0/bin/postgres -D /var/lib/postgresql/9.0/main -c config_file=/etc/postgresql/9.0/main/postgresql.conf</pre>
+
+
+<p>le chemin derrière le -D est l'emplacement du cluster.
+Celui derrière le -c l'emplacement du fichier de configuration.</p>
+
+
+<p><code>config_file=/etc/postgresql/9.0/main/postgresql.conf</code></p>
+
+
+<p>Normalement, les autres fichiers de configuration du cluster (pg_hba.conf, pg_ident.conf) sont dans le même répertoire .</p>
+
+
+<p><code>/usr/lib/postgresql/9.0/bin/postgres</code></p>
+
+
+<p>est l'emplacement des binaires.</p>
+
+
+<p>Arborescence du répertoire du cluster:</p>
+
+
+<pre>flo:/var/lib/postgresql/9.0/main# ls -l
+total 48 
+drwx<del></del>-- 11 postgres postgres 4096 mai 10 15:19 base 
+drwx<del></del>--  2 postgres postgres 4096 mai 10 18:29 global
+drwx<del></del>--  2 postgres postgres 4096 avr  4 19:58 pg_clog
+drwxr-xr-x  2 postgres postgres 4096 mai 10 08:15 pg_log
+drwx<del></del>--  4 postgres postgres 4096 avr  4 19:58 pg_multixact
+drwx<del></del>--  2 postgres postgres 4096 avr  4 19:58 pg_subtrans
+drwx<del></del>--  2 postgres postgres 4096 avr  4 19:58 pg_tblspc
+drwx<del></del>--  2 postgres postgres 4096 avr  4 19:58 pg_twophase
+-rw<del></del>---  1 postgres postgres    4 avr  4 19:58 PG_VERSION
+drwx<del></del>--  3 postgres postgres 4096 avr  4 19:58 pg_xlog
+-rw<del></del>---  1 postgres postgres  133 mai 10 08:15 postmaster.opts
+-rw<del></del>---  1 postgres postgres   54 mai 10 08:15 postmaster.pid
+lrwxrwxrwx  1 root     root       31 avr  4 19:58 root.crt -&gt; /etc/postgresql-common/root.crt</pre>
+
+
+<p>Quelques sous-répertoires  et fichiers&nbsp;:</p>
+<ul>
+<li>base&nbsp;: répertoire des fichiers de base de données</li>
+<li>pg_log&nbsp;: log de la base de données (c'est le seul répertoire du cluster où vous pouvez supprimer des fichiers!)</li>
+<li>pg_clog et pg_xlog&nbsp;: commit log (état des transactions) et répertoire des fichiers WAL (Write Ahead Log, utilisé pour la durabilité ).</li>
+<li>postmaster.pid&nbsp;: fichier verrou utilisé pour éviter que plusieurs instances ne soient actives sur le même répertoire de données.</li>
+</ul>
+
+<p><ins>Attention</ins>&nbsp;: le contenu de pg_clog et pg_xlog ne doit pas être supprimé!</p>
+
+<h3>B. Changer le mot de passe de l'utilisateur système postgres</h3>
+
+
+<p>À moins que vous n'ayez compilé les sources pour utiliser PostgreSQL sur votre compte utilisateur, un utilisateur postgres a été créé sur votre système.
+Afin de pouvoir l'utiliser, vous devez changer le mot de passe de cet utilisateur.
+Pour cela, sous Linux, connectez-vous en tant que root et exécutez la commande 'passwd postgres'.
+(ne pas utiliser un mot de passe trivial!)</p>
+
+
+<h3>C. Créer un cluster de base de données.</h3>
+
+
+<p>Avec certaines distributions (Redhat, Debian), un cluster est créé par défaut à l'installation des paquets. De même pour l'installation sous Windows.
+Si vous êtes dans un autre cas de figure, il vous faudra donc en créer un.
+Pour cela, utilisez la commande initdb.</p>
+
+
+<h3>D. Autoriser les connexions</h3>
+
+
+<p>L'installation de PostgreSQL positionne des valeurs par défaut dans les fichiers de configuration.
+Après l'installation, PostgreSQL est configuré de telle sorte que les connexions ne sont pas possibles à partir du réseau.
+Pour autoriser des clients distants à se connecter, il faut configurer deux fichiers&nbsp;:
+postgresql.conf et pg_hba.conf.</p>
+
+
+<h4>1. Connexions réseau (postgresql.conf)</h4>
+
+
+<p>À l'installation, PostgreSQL est configuré pour n'accepter que les connexions locales (c'est le paramètre listen_addresses).
+Si vous souhaitez pouvoir vous connecter à partir du réseau, il faut dé-commenter le paramètre <em>listen_addresses</em> du fichier postgresql.conf, et préciser sur quelle(s) adresse(s) postgres accepte les connexions.</p>
+
+
+<p><ins>Attention</ins>&nbsp;: ce sont bien les adresses IP d'écoute, c'est-à-dire les adresses IP du serveur sur lesquelles le serveur PostgreSQL va écouter. Si vous précisez une adresse '*', postgres va écouter les connexions sur toutes les interfaces réseau du serveur. Si vous précisez une adresse IP, cela signifie que postgres va écouter sur l'interface réseau de votre machine qui a cette adresse IP.
+Si vous souhaitez n'autoriser les connexions qu'à une liste de machines ou d'adresses IP, c'est dans pg_hba.conf que vous pouvez le faire (paragraphe suivant).
+Pour que les paramètres soient pris en compte, il faut redémarrer le serveur PostgreSQL.
+<ins>Exemples</ins>&nbsp;:
+(connexion locales)</p>
+
+
+<pre>#listen_addresses = 'localhost'         # what IP address(es) to listen on;
+                                       # comma-separated list of addresses;
+                                       # defaults to 'localhost', '*' = all
+                                       # (change requires restart)
+port = 5432                             # (change requires restart)@@</pre>
+
+
+<p>(connexion sur l'adresse 192.168.0.4 et local, port 5433)</p>
+
+
+<pre>listen_addresses = '192.168.0.4, localhost'         # what IP address(es) to listen on;
+                                       # comma-separated list of addresses;
+                                       # defaults to 'localhost', '*' = all
+                                       # (change requires restart)</pre>
+
+<p>port = 5432                             # (change requires restart)@@</p>
+
+
+<h4>2. Authentification des clients (pg_hba.conf)</h4>
+
+
+<p>Le fichier pg_hba.conf configure les autorisations pour les bases du cluster.
+Chaque ligne précise une règle aidant à décider si l'utilisateur est habilité à se connecter ou non.
+Le fichier est lu dans l'ordre par postgres, et, dès qu'une ligne est rencontrée qui correspond au cas testé, la lecture s'arrête. Cela signifie que l'ordre des lignes est important.
+Sur chaque ligne est précisé le type de connexion, un nom de base de données, un nom d'utilisateur, et la méthode d'authentification.
+Les méthodes d'authentification les plus classiques sont&nbsp;: md5 (par mot de passe crypté), ident (à partir du nom d'utilisateur du système d'exploitation, non utilisable sous Windows).</p>
+
+
+<p><ins>Exemple :</ins></p>
+
+
+
+<pre># connection par socket Unix pour l'administration du serveur
+# TYPE  DATABASE    USER        CIDR-ADDRESS          METHOD
+local   all         postgres                               ident sameuser
+# connection par socket Unix 
+# TYPE  DATABASE    USER        CIDR-ADDRESS          METHOD
+local   mabase      tom                                    md5
+local   truc        all                                    ident sameuser
+# Connexions locales en Ipv4 :
+# TYPE  DATABASE    USER        CIDR-ADDRESS          METHOD
+host    mabase      tom         127.0.0.1/32          md5
+host    truc        all         127.0.0.1/32          md5
+# Connexion distante en Ipv4 :
+# TYPE  DATABASE    USER        CIDR-ADDRESS          METHOD
+host    mabase      tom         192.168.12.10/32      md5
+host    truc        all         192.168.12.10/32      md5</pre>
+
+
+<p>La première ligne&nbsp;:
+<code>local   all         postgres                               ident sameuser</code>
+signifie que, si postgres reçoit une demande de connexion sur n'importe quelle base (all) par socket Unix (local), pour l'utilisateur postgres, alors la méthode d'authentification utilisée est&nbsp;: ident. sameuser signifie que postgres vérifie que le nom de l'utilisateur Unix propriétaire de la socket est le même que celui utilisé pour se connecter à la base.</p>
+
+
+
+<p>La ligne suivante&nbsp;:
+<code>local   mabase      tom                                    md5</code></p>
+
+
+<p>signifie que, lorsque tom essaie de se connecter par socket Unix sur la base mabase, c'est l'authentification md5 qui est utilisée.</p>
+
+
+<p>La ligne&nbsp;:
+<code>local   truc        all                                    ident sameuser</code></p>
+
+
+<p>signifie que lorsque n'importe que n'importe quel utilisateur essaie de se connecter à la base truc par socket Unix, c'est l'authentification ident sameuser qui est utilisée.</p>
+
+
+<p>La ligne&nbsp;:</p>
+
+
+<p><code>host    mabase       tom         127.0.0.1/32          md5</code></p>
+
+
+<p>signifie qu'une demande de connexion à partir pour la base mabase, par un utilisateur tom, en local par Ipv4 est authentifiée par md5.</p>
+
+
+<p>La ligne&nbsp;:</p>
+
+
+<p><code>host    mabase      tom         192.168.12.10/32      md5</code></p>
+
+
+<p>signifie qu'une demande de connexion de l'utilisateur <em>tom</em> sur <em>mabase</em>, à partir de l'adresse 192.168.12.10 est authentifiée par <em>md5</em>.</p>
+
+
+<p>On voit donc que <em>tom</em> est autorisé à se connecter sur la base <em>mabase</em>, soit par socket Unix, soit par Ipv4 en local, soit par Ipv4 à partir de&nbsp;: 192.168.12.10.
+Les autres utilisateurs (à part l'utilisateur postgres) ne peuvent se connecter que sur la base <em>truc</em>.
+Tom peut également se connecter sur la base <em>truc</em>, car <em>tom</em> fait partie de l'ensemble des utilisateurs (all).
+<ins>NB :</ins> CIDR est une façon de noter les ensembles d'adresses IP, avec le chiffre derrière le '/' indiquant la taille du masque en bits  (ainsi un réseau de classe A est en /8, classe B, 16, classe C, 24, une IP unique /32, et tout le monde&nbsp;: 0.0.0.0/0 ) (voir l'article Wikipedia&nbsp;: <a href="http://fr.wikipedia.org/wiki/Adresse_IPv4" hreflang="fr">http://fr.wikipedia.org/wiki/Adresse_IPv4</a> )</p>
+
+
+<p><ins>Remarques :</ins>
+Le fichier configure le cluster, il est donc commun à toutes les bases du cluster&nbsp;: attention à ne pas autoriser un utilisateur sur une base par erreur.
+Attention, ne surtout pas autoriser d'authentification trust ni ident par le réseau, parce que cela signifierait faire entièrement confiance au client...
+Si vous voulez en savoir plus sur l'authentification du client, allez voir la documentation ici&nbsp;:
+<a href="http://docs.postgresql.fr/9.0/client-authentication.html" hreflang="fr">http://docs.postgresql.fr/9.0/client-authentication.html</a></p>
+
+
+
+<h2>3. Prise en compte des paramètres de configuration</h2>
+
+<p>Pour que PostgreSQL prenne en compte les modifications de paramètres sans redémarrer le serveur, vous avez les solutions suivantes&nbsp;:</p>
+<ul>
+<li>utiliser pg_ctl reload (remplacé par pg_ctlcluster sous Debian)</li>
+<li>envoyer un signal SIGHUP à postgres</li>
+</ul>
+<p>Sous Windows, il est possible d'utiliser un raccourci dans le menu Démarrer (« Rechargez la configuration »).</p>
+
+
+<p><ins>Attention</ins>&nbsp;: certaines options ne sont prises en compte qu'au démarrage (voir la documentation, les commentaires de postgresql.conf ou la colonne context de la vue pg_settings)</p>
+
+
+<h4>4. Créer une base</h4>
+
+<p>Nous allons créer une base mabase sur le cluster, puis faire de tom le propriétaire de la base (afin qu'il puisse faire ce qu'il veut sur cette base)</p>
+
+
+<pre>postgres@flo:/etc/postgresql/9.0/main$ pg_lsclusters
+Version Cluster   Port Status Owner    Data directory                     Log file
+9.0 main      5432 online postgres /var/lib/postgresql/9.0/main       custom</pre>
+
+
+<p>Pour cela, lancez la commande createdb&nbsp;:</p>
+
+
+<p><code>postgres@flo$ createdb mabase</code></p>
+
+
+<p>NB&nbsp;: createdb lance en fait la commande CREATE DATABASE pour vous.</p>
+
+
+<h4>5. Créer un rôle et lui donner des droits sur une base</h4>
+
+<p><ins>NB</ins>&nbsp;: les utilisateurs et les groupes sont tous gérés par des rôles.</p>
+
+
+<p>En tant qu'utilisateur postgres, lancez psql&nbsp;:</p>
+
+
+<p>postgres@flo:/usr/share/doc/postgresql-common$ psql
+Bienvenue dans psql 9.0.6, l'interface interactive de PostgreSQL.</p>
+
+
+<pre>Saisissez:
+    \copyright pour les termes de distribution
+    \h pour l'aide-mémoire des commandes SQL
+    \? pour l'aide-mémoire des commandes psql
+    \g ou point-virgule en fin d'instruction pour exécuter la requête
+    \q pour quitter</pre>
+
+
+<pre>postgres=#</pre>
+
+
+
+<p>Créez un rôle tom, avec les droits de login (pour qu'il ait le droit de se connecter au serveur), et le mot de passe&nbsp;: <em>secret</em>.</p>
+
+
+<pre>postgres=# CREATE ROLE tom LOGIN password 'secret';
+CREATE ROLE
+postgres=#</pre>
+
+
+<p>Pour que tom soit le propriétaire de mabase&nbsp;:</p>
+
+
+<pre>postgres=# ALTER DATABASE mabase OWNER TO tom;
+ALTER DATABASE</pre>
+
+
+<p>Sortez de psql&nbsp;:</p>
+
+
+<pre>postgres=# \q
+postgres@flo:/usr/share/doc/postgresql-common$</pre>
+
+
+<p><ins>NB</ins>&nbsp;: les commandes CREATE DATABASE et CREATE ROLE (création de base et d'utilisateur) sont globales au cluster. Il est donc possible de les exécuter de n'importe quelle base.</p>
+
+
+<p>Maintenant, l'utilisateur <em>tom</em> peut se connecter sur <em>mabase</em>&nbsp;: lancez psql, en précisant que vous vous connectez en tant que <em>tom</em>&nbsp;:</p>
+
+
+<pre>flo@flo:~$ psql -U tom mabase
+Mot de passe pour l'utilisateur tom :
+Bienvenue dans psql 9.0.6, l'interface interactive de PostgreSQL.</pre>
+
+
+<pre>Saisissez:
+    \copyright pour les termes de distribution
+    \h pour l'aide-mémoire des commandes SQL
+    \? pour l'aide-mémoire des commandes psql
+    \g ou point-virgule en fin d'instruction pour exécuter la requête
+    \q pour quitter</pre>
+
+
+<pre>mabase=&gt;</pre>
+
+
+<p><ins>Remarque</ins>&nbsp;: il faut préciser la base! Sinon psql cherchera à se connecter à une base "<em>tom</em>".</p>
+
+
+<p>Si vous souhaitez donner le droit à tom de créer des bases:</p>
+
+
+<pre>postgres=# ALTER ROLE tom CREATEDB;
+ALTER ROLE
+postgres=#</pre>
+
+
+<p>Pour les détails sur les droits, lisez le chapitre correspondant de la documentation&nbsp;:
+<a href="http://docs.postgresqlfr.org/9.0/privileges.html" hreflang="fr">http://docs.postgresqlfr.org/9.0/privileges.html</a></p>
+
+
+<h3>E. Super-utilisateur</h3>
+
+<p>Le super-utilisateur est un utilisateur qui dispose de droits spéciaux (certaines fonctions ne sont utilisables que par un super-utilisateur). Les super-utilisateurs passent au travers des vérifications de droits.
+Si vous avez installé PostgreSQL en tant que root, classiquement vous avez un super-utilisateur <em>postgres</em>.
+<ins>Attention</ins>! Le super-utilisateur disposant de tous les droits, éviter de l'utiliser si ce n'est pas nécessaire, afin de limiter le risque d'erreur.</p>
+
+
+<h3>F. Je ne peux pas me connecter à la base? Que faire?</h3>
+
+<p>Que vérifier?</p>
+<ul>
+<li>D'abord&nbsp;: lisez le message d'erreur! (ça peut suffire à trouver la solution à partir d'un bon moteur de recherche, des archives des mailing-lists ou de forums...)</li>
+<li>Consultez la log (voir chapitre suivant)</li>
+<li>Cherchez quels sont les clusters présents&nbsp;? (sous Debian&nbsp;: pg_lsclusters...)</li>
+<li>Vérifiez le fichier postgresql.conf (le paramètre listen_addresses est-il correct? Le port est-il celui souhaité? Le client essaie-t-il de se connecter sur le bon  port?)</li>
+<li>Vérifiez le fichier pg_hba.conf</li>
+<li>Vérifiez le propriétaire de la base</li>
+<li>Le rôle que vous utilisez a-t-il le droit de se loguer (autorisation <em>LOGIN</em>)&nbsp;?</li>
+<li>Le rôle utilisé a-t-il le droit de se connecter à la base de données (sinon utilisez GRANT CONNECT on mabase ...)</li>
+</ul>
+
+<p><ins>NB :</ins> vous obtenez la liste des bases d'un cluster avec la commande \l dans psql</p>
+
+
+<h3>G. Où se trouve la log&nbsp;? Comment la configurer?</h3>
+
+<p>La configuration de la log est effectuée par le fichier postgresql.conf (voir les paramètres log_destination et log_directory)
+Dans une installation standard de PostgreSQL, la log se trouve dans un répertoire pg_log sous le répertoire PGDATA  (répertoire du cluster).
+Par exemple, sous Windows&nbsp;:</p>
+
+
+<p><code>C:\Program Files\PostgreSQL\9.0\data\pg_log</code></p>
+
+
+<pre></pre>
+
+<p>En fonction de votre utilisation (production, test, développement), vous pourrez régler les paramètres de la log. Par exemple, loguer tous les ordres SQL peut être fort utile en développement (surtout lorsque vous utilisez un ORM).</p>
+
+
+<p>Pensez à recharger la configuration après modification.</p>
+
+
+<h3>H. Arrêter/démarrer le serveur PostgreSQL</h3>
+
+<p>Sous Windows&nbsp;: vous pouvez utiliser "stoppez le service" et "démarrez le service" dans le menu démarrer, ou bien dans un terminal, utiliser pg_ctl&nbsp;:</p>
+
+<pre>C:\Program Files\PostgreSQL\9.0\bin&gt;pg_ctl start -D "C:\Program Files\PostgreSQL\9.0\data"
+server starting</pre>
+
+
+<p>Sous Linux&nbsp;: c'est la commande <em>pg_ctl</em>  (sous Debian&nbsp;: <em>pg_ctlcluster</em> ou <em>service postresql start</em></p>
+
+<pre>sous Redhat)</pre>
+
+
+<h2>V  Outils</h2>
+
+<h3>A. Outil graphique&nbsp;: pgAdmin3</h3>
+
+<p>PgAdmin3 est sans doute l'outil le plus populaire pour développer et administrer PostgreSQL.
+<a href="http://www.pgadmin.org/?lang=fr_FR" hreflang="fr">http://www.pgadmin.org/?lang=fr_FR</a>
+Voici un apercu de ce à quoi il ressemble. Pour le reste, vous pourrez vous reporter à sa documentation.
+<br /></p>
+
+
+
+<p><img src="public/.Doc_postgresql_html_m32255e8d_m.jpg" alt="pgadmin" style="display:block; margin:0 auto;" title="pgadmin, déc. 2011" />
+<br /></p>
+
+
+<h3>B. psql (outil en ligne de commande)</h3>
+
+<p>Psql permet d'exécuter des ordres SQL sur les bases, et également des commandes de gestion et d'administration.
+Pour lancer psql&nbsp;:</p>
+
+<h4>1. Windows&nbsp;:</h4>
+
+
+<h5>a)  Via le menu démarrer (gère tout seul le changement d'utilisateur)</h5>
+
+
+<p><ins>Remarque</ins>&nbsp;: si, à la première connexion, vous avez ce message d'avertissement&nbsp;:</p>
+
+
+
+<pre>Warning: Console code page (437) differs from Windows code page (1252)
+        8-bit characters might not work correctly. See psql reference
+        page "Notes for Windows users" for details.
+postgres=#</pre>
+
+
+<p>reportez-vous à la partie installation sous Windows.</p>
+
+
+<h5>b) En ligne de commande dans une console&nbsp;:</h5>
+
+<p>Si vous lancez psql non pas avec le menu démarrer, mais à partir d'une console Windows, il faut être connecté en tant qu'utilisateur système postgres. Ceci est possible avec la commande runas de Windows.</p>
+
+
+<p><code>runas user:postgres cmd.exe  </code>
+Puis modifiez la police de la console pour utiliser Lucida Console, et changez de code page&nbsp;:</p>
+
+
+<p><code>cmd.exe /c chcp 1252</code></p>
+
+
+<p>(pour la France)</p>
+
+
+<p>Malheureusement, si votre base est en UTF8, la console Windows est incapable de gérer correctement l'affichage. Il faudra également éviter de saisir des données avec psql, et préférer pgAdmin pour cet usage (pgAdmin gère parfaitement les différents encodages).</p>
+
+
+<h4>2. Sous Linux&nbsp;:</h4>
+
+
+<p><code>psql mabase</code></p>
+
+
+<h4>3. Remarques&nbsp;:</h4>
+
+
+<p>Si vous ne précisez pas le nom de la base, psql essaie de se connecter à la base de même nom que l'utilisateur. Si vous ne précisez pas le nom d'utilisateur, c'est le nom de l'utilisateur du système qui est utilisé.</p>
+
+
+<h4>4. Commandes</h4>
+
+<p>Commandes psql à connaître absolument&nbsp;:</p>
+<ul>
+<li>\? pour l'aide des commandes psql (si vous deviez n'en retenir qu'une)</li>
+<li>\q quitter</li>
+<li>\h aide des commandes sql</li>
+</ul>
+
+<p>autres commandes intéressantes&nbsp;:</p>
+<ul>
+<li>\l liste des bases de données</li>
+<li>\c se connecter à une base</li>
+<li>\d [nom] pour la description d'une table, d'un index, séquence, vue</li>
+<li>\d liste des relations (tables, vues et séquences)</li>
+<li>\i nom_fichier  exécuter un fichier de commandes SQL</li>
+</ul>
+
+<p>Attention! Pour la commande \i, les noms de fichiers sous Windows doivent utiliser le séparateur slash " / "et non antislash " \ "  . Exemple&nbsp;:</p>
+
+
+<p><code>\i C:/tests.sql</code></p>
+
+
+<h4>C. phpPgAdmin</h4>
+
+<p>C'est un outil d'administration web pour PostgreSQL
+<a href="http://phppgadmin.sourceforge.net/" hreflang="fr">http://phppgadmin.sourceforge.net/</a></p>
+
+
+<h4>D. Copy</h4>
+
+<p>copy est un outil pour le chargement et déchargement de données en masse. Ce n'est pas une commande standard SQL.
+<a href="http://docs.postgresqlfr.org/9.0/sql-copy.html" hreflang="fr">http://docs.postgresqlfr.org/9.0/sql-copy.html</a></p>
+
+
+<h2>VI  Développement</h2>
+
+<h3>A. SQL</h3>
+
+<p>Plusieurs outils permettent d'exécuter du code SQL de façon  interactive&nbsp;: psql, pgAdmin (voir les sections qui leur sont consacrées).
+Vous pouvez également utiliser un outil tiers, si vous préférez...</p>
+
+
+<h3>B. Procédures stockées</h3>
+
+<p>L'intérêt des procédures stockées est de pouvoir exécuter des fonctions directement sur le serveur. Les procédures stockées sont efficaces et rapides, et permettent de traiter des données, soit pour consultation par un client, soit en mise à jour.<br /></p>
+
+
+<p>PostgreSQL vous donne le choix du langage de procédures stockées.<br /></p>
+
+
+<p>Vous pouvez utiliser:</p>
+<ul>
+<li>PL/pgsql (proche de SQL, facile à utiliser, utilisable pour les triggers)</li>
+<li>PL/Tcl</li>
+<li>PL/Perl (pratique lorsqu'il y a des traitements de chaînes de caractères à effectuer)</li>
+<li>PL/Python</li>
+<li>D'autres langages ne sont pas inclus dans la distribution principale&nbsp;:</li>
+<li>PL/Java, PL/PHP, PL/R,  PL/Ruby, PL/Scheme, PL/sh</li>
+<li>Vous pouvez aussi en définir un vous-même...</li>
+</ul>
+
+<h3>C. JDBC</h3>
+
+<p>Le pilote JDBC pour PostgreSQL est un pilote natif (il est entièrement écrit en Java)<br /></p>
+
+
+<p>Les différentes versions du pilote JDBC sont disponibles ici (ainsi que la documentation)<br /></p>
+
+
+<p><a href="http://jdbc.postgresql.org/index.html" hreflang="fr">http://jdbc.postgresql.org/index.html</a>
+Ensuite vous avez juste à utiliser le .jar de manière classique (le mettre dans le CLASSPATH de votre application)<br /></p>
+
+
+<p><ins>NB :</ins> la syntaxe de l'URL
+<code>String url="jdbc:postgresql:test_conn";</code></p>
+
+
+<p>L'URL a une de ces formes&nbsp;:</p>
+<ul>
+<li>jdbc:postgresql:database</li>
+<li>jdbc:postgresql://host/database</li>
+<li>jdbc:postgresql://host:port/database</li>
+</ul>
+
+<p>Allez voir la documentation <a href="http://jdbc.postgresql.org/documentation/83/connect.html" hreflang="fr">http://jdbc.postgresql.org/documentation/83/connect.html</a> pour plus de détails.</p>
+
+
+<p><ins>Quel driver prendre ?</ins></p>
+
+
+<p>Normalement, la dernière version du driver devrait vous convenir (elle est compatible avec toutes les versions supportées de PostgreSQL). Mais il y en a 2 variétés : la JDBC3, à préférer pourt les JVM 1.4 et 1.5, et la JDBC4, pour la JVM 1.6. Plus de précisions et une matrice de compatibilité sur la page de téléchargement :
+<a href="http://jdbc.postgresql.org/download.html" hreflang="fr">http://jdbc.postgresql.org/download.html</a></p>
+
+
+<h3>D. Autres (PERL, Python, .Net, ODBC, Tcl...)</h3>
+
+<p>Voir ici&nbsp;: <a href="http://docs.postgresqlfr.org/9.0/external-projects.html" hreflang="fr">http://docs.postgresqlfr.org/9.0/external-projects.html</a></p>
+
+<h3>E. A savoir&nbsp;!</h3>
+
+<h5>1. Majuscules/minuscules</h5>
+
+<p>Le nom des objets dans les ordres SQL est converti automatiquement en minuscules.
+Par exemple, si vous exécutez&nbsp;:
+<code>SELECT Id, Valeur FROM Matable;</code>
+l'ordre réellement exécuté sera&nbsp;:
+<code>SELECT id, valeur FROM matable;</code></p>
+
+
+<pre>mabase=&gt; SELECT Id, Valeur FROM Matable;
+ id | valeur
+<del></del>+<del></del><del></del>
+  1 | azerty
+(1 ligne)</pre>
+
+
+<pre>mabase=&gt;</pre>
+
+<p>Si vous souhaitez utiliser la casse dans les noms d'objets (ce qui n'est pas conseillé en général), utilisez les guillemets.</p>
+
+
+<p>Par exemple&nbsp;:
+<code>SELECT "Id", "Valeur" FROM "Matable";</code>
+Remarquez que ce comportement est différent d'autres moteurs, qui soit passent tous les noms en majuscule, soit conservent la casse. (Le comportement standard pour un SGBD est d'ignorer la casse, ainsi il est déconseillé généralement d'utiliser des noms d'objet avec des casses différentes&nbsp;: si vous utilisez toujours des minuscules, le comportement sera toujours le même, quel que soit le SGBD)</p>
+
+
+<h4>2. Erreurs et transactions</h4>
+
+<p>Avec PostgreSQL, lorsqu'une erreur se produit dans une transaction, il n'est pas possible de l'ignorer. L'erreur doit être gérée. Sinon tous les ordres suivants sont également en erreur.
+De plus, à la fin de la transaction, il n'est pas possible de commiter. L'ordre COMMIT provoque en réalité un ROLLBACK.</p>
+
+
+<p><ins>Exemple :</ins></p>
+
+
+<pre>mabase=&gt; begin;
+BEGIN
+mabase=&gt; insert into matable(valeur, nb) values ('c',2);
+INSERT 0 1
+mabase=&gt; insert into matable(valeur, nb) values ('c',2);
+ERREUR:  la valeur d'une clé dupliquée rompt la contrainte unique « u_matable »
+mabase=&gt; insert into matable(valeur, nb) values ('d',2);
+ERREUR:  la transaction est annulée, les commandes sont ignorées jusqu'à la fin du bloc
+de la transaction
+mabase=&gt; commit;
+ROLLBACK
+mabase=&gt; select valeur, nb from matable;
+ valeur | nb
+<del></del><del></del>+<del></del>
+ a      |  2
+ b      |  2
+(2 lignes)</pre>
+
+
+<pre>mabase=&gt;</pre>
+
+
+<h4>3. Savepoints</h4>
+
+<p>Les savepoints ne sont pas spécifiques à PostgreSQL. Mais c'est une fonctionalité SQL trop peu connue, et pourtant extrêmement utile, dans le cas de traitements lourds.<br /></p>
+
+
+<p>Un savepoint sert à marquer un point de reprise dans un traitement. Lorsque vous avez à effectuer un traitement long (par exemple lorqu'un programme doit mettre à jour tout un ensemble de données les unes après les autres), vous pouvez mettre des savepoints à intervalles réguliers. Lorsqu'une erreur se produit, vous faites en sorte que le programme effectue un ROLLBACK TO SAVEPOINT vers un point de sauvegarde où l'état de vos données est cohérent (généralement le dernier point de sauvegarde). Ensuite vous pouvez annuler le traitement (après par exemple pris la précaution de loguer les événements...)<br /></p>
+
+
+<p>L'intérêt est que seul les traitements effectués après le point de sauvegarde sont perdus. Cela évite à votre programme de faire un ROLLBACK sur l'ensemble du traitement! Votre programme peut ainsi effectuer des traitements partiellement.</p>
+
+
+<h4>4. DDL dans les transactions!</h4>
+
+<p>Une des fonctionnalités les plus épatantes de PostgreSQL est la possibilité d'inclure des ordres DDL dans des transactions.<br /></p>
+
+
+<p><ins>Exemple :</ins><br /></p>
+
+
+<p>Dans une transaction, on crée une table "test", puis une table "matable". La création de "matable" échoue (la table existe déjà). On fait un rollback sur la transaction&nbsp;: la table "test" n'existe pas.</p>
+
+
+<pre>mabase=&gt; BEGIN;
+BEGIN
+mabase=&gt; CREATE TABLE test (
+    id serial NOT NULL,
+    valeur character varying(20) NOT NULL);
+NOTICE:  CREATE TABLE créera des séquences implicites « test_id_seq » pour la colonne serial « test.id »
+CREATE TABLE
+mabase=&gt; ALTER TABLE test ADD CONSTRAINT pk_test PRIMARY KEY (id);
+NOTICE:  ALTER TABLE / ADD PRIMARY KEY créera un index implicite « pk_test » pour la table « test »
+ALTER TABLE
+mabase=&gt; CREATE TABLE matable (
+    id serial NOT NULL,
+    valeur character varying(20) NOT NULL);
+NOTICE:  CREATE TABLE créera des séquences implicites « matable_id_seq1 » pour la colonne serial « matable.id »
+ERREUR:  la relation « matable » existe déjà
+mabase=&gt; ROLLBACK;
+ROLLBACK
+mabase=&gt; \d
+                 Liste des relations
+ Schéma |       Nom        |   Type   | Propriétaire
+<del></del><del></del>+<del></del><del></del><del></del><del></del><del>+</del><del></del><del></del>+<del></del><del></del><del></del>--
+ public | matable          | table    | tom
+ public | matable_id_seq   | séquence | tom
+ public | table_flo        | table    | flo
+ public | table_flo_id_seq | séquence | flo
+(4 lignes)</pre>
+
+
+<pre>mabase=&gt;</pre>
+
+
+<p><ins>Intérêt :</ins><br /></p>
+
+
+<p>On peut faire tout un ensemble de modification de façon atomique (par exemple la migration d'un schéma pour l'évolution d'une application), C'est un soulagement pour le DBA qui devra passer votre script de migration, de nuit, de savoir qu'il n'aura pas à restaurer la base en cas d'échec.</p>
+
+
+<h4>5. Count(*)</h4>
+
+<p>En raison de l'implémentation actuelle du MVCC, count(*) force le parcours complet de la table, ce qui est donc lent.</p>
+
+
+<h2>VII  Et après?</h2>
+
+<h3>A. Lire la documentation&nbsp;:</h3>
+
+<p>Lien vers la documentation en Français&nbsp;:  <a href="http://docs.postgresql.fr/" hreflang="fr">http://docs.postgresql.fr/</a>
+En anglais&nbsp;: [http://www.postgresql.org/docs/
+|http://www.postgresql.org/docs/|en]</p>
+
+<h3>B. Sites utiles&nbsp;:</h3>
+
+<p><a href="http://www.postgresql.org/" hreflang="en">http://www.postgresql.org/</a>&nbsp;: site officiel
+<a href="http://www.postgresql.fr/" hreflang="fr">http://www.postgresql.fr/</a>&nbsp;: site de la communauté francophone.</p>
+
+
+<h3>C. Pour trouver de l'aide complémentaire&nbsp;:</h3>
+
+<p>La communauté PostgreSQL est très active, et vous trouverez facilement de l'aide pour les problèmes les plus simples aussi bien que pour les cas les plus tordus.</p>
+
+<h4>1. Listes de diffusion&nbsp;:</h4>
+
+<p>La liste francophone&nbsp;:
+<a href="http://archives.postgresql.org/pgsql-fr-generale/" hreflang="fr">http://archives.postgresql.org/pgsql-fr-generale/</a>
+Les autres&nbsp;:
+<a href="http://www.postgresql.org/community/lists/" hreflang="en">http://www.postgresql.org/community/lists/</a>
+<ins>Attention</ins>&nbsp;: les listes "developer" sont pour les développeurs DE PostgreSQL uniquement&nbsp;!</p>
+
+
+<h4>2. Forum de la communauté francophone&nbsp;:</h4>
+
+<p><a href="http://forums.postgresql.fr/" hreflang="fr">http://forums.postgresql.fr/</a></p>
+
+
+
+<h4>3. Remarque&nbsp;: comment poser vos questions?</h4>
+
+<p>Si vous posez une question parce que vous avez un problème, vous voulez  certainement qu'il soit résolu le plus vite possible. Alors pensez à ceux qui vont tenter de vous aider, et faites-leur gagner du temps en donnant les informations nécessaires. Soyez le plus clair possible. <br /></p>
+
+
+<p>Pensez à préciser au minimum&nbsp;:</p>
+<ul>
+<li>La version de PostgreSQL utilisée,</li>
+<li>Le système d'exploitation.,</li>
+<li>ce que vous avez fait,</li>
+<li>ce que vous vouliez faire,</li>
+<li>le message d'erreur (ou son absence),</li>
+<li>le résultat obtenu.</li>
+</ul>
+<p>Si vous n'arrivez pas à vous connecter, précisez si le client est sur la même machine que le serveur. Recopiez les messages d'erreurs, consultez la log... enfin donnez le maximum d'informations pertinentes, et si on vous pose des questions, répondez-y le plus précisément possible.<br />
+Evitez également de dire qu'il y a un bug si vous n'en êtes pas absolement certain(e), et postez sur la mailing-list ou le forum approprié (par exemple, la mailing-list pour les novices n'est pas un endroit indigne, et des hackers y répondent régulièrement et avec bienveillance)</p></div>
+    
+    
+          <p class="post-info-co">
+              <a href="index9dd6.html?post/2010/10/03/iiii#comments" class="comment_count">un commentaire</a>
+                      </p>
+        </div>
+    
+          <div class="post  " lang="fr" xml:lang="fr">
+
+    <p class="day-date">dimanche  3 octobre 2010</p>    
+    <h2 id="p567" class="post-title"><a
+    href="index4080.html?post/2010/09/26/Premiers-pas-avec-PostgreSQL-9.0">Premiers pas avec PostgreSQL 9.0</a></h2>
+    
+    <p class="post-info">Par florence    le dimanche  3 octobre 2010, 15:42</p>
+    
+    
+    
+    
+          <div class="post-content"><p>J'ai mis à jour le document que j'avais rédigé il y a un peu plus d'un an, afin qu'il soit à jour avec la sortie de la 9.0. À l'occasion, j'ai changé le titre, qui ne me plaisait pas beaucoup, pour "Premiers pas avec PostgreSQL".
+En attendant que je fasse la mise en forme pour le passer sur le blog − c'est très long − , voici la version pdf et la version OpenOffice, que vous pouvez dès à présent lire et distribuer. N'hésitez pas à me faire part de vos remarques.</p>
+
+<ul>
+<li><a href="public/Doc_postgresql_9_0.pdf">Premiers_pas_9_0</a></li>
+<li><a href="public/Doc_postgresql_9_0.odt">Premiers_pas_9_0_odt</a></li>
+</ul></div>
+    
+    
+                        </div>
+    
+          <div class="post odd " lang="fr" xml:lang="fr">
+
+    <p class="day-date">mercredi 16 juin 2010</p>    
+    <h2 id="p549" class="post-title"><a
+    href="index3d98.html?post/2010/06/16/Pr%C3%A9sentation-de-la-version-9.0-de-PostgreSQL2">Présentation de la version 9.0 de PostgreSQL</a></h2>
+    
+    <p class="post-info">Par mcousin    le mercredi 16 juin 2010, 15:30</p>
+    
+    
+    
+    
+          <div class="post-content"><p>Ce document tente de présenter les principaux changements apportés par PostgreSQL 9.0, par rapport à la version majeure précédente, la version 8.4. Dans la mesure du possible, chaque fonctionnalité sera expliquée et accompagnée d'une démonstration. Toutes les nouveautés ne sont bien sûr pas présentées (il y en a plus de 200).</p>
+<p>La version 9.0, comme son nom l'indique, est une version capitale dans la progression de PostgreSQL. Même si les solutions de réplication pour PostgreSQL sont nombreuses et répondent à des problématiques variées, la version 9.0 apporte une réplication simple, robuste et intégrée au moteur, qui sera vraisemblablement utilisée par défaut dans la plupart des configurations de Haute Disponibilité reposant sur PostgreSQL.</p>
+<p>Les changements ont été subdivisés en quatre parties:</p>
+<ul>
+<li>Les deux nouveautés incontournables</li>
+<li>Les nouveautés</li>
+<li>Les changements pouvant entraîner des régressions</li>
+<li>Les améliorations</li>
+</ul>
+<h2>Les incontournables</h2>
+<p>Ces deux nouveautés sont celles qui ont justifié à elles seules le renommage de 8.5 en 9.0.</p>
+<h3>Hot Standby</h3>
+<p>Cette nouvelle fonctionnalité est une des deux raisons du renommage en 9.0. Il s'agit de proposer une base de 'Standby', c'est-à-dire une baseappliquant les journaux binaires générés par la base de production, tout&nbsp;&nbsp;en la rendant ouverte en lecture seule. Ceci est assez complexe car, pendant l'exécution de ces requêtes en lecture seule, la base en Standby doit aussi pouvoir appliquer les données binaires provenant de la base de production, être capable de décider si les modifications peuvent entrer en conflit avec les lectures et déterminer les actions à entreprendre en conséquence&nbsp;: mettre en pause la restauration ou tuer des requêtes en lecture seule. Ce patch est volumineux et complexe, il rajoute des informations dans la journalisation à l'intention de la base de Standby et un mécanisme de résolution des conflits. C'est donc une des fonctionnalités majeures, et une des principales fonctionnalités à aider à tester.</p>
+<p>Pour mettre ceci en place, il suffit de paramétrer la base de production comme suit&nbsp;:</p>
+<p><code>postgresql.conf</code> Primaire:</p>
+<pre>wal_level = 'hot standby' # Génère les informations supplémentaires dans les journaux<br /># vacuum_defer_cleanup_age # Optionnellement, vous pourriez vouloir paramétrer ceci, mais son réglage pourrait être complexe</pre>
+<p>Ensuite, créer une base de standby (la procédure est la même que précédemment pour un Warm Standby&nbsp;: pg_start_backup sur la production, recopie des fichiers sur l'esclave, pg_end_backup sur la production).</p>
+<p>Puis il suffit de recopier les journaux sur le secondaire et de rajouter ceci dans son postgresql.conf&nbsp;: </p>
+<p><code>postgresql.conf</code> Secondaire:</p>
+<pre>hot_standby=on<br />max_standby_delay=30s # -1= toujours attendre, 0= ne jamais attendre, sinon attendre cette durée</pre>
+<p>et d'utiliser un programme comme pg_standby sur le secondaire pour intégrer les journaux (à paramétrer dans le <code>recovery.conf</code>).</p>
+<p>max_standby_delay permet de déterminer le comportement de la base de standby en cas de conflit entre l'application des journaux de transactions et les requêtes en lecture seule. En cas de conflit, la base de standby acceptera d'attendre au plus max_standby_delay avant de tuer les requêtes en lecture qui bloquent l'application des journaux.</p>
+<p>Il est bien sûr vivement conseillé de lire la documentation avant de mettre en place cette fonctionnalité… Ne serait-ce que pour bien comprendre les conséquences du réglage de max_standby_delay et vacuum_defer_cleanup_age, qui ne sont pas simples à appréhender.</p>
+<h3>Streaming Replication</h3>
+<p>C'est la deuxième moitié de la raison du passage en 9.0. Il s'agit cette fois-ci de modifier le mécanisme d'archivage pour le rendre continu&nbsp;: les bases de standby peuvent donc se connecter au maître et récupérer à tout moment ce qui leur manque des journaux, non plus en termes de fichiers entiers, mais bien en termes d'enregistrements dans ces journaux (des fragments de ces fichiers donc). Il s'agit donc bien d'une réplication binaire, pas de la rééxécution dans le même ordre de requêtes SQL comme sur certains autres moteurs de bases de données, avec tous les risques de cohérence que cela impliquerait.</p>
+<p>Les bases de production et de standby sont identiques au niveau binaire (enfin presque, on ne va pas rentrer dans les détails, mais ne vous en faites pas si les fichiers de données n'ont pas la même somme de contrôle).</p>
+<p>wal_level devra valoir «&nbsp;archive&nbsp;» (ou «&nbsp;hot standby ») pour continuer à faire de l'archivage continu.</p>
+<p><code>postgresql.conf</code> primaire :</p>
+<pre>max_wal_senders = x # Nombre maximum de « wal_senders », les processus chargés de répondre à des serveurs de standby<br />wal_keep_segments # Nombre de fichiers de journaux de transactions à conserver en ligne quoi qu'il arrive (évite d'avoir à les recopier manuellement sur le(s) secondaires en cas de déconnection lente)</pre>
+<p>Sur le secondaire&nbsp;:</p>
+<p><code>recovery.conf</code> secondaire:</p>
+<pre>stanby_mode = on<br />primary_conninfo = 'host=192.168.1.50 port=5432 user=foo password=foopass' # La chaîne de connexion pour une session sur le maître</pre>
+<p><code>postgresql.conf</code> secondaire:</p>
+<pre>wal_level # à la même valeur que sur le maître (pour le retour de bascule…)<br />hot_standby=on/off # Suivant que vous voulez en même temps être en hot standby</pre>
+<p>fichier pg_hba.conf&nbsp;:
+On doit y créer une entrée pour les connexions de réplication. La base est «&nbsp;replication », l'utilisateur utilisé doit avoir l'attribut de superutilisateur. Attention à ne pas donner des droits trop importants ici, donner accès aux journaux de transactions en lecture à n'importe qui donne accès à des informations privilégiées.</p>
+<p><code>pg_hba.conf</code> primaire:</p>
+<pre>host    replication     foo             192.168.1.100/32        md5</pre>
+<p>Comme pour Hot Standby, cette fonctionnalité est suffisamment riche et complexe pour qu'il soit vivement conseillé de lire la doc. Et de faire des tests de bascule une fois l'ensemble mis en place.</p>
+<p>Ce qui est très important avec ces deux fonctionnalités, c'est que vous pouvez les utiliser ensemble. Vous pouvez donc avoir donc une base de stanby répliquée de façon quasi-synchrone avec la production, et exécuter des requêtes en lecture seule sur cette base.</p>
+<h2>Les nouveautés</h2>
+<h3>Contraintes d'exclusion</h3>
+<p>Il est maintenant possible de déclarer des contraintes d'unicité plus complexes que celles s'appuyant sur l'opérateur '=' (contrainte d'unicité, deux jeux de colonnes ne pouvant être identiques).</p>
+<p>Nous allons, pour l'illustrer, utiliser l'exemple de l'auteur, en utilisant le type 'temporal' qu'il a aussi développé. Ce type de données permet de définir des 'plages de temps', c'est à dire par exemple 'la plage de 12h15 à 13h15'.</p>
+<p>Il faut donc récupérer le module temporal à l'adresse suivante&nbsp;: http://pgfoundry.org/projects/temporal/ , le compiler et l'installer comme un contrib (exécuter le script SQL fourni).</p>
+<pre>CREATE TABLE reservation<br />(<br />  salle      TEXT,<br />  professeur TEXT,<br />  durant    PERIOD);<br /><br />ALTER TABLE reservation ADD CONSTRAINT test_exclude EXCLUDE   USING gist (salle WITH =,durant WITH &amp;&amp;);</pre>
+<p>Par ceci, nous disons qu'un enregistrement doit être refusé (contrainte d'exclusion) s'il en existe déjà un vérifiant les deux conditions concerner la même salle, et être en intersection au niveau de l'intervalle de temps.</p>
+<pre>marc=# INSERT INTO reservation (professeur,salle,durant) VALUES ( 'marc', 'salle techno', period('2010-06-16 09:00:00', '2010-06-16 10:00:00'));<br />INSERT 0 1<br />marc=# INSERT INTO reservation (professeur,salle,durant) VALUES ( 'jean', 'salle chimie', period('2010-06-16 09:00:00', '2010-06-16 11:00:00'));<br />INSERT 0 1<br />marc=# INSERT INTO reservation (professor,room,during) VALUES ( 'marc', 'salle chimie', period('2010-06-16 10:00:00', '2010-06-16 11:00:00'));<br />ERROR:  conflicting key value violates exclusion constraint "test_exclude"<br />DETAIL:  Key (room, during)=(salle chimie, [2010-06-16 10:00:00+02, 2010-06-16 11:00:00+02)) conflicts with existing key (room, during)=(salle chimie, [2010-06-16 09:00:00+02, 2010-06-16 11:00:00+02)).</pre>
+<p>L'insertion est interdite, puisque la salle de chimie est déjà prise de 9h à 11h.</p>
+<h3>Triggers par colonne</h3>
+<p>Voici d'abord un trigger par colonne.</p>
+<pre>CREATE TRIGGER toto BEFORE UPDATE of a ON t1 FOR EACH ROW EXECUTE PROCEDURE mon_trigger();</pre>
+<p>Ce trigger ne se déclenche que si la colonne a de la table t1 a été modifiée.</p>
+<h3>Triggers WHEN</h3>
+<p>Voici maintenant des exemples tirés de la documentation officielle pour la clause WHEN des triggers:</p>
+<pre>CREATE TRIGGER check_update<br />BEFORE UPDATE ON accounts<br />FOR EACH ROW<br />WHEN (OLD.balance IS DISTINCT FROM NEW.balance)<br />EXECUTE PROCEDURE check_account_update();<br /><br />CREATE TRIGGER log_update<br />AFTER UPDATE ON accounts<br />FOR EACH ROW<br />WHEN (OLD.* IS DISTINCT FROM NEW.*)<br />EXECUTE PROCEDURE log_account_update();</pre><h3>DEFERRABLE UNIQUE CONSTRAINTS</h3>
+<p>Cette fonctionnalité aussi promet d'être pratique. Voici un exemple avec une clé primaire au lieu d'une simple clé unique, mais cela revient au même&nbsp;:</p>
+<pre>marc=# CREATE TABLE test (a int primary key);<br />marc=# INSERT INTO test values (1), (2);<br />marc=# UPDATE test set a = a+1;<br />ERROR:  duplicate key value violates unique constraint "test_pkey"<br />DETAIL:  Key (a)=(2) already exists.</pre>
+<p>Normal, mais dommage&nbsp;: à la fin de la transaction, mes données auraient été cohérentes. D'autant plus que si la table avait été triée physiquement par ordre descendant, ça passait&nbsp;! En 8.4, il n'y avait pas d'échappatoire simple, il fallait trouver une astuce pour mettre à jour les enregistrements dans le bon ordre.</p>
+<p>Nous pouvons maintenant faire ceci&nbsp;:</p>
+<pre>marc=# CREATE TABLE test (a int primary key deferrable);<br />marc=# INSERT INTO test values (2),(1);<br />marc=# UPDATE test set a = a+1;<br />ERROR:  duplicate key value violates unique constraint "test_pkey"<br />DETAIL:  Key (a)=(2) already exists.</pre>
+<p>Ah zut, ça ne marche pas. </p>
+<p>En fait, je l'ai fait exprès&nbsp;: j'en profite pour faire un petit rappel sur les contraintes deferrable/deferred&nbsp;: une contrainte 'deferrable' PEUT être vérifiée en fin de transaction (elle est 'retardable'). Il faut toutefois dire à PostgreSQL expressément qu'on veut vraiment faire ce contrôle en fin de transaction.</p>
+<p>On peut, pour la session en cours demander à passer toutes les contraintes en 'DEFERRED'&nbsp;:</p>
+<pre>marc=# SET CONSTRAINTS ALL DEFERRED;<br />SET CONSTRAINTS<br />marc=# UPDATE test set a = a+1;<br />UPDATE 2</pre>
+<p>Si on veut ne pas avoir à effectuer le SET CONSTRAINTS à chaque fois, il est aussi possible de déclarer la contrainte comme INITIALLY DEFERRED:</p>
+<pre>CREATE TABLE test (a int PRIMARY KEY DEFERRABLE INITIALLY DEFERRED);</pre>
+<p>Un autre rappel s'impose&nbsp;: les contraintes DEFERRED sont plus lentes que les contraintes IMMEDIATE. Par ailleurs, il faut bien stocker la liste des enregistrements à vérifier en fin de transaction quelque part, et cela consomme de la mémoire. Attention à ne pas le faire sur des millions d'enregistrements d'un coup. C'est la raison pour laquelle les contraintes 'DEFERRABLE' ne sont pas 'INITIALLY DEFERRED' par défaut.</p>
+<h3>Fonctions anonymes</h3>
+<p>Cette nouvelle fonctionnalité permet de créer des fonctions à usage unique. Elles seront très pratiques dans des scripts de livraison de version applicative par exemple. Voici une version un peu différente du GRANT SELECT ON ALL TABLES qui sera présenté plus loin dans ce document, qui donne le droit de sélection à tout un jeu de tables, en fonction du propriétaire des tables, et en ignorant deux schémas&nbsp;:</p>
+<pre>DO language plpgsql $$ <br />DECLARE<br />vr record;<br /><br />BEGIN<br /><br />FOR vr IN SELECT tablename FROM pg_tables WHERE tableowner = 'marc' AND schemaname NOT IN ('pg_catalog','information_schema')<br />LOOP<br />  EXECUTE 'GRANT SELECT ON ' || vr.tablename || ' TO toto';<br />END LOOP;<br />END<br />$$<br />;</pre>
+<p>En 8.4, il aurait fallu créer une fonction (via CREATE FUNCTION), l'exécuter puis la supprimer (avec DROP FUNCTION). Le tout demandant d'avoir les droits pour ça. La 9.0 facilite donc ce type d'exécution rapide.</p>
+<h3>Paramètres nommés</h3>
+<p>La syntaxe retenue pour nommer les paramètres est la suivante:</p>
+<pre>CREATE FUNCTION test (a int, b text) RETURNS text AS $$<br />DECLARE<br />valeur text;<br />BEGIN<br />valeur := 'a vaut ' || a::text || ' et b vaut ' || b;<br />RETURN valeur;<br />END;<br />$$ LANGUAGE plpgsql;</pre>
+<p>Jusque là, on écrivait&nbsp;:</p>
+<pre>SELECT test(1,'toto');<br />test           <br />-------------------------<br />a vaut 1 et b vaut toto<br />(1 row)</pre>
+<p>Maintenant, on peut utiliser cette syntaxe explicite:</p>
+<pre>SELECT test( b:='toto', a:=1);<br />test           <br />-------------------------<br />a vaut 1 et b vaut toto<br />(1 row)</pre>
+<p>De nombreux langages permettent ce type de syntaxe d'appel de fonction, qui améliore fortement la lisibilité du code.</p>
+<h3>GRANT/REVOKE IN SCHEMA</h3>
+<p>C'est un problème idiot, et un peu frustrant, qui est déjà arrivé à beaucoup d'administrateurs de base de données&nbsp;: créer 400 tables, puis devoir attribuer des droits à un utilisateur sur ces 400 tables. Jusque là, on en était quitte pour créer un script. Plus maintenant&nbsp;:</p>
+<pre>GRANT SELECT ON ALL TABLES IN SCHEMA public TO toto;</pre>
+<p>Et la marche arrière&nbsp;:</p>
+<pre>REVOKE SELECT ON ALL TABLES IN SCHEMA public FROM toto;</pre>
+<p>Bien sûr, cette commande ne vaut que pour les tables en place au moment de la commande. Il faudra toujours faire de nouveaux GRANT pour les futures tables du schéma.</p>
+<h3>ALTER&nbsp;DEFAULT PRIVILEGES</h3>
+<p>Encore une commande permettant de gagner du temps dans la gestion des droits.</p>
+<pre>ALTER DEFAULT PRIVILEGES FOR ROLE marc GRANT SELECT ON TABLES TO PUBLIC ;<br />CREATE TABLE test_priv (a int);<br />\z test_priv<br />                             Access privileges<br /> Schema |    Name    | Type  | Access privileges | Column access privileges <br />--------+------------+-------+-------------------+--------------------------<br /> public | test_priv  | table | =r/marc          +| <br />        |            |       | marc=arwdDxt/marc | </pre>
+<p>Les informations sur les droits par défaut sont stockées dans pg_default_acl.</p>
+<h2>Les changements pouvant entraîner régression</h2>
+<p>Ces deux changements dans PL/pgSQL peuvent entraîner des régressions dans du code fonctionnant en 8.4. Si vous avez du code PL/pgSQL, vérifiez le avant de migrer en 9.0. Le moteur génère des erreurs à l'exécution, comme illustré ci-dessous.</p>
+<h3>PL/pgSQL&nbsp;: meilleur contrôle du nom des variables</h3>
+<pre>marc=# DO LANGUAGE plpgsql<br />$$<br />DECLARE<br />a int;<br />BEGIN<br />SELECT a FROM test;<br />END<br />$$<br />ERROR:  column reference "a" is ambiguous<br />LINE 1: select a from test<br />DETAIL:  It could refer to either a PL/pgSQL variable or a table column.<br />QUERY:  select a from test<br />CONTEXT:  PL/pgSQL function "inline_code_block" line 4 at SQL statement</pre>
+<p>Si vous voulez modifier ce comportement, vous pouvez le faire globalement mais il est préférable de le faire par fonction, en exécutant une de ces commandes au début de votre fonction:</p>
+<pre>variable_conflict error        # mode par défaut<br />variable_conflict use_variable # choisir le nom de variable<br />variable_conflict use_column   # choisir le nom de colonne</pre>
+<h3>Protection des mots réservés en PL/pgSQL</h3>
+<pre>marc=# DO LANGUAGE plpgsql<br />$$<br />DECLARE<br />table int;<br />BEGIN<br />table :=table+1;<br />END<br />$$<br />;<br />ERROR:  syntax error at or near "table"<br />LINE 6: table :=table+1;<br />^<br />marc=# DO LANGUAGE plpgsql<br />$$<br />DECLARE<br />"table" int;<br />BEGIN<br />"table" :="table"+1;<br />END<br />$$<br />;<br />DO</pre>
+<h2>Les améliorations</h2>
+<p>Le planificateur de requête a reçu un grand nombre d'améliorations dans cette version. Nous allons donc commencer par lui:</p>
+<h3>Join Removal</h3>
+<pre>marc=# CREATE TABLE t1 (a int);<br />CREATE TABLE<br />marc=# CREATE TABLE t2 (b int);<br />CREATE TABLE<br />marc=# CREATE TABLE t3 (c int);<br />CREATE TABLE</pre>
+On insère quelques données avec le generate_series…<br /><pre>marc=# EXPLAIN SELECT t1.a,t2.b from t1 join t2 on (t1.a=t2.b) left join t3 on (t1.a=t3.c);<br />                                  QUERY PLAN                                  <br />------------------------------------------------------------------------------<br /> Merge Right Join  (cost=506.24..6146.24 rows=345600 width=8)<br />   Merge Cond: (t3.c = t1.a)<br />   -&gt;  Sort  (cost=168.75..174.75 rows=2400 width=4)<br />         Sort Key: t3.c<br />         -&gt;  Seq Scan on t3  (cost=0.00..34.00 rows=2400 width=4)<br />   -&gt;  Materialize  (cost=337.49..853.49 rows=28800 width=8)<br />         -&gt;  Merge Join  (cost=337.49..781.49 rows=28800 width=8)<br />               Merge Cond: (t1.a = t2.b)<br />               -&gt;  Sort  (cost=168.75..174.75 rows=2400 width=4)<br />                     Sort Key: t1.a<br />                     -&gt;  Seq Scan on t1  (cost=0.00..34.00 rows=2400 width=4)<br />               -&gt;  Sort  (cost=168.75..174.75 rows=2400 width=4)<br />                     Sort Key: t2.b<br />                     -&gt;  Seq Scan on t2  (cost=0.00..34.00 rows=2400 width=4)</pre>Pour l'instant, c'est normal, et on a le même comportement qu'en 8.4. Mais imaginons que sur la table t3, on ait une contrainte UNIQUE sur la colonne c. Dans ce cas, théoriquement, la jointure sur la table t3 ne sert à rien&nbsp;: le nombre d'enregistrements du résultat ne sera pas modifié, pas plus, bien sûr, que leur contenu. C'est lié au fait que la colonne est UNIQUE, que la jointure est un LEFT JOIN, et qu'aucune colonne de t3 n'est récupérée. Si la colonne n'était pas UNIQUE, la jointure pourrait augmenter le nombre d'enregistrements du résultat. Si ce n'était pas un LEFT JOIN, la jointure pourrait diminuer le nombre d'enregistrements du résultat.<p>En 9.0&nbsp;:</p>
+<pre>marc=# ALTER TABLE t3 ADD UNIQUE (c);<br />NOTICE:  ALTER TABLE / ADD UNIQUE will create implicit index "t3_c_key" for table "t3"<br />ALTER TABLE<br />marc=# EXPLAIN SELECT t1.a,t2.b from t1 join t2 on (t1.a=t2.b) left join t3 on (t1.a=t3.c);<br />                            QUERY PLAN                            <br />------------------------------------------------------------------<br /> Merge Join  (cost=337.49..781.49 rows=28800 width=8)<br />   Merge Cond: (t1.a = t2.b)<br />   -&gt;  Sort  (cost=168.75..174.75 rows=2400 width=4)<br />         Sort Key: t1.a<br />         -&gt;  Seq Scan on t1  (cost=0.00..34.00 rows=2400 width=4)<br />   -&gt;  Sort  (cost=168.75..174.75 rows=2400 width=4)<br />         Sort Key: t2.b<br />         -&gt;  Seq Scan on t2  (cost=0.00..34.00 rows=2400 width=4)<br />(8 rows)</pre>Cette optimisation devrait pouvoir être très rentable, entre autre quand les requêtes sont générées par un ORM (mapping objet-relationnel). Ces outils ont la fâcheuse tendance à exécuter des jointures inutiles. Ici on a réussi à diviser le coût estimé de la requête par 10.
+<p>C'est aussi une optimisation qui pourra être très utile pour les applications utilisant beaucoup de jointures et de vues imbriquées.</p>
+<p>Cela constitue encore une raison supplémentaire de déclarer les contraintes dans la base&nbsp;: sans ces contraintes, impossible pour le moteur d'être sûr que ces réécritures sont possibles.</p>
+<h3>IS NOT NULL peut utiliser les index</h3>
+<p>Pour cette démonstration, nous allons comparer la version 8.4 et la 9.0 (la table que j'ai créée contient majoritairement des valeurs NULL)&nbsp;:</p>
+<p>En 8.4&nbsp;:</p>
+<pre>marc=# EXPLAIN ANALYZE SELECT max(a) from test;<br />QUERY PLAN                                                                   <br />------------------------------------------------------------------------------------------------------------------------------------------------<br />Result  (cost=0.03..0.04 rows=1 width=0) (actual time=281.320..281.321 rows=1 loops=1)<br />InitPlan 1 (returns $0)<br />  -&gt;  Limit  (cost=0.00..0.03 rows=1 width=4) (actual time=281.311..281.313 rows=1 loops=1)<br />  -&gt;  Index Scan Backward using idxa on test  (cost=0.00..29447.36 rows=1001000 width=4) (actual time=281.307..281.307 rows=1 loops=1)<br />Filter: (a IS NOT NULL)<br />Total runtime: 281.360 ms<br />(6 rows)</pre><p>En 9.0&nbsp;:</p>
+<pre>marc=# EXPLAIN ANALYZE SELECT max(a) from test;<br />QUERY PLAN                                                                 <br />--------------------------------------------------------------------------------------------------------------------------------------------<br />Result  (cost=0.08..0.09 rows=1 width=0) (actual time=0.100..0.102 rows=1 loops=1)<br />InitPlan 1 (returns $0)<br />  -&gt;  Limit  (cost=0.00..0.08 rows=1 width=4) (actual time=0.092..0.093 rows=1 loops=1)<br />  -&gt;  Index Scan Backward using idxa on test  (cost=0.00..84148.06 rows=1001164 width=4) (actual time=0.089..0.089 rows=1 loops=1)<br />Index Cond: (a IS NOT NULL)<br />Total runtime: 0.139 ms<br />(6 rows)</pre><p>On constate que la 9.0 parcourt uniquement les clés non nulles de l'index (Index cond, au lieu d'un filtre à posteriori). Dans ce cas précis, le gain est très net.
+</p>
+<h3>Utilisation d'index pour générer des statistiques à la volée</h3>
+<p>Avant de commencer à expliquer la nouveauté, un petit rappel sur les histogrammes: PostgreSQL, comme d'autres moteurs de bases de données, utilise un optimiseur statistique. Cela signifie qu'au moment de la planification d'une requête il a (ou devrait) avoir une idée correcte de ce que chaque étape de la requête va lui ramener, en termes de nombres d'enregistrements. Pour cela, il utilise des statistiques, comme le nombre d'enregistrements de la table approximatif, sa taille, la corrélation physique entre valeurs voisines dans la table, les valeurs les plus fréquentes, et les histogrammes, qui permettent d'évaluer assez précisément le nombre d'enregistrements ramenés par une clause WHERE sur une colonne, suivant la valeur ou la plage demandée sur la clause WHERE.</p>
+<p>Il arrive que les statistiques soient rapidement périmées, et donc
+posent problème, pour certains ordres SQL. Par exemple, une table de
+trace dans laquelle on insèrerait des enregistrements horodatés, et sur
+laquelle on voudrait presque toujours sélectionner les enregistrements
+des 5 dernières minutes.</p>
+<p>Dans ce cas, il était impossible avant la 9.0 d'avoir des statistiques à jour. Maintenant, quand PostgreSQL détecte qu'une requête demande un «range scan» sur une valeur supérieure à la dernière valeur de l'histogramme (ou inférieure à la première valeur), c'est à dire la plus grande valeur connue au dernier calcul de statistiques, et que la colonne est indexée, il récupère le max (ou le min si c'est la première valeur) de cette colonne en interrogeant l'index AVANT d'exécuter la requête, afin d'obtenir des statistiques plus réalistes. Comme il utilise un index pour cela, il faut qu'un index existe, bien sûr.</p>
+<p>Voici un exemple. La colonne "a" de la table test a déjà été remplie avec de nombreuses dates, antérieures. Elle a donc des statistiques à jour, avec des histogrammes lui donnant la répartition des valeurs de a.</p>
+<p>Il est 13:37, et je n'ai encore rien inséré dans la table de date supérieure à 13:37.</p>
+<pre>marc=# EXPLAIN ANALYZE select * from test where a &gt; '2010-06-03 13:37:00';<br />QUERY PLAN                                                  <br />--------------------------------------------------------------------------------------------------------------<br />Index Scan using idxtsta on test  (cost=0.00..8.30 rows=1 width=8) (actual time=0.007..0.007 rows=0 loops=1)<br />Index Cond: (a &gt; '2010-06-03 13:37:00'::timestamp without time zone)<br />Total runtime: 0.027 ms<br />(3 rows)</pre>Tout est donc normal. La borne supérieure de mon histogramme est 2010-06-03 13:36:16.830007 (l'information se trouve dans pg_stats). Il n'a aucun moyen d'évaluer le nombre d'enregistrements supérieurs à 13:37, et en 8.4, il aurait continué à estimer '1' tant qu'un analyze n'aura pas été passé.
+<pre>marc=# DO LANGUAGE plpgsql<br />$$<br />DECLARE<br />i int;<br />BEGIN<br />FOR i IN 1..10000 LOOP</pre>
+<pre>   INSERT INTO test VALUES (clock_timestamp());</pre>
+<pre>END LOOP;<br />END<br />$$<br />;<br />DO</pre>
+<p>(Décidément, j'aime bien les DO).</p>
+<p>Nous venons d'insérer 10000 dates supérieures à 13:37.</p>
+<pre>marc=# EXPLAIN ANALYZE SELECT * FROM test WHERE a &gt; '2010-06-03 13:37:00';<br />QUERY PLAN                                                       <br />-----------------------------------------------------------------------------------------------------------------------<br />Index Scan using idxtsta on test  (cost=0.00..43.98 rows=1125 width=8) (actual time=0.012..13.590 rows=10000 loops=1)<br />Index Cond: (a &gt; '2010-06-03 13:37:00'::timestamp without time zone)<br />Total runtime: 23.567 ms<br />(3 rows)</pre><p>Le nombre d'enregistrements estimé n'est pas à 0 ou 1. Et pourtant les statistiques ne sont pas à jour&nbsp;:</p>
+<pre>marc=# SELECT last_autoanalyze FROM pg_stat_user_tables WHERE relname = 'test';<br />last_autoanalyze        <br />-------------------------------<br />2010-06-03 13:36:21.553477+02<br />(1 row)</pre><p>Dans cet exemple, nous avons tout de même une erreur d'un facteur 10. Ce n'est pas si mal: sans cette optimisation, l'erreur aurait été d'un facteur 10&nbsp;000. En tout cas, une erreur d'un facteur 10 nous donne de plus fortes chances de choisir un plan intelligent.</p>
+<h3>seq_page_cost/random_page_cost par tablespace</h3>
+<pre>marc=# ALTER TABLESPACE pg_default SET ( random_page_cost = 10, seq_page_cost=5);<br />ALTER TABLESPACE</pre>
+<p>Nous venons de modifier random_page_cost et seq_page_cost pour tous les objets du tablespace pg_default. Quel peut être le cas d'utilisation&nbsp;?</p>
+<p>C'est pour le cas où vous avez des tablespaces de performances différentes&nbsp;: par exemple, vous avez quelques données essentielles sur un disque SSD, ou bien des données d'historique sur une vieille baie moins performante que la baie flambant neuf que vous avez décidé d'utiliser pour les données actives. Cela vous permet de signaler à PostgreSQL que tous vos tablespaces ne sont pas forcément équivalents en termes de performance. Cela ne s'applique, bien sûr, que sur de très grosses bases.</p>
+<h3>Permettre de forcer le nombre de valeurs distinctes d'une colonne</h3>
+<p>Ceci permet de forcer le nombre de valeurs différentes d'une colonne. Ce n'est pas à utiliser à la légère, mais uniquement quand l'ANALYZE sur la table n'arrive pas à obtenir une valeur raisonnable.</p>
+<p>Voici comment procéder&nbsp;:</p>
+<pre>marc=# ALTER TABLE test ALTER COLUMN a SET (n_distinct = 2);<br />ALTER TABLE</pre>
+<p>Il faut repasser un ANALYZE pour que la modification soit prise en compte&nbsp;:</p>
+<pre>marc=# ANALYZE test;<br />ANALYZE</pre>
+<p>Essayons maintenant&nbsp;:</p>
+<pre>marc=# EXPLAIN SELECT distinct * from test;<br />QUERY PLAN                            <br />------------------------------------------------------------------<br />HashAggregate  (cost=6263.00..6263.02 rows=2 width=8)<br />-&gt;  Seq Scan on test  (cost=0.00..5338.00 rows=370000 width=8)<br />(2 rows)</pre><p>C'est l'exemple même de ce qu'il ne faut pas faire&nbsp;: j'ai bien 370 000 valeurs distinctes dans ma table. Maintenant mes plans d'exécution seront très mauvais.
+</p>
+<p>Si la valeur n_distinct est positive, il s'agit du nombre de valeurs distinctes. Si la valeure est négative (entre 0 et -1), il s'agit du coefficient multiplicateur par rapport au nombre d'enregistrements estimés de la table&nbsp;: par exemple -0.2 signifie qu'il y a 1 enregistrement distinct pour 5 enregistrements dans la table. 0 ramène le comportement à celui par défaut (c'est ANALYZE qui effectue la mesure).</p>
+<p>Ne touchez à ceci que si vous êtes absolument sûr d'avoir correctement diagnostiqué votre problème. Sinon, vous pouvez être sûr d'empirer les performances.</p>
+<br />
+<p>De nombreuses autres fonctionnalités de la base ont été améliorées. En voici quelques exemples parmi les plus significatifs&nbsp;:</p>
+<h3>VACUUM FULL amélioré</h3>
+<p>La commande VACUUM FULL était jusque ici très lente. Cette commande permet de récupérer l'espace perdu dans une table, principalement quand la commande VACUUM&nbsp;n'a pas été passée très régulièrement. Ceci était du à son mode de fonctionnement&nbsp;: les enregistrements étaient lus et déplacés un par un d'un bloc de la table vers un bloc plus proche du début de la table. Une fois que la fin de la table était vide, l'enveloppe était réduite à sa taille minimale.</p>
+<p>Le problème était donc que ce mécanisme était très inefficace&nbsp;: le déplacement des enregistrements un à un entraine beaucoup d'entrées/sorties aléatoires (non contigues). Par ailleurs, durant cette réorganisation, les index doivent être maintenus, ce qui rend l'opération encore plus couteuse, et fait qu'à la fin d'un vacuum full, les index sont fortement désorganisés. Il est d'ailleurs conseillé de réindexer une table juste après y avoir appliqué un VACUUM FULL.</p>
+<p>La commande VACUUM FULL, dans cette nouvelle version, crée une nouvelle table à partir de la table actuelle, en y recopiant tous les enregistrements de façon séquentielle. Une fois tous les enregistrements recopiés, les index sont recréés, et l'ancienne table détruite.</p>
+<p>Cette méthode présente l'avantage d'être très largement plus rapide. Toutefois, VACUUM&nbsp;FULL&nbsp;demande toujours un verrou complet sur la table durant le temps de son exécution. Le seul défaut de cette méthode par rapport à l'ancienne, c'est que pendant le temps de son exécution, le nouveau VACUUM FULL peut consommer jusqu'à 2&nbsp;fois l'espace disque de la table, puisqu'il en crée une nouvelle version.</p>
+<p>Mesurons maintenant le temps d'exécution suivant les deux méthodes. Dans les deux cas, on prépare le jeu de test comme suit (en 8.4 et en 9.0:)</p>
+<pre>marc=# CREATE TABLE test (a int);<br />CREATE TABLE<br />marc=# CREATE INDEX idxtsta on test (a);<br />CREATE INDEX<br />marc=# INSERT INTO test SELECT generate_series(1,1000000);<br />INSERT 0 1000000<br />marc=# DELETE FROM test where a%3=0;<br />DELETE 333333<br />marc=# VACUUM test;<br />VACUUM</pre>
+<pre>En 8.4&nbsp;:<br />marc=# \timing<br />Timing is on.<br />marc=# VACUUM FULL test;<br />VACUUM<br />Time: 6306,603 ms<br />marc=# REINDEX TABLE test&nbsp;;<br />REINDEX<br />Time: 1799,998 ms</pre>
+<p>Soit environ 8 secondes.</p>
+<pre>En 9.0&nbsp;:<br />marc=# \timing<br />Timing is on.<br />marc=# VACUUM FULL test;<br />VACUUM<br />Time: 2563,467 ms</pre>
+<p>Ça ne veut toujours pas dire que VACUUM FULL est une bonne idée en production. Si vous en avez besoin, c'est probablement que votre politique de VACUUM n'est pas appropriée.</p>
+<h3>64 bits sous windows.</h3>
+<p>Il y a maintenant une version 64 bits native pour Windows. Pour l'instant aucune mesure de performance n'a été effectuée (à ma connaissance) pour en connaître les gains&nbsp;: peut on maintenant dépasser la limite de shared_buffers aux alentours de 500Mo sous Windows sans dégradations de performances&nbsp;?</p>
+<h3>PL/pgSQL par défaut</h3>
+<p>Vous n'aurez plus à ajouter le langage plpgsql dans chaque base où vous en avez besoin car il est installé par défaut.</p>
+<h3>Beaucoup d'améliorations sur les langages PL.</h3>
+<p>Beaucoup de langages ont vu leur support grandement amélioré, PLPerl par exemple. Consultez les release notes si vous voulez davantage de détails, les modifications étant nombreuses.</p>
+<h3>Mot clé ALIAS</h3>
+<p>Nous pouvons maintenant utiliser le mot clé ALIAS. Comme son nom l'indique, il permet de créer des alias de variables.</p>
+<p>La syntaxe est «&nbsp;nouveau_nom ALIAS FOR ancien_nom ». Cela se place dans la section DECLARE d'un code PL/pgSQL.</p>
+<p>C'est utilisable dans deux cas principalement&nbsp;:</p>
+<ul><li>
+pour donner des noms aux variables d'une fonction PL:</li>
+</ul>
+<pre>   monparam ALIAS FOR $0</pre><ul><li>pour renommer des variables qui pourraient être en conflit. Dans un trigger par exemple:</li>
+</ul>
+<pre>   nouvelle_valeur ALIAS FOR new</pre>   (on aurait risqué le conflit avec la variable new dans la fonction trigger).
+<h3>Passage de message dans NOTIFY/pg_notify</h3>
+<p>On peut donc passer des messages dans NOTIFY. Voici la méthode:</p>
+<ul><li>On s'abonne dans la session 1 à la file d'attente «&nbsp;messagerie_instantanee&nbsp;»
+<br />Session 1&nbsp;:
+<br /><pre>marc=# LISTEN messagerie_instantanee;<br />LISTEN</pre></li>
+</ul>
+<ul><li>On envoie une notification dans la file d'attente «&nbsp;messagerie_instantanee&nbsp;» d'une autre session
+<br />Session 2&nbsp;:
+<br /><pre>marc=# NOTIFY messagerie_instantanee, 'Vous avez reçu un popup';<br />NOTIFY</pre></li>
+</ul>
+<ul><li>On vérifie le contenu de la file d'attente
+<br />Session 1&nbsp;:<br /><pre>LISTEN<br />Asynchronous notification "messagerie_instantanee" with payload "Vous avez reçu un popup" received from server process with PID 5943.</pre></li>
+</ul>
+<ul><li>On peut donc maintenant associer des messages (payloads) aux notifications, ce qui rend le mécanisme beaucoup plus puissant.</li>
+</ul>
+<p>Signalons aussi la présence d'une nouvelle fonction pg_notify. </p>
+<p>Le code de la session 2 peut donc être: </p>
+<pre>SELECT pg_notify('messagerie_instantanee','Vous avez reçu un popup');</pre>
+<p>Cela peut simplifier l'écriture, dans le cas d'un programme devant piloter de nombreuses files de messages.</p>
+<h3>get_bit et set_bit pour les bit strings</h3>
+<p>En voici un exemple très synthétique. Cet outil permet de manipuler les bits indépendamment dans un bit().</p>
+<pre><br />marc=# SELECT set_bit('1111'::bit(4),2,0);<br /> set_bit <br />---------<br /> 1101<br />(1 row)<br /><br /><br />marc=# SELECT get_bit('1101'::bit(4),2);<br /> get_bit <br />---------<br />       0<br />(1 row)</pre><h3>application_name pour pg_stat_activity</h3>
+<p>Dans la session de supervision&nbsp;:</p>
+<p>marc=# SELECT * from pg_stat_activity where procpid= 5991;</p>
+<pre>datid | datname | procpid | usesysid | usename | application_name | client_addr | client_port |         backend_start         | xact_start | query_start | waiting | current_query<br />------+---------+---------+----------+---------+------------------+-------------+-------------+-------------------------------+------------+-------------+---------+----------------<br />16384 | marc    |    5991 |       10 | marc    | psql             |             |          -1 | 2010-05-16 13:48:10.154113+02 |            |             | f       | &lt;IDLE&gt;</pre>
+<p>(1 row)</p>
+<p>Dans la session '5991'&nbsp;:</p>
+<p>marc=# SET application_name TO 'mon_appli';
+SET</p>
+<p>Dans la session de supervision&nbsp;:</p>
+<p>marc=# SELECT * from pg_stat_activity where procpid= 5991;</p>
+<pre>datid | datname | procpid | usesysid | usename | application_name | client_addr | client_port |         backend_start         | xact_start |          query_start          | waiting | current_query<br />------+---------+---------+----------+---------+------------------+-------------+-------------+-------------------------------+------------+-------------+---------+----------------<br />16384 | marc    |    5991 |       10 | marc    | mon_appli        |             |          -1 | 2010-05-16 13:48:10.154113+02 |            | 2010-05-16 13:49:13.107413+02 | f       | &lt;IDLE&gt;</pre>
+<p>(1 row)</p>
+<p>À vous de le positionner correctement dans votre application, ou vos sessions. Votre DBA vous dira merci, sachant enfin qui lance quoi sur son serveur facilement.</p>
+<h3>Configuration par base de données+rôle</h3>
+<pre>marc=# ALTER ROLE marc IN database marc set log_statement to 'all';<br />ALTER ROLE</pre>
+<p>Pour savoir qui a quelles modifications de variables dans quels rôles de quelles bases de données, il y a une nouvelle commande psql&nbsp;: </p>
+<pre>marc=# \drds</pre>
+<pre>         List of settings<br />role | database |     settings<br />-----+----------+-----------------<br />marc | marc     | log_statement=all</pre><pre>(1 row)</pre>
+<p>Il y a donc eu une modification du catalogue pour gérer cette nouvelle fonctionnalité&nbsp;:</p>
+<p>Table "pg_catalog.pg_db_role_setting"</p>
+<pre>  Column    |  Type  | Modifier<br />------------+--------+----------<br />setdatabase | oid    | not null<br />setrole     | oid    | not null<br />setconfig   | text   |</pre>
+<h3>Tracer les parametres modifiés lors d'un rechargement du postgresql.conf</h3>
+Voici un exemple, lors de la modification du paramètre log_line_prefix :<br /><pre>LOG:&nbsp; received SIGHUP, reloading configuration files<br />&lt;%&gt; LOG:&nbsp; parameter "log_line_prefix" changed to "&lt;%u%%%d&gt; "</pre>
+<h3>Nouvelles options de frame dans les fonctions de fenêtrage</h3>
+<p>Si vous ne vous connaissez pas les fonctions de fenêtrage, lisez la présentation de la 8.4 ici : <a href="postd558.html?id=475" title="http://blog.postgresql.fr/index.php?post/2009/04/28/Nouveaut%C3%A9s-PostgreSQL-8.4">Nouveautés PostgreSQL 8.4</a></p>
+<p>Il y a donc des nouveautés dans le paramétrage du 'frame' des fonctions de fenêtrage. Soit la table suivante (faute de mieux…)</p>
+<pre>marc=# SELECT * FROM salaire ;<br />entite | personne&nbsp; | salaire | date_embauche <br />-------+-----------+---------+---------------<br />R&amp;D&nbsp;&nbsp;&nbsp; | marc&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp; 700.00 | 2010-02-15<br />Compta | etienne&nbsp;&nbsp; |&nbsp; 800.00 | 2010-05-01<br />R&amp;D&nbsp;&nbsp;&nbsp; | maria&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp; 700.00 | 2009-01-01<br />R&amp;D&nbsp;&nbsp;&nbsp; | kevin&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp; 500.00 | 2009-05-01<br />R&amp;D&nbsp;&nbsp;&nbsp; | jean&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | 1000.00 | 2008-07-01<br />R&amp;D&nbsp;&nbsp;&nbsp; | tom&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | 1100.00 | 2005-01-01<br />Compta | stephanie |&nbsp; 850.00 | 2006-01-01</pre>
+<p>Voici un exemple de fonctions de fenêtrage, sans préciser le frame.</p>
+<pre>marc=# SELECT entite, personne, salaire, date_embauche, avg(salaire) OVER (PARTITION BY entite ORDER BY date_embauche) FROM salaire;<br />entite | personne&nbsp; | salaire | date_embauche |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; avg&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <br />-------+-----------+---------+---------------+-----------------------<br />Compta | stephanie |&nbsp; 850.00 | 2006-01-01&nbsp;&nbsp;&nbsp; |&nbsp; 850.0000000000000000<br />Compta | etienne&nbsp;&nbsp; |&nbsp; 800.00 | 2010-05-01&nbsp;&nbsp;&nbsp; |&nbsp; 825.0000000000000000<br />R&amp;D&nbsp;&nbsp;&nbsp; | tom&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | 1100.00 | 2005-01-01&nbsp;&nbsp;&nbsp; | 1100.0000000000000000<br />R&amp;D&nbsp;&nbsp;&nbsp; | jean&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | 1000.00 | 2008-07-01&nbsp;&nbsp;&nbsp; | 1050.0000000000000000<br />R&amp;D&nbsp;&nbsp;&nbsp; | maria&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp; 700.00 | 2009-01-01&nbsp;&nbsp;&nbsp; |&nbsp; 933.3333333333333333<br />R&amp;D&nbsp;&nbsp;&nbsp; | kevin&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp; 500.00 | 2009-05-01&nbsp;&nbsp;&nbsp; |&nbsp; 825.0000000000000000<br />R&amp;D&nbsp;&nbsp;&nbsp; | marc&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |&nbsp; 700.00 | 2010-02-15&nbsp;&nbsp;&nbsp; |&nbsp; 800.0000000000000000</pre><br />
+<p>Le frame est le groupe d'enregistrements sur lequel la fonctions de fenêtrage est appliquée. Évidemment, si on ne précise pas la frame, il met une valeur par défaut. Voici la même requête, écrite avec une frame explicite.</p>
+<pre>marc=# SELECT entite, personne, salaire, date_embauche, avg(salaire) OVER (PARTITION BY entite ORDER BY date_embauche RANGE BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW) FROM salaire;<br />entite | personne  | salaire | date_embauche |          avg          <br />-------+-----------+---------+---------------+-----------------------<br />Compta | stephanie |  850.00 | 2006-01-01    |  850.0000000000000000<br />Compta | etienne   |  800.00 | 2010-05-01    |  825.0000000000000000<br />R&amp;D    | tom       | 1100.00 | 2005-01-01    | 1100.0000000000000000<br />R&amp;D    | jean      | 1000.00 | 2008-07-01    | 1050.0000000000000000<br />R&amp;D    | maria     |  700.00 | 2009-01-01    |  933.3333333333333333<br />R&amp;D    | kevin     |  500.00 | 2009-05-01    |  825.0000000000000000<br />R&amp;D    | marc      |  700.00 | 2010-02-15    |  800.0000000000000000</pre>
+<p>La frame est donc par 'range', entre le début du range et l'enregistrement courant (pas vraiment l'enregistrement courant en fait, mais laissons de côté les subtilités, allez lire la doc si vous voulez en savoir plus). On constate que la fonction de moyenne (avg) est appliquée entre le premier des enregistrements du frame (les enregistrements de la même entité) et l'enregistrement courant.</p>
+<p>Première nouveauté&nbsp;: en 9.0, la frame peut se calculer entre l'enregistrement courant et la fin du groupe (au lieu d'entre le début du groupe et l'enregistrement courant):</p>
+<pre>marc=# SELECT entite, personne, salaire, date_embauche, avg(salaire)  OVER (PARTITION BY entite ORDER BY date_embauche RANGE BETWEEN CURRENT ROW AND UNBOUNDED FOLLOWING) FROM salaire;<br />entite | personne  | salaire | date_embauche |         avg          <br />-------+-----------+---------+---------------+----------------------<br />Compta | stephanie |  850.00 | 2006-01-01    | 825.0000000000000000<br />Compta | etienne   |  800.00 | 2010-05-01    | 800.0000000000000000<br />R&amp;D    | tom       | 1100.00 | 2005-01-01    | 800.0000000000000000<br />R&amp;D    | jean      | 1000.00 | 2008-07-01    | 725.0000000000000000<br />R&amp;D    | maria     |  700.00 | 2009-01-01    | 633.3333333333333333<br />R&amp;D    | kevin     |  500.00 | 2009-05-01    | 600.0000000000000000<br />R&amp;D    | marc      |  700.00 | 2010-02-15    | 700.0000000000000000</pre>
+<p>Deuxième nouveauté, on peut calculer des frames sur les n enregistrements précédents et n enregistrements suivants. Aucun intérêt avec ce jeu de données, mais il faut bien que je vous donne un exemple&nbsp;:</p>
+<pre>marc=# SELECT entite, personne, salaire, date_embauche, avg(salaire)  OVER (PARTITION BY entite ORDER BY date_embauche RANGE ROWS BETWEEN 1 PRECEDING AND 1 FOLLOWING) FROM salaire;<br />entite | personne  | salaire | date_embauche |          avg          <br />-------+-----------+---------+---------------+-----------------------<br />Compta | stephanie |  850.00 | 2006-01-01    |  825.0000000000000000<br />Compta | etienne   |  800.00 | 2010-05-01    |  825.0000000000000000<br />R&amp;D    | tom       | 1100.00 | 2005-01-01    | 1050.0000000000000000<br />R&amp;D    | jean      | 1000.00 | 2008-07-01    |  933.3333333333333333<br />R&amp;D    | maria     |  700.00 | 2009-01-01    |  733.3333333333333333<br />R&amp;D    | kevin     |  500.00 | 2009-05-01    |  633.3333333333333333<br />R&amp;D    | marc      |  700.00 | 2010-02-15    |  600.0000000000000000</pre>
+<p>On reste bien sûr sur le groupe (voir l'enregistrement de tom par exemple, l'enregistrement d'etienne ne rentre pas dans le calcul de sa moyenne).</p>
+<p>Si on voulait la même requête que précédemment, mais avec des moyennes sur 3 enregistrements glissants, sans réinitialiser à chaque entité (toujours aucun intérêt pratique dans l'exemple).</p>
+<pre>marc=# SELECT entite, personne, salaire, date_embauche, avg(salaire) OVER (ORDER BY entite, date_embauche ROWS BETWEEN 1 PRECEDING AND 1 FOLLOWING) FROM salaire;<br />entite | personne  | salaire | date_embauche |         avg          <br />--------+-----------+---------+---------------+----------------------<br />Compta | stephanie |  850.00 | 2006-01-01    | 825.0000000000000000<br />Compta | etienne   |  800.00 | 2010-05-01    | 916.6666666666666667<br />R&amp;D    | tom       | 1100.00 | 2005-01-01    | 966.6666666666666667<br />R&amp;D    | jean      | 1000.00 | 2008-07-01    | 933.3333333333333333<br />R&amp;D    | maria     |  700.00 | 2009-01-01    | 733.3333333333333333<br />R&amp;D    | kevin     |  500.00 | 2009-05-01    | 633.3333333333333333<br />R&amp;D    | marc      |  700.00 | 2010-02-15    | 600.0000000000000000</pre>
+<p>Bref, un outil à maîtriser d'urgence, si ce n'est pas déjà le cas (même si je n'ai pas été capable de vous donner un exemple décent).</p>
+<h3>Tris dans les aggrégations</h3>
+<p>Celle-ci est un peu subtile&nbsp;: le résultat de certaines fonctions d'aggrégation dépend de l'ordre dans lequel on leur fournit les données.</p>
+<p>Il ne s'agit évidemment pas de count, avg, mais plutôt de array_agg, xml_agg, string_agg…</p>
+<p>Ce qui va me permettre de vous présenter deux nouvelles fonctionnalités d'un coup, string_agg étant une nouveauté de la 9.0.</p>
+<p>Reprenons la table salaire. Je voudrais la liste des employés, concaténés dans un seul champ, par entité. C'est pour stocker dans mon tableur.</p>
+<pre>marc=# SELECT entite,string_agg(personne,', ') FROM salaire GROUP BY entite;<br />entite |          string_agg           <br />-------+-------------------------------<br />Compta | etienne, stephanie<br />R&amp;D    | marc, maria, kevin, jean, tom</pre><p>C'est déjà bien. Mais j'aimerais bien les avoir par ordre alphabétique, parce que je ne sais pas écrire de macro dans mon tableur pour retrier les données.</p>
+<pre>marc=# SELECT entite,string_agg(personne,', ' ORDER BY personne) FROM salaire GROUP BY entite;<br />entite |          string_agg           <br />--------+-------------------------------<br />Compta | etienne, stephanie<br />R&amp;D    | jean, kevin, marc, maria, tom</pre>
+<p>Il suffit donc de rajouter une clause de tri à l'intérieur de la fonction d'agrégat, sans virgule à la fin.</p>
+<h3>Amélioration des erreurs sur contrainte&nbsp;: message plus clair</h3>
+<p>En 8.4: </p>
+<pre>marc=# INSERT INTO test VALUES (1);<br />ERROR:  duplicate key value violates unique constraint "test_a_key"</pre>
+<p>En 9.0:</p>
+<pre>marc=# INSERT INTO test VALUES (1);<br />ERROR:  duplicate key value violates unique constraint "test_a_key"<br />DETAIL:  Key (a)=(1) already exists.</pre>
+<p>Cela devrait aider à trouver les causes des violations de contrainte.</p>
+<h3>Explain buffers/statistiques sur les hash, xml, json, yaml, nouvelle syntaxe optionnelle explain</h3>
+<p>Voici un EXPLAIN ANALYZE classique&nbsp;:</p>
+<pre>marc=# EXPLAIN ANALYZE SELECT a, sum(c) FROM pere JOIN fils ON (pere.a = fils.b) WHERE b BETWEEN 1000 AND 300000 GROUP BY a;                                                           QUERY PLAN                                                            <br />---------------------------------------------------------------------------------------------------------------------------------<br /> HashAggregate  (cost=905.48..905.86 rows=31 width=8) (actual time=0.444..0.453 rows=6 loops=1)<br />   -&gt;  Nested Loop  (cost=10.70..905.32 rows=31 width=8) (actual time=0.104..0.423 rows=6 loops=1)<br />         -&gt;  Bitmap Heap Scan on fils  (cost=10.70..295.78 rows=31 width=8) (actual time=0.040..0.154 rows=30 loops=1)<br />               Recheck Cond: ((b &gt;= 1000) AND (b &lt;= 300000))<br />               -&gt;  Bitmap Index Scan on fils_pkey  (cost=0.00..10.69 rows=31 width=0) (actual time=0.023..0.023 rows=30 loops=1)<br />                     Index Cond: ((b &gt;= 1000) AND (b &lt;= 300000))<br />         -&gt;  Index Scan using pere_pkey on pere  (cost=0.00..19.65 rows=1 width=4) (actual time=0.005..0.005 rows=0 loops=30)<br />               Index Cond: (pere.a = fils.b)<br /> Total runtime: 0.560 ms<br />(9 rows)</pre><p>Si vous voulez avoir accès aux nouvelles informations, il faut opter pour la nouvelle syntaxe&nbsp;:
+</p>
+<pre>EXPLAIN [ ( { ANALYZE boolean | VERBOSE boolean | COSTS boolean | BUFFERS boolean | FORMAT { TEXT | XML | JSON | YAML } } [, ...] ) ] instruction</pre><p>Par exemple&nbsp;:</p>
+<pre>marc=# EXPLAIN (ANALYZE true, VERBOSE true, BUFFERS true) SELECT a, sum(c) FROM pere JOIN fils ON (pere.a = fils.b) WHERE b BETWEEN 1000 AND 300000 GROUP BY a;<br />                                                             QUERY PLAN <br />-------------------------------------------------------------------------------------------------------------------------------------<br /> HashAggregate  (cost=905.48..905.86 rows=31 width=8) (actual time=1.326..1.336 rows=6 loops=1)<br />   Output: pere.a, sum(fils.c)<br />   Buffers: shared hit=58 read=40<br />   -&gt;  Nested Loop  (cost=10.70..905.32 rows=31 width=8) (actual time=0.278..1.288 rows=6 loops=1)<br />         Output: pere.a, fils.c<br />         Buffers: shared hit=58 read=40<br />         -&gt;  Bitmap Heap Scan on public.fils  (cost=10.70..295.78 rows=31 width=8) (actual time=0.073..0.737 rows=30 loops=1)<br />               Output: fils.b, fils.c<br />               Recheck Cond: ((fils.b &gt;= 1000) AND (fils.b &lt;= 300000))<br />               Buffers: shared hit=4 read=28<br />               -&gt;  Bitmap Index Scan on fils_pkey  (cost=0.00..10.69 rows=31 width=0) (actual time=0.030..0.030 rows=30 loops=1)<br />                     Index Cond: ((fils.b &gt;= 1000) AND (fils.b &lt;= 300000))<br />                     Buffers: shared hit=3<br />         -&gt;  Index Scan using pere_pkey on public.pere  (cost=0.00..19.65 rows=1 width=4) (actual time=0.013..0.014 rows=0 loops=30)<br />               Output: pere.a<br />               Index Cond: (pere.a = fils.b)<br />               Buffers: shared hit=54 read=12<br /> Total runtime: 1.526 ms<br />(18 rows)</pre>VERBOSE apporte les lignes 'Output' (l'option existait déjà en 8.4).
+<p>BUFFERS indique les opérations sur les buffers (les entrées sorties de la requête): hit correspond aux données lues en cache, read aux données demandées au système d'exploitation. Ici, peu de données étaient en cache.</p>
+<p>Vous pouvez aussi demander une sortie dans un autre format que texte. Pour un utilisateur, cela n'a aucune importance. Pour les développeurs d'interfaces graphiques présentant le résultat d'explain, cela permettra de faire l'économie d'un analyseur sur le texte du EXPLAIN, et des bugs qui vont avec.</p>
+<p>On peut aussi désactiver l'affichage des coûts avec COSTS false.</p>
+<h3>Dictionnaire de filtrage (unaccent)</h3>
+<p>Il est possible maintenant de paramétrer des dictionnaires de filtrage. On parle bien sûr des dictionnaires du Full Text Search.</p>
+<p>Le but de ces dictionnaires de filtrage est d'appliquer un premier filtrage sur les mots avant de les indexer. Le module présenté ci-dessous (unaccent) est l'illustration de ce mécanisme. Le filtrage peut consister en la suppression de mots ou en leur modification.</p>
+<p>Unaccent ne supprime pas les mots, il supprime les accents (tous les signes diacritiques en fait), en remplaçant les caractères accentués par leur version sans accent. Unaccent est un module contrib.</p>
+<p>Pour l'installer, comme pour toutes les contribs, psql mabase &lt; chemin_contribs/unaccent.sql.</p>
+<p>Nous allons à peu près suivre la documentation d'unaccent, les auteurs ayant eu la gentillesse de donner leurs exemples en français.</p>
+<p>Nous créons un nouveau dictionnaire fr (pour ne pas polluer le dictionnaire french 'standard')&nbsp;: </p>
+<pre>marc=# CREATE TEXT SEARCH CONFIGURATION fr ( COPY = french );<br />CREATE TEXT SEARCH CONFIGURATION</pre>
+<p>Nous modifions le paramétrage de 'fr' pour les lexemes de type mot, en lui demandant de les faire passer par unaccent et french_stem (au lieu de seulement french_stem) </p>
+<pre>marc=# ALTER TEXT SEARCH CONFIGURATION fr<br />ALTER MAPPING FOR hword, hword_part, word<br />WITH unaccent, french_stem;<br />ALTER TEXT SEARCH CONFIGURATION</pre><pre>SELECT to_tsvector('fr','Hôtels de la Mer');<br />to_tsvector    <br />-------------------<br />'hotel':1 'mer':4<br />(1 row)<br /><br />marc=# SELECT to_tsvector('fr','Hôtel de la Mer') @@ to_tsquery('fr','Hotels');<br />?column? <br />----------<br />t<br />(1 row)</pre>Cela vous permet donc, sans changer une ligne de code, et en gardant les caractères accentués, de rechercher maintenant sans accent.
+<h3>vacuumdb --analyze-only</h3>
+<p>Comme son nom l'indique, on peut maintenant utiliser vacuumdb pour passer des analyses uniquement. Cela peut être pratique dans une crontab.</p>
+<h3>Amélioration du module contrib hstore</h3>
+<p>Ce contrib, déjà très pratique, devient encore plus puissant&nbsp;: </p>
+<ul><li>La limite de taille sur les clés et valeurs a été supprimée.</li>
+<li>Il est maintenant possible d'utiliser GROUP BY et DISTINCT </li>
+<li>De nombreux opérateurs et fonctions ont été ajoutés</li>
+</ul>
+<p>Un exemple serait trop long, tellement ce module est riche. Lisez la documentation sans perdre de temps&nbsp;!</p>
+<h3>Texte requête dans auto_explain</h3>
+<p>Le module contrib auto_explain affichera maintenant le code de la requête en même temps que son plan, ce qui devrait en augmenter la lisibilité.</p>
+<h3>Compteurs sur buffers dans pg_stat_statements</h3>
+<p>Ce module contrib, déjà très utile, vient de rajouter des compteurs. Pour rappel, son intérêt est de stocker des statistiques sur les requêtes exécutées par le moteur. Jusque là, il donnait la requête, le nombre d'exécutions, son temps cumulé et le nombre d'enregistrements cumulés. Maintenant, il collecte aussi des informations sur les entrées sorties (en cache, et réelles).</p>
+<pre>marc=# SELECT * from pg_stat_statements order by total_time desc limit 2;<br />-[ RECORD 1 ]-------+---------------------<br />userid              | 10<br />dbid                | 16485<br />query               | SELECT * from fils ;<br />calls               | 2<br />total_time          | 0.491229<br />rows                | 420000<br />shared_blks_hit     | 61<br />shared_blks_read    | 2251<br />shared_blks_written | 0<br />local_blks_hit      | 0<br />local_blks_read     | 0<br />local_blks_written  | 0<br />temp_blks_read      | 0<br />temp_blks_written   | 0<br />-[ RECORD 2 ]-------+---------------------<br />userid              | 10<br />dbid                | 16485<br />query               | SELECT * from pere;<br />calls               | 2<br />total_time          | 0.141445<br />rows                | 200000<br />shared_blks_hit     | 443<br />shared_blks_read    | 443<br />shared_blks_written | 0<br />local_blks_hit      | 0<br />local_blks_read     | 0<br />local_blks_written  | 0<br />temp_blks_read      | 0<br />temp_blks_written   | 0</pre>
+<p>On peut donc, une fois ce contrib installé, répondre aux questions suivantes&nbsp;: </p>
+<ul><li>Quelle est la requête la plus gourmande en temps d'exécution cumulé&nbsp;?</li>
+<li>Quelle est la requête qui génère le plus d'entrées sorties&nbsp;? (attention, les données peuvent être tout de même dans le cache système)</li>
+<li>Quelles requêtes utilisent principalement le cache (et ne gagneront donc pas à le voir augmenté)</li>
+<li>Qui effectue beaucoup de mises à jour de bloc&nbsp;?</li>
+<li>Qui génère des tris&nbsp;?</li>
+</ul>
+<p>'local' et 'temp' correspondent aux buffers et entrées des tables temporaires et autres opérations locales (tris, hachages) à un backend.</p>
+<h3>passwordcheck</h3>
+<p>Ce module contrib permet de vérifier les mots de passe, et d'empêcher les plus mauvais de rentrer. Après l'avoir installé comme décrit dans la documentation, voici le résultat&nbsp;:</p>
+<pre>marc=# ALTER USER marc password 'marc12';<br />&lt;marc%marc&gt; ERROR:  password is too short<br />&lt;marc%marc&gt; STATEMENT:  ALTER USER marc password 'marc12';<br />ERROR:  password is too short<br />marc=# ALTER USER marc password 'marc123456';<br />&lt;marc%marc&gt; ERROR:  password must not contain user name<br />&lt;marc%marc&gt; STATEMENT:  ALTER USER marc password 'marc123456';<br />ERROR:  password must not contain user name</pre>
+<p>Ce module souffre de limitations, principalement dues au fait que PostgreSQL permet l'envoi d'un mot de passe déjà encrypté à la base au moment de la déclaration, ce qui l'empêche de le vérifier correctement. Néanmoins, c'est une avancée dans la bonne direction.</p>
+<p>Par ailleurs, le code du module contrib est bien documenté, ce qui permet de l'adapter à vos besoins (entre autres, il est très facile d'y activer la cracklib, afin d'effectuer des contrôles plus complexes).</p>
+<p>marc.cousin@dalibo.com</p></div>
+    
+    
+                        </div>
+    
+          <div class="post  " lang="fr" xml:lang="fr">
+
+    <p class="day-date">jeudi  9 juillet 2009</p>    
+    <h2 id="p492" class="post-title"><a
+    href="index95af.html?post/2009/07/09/ma-fonctionnalit%C3%A9-8.4-pr%C3%A9f%C3%A9r%C3%A9e-%3A-pg_stat_statement">ma fonctionnalité 8.4 préférée : pg_stat_statement</a></h2>
+    
+    <p class="post-info">Par mcousin    le jeudi  9 juillet 2009, 18:48</p>
+    
+    
+    
+    
+          <div class="post-content">Dans ce billet,  je vais essayer de faire la publicité de ma fonctionnalité préférée de la version 8.4.<br /><br />Comme toujours, il y a une foule de nouveautés, toutes très intéressantes, et il est difficile d'en déclarer une comme étant la meilleure. Toutefois, j'ai un faible pour pg_stat_statement, et je vais essayer de vous expliquer pourquoi<br /><br />Pour superviser l'activité sur un serveur PostgreSQL, et trouver les requêtes SQL qui dégradent les performances, jusqu'à aujourd'hui, il n'y avait à ma connaissance qu'une seule solution : on active les traces des ordres SQL et de leur durée (log_statement à all, log_duration à on). Ensuite, on récupère la log de postgresql et on la fait avaler à <a href="http://pgfouine.projects.postgresql.org/">pgfouine</a> ou <a href="http://pgfoundry.org/projects/pqa/">pqa</a>, on obtient un rapport et on va voir les développeurs (ou on rajoute un index dans son coin ...) (les paramètres de log sont documentés ici : <a href="http://docs.postgresql.fr/8.4/runtime-config-logging.html">http://docs.postgresql.fr/8.4/runtime-config-logging.html)</a><br /><br />Cette méthode fonctionne, mais a des gros défauts :<br /><ul><li>On trace TOUS les ordres SQL dans la log, ce qui fait qu'on a une log gigantesque assez rapidement (ça peut monter rapidement à plusieurs gigas sur une base très active)</li>
+<li>C'est gourmand en ressources, parce qu'il faut formater les traces, les écrire dans la log, découper le message en plusieurs morceaux si il est plus grand qu'une trame syslog et qu'on a décidé de tracer en syslog. Et le surcoût est le même pour une requête de 20 µs et une requête de 2h.</li>
+<li>On n'a que la durée des requêtes</li>
+</ul>
+<br /><br />On peut mitiger l'impact de la fonction de log de plusieurs façons :<br /><ul><li>On ne trace de que les ordres SQL un peu longs</li>
+<li>On ne trace que sur de courtes périodes d'activités</li>
+</ul>
+<br />Dans le premier cas, le problème est qu'on risque de laisser échapper des requêtes unitaires très courtes exécutées des millions de fois. Je l'ai constaté assez souvent dans des développements objets avec de (trop?) nombreux niveaux d'abstraction. On peut facilement se retrouver avec des requêtes insignifiantes exécutées plusieurs milliers de fois à la minute (l'infâme SELECT * FROM DUAL sous Oracle par exemple d'un développeur qui veut vérifier que sa session marche bien avant de lancer un autre ordre, et qui l'a mis à chaque fois qu'il récupère une session d'un pool, au cas où ... ou bien les gens qui réintérrogent un référentiel en permanence). Bref, vaut-il mieux chasser les 10000 appels inutiles à la minute à une requête qui dure 10ms, ou améliorer la requête lancée une fois par minute qui dure 1 seconde? Ça dépend des cas, mais il est&nbsp; préférable que l'audit de performance révèle les 2 (ce qui est très difficile si on ne trace pas tout...)<br /><br />Dans le second cas, c'est garanti, on va rater une période intéressante. Et on ne pourra pas faire d'analyse à posteriori.<br /><br />C'est ici qu'arrive ma fonctionnalité préférée : "et si, au lieu de tout tracer dans une log pour ensuite devoir reparser et réanalyser tout, on avait une zone de mémoire partagée dans laquelle les processus pouvaient mettre à jour des stats cumulées sur chaque requête ?".<br /><br />Les avantages de cette méthode sont :<br /><ul><li>C'est très performant. Je n'ai pas réussi à en mesurer l'impact, et les benchs fait par le développeur montrent un impact négligeable</li>
+<li>On a un peu plus d'informations qu'avec la log (le nombre d'enregistrements cumulés ramenés par la requête)</li>
+</ul>
+C'est donc un mécanisme qu'on peut avoir activé en permanence, consultable par une simple requête.<br /><br />Je n'ai pas de base de production sous la main en ce moment, mais voici un exemple :<br />"Donne moi les 2 requêtes les plus gourmandes en temps d'exécution cumulé depuis le dernier reset des stats" :<br /><pre>test=# SELECT * from pg_stat_statements order by total_time desc limit 2;</pre><pre>-[ RECORD 1 ]------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</pre><pre>userid&nbsp;&nbsp;&nbsp;&nbsp; | 10</pre><pre>dbid&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | 16384</pre><pre>query&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | INSERT INTO test SELECT * from test;</pre><pre>calls&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | 12</pre><pre>total_time | 0.036099</pre><pre>rows&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | 20475</pre><pre>-[ RECORD 2 ]------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</pre><pre>userid&nbsp;&nbsp;&nbsp;&nbsp; | 10</pre><pre>dbid&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | 16384</pre><pre>query&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | SELECT pg_catalog.quote_ident(c.relname) FROM pg_catalog.pg_class c WHERE c.relkind IN ('r', 'S', 'v') AND substring(pg_catalog.quote_ident(c.relname),1,6)='pg_sta' AND pg_catalog.pg_table_is_visible(c.oid)</pre><pre>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : UNION</pre><pre>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : SELECT pg_catalog.quote_ident(n.nspname) || '.' FROM pg_catalog.pg_namespace n WHERE substring(pg_catalog.quote_ident(n.nspname) || '.',1,6)='pg_sta' AND (SELECT pg_catalog.count(*) FROM pg_catalog.pg_namespace WHERE substring(pg_catalog.quote_ident(nspname) || '.',1,6) = substring('pg_sta',1,pg_catalog.length(pg_catalog.quote_ident(nspname))+1)) &gt; 1</pre><pre>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : UNION</pre><pre>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : SELECT pg_catalog.quote_ident(n.nspname) || '.' || pg_catalog.quote_ident(c.relname) FROM pg_catalog.pg_class c, pg_catalog.pg_namespace n WHERE c.relnamespace = n.oid AND c.relkind IN ('r', 'S', 'v') AND substring(pg_catalog.quote_ident(n.nspname) || '.' || pg_catalog.quote_ident(c.relname),1,6)='pg_sta' AND substring(pg_catalog.quote_ident(n.nspname) || '.',1,6) = substring('pg_sta',1,pg_catalog.length(pg_catalog.quote_ident(n.nspname))+1) AND (SELECT pg_catalog.count(*) FROM pg_catalog.pg_namespace WHERE substring(pg_catalog.quote_ident(nspname) || '.',1,6) = substring('pg_sta',1,pg_catalog.length(pg_catalog.quote_ident(nspname))+1)) = 1</pre><pre>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : LIMIT 1000</pre><pre>calls&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | 4</pre><pre>total_time | 0.006295</pre><pre>rows&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | 87</pre><br />Évidemment, sur une base de test, avec une table test, ce n'est pas très intéressant. Avec une vraie base de production c'est autre chose...<br /><br />On peut aussi utiliser cette vue pour faire des snapshots de l'activité toutes les quelques minutes par exemple :<br /><br />Pour le premier snapshot :<br /><pre><code>CREATE TABLE snapshot as select now(),* from pg_stat_statements;</code></pre>Pour les suivants :<br /><pre><code>INSERT INTO snapshot select now(),* from pg_stat_statements;</code></pre><br /><br />On peut aussi imaginer remettre à zéro les compteurs (suivant ce qu'on veut faire des snapshots, cumulés ou indépendants) avec pg_stat_statements_reset.Avec cela il est possible de 'retrouver' le ou les ordres SQL qui ont fait 'ramer' l'application à une heure donnée (ou dédouaner la base de données...)<br /><br />Les seuls points qui me chagrinent encore sur pg_stat_statement sont qu'il s'agit d'une contrib (c'est normal, mais ça veut dire que cette fonctionnalité sera moins exposée qu'elle le mérite), et que quelques statistiques importantes supplémentaires pourraient servir : la quantité de données lues du cache, la quantité lue du disque, et la quantité écrite dans le cache. Pourquoi pas aussi être capable de séparer le temps de parsing du temps d'exécution (pour repérer les requêtes qui pourraient gagner à être préparées).<br /><br />Bref, une fonctionnalité à tester d'urgence si ce n'est pas déjà fait...<br /><br />La doc officielle : <a href="http://docs.postgresql.fr/8.4/pgstatstatements.html">http://docs.postgresql.fr/8.4/pgstatstatements.html</a><br /><br />Un dernier point : l'autre raison pour laquelle c'est ma fonctionnalité préférée, c'est que c'est une des fonctionnalités qui manquait à PostgreSQL pour faciliter un audit ou un suivi des performances par rapport à Oracle (la vue V$SQLAREA). C'est une fonctionnalité à laquelle on s'habitue assez facilement, c'était assez frustrant de ne pas l'avoir sur son SGBD favori.<br /></div>
+    
+    
+                        </div>
+    
+          <div class="post odd " lang="fr" xml:lang="fr">
+
+    <p class="day-date">samedi 20 juin 2009</p>    
+    <h2 id="p484" class="post-title"><a
+    href="index4722.html?post/2009/06/20/Guide-de-demarrage-rapide-avec-PostgreSQL">Guide de démarrage rapide avec PostgreSQL</a></h2>
+    
+    <p class="post-info">Par florence    le samedi 20 juin 2009, 16:21</p>
+    
+    
+    
+          <div class="post-content"><h3>Pourquoi ce document?</h3>
+<p>J'ai commencé à développer sous PostgreSQL assez récemment après une
+longue expérience sous Oracle. La documentation générale de PostgreSQL
+est excellente, et très riche, mais j'avais besoin d'un document plus
+léger expliquant la procédure d'installation sur différents systèmes et
+comment démarrer (créer un cluster, configurer les connexions), ainsi
+que des informations sur ce qu'on pouvait faire avec PostgreSQL. Je ne
+l'ai pas trouvé.
+Après quelques mois d'utilisation, je me suis rendu compte que les
+problèmes des débutants étaient toujours les mêmes. Ainsi, j'ai compilé
+mes notes des débuts et ce que j'ai appris depuis dans ce document.
+Voici le résultat, en espérant qu'il vous aide à débuter et qu'il vous
+encourage à continuer avec PostgreSQL.</p>
+<h3>À qui s'adresse ce document?</h3>
+<p>Ce document a pour but de vous aider à installer PostgreSQL sous Windows ou sous Linux, et à commencer à développer.</p>
+<p>Il est écrit pour vous faire gagner du temps dans vos premiers pas
+avec PostgreSQL, tout en vous expliquant les points importants afin que
+vous puissiez progresser par vous-même.
+Il s'adresse donc principalement aux développeurs d'applications, afin
+de leur permettre de découvrir ce puissant moteur sur une petite base
+de test, ou aux personnes qui débutent complètement avec PostgreSQL.
+Vous n'aurez pas besoin de connaissances système avancées pour suivre
+ce document.</p>
+<p>Une fois que vous aurez terminé la lecture de ce document, vous
+pourrez continuer par la lecture de la documentation officielle pour
+apprendre à administrer PostgreSQL ou devenir un développeur aguerri.
+La dernière section de ce document vous donne les liens et références
+nécessaires pour continuer à progresser.
+Parfois les informations ne sont volontairement pas complètes, et
+lorsque la documentation de référence est plus claire et précise que ce
+qui aurait pu être fait ici, les liens sont fournis vers la
+documentation française.</p>
+<p>Ce document a été écrit initialement pour la version 8.3, mais les
+principes sont les mêmes avec les versions 8.2 et 8.4 (voir le chapitre
+sur les versions).</p>
+<p><strong>Avertissement :</strong> ce document n'est en aucun cas un
+document sur le tuning de la base. Il n'est pas fait non plus pour vous
+apprendre à administrer une base de production.</p></div>
+      <p class="read-it"><a href="index4722.html?post/2009/06/20/Guide-de-demarrage-rapide-avec-PostgreSQL"
+      title="Lire la suite Guide de démarrage rapide avec PostgreSQL">Lire la suite</a>...</p>
+    
+    
+    
+                        </div>
+    
+          <div class="post  " lang="fr" xml:lang="fr">
+
+    <p class="day-date">mardi 16 juin 2009</p>    
+    <h2 id="p485" class="post-title"><a
+    href="index07f0.html?post/2009/06/11/Postgresql-et-l-authentification-Apache">Postgresql et l'authentification Apache</a></h2>
+    
+    <p class="post-info">Par pascal62fr    le mardi 16 juin 2009, 23:25</p>
+    
+    
+    
+    
+          <div class="post-content"><p><strong>Postgresql et l'authentification Apache</strong></p>
+<p>Comment utiliser Postgresql pour l'authentification Apache</p>
+<p>Apache permet de protéger, à l'aide d'un login et d'un mot de passe, l'accès à un répertoire ou à un fichier, par utilisateur ou groupe d'utilisateurs. Apache permet d'utiliser plusieurs méthodes pour gérer les droits des utilisateurs. L'administrateur Web a à sa disposition un script Apache, «&nbsp;htpasswd&nbsp;», et des fichiers de configuration de type texte. Il peut utiliser un annuaire LDAP ou une base de données Postgresql.
+L'utilisation de Postgresql permet de simplifier la programmation. La gestion des droits d'accès dans le site Web se fait en modifiant les tables, users et groups. Pour mettre en place cette technique il faut configurer Apache et Postgresql, cette documentation explique comment faire.</p>
+<p><strong>Préalable</strong></p>
+<p>Considérons que vous avez un serveur Web Apache et une base de données Postgresql fonctionnels. Si vous souhaitez modifier dynamiquement les droits Apache, il faut que vous sachiez vous connecter à Postgresql de Apache/Web/PHP, par exemple. Les fichiers de configuration donnés en exemple, sont ceux utilisés sur une distribution Linux RedHat Enterprise.</p>
+<p><strong>Installation et configuration</strong></p>
+<p>Vous avez donc installé et configuré un serveur web Apache et une base de données Postgresql.</p>
+<p>Il vous reste à:</p>
+<ul>
+<li>Ajouter les tables «&nbsp;users&nbsp;» et «&nbsp;groups&nbsp;» dans une base de données Postgresql.</li>
+<li>Installer le module Apache mod_auth_pgsql.</li>
+<li>Configurer le fichier Apache /etc/httpd/conf.d/auth_pgsql.conf</li>
+<li>Ajouter des fichiers .htaccess dans les répertoires à protéger.</li>
+</ul>
+<p>La suite décrit chacune de ces tâches.</p>
+<p><strong>Descriptif des tables users et groups Postgresql</strong></p>
+<p>Il faut ajouter à votre base de données Postgresql, les tables «&nbsp;users&nbsp;» et «&nbsp;groups&nbsp;», si vous conservez les noms standards des tables.
+Les tables users et groups doivent être conformes au format attendu par Apache.
+De plus les tables «&nbsp;users&nbsp;» et «&nbsp;groups&nbsp;» seront lu fréquemment par Apache, elles n'ont pas pour vocation de gérer des données des utilisateurs, hors le login, le mot de passe et l'appartenance à un ou plusieurs groupes d'utilisateurs. Il y a une clé étrangère dans la table «&nbsp;users&nbsp;» proposée. Elle permet des jointures avec une table qui gère les identités des utilisateurs.</p>
+<p><strong>Exemple de tables users et groups</strong></p>
+CREATE TABLE users<br />
+(<br />
+user_name character varying(64) NOT NULL,<br />
+user_passwd character varying(32) NOT NULL,<br />
+"uIdIdentite" integer NOT NULL,<br />
+CONSTRAINT users_pkey PRIMARY KEY (user_name),<br />
+CONSTRAINT "idIdentite" FOREIGN KEY ("uIdIdentite")<br />
+REFERENCES "TIdentite" ("IdIdentite") MATCH SIMPLE<br />
+ON UPDATE NO ACTION ON DELETE NO ACTION<br />
+)<br />
+WITH (OIDS=FALSE);<br />
+ALTER TABLE users OWNER TO basecnl;<br />
+<br />
+CREATE TABLE groups<br />
+(<br />
+user_name character varying(64) NOT NULL,<br />
+user_group character varying(20) NOT NULL,<br />
+CONSTRAINT groups_pkey PRIMARY KEY (user_name, user_group),<br />
+CONSTRAINT groups_user_name_fkey FOREIGN KEY (user_name)<br />
+REFERENCES users (user_name) MATCH FULL<br />
+ON UPDATE CASCADE ON DELETE CASCADE<br />
+)<br />
+WITH (OIDS=FALSE);<br />
+ALTER TABLE groups OWNER TO basecnl;<br />
+<p>La modification de users et groups, à l'aide de pgadmin3 par exemple, permet de gérer finement les droits d'accès au site Web. Vous pouvez aussi le faire dynamiquement par programmation.</p>
+<p>La base de données et les tables qu'Apache utilise pour l'authentification, sont à définir dans /etc/httpd/conf.d/auth_pgsql.conf.</p>
+<p><strong>Installer le module Apache mod_auth_pgsql</strong></p>
+<p>La façon de faire dépend de la distribution linux, il faut installer mod_auth_pgsql.so.</p>
+<p><strong>Configuration de Apache 2 pour Postgresql</strong></p>
+<p>Nous utiliserons le module Apache2, mod_auth_pgsql, avec une authentification type: mod_auth_basic".</p>
+<p>/usr/lib64/httpd/modules/mod_auth_pgsql.so</p>
+<p><strong>Exemple de fichier /etc/httpd/conf.d/auth_pgsql.conf</strong> </p>
+<p>Dans le fichier /etc/httpd/conf.d/auth_pgsql.conf, vous reconnaîtrez le nom des tables et des champs que vous avez défini dans Postgresql.</p>
+LoadModule auth_pgsql_module modules/mod_auth_pgsql.so<br />
+&lt;Directory /var/www&gt; <br />
+&nbsp;&nbsp; AuthName "PostgreSQL group authenticated zone" <br />
+&nbsp;&nbsp; AuthType Basic <br />
+&nbsp;&nbsp; Auth_PG_database basecnl <br />
+&nbsp;&nbsp; Auth_PG_pwd_table users <br />
+&nbsp;&nbsp; Auth_PG_uid_field user_name <br />
+&nbsp;&nbsp; Auth_PG_pwd_field user_passwd<br />
+&nbsp;&nbsp; Auth_PG_grp_table groups <br />
+&nbsp;&nbsp; Auth_PG_grp_user_field user_name <br />
+&nbsp;&nbsp; Auth_PG_grp_group_field user_group&nbsp;<br />
+&lt;/Directory&gt; <br />
+<p><strong>Configuration de Apache – .htaccess des répertoires Web</strong></p>
+<p>Les fichiers .htaccess sont des fichiers de configuration d'Apache, permettant de définir des règles dans un répertoire et dans tous ses sous-répertoires (qui n'ont pas de tel fichier à l'intérieur).</p>
+<p><strong>Exemple de fichier .htaccess</strong></p>
+<p>Ce fichier autorise l'accès au répertoire pour les utilisateurs du groupe «&nbsp;correspondant&nbsp;»</p>
+AuthName "Acces restreint aux correspondants&nbsp;" <br />
+AuthType basic <br />
+#AuthBasicAuthoritative off <br />
+Auth_PG_authoritative on <br />
+Auth_PG_host localhost <br />
+Auth_PG_port xxxx <br />
+Auth_PG_user xxxx <br />
+Auth_PG_database xxxx <br />
+#Auth_PG_pwd xxxxxxxx <br />
+Auth_PG_pwd_table "users" <br />
+Auth_PG_uid_field user_name <br />
+Auth_PG_pwd_field user_passwd <br />
+Auth_PG_grp_table "groups" <br />
+Auth_PG_grp_user_field user_name <br />
+Auth_PG_grp_group_field user_group<br />
+Auth_PG_grp_whereclause " and user_group = 'correspondant' " <br />
+Auth_PG_encrypted off <br />
+&lt;LIMIT GET POST&gt; <br />
+require valid-group <br />
+&lt;/LIMIT&gt; <br />
+<p>«&nbsp;AuthBasicAuthoritative off&nbsp;» et  «&nbsp;Auth_PG_pwd xxxxxxxx&nbsp;» sont en commentaire. Dans certaines configurations, il faut enlever les commentaires.</p>
+<p><strong>Descriptif des champs</strong></p>
+Auth_PG_host&nbsp;: Nom ou adresse IP du serveur Postgresql<br />
+Auth_PG_port&nbsp;: Port utilisé, par default 5432<br />
+Auth_PG_user&nbsp;: Nom de l'utilisateur Postgresql<br />
+Auth_PG_pwd&nbsp;: Mot de passe de l'utilisateur<br />
+Auth_PG_database&nbsp;: Nom de la base de données<br />
+Auth_PG_pwd_table&nbsp;: Nom de la table ou sont stockés les utilisateurs<br />
+Auth_PG_uid_field&nbsp;: Nom du champ qui contient le Login de l'utilisateur<br />
+Auth_PG_pwd_field&nbsp;: Nom du champ qui contient les mots de passe<br />
+Auth_PG_encrypted&nbsp;: Si off les mots de passe sont stockés en clair dans la table<br />
+Auth_PG_hash_type&nbsp;: Soit MD5 ou CRYPT<br />
+<p><strong>Conclusion</strong></p>
+<p>Postgresql est particulièrement performant pour gérer l'authentification Apache. Choisir Postgresql pour réaliser des sites Web dynamique, c'est choisir la garanti d'avoir un produit à la fois professionnel et libre.</p>
+<p><strong>Références</strong></p>
+mod_auth_pgsql documentation officielle en anglais&nbsp;: http://www.giuseppetanzilli.it/mod_auth_pgsql2/<br />
+Apache france: http://forums.apachefrance.com/<br />
+Wikipedia les fichiers .htaccess Apache&nbsp;: http://fr.wikipedia.org/wiki/Htaccess<br />
+Postgresqlfr le site de la communauté francophone; http://www.postgresql.fr/<br />
+<p><strong>Pascal Brognez </strong>, le 16 juin 2009</p></div>
+    
+    
+                        </div>
+    
+          <div class="post odd " lang="fr" xml:lang="fr">
+
+    <p class="day-date">mardi 28 avril 2009</p>    
+    <h2 id="p475" class="post-title"><a
+    href="index2539.html?post/2009/04/28/Nouveaut%C3%A9s-PostgreSQL-8.4">Nouveautés PostgreSQL 8.4</a></h2>
+    
+    <p class="post-info">Par mcousin    le mardi 28 avril 2009, 12:57</p>
+    
+    
+    
+          <div class="post-content"><p>Le but de cet article est de détailler les nouveautés apportées par la version 8.4 de PostgreSQL.
+Il s'agit d'une partie de la <a hreflang="fr" href="http://docs.postgresql.fr/8.4/release.html">liste réelle des changements</a>, qui est bien plus vaste.</p></div>
+      <p class="read-it"><a href="index2539.html?post/2009/04/28/Nouveaut%C3%A9s-PostgreSQL-8.4"
+      title="Lire la suite Nouveautés PostgreSQL 8.4">Lire la suite</a>...</p>
+    
+    
+    
+          <p class="post-info-co">
+              <a href="index2539.html?post/2009/04/28/Nouveaut%C3%A9s-PostgreSQL-8.4#comments" class="comment_count">2 commentaires</a>
+                      </p>
+        </div>
+    
+          <div class="post  " lang="fr" xml:lang="fr">
+
+    <p class="day-date">jeudi 22 janvier 2009</p>    
+    <h2 id="p458" class="post-title"><a
+    href="indexa0d0.html?post/2009/01/22/Sun-fait-un-point-sur-l-acquisition-de-MySQL">Sun fait un point sur l'acquisition de MySQL</a></h2>
+    
+    <p class="post-info">Par SAS    le jeudi 22 janvier 2009, 07:37</p>
+    
+    
+    
+          <div class="post-content"><p>« Nous avons des équipes qui travaillent sur d'autres bases de données Open Source, comme PostgreSQL, mais nous sommes vraiment en termes de stratégie et d'organisation en train de nous focaliser à fond sur MySQL pour en faire la base de données principale de Sun. »</p></div>
+      <p class="read-it"><a href="indexa0d0.html?post/2009/01/22/Sun-fait-un-point-sur-l-acquisition-de-MySQL"
+      title="Lire la suite Sun fait un point sur l'acquisition de MySQL">Lire la suite</a>...</p>
+    
+    
+    
+          <p class="post-info-co">
+              <a href="indexa0d0.html?post/2009/01/22/Sun-fait-un-point-sur-l-acquisition-de-MySQL#comments" class="comment_count">un commentaire</a>
+                      </p>
+        </div>
+    
+          <div class="post odd " lang="fr" xml:lang="fr">
+
+    <p class="day-date">mercredi 27 août 2008</p>    
+    <h2 id="p303" class="post-title"><a
+    href="index7fc6.html?post/drupal/303">Écrire et utiliser des fonctions retournant une valeur de type composite (ROWTYPE)</a></h2>
+    
+    <p class="post-info">Par RockyRoad    le mercredi 27 août 2008, 19:42</p>
+    
+    
+    
+          <div class="post-content"><p></p></div>
+      <p class="read-it"><a href="index7fc6.html?post/drupal/303"
+      title="Lire la suite Écrire et utiliser des fonctions retournant une valeur de type composite (ROWTYPE)">Lire la suite</a>...</p>
+    
+    
+    
+                        </div>
+    
+          <div class="post  " lang="fr" xml:lang="fr">
+
+    <p class="day-date">vendredi 23 mai 2008</p>    
+    <h2 id="p292" class="post-title"><a
+    href="index0145.html?post/drupal/292">Script OCF (heartbeat-2) pour pgbouncer</a></h2>
+    
+    <p class="post-info">Par tigrou3tac    le vendredi 23 mai 2008, 14:59</p>
+    
+    
+    
+          <div class="post-content"><p>Voici en pièces jointes 2 fichiers permettant de configurer pgbouncer
+sur un pool de serveurs afin de créer un cluster HA pour pgbouncer.</p></div>
+      <p class="read-it"><a href="index0145.html?post/drupal/292"
+      title="Lire la suite Script OCF (heartbeat-2) pour pgbouncer">Lire la suite</a>...</p>
+    
+    
+    
+          <p class="post-info-co">
+                      <a href="index0145.html?post/drupal/292#attachments" class="attach_count">2 annexes</a>          </p>
+        </div>
+    
+          <div class="post odd " lang="fr" xml:lang="fr">
+
+    <p class="day-date">lundi  4 février 2008</p>    
+    <h2 id="p222" class="post-title"><a
+    href="index84f9.html?post/drupal/222">Script OCF (heartbeat-2) pour pgbouncer</a></h2>
+    
+    <p class="post-info">Par tigrou3tac    le lundi  4 février 2008, 12:11</p>
+    
+    
+    
+          <div class="post-content">Ce script est une adaptation du script ocf Evmsd fourni par
+heartbeat-2,
+il y a une ou deux gruikerie (return 7 au lieu du code retour OCF)
+mais il est fonctionnel (la bascule s'effectue bien en cas de standby,
+défaillance serveur, coupure heartbeat, crash pgbouncer ...)</div>
+      <p class="read-it"><a href="index84f9.html?post/drupal/222"
+      title="Lire la suite Script OCF (heartbeat-2) pour pgbouncer">Lire la suite</a>...</p>
+    
+    
+    
+          <p class="post-info-co">
+                      <a href="index84f9.html?post/drupal/222#attachments" class="attach_count">une annexe</a>          </p>
+        </div>
+    
+          <div class="post  " lang="fr" xml:lang="fr">
+
+    <p class="day-date">jeudi 31 janvier 2008</p>    
+    <h2 id="p268" class="post-title"><a
+    href="index48de.html?post/drupal/268">Un article de 01net</a></h2>
+    
+    <p class="post-info">Par SAS    le jeudi 31 janvier 2008, 17:04</p>
+    
+    
+    
+    
+          <div class="post-content"><p>
+À l'occasion de SolutionsLinux, 01net rappelle la robustesse de PostgreSQL et souligne le dynamisme de la communauté.
+</p>
+<p>
+L'article est en ligne <a href="http://www.01net.com/editorial/370746/postgresql-et-ingres-soulignent-leurs-differences-avec-mysql/">sur le site de 01net</a>.
+</p></div>
+    
+    
+                        </div>
+    
+          <div class="post odd " lang="fr" xml:lang="fr">
+
+    <p class="day-date">lundi 10 décembre 2007</p>    
+    <h2 id="p264" class="post-title"><a
+    href="index1b04.html?post/drupal/264">PostgreSQL et Ruby</a></h2>
+    
+    <p class="post-info">Par SAS    le lundi 10 décembre 2007, 09:42</p>
+    
+    
+    
+    
+          <div class="post-content"><h2>Extracteur de tables</h2>
+<p>Trouvé sur le site <a href="http://www.geekz.fr/"> We are Geeks</a>, un extracteur de tables pour PostgreSQL.</p>
+<p>Il s'agit d'extraire d'une base de données les informations nécessaires à sa recréation.</p>
+<p>Tout est là&nbsp;: <a href="http://www.geekz.fr/Extracteur-de-tables-postgresql">Extracteur PG en ruby</a>.</p></div>
+    
+    
+                        </div>
+    
+          <div class="post  " lang="fr" xml:lang="fr">
+
+    <p class="day-date">mercredi 24 octobre 2007</p>    
+    <h2 id="p216" class="post-title"><a
+    href="index645f.html?post/drupal/216">Pourquoi préférer PostgreSQL à MySQL</a></h2>
+    
+    <p class="post-info">Par kryskool    le mercredi 24 octobre 2007, 13:58</p>
+    
+    
+    
+          <div class="post-content"><p></p></div>
+      <p class="read-it"><a href="index645f.html?post/drupal/216"
+      title="Lire la suite Pourquoi préférer PostgreSQL à MySQL">Lire la suite</a>...</p>
+    
+    
+    
+                        </div>
+    
+          <div class="post odd " lang="fr" xml:lang="fr">
+
+    <p class="day-date">mercredi  5 septembre 2007</p>    
+    <h2 id="p393" class="post-title"><a
+    href="index74b8.html?post/drupal/393">Index inversé, en C</a></h2>
+    
+    <p class="post-info">Par gleu    le mercredi  5 septembre 2007, 18:33</p>
+    
+    
+    
+    
+          <div class="post-content"><p>Depuis la version 8i, Oracle implémente les index inversés. Voici une proposition d’implémentation équivalente pour PostgreSQL. Les index inversés permettent d’accélérer les recherches sur les motifs tels que « colonne LIKE '%chaîne' ». Dans un tel cas, PostgreSQL effectue un parcours séquentiel (ou « sequential scan ») de la table interrogée. Toutefois, il est possible d’émuler un index inverse au moyen d’une fonction de renversement de chaîne couplée à un index sur fonction.</p>
+<p>L'<a href="http://www.postgresqlfr.org/?q=node/1329" hreflang="fr">article précédent</a> proposait l'implémentation d'un prototype en langage procédural PL/pgSQL, qui fait office ici de prototype. Cette implémentation a pour principal défaut d'être lente, pénalisant ainsi gravement les performances en écriture (INSERT et UPDATE). Ainsi, à chaque mise à jour, il est nécessaire de faire appel à la fonction <code>reverse</code> pour mettre à jour l'index fonctionnel ; cela s'observe notamment à la création de l'index. En revanche, il est possible de tirer partie des capacités de traitement des caractères multi-octets, que l'on rencontre notamment dans le cas d'une base de données encodée en UTF-8.</p>
+<p>Ainsi, l'implémentation en langage C se doit d'être à la fois plus rapide et surtout se doit de supporter les jeux de caractères multi-octets. C'est à partir de ce minuscule cahier des charges que nous allons construire notre fonction <code>reverse</code>.</p>
+<!--break-->
+<h1>Pourquoi écrire une procédure stockée en C</h1>
+<p>Pourquoi s'embêter à prendre le temps d'écrire une procédure stockée en langage C alors qu'il est possible de faire la même chose en langage PL/pgSQL&nbsp;?
+Il y a plusieurs réponses à cette question&nbsp;:</p>
+<ul>
+<li>Une fonction C permet de <strong>protéger le code</strong>. En effet, rien n'interdit à un utilisateur possédant les droits nécessaires de modifier la procédure stockée que l'on a écrite et validé par une autre procédure de son crue, rendant le système inopérant.</li>
+<li>Si le besoin de créer son propre type de données se fait sentir, le passage par la case <q>fonction C</q> est obligatoire.</li>
+<li>La satisfaction de connaître un peu mieux le fonctionnement interne de PostgreSQL, mais c'est surtout une satisfaction de geek :)</li>
+<li>La problématique de la <strong>vitesse</strong> est toutefois le facteur déterminant de la réécriture d'une fonction d'un langage procédural interprété en langage compilé.</li>
+</ul>
+<p>Le gain significatif de vitesse ne sera pas évident pour les requêtes de sélection. En revanche, les écritures (surtout INSERT et UPDATE) peuvent être fortement pénalisées par le coût de la mise à jour d'un index fonctionnel. Bien que cela ne soit pas évident pour une opération unitaire, il sera parfaitement visible dans le cas d'une opération d'écriture en masse (chargement massif de données), ou tout simplement pour la création de l'index fonctionnel. Dans un tel cas, l'option d'une réécriture en langage C est à envisager très sérieusement.</p>
+<h1>Implémentation et discussion technique</h1>
+<p>Les possibilités d'extension de PostgreSQL s’appuient sur les mécanismes de chargement dynamique de bibliothèque du système d’exploitation. L’interface de programmation est relativement simple, à condition d’en connaître certaines clés.</p>
+<h2>Structure du projet</h2>
+<p>Le projet est articulé autour de différents fichiers, qui seront tous placés dans un répertoire dédié :</p>
+<ol>
+<li>un fichier <code>Makefile</code> simplifié, utilisant PGXS, l'infrastructure de construction d'extension PostgreSQL ;</li>
+<li>un modèle de script SQL d'installation <code>reverse.sql.in</code> ;</li>
+<li>un fichier <code>uninstall_reverse.sql</code> ;</li>
+<li>le fichier source en langage C, <code>reverse.c</code>.</li>
+</ol>
+<h2>Fichiers annexes</h2>
+<p>Avant toute chose, il faut disposer d’un fichier « Makefile » de construction du module externe&nbsp;:</p>
+<p class="code">
+MODULES = reverse
+#PG_CPPFLAGS = -ggdb
+DATA_built = reverse.sql
+DATA = uninstall_reverse.sql
+PGXS := $(shell pg_config --pgxs)
+include $(PGXS)
+</p>
+<p>Le Makefile utilise ici l’outil PGXS qui propose un fichier Makefile prédéfini, à l’instar des fichiers Makefile fournis par Oracle.</p>
+<p>Le fichier « reverse.sql.in » qui sert de modèle à la création du fichier d'installation de l'extension « <code>reverse.sql</code> ». Ce dernier fichier sera généré à partir du modèle en remplaçant « <code>MODULE_PATHNAME</code> » par le chemin complet du fichier objet généré.</p>
+<p class="code">
+-- Déclaration de la fonction reverse en tant que module C
+SET search_path = public;
+CREATE OR REPLACE FUNCTION reverse(varchar) RETURNS varchar
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;AS 'MODULE_PATHNAME', 'reverse'
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;LANGUAGE 'C' IMMUTABLE STRICT;
+</p>
+<p>Le script « reverse.sql » sera exécuté par un utilisateur PostgreSQL ayant le rôle d’administrateur, les fonctions C étant considérées comme non-sûres et donc de la responsabilité de l’administrateur.</p>
+<p>Un script de désinstallation « uninstall_reverse.sql » est également prévu, ça fait toujours plaisir&nbsp;:</p>
+<p class="code">
+SET search_path = public;
+DROP FUNCTION reverse(varchar);
+</p>
+<h2>Un peu de technique</h2>
+<p>La lecture de la page « Fonctions en langage C » permet d’obtenir les informations nécessaires au développement d’une fonction C, voir la documentation « <a href="http://docs.postgresqlfr.org/8.2/xfunc-c.html" hreflang="fr">Fonctions en langage C</a> ». Cependant la lecture des fichiers d’en-têtes permet d’apporter un éclairage supplémentaire sur certaines structures de données.</p>
+<h3>Traitement des chaînes de caractères avec PostgreSQL</h3>
+<p>Sous PostgreSQL, les chaînes de caractères ne sont pas délimitées par un caractère nul « <code>\0</code> » terminal, mais, à l’instar du langage Pascal, en stockant dans une structure d’abord sa longueur puis son contenu. Une telle chaîne est décrite dans une structure de type « <code>varlena</code> ». Ce type de données offre en fait un moyen uniforme de stocker tout type de données à longueur variable, comme les chaînes de caractères, les tableaux ou encore les types utilisateurs.</p>
+<p>Voici sa définition, obtenu dans le fichier d'en-tête <a href="http://doxygen.postgresql.org/c_8h-source.html#l00395" hreflang="en">c.h</a>, à la ligne 409 :</p>
+<p class="code">
+struct varlena
+{
+&nbsp;&nbsp;&nbsp;&nbsp;int32       vl_len_;      /* Do not touch this field directly! */
+&nbsp;&nbsp;&nbsp;&nbsp;char        vl_dat[1];
+};
+</p>
+<p>Ainsi, l'entier <code>vl_len</code> contient la longueur, en octets, de la chaîne d'octets <code>vl_dat</code>.</p>
+<p>Quelques macros permettent de manipuler facilement cette structure.</p>
+<ul>
+<li><code>VARDATA(<em>varlena</em>)</code> obtient un pointeur sur la donnée ;</li>
+<li><code>VARSIZE(<em>varlena</em>)</code> obtient la taille en octets de la structure varlena (<code>vl_len + vl_dat</code>) ;</li>
+<li>la constante <code>VARHDRSZ</code> représente la taille en octet de <code>vl_len</code> ;</li>
+<li>Enfin, <code>VARATT_SIZEP</code>, remplacée par <code>SET_VARSIZE</code> à partir de la 8.3, permet de définir la longueur en octets de la donnée.</li>
+</ul>
+<p>Ainsi, pour obtenir la longueur en octets de la données, on utilisera <code>(VARSIZE - VARHDRSZ)</code>.</p>
+<h3>Support des jeux de caractères multi-octets</h3>
+<p>L'implémentation proposée supporte les jeux de caractères multi-octets, comme l'UTF8 (ou Unicode) et les jeux de caractères asiatiques, qui représente certains caractères sous la forme d'une séquence de deux octets ou plus (voir référence). PostgreSQL met à disposition des fonctions utiles pour manipuler les chaînes de caractères, peu importe l'encodage, notamment <code>pg_verifymbstr</code> qui valide une chaîne de caractère selon l'encodage de la base de données, ou encore <code>pg_mblen</code> qui donne la longueur en octets d'un caractère. Pour le prototype des fonctions citées et d'autres fonctions, se référer au fichier d'en-tête « <code>mb/pg_wchar.h</code> ».</p>
+<h3>Les conventions d'appel</h3>
+<p>Il existe deux conventions d'appel de fonctions externes&nbsp;:</p>
+<ol>
+<li>La convention d'appel version 0, représentant l'ancien style, simple à utiliser ;</li>
+<li>La convention d'appel version 1, qui est la norme dorénavant et qui ne présente pas de difficultés particulières.</li>
+</ol>
+<p>La convention d'appel version 1 sera utilisée dans le but de donner d'entrée de jeu de bonnes habitudes. La complexité de cette convention est masquée par une batterie de macros qui rendent son utilisation tout aussi simple, voire encore plus simple que la version 0, notamment pour le passage d'arguments.</p>
+<h2>Implémentation en langage C</h2>
+<p>Le source C est structuré en quatre parties&nbsp;:</p>
+<ul>
+<li>L’inclusion des fichiers d’en-têtes nécessaires ;</li>
+<li>La définition d’un « magic » signant un module externe PostgreSQL ;</li>
+<li>La définition d’un « magic » déclarant la fonction reverse à PostgreSQL ;</li>
+<li>Le corps de fonction reverse, cette fois en langage C.</li>
+</ul>
+<p>Voici ci-après, le code source en langage C de la fonction reverse.</p>
+<code>/*<br />&nbsp;* reverse procedural function *<br />&nbsp;* Thomas Reiss, 12/07/2007 – 24/07/2007 - 02/08/2007<br />&nbsp;* Alain Delorme, 24/07/2007<br />&nbsp;* Merci à depesz pour ses tests sur la version 8.3devel<br />&nbsp;*<br />&nbsp;*/<br /><br />#include "pg_config.h"<br />#include "postgres.h"<br />#include "fmgr.h"<br />#include "mb/pg_wchar.h"<br />#include "utils/elog.h"<br /><br />#ifdef PG_MODULE_MAGIC<br />PG_MODULE_MAGIC;<br />#endif<br /><br />Datum reverse(PG_FUNCTION_ARGS);<br /><br />// SET_VARSIZE correspond à la nouvelle API, nous définissons cette<br />// macro pour les versions ne la possédant pas.<br />#ifndef SET_VARSIZE<br />#define SET_VARSIZE(n,s) VARATT_SIZEP(n) = s;<br />#endif<br /><br />/* fonction reverse */<br />PG_FUNCTION_INFO_V1(reverse);<br />Datum reverse(PG_FUNCTION_ARGS)<br />{<br />&nbsp; int len, pos = 0;<br />&nbsp; VarChar *str_out, *str_in;<br /><br />&nbsp; /* Obtient l'adresse de l'argument */<br />&nbsp; str_in = PG_GETARG_VARCHAR_P_COPY(0);<br /><br />&nbsp; /* Calcul de la taille en octet de la chaîne */<br />&nbsp; len = (int) (VARSIZE(str_in) - VARHDRSZ);<br /><br />&nbsp; /* Créer une chaîne vide de taille identique */<br />&nbsp; str_out = (VarChar *)palloc(VARSIZE(str_in));<br /><br />&nbsp; /* La structure résultante aura une longueur identique */<br />&nbsp; SET_VARSIZE(str_out, VARSIZE(str_in));<br /><br />&nbsp; /* Vérifie que l'encodage de la chaîne en argument<br />&nbsp;&nbsp; * concorde avec l'encodage de la BDD<br />&nbsp;&nbsp; */<br />&nbsp; pg_verifymbstr(VARDATA(str_in), len, false);<br /><br />&nbsp; /* Copie à l'envers de la chaîne */<br />&nbsp; while (pos &lt; len)<br />&nbsp; {<br />&nbsp;&nbsp;&nbsp; int charlen = pg_mblen(VARDATA(str_in) + pos);<br />&nbsp;&nbsp;&nbsp; int i = charlen;<br />&nbsp;&nbsp;&nbsp; // Copie un caractère.<br />&nbsp;&nbsp;&nbsp; // !! Un caractère != un octet<br />&nbsp;&nbsp;&nbsp; while (i--)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *(VARDATA(str_out) + len - charlen + i - pos) = *(VARDATA(str_in) + i + pos);<br />&nbsp;&nbsp;&nbsp; pos = pos + charlen;<br />&nbsp;&nbsp;&nbsp; // incrémente le compteur<br />&nbsp; }<br />&nbsp; PG_FREE_IF_COPY(str_in, 0);<br /><br />&nbsp; /* Retourne la copie */<br />&nbsp; PG_RETURN_VARCHAR_P(str_out);<br />}</code><br /><h2>Construction</h2>
+<p>La construction de l'extension PostgreSQL est réalisée en invoquant <code>make</code></p>
+<p class="code">
+tom@clementina:~/src/reverse$ make
+cc -g -Wall -O2 -fPIC -Wall -Wmissing-prototypes -Wpointer-arith -Winline -Wdeclaration-after-statement -Wendif-labels -fno-strict-aliasing -g -fpic -I. -I/usr/include/postgresql/8.2/server -I/usr/include/postgresql/internal -D_GNU_SOURCE  -I/usr/include/tcl8.4  -c -o reverse.o reverse.c
+cc -shared -o reverse.so reverse.o
+rm reverse.o
+</p>
+<p>Si tout s'est bien passé, l'installation sera finalisée en exécutant la commande <code>make install</code>, éventuellement précédé de <code>sudo</code> en fonction de sa distribution et de son installation de PostgreSQL.</p>
+<p class="code">
+tom@clementina:~/src/reverse$ sudo make install
+Password: xxxx
+/bin/sh /usr/lib/postgresql/8.2/lib/pgxs/src/makefiles/../../config/install-sh -c -m 644 ./reverse.sql '/usr/share/postgresql/8.2/contrib'
+/bin/sh /usr/lib/postgresql/8.2/lib/pgxs/src/makefiles/../../config/install-sh -c -m 755  reverse.so '/usr/lib/postgresql/8.2/lib'
+</p>
+<p>Les fichiers produits seront ainsi installés dans le répertoire d'installation de PostgreSQL. Il est toutefois possible de les positionner ailleurs, à condition d'adapter le fichier « <code>reverse.sql</code> » de façon à indiquer à PostgreSQL
+où se trouve la bibliothèque partagée (fichier « <code>reverse.so</code> » sous Linux).</p>
+<h1>Utilisation et performances</h1>
+<h2>Vérification de bon fonctionnement</h2>
+<p>Dans un premier temps, on crée la fonction via l'outil <code>psql</code>&nbsp;:</p>
+<code><p class="code">test=# \i reverse.sql
+CREATE FUNCTION
+</p>
+<p>On vérifie que la fonction répond correctement :</p>
+<p class="code">
+test=# SHOW client_encoding;</p>
+<p class="code">&nbsp;client_encoding</p>
+<p class="code">
+-----------------</p>
+<p class="code">&nbsp;UTF8</p>
+<p class="code">
+(1 ligne)</p>
+<p class="code">test=# SELECT reverse('Chaîne à renverser');</p>
+<p class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; reverse</p>
+<p class="code">--------------------</p>
+<p class="code">&nbsp;resrevner à enîahC</p>
+<p class="code">
+(1 ligne)
+</p>
+</code>
+<p>Ok, ça marche, y compris avec les chaînes encodées en UTF-8&nbsp;!</p>
+<h2>Petit test de performance</h2>
+<p>Ce test a été réalisé par <a href="http://www.depesz.com/" hreflang="en">depesz</a>, qui m'a aimablement autorisé a le réutiliser dans le cadre de cet article.</p>
+<p>Petit aperçu du jeu de test :</p>
+<code><p class="code">test=# SELECT count(*),</p>
+<p class="code">test-#        min(length(filepath)),</p>
+<p class="code">test-#        max(length(filepath)),</p>
+<p class="code">test-#        sum(length(filepath))</p>
+<p class="code">test-#  FROM test;</p>
+<p class="code">&nbsp;count  | min | max |   sum</p>
+<p class="code">
+-------+-----+-----+----------</p>
+<p class="code">320136 |   7 | 174 | 18563865</p>
+<p class="code">
+(1 row)
+</p>
+</code>
+<p>Maintenant, voici une petite comparaison des trois implémentations, à savoir le prototype en PL/pgSQL, la version PL/perl de depesz et la version C. On oppose à ces trois tests un parcours de la table via la fonction d'agrégat <a href="http://docs.postgresqlfr.org/8.2/functions-aggregate.html" hreflang="fr">count()</a>, permettant ainsi de mesurer l<em>'overhead</em> due à chaque implémentation de la fonction <code>reverse</code>. À chaque fois, 3 exécutions permettent de vérifier les résultats.</p>
+<h3>Simple comptage (count)</h3>
+<p>Voici l'ordre SQL utilisé pour réaliser ce test :</p>
+<code><p class="code">test=# EXPLAIN ANALYZE</p>
+<p class="code">test-# SELECT count(filepath)</p>
+<p class="code">
+test-# FROM test;
+</p>
+</code><p>Et voici les temps de réponse obtenus&nbsp;:<br />
+Exécution #1 : 1269.535 ms<br />
+Exécution #2 : 1268.421 ms<br />
+Exécution #3 : 1257.926 ms<br />
+<strong>Moyenne : 1265,29 ms</strong></p>
+<h3>Prototype PL/pgSQL</h3>
+<code><p class="code">
+test=# EXPLAIN ANALYZE</p>
+<p class="code">test-# SELECT count(reverse_plpgsql(filepath))</p>
+<p class="code">test-# FROM test;
+</p>
+</code>
+<p>Exécution #1 : 55269.941 ms<br />
+Exécution #2 : 56047.004 ms<br />
+Exécution #3 : 56149.888 ms<br />
+<strong>Moyenne : 55822,28 ms</strong></p>
+<h3>Version PL/perl</h3>
+<code><p class="code">test=# EXPLAIN ANALYZE</p>
+<p class="code">test-# SELECT count(text_reverse(filepath))</p>
+<p class="code">test-# FROM test;
+</p>
+</code>
+<p>Exécution #1 : 4088.625 ms<br />
+Exécution #2 : 4089.729 ms<br />
+Exécution #3 : 4020.500 ms<br />
+<strong>Moyenne : 4066,28 ms</strong></p>
+<h3>Version C</h3>
+<code><p class="code">test=# EXPLAIN ANALYZE</p>
+<p class="code">test-# SELECT count(reverse(filepath))</p>
+<p class="code">test-# FROM test;
+</p>
+</code>
+<p>Exécution #1 : 1596.176 ms<br />
+Exécution #2 : 1647.046 ms<br />
+Exécution #3 : 1657.531 ms<br />
+<strong>Moyenne : 1633,58 ms</strong></p>
+<h3>Synthèse du test de performance</h3>
+<p>Voici un graphe faisant la synthèse des moyennes des temps de réponse&nbsp;:</p>
+<p><img src="files/comparaison_plpgsql_plperl_c_count.html" alt="Comparaison des temps de réponse" /></p>
+<p>Le graphe suivant permet de mieux se rendre compte de l'overhead induie par l'implémentation PL/perl et l'implémentation C.</p>
+<p><img src="files/ccomparaison_plperl_c_count.html" alt="Comparaison des temps de réponse" /></p>
+<p>Chose très intéressante&nbsp;: l'overhead pour renverser ~320000 enregistrements est de seulement 300ms, ce qui est bien entendu excellent et laisse présager de très bonnes performances quant au coût de la mise à jour d'un index fonctionnel.</p>
+<p>Ainsi, comme cela pouvait être aisément imaginé, la version C est la plus rapide, suivie par la version PL/Perl. La version PL/pgSQL se traîne lamentablement derrière, ce qui justifie complètement la réécriture de la procédure stockée en C.</p>
+<h1>Notes</h1>
+<p>Cette fonction a été testé sur une base en PostgreSQL 8.0, 8.2 et 8.3devel (merci à depesz).</p>
+<p>Je regrette de ne pas avoir pu aller un peu plus loin pour le <a href="post/2007/08/20/Fonction-reverse-avec-PostgreSQL-PL/pgSQL.html" hreflang="fr">précédent article</a>, des impératifs de place m'ayant obligé à aller à l'essentiel sans montrer les différents plans d'exécution. Heureusement, l'<a href="http://www.depesz.com/index.php/2007/07/30/indexable-field-like-something/" hreflang="en">article de hubert depesz lubaczewski</a> montre tous les aspects que j'ai négligé, malheureusement c'est en anglais.</p>
+<h1>Références</h1>
+<p>De plus amples précisions sont également disponibles en langue anglaise sur les sites Internet suivant :</p>
+<ul>
+<li><a href="http://stephane.bpf.st/si/bdd/pg/fnctidx" hreflang="fr">Les index fonctionnels</a></li>
+<li><a href="http://docs.postgresqlfr.org/8.2/multibyte.html" hreflang="fr">Support des jeux de caractères</a> dans PostgreSQL</li>
+<li><a href="http://docs.postgresqlfr.org/8.2/xfunc-c.html" hreflang="fr">Fonctions en langage C</a></li>
+<li><a href="http://linuxgazette.net/139/peterson.html" hreflang="en">Writing PostgreSQL Functions in C</a></li>
+<li><a href="http://www.varlena.com/GeneralBits/68.php" hreflang="en">What's a Varlena ?</a></li>
+<li><a href="http://french.joelonsoftware.com/Articles/Unicode.html" hreflang="fr">Le minimum syndical à connaître sur les jeux de caractères multi-octets</a></li>
+<li><a href="http://www.rfc-ref.org/RFC-TEXTS/3629/index.html" hreflang="en">RFC 3629, UTF-8, a transformation format of ISO 10646</a> ou <a href="ftp://ftp.isi.edu/in-notes/rfc3629.txt" hreflang="en">RFC 3629</a></li>
+<li><a href="http://doxygen.postgresql.org/main.html" hreflang="en">Documentation Doxygen du code de PostgreSQL</a></li>
+</ul>
+<h1>Remerciements</h1>
+<p>Je remercie vivement les personnes suivantes&nbsp;:</p>
+<ul>
+<li>Alain Delorme pour sa contribution,</li>
+<li>hubert depesz lubaczewski pour ses retours et tests préliminaires,</li>
+<li>Guillaume Lelarge pour ses relectures et ses conseils avisés.</li>
+</ul>
+<em>Article écrit par Thomas Reiss, publié sur postgresqlfr.org avec sa permission. Vous pouvez le retrouver sur son <a href="http://blog.frosties.org/">blog où il parle encore de PostgreSQL (et d'autres choses :-)</a> ). Merci beaucoup.</em></div>
+    
+    
+                        </div>
+    
+          <div class="post  " lang="fr" xml:lang="fr">
+
+        
+    <h2 id="p397" class="post-title"><a
+    href="index7ddf.html?post/drupal/397">Sécuriser votre base PostgreSQL</a></h2>
+    
+    <p class="post-info">Par gleu    le mercredi  5 septembre 2007, 17:04</p>
+    
+    
+    
+          <div class="post-content"><em>Article écrit par <a href="mailto:depesz@depesz.com">Hubert Lubaczewski</a> et traduit par <a href="mailto:damien@dalibo.com">Damien Clochard</a>, le 18 août 2007. La <a href="http://www.depesz.com/index.php/2007/08/18/securing-your-postgresql-database/">version originale</a> est disponible sur le <a href="http://www.depesz.com/">blog de l'auteur</a> où se trouvent beaucoup d'autres articles intéressants.</em></div>
+      <p class="read-it"><a href="index7ddf.html?post/drupal/397"
+      title="Lire la suite Sécuriser votre base PostgreSQL">Lire la suite</a>...</p>
+    
+    
+    
+                        </div>
+    
+          <div class="post odd " lang="fr" xml:lang="fr">
+
+    <p class="day-date">dimanche 15 juillet 2007</p>    
+    <h2 id="p396" class="post-title"><a
+    href="indexfe05.html?post/drupal/396">Utiliser un index pour les recherches sur des motifs tels que « colonne LIKE '%chaîne' »</a></h2>
+    
+    <p class="post-info">Par gleu    le dimanche 15 juillet 2007, 13:44</p>
+    
+    
+    
+          <div class="post-content"><p></p></div>
+      <p class="read-it"><a href="indexfe05.html?post/drupal/396"
+      title="Lire la suite Utiliser un index pour les recherches sur des motifs tels que « colonne LIKE '%chaîne' »">Lire la suite</a>...</p>
+    
+    
+    
+                        </div>
+    
+          <div class="post  " lang="fr" xml:lang="fr">
+
+    <p class="day-date">vendredi 29 septembre 2006</p>    
+    <h2 id="p199" class="post-title"><a
+    href="index4df6.html?post/drupal/199">Debian Sarge, PostgreSQL 8.1, XID Wraparound et Single User Mode</a></h2>
+    
+    <p class="post-info">Par jca    le vendredi 29 septembre 2006, 15:55</p>
+    
+    
+    
+          <div class="post-content"><p></p></div>
+      <p class="read-it"><a href="index4df6.html?post/drupal/199"
+      title="Lire la suite Debian Sarge, PostgreSQL 8.1, XID Wraparound et Single User Mode">Lire la suite</a>...</p>
+    
+    
+    
+                        </div>
+    
+          <div class="post odd " lang="fr" xml:lang="fr">
+
+    <p class="day-date">vendredi  7 avril 2006</p>    
+    <h2 id="p174" class="post-title"><a
+    href="index4d9a.html?post/drupal/174">Problèmes de récupération après crash</a></h2>
+    
+    <p class="post-info">Par SAS    le vendredi  7 avril 2006, 10:02</p>
+    
+    
+    
+          <div class="post-content"><p></p></div>
+      <p class="read-it"><a href="index4d9a.html?post/drupal/174"
+      title="Lire la suite Problèmes de récupération après crash">Lire la suite</a>...</p>
+    
+    
+    
+                        </div>
+    
+          <div class="post  " lang="fr" xml:lang="fr">
+
+    <p class="day-date">mardi 28 mars 2006</p>    
+    <h2 id="p390" class="post-title"><a
+    href="index8e43.html?post/drupal/390">Beginning Databases With PostgreSQL</a></h2>
+    
+    <p class="post-info">Par gleu    le mardi 28 mars 2006, 00:35</p>
+    
+        <ul class="post-tags">    <li><a href="index1ed5.html?tag/livre">livre</a></li>
+                <li><a href="index467c.html?tag/php">php</a></li>
+    </ul>    
+    
+          <div class="post-content"><p></p></div>
+      <p class="read-it"><a href="index8e43.html?post/drupal/390"
+      title="Lire la suite Beginning Databases With PostgreSQL">Lire la suite</a>...</p>
+    
+    
+    
+                        </div>
+    
+                  <p class="pagination"><a href="indexc8c6.html?category/Articles/page/2" class="prev">&#171;
+        billets précédents</a> -         page 1 de 3        </p>
+              </div>
+</div> <!-- End #main -->
+
+</div> <!-- End #wrapper -->
+
+<div id="pgFooter">
+  <p>Propulsé par <a href="http://dotclear.org/">Dotclear</a></p>
+</div>
+
+</div> <!-- End #page -->
+</body>
+
+<!-- Mirrored from blog2.postgresql.fr/index.php?category/Articles by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 May 2020 21:40:17 GMT -->
+</html>

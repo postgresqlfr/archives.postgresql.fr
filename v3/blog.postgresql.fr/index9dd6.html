@@ -1,0 +1,1168 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr">
+
+<!-- Mirrored from blog2.postgresql.fr/index.php?post/2010/10/03/iiii by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 May 2020 21:40:18 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="MSSmartTagsPreventParsing" content="TRUE" />
+  <meta name="ROBOTS" content="INDEX, FOLLOW" />
+  
+  <title>Premiers pas avec Postgresql - PostgreSQLfr.org</title>
+  <meta name="description" lang="fr" content="I Introduction A. Pourquoi ce document? J'ai commencé à développer sous PostgreSQL assez récemment après une longue expérience sous Oracle. La documentation générale de PostgreSQL" />
+  <meta name="copyright" content="" />
+  <meta name="author" content="florence" />
+  <meta name="date" scheme="ISO8601" content="2011-12-07T13:35:00+00:00" />
+  
+  <link rel="schema.dc" href="http://purl.org/dc/elements/1.1/" />
+  <meta name="dc.title" content="Premiers pas avec Postgresql" />
+  <meta name="dc.description" lang="fr" content="I Introduction A. Pourquoi ce document? J'ai commencé à développer sous PostgreSQL assez récemment après une longue expérience sous Oracle. La documentation générale de PostgreSQL" />
+  <meta name="dc.creator" content="florence" />
+  <meta name="dc.language" content="fr" />
+  <meta name="dc.publisher" content="" />
+  <meta name="dc.rights" content="" />
+  <meta name="dc.date" scheme="ISO8601" content="2011-12-07T13:35:00+00:00" />
+  <meta name="dc.type" content="text" />
+  <meta name="dc.format" content="text/html" />
+  
+  <link rel="top" href="indexd41d.html?" title="Accueil" />
+  <link rel="contents" href="index888d.html?archive" title="Archives" />
+  
+  <link rel="next" href="index2a23.html?post/2011/12/09/Mises-%C3%A0-jour-et-Fin-de-la-version-8.2"
+  title="Mises à jour et Fin de la version 8.2" />
+  
+  <link rel="previous" href="index7b76.html?post/2011/12/04/Nouvelles-hebdomadaires-de-PostgreSQL-27-novembre-2011"
+  title="Nouvelles hebdomadaires de PostgreSQL - 27 novembre 2011" />
+  
+  <link rel="alternate" type="application/atom+xml" title="Atom 1.0" href="index4ca3.php?feed/atom" />
+  
+  <style type="text/css" media="screen">
+@import url(themes/postgresql/style.css);
+</style>
+<style type="text/css" media="print">
+@import url(themes/default/print.css);
+</style>
+
+<script type="text/javascript" src="themes/default/js/jquery.js"></script>
+<script type="text/javascript" src="themes/default/js/jquery.cookie.js"></script>
+
+  
+  <script type="text/javascript" src="themes/default/js/post.js"></script>
+  <script type="text/javascript">
+  //<![CDATA[
+  var post_remember_str = 'Se souvenir de moi sur ce blog';
+  //]]>
+  </script>
+</head>
+
+<body class="dc-post">
+<div id="page">
+
+
+<div id="top">
+  <div id="pgHeader">
+    <span id="pgHeaderLogoLeft">
+      <a href="index.html" title="PostgreSQL"><img src="https://blog.postgresql.fr/themes/postgresql/img/hdr_left.png" width="230" height="80" alt="PostgreSQL" /></a>
+    </span>
+    <span id="pgHeaderLogoRight">
+      <a href="index.html" title="La base de donnees la plus sophistiquee au monde."><img src="https://blog.postgresql.fr/themes/postgresql/img/hdr_right.png" width="210" height="80" alt="La base de donnees la plus sophistiquee au monde." /></a>
+    </span>
+  </div>
+
+  </div>
+
+<div class="pgTopNav">
+  <div class="pgTopNavLeft"> 
+    <img src="https://blog.postgresql.fr/themes/postgresql/img/nav_lft.png" width="7" height="23" alt="" />
+  </div>
+  <div class="pgTopNavRight">
+    <img src="https://blog.postgresql.fr/themes/postgresql/img/nav_rgt.png" width="7" height="23" alt="" />
+  </div>
+  <ul class="pgTopNavList">
+    <li><a href="https://www.postgresql.fr/" title="Accueil">Accueil</a></li>
+    <li><a href="https://blog.postgresql.fr/" title="Lire les actualités">Actualités</a></li>
+    <li><a href="https://docs.postgresql.fr/" title="Lire la documentation officielle">Documentation</a></li>
+    <li><a href="https://forums.postgresql.fr/" title="Pour poser des questions">Forums</a></li>
+    <li><a href="https://www.postgresql.fr/asso/" title="La vie de l'association">Association</a></li>
+    <li><a href="https://www.postgresql.fr/devel:accueil" title="Informations pour les développeurs/traducteurs">Développeurs</a></li>
+    <li><a href="https://planete.postgresql.fr/" title="La planète francophone sur PostgreSQL">Planète</a></li>
+    <li><a href="https://www.postgresql.fr/support/" title="Support sur PostgreSQL">Support</a></li>
+  </ul>
+</div>
+
+<div id="wrapper">
+
+<div id="pgContent">
+
+  <div id="pgSideWrap">
+  <div id="pgSideNav">
+    <div id="blognav">
+      <div id="search"><h2><label for="q">Rechercher</label></h2><form action="http://blog2.postgresql.fr/index.php?" method="get"><fieldset><p><input type="text" size="10" maxlength="255" id="q" name="q" value="" /> <input class="submit" type="submit" value="ok" /></p></fieldset></form></div><div class="categories"><h2>Catégories</h2><ul><li class="category-current"><a href="index199b.html?category/Articles">Articles</a></li><li><a href="indexb4c6.html?category/Dans-les-bacs">Dans les bacs</a></li><li><a href="index025a.html?category/Evenements">Événements</a></li><li><a href="index8c6d.html?category/PostgreSQL-Weekly-News">PostgreSQL Weekly News</a></li><li><a href="index1835.html?category/Securite">Sécurité</a></li><li><a href="index2251.html?category/Vie-de-l-association">Vie de l'association</a></li><li><a href="index91de.html?category/Vie-du-site">Vie du site</a></li></ul></div><div class="text"><h2>Licence</h2>Tous les articles de ce blog sont disponibles sous la <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/">license Creative Commons BY-NC-SA 3.0</a>.</div>    </div> <!-- End #blognav -->
+  
+    <div id="blogextra">
+      <div class="syndicate"><h2>S'abonner</h2><ul><li><a type="application/atom+xml" href="index4ca3.php?feed/atom" title="Fil Atom des billets de ce blog" class="feed">Fil des billets</a></li></ul></div>    </div> <!-- End #blogextra -->
+  </div>
+  </div>
+
+  <div id="pgContentWrap">
+  <div id="pgDownloadsWrap">
+  <div id="content">
+
+  <p id="navlinks">
+  <a href="index7b76.html?post/2011/12/04/Nouvelles-hebdomadaires-de-PostgreSQL-27-novembre-2011"
+  title="Nouvelles hebdomadaires de PostgreSQL - 27 novembre 2011" class="prev">&#171; Nouvelles hebdomadaires de PostgreSQL - 27</a>
+   <span>-</span> <a href="index2a23.html?post/2011/12/09/Mises-%C3%A0-jour-et-Fin-de-la-version-8.2"
+  title="Mises à jour et Fin de la version 8.2" class="next">Mises à jour et Fin de la version 8.2 &#187;</a>
+  </p>
+  
+  <div class="post">
+    <h2 id="p571" class="post-title">Premiers pas avec Postgresql</h2>
+    
+    <p class="post-info">Par florence    le mercredi  7 décembre 2011, 13:35        - <a href="index199b.html?category/Articles">Articles</a>
+        - <a href="index9dd6.html?post/2010/10/03/iiii">Lien permanent</a>
+    </p>
+    
+    
+    
+        
+    <div class="post-content"><h2>I  Introduction</h2>
+
+<h3>A. Pourquoi ce document?</h3>
+
+<p>J'ai commencé à développer sous PostgreSQL assez récemment après une longue expérience sous Oracle. La documentation générale de PostgreSQL est excellente, et très riche, mais j'avais besoin d'un document plus léger expliquant la procédure d'installation sur différents systèmes et comment démarrer (créer un cluster, configurer les connexions), ainsi que des informations sur ce qu'on pouvait faire avec PostgreSQL. Je ne l'ai pas trouvé.
+Après quelques mois d'utilisation, je me suis rendu compte que les problèmes des débutants étaient toujours les mêmes. Ainsi, j'ai compilé mes notes des débuts et ce que j'ai appris depuis dans ce document.
+Voici le résultat, en espérant qu'il vous aide à débuter et qu'il vous encourage à continuer avec PostgreSQL.</p>
+
+
+<h3>B. À qui s'adresse ce document?</h3>
+
+<pre></pre>
+
+<p>Ce document a pour but de vous aider à installer PostgreSQL sous Windows ou sous Linux, et à commencer à développer.</p>
+
+
+<p>Il est écrit pour vous faire gagner du temps dans vos premiers pas avec PostgreSQL, tout en vous expliquant les points importants afin que vous puissiez progresser par vous-même.
+Il s'adresse donc principalement aux développeurs d'applications, afin de leur permettre de découvrir ce puissant moteur sur une petite base de test, ou aux personnes qui débutent complètement avec PostgreSQL. Vous n'aurez pas besoin de connaissances système avancées pour suivre ce document.</p>
+
+
+<p>Une fois que vous aurez terminé la lecture de ce document, vous pourrez continuer par la lecture de la documentation officielle pour apprendre à administrer PostgreSQL ou devenir un développeur aguerri. La dernière section de ce document vous donne les liens et références nécessaires pour continuer à progresser.
+Parfois les informations ne sont volontairement pas complètes, et lorsque la documentation de référence est plus claire et précise que ce qui aurait pu être fait ici, les liens sont fournis vers la documentation française.</p>
+
+
+<p>Ce document a été écrit initialement pour la version 8.3, puis mis à jour pour la version 9.0 (voir le chapitre sur les versions).</p>
+
+
+<p><ins>Avertissement</ins>&nbsp;: ce document n'est en aucun cas un document sur le tuning de la base. Il n'est pas fait non plus pour vous apprendre à administrer une base de production.</p>
+
+
+<h2>II  Présentation de PostgreSQL</h2>
+
+
+<p>PostgreSQL est un moteur de bases de données relationnelle.
+C'est un moteur adapté à des bases métier, donc riche en fonctionnalités et puissant. Son installation est cependant plutôt simple. Il faut juste comprendre quelques principes de base (ce que cette présentation s'efforce de faire)</p>
+
+
+<p>Si vous ne connaissez pas les principes relationnels ou le SQL, le mieux est de vous procurer un bon ouvrage sur le sujet. L'article de Wikipedia peut être une bonne introduction (<a href="http://fr.wikipedia.org/wiki/SQL">http://fr.wikipedia.org/wiki/SQL</a>), et donne de nombreuses références. Le tutoriel de la documentation PostgreSQL peut également vous rendre service  si vous avez besoin de vous rafraîchir la mémoire&nbsp;: <a href="http://docs.postgresqlfr.org/9.0/tutorial-sql.html">http://docs.postgresqlfr.org/9.0/tutorial-sql.html</a></p>
+
+
+<h3>A. Licence</h3>
+
+<p>La licence de PostgreSQL est une licence de type BSD, ce qui permet son utilisation sans restriction, dans un logiciel libre ou propriétaire. C'est un avantage certain, car cela permet par exemple d'utiliser PostgreSQL comme base de données pour un logiciel propriétaire.</p>
+
+
+<p>PostgreSQL est un projet indépendant. Il n'est détenu par aucune entreprise. La communauté PostgreSQL est très réactive (allez voir les mailings-lists si vous voulez vérifier). De nombreuses entreprises soutiennent et participent également au développement de PostgreSQL.</p>
+
+
+<h3>B. Caractéristiques et fonctionnalités&nbsp;:</h3>
+
+<p>PostgreSQL comporte de nombreuses fonctionnalités intéressantes. Parmi celles-ci, on peut citer par exemple&nbsp;:
+moteur transactionnel
+respect des normes SQL
+MVCC (mécanisme permettant une concurrence efficace sans verrouiller les enregistrements pour assurer l'isolation des transactions)
+procédures stockées dans de nombreux langages
+triggers
+réplication maître-esclaves en continu par application des journaux binaires (archives WAL), esclaves accessibles en lecture.</p>
+
+
+<p>PostgreSQL est conçu pour être robuste (aucune version ne sort sans avoir subi une suite extensive de tests) et peut supporter des volumes importants de données (ainsi par exemple Météo France gère une base de 3,5To).</p>
+
+
+<p>PostgreSQL est conçu pour pouvoir supporter des extensions. Des extensions et outils sont disponibles pour compléter le moteur, par exemple&nbsp;:</p>
+<ul>
+<li>PostGis&nbsp;: moteur de données spatiales.</li>
+<li>Slony&nbsp;: réplication maître-esclaves.</li>
+<li>Et de nombreux autres.</li>
+</ul>
+
+<h2>III  Installation</h2>
+
+<p>Avant de passer aux procédures d'installation proprement dites, il est nécessaire de comprendre certaines notions fondamentales.</p>
+
+<h3>A. Vocabulaire</h3>
+
+<h4>1. Base</h4>
+
+<p>Une base est un ensemble structuré de données. On utilise généralement une base de donnée par application.
+Pour pouvoir créer une base de données, vous devez disposer d'un cluster de bases de données.</p>
+
+<h4>2. Cluster (ou grappe de base de données)</h4>
+
+<p>Un cluster est un ensemble de bases de données qui partagent les mêmes ressources (processus, mémoire, disque...) .</p>
+
+<h4>3. Schéma</h4>
+
+<p>Un schéma est un espace de nommage au sein d'une base de données.</p>
+
+
+<h3>B. Principes de base</h3>
+
+<h4>1. Comptes système</h4>
+
+<p>Les processus de PostgreSQL utilisent un compte système. Généralement c'est le compte postgres qui est utilisé pour cela, sauf si vous avez installé PostgreSQL sur votre compte (voir la partie compilation).</p>
+
+<h4>2. Rôles</h4>
+
+<p>Les droits de la base de données sont gérés par des rôles. Avant de pouvoir vous connecter à la base de données, le rôle que vous utilisez doit avoir les autorisation nécessaires.</p>
+
+
+<p>http://docs.postgresql.fr/9.0/user-manag.html</p>
+
+
+<p><ins>À retenir: les comptes systèmes et les rôles de base de données sont distincts!</ins> Même s'il y a des possibilités de mapping entre les deux (cf. paragraphe sur pg_hba.conf)
+La confusion entre ces 2 notions est une des causes fréquentes d'erreurs et de problèmes d'installation pour les débutants.</p>
+
+
+<h4>3. Versions (mineures/majeures)</h4>
+
+<p>Les versions majeures comprennent le chiffre avant le point et un chiffre après. Exemple&nbsp;: 8.2 et 8.3 sont des versions majeures différentes.
+Les versions mineures incrémentent la 3ème partie&nbsp;: exemple&nbsp;: 8.3.7
+Pour changer de version mineure, il suffit de mettre à jour le moteur. Mais pour changer de version majeure, il est nécessaire de décharger puis recharger les données.</p>
+
+
+<p>Plus d'informations ici&nbsp;:
+<a href="http://www.postgresql.org/support/versioning">http://www.postgresql.org/support/versioning</a></p>
+
+<h4>4. Client/serveur</h4>
+
+<p>PostgreSQL est une application client/serveur. Le serveur gère les fichiers de la base de données, accepte les connexions des clients, et effectue les opérations demandées par les clients (requêtes...)
+Le client peut prendre de nombreuses formes. Il existe par exemple un client en ligne de commande (psql), des clients graphiques (par exemple pgAdmin3)... Le client peut être sur la même machine que le serveur, ou bien communiquer avec lui par le réseau.</p>
+
+<h4>5. Processus serveur</h4>
+
+<p>Sous Windows, le serveur PostgreSQL tourne en tant que service.
+Sous Linux, ce sont des démons système qui effectuent ces tâches.
+(si vous êtes curieux, vous pouvez aller voir cet article&nbsp;: http://dalibo.org/glmf112_les_processus_de_postgresql)
+Il ne faut pas arrêter les processus du serveur n'importe comment. Pour arrêter le serveur, il faut utiliser les outils fournis (voir la section sur l'arrêt et le démarrage du serveur).
+<ins>NB</ins>&nbsp;: par défaut, PostgreSQL est configuré pour écouter sur le port 5432. Les outils se connectent par défaut sur ce port&nbsp;: pensez à cela si vous devez modifier ce paramètre.</p>
+
+
+<h4>6. Module de contribution</h4>
+
+<p>Ce sont des extensions intéressantes, maintenues par le projet, mais non intégrées au coeur du moteur.
+<ins>Exemples&nbsp;: </ins></p>
+<ul>
+<li>adminpack (fonctions supplémentaires, utilisées par les outils d'administrations comme pgAdmin3)</li>
+<li>pg_buffercache (pour savoir ce qui est présent dans le cache)</li>
+<li>pg_freespacemap&nbsp;: donne la liste des blocs vides et partiellement vides des tables et index (quantité d'espace libre dans chaque objet de la base)</li>
+<li>pgcrypto&nbsp;: fonctions de cryptographie</li>
+</ul>
+<h3>C. Exemple</h3>
+
+<p>Pour l'installation et la suite, nous prendrons l'exemple de la création d'une base de données mabase, qui sera utilisée et gérée par un utilisateur <em>tom</em>.</p>
+
+
+<h3>D. Sous Windows</h3>
+
+<p>À partir de la version 8.0, PostgreSQL fonctionne nativement sous Windows (Windows XP, Windows 2000, Windows 2003, Vista, Windows 2008...). Malgré tout, seules les versions à partir de la 8.2 sont supportées sous Windows. Il s'installe en tant que service.</p>
+
+
+<p><strong>NB</strong>&nbsp;: si vous regardez dans la liste des processus, plusieurs processus postgres sont présents. Gardez à l'esprit que la mémoire est partagée entre ces processus&nbsp;: la mémoire utilisée par PostgreSQL est donc inférieure à la somme de la mémoire utilisée par chaque processus qui est affichée dans le gestionnaire de tâches...</p>
+
+<h4>1. Où trouver PostgreSQL pour Windows?</h4>
+
+<p>Vous pouvez trouver deux types d'installeurs pour Windows&nbsp;: l'installeur "en un clic", ou l'installeur "pgInstaller". Le premier est créé par EnterpriseDB, le seconde par la communauté. Vous les trouverez à partir d'ici&nbsp;:
+<a href="http://www.postgresql.org/download/windows">http://www.postgresql.org/download/windows</a>
+"pgInstaller" n'est disponible que pour les versions 8.2 et 8.3, le document détaille donc le processus d'installation pour l'installeur «en un clic ».
+<strong>NB:</strong>
+il est possible de récupérer les binaires sans l'installeur (pour utilisateurs avancés uniquement), ou de  faire une installation silencieuse (voir sur le site de EnterpriseDB)</p>
+
+
+<h3>2. Installation</h3>
+
+<p>Lancez l'installeur (pour Postgresql 9.0, le fichier s'appelle&nbsp;: postgresql-9.0.0-1-windows.exe )</p>
+
+
+
+<p><strong>NB:</strong> L'installeur logue toutes ses actions dans un fichier install-postgresql.log qui est dans le répertoire %TEMP% de Windows. En cas de problème, consulter ce fichier.</p>
+
+
+<p><img src="public/install_windows_v9_0/.3_repertoire_m.jpg" alt="3_repertoire.jpg" title="3_repertoire.jpg, avr. 2011" /></p>
+
+
+<p>Le répertoire est celui où vont s'installer le programme serveur (postgres.exe) et les outils client (psql, pgdump...), ainsi que la documentation, etc...</p>
+
+
+<p>L'installeur ne permet actuellement pas d'installer les outils client et le serveur séparément.</p>
+
+
+<p><img src="public/install_windows_v9_0/.4_donnees_m.jpg" alt="4_donnees.jpg" title="4_donnees.jpg, avr. 2011" /></p>
+
+
+<p>L'installeur demande ensuite où sera créé le cluster de données.
+Il sera par la suite toujours possible de créér d'autres cluster avec l'outil initdb.</p>
+
+
+<p><img src="public/install_windows_v9_0/.5_mot_passe_m.jpg" alt="5_mot_passe.jpg" title="5_mot_passe.jpg, avr. 2011" /></p>
+
+
+<p>L'installeur demande le mot de passe de l'utilisateur postgres. Attention, en réalité ceci recouvre 2 notions différentes&nbsp;:
+un utilisateur du système d'exploitation, celui sur le compte duquel fonctionnent les programmes du serveur,
+le super-utilisateur de base de données.
+Ils peuvent très bien avoir des noms et des mots de passe différents, mais pour cet installeur, il a été choisi de donner le même nom et le même mot de passe.</p>
+
+
+<p>Si l'utilisateur postgres du système d'exploitation existe déjà, il faut donner le mot de passe existant. Si vous l'avez oublié, vous pouvez le changer dans une console avec la commande net user&nbsp;:
+<code>net user postgres &lt;motdepasse&gt;</code></p>
+
+
+<p><ins>Attention à ne pas mettre un mot de passe trivial à l'utilisateur postgres</ins> (c'est encore plus important si vous autorisez les connexions à partir du réseau!). Évitez également de lui donner le même mot de passe que celui de l'utilisateur système postgres. En effet, l'utilisateur postgres dispose de tous les droits sur le cluster.</p>
+
+
+<p><img src="public/install_windows_v9_0/.6_port_m.jpg" alt="6_port.jpg" title="6_port.jpg, avr. 2011" /></p>
+
+
+<p>Par défaut, le port sur lequel le serveur attend les connexions est le port 5432. Vous pouvez changer le numéro de port d'écoute. Attention dans ce cas à configurer correctement vos clients (JDBC, etc...)</p>
+
+
+<p><ins>Remarque :</ins> par défaut, postgres n'acceptera pas les connexions à partir du réseau. Ceci est parfait sur un poste de développement autonome, mais pas pour un serveur. <ins>Cela pourra être modifié par configuration.</ins></p>
+
+
+<p><img src="public/install_windows_v9_0/.7_locale_m.jpg" alt="7_locale.jpg" title="7_locale.jpg, avr. 2011" /></p>
+
+
+<p>La locale définit le comportement du cluster pour les opérations de tri (ordre alphabétique) …
+Par défaut, c'est celle du système qui est utilisée, mais vous pouvez en préférer une autre.</p>
+
+
+<p><img src="public/install_windows_v9_0/.8_pret_m.jpg" alt="8_pret.jpg" title="8_pret.jpg, avr. 2011" /></p>
+
+
+<p>Si vous êtes certain(e) du paramétrage, vous pouvez cliquer sur « Suivant».</p>
+
+
+<p><img src="public/install_windows_v9_0/.9_fin_m.jpg" alt="9_fin.jpg" title="9_fin.jpg, avr. 2011" /></p>
+
+
+<p>L'installation est terminée. Si vous souhaitez installer des modules complémentaires (phppgAdmin, Slony...), lancez l' outil Stackbuilder.</p>
+
+
+<p><img src="public/install_windows_v9_0/.110_utilisation_flou_m.jpg" alt="110_utilisation_flou.jpg" title="110_utilisation_flou.jpg, avr. 2011" /></p>
+
+
+<p>L'installation sous Windows est prête à être utilisée.
+Dans le menu démarrer, vous pouvez retrouver tous les outils utiles pour gérer le serveur.</p>
+
+
+<p>Si vous avez conservé les options par défaut, les fichiers du cluster se trouvent dans C:\Program Files\PostgreSQL\9.0, et vous trouverez l'outil pour désinstaller dans le même répertoire.</p>
+
+
+<p><ins>NB&nbsp;: notes sur la console Windows et psql</ins>
+La console Windows est par défaut dans un encodage compatible DOS (par exemple CP850). Lorsque vous démarrerez psql pour la première fois,  vous aurez le message d'avertissement suivant&nbsp;:</p>
+
+
+<pre>Attention : l'encodage console (850) diffère de l'encodage Windows (1252).
+Les caractères 8 bits peuvent ne pas fonctionner correctement.
+Voir la section « Notes aux utilisateurs de Windows » de la page
+référence de psql pour les détails.</pre>
+
+
+<p>Il est recommandé de modifier l'encodage de la console,
+Pour éviter cela, vous pouvez éditer le fichier C:\Program Files\PostgreSQL\9.0\scripts\runpsql.bat en ajoutant la ligne&nbsp;:</p>
+
+
+<p><code>chcp 1252</code></p>
+
+
+<p>avant le lancement de psql.</p>
+
+
+<p><ins>Remarque importante :</ins> si vous avez installé PostgreSQL sur un poste de travail (dans le but par exemple de l'évaluer ou de vous familiariser avec lui), vous avez maintenant une installation qui fonctionne « à la sortie de la boîte », et vous pouvez commencer à l'utiliser via l'outil pgAdmin (crééer des bases, etc...). Mais si vous souhaitez autoriser des connexions distantes, il est indispensable de lire la suite du document. Il apporte également des informations qui pourraient vous être utiles (emplacement et rôle des différents répertoires...) même si vous utilisez peu les outils en ligne de commande.
+Vous pouvez maintenant passer à la section « après l'installation » si vous le souhaitez.</p>
+
+
+<h2>IV  Après l'installation</h2>
+
+<p>Dans toute la suite du document, nous supposons que l'utilisateur système sous lequel PostgreSQL a été installé est postgres. Si ce n'est pas le cas, remplacez par l'utilisateur qui démarre le serveur.
+Conseil&nbsp;: avant toute modification de fichier de configuration, pensez à sauvegarder la version initiale du fichier! Une erreur est si vite arrivée...</p>
+
+
+<h3>A. Processus et emplacement des fichiers.</h3>
+
+<p>L'emplacement des fichiers de configuration et des fichiers du cluster dépend de votre distribution.
+Le répertoire contenant les fichiers du cluster est couramment appelé PGDATA (du nom de la variable d'environnement correspondante). Par exemple&nbsp;: /var/lib/pgsql/data (Linux) ou C:\Program Files\PostgreSQL\9.0\data (Windows)
+Normalement, le  fichier postgresql.conf est dans le répertoire du cluster. Cependant, cela peut être autrement (sur Debian, tous les fichiers de configuration doivent être dans /etc)
+Voici un moyen de retrouver leur emplacement sous Linux ou Unix si vous l'avez oublié.
+Liste des processus nommés "postgres"&nbsp;:
+(exemple sur une Debian):</p>
+
+
+<pre>flo:~# ps -ef | grep postgres | grep -v grep
+postgres  2797     1  0 06:14 ?        00:00:00 /usr/lib/postgresql/9.0/bin/postgres -D /var/lib/postgresql/9.0/main -c config_file=/etc/postgresql   /9.0/main/postgresql.conf
+postgres  2798  2797  0 06:14 ?        00:00:00 postgres: logger process                                                                                        
+postgres  2800  2797  0 06:14 ?        00:00:00 postgres: writer process                                                                                        
+postgres  2801  2797  0 06:14 ?        00:00:00 postgres: wal writer process                                                                                    
+postgres  2802  2797  0 06:14 ?        00:00:00 postgres: autovacuum launcher process                                                                           
+postgres  2803  2797  0 06:14 ?        00:00:00 postgres: stats collector process                                                                               
+flo:~#</pre>
+
+
+<p>Voyez que le processus 2797 est le père de tous les autres&nbsp;:</p>
+
+
+<pre>postgres  2797     1  0 06:14 ?        00:00:00 /usr/lib/postgresql/9.0/bin/postgres -D /var/lib/postgresql/9.0/main -c config_file=/etc/postgresql/9.0/main/postgresql.conf</pre>
+
+
+<p>le chemin derrière le -D est l'emplacement du cluster.
+Celui derrière le -c l'emplacement du fichier de configuration.</p>
+
+
+<p><code>config_file=/etc/postgresql/9.0/main/postgresql.conf</code></p>
+
+
+<p>Normalement, les autres fichiers de configuration du cluster (pg_hba.conf, pg_ident.conf) sont dans le même répertoire .</p>
+
+
+<p><code>/usr/lib/postgresql/9.0/bin/postgres</code></p>
+
+
+<p>est l'emplacement des binaires.</p>
+
+
+<p>Arborescence du répertoire du cluster:</p>
+
+
+<pre>flo:/var/lib/postgresql/9.0/main# ls -l
+total 48 
+drwx<del></del>-- 11 postgres postgres 4096 mai 10 15:19 base 
+drwx<del></del>--  2 postgres postgres 4096 mai 10 18:29 global
+drwx<del></del>--  2 postgres postgres 4096 avr  4 19:58 pg_clog
+drwxr-xr-x  2 postgres postgres 4096 mai 10 08:15 pg_log
+drwx<del></del>--  4 postgres postgres 4096 avr  4 19:58 pg_multixact
+drwx<del></del>--  2 postgres postgres 4096 avr  4 19:58 pg_subtrans
+drwx<del></del>--  2 postgres postgres 4096 avr  4 19:58 pg_tblspc
+drwx<del></del>--  2 postgres postgres 4096 avr  4 19:58 pg_twophase
+-rw<del></del>---  1 postgres postgres    4 avr  4 19:58 PG_VERSION
+drwx<del></del>--  3 postgres postgres 4096 avr  4 19:58 pg_xlog
+-rw<del></del>---  1 postgres postgres  133 mai 10 08:15 postmaster.opts
+-rw<del></del>---  1 postgres postgres   54 mai 10 08:15 postmaster.pid
+lrwxrwxrwx  1 root     root       31 avr  4 19:58 root.crt -&gt; /etc/postgresql-common/root.crt</pre>
+
+
+<p>Quelques sous-répertoires  et fichiers&nbsp;:</p>
+<ul>
+<li>base&nbsp;: répertoire des fichiers de base de données</li>
+<li>pg_log&nbsp;: log de la base de données (c'est le seul répertoire du cluster où vous pouvez supprimer des fichiers!)</li>
+<li>pg_clog et pg_xlog&nbsp;: commit log (état des transactions) et répertoire des fichiers WAL (Write Ahead Log, utilisé pour la durabilité ).</li>
+<li>postmaster.pid&nbsp;: fichier verrou utilisé pour éviter que plusieurs instances ne soient actives sur le même répertoire de données.</li>
+</ul>
+
+<p><ins>Attention</ins>&nbsp;: le contenu de pg_clog et pg_xlog ne doit pas être supprimé!</p>
+
+<h3>B. Changer le mot de passe de l'utilisateur système postgres</h3>
+
+
+<p>À moins que vous n'ayez compilé les sources pour utiliser PostgreSQL sur votre compte utilisateur, un utilisateur postgres a été créé sur votre système.
+Afin de pouvoir l'utiliser, vous devez changer le mot de passe de cet utilisateur.
+Pour cela, sous Linux, connectez-vous en tant que root et exécutez la commande 'passwd postgres'.
+(ne pas utiliser un mot de passe trivial!)</p>
+
+
+<h3>C. Créer un cluster de base de données.</h3>
+
+
+<p>Avec certaines distributions (Redhat, Debian), un cluster est créé par défaut à l'installation des paquets. De même pour l'installation sous Windows.
+Si vous êtes dans un autre cas de figure, il vous faudra donc en créer un.
+Pour cela, utilisez la commande initdb.</p>
+
+
+<h3>D. Autoriser les connexions</h3>
+
+
+<p>L'installation de PostgreSQL positionne des valeurs par défaut dans les fichiers de configuration.
+Après l'installation, PostgreSQL est configuré de telle sorte que les connexions ne sont pas possibles à partir du réseau.
+Pour autoriser des clients distants à se connecter, il faut configurer deux fichiers&nbsp;:
+postgresql.conf et pg_hba.conf.</p>
+
+
+<h4>1. Connexions réseau (postgresql.conf)</h4>
+
+
+<p>À l'installation, PostgreSQL est configuré pour n'accepter que les connexions locales (c'est le paramètre listen_addresses).
+Si vous souhaitez pouvoir vous connecter à partir du réseau, il faut dé-commenter le paramètre <em>listen_addresses</em> du fichier postgresql.conf, et préciser sur quelle(s) adresse(s) postgres accepte les connexions.</p>
+
+
+<p><ins>Attention</ins>&nbsp;: ce sont bien les adresses IP d'écoute, c'est-à-dire les adresses IP du serveur sur lesquelles le serveur PostgreSQL va écouter. Si vous précisez une adresse '*', postgres va écouter les connexions sur toutes les interfaces réseau du serveur. Si vous précisez une adresse IP, cela signifie que postgres va écouter sur l'interface réseau de votre machine qui a cette adresse IP.
+Si vous souhaitez n'autoriser les connexions qu'à une liste de machines ou d'adresses IP, c'est dans pg_hba.conf que vous pouvez le faire (paragraphe suivant).
+Pour que les paramètres soient pris en compte, il faut redémarrer le serveur PostgreSQL.
+<ins>Exemples</ins>&nbsp;:
+(connexion locales)</p>
+
+
+<pre>#listen_addresses = 'localhost'         # what IP address(es) to listen on;
+                                       # comma-separated list of addresses;
+                                       # defaults to 'localhost', '*' = all
+                                       # (change requires restart)
+port = 5432                             # (change requires restart)@@</pre>
+
+
+<p>(connexion sur l'adresse 192.168.0.4 et local, port 5433)</p>
+
+
+<pre>listen_addresses = '192.168.0.4, localhost'         # what IP address(es) to listen on;
+                                       # comma-separated list of addresses;
+                                       # defaults to 'localhost', '*' = all
+                                       # (change requires restart)</pre>
+
+<p>port = 5432                             # (change requires restart)@@</p>
+
+
+<h4>2. Authentification des clients (pg_hba.conf)</h4>
+
+
+<p>Le fichier pg_hba.conf configure les autorisations pour les bases du cluster.
+Chaque ligne précise une règle aidant à décider si l'utilisateur est habilité à se connecter ou non.
+Le fichier est lu dans l'ordre par postgres, et, dès qu'une ligne est rencontrée qui correspond au cas testé, la lecture s'arrête. Cela signifie que l'ordre des lignes est important.
+Sur chaque ligne est précisé le type de connexion, un nom de base de données, un nom d'utilisateur, et la méthode d'authentification.
+Les méthodes d'authentification les plus classiques sont&nbsp;: md5 (par mot de passe crypté), ident (à partir du nom d'utilisateur du système d'exploitation, non utilisable sous Windows).</p>
+
+
+<p><ins>Exemple :</ins></p>
+
+
+
+<pre># connection par socket Unix pour l'administration du serveur
+# TYPE  DATABASE    USER        CIDR-ADDRESS          METHOD
+local   all         postgres                               ident sameuser
+# connection par socket Unix 
+# TYPE  DATABASE    USER        CIDR-ADDRESS          METHOD
+local   mabase      tom                                    md5
+local   truc        all                                    ident sameuser
+# Connexions locales en Ipv4 :
+# TYPE  DATABASE    USER        CIDR-ADDRESS          METHOD
+host    mabase      tom         127.0.0.1/32          md5
+host    truc        all         127.0.0.1/32          md5
+# Connexion distante en Ipv4 :
+# TYPE  DATABASE    USER        CIDR-ADDRESS          METHOD
+host    mabase      tom         192.168.12.10/32      md5
+host    truc        all         192.168.12.10/32      md5</pre>
+
+
+<p>La première ligne&nbsp;:
+<code>local   all         postgres                               ident sameuser</code>
+signifie que, si postgres reçoit une demande de connexion sur n'importe quelle base (all) par socket Unix (local), pour l'utilisateur postgres, alors la méthode d'authentification utilisée est&nbsp;: ident. sameuser signifie que postgres vérifie que le nom de l'utilisateur Unix propriétaire de la socket est le même que celui utilisé pour se connecter à la base.</p>
+
+
+
+<p>La ligne suivante&nbsp;:
+<code>local   mabase      tom                                    md5</code></p>
+
+
+<p>signifie que, lorsque tom essaie de se connecter par socket Unix sur la base mabase, c'est l'authentification md5 qui est utilisée.</p>
+
+
+<p>La ligne&nbsp;:
+<code>local   truc        all                                    ident sameuser</code></p>
+
+
+<p>signifie que lorsque n'importe que n'importe quel utilisateur essaie de se connecter à la base truc par socket Unix, c'est l'authentification ident sameuser qui est utilisée.</p>
+
+
+<p>La ligne&nbsp;:</p>
+
+
+<p><code>host    mabase       tom         127.0.0.1/32          md5</code></p>
+
+
+<p>signifie qu'une demande de connexion à partir pour la base mabase, par un utilisateur tom, en local par Ipv4 est authentifiée par md5.</p>
+
+
+<p>La ligne&nbsp;:</p>
+
+
+<p><code>host    mabase      tom         192.168.12.10/32      md5</code></p>
+
+
+<p>signifie qu'une demande de connexion de l'utilisateur <em>tom</em> sur <em>mabase</em>, à partir de l'adresse 192.168.12.10 est authentifiée par <em>md5</em>.</p>
+
+
+<p>On voit donc que <em>tom</em> est autorisé à se connecter sur la base <em>mabase</em>, soit par socket Unix, soit par Ipv4 en local, soit par Ipv4 à partir de&nbsp;: 192.168.12.10.
+Les autres utilisateurs (à part l'utilisateur postgres) ne peuvent se connecter que sur la base <em>truc</em>.
+Tom peut également se connecter sur la base <em>truc</em>, car <em>tom</em> fait partie de l'ensemble des utilisateurs (all).
+<ins>NB :</ins> CIDR est une façon de noter les ensembles d'adresses IP, avec le chiffre derrière le '/' indiquant la taille du masque en bits  (ainsi un réseau de classe A est en /8, classe B, 16, classe C, 24, une IP unique /32, et tout le monde&nbsp;: 0.0.0.0/0 ) (voir l'article Wikipedia&nbsp;: <a href="http://fr.wikipedia.org/wiki/Adresse_IPv4" hreflang="fr">http://fr.wikipedia.org/wiki/Adresse_IPv4</a> )</p>
+
+
+<p><ins>Remarques :</ins>
+Le fichier configure le cluster, il est donc commun à toutes les bases du cluster&nbsp;: attention à ne pas autoriser un utilisateur sur une base par erreur.
+Attention, ne surtout pas autoriser d'authentification trust ni ident par le réseau, parce que cela signifierait faire entièrement confiance au client...
+Si vous voulez en savoir plus sur l'authentification du client, allez voir la documentation ici&nbsp;:
+<a href="http://docs.postgresql.fr/9.0/client-authentication.html" hreflang="fr">http://docs.postgresql.fr/9.0/client-authentication.html</a></p>
+
+
+
+<h2>3. Prise en compte des paramètres de configuration</h2>
+
+<p>Pour que PostgreSQL prenne en compte les modifications de paramètres sans redémarrer le serveur, vous avez les solutions suivantes&nbsp;:</p>
+<ul>
+<li>utiliser pg_ctl reload (remplacé par pg_ctlcluster sous Debian)</li>
+<li>envoyer un signal SIGHUP à postgres</li>
+</ul>
+<p>Sous Windows, il est possible d'utiliser un raccourci dans le menu Démarrer (« Rechargez la configuration »).</p>
+
+
+<p><ins>Attention</ins>&nbsp;: certaines options ne sont prises en compte qu'au démarrage (voir la documentation, les commentaires de postgresql.conf ou la colonne context de la vue pg_settings)</p>
+
+
+<h4>4. Créer une base</h4>
+
+<p>Nous allons créer une base mabase sur le cluster, puis faire de tom le propriétaire de la base (afin qu'il puisse faire ce qu'il veut sur cette base)</p>
+
+
+<pre>postgres@flo:/etc/postgresql/9.0/main$ pg_lsclusters
+Version Cluster   Port Status Owner    Data directory                     Log file
+9.0 main      5432 online postgres /var/lib/postgresql/9.0/main       custom</pre>
+
+
+<p>Pour cela, lancez la commande createdb&nbsp;:</p>
+
+
+<p><code>postgres@flo$ createdb mabase</code></p>
+
+
+<p>NB&nbsp;: createdb lance en fait la commande CREATE DATABASE pour vous.</p>
+
+
+<h4>5. Créer un rôle et lui donner des droits sur une base</h4>
+
+<p><ins>NB</ins>&nbsp;: les utilisateurs et les groupes sont tous gérés par des rôles.</p>
+
+
+<p>En tant qu'utilisateur postgres, lancez psql&nbsp;:</p>
+
+
+<p>postgres@flo:/usr/share/doc/postgresql-common$ psql
+Bienvenue dans psql 9.0.6, l'interface interactive de PostgreSQL.</p>
+
+
+<pre>Saisissez:
+    \copyright pour les termes de distribution
+    \h pour l'aide-mémoire des commandes SQL
+    \? pour l'aide-mémoire des commandes psql
+    \g ou point-virgule en fin d'instruction pour exécuter la requête
+    \q pour quitter</pre>
+
+
+<pre>postgres=#</pre>
+
+
+
+<p>Créez un rôle tom, avec les droits de login (pour qu'il ait le droit de se connecter au serveur), et le mot de passe&nbsp;: <em>secret</em>.</p>
+
+
+<pre>postgres=# CREATE ROLE tom LOGIN password 'secret';
+CREATE ROLE
+postgres=#</pre>
+
+
+<p>Pour que tom soit le propriétaire de mabase&nbsp;:</p>
+
+
+<pre>postgres=# ALTER DATABASE mabase OWNER TO tom;
+ALTER DATABASE</pre>
+
+
+<p>Sortez de psql&nbsp;:</p>
+
+
+<pre>postgres=# \q
+postgres@flo:/usr/share/doc/postgresql-common$</pre>
+
+
+<p><ins>NB</ins>&nbsp;: les commandes CREATE DATABASE et CREATE ROLE (création de base et d'utilisateur) sont globales au cluster. Il est donc possible de les exécuter de n'importe quelle base.</p>
+
+
+<p>Maintenant, l'utilisateur <em>tom</em> peut se connecter sur <em>mabase</em>&nbsp;: lancez psql, en précisant que vous vous connectez en tant que <em>tom</em>&nbsp;:</p>
+
+
+<pre>flo@flo:~$ psql -U tom mabase
+Mot de passe pour l'utilisateur tom :
+Bienvenue dans psql 9.0.6, l'interface interactive de PostgreSQL.</pre>
+
+
+<pre>Saisissez:
+    \copyright pour les termes de distribution
+    \h pour l'aide-mémoire des commandes SQL
+    \? pour l'aide-mémoire des commandes psql
+    \g ou point-virgule en fin d'instruction pour exécuter la requête
+    \q pour quitter</pre>
+
+
+<pre>mabase=&gt;</pre>
+
+
+<p><ins>Remarque</ins>&nbsp;: il faut préciser la base! Sinon psql cherchera à se connecter à une base "<em>tom</em>".</p>
+
+
+<p>Si vous souhaitez donner le droit à tom de créer des bases:</p>
+
+
+<pre>postgres=# ALTER ROLE tom CREATEDB;
+ALTER ROLE
+postgres=#</pre>
+
+
+<p>Pour les détails sur les droits, lisez le chapitre correspondant de la documentation&nbsp;:
+<a href="http://docs.postgresqlfr.org/9.0/privileges.html" hreflang="fr">http://docs.postgresqlfr.org/9.0/privileges.html</a></p>
+
+
+<h3>E. Super-utilisateur</h3>
+
+<p>Le super-utilisateur est un utilisateur qui dispose de droits spéciaux (certaines fonctions ne sont utilisables que par un super-utilisateur). Les super-utilisateurs passent au travers des vérifications de droits.
+Si vous avez installé PostgreSQL en tant que root, classiquement vous avez un super-utilisateur <em>postgres</em>.
+<ins>Attention</ins>! Le super-utilisateur disposant de tous les droits, éviter de l'utiliser si ce n'est pas nécessaire, afin de limiter le risque d'erreur.</p>
+
+
+<h3>F. Je ne peux pas me connecter à la base? Que faire?</h3>
+
+<p>Que vérifier?</p>
+<ul>
+<li>D'abord&nbsp;: lisez le message d'erreur! (ça peut suffire à trouver la solution à partir d'un bon moteur de recherche, des archives des mailing-lists ou de forums...)</li>
+<li>Consultez la log (voir chapitre suivant)</li>
+<li>Cherchez quels sont les clusters présents&nbsp;? (sous Debian&nbsp;: pg_lsclusters...)</li>
+<li>Vérifiez le fichier postgresql.conf (le paramètre listen_addresses est-il correct? Le port est-il celui souhaité? Le client essaie-t-il de se connecter sur le bon  port?)</li>
+<li>Vérifiez le fichier pg_hba.conf</li>
+<li>Vérifiez le propriétaire de la base</li>
+<li>Le rôle que vous utilisez a-t-il le droit de se loguer (autorisation <em>LOGIN</em>)&nbsp;?</li>
+<li>Le rôle utilisé a-t-il le droit de se connecter à la base de données (sinon utilisez GRANT CONNECT on mabase ...)</li>
+</ul>
+
+<p><ins>NB :</ins> vous obtenez la liste des bases d'un cluster avec la commande \l dans psql</p>
+
+
+<h3>G. Où se trouve la log&nbsp;? Comment la configurer?</h3>
+
+<p>La configuration de la log est effectuée par le fichier postgresql.conf (voir les paramètres log_destination et log_directory)
+Dans une installation standard de PostgreSQL, la log se trouve dans un répertoire pg_log sous le répertoire PGDATA  (répertoire du cluster).
+Par exemple, sous Windows&nbsp;:</p>
+
+
+<p><code>C:\Program Files\PostgreSQL\9.0\data\pg_log</code></p>
+
+
+<pre></pre>
+
+<p>En fonction de votre utilisation (production, test, développement), vous pourrez régler les paramètres de la log. Par exemple, loguer tous les ordres SQL peut être fort utile en développement (surtout lorsque vous utilisez un ORM).</p>
+
+
+<p>Pensez à recharger la configuration après modification.</p>
+
+
+<h3>H. Arrêter/démarrer le serveur PostgreSQL</h3>
+
+<p>Sous Windows&nbsp;: vous pouvez utiliser "stoppez le service" et "démarrez le service" dans le menu démarrer, ou bien dans un terminal, utiliser pg_ctl&nbsp;:</p>
+
+<pre>C:\Program Files\PostgreSQL\9.0\bin&gt;pg_ctl start -D "C:\Program Files\PostgreSQL\9.0\data"
+server starting</pre>
+
+
+<p>Sous Linux&nbsp;: c'est la commande <em>pg_ctl</em>  (sous Debian&nbsp;: <em>pg_ctlcluster</em> ou <em>service postresql start</em></p>
+
+<pre>sous Redhat)</pre>
+
+
+<h2>V  Outils</h2>
+
+<h3>A. Outil graphique&nbsp;: pgAdmin3</h3>
+
+<p>PgAdmin3 est sans doute l'outil le plus populaire pour développer et administrer PostgreSQL.
+<a href="http://www.pgadmin.org/?lang=fr_FR" hreflang="fr">http://www.pgadmin.org/?lang=fr_FR</a>
+Voici un apercu de ce à quoi il ressemble. Pour le reste, vous pourrez vous reporter à sa documentation.
+<br /></p>
+
+
+
+<p><img src="public/.Doc_postgresql_html_m32255e8d_m.jpg" alt="pgadmin" style="display:block; margin:0 auto;" title="pgadmin, déc. 2011" />
+<br /></p>
+
+
+<h3>B. psql (outil en ligne de commande)</h3>
+
+<p>Psql permet d'exécuter des ordres SQL sur les bases, et également des commandes de gestion et d'administration.
+Pour lancer psql&nbsp;:</p>
+
+<h4>1. Windows&nbsp;:</h4>
+
+
+<h5>a)  Via le menu démarrer (gère tout seul le changement d'utilisateur)</h5>
+
+
+<p><ins>Remarque</ins>&nbsp;: si, à la première connexion, vous avez ce message d'avertissement&nbsp;:</p>
+
+
+
+<pre>Warning: Console code page (437) differs from Windows code page (1252)
+        8-bit characters might not work correctly. See psql reference
+        page "Notes for Windows users" for details.
+postgres=#</pre>
+
+
+<p>reportez-vous à la partie installation sous Windows.</p>
+
+
+<h5>b) En ligne de commande dans une console&nbsp;:</h5>
+
+<p>Si vous lancez psql non pas avec le menu démarrer, mais à partir d'une console Windows, il faut être connecté en tant qu'utilisateur système postgres. Ceci est possible avec la commande runas de Windows.</p>
+
+
+<p><code>runas user:postgres cmd.exe  </code>
+Puis modifiez la police de la console pour utiliser Lucida Console, et changez de code page&nbsp;:</p>
+
+
+<p><code>cmd.exe /c chcp 1252</code></p>
+
+
+<p>(pour la France)</p>
+
+
+<p>Malheureusement, si votre base est en UTF8, la console Windows est incapable de gérer correctement l'affichage. Il faudra également éviter de saisir des données avec psql, et préférer pgAdmin pour cet usage (pgAdmin gère parfaitement les différents encodages).</p>
+
+
+<h4>2. Sous Linux&nbsp;:</h4>
+
+
+<p><code>psql mabase</code></p>
+
+
+<h4>3. Remarques&nbsp;:</h4>
+
+
+<p>Si vous ne précisez pas le nom de la base, psql essaie de se connecter à la base de même nom que l'utilisateur. Si vous ne précisez pas le nom d'utilisateur, c'est le nom de l'utilisateur du système qui est utilisé.</p>
+
+
+<h4>4. Commandes</h4>
+
+<p>Commandes psql à connaître absolument&nbsp;:</p>
+<ul>
+<li>\? pour l'aide des commandes psql (si vous deviez n'en retenir qu'une)</li>
+<li>\q quitter</li>
+<li>\h aide des commandes sql</li>
+</ul>
+
+<p>autres commandes intéressantes&nbsp;:</p>
+<ul>
+<li>\l liste des bases de données</li>
+<li>\c se connecter à une base</li>
+<li>\d [nom] pour la description d'une table, d'un index, séquence, vue</li>
+<li>\d liste des relations (tables, vues et séquences)</li>
+<li>\i nom_fichier  exécuter un fichier de commandes SQL</li>
+</ul>
+
+<p>Attention! Pour la commande \i, les noms de fichiers sous Windows doivent utiliser le séparateur slash " / "et non antislash " \ "  . Exemple&nbsp;:</p>
+
+
+<p><code>\i C:/tests.sql</code></p>
+
+
+<h4>C. phpPgAdmin</h4>
+
+<p>C'est un outil d'administration web pour PostgreSQL
+<a href="http://phppgadmin.sourceforge.net/" hreflang="fr">http://phppgadmin.sourceforge.net/</a></p>
+
+
+<h4>D. Copy</h4>
+
+<p>copy est un outil pour le chargement et déchargement de données en masse. Ce n'est pas une commande standard SQL.
+<a href="http://docs.postgresqlfr.org/9.0/sql-copy.html" hreflang="fr">http://docs.postgresqlfr.org/9.0/sql-copy.html</a></p>
+
+
+<h2>VI  Développement</h2>
+
+<h3>A. SQL</h3>
+
+<p>Plusieurs outils permettent d'exécuter du code SQL de façon  interactive&nbsp;: psql, pgAdmin (voir les sections qui leur sont consacrées).
+Vous pouvez également utiliser un outil tiers, si vous préférez...</p>
+
+
+<h3>B. Procédures stockées</h3>
+
+<p>L'intérêt des procédures stockées est de pouvoir exécuter des fonctions directement sur le serveur. Les procédures stockées sont efficaces et rapides, et permettent de traiter des données, soit pour consultation par un client, soit en mise à jour.<br /></p>
+
+
+<p>PostgreSQL vous donne le choix du langage de procédures stockées.<br /></p>
+
+
+<p>Vous pouvez utiliser:</p>
+<ul>
+<li>PL/pgsql (proche de SQL, facile à utiliser, utilisable pour les triggers)</li>
+<li>PL/Tcl</li>
+<li>PL/Perl (pratique lorsqu'il y a des traitements de chaînes de caractères à effectuer)</li>
+<li>PL/Python</li>
+<li>D'autres langages ne sont pas inclus dans la distribution principale&nbsp;:</li>
+<li>PL/Java, PL/PHP, PL/R,  PL/Ruby, PL/Scheme, PL/sh</li>
+<li>Vous pouvez aussi en définir un vous-même...</li>
+</ul>
+
+<h3>C. JDBC</h3>
+
+<p>Le pilote JDBC pour PostgreSQL est un pilote natif (il est entièrement écrit en Java)<br /></p>
+
+
+<p>Les différentes versions du pilote JDBC sont disponibles ici (ainsi que la documentation)<br /></p>
+
+
+<p><a href="http://jdbc.postgresql.org/index.html" hreflang="fr">http://jdbc.postgresql.org/index.html</a>
+Ensuite vous avez juste à utiliser le .jar de manière classique (le mettre dans le CLASSPATH de votre application)<br /></p>
+
+
+<p><ins>NB :</ins> la syntaxe de l'URL
+<code>String url="jdbc:postgresql:test_conn";</code></p>
+
+
+<p>L'URL a une de ces formes&nbsp;:</p>
+<ul>
+<li>jdbc:postgresql:database</li>
+<li>jdbc:postgresql://host/database</li>
+<li>jdbc:postgresql://host:port/database</li>
+</ul>
+
+<p>Allez voir la documentation <a href="http://jdbc.postgresql.org/documentation/83/connect.html" hreflang="fr">http://jdbc.postgresql.org/documentation/83/connect.html</a> pour plus de détails.</p>
+
+
+<p><ins>Quel driver prendre ?</ins></p>
+
+
+<p>Normalement, la dernière version du driver devrait vous convenir (elle est compatible avec toutes les versions supportées de PostgreSQL). Mais il y en a 2 variétés : la JDBC3, à préférer pourt les JVM 1.4 et 1.5, et la JDBC4, pour la JVM 1.6. Plus de précisions et une matrice de compatibilité sur la page de téléchargement :
+<a href="http://jdbc.postgresql.org/download.html" hreflang="fr">http://jdbc.postgresql.org/download.html</a></p>
+
+
+<h3>D. Autres (PERL, Python, .Net, ODBC, Tcl...)</h3>
+
+<p>Voir ici&nbsp;: <a href="http://docs.postgresqlfr.org/9.0/external-projects.html" hreflang="fr">http://docs.postgresqlfr.org/9.0/external-projects.html</a></p>
+
+<h3>E. A savoir&nbsp;!</h3>
+
+<h5>1. Majuscules/minuscules</h5>
+
+<p>Le nom des objets dans les ordres SQL est converti automatiquement en minuscules.
+Par exemple, si vous exécutez&nbsp;:
+<code>SELECT Id, Valeur FROM Matable;</code>
+l'ordre réellement exécuté sera&nbsp;:
+<code>SELECT id, valeur FROM matable;</code></p>
+
+
+<pre>mabase=&gt; SELECT Id, Valeur FROM Matable;
+ id | valeur
+<del></del>+<del></del><del></del>
+  1 | azerty
+(1 ligne)</pre>
+
+
+<pre>mabase=&gt;</pre>
+
+<p>Si vous souhaitez utiliser la casse dans les noms d'objets (ce qui n'est pas conseillé en général), utilisez les guillemets.</p>
+
+
+<p>Par exemple&nbsp;:
+<code>SELECT "Id", "Valeur" FROM "Matable";</code>
+Remarquez que ce comportement est différent d'autres moteurs, qui soit passent tous les noms en majuscule, soit conservent la casse. (Le comportement standard pour un SGBD est d'ignorer la casse, ainsi il est déconseillé généralement d'utiliser des noms d'objet avec des casses différentes&nbsp;: si vous utilisez toujours des minuscules, le comportement sera toujours le même, quel que soit le SGBD)</p>
+
+
+<h4>2. Erreurs et transactions</h4>
+
+<p>Avec PostgreSQL, lorsqu'une erreur se produit dans une transaction, il n'est pas possible de l'ignorer. L'erreur doit être gérée. Sinon tous les ordres suivants sont également en erreur.
+De plus, à la fin de la transaction, il n'est pas possible de commiter. L'ordre COMMIT provoque en réalité un ROLLBACK.</p>
+
+
+<p><ins>Exemple :</ins></p>
+
+
+<pre>mabase=&gt; begin;
+BEGIN
+mabase=&gt; insert into matable(valeur, nb) values ('c',2);
+INSERT 0 1
+mabase=&gt; insert into matable(valeur, nb) values ('c',2);
+ERREUR:  la valeur d'une clé dupliquée rompt la contrainte unique « u_matable »
+mabase=&gt; insert into matable(valeur, nb) values ('d',2);
+ERREUR:  la transaction est annulée, les commandes sont ignorées jusqu'à la fin du bloc
+de la transaction
+mabase=&gt; commit;
+ROLLBACK
+mabase=&gt; select valeur, nb from matable;
+ valeur | nb
+<del></del><del></del>+<del></del>
+ a      |  2
+ b      |  2
+(2 lignes)</pre>
+
+
+<pre>mabase=&gt;</pre>
+
+
+<h4>3. Savepoints</h4>
+
+<p>Les savepoints ne sont pas spécifiques à PostgreSQL. Mais c'est une fonctionalité SQL trop peu connue, et pourtant extrêmement utile, dans le cas de traitements lourds.<br /></p>
+
+
+<p>Un savepoint sert à marquer un point de reprise dans un traitement. Lorsque vous avez à effectuer un traitement long (par exemple lorqu'un programme doit mettre à jour tout un ensemble de données les unes après les autres), vous pouvez mettre des savepoints à intervalles réguliers. Lorsqu'une erreur se produit, vous faites en sorte que le programme effectue un ROLLBACK TO SAVEPOINT vers un point de sauvegarde où l'état de vos données est cohérent (généralement le dernier point de sauvegarde). Ensuite vous pouvez annuler le traitement (après par exemple pris la précaution de loguer les événements...)<br /></p>
+
+
+<p>L'intérêt est que seul les traitements effectués après le point de sauvegarde sont perdus. Cela évite à votre programme de faire un ROLLBACK sur l'ensemble du traitement! Votre programme peut ainsi effectuer des traitements partiellement.</p>
+
+
+<h4>4. DDL dans les transactions!</h4>
+
+<p>Une des fonctionnalités les plus épatantes de PostgreSQL est la possibilité d'inclure des ordres DDL dans des transactions.<br /></p>
+
+
+<p><ins>Exemple :</ins><br /></p>
+
+
+<p>Dans une transaction, on crée une table "test", puis une table "matable". La création de "matable" échoue (la table existe déjà). On fait un rollback sur la transaction&nbsp;: la table "test" n'existe pas.</p>
+
+
+<pre>mabase=&gt; BEGIN;
+BEGIN
+mabase=&gt; CREATE TABLE test (
+    id serial NOT NULL,
+    valeur character varying(20) NOT NULL);
+NOTICE:  CREATE TABLE créera des séquences implicites « test_id_seq » pour la colonne serial « test.id »
+CREATE TABLE
+mabase=&gt; ALTER TABLE test ADD CONSTRAINT pk_test PRIMARY KEY (id);
+NOTICE:  ALTER TABLE / ADD PRIMARY KEY créera un index implicite « pk_test » pour la table « test »
+ALTER TABLE
+mabase=&gt; CREATE TABLE matable (
+    id serial NOT NULL,
+    valeur character varying(20) NOT NULL);
+NOTICE:  CREATE TABLE créera des séquences implicites « matable_id_seq1 » pour la colonne serial « matable.id »
+ERREUR:  la relation « matable » existe déjà
+mabase=&gt; ROLLBACK;
+ROLLBACK
+mabase=&gt; \d
+                 Liste des relations
+ Schéma |       Nom        |   Type   | Propriétaire
+<del></del><del></del>+<del></del><del></del><del></del><del></del><del>+</del><del></del><del></del>+<del></del><del></del><del></del>--
+ public | matable          | table    | tom
+ public | matable_id_seq   | séquence | tom
+ public | table_flo        | table    | flo
+ public | table_flo_id_seq | séquence | flo
+(4 lignes)</pre>
+
+
+<pre>mabase=&gt;</pre>
+
+
+<p><ins>Intérêt :</ins><br /></p>
+
+
+<p>On peut faire tout un ensemble de modification de façon atomique (par exemple la migration d'un schéma pour l'évolution d'une application), C'est un soulagement pour le DBA qui devra passer votre script de migration, de nuit, de savoir qu'il n'aura pas à restaurer la base en cas d'échec.</p>
+
+
+<h4>5. Count(*)</h4>
+
+<p>En raison de l'implémentation actuelle du MVCC, count(*) force le parcours complet de la table, ce qui est donc lent.</p>
+
+
+<h2>VII  Et après?</h2>
+
+<h3>A. Lire la documentation&nbsp;:</h3>
+
+<p>Lien vers la documentation en Français&nbsp;:  <a href="http://docs.postgresql.fr/" hreflang="fr">http://docs.postgresql.fr/</a>
+En anglais&nbsp;: [http://www.postgresql.org/docs/
+|http://www.postgresql.org/docs/|en]</p>
+
+<h3>B. Sites utiles&nbsp;:</h3>
+
+<p><a href="http://www.postgresql.org/" hreflang="en">http://www.postgresql.org/</a>&nbsp;: site officiel
+<a href="http://www.postgresql.fr/" hreflang="fr">http://www.postgresql.fr/</a>&nbsp;: site de la communauté francophone.</p>
+
+
+<h3>C. Pour trouver de l'aide complémentaire&nbsp;:</h3>
+
+<p>La communauté PostgreSQL est très active, et vous trouverez facilement de l'aide pour les problèmes les plus simples aussi bien que pour les cas les plus tordus.</p>
+
+<h4>1. Listes de diffusion&nbsp;:</h4>
+
+<p>La liste francophone&nbsp;:
+<a href="http://archives.postgresql.org/pgsql-fr-generale/" hreflang="fr">http://archives.postgresql.org/pgsql-fr-generale/</a>
+Les autres&nbsp;:
+<a href="http://www.postgresql.org/community/lists/" hreflang="en">http://www.postgresql.org/community/lists/</a>
+<ins>Attention</ins>&nbsp;: les listes "developer" sont pour les développeurs DE PostgreSQL uniquement&nbsp;!</p>
+
+
+<h4>2. Forum de la communauté francophone&nbsp;:</h4>
+
+<p><a href="http://forums.postgresql.fr/" hreflang="fr">http://forums.postgresql.fr/</a></p>
+
+
+
+<h4>3. Remarque&nbsp;: comment poser vos questions?</h4>
+
+<p>Si vous posez une question parce que vous avez un problème, vous voulez  certainement qu'il soit résolu le plus vite possible. Alors pensez à ceux qui vont tenter de vous aider, et faites-leur gagner du temps en donnant les informations nécessaires. Soyez le plus clair possible. <br /></p>
+
+
+<p>Pensez à préciser au minimum&nbsp;:</p>
+<ul>
+<li>La version de PostgreSQL utilisée,</li>
+<li>Le système d'exploitation.,</li>
+<li>ce que vous avez fait,</li>
+<li>ce que vous vouliez faire,</li>
+<li>le message d'erreur (ou son absence),</li>
+<li>le résultat obtenu.</li>
+</ul>
+<p>Si vous n'arrivez pas à vous connecter, précisez si le client est sur la même machine que le serveur. Recopiez les messages d'erreurs, consultez la log... enfin donnez le maximum d'informations pertinentes, et si on vous pose des questions, répondez-y le plus précisément possible.<br />
+Evitez également de dire qu'il y a un bug si vous n'en êtes pas absolement certain(e), et postez sur la mailing-list ou le forum approprié (par exemple, la mailing-list pour les novices n'est pas un endroit indigne, et des hackers y répondent régulièrement et avec bienveillance)</p></div>
+
+      </div>
+
+  
+
+                <div id="comments">
+        <h3>Commentaires</h3>
+      <dl>
+          <dt id="c6603" class=" odd first"><a
+      href="#c6603" class="comment-number">1.</a>
+      Le mercredi  7 décembre 2011, 11:00      par MaitrePylos</dt>
+      
+      <dd class=" odd first">
+
+            
+      <p>Bonjour,<br />
+Je suis responsable de la rubrique PostgreSQL sur Developpez.com.<br />
+J'aurais voulu avoir votre autorisation de reproduire votre article sur nos formums.</p>
+
+
+<p>D'avance merci.</p>
+
+
+<p>MaitrePylos</p>
+            </dd>
+          </dl>
+      </div>
+            
+  
+    
+    
+    </div>
+</div> <!-- End #main -->
+
+</div> <!-- End #wrapper -->
+
+<div id="pgFooter">
+  <p>Propulsé par <a href="http://dotclear.org/">Dotclear</a></p>
+</div>
+
+</div> <!-- End #page -->
+</body>
+
+<!-- Mirrored from blog2.postgresql.fr/index.php?post/2010/10/03/iiii by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 May 2020 21:40:18 GMT -->
+</html>

@@ -1,0 +1,239 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr">
+
+<!-- Mirrored from blog2.postgresql.fr/index.php?post/drupal/208 by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 May 2020 21:40:20 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="MSSmartTagsPreventParsing" content="TRUE" />
+  <meta name="ROBOTS" content="INDEX, FOLLOW" />
+  
+  <title>PGWN - 15 octobre 2006 - PostgreSQLfr.org</title>
+  <meta name="description" lang="fr" content="== PostgreSQL Weekly News - October 15 2006 == PostgreSQL 8.1.5, 8.0.9, 7.4.14 et 7.3.16 sortiront très bientôt. Soyez prêts à upgrader ! (NDT: c'est fait à ce jour) == Nouveaux" />
+  <meta name="copyright" content="" />
+  <meta name="author" content="SAS" />
+  <meta name="date" scheme="ISO8601" content="2006-10-17T11:25:00+00:00" />
+  
+  <link rel="schema.dc" href="http://purl.org/dc/elements/1.1/" />
+  <meta name="dc.title" content="PGWN - 15 octobre 2006" />
+  <meta name="dc.description" lang="fr" content="== PostgreSQL Weekly News - October 15 2006 == PostgreSQL 8.1.5, 8.0.9, 7.4.14 et 7.3.16 sortiront très bientôt. Soyez prêts à upgrader ! (NDT: c'est fait à ce jour) == Nouveaux" />
+  <meta name="dc.creator" content="SAS" />
+  <meta name="dc.language" content="fr" />
+  <meta name="dc.publisher" content="" />
+  <meta name="dc.rights" content="" />
+  <meta name="dc.date" scheme="ISO8601" content="2006-10-17T11:25:00+00:00" />
+  <meta name="dc.type" content="text" />
+  <meta name="dc.format" content="text/html" />
+  
+  <link rel="top" href="indexd41d.html?" title="Accueil" />
+  <link rel="contents" href="index888d.html?archive" title="Archives" />
+  
+  <link rel="next" href="indexdf68.html?post/drupal/394"
+  title="Sortie de versions mineures (8.1.5, 8.0.9, 7.4.14 et 7.3.16)" />
+  
+  <link rel="previous" href="index4df6.html?post/drupal/199"
+  title="Debian Sarge, PostgreSQL 8.1, XID Wraparound et Single User Mode" />
+  
+  <link rel="alternate" type="application/atom+xml" title="Atom 1.0" href="index4ca3.php?feed/atom" />
+  
+  <style type="text/css" media="screen">
+@import url(themes/postgresql/style.css);
+</style>
+<style type="text/css" media="print">
+@import url(themes/default/print.css);
+</style>
+
+<script type="text/javascript" src="themes/default/js/jquery.js"></script>
+<script type="text/javascript" src="themes/default/js/jquery.cookie.js"></script>
+
+  
+  <script type="text/javascript" src="themes/default/js/post.js"></script>
+  <script type="text/javascript">
+  //<![CDATA[
+  var post_remember_str = 'Se souvenir de moi sur ce blog';
+  //]]>
+  </script>
+</head>
+
+<body class="dc-post">
+<div id="page">
+
+
+<div id="top">
+  <div id="pgHeader">
+    <span id="pgHeaderLogoLeft">
+      <a href="index.html" title="PostgreSQL"><img src="https://blog.postgresql.fr/themes/postgresql/img/hdr_left.png" width="230" height="80" alt="PostgreSQL" /></a>
+    </span>
+    <span id="pgHeaderLogoRight">
+      <a href="index.html" title="La base de donnees la plus sophistiquee au monde."><img src="https://blog.postgresql.fr/themes/postgresql/img/hdr_right.png" width="210" height="80" alt="La base de donnees la plus sophistiquee au monde." /></a>
+    </span>
+  </div>
+
+  </div>
+
+<div class="pgTopNav">
+  <div class="pgTopNavLeft"> 
+    <img src="https://blog.postgresql.fr/themes/postgresql/img/nav_lft.png" width="7" height="23" alt="" />
+  </div>
+  <div class="pgTopNavRight">
+    <img src="https://blog.postgresql.fr/themes/postgresql/img/nav_rgt.png" width="7" height="23" alt="" />
+  </div>
+  <ul class="pgTopNavList">
+    <li><a href="https://www.postgresql.fr/" title="Accueil">Accueil</a></li>
+    <li><a href="https://blog.postgresql.fr/" title="Lire les actualités">Actualités</a></li>
+    <li><a href="https://docs.postgresql.fr/" title="Lire la documentation officielle">Documentation</a></li>
+    <li><a href="https://forums.postgresql.fr/" title="Pour poser des questions">Forums</a></li>
+    <li><a href="https://www.postgresql.fr/asso/" title="La vie de l'association">Association</a></li>
+    <li><a href="https://www.postgresql.fr/devel:accueil" title="Informations pour les développeurs/traducteurs">Développeurs</a></li>
+    <li><a href="https://planete.postgresql.fr/" title="La planète francophone sur PostgreSQL">Planète</a></li>
+    <li><a href="https://www.postgresql.fr/support/" title="Support sur PostgreSQL">Support</a></li>
+  </ul>
+</div>
+
+<div id="wrapper">
+
+<div id="pgContent">
+
+  <div id="pgSideWrap">
+  <div id="pgSideNav">
+    <div id="blognav">
+      <div id="search"><h2><label for="q">Rechercher</label></h2><form action="http://blog2.postgresql.fr/index.php?" method="get"><fieldset><p><input type="text" size="10" maxlength="255" id="q" name="q" value="" /> <input class="submit" type="submit" value="ok" /></p></fieldset></form></div><div class="categories"><h2>Catégories</h2><ul><li><a href="index199b.html?category/Articles">Articles</a></li><li><a href="indexb4c6.html?category/Dans-les-bacs">Dans les bacs</a></li><li><a href="index025a.html?category/Evenements">Événements</a></li><li class="category-current"><a href="index8c6d.html?category/PostgreSQL-Weekly-News">PostgreSQL Weekly News</a></li><li><a href="index1835.html?category/Securite">Sécurité</a></li><li><a href="index2251.html?category/Vie-de-l-association">Vie de l'association</a></li><li><a href="index91de.html?category/Vie-du-site">Vie du site</a></li></ul></div><div class="text"><h2>Licence</h2>Tous les articles de ce blog sont disponibles sous la <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/">license Creative Commons BY-NC-SA 3.0</a>.</div>    </div> <!-- End #blognav -->
+  
+    <div id="blogextra">
+      <div class="syndicate"><h2>S'abonner</h2><ul><li><a type="application/atom+xml" href="index4ca3.php?feed/atom" title="Fil Atom des billets de ce blog" class="feed">Fil des billets</a></li></ul></div>    </div> <!-- End #blogextra -->
+  </div>
+  </div>
+
+  <div id="pgContentWrap">
+  <div id="pgDownloadsWrap">
+  <div id="content">
+
+  <p id="navlinks">
+  <a href="index4df6.html?post/drupal/199"
+  title="Debian Sarge, PostgreSQL 8.1, XID Wraparound et Single User Mode" class="prev">&#171; Debian Sarge, PostgreSQL 8.1, XID Wraparound et</a>
+   <span>-</span> <a href="indexdf68.html?post/drupal/394"
+  title="Sortie de versions mineures (8.1.5, 8.0.9, 7.4.14 et 7.3.16)" class="next">Sortie de versions mineures (8.1.5, 8.0.9, 7.4.14 &#187;</a>
+  </p>
+  
+  <div class="post">
+    <h2 id="p208" class="post-title">PGWN - 15 octobre 2006</h2>
+    
+    <p class="post-info">Par SAS    le mardi 17 octobre 2006, 11:25        - <a href="index8c6d.html?category/PostgreSQL-Weekly-News">PostgreSQL Weekly News</a>
+        - <a href="index6c3f.html?post/drupal/208">Lien permanent</a>
+    </p>
+    
+    
+    
+          <div class="post-excerpt"><h2>== PostgreSQL Weekly News - October 15 2006 ==</h2>
+<p> PostgreSQL 8.1.5, 8.0.9, 7.4.14 et 7.3.16 sortiront très bientôt. Soyez prêts à upgrader&nbsp;! (<em>NDT: c'est fait à ce jour</em>)</p></div>
+        
+    <div class="post-content"><h3>== Nouveaux produits autour de PostgreSQL ==</h3>
+<p>Sortie de pgpool-HA 1.0.0.  pgpool-HA combine pgpool et heartbeat&nbsp;:
+<a href="http://pgfoundry.org/projects/pgpool/" target="_blank">http://pgfoundry.org/projects/pgpool/</a></p>
+<p>Sortie de SQL Manager 3.7 pour PostgreSQL&nbsp;:
+<a href="http://www.sqlmanager.net/en/products/postgresql/" target="_blank">http://www.sqlmanager.net/en/products/postgresql/</a>
+</p>
+<p> Sortie de PostGIS 1.1.5. Mettez à jour&nbsp;!
+<a href="http://postgis.refractions.net/" target="_blank">http://postgis.refractions.net/</a> </p>
+<p>Sortie de DBI-Link 2.0beta1.  Testez&nbsp;!
+<a href="http://pgfoundry.org/projects/dbi-link/" target="_blank">http://pgfoundry.org/projects/dbi-link/</a> </p>
+<p>Sortie de pgAdmin III v1.6 Beta 3
+<a href="http://www.pgadmin.org/download/" target="_blank">http://www.pgadmin.org/download/</a> </p>
+<p>Sortie de Glom 1.1.6
+<a href="http://www.glom.org/" target="_blank">http://www.glom.org/</a> </p>
+<p>L'équipe de développement de Npgsql est fière d'annoncer la sortie de Npgsql 1.0 GA&nbsp;:
+<a href="http://pgfoundry.org/projects/npgsql/" target="_blank">http://pgfoundry.org/projects/npgsql/</a> </p>
+<p>Sortie de PGCluster-1.3.1rc6 et PGCluster-1.5.0rc8.
+<a href="http://pgfoundry.org/projects/pgcluster/" target="_blank">http://pgfoundry.org/projects/pgcluster/</a> </p>
+<h3>== PostgreSQL Local ==</h3>
+<p> PostgreSQL aura un stand dans le village associatif de Linuxworld UK (<a href="http://www.linuxworldexpo.co.uk/" target="_blank">http://www.linuxworldexpo.co.uk/</a>) les 25 et 26 octobre. Contactez <a href="mailto:uk@postgresql.org">uk@postgresql.org</a> si vous êtes volontaires pour y participer ou si vous voulez plus d'informations. </p>
+<h3>== L'actualité de PostgreSQL ==</h3>
+<p>Planet PostgreSQL: <a href="http://www.planetpostgresql.org/" target="_blank">http://www.planetpostgresql.org/</a> </p>
+<p>General Bits, Archives et nouveaux articles occasionnels: <a href="http://www.varlena.com/GeneralBits/" target="_blank">http://www.varlena.com/GeneralBits/</a> </p>
+<p> PostgreSQL Weekly News vous est présenté par David Fetter, Dave Page et Josh Berkus.</p>
+<p>Adaptation française de Jean-Paul Argudo et Stéphane Schildknecht.</p>
+<h3>== Patches appliqués ==</h3>
+<p> Tom Lane a ajouté les patches suivants&nbsp;:
+</p>
+<ul>
+<li>Ajustements sur plperl pour s'assurer que toutes les chaînes de caractères et autres hash keys passées à Perl sont marquées UTF8 lorsque l'encodage de la base de données est UTF8. Cela devrait permettre d'éviter des inconsistences comme celle présentée dans le bug #2683 par Vitali Stupin.</li>
+<li>Revue du code pour le patch --no-data-for-failed-tables. Plutôt que de supprimer une des structure de données du programme, utilisation de la possibilité d'exclure sélectivement des items de la TOC par leur ID. Un peu plus de code, mais un peu moins de problèmes de maintenance dans le futur.</li>
+<li>Revue de code et de documentation pour le patch "ALTER TABLE INHERIT/NO INHERIT"</li>
+<li>Estampillage des versions 8.1.5, 8.0.9, 7.4.14 et 7.3.16</li>
+<li>Synchro 8.1 pg_config.h.in avec la sortie attendue du autoheader (on dirait que quelqu'un l'a fait manuellement la dernière fois...)</li>
+<li>Mise à jour des release notes pour la correction au sujet des fonctions SQL vs les déclencheurs</li>
+<li>Erreurs corrigées sur l'état après-déclencheur lorsqu'une fonction SQL retourne plusieurs tuples --- si la requête provoquait des évènements déclenchés entre les les tuples, ceux-ci étaient déclenchés au mauvais moment. Il résultait alors un comportement très bizarre. Patch créé grâce au rapport de bug de Merlin Moncure.</li>
+<li>Utilisation de Min() à la place de min() dans l'algorithme de qsort, pour plus de consistance et pour éviter des warnings de redéfinition de macro sur certaines plates-formes. Patch corrigé grâce à une plainte de Hiroshi Saito.</li>
+<li>Suppression d'un appel maladroit et inconsidéré de free(), grâce au report de bug de Chander Ganesan. Non, je me moque de savoir que Coverity considère cela comme une fuite de mémoire. Le code nécessaire pour gérer cela n'en vaut vraiment pas la peine.</li>
+<li>Quelques copiés/collés sur les release notes des versions antérieures</li>
+<li>Correction d'une vérification incorrecte sur un litéral inconnu dans ANYARRAY. Il est correct de permettre un foçage d'une donnée de type inconnue dans ANY ou ANYELEMENT, puisqu'il est d'un type de donnée probablement connu, cependant ce n'est pas un type de données de type tableau. Cela peut provoquer un crash du backend, mais je pense que ça ne peut pas être exploitable comme une faille de sécurité. Selon le rapport de Michael Fuhr.</li>
+<li>CREATE TABLE ... LIKE ... devrait marquer les colonnes qu'il créée avec un attislocal = true, puisqu'elles ne sont pas vraiment héritées mais plutôt copiées de la table originale.</li>
+<li>Correction de la commande \d de psql pour qu'elle se comporte correctement lorsque le | est utilisé dans une regexp. Avant cela, on utilisait par exemple '^foo|bar$' qui est faux puisque les marqueurs ^ et $ sont interprétés comme des alternatives&nbsp;; on traduit désormais '^(foo|bar)$' pour avoir le comportement attendu. C'est identique au bug précédement trouvé dans un escape() similaire. Déjà corrigé dans HEAD, il ne s'agit que d'un back-port de ce patch.</li>
+<li>Révision de la recherche de motifs dans psql, d'après une discussion. La règle est à présent de traiter d'abord tous les modificateurs d'inclusion, puis tous les modificateurs d'exclusion, ainsi le comportement est indépendant de l'ordre des modificateurs. L'utilisation de -T ne provoque pas la suppression des objets qui ne sont pas des tables. A présent les motifs sont interprétés de la même façon que la commande \d dans psql, plutôt que des expressions rationelles pures. Cela permet par exemple -t schema.tab de faire ce qu'il aurait du faire depuis longtemps. On autorise aussi le switch --blobs afin de faire quelque chose d'utile, c'est à dire, rajouter à nouveau les blobs dans un dump où ils étaient précédement supprimés.</li>
+<li>Amélioration de la description des règles de la recherche par motif dans la commande \d de psql (et bientôt de pg_dump)</li>
+<li>Déplacement de processNamePattern dans dumputils.c en vue de l'utiliser dans pg_dump et dans psql. Puisque psql utilise déjà dumputils.c, alors qu'il n'y a aucun code partagé par ailleurs, cela paraît la solution la plus simple. Correction sur les motifs utilisant le | des regexp en ajoutant des parenthèses (il s'agit toujours du bug trouvé précédemment dans la fonction similar_escape()). Cela devrait être backporté aussi.</li>
+</ul>
+<p>Bruce Momjian a commité les patches suivants&nbsp;: </p>
+<ul>
+<li>Mise à jour des FAQ. C'est un tout petit patch cosmétique qui ajoute le canal IRC brésilien à la liste des canaux IRC, fixe une typo dans la question sur les OID et corrige le nom du projet PGCluster.</li>
+<li>Les mises à jour de Jun Kuwamura à la FAQ en japonais.</li>
+<li>Les patches de Hiroshi Saito qui corrigent la compilation de test_fsync sur la plate-forme MinGW(win32).</li>
+<li>Ajout d'un TODO: Rajouter une notification si CREATE TABLE ... ON COMMIT { DELETE ROWS | DROP } est reçu en dehors d'une transaction de plusieurs instructions.</li>
+<li>Mise à jour du commentaire de de la section documentation dans pg_hba.conf de Quinn Weaver.</li>
+<li>Les correctifs d'Hiroshi Saito sur le comilateur MSVC/BCC Win32.</li>
+<li>Restauration de l'entrée dans la FAQ HP concernant les problèmes du script de régression, puisque dans les versions 8.1.X, le test de régression est toujours composé d'un script. Correctif pour les seules versions 8.1.X.</li>
+<li>Ajout d'un item à la checklist de release&nbsp; «&nbsp;Copier la FAQ de HEAD vers la dernière branche&nbsp;»</li>
+<li>Correction des FAQ pour les versions 8.1.X.</li>
+<li>Mise à jour de la FAQ pour la dernière version 8.1.5.</li>
+<li>Mise à jour de libpq.rc pour les versions 7.3.16 et 7.4.14. Les versions plus récentes utilisent libpq.rc.in, déjà mise à jour.</li>
+<li>Estampillage des versions 7.3.16, 7.4.14, 8.0.9 et 8.1.5.</li>
+<li>Mise à jour des release notes des versions 7.3.16, 7.4.14, 8.0.9 et 8.1.5.</li>
+</ul>
+<p> Peter Eisentraut a commité&nbsp;: </p>
+<ul>
+<li>Rendre le code de unknown-option-warning plus portable. echo -n n'est pas portable, pas plus que "|" ou "\|" ne figurent dans les expressions rationnelles de base.</li>
+<li>Nettoyage de la FAQ_Solaris.</li>
+</ul>
+<p>Teodor Sigaev a commité&nbsp;: </p>
+<ul>
+<li>Dans contrib/hstore, les fonctions 'isexists' et 'isdefined' ont été renommées respectivement en 'exist' et 'defined'. Les anciens noms restent pour des raisons de compatibilité, mais ne se trouvent plus dans la documentation.</li>
+</ul>
+<p> Neil Conway a commité&nbsp;: </p>
+<ul>
+<li>Plusieurs améliorations incrémentales et correctifs de la documentation sur l'archivage en continu (<em>Continuous Archiving</em>). Il reste beaucoup de travail éditorial.</li>
+<li>Le patch de Laurenz Albe concernant l'installation de la documentation qui ajoute quelques liens à la documentation concernant LDAP vers la discussion sur l'option de configuration "--with-ldap".</li>
+</ul>
+<p> Teodor Sigaev a commité&nbsp;: </p>
+<ul>
+<li>Un correctif de l'endormissement infini et de l'impossibilité d'envoi sous Win32.</li>
+</ul>
+<h3>== Correctifs refusés (à ce jour) ==</h3>
+<p>Pas de déception cette semaine. :-) </p>
+<h3>== Correctifs en attente ==</h3>
+<p>Michael Glaesman a soumis un correctif de documentation pour CREATE CONSTRAINT TRIGGER.</p>
+<p>Stephen Frost a soumis un correctif qui ajoute l'aggrégat array_accum() comme fonction interne. Cela permet de bénéficier des optimisations de vitesse dans les fonctions de traitement des tableaux.</p>
+<p>Hiroshi Saito a soumis un correctif comparant les temps de fsync sur les descripteurs write() et non-write().</p></div>
+
+      </div>
+
+  
+
+    
+  
+    
+    
+    </div>
+</div> <!-- End #main -->
+
+</div> <!-- End #wrapper -->
+
+<div id="pgFooter">
+  <p>Propulsé par <a href="http://dotclear.org/">Dotclear</a></p>
+</div>
+
+</div> <!-- End #page -->
+</body>
+
+<!-- Mirrored from blog2.postgresql.fr/index.php?post/drupal/208 by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 May 2020 21:40:20 GMT -->
+</html>

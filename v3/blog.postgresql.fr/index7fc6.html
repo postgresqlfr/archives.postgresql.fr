@@ -1,0 +1,234 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr">
+
+<!-- Mirrored from blog2.postgresql.fr/index.php?post/drupal/303 by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 May 2020 21:40:18 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="MSSmartTagsPreventParsing" content="TRUE" />
+  <meta name="ROBOTS" content="INDEX, FOLLOW" />
+  
+  <title>Écrire et utiliser des fonctions retournant une valeur de type composite (ROWTYPE) - PostgreSQLfr.org</title>
+  <meta name="description" lang="fr" content="Bien que nouvelle utilisatrice de PG, j'ai choisi de présenter un mini-article sur l'utilisation des ROWTYPE dans PL/pgSQL, car je crois qu'il pourrait être utile à beaucoup. Je" />
+  <meta name="copyright" content="" />
+  <meta name="author" content="RockyRoad" />
+  <meta name="date" scheme="ISO8601" content="2008-08-27T19:42:00+00:00" />
+  
+  <link rel="schema.dc" href="http://purl.org/dc/elements/1.1/" />
+  <meta name="dc.title" content="Écrire et utiliser des fonctions retournant une valeur de type composite (ROWTYPE)" />
+  <meta name="dc.description" lang="fr" content="Bien que nouvelle utilisatrice de PG, j'ai choisi de présenter un mini-article sur l'utilisation des ROWTYPE dans PL/pgSQL, car je crois qu'il pourrait être utile à beaucoup. Je" />
+  <meta name="dc.creator" content="RockyRoad" />
+  <meta name="dc.language" content="fr" />
+  <meta name="dc.publisher" content="" />
+  <meta name="dc.rights" content="" />
+  <meta name="dc.date" scheme="ISO8601" content="2008-08-27T19:42:00+00:00" />
+  <meta name="dc.type" content="text" />
+  <meta name="dc.format" content="text/html" />
+  
+  <link rel="top" href="indexd41d.html?" title="Accueil" />
+  <link rel="contents" href="index888d.html?archive" title="Archives" />
+  
+  <link rel="next" href="index0c31.html?post/drupal/304"
+  title="Sortie de Benetl 2.3" />
+  
+  <link rel="previous" href="indexfa1b.html?post/drupal/307"
+  title="Nouvelles neuves de PostgreSQL" />
+  
+  <link rel="alternate" type="application/atom+xml" title="Atom 1.0" href="index4ca3.php?feed/atom" />
+  
+  <style type="text/css" media="screen">
+@import url(themes/postgresql/style.css);
+</style>
+<style type="text/css" media="print">
+@import url(themes/default/print.css);
+</style>
+
+<script type="text/javascript" src="themes/default/js/jquery.js"></script>
+<script type="text/javascript" src="themes/default/js/jquery.cookie.js"></script>
+
+  
+  <script type="text/javascript" src="themes/default/js/post.js"></script>
+  <script type="text/javascript">
+  //<![CDATA[
+  var post_remember_str = 'Se souvenir de moi sur ce blog';
+  //]]>
+  </script>
+</head>
+
+<body class="dc-post">
+<div id="page">
+
+
+<div id="top">
+  <div id="pgHeader">
+    <span id="pgHeaderLogoLeft">
+      <a href="index.html" title="PostgreSQL"><img src="https://blog.postgresql.fr/themes/postgresql/img/hdr_left.png" width="230" height="80" alt="PostgreSQL" /></a>
+    </span>
+    <span id="pgHeaderLogoRight">
+      <a href="index.html" title="La base de donnees la plus sophistiquee au monde."><img src="https://blog.postgresql.fr/themes/postgresql/img/hdr_right.png" width="210" height="80" alt="La base de donnees la plus sophistiquee au monde." /></a>
+    </span>
+  </div>
+
+  </div>
+
+<div class="pgTopNav">
+  <div class="pgTopNavLeft"> 
+    <img src="https://blog.postgresql.fr/themes/postgresql/img/nav_lft.png" width="7" height="23" alt="" />
+  </div>
+  <div class="pgTopNavRight">
+    <img src="https://blog.postgresql.fr/themes/postgresql/img/nav_rgt.png" width="7" height="23" alt="" />
+  </div>
+  <ul class="pgTopNavList">
+    <li><a href="https://www.postgresql.fr/" title="Accueil">Accueil</a></li>
+    <li><a href="https://blog.postgresql.fr/" title="Lire les actualités">Actualités</a></li>
+    <li><a href="https://docs.postgresql.fr/" title="Lire la documentation officielle">Documentation</a></li>
+    <li><a href="https://forums.postgresql.fr/" title="Pour poser des questions">Forums</a></li>
+    <li><a href="https://www.postgresql.fr/asso/" title="La vie de l'association">Association</a></li>
+    <li><a href="https://www.postgresql.fr/devel:accueil" title="Informations pour les développeurs/traducteurs">Développeurs</a></li>
+    <li><a href="https://planete.postgresql.fr/" title="La planète francophone sur PostgreSQL">Planète</a></li>
+    <li><a href="https://www.postgresql.fr/support/" title="Support sur PostgreSQL">Support</a></li>
+  </ul>
+</div>
+
+<div id="wrapper">
+
+<div id="pgContent">
+
+  <div id="pgSideWrap">
+  <div id="pgSideNav">
+    <div id="blognav">
+      <div id="search"><h2><label for="q">Rechercher</label></h2><form action="http://blog2.postgresql.fr/index.php?" method="get"><fieldset><p><input type="text" size="10" maxlength="255" id="q" name="q" value="" /> <input class="submit" type="submit" value="ok" /></p></fieldset></form></div><div class="categories"><h2>Catégories</h2><ul><li class="category-current"><a href="index199b.html?category/Articles">Articles</a></li><li><a href="indexb4c6.html?category/Dans-les-bacs">Dans les bacs</a></li><li><a href="index025a.html?category/Evenements">Événements</a></li><li><a href="index8c6d.html?category/PostgreSQL-Weekly-News">PostgreSQL Weekly News</a></li><li><a href="index1835.html?category/Securite">Sécurité</a></li><li><a href="index2251.html?category/Vie-de-l-association">Vie de l'association</a></li><li><a href="index91de.html?category/Vie-du-site">Vie du site</a></li></ul></div><div class="text"><h2>Licence</h2>Tous les articles de ce blog sont disponibles sous la <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/">license Creative Commons BY-NC-SA 3.0</a>.</div>    </div> <!-- End #blognav -->
+  
+    <div id="blogextra">
+      <div class="syndicate"><h2>S'abonner</h2><ul><li><a type="application/atom+xml" href="index4ca3.php?feed/atom" title="Fil Atom des billets de ce blog" class="feed">Fil des billets</a></li></ul></div>    </div> <!-- End #blogextra -->
+  </div>
+  </div>
+
+  <div id="pgContentWrap">
+  <div id="pgDownloadsWrap">
+  <div id="content">
+
+  <p id="navlinks">
+  <a href="indexfa1b.html?post/drupal/307"
+  title="Nouvelles neuves de PostgreSQL" class="prev">&#171; Nouvelles neuves de PostgreSQL</a>
+   <span>-</span> <a href="index0c31.html?post/drupal/304"
+  title="Sortie de Benetl 2.3" class="next">Sortie de Benetl 2.3 &#187;</a>
+  </p>
+  
+  <div class="post">
+    <h2 id="p303" class="post-title">Écrire et utiliser des fonctions retournant une valeur de type composite (ROWTYPE)</h2>
+    
+    <p class="post-info">Par RockyRoad    le mercredi 27 août 2008, 19:42        - <a href="index199b.html?category/Articles">Articles</a>
+        - <a href="index7fc6.html?post/drupal/303">Lien permanent</a>
+    </p>
+    
+    
+    
+          <div class="post-excerpt"><p></p></div>
+        
+    <div class="post-content"><!-- Note de style:
+En ajoutant feuille de style CSS contenant:
+ou équivalent, on pourrait supprimer les attributs style="..."
+dans cette page.
+-->
+<p> Bien que nouvelle utilisatrice de PG, j'ai choisi de présenter un mini-article sur l'utilisation des ROWTYPE dans PL/pgSQL, car je crois qu'il pourrait être utile à beaucoup.
+</p>
+<p> Je n'ai hélas pas beaucoup de temps à y consacrer, mais je compte sur votre participation pour m'aider à le clarifier.
+</p>
+<p> En effet je n'ai rien trouvé de tel sur le web et j'ai dû passer du temps, pour "trouver le pot aux roses", c'est-à-dire une syntaxe correcte utilisable pour mon application (GPL) que je vous dévoilerai plus tard.
+</p>
+<p> Merci à Guillaume Lelarge pour son aide. Au-delà de partager son expérience, il s'est joint activement à mes réflexions et suggéré les solutions qui m'ont mise sur la bonne voie.
+<!--break-->
+</p>
+<p>Lorsqu'on crée une table, PG crée automatiquement un type (structure) décrivant la composition d'une ligne, c'est-à-dire la liste des champs.  Si on veut manipuler des lignes indépendamment d'une table, on peut déclarer un type, par exemple:
+</p>
+<pre class="sql" style="margin: 2em 4em; padding: 0.7ex; line-height: 1.4ex; color: rgb(0, 34, 170); background-color: rgb(255, 255, 170);">test=&gt; <br />DROP TYPE IF EXISTS names CASCADE;<br />CREATE TYPE names AS (<br />       first_name varchar,<br />       last_name varchar,<br />       age integer<br />);</pre>
+L'interpréteur psql nous répond:
+<pre class="result" style="margin: 2em 4em; padding: 0.7ex; line-height: 1.4ex; color: yellow; background-color: rgb(34, 34, 136);">CREATE TYPE</pre>
+La fonction suivante construit une ligne du type 'names' :
+<pre class="sql" style="margin: 2em 4em; padding: 0.7ex; line-height: 1.4ex; color: rgb(0, 34, 170); background-color: rgb(255, 255, 170);">test=&gt; <br />CREATE OR REPLACE FUNCTION BuildName(_first varchar, _last varchar) RETURNS names AS $$<br />DECLARE<br />        result names;<br />BEGIN<br />        RAISE NOTICE 'BuildName(''%'', ''%'')', _first, _last;<br />        result.first_name = _first;<br />        result.last_name = _last;<br />        return result;<br />END;<br />$$ LANGUAGE plpgsql;</pre>
+<pre class="result" style="margin: 2em 4em; padding: 0.7ex; line-height: 1.4ex; color: yellow; background-color: rgb(34, 34, 136);">CREATE FUNCTION</pre>
+<pre class="sql" style="margin: 2em 4em; padding: 0.7ex; line-height: 1.4ex; color: rgb(0, 34, 170); background-color: rgb(255, 255, 170);">test=&gt; <br />SELECT BuildName('Pierre', 'Dupond');</pre>
+On reçoit le message, puis le résultat en une seule colonne
+<pre class="result" style="margin: 2em 4em; padding: 0.7ex; line-height: 1.4ex; color: yellow; background-color: rgb(34, 34, 136);">NOTICE:  BuildName('Pierre', 'Dupond')<br />    buildname     <br />------------------<br /> (Pierre,Dupond,)<br />(1 row)</pre>
+Si on veut distinguer les colonnes, conformément à la définition du type, il faut utiliser la syntaxe <code>().*</code>
+<pre class="sql" style="margin: 2em 4em; padding: 0.7ex; line-height: 1.4ex; color: rgb(0, 34, 170); background-color: rgb(255, 255, 170);">test=&gt; <br />SELECT (BuildName('Pierre', 'Dupond')).*;</pre>
+<pre class="result" style="margin: 2em 4em; padding: 0.7ex; line-height: 1.4ex; color: yellow; background-color: rgb(34, 34, 136);">NOTICE:  BuildName('Pierre', 'Dupond')<br />NOTICE:  BuildName('Pierre', 'Dupond')<br />NOTICE:  BuildName('Pierre', 'Dupond')<br /> first_name | last_name | age <br />------------+-----------+-----<br /> Pierre     | Dupond    |    <br />(1 row)<br /></pre>
+On obtient bien le résultat en 3 colonnes. Mais on reçoit 3 FOIS le message  (il y a 3 champs).
+<p><em>Que se passe-t-il ?</em></p>
+<p>
+Le comportement est identique avec une table:
+</p>
+<pre class="sql" style="margin: 2em 4em; padding: 0.7ex; line-height: 1.4ex; color: rgb(0, 34, 170); background-color: rgb(255, 255, 170);">test=&gt; <br />DROP TABLE IF EXISTS person CASCADE;<br />CREATE TABLE person (<br />    id integer PRIMARY KEY,<br />    name varchar,<br />    data integer<br />);</pre>
+<pre class="result" style="margin: 2em 4em; padding: 0.7ex; line-height: 1.4ex; color: yellow; background-color: rgb(34, 34, 136);">NOTICE:  table "person" does not exist, skipping<br />DROP TABLE<br />NOTICE:  CREATE TABLE / PRIMARY KEY will create implicit index "person_pkey" for table "person"<br />CREATE TABLE</pre>
+<pre class="sql" style="margin: 2em 4em; padding: 0.7ex; line-height: 1.4ex; color: rgb(0, 34, 170); background-color: rgb(255, 255, 170);">test=&gt; <br />CREATE OR REPLACE FUNCTION BuildPerson(_num integer, _name varchar) RETURNS person AS $$<br />DECLARE<br />        result person;<br />BEGIN<br />        RAISE NOTICE 'BuildPerson(%, ''%'')', _num, _name;<br />        result.id = _num;<br />        result.name = _name;<br />        return result;<br />END;<br />$$ LANGUAGE plpgsql;</pre>
+<pre class="result" style="margin: 2em 4em; padding: 0.7ex; line-height: 1.4ex; color: yellow; background-color: rgb(34, 34, 136);">CREATE FUNCTION</pre>
+<pre class="sql" style="margin: 2em 4em; padding: 0.7ex; line-height: 1.4ex; color: rgb(0, 34, 170); background-color: rgb(255, 255, 170);">test=&gt; <br />SELECT BuildPerson(1, 'Dupond');</pre>
+On reçoit le message, puis le résultat en une seule colonne
+<pre class="result" style="margin: 2em 4em; padding: 0.7ex; line-height: 1.4ex; color: yellow; background-color: rgb(34, 34, 136);">NOTICE:  BuildPerson(1, 'Dupond')<br /> buildperson <br />-------------<br /> (1,Dupond,)<br />(1 row)<br /></pre>
+Si on veut insérer les résultats dans la table, il faut adapter la syntaxe pour obtenir des champs distincts
+<pre class="sql" style="margin: 2em 4em; padding: 0.7ex; line-height: 1.4ex; color: rgb(0, 34, 170); background-color: rgb(255, 255, 170);">test=&gt; <br />SELECT (BuildPerson(2, 'Dupond')).*;</pre>
+<pre class="result" style="margin: 2em 4em; padding: 0.7ex; line-height: 1.4ex; color: yellow; background-color: rgb(34, 34, 136);">NOTICE:  BuildPerson(2, 'Dupond')<br />NOTICE:  BuildPerson(2, 'Dupond')<br />NOTICE:  BuildPerson(2, 'Dupond')<br /> id |  name  | data <br />----+--------+------<br />  2 | Dupond |     <br />(1 row)<br /></pre>
+<pre class="sql" style="margin: 2em 4em; padding: 0.7ex; line-height: 1.4ex; color: rgb(0, 34, 170); background-color: rgb(255, 255, 170);">test=&gt; <br />INSERT INTO person (SELECT (BuildPerson(2, 'Dupond')).*);</pre>
+<pre class="result" style="margin: 2em 4em; padding: 0.7ex; line-height: 1.4ex; color: yellow; background-color: rgb(34, 34, 136);">NOTICE:  BuildPerson(2, 'Dupond')<br />NOTICE:  BuildPerson(2, 'Dupond')<br />NOTICE:  BuildPerson(2, 'Dupond')<br />INSERT 0 1</pre>
+On reçoit aussi 3 FOIS le message , mais la rangée n'est insérée qu'une fois
+<pre class="sql" style="margin: 2em 4em; padding: 0.7ex; line-height: 1.4ex; color: rgb(0, 34, 170); background-color: rgb(255, 255, 170);">test=&gt; <br />SELECT * FROM person;</pre>
+<pre class="result" style="margin: 2em 4em; padding: 0.7ex; line-height: 1.4ex; color: yellow; background-color: rgb(34, 34, 136);"> id |  name  | data <br />----+--------+------<br />  2 | Dupond |     <br />(1 row)<br /></pre>
+Tout va bien ? On avance ... mais:
+<p>
+Si la fonction comporte elle-même une instruction INSERT, on peut avoir un problème:
+</p>
+<pre class="sql" style="margin: 2em 4em; padding: 0.7ex; line-height: 1.4ex; color: rgb(0, 34, 170); background-color: rgb(255, 255, 170);">test=&gt; <br />CREATE OR REPLACE FUNCTION AddPerson(_num integer, _name varchar) RETURNS person AS $$<br />DECLARE<br />        result person;<br />BEGIN<br />        RAISE NOTICE 'AddPerson(%, ''%'')', _num, _name;<br />        result.id = _num;<br />        result.name = _name;<br />        INSERT INTO person SELECT result.*;<br />        return result;<br />END;<br />$$ LANGUAGE plpgsql;</pre>
+<pre class="result" style="margin: 2em 4em; padding: 0.7ex; line-height: 1.4ex; color: yellow; background-color: rgb(34, 34, 136);">CREATE FUNCTION</pre>
+<pre class="sql" style="margin: 2em 4em; padding: 0.7ex; line-height: 1.4ex; color: rgb(0, 34, 170); background-color: rgb(255, 255, 170);">test=&gt; <br />SELECT (AddPerson(3, 'Durand')).*;</pre>
+<pre class="result" style="margin: 2em 4em; padding: 0.7ex; line-height: 1.4ex; color: yellow; background-color: rgb(34, 34, 136);">NOTICE:  AddPerson(3, 'Durand')<br />NOTICE:  AddPerson(3, 'Durand')<br />ERROR:  duplicate key value violates unique constraint "person_pkey"</pre>
+Eh oui ! Comme les messages répétés pouvaient nous le laisser prévoir, la fonction est appelée plusieurs fois, avec les mêmes arguments, ce que notre clé primaire interdit.
+<p>Remarquez que, la transaction ayant échoué, aucune ligne n'est finalement ajoutée.
+</p>
+<pre class="sql" style="margin: 2em 4em; padding: 0.7ex; line-height: 1.4ex; color: rgb(0, 34, 170); background-color: rgb(255, 255, 170);">test=&gt; <br />SELECT * FROM person;</pre>
+<pre class="result" style="margin: 2em 4em; padding: 0.7ex; line-height: 1.4ex; color: yellow; background-color: rgb(34, 34, 136);"> id |  name  | data <br />----+--------+------<br />  2 | Dupond |     <br />(1 row)<br /></pre>
+Pas de souci cependant si on évite la syntaxe ().* lors de l'invocation:
+<pre class="sql" style="margin: 2em 4em; padding: 0.7ex; line-height: 1.4ex; color: rgb(0, 34, 170); background-color: rgb(255, 255, 170);">test=&gt; <br />DELETE FROM person WHERE id=3;<br />SELECT AddPerson(3, 'Durand');<br />SELECT * FROM person;</pre>
+<pre class="result" style="margin: 2em 4em; padding: 0.7ex; line-height: 1.4ex; color: yellow; background-color: rgb(34, 34, 136);">DELETE 0<br />NOTICE:  AddPerson(3, 'Durand')<br />  addperson  <br />-------------<br /> (3,Durand,)<br />(1 row)<br />&nbsp;<br /> id |  name  | data<br />----+--------+------<br />  2 | Dupond |     <br />  3 | Durand |     <br />(2 rows)<br /></pre>
+<p>Attention si on récupère le résultat dans une variable (par exemple dans une fonction récursive)
+</p>
+<pre class="sql" style="margin: 2em 4em; padding: 0.7ex; line-height: 1.4ex; color: rgb(0, 34, 170); background-color: rgb(255, 255, 170);">test=&gt; <br />CREATE OR REPLACE FUNCTION DoAddPerson(_num integer, _name varchar) RETURNS person AS $$<br />DECLARE<br />        result person;<br />BEGIN<br />        RAISE NOTICE 'DoAddPerson(%, ''%'')', _num, _name;<br />        SELECT * INTO result FROM AddPerson(_num, _name);<br />        -- result := AddPerson(_num, _name); -- syntaxe équivalente à la ligne précédente<br />        return result;<br />END;<br />$$ LANGUAGE plpgsql;</pre>
+<pre class="result" style="margin: 2em 4em; padding: 0.7ex; line-height: 1.4ex; color: yellow; background-color: rgb(34, 34, 136);">CREATE FUNCTION</pre>
+<pre class="sql" style="margin: 2em 4em; padding: 0.7ex; line-height: 1.4ex; color: rgb(0, 34, 170); background-color: rgb(255, 255, 170);">test=&gt; <br />SELECT DoAddPerson(4, 'Dubois');<br />SELECT * FROM person;</pre>
+<pre class="result" style="margin: 2em 4em; padding: 0.7ex; line-height: 1.4ex; color: yellow; background-color: rgb(34, 34, 136);">NOTICE:  DoAddPerson(4, 'Dubois')<br />NOTICE:  AddPerson(4, 'Dubois')<br /> doaddperson <br />-------------<br /> (4,Dubois,)<br />(1 row)<br />&nbsp;<br /> id |  name  | data<br />----+--------+------<br />  2 | Dupond |     <br />  3 | Durand |     <br />  4 | Dubois |     <br />(3 rows)<br /><br /></pre>
+<h4>Conclusion</h4>
+L'opérateur <code>.*</code> équivaut à invoquer la source autant de fois que celle-ci a de champs. Si la source est une fonction, cette fonction est donc appelée plusieurs fois (s'il y a plusieurs champs ;)
+<p>
+C'est-à-dire que lorsqu'on écrit:
+</p>
+<pre class="sql" style="margin: 2em 4em; padding: 0.7ex; line-height: 1.4ex; color: rgb(0, 34, 170); background-color: rgb(255, 255, 170);">test=&gt; <br />INSERT INTO person (SELECT  (BuildPerson(2, 'Dupond')).*); </pre>
+tout se passe comme si on avait écrit:
+<pre class="sql" style="margin: 2em 4em; padding: 0.7ex; line-height: 1.4ex; color: rgb(0, 34, 170); background-color: rgb(255, 255, 170);">test=&gt; <br />INSERT INTO person (SELECT  (BuildPerson(2, 'Dupond')).id, <br />                            (BuildPerson(2, 'Dupond')).name, <br />                            (BuildPerson(2, 'Dupond')).data);</pre>
+<pre class="result" style="margin: 2em 4em; padding: 0.7ex; line-height: 1.4ex; color: yellow; background-color: rgb(34, 34, 136);">NOTICE:  BuildPerson(2, 'Dupond')<br />NOTICE:  BuildPerson(2, 'Dupond')<br />NOTICE:  BuildPerson(2, 'Dupond')<br />INSERT 0 1</pre>
+<p>N'hésitez pas à me faire part de vos remarques, suggestions, et bien sûr expérimentations autour de cet article :)
+</p>
+<p align="right"><em>— Michelle Baert —</em></p></div>
+
+      </div>
+
+  
+
+    
+  
+    
+    
+    </div>
+</div> <!-- End #main -->
+
+</div> <!-- End #wrapper -->
+
+<div id="pgFooter">
+  <p>Propulsé par <a href="http://dotclear.org/">Dotclear</a></p>
+</div>
+
+</div> <!-- End #page -->
+</body>
+
+<!-- Mirrored from blog2.postgresql.fr/index.php?post/drupal/303 by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 May 2020 21:40:18 GMT -->
+</html>

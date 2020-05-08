@@ -1,0 +1,211 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr">
+
+<!-- Mirrored from blog2.postgresql.fr/index.php?post/drupal/22 by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 May 2020 21:40:21 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="MSSmartTagsPreventParsing" content="TRUE" />
+  <meta name="ROBOTS" content="INDEX, FOLLOW" />
+  
+  <title>PostgreSQL 8.0 sort officiellement en béta version - PostgreSQLfr.org</title>
+  <meta name="description" lang="fr" content="Marc G. Fournier nous annonce ce matin sur la liste de diffusion pgsql-announce: Après près de 9 mois de développement, le PostgreSQL Global Development Group est fier d'annoncer" />
+  <meta name="copyright" content="" />
+  <meta name="author" content="Jean-Paul Argudo" />
+  <meta name="date" scheme="ISO8601" content="2004-08-10T09:08:00+00:00" />
+  
+  <link rel="schema.dc" href="http://purl.org/dc/elements/1.1/" />
+  <meta name="dc.title" content="PostgreSQL 8.0 sort officiellement en béta version" />
+  <meta name="dc.description" lang="fr" content="Marc G. Fournier nous annonce ce matin sur la liste de diffusion pgsql-announce: Après près de 9 mois de développement, le PostgreSQL Global Development Group est fier d'annoncer" />
+  <meta name="dc.creator" content="Jean-Paul Argudo" />
+  <meta name="dc.language" content="fr" />
+  <meta name="dc.publisher" content="" />
+  <meta name="dc.rights" content="" />
+  <meta name="dc.date" scheme="ISO8601" content="2004-08-10T09:08:00+00:00" />
+  <meta name="dc.type" content="text" />
+  <meta name="dc.format" content="text/html" />
+  
+  <link rel="top" href="indexd41d.html?" title="Accueil" />
+  <link rel="contents" href="index888d.html?archive" title="Archives" />
+  
+  <link rel="next" href="index1e4b.html?post/drupal/23"
+  title="Retour de congés..." />
+  
+  <link rel="previous" href="index44c6.html?post/drupal/21"
+  title="== PostgreSQL Weekly News - 1er août 2004 ==" />
+  
+  <link rel="alternate" type="application/atom+xml" title="Atom 1.0" href="index4ca3.php?feed/atom" />
+  
+  <style type="text/css" media="screen">
+@import url(themes/postgresql/style.css);
+</style>
+<style type="text/css" media="print">
+@import url(themes/default/print.css);
+</style>
+
+<script type="text/javascript" src="themes/default/js/jquery.js"></script>
+<script type="text/javascript" src="themes/default/js/jquery.cookie.js"></script>
+
+  
+  <script type="text/javascript" src="themes/default/js/post.js"></script>
+  <script type="text/javascript">
+  //<![CDATA[
+  var post_remember_str = 'Se souvenir de moi sur ce blog';
+  //]]>
+  </script>
+</head>
+
+<body class="dc-post">
+<div id="page">
+
+
+<div id="top">
+  <div id="pgHeader">
+    <span id="pgHeaderLogoLeft">
+      <a href="index.html" title="PostgreSQL"><img src="https://blog.postgresql.fr/themes/postgresql/img/hdr_left.png" width="230" height="80" alt="PostgreSQL" /></a>
+    </span>
+    <span id="pgHeaderLogoRight">
+      <a href="index.html" title="La base de donnees la plus sophistiquee au monde."><img src="https://blog.postgresql.fr/themes/postgresql/img/hdr_right.png" width="210" height="80" alt="La base de donnees la plus sophistiquee au monde." /></a>
+    </span>
+  </div>
+
+  </div>
+
+<div class="pgTopNav">
+  <div class="pgTopNavLeft"> 
+    <img src="https://blog.postgresql.fr/themes/postgresql/img/nav_lft.png" width="7" height="23" alt="" />
+  </div>
+  <div class="pgTopNavRight">
+    <img src="https://blog.postgresql.fr/themes/postgresql/img/nav_rgt.png" width="7" height="23" alt="" />
+  </div>
+  <ul class="pgTopNavList">
+    <li><a href="https://www.postgresql.fr/" title="Accueil">Accueil</a></li>
+    <li><a href="https://blog.postgresql.fr/" title="Lire les actualités">Actualités</a></li>
+    <li><a href="https://docs.postgresql.fr/" title="Lire la documentation officielle">Documentation</a></li>
+    <li><a href="https://forums.postgresql.fr/" title="Pour poser des questions">Forums</a></li>
+    <li><a href="https://www.postgresql.fr/asso/" title="La vie de l'association">Association</a></li>
+    <li><a href="https://www.postgresql.fr/devel:accueil" title="Informations pour les développeurs/traducteurs">Développeurs</a></li>
+    <li><a href="https://planete.postgresql.fr/" title="La planète francophone sur PostgreSQL">Planète</a></li>
+    <li><a href="https://www.postgresql.fr/support/" title="Support sur PostgreSQL">Support</a></li>
+  </ul>
+</div>
+
+<div id="wrapper">
+
+<div id="pgContent">
+
+  <div id="pgSideWrap">
+  <div id="pgSideNav">
+    <div id="blognav">
+      <div id="search"><h2><label for="q">Rechercher</label></h2><form action="http://blog2.postgresql.fr/index.php?" method="get"><fieldset><p><input type="text" size="10" maxlength="255" id="q" name="q" value="" /> <input class="submit" type="submit" value="ok" /></p></fieldset></form></div><div class="categories"><h2>Catégories</h2><ul><li><a href="index199b.html?category/Articles">Articles</a></li><li class="category-current"><a href="indexb4c6.html?category/Dans-les-bacs">Dans les bacs</a></li><li><a href="index025a.html?category/Evenements">Événements</a></li><li><a href="index8c6d.html?category/PostgreSQL-Weekly-News">PostgreSQL Weekly News</a></li><li><a href="index1835.html?category/Securite">Sécurité</a></li><li><a href="index2251.html?category/Vie-de-l-association">Vie de l'association</a></li><li><a href="index91de.html?category/Vie-du-site">Vie du site</a></li></ul></div><div class="text"><h2>Licence</h2>Tous les articles de ce blog sont disponibles sous la <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/">license Creative Commons BY-NC-SA 3.0</a>.</div>    </div> <!-- End #blognav -->
+  
+    <div id="blogextra">
+      <div class="syndicate"><h2>S'abonner</h2><ul><li><a type="application/atom+xml" href="index4ca3.php?feed/atom" title="Fil Atom des billets de ce blog" class="feed">Fil des billets</a></li></ul></div>    </div> <!-- End #blogextra -->
+  </div>
+  </div>
+
+  <div id="pgContentWrap">
+  <div id="pgDownloadsWrap">
+  <div id="content">
+
+  <p id="navlinks">
+  <a href="index44c6.html?post/drupal/21"
+  title="== PostgreSQL Weekly News - 1er août 2004 ==" class="prev">&#171; == PostgreSQL Weekly News - 1er août 2004 ==</a>
+   <span>-</span> <a href="index1e4b.html?post/drupal/23"
+  title="Retour de congés..." class="next">Retour de congés... &#187;</a>
+  </p>
+  
+  <div class="post">
+    <h2 id="p22" class="post-title">PostgreSQL 8.0 sort officiellement en béta version</h2>
+    
+    <p class="post-info">Par Jean-Paul Argudo    le mardi 10 août 2004, 09:08        - <a href="indexb4c6.html?category/Dans-les-bacs">Dans les bacs</a>
+        - <a href="index27ab.html?post/drupal/22">Lien permanent</a>
+    </p>
+    
+    
+    
+          <div class="post-excerpt"><p></p></div>
+        
+    <div class="post-content"><p>
+Marc G. Fournier nous annonce ce matin sur la liste de diffusion
+pgsql-announce:</p>
+<p>
+Après près de 9 mois de développement, le PostgreSQL Global Development Group
+est fier d'annoncer que le développement de PostgreSQL v.8.0.0 est maintenant
+terminé, et qu'il est prêt à être testé sérieusement.
+</p>
+<p>
+Pour ceux qui se demanderaient pourquoi nous sommes passés directement à la
+version 8.0.0, c'est qu'il y a eu de *nombreuses* fonctionalités importantes qui
+ont été ajoutées dans cette version. Comme avec toutes nos versions, notre
+objectif est d'avoir celle-ci aussi stable et robuste que possible, mais comme
+plusieurs des fonctionalités ajoutées dans cette version ont demandé de
+nombreux changements, nous pensons rallonger la période de tests avant la sortie
+de la version stable, de production.
+</p>
+<p>
+Bien que la liste des nouvelles fonctionalités soit impressionante dans la
+8.0.0, avec le SMB (Support Natif Windows 32), les transactions imbriquées et le
+Point In Time Recovery, il y a une chose qui ne fait pas partie de la
+distribution de base, c'est l'installateur Windows Natif, qui peut être trouvé
+ici:<br />
+<a href="http://pgfoundry.org/projects/pginstaller">
+http://pgfoundry.org/projects/pginstaller</a>
+</p>
+<p>
+Pour une liste complète des changements et amélioratiojns, depuis que la 7.4.0
+est sortie, veuillez vous reporter à cette page:<br />
+<a href="http://developer.postgresql.org/beta-history.txt">
+http://developer.postgresql.org/beta-history.txt</a>
+</p>
+<p>
+Enfin, la Beta 1 est aujourd'hui disponible sur tous les mirroirs:<br />
+<a href="http://www.postgresql.org/mirrors-ftp.html">
+http://www.postgresql.org/mirrors-ftp.html</a>
+</p>
+<p>
+Et grâce à David Fetter, la Beta est aussi disponible via BitTorrent sur:<br />
+<a href="http://bt.postgresql.org/">
+http://bt.postgresql.org</a>
+</p>
+<p>
+Comme pour toute version, le succès de celle-ci repose entre vos mains... pour
+passer du statut de Béta à celui de la version de production, nous avons besoin
+d'autant de monde que possible pour tester, le plus possible, et sur toutes les
+plates-formes, cette nouvelle version. Nous vous demandons instament de
+télécharger cette béta et de lui faire passer vos tests de régression, entre
+autres, et de nous signaler tout bug sur la liste suivante:<br />
+<a href="mailto:pgsql-bugs@postgresql.org">
+pgsql-bugs@postgresql.org</a>
+</p>
+<p>
+Au plus nous trouverons et élimineros de bugs pendant la phase de béta-test,
+meilleure sera la version de production...
+</p>
+<p>
+De la part de tous les développeurs : Joyeuse chasse au bug!
+</p></div>
+
+      </div>
+
+  
+
+    
+  
+    
+    
+    </div>
+</div> <!-- End #main -->
+
+</div> <!-- End #wrapper -->
+
+<div id="pgFooter">
+  <p>Propulsé par <a href="http://dotclear.org/">Dotclear</a></p>
+</div>
+
+</div> <!-- End #page -->
+</body>
+
+<!-- Mirrored from blog2.postgresql.fr/index.php?post/drupal/22 by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 May 2020 21:40:21 GMT -->
+</html>

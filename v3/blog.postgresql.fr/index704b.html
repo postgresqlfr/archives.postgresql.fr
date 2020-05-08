@@ -1,0 +1,256 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr">
+
+<!-- Mirrored from blog2.postgresql.fr/index.php?post/2013/09/28/Nouvelles-hebdomadaires-de-PostgreSQL-22-septembre-2013 by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 May 2020 21:40:20 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="MSSmartTagsPreventParsing" content="TRUE" />
+  <meta name="ROBOTS" content="INDEX, FOLLOW" />
+  
+  <title>Nouvelles hebdomadaires de PostgreSQL - 22 septembre 2013 - PostgreSQLfr.org</title>
+  <meta name="description" lang="fr" content="CommitFest II du nouveau cycle en est au quart de sa course. Avec 83 patchs dont 6 déjà commités, ça se déroule plutôt bien jusque là. 8 patchs restent tristement sans relecteur." />
+  <meta name="copyright" content="" />
+  <meta name="author" content="chl" />
+  <meta name="date" scheme="ISO8601" content="2013-09-28T14:41:00+02:00" />
+  
+  <link rel="schema.dc" href="http://purl.org/dc/elements/1.1/" />
+  <meta name="dc.title" content="Nouvelles hebdomadaires de PostgreSQL - 22 septembre 2013" />
+  <meta name="dc.description" lang="fr" content="CommitFest II du nouveau cycle en est au quart de sa course. Avec 83 patchs dont 6 déjà commités, ça se déroule plutôt bien jusque là. 8 patchs restent tristement sans relecteur." />
+  <meta name="dc.creator" content="chl" />
+  <meta name="dc.language" content="fr" />
+  <meta name="dc.publisher" content="" />
+  <meta name="dc.rights" content="" />
+  <meta name="dc.date" scheme="ISO8601" content="2013-09-28T14:41:00+02:00" />
+  <meta name="dc.type" content="text" />
+  <meta name="dc.format" content="text/html" />
+  
+  <link rel="top" href="indexd41d.html?" title="Accueil" />
+  <link rel="contents" href="index888d.html?archive" title="Archives" />
+  
+  <link rel="next" href="index9470.html?post/2013/09/29/%5BPG-Day-France-2014%5D-Appel"
+  title="[PG Day France 2014] Appel" />
+  
+  <link rel="previous" href="index05d5.html?post/2013/09/28/Nouvelles-hebdomadaires-de-PostgreSQL-15-septembre-2013"
+  title="Nouvelles hebdomadaires de PostgreSQL - 15 septembre 2013" />
+  
+  <link rel="alternate" type="application/atom+xml" title="Atom 1.0" href="index4ca3.php?feed/atom" />
+  
+  <style type="text/css" media="screen">
+@import url(themes/postgresql/style.css);
+</style>
+<style type="text/css" media="print">
+@import url(themes/default/print.css);
+</style>
+
+<script type="text/javascript" src="themes/default/js/jquery.js"></script>
+<script type="text/javascript" src="themes/default/js/jquery.cookie.js"></script>
+
+  
+  <script type="text/javascript" src="themes/default/js/post.js"></script>
+  <script type="text/javascript">
+  //<![CDATA[
+  var post_remember_str = 'Se souvenir de moi sur ce blog';
+  //]]>
+  </script>
+</head>
+
+<body class="dc-post">
+<div id="page">
+
+
+<div id="top">
+  <div id="pgHeader">
+    <span id="pgHeaderLogoLeft">
+      <a href="index.html" title="PostgreSQL"><img src="https://blog.postgresql.fr/themes/postgresql/img/hdr_left.png" width="230" height="80" alt="PostgreSQL" /></a>
+    </span>
+    <span id="pgHeaderLogoRight">
+      <a href="index.html" title="La base de donnees la plus sophistiquee au monde."><img src="https://blog.postgresql.fr/themes/postgresql/img/hdr_right.png" width="210" height="80" alt="La base de donnees la plus sophistiquee au monde." /></a>
+    </span>
+  </div>
+
+  </div>
+
+<div class="pgTopNav">
+  <div class="pgTopNavLeft"> 
+    <img src="https://blog.postgresql.fr/themes/postgresql/img/nav_lft.png" width="7" height="23" alt="" />
+  </div>
+  <div class="pgTopNavRight">
+    <img src="https://blog.postgresql.fr/themes/postgresql/img/nav_rgt.png" width="7" height="23" alt="" />
+  </div>
+  <ul class="pgTopNavList">
+    <li><a href="https://www.postgresql.fr/" title="Accueil">Accueil</a></li>
+    <li><a href="https://blog.postgresql.fr/" title="Lire les actualités">Actualités</a></li>
+    <li><a href="https://docs.postgresql.fr/" title="Lire la documentation officielle">Documentation</a></li>
+    <li><a href="https://forums.postgresql.fr/" title="Pour poser des questions">Forums</a></li>
+    <li><a href="https://www.postgresql.fr/asso/" title="La vie de l'association">Association</a></li>
+    <li><a href="https://www.postgresql.fr/devel:accueil" title="Informations pour les développeurs/traducteurs">Développeurs</a></li>
+    <li><a href="https://planete.postgresql.fr/" title="La planète francophone sur PostgreSQL">Planète</a></li>
+    <li><a href="https://www.postgresql.fr/support/" title="Support sur PostgreSQL">Support</a></li>
+  </ul>
+</div>
+
+<div id="wrapper">
+
+<div id="pgContent">
+
+  <div id="pgSideWrap">
+  <div id="pgSideNav">
+    <div id="blognav">
+      <div id="search"><h2><label for="q">Rechercher</label></h2><form action="http://blog2.postgresql.fr/index.php?" method="get"><fieldset><p><input type="text" size="10" maxlength="255" id="q" name="q" value="" /> <input class="submit" type="submit" value="ok" /></p></fieldset></form></div><div class="categories"><h2>Catégories</h2><ul><li><a href="index199b.html?category/Articles">Articles</a></li><li><a href="indexb4c6.html?category/Dans-les-bacs">Dans les bacs</a></li><li><a href="index025a.html?category/Evenements">Événements</a></li><li class="category-current"><a href="index8c6d.html?category/PostgreSQL-Weekly-News">PostgreSQL Weekly News</a></li><li><a href="index1835.html?category/Securite">Sécurité</a></li><li><a href="index2251.html?category/Vie-de-l-association">Vie de l'association</a></li><li><a href="index91de.html?category/Vie-du-site">Vie du site</a></li></ul></div><div class="text"><h2>Licence</h2>Tous les articles de ce blog sont disponibles sous la <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/">license Creative Commons BY-NC-SA 3.0</a>.</div>    </div> <!-- End #blognav -->
+  
+    <div id="blogextra">
+      <div class="syndicate"><h2>S'abonner</h2><ul><li><a type="application/atom+xml" href="index4ca3.php?feed/atom" title="Fil Atom des billets de ce blog" class="feed">Fil des billets</a></li></ul></div>    </div> <!-- End #blogextra -->
+  </div>
+  </div>
+
+  <div id="pgContentWrap">
+  <div id="pgDownloadsWrap">
+  <div id="content">
+
+  <p id="navlinks">
+  <a href="index05d5.html?post/2013/09/28/Nouvelles-hebdomadaires-de-PostgreSQL-15-septembre-2013"
+  title="Nouvelles hebdomadaires de PostgreSQL - 15 septembre 2013" class="prev">&#171; Nouvelles hebdomadaires de PostgreSQL - 15</a>
+   <span>-</span> <a href="index9470.html?post/2013/09/29/%5BPG-Day-France-2014%5D-Appel"
+  title="[PG Day France 2014] Appel" class="next">[PG Day France 2014] Appel &#187;</a>
+  </p>
+  
+  <div class="post">
+    <h2 id="p754" class="post-title">Nouvelles hebdomadaires de PostgreSQL - 22 septembre 2013</h2>
+    
+    <p class="post-info">Par chl    le samedi 28 septembre 2013, 14:41        - <a href="index8c6d.html?category/PostgreSQL-Weekly-News">PostgreSQL Weekly News</a>
+        - <a href="index704b.html?post/2013/09/28/Nouvelles-hebdomadaires-de-PostgreSQL-22-septembre-2013">Lien permanent</a>
+    </p>
+    
+    
+    
+          <div class="post-excerpt"><p><em>CommitFest II</em> du nouveau cycle en est au quart de sa course. Avec 83 patchs dont 6 d&eacute;j&agrave; commit&eacute;s, &ccedil;a se d&eacute;roule plut&ocirc;t bien jusque l&agrave;. 8 patchs restent tristement sans relecteur. Corrigeons cela cette semaine. Si vous souhaitez participer, &eacute;crivez &agrave; pgsql-rrreviewers list (infos sur l'inscription ci-apr&egrave;s) et nous vous aiderons &agrave; nous aider&nbsp;: 
+<a target="_blank" href="http://www.postgresql.org/community/lists/subscribe/">http://www.postgresql.org/community/lists/subscribe/</a></p>
+<p><strong>Les nouveaut&eacute;s des produits d&eacute;riv&eacute;s</strong></p>
+<ul>
+<li>Sortie de HadoopFDW&nbsp;: 
+<a target="_blank" href="http://www.bigsql.org/se/hadoopfdw/">http://www.bigsql.org/se/hadoopfdw/</a></li>
+</ul>
+<p><strong>Offres d'emplois autour de PostgreSQL en septembre</strong></p>
+<ul>
+<li>Internationales&nbsp;: 
+<a target="_blank" href="http://archives.postgresql.org/pgsql-jobs/2013-09/threads.php">http://archives.postgresql.org/pgsql-jobs/2013-09/threads.php</a>;</li>
+<li>Francophones&nbsp;: 
+<a target="_blank" href="http://forums.postgresql.fr/viewforum.php?id=4">http://forums.postgresql.fr/viewforum.php?id=4</a>.</li>
+</ul>
+<p><strong>PostgreSQL Local</strong></p>
+<ul>
+<li>Le PGDay italien (PGDay.IT) sera tenu le 25 octobre &agrave; Prato (Italie, Toscane) au centre de recherche de l'Universit&eacute; Monash. Inscriptions et infos&nbsp;: 
+<a target="_blank" href="http://2013.pgday.it/">http://2013.pgday.it</a></li>
+<li>La <em>PostgreSQL Conference China</em> de 2103 aura lieu les 26 &amp; 27 octobre &agrave; Hangzhou. Informations&nbsp;: 
+<a target="_blank" href="https://wiki.postgresql.org/wiki/Pgconf_cn2013">https://wiki.postgresql.org/wiki/Pgconf_cn2013</a><br>
+Inscriptions&nbsp;: 
+<a target="_blank" href="http://bbs.pgsqldb.com/client/bm.php">http://bbs.pgsqldb.com/client/bm.php</a></li>
+<li>La <em>PGConf.EU 2013</em> sera tenue du 29 octobre au 1<sup>er</sup> novembre au Conrad Hotel dans le centre-ville de Dublin en Irlande. Les inscriptions sont ouvertes&nbsp;: 
+<a target="_blank" href="http://2013.pgconf.eu/">http://2013.pgconf.eu/</a></li>
+<li><em>PGConf.DE 2013</em> aura lieu le 8 novembre 2013 au mus&eacute;e industriel de la Rh&eacute;nanie &agrave; Oberhausen. L'appel &agrave; conf&eacute;renciers porte jusqu'au 15 septembre&nbsp;: 
+<a target="_blank" href="http://2013.pgconf.de/">http://2013.pgconf.de/</a></li>
+<li>La quatri&egrave;me &eacute;dition du PGDay argentin se tiendra le 14 novembre 2013 &agrave; Buenos Aires, Argentine. L'appel &agrave; conf&eacute;renciers est lanc&eacute; jusqu'au 28 septembre&nbsp;: 
+<a target="_blank" href="http://wiki.postgresql.org/wiki/PGDay_Argentina_2013">http://wiki.postgresql.org/wiki/PGDay_Argentina_2013</a></li>
+<li>Le PGDay cubain aura lieu en novembre 2013&nbsp;: 
+<a target="_blank" href="http://postgresql.uci.cu/">http://postgresql.uci.cu/</a></li>
+</ul>
+<p><strong>PostgreSQL dans les m&eacute;dia</strong></p>
+<ul>
+<li>Planet PostgreSQL&nbsp;: 
+<a target="_blank" href="http://planet.postgresql.org/">http://planet.postgresql.org/</a></li>
+<li>Planet PostgreSQLFr&nbsp;: 
+<a target="_blank" href="http://planete.postgresql.fr/">http://planete.postgresql.fr/</a></li>
+</ul>
+<p><i>PostgreSQL Weekly News / les nouvelles hebdomadaires vous sont offertes cette semaine par David Fetter. Traduction par l'&eacute;quipe PostgreSQLFr sous licence CC BY-NC-SA.</i></p>
+<p><i>Proposez vos articles ou annonces avant dimanche 15:00 (heure du Pacifique). Merci de les envoyer en anglais &agrave; david (a) fetter.org, en allemand &agrave; pwn (a) pgug.de, en italien &agrave; pwn (a) itpug.org et en espagnol &agrave; pwn (a) arpug.com.ar.</i></p>
+<p>(<a target="_blank" href="http://www.postgresql.org/message-id/20130923051953.GB26841@fetter.org">lien vers l'article original</a>)</p></div>
+        
+    <div class="post-content"><p><strong>Correctifs appliqu&eacute;s</strong></p>
+<p>Heikki Linnakangas a pouss&eacute;&nbsp;:</p>
+<ul>
+<li>Add a GUC to report whether data page checksums are enabled. Bernd Helmle 
+<a target="_blank" href="http://git.postgresql.org/pg/commitdiff/0892ecbc015930dde2cee9ad464b9b70fdb7667e">http://git.postgresql.org/pg/commitdiff/0892ecbc015930dde2cee9ad464b9b70fdb7667e</a></li>
+</ul>
+<p>Alvaro Herrera a pouss&eacute;&nbsp;:</p>
+<ul>
+<li>Rename various "freeze multixact" variables. It seems to make more sense to use "cutoff multixact" terminology throughout the backend code; "freeze" is associated with replacing of an Xid with FrozenTransactionId, which is not what we do for MultiXactIds. Andres Freund Some adjustments by &Aacute;lvaro Herrera 
+<a target="_blank" href="http://git.postgresql.org/pg/commitdiff/dd778e9d888454fdd2c25c66fc268ba9844eb125">http://git.postgresql.org/pg/commitdiff/dd778e9d888454fdd2c25c66fc268ba9844eb125</a></li>
+<li>Remove `proc` argument from LockCheckConflicts. This has been unused since commit 8563ccae2caf. Noted by Antonin Houska 
+<a target="_blank" href="http://git.postgresql.org/pg/commitdiff/1247ea28cbc834bd6750b569537baff4e35edf79">http://git.postgresql.org/pg/commitdiff/1247ea28cbc834bd6750b569537baff4e35edf79</a></li>
+</ul>
+<p>Robert Haas a pouss&eacute;&nbsp;:</p>
+<ul>
+<li>Typo fix. Etsuro Fujita 
+<a target="_blank" href="http://git.postgresql.org/pg/commitdiff/86a174bff0730791c5c262d646d4fe28c2485be1">http://git.postgresql.org/pg/commitdiff/86a174bff0730791c5c262d646d4fe28c2485be1</a></li>
+<li>Documentation correction. Etsuro Fujita 
+<a target="_blank" href="http://git.postgresql.org/pg/commitdiff/eb3b79ffd4c456b49325df0002dbc4cb6a3741e7">http://git.postgresql.org/pg/commitdiff/eb3b79ffd4c456b49325df0002dbc4cb6a3741e7</a></li>
+<li>Fix compiler warning in WaitForBackgroundWorkerStartup(). Per complaint from Andrew Gierth. 
+<a target="_blank" href="http://git.postgresql.org/pg/commitdiff/496439d943565bdb6cb2eef534cce551c30e8a0f">http://git.postgresql.org/pg/commitdiff/496439d943565bdb6cb2eef534cce551c30e8a0f</a></li>
+</ul>
+<p>Fujii Masao a pouss&eacute;&nbsp;:</p>
+<ul>
+<li>Fix typo in comment. Ian Lawrence Barwick 
+<a target="_blank" href="http://git.postgresql.org/pg/commitdiff/6e5f6e59134c4829060321b875e86c538adc0914">http://git.postgresql.org/pg/commitdiff/6e5f6e59134c4829060321b875e86c538adc0914</a></li>
+</ul>
+<p><strong>Correctifs rejet&eacute;s (&agrave; ce jour)</strong></p>
+<ul>
+<li>No one was disappointed this week</li>
+</ul>
+<p><strong>Correctifs en attente</strong></p>
+<ul>
+<li>Ronan Dunklau sent in another revision of a patch to add triggers to foreign tables.</li>
+<li>Wang Shuo sent in another revision of a patch to skip rewriting the table for allowable changes to NUMERIC columns via ALTER TABLE.</li>
+<li>Dean Rasheed and Marko (johto) Tiikkaja traded patches to expand the writeability of VIEWs by determining which can be changed in a sane way.</li>
+<li>Alvaro Herrera and Jaime Casanova traded patches for minmax indexes.</li>
+<li>Alvaro Herrera sent in a patch to refactor relscan_details.h out of relscan.h to reduce unneeded #includes of the same header.</li>
+<li>Heikki Linnakangas sent in another revision of an instrumentation patch to with two functions: one to consume N xids, making it faster to hit the creation of new XID ranges and wraparound, The other, print_xidlsnranges(), to print out the contents of the current XID-LSN range array.</li>
+<li>Samrat Revagade and Sawada Masahiko traded patches to make it possible to fail back without first creating a fresh backup.</li>
+<li>Rushabh Lathia sent in another revision of a patch to disallow year fields of length greater than 4 in all cases.</li>
+<li>Hamid Quddus Akhtar sent in a patch to fix a bug in output/security_label.source where it refers to abs_builddir instead of libdir.</li>
+<li>Marko (johto) Tiikkaja sent in another revision of a patch to implement a GUC plpgsql.print_strict_params which gives more detail about parameter problems in PL/pgsql functions when set.</li>
+<li>Jeevan Chalke sent in another revision of a patch to create a simple date constructor for numeric values.</li>
+<li>Sameer Thakur and Daniel Farina traded patches to fix some mis-countings in pg_stat_statements.</li>
+<li>Rushabh Lathia, Robert Haas, and Amit Kapila traded patches to fix an inconsistency in checking for table inheritance.</li>
+<li>Andres Freund sent in two more flocks of patches which are inteded to be infrastructure for logical changeset replication.</li>
+<li>Alexander Korotkov sent in two more revisions of a patch to improve GIN indexing by adding some additional information.</li>
+<li>Alexander Korotkov sent in a patch to fix KNN-GiST behaviour with NaN.</li>
+<li>Pavel Stehule sent in another revision of a patch to add LOB utility functions load_lo and make_lo.</li>
+<li>Vik Fearing sent in a patch to fix the interaction between relocatable extensions and pg_dump/pg_restore.</li>
+<li>Andres Freund sent in another revision of a patch to allow custom GUCs to be nested more than one level.</li>
+<li>KONDO Mitsumasa sent in a patch to add a Gaussian distribution to pgbench.</li>
+<li>David Rowley sent in three more revisions of a patch to allow formatting in log_line_prefix.</li>
+<li>Robert Haas sent in another revision of a patch to implement dynamic shared memory.</li>
+<li>Mike Blackwell sent in a doc patch to clarify the OPTIONS clause in contrib/file_fdw.</li>
+<li>Alvaro Herrera sent in a patch to handle SSL renegotiation cleanly.</li>
+<li>Heikki Linnakangas sent in a patch to detect an issue where freezing incorrectly releases any predicate locks.</li>
+<li>KaiGai Kohei sent in another revision of a patch to implement row-level access control, this time with a mitigation for a side-channel attach to which the previous patch was vulnerable.</li>
+<li>Vik Fearing sent in another revision of a patch to implement pg_sleep(interval).</li>
+<li>Fabien COELHO sent in a flock of patches improving pgbench progress reports.</li>
+<li>Didier (did447 AT gmail DOT com) sent in a patch to fix a small memory leak in guc-file.l ParseConfigFile.</li>
+<li>Stas Kelvich sent in a patch to add kNN search for cubes with euclidean, taxicab and Chebyshev distances.</li>
+</ul></div>
+
+      </div>
+
+  
+
+    
+  
+    
+    
+    </div>
+</div> <!-- End #main -->
+
+</div> <!-- End #wrapper -->
+
+<div id="pgFooter">
+  <p>Propulsé par <a href="http://dotclear.org/">Dotclear</a></p>
+</div>
+
+</div> <!-- End #page -->
+</body>
+
+<!-- Mirrored from blog2.postgresql.fr/index.php?post/2013/09/28/Nouvelles-hebdomadaires-de-PostgreSQL-22-septembre-2013 by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 May 2020 21:40:20 GMT -->
+</html>

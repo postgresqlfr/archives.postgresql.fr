@@ -1,0 +1,250 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr">
+
+<!-- Mirrored from blog2.postgresql.fr/index.php?post/2016/08/18/Nouvelles-hebdomadaires-de-PostgreSQL-14-ao%C3%BBt-2016 by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 May 2020 21:40:19 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="MSSmartTagsPreventParsing" content="TRUE" />
+  <meta name="ROBOTS" content="INDEX, FOLLOW" />
+  
+  <title>Nouvelles hebdomadaires de PostgreSQL - 14 août 2016 - PostgreSQLfr.org</title>
+  <meta name="description" lang="fr" content="Les mises à jour de sécurité 9.5.4, 9.4.9, 9.3.14, 9.2.18 et 9.1.23 ont été publiées. Mettez à jour dès que possible ! https://www.postgresql.org/about/news/1688/ PostgreSQL 9.6" />
+  <meta name="copyright" content="" />
+  <meta name="author" content="chl" />
+  <meta name="date" scheme="ISO8601" content="2016-08-18T01:03:00+02:00" />
+  
+  <link rel="schema.dc" href="http://purl.org/dc/elements/1.1/" />
+  <meta name="dc.title" content="Nouvelles hebdomadaires de PostgreSQL - 14 août 2016" />
+  <meta name="dc.description" lang="fr" content="Les mises à jour de sécurité 9.5.4, 9.4.9, 9.3.14, 9.2.18 et 9.1.23 ont été publiées. Mettez à jour dès que possible ! https://www.postgresql.org/about/news/1688/ PostgreSQL 9.6" />
+  <meta name="dc.creator" content="chl" />
+  <meta name="dc.language" content="fr" />
+  <meta name="dc.publisher" content="" />
+  <meta name="dc.rights" content="" />
+  <meta name="dc.date" scheme="ISO8601" content="2016-08-18T01:03:00+02:00" />
+  <meta name="dc.type" content="text" />
+  <meta name="dc.format" content="text/html" />
+  
+  <link rel="top" href="indexd41d.html?" title="Accueil" />
+  <link rel="contents" href="index888d.html?archive" title="Archives" />
+  
+  <link rel="next" href="index3548.html?post/2016/08/24/Nouvelles-hebdomadaires-de-PostgreSQL-21-ao%C3%BBt-2016"
+  title="Nouvelles hebdomadaires de PostgreSQL - 21 août 2016" />
+  
+  <link rel="previous" href="index9e85.html?post/2016/08/10/Nouvelles-hebdomadaires-de-PostgreSQL-7-ao%C3%BBt-2016"
+  title="Nouvelles hebdomadaires de PostgreSQL - 7 août 2016" />
+  
+  <link rel="alternate" type="application/atom+xml" title="Atom 1.0" href="index4ca3.php?feed/atom" />
+  
+  <style type="text/css" media="screen">
+@import url(themes/postgresql/style.css);
+</style>
+<style type="text/css" media="print">
+@import url(themes/default/print.css);
+</style>
+
+<script type="text/javascript" src="themes/default/js/jquery.js"></script>
+<script type="text/javascript" src="themes/default/js/jquery.cookie.js"></script>
+
+  
+  <script type="text/javascript" src="themes/default/js/post.js"></script>
+  <script type="text/javascript">
+  //<![CDATA[
+  var post_remember_str = 'Se souvenir de moi sur ce blog';
+  //]]>
+  </script>
+</head>
+
+<body class="dc-post">
+<div id="page">
+
+
+<div id="top">
+  <div id="pgHeader">
+    <span id="pgHeaderLogoLeft">
+      <a href="index.html" title="PostgreSQL"><img src="https://blog.postgresql.fr/themes/postgresql/img/hdr_left.png" width="230" height="80" alt="PostgreSQL" /></a>
+    </span>
+    <span id="pgHeaderLogoRight">
+      <a href="index.html" title="La base de donnees la plus sophistiquee au monde."><img src="https://blog.postgresql.fr/themes/postgresql/img/hdr_right.png" width="210" height="80" alt="La base de donnees la plus sophistiquee au monde." /></a>
+    </span>
+  </div>
+
+  </div>
+
+<div class="pgTopNav">
+  <div class="pgTopNavLeft"> 
+    <img src="https://blog.postgresql.fr/themes/postgresql/img/nav_lft.png" width="7" height="23" alt="" />
+  </div>
+  <div class="pgTopNavRight">
+    <img src="https://blog.postgresql.fr/themes/postgresql/img/nav_rgt.png" width="7" height="23" alt="" />
+  </div>
+  <ul class="pgTopNavList">
+    <li><a href="https://www.postgresql.fr/" title="Accueil">Accueil</a></li>
+    <li><a href="https://blog.postgresql.fr/" title="Lire les actualités">Actualités</a></li>
+    <li><a href="https://docs.postgresql.fr/" title="Lire la documentation officielle">Documentation</a></li>
+    <li><a href="https://forums.postgresql.fr/" title="Pour poser des questions">Forums</a></li>
+    <li><a href="https://www.postgresql.fr/asso/" title="La vie de l'association">Association</a></li>
+    <li><a href="https://www.postgresql.fr/devel:accueil" title="Informations pour les développeurs/traducteurs">Développeurs</a></li>
+    <li><a href="https://planete.postgresql.fr/" title="La planète francophone sur PostgreSQL">Planète</a></li>
+    <li><a href="https://www.postgresql.fr/support/" title="Support sur PostgreSQL">Support</a></li>
+  </ul>
+</div>
+
+<div id="wrapper">
+
+<div id="pgContent">
+
+  <div id="pgSideWrap">
+  <div id="pgSideNav">
+    <div id="blognav">
+      <div id="search"><h2><label for="q">Rechercher</label></h2><form action="http://blog2.postgresql.fr/index.php?" method="get"><fieldset><p><input type="text" size="10" maxlength="255" id="q" name="q" value="" /> <input class="submit" type="submit" value="ok" /></p></fieldset></form></div><div class="categories"><h2>Catégories</h2><ul><li><a href="index199b.html?category/Articles">Articles</a></li><li><a href="indexb4c6.html?category/Dans-les-bacs">Dans les bacs</a></li><li><a href="index025a.html?category/Evenements">Événements</a></li><li class="category-current"><a href="index8c6d.html?category/PostgreSQL-Weekly-News">PostgreSQL Weekly News</a></li><li><a href="index1835.html?category/Securite">Sécurité</a></li><li><a href="index2251.html?category/Vie-de-l-association">Vie de l'association</a></li><li><a href="index91de.html?category/Vie-du-site">Vie du site</a></li></ul></div><div class="text"><h2>Licence</h2>Tous les articles de ce blog sont disponibles sous la <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/">license Creative Commons BY-NC-SA 3.0</a>.</div>    </div> <!-- End #blognav -->
+  
+    <div id="blogextra">
+      <div class="syndicate"><h2>S'abonner</h2><ul><li><a type="application/atom+xml" href="index4ca3.php?feed/atom" title="Fil Atom des billets de ce blog" class="feed">Fil des billets</a></li></ul></div>    </div> <!-- End #blogextra -->
+  </div>
+  </div>
+
+  <div id="pgContentWrap">
+  <div id="pgDownloadsWrap">
+  <div id="content">
+
+  <p id="navlinks">
+  <a href="index9e85.html?post/2016/08/10/Nouvelles-hebdomadaires-de-PostgreSQL-7-ao%C3%BBt-2016"
+  title="Nouvelles hebdomadaires de PostgreSQL - 7 août 2016" class="prev">&#171; Nouvelles hebdomadaires de PostgreSQL - 7 août</a>
+   <span>-</span> <a href="index3548.html?post/2016/08/24/Nouvelles-hebdomadaires-de-PostgreSQL-21-ao%C3%BBt-2016"
+  title="Nouvelles hebdomadaires de PostgreSQL - 21 août 2016" class="next">Nouvelles hebdomadaires de PostgreSQL - 21 août &#187;</a>
+  </p>
+  
+  <div class="post">
+    <h2 id="p913" class="post-title">Nouvelles hebdomadaires de PostgreSQL - 14 août 2016</h2>
+    
+    <p class="post-info">Par chl    le jeudi 18 août 2016, 01:03        - <a href="index8c6d.html?category/PostgreSQL-Weekly-News">PostgreSQL Weekly News</a>
+        - <a href="indexe6cb.html?post/2016/08/18/Nouvelles-hebdomadaires-de-PostgreSQL-14-ao%C3%BBt-2016">Lien permanent</a>
+    </p>
+    
+    
+    
+          <div class="post-excerpt"><p>Les mises &agrave; jour de s&eacute;curit&eacute; 9.5.4, 9.4.9, 9.3.14, 9.2.18 et 9.1.23 ont &eacute;t&eacute; publi&eacute;es. Mettez &agrave; jour d&egrave;s que possible&nbsp;! <a target="_blank" href="https://www.postgresql.org/about/news/1688/">https://www.postgresql.org/about/news/1688/</a></p>
+<p>PostgreSQL 9.6 Beta 4 disponible. &Agrave; vos tests&nbsp;! <a target="_blank" href="https://www.postgresql.org/docs/devel/static/release-9-6.html">https://www.postgresql.org/docs/devel/static/release-9-6.html</a></p>
+<h2>Les nouveaut&eacute;s des produits d&eacute;riv&eacute;s</h2>
+<ul>
+<li>BDR 1.0, un syst&egrave;me de r&eacute;plication BDD bas&eacute; sur PostgreSQL et utilisant des WAL logiques (fonctionnant par ligne plut&ocirc;t que par page/bloc sur disque)&nbsp;: <a target="_blank" href="http://bdr-project.org/docs/stable/release-1.0.0.html">http://bdr-project.org/docs/stable/release-1.0.0.html</a></li>
+<li>pgBadger v8.2, un analyseur de log PostgreSQL et un g&eacute;n&eacute;rateur de graphe en Perl&nbsp;: <a target="_blank" href="https://github.com/dalibo/pgbadger/releases/">https://github.com/dalibo/pgbadger/releases/</a></li>
+</ul>
+<h2>Offres d'emplois autour de PostgreSQL en ao&ucirc;t</h2>
+<ul>
+<li>Internationales : <a target="_blank" href="http://archives.postgresql.org/pgsql-jobs/2016-08/threads.php">http://archives.postgresql.org/pgsql-jobs/2016-08/threads.php</a></li>
+<li>Francophones : <a target="_blank" href="http://forums.postgresql.fr/viewforum.php?id=4">http://forums.postgresql.fr/viewforum.php?id=4</a></li>
+</ul>
+<h2>PostgreSQL Local</h2>
+<ul>
+<li>Le PostgresOpen 2016 aura lieu &agrave; Dallas (Texas, USA) du 13 au 16 septembre&nbsp;: <a target="_blank" href="https://2016.postgresopen.org/">https://2016.postgresopen.org/</a></li>
+<li>Session PostgreSQL le 22 septembre 2016 &agrave; Lyon (France)&nbsp;: <a target="_blank" href="http://blog.dalibo.com/2016/05/13/CFP-pgsession-lyon.html">http://blog.dalibo.com/2016/05/13/CFP-pgsession-lyon.html</a></li>
+<li>La <em>PostgreSQL Conference Europe 2016</em> aura lieu &agrave; Tallin, Estonie, du 1er au 4 novembre 2016. Les inscriptions sp&eacute;ciales &laquo;&nbsp;l&egrave;ve-t&ocirc;t&nbsp;&raquo; sont ouvertes jusqu'au 14 septembre&nbsp;: <a target="_blank" href="http://2016.pgconf.eu/registration/">http://2016.pgconf.eu/registration/</a></li>
+<li>La <em>PgConf Silicon Valley 2016</em> aura lieu du 14 au 16 novembre 2016&nbsp;: <a target="_blank" href="http://www.pgconfsv.com/">http://www.pgconfsv.com/</a></li>
+<li>CHAR(16) aura lieu &agrave; New York le 6 d&eacute;cembre 2016. L'appel &agrave; conf&eacute;renciers court jusqu'au 13 septembre, minuit (EDT)&nbsp;: <a target="_blank" href="http://charconference.org/">http://charconference.org/</a></li>
+</ul>
+<h2>PostgreSQL dans les m&eacute;dia</h2>
+<ul>
+<li>Planet PostgreSQL : <a target="_blank" href="http://planet.postgresql.org/">http://planet.postgresql.org/</a></li>
+<li>Planet PostgreSQLFr : <a target="_blank" href="http://planete.postgresql.fr/">http://planete.postgresql.fr/</a></li>
+</ul>
+<p>PostgreSQL Weekly News / les nouvelles hebdomadaires vous sont offertes cette semaine par David Fetter. Traduction par l'&eacute;quipe PostgreSQLFr sous licence CC BY-NC-SA. La version originale se trouve &agrave; l'adresse suivante : <a target="_blank" href="http://www.postgresql.org/message-id/20160814214512.GB10448@fetter.org">http://www.postgresql.org/message-id/20160814214512.GB10448@fetter.org</a></p>
+<p>Proposez vos articles ou annonces avant dimanche 15:00 (heure du Pacifique). Merci de les envoyer en anglais &agrave; david (a) fetter.org, en allemand &agrave; pwn (a) pgug.de, en italien &agrave; pwn (a) itpug.org et en espagnol &agrave; pwn (a) arpug.com.ar.</p></div>
+        
+    <div class="post-content"><h2>Correctifs appliqu&eacute;s</h2>
+<ul>
+<li>Fix TOAST access failure in RETURNING queries. Discussion of commit 3e2f3c2e4 exposed a problem that is of longer standing: since we don't detoast data while sticking it into a portal's holdStore for PORTAL_ONE_RETURNING and PORTAL_UTIL_SELECT queries, and we release the query's snapshot as soon as we're done loading the holdStore, later readout of the holdStore can do TOAST fetches against data that can no longer be seen by any of the session's live snapshots. This means that a concurrent VACUUM could remove the TOAST data before we can fetch it. Commit 3e2f3c2e4 exposed the problem by showing that sometimes we had *no* live snapshots while fetching TOAST data, but we'd be at risk anyway. I believe this code was all right when written, because our management of a session's exposed xmin was such that the TOAST references were safe until end of transaction. But that's no longer true now that we can advance or clear our PGXACT.xmin intra-transaction. To fix, copy the query's snapshot during FillPortalStore() and save it in the Portal; release it only when the portal is dropped. This essentially implements a policy that we must hold a relevant snapshot whenever we access potentially-toasted data. We had already come to that conclusion in other places, cf commits 08e261cbc94ce9a7 and ec543db77b6b72f2. I'd have liked to add a regression test case for this, but I didn't see a way to make one that's not unreasonably bloated; it seems to require returning a toasted value to the client, and those will be big. In passing, improve PortalRunUtility() so that it positively verifies that its ending PopActiveSnapshot() call will pop the expected snapshot, removing a rather shaky assumption about which utility commands might do their own PopActiveSnapshot(). There's no known bug here, but now that we're actively referencing the snapshot it's almost free to make this code a bit more bulletproof. We might want to consider back-patching something like this into older branches, but it would be prudent to let it prove itself more in HEAD beforehand. Discussion: &lt;87vazemeda.fsf@credativ.de&gt; <a target="_blank" href="http://git.postgresql.org/pg/commitdiff/9ee1cf04ab6bcefe03a11837b53f29ca9dc24c7a">http://git.postgresql.org/pg/commitdiff/9ee1cf04ab6bcefe03a11837b53f29ca9dc24c7a</a></li>
+<li>Fix crash when pg_get_viewdef_name_ext() is passed a non-view relation. Oversight in commit 976b24fb4. Andreas Seltenreich Report: &lt;87y448l3ag.fsf@credativ.de&gt; <a target="_blank" href="http://git.postgresql.org/pg/commitdiff/8a8c6b53810026641a1e12f60f873a7bd3cea5e3">http://git.postgresql.org/pg/commitdiff/8a8c6b53810026641a1e12f60f873a7bd3cea5e3</a></li>
+<li>Fix misestimation of n_distinct for a nearly-unique column with many nulls. If ANALYZE found no repeated non-null entries in its sample, it set the column's stadistinct value to -1.0, intending to indicate that the entries are all distinct. But what this value actually means is that the number of distinct values is 100% of the table's rowcount, and thus it was overestimating the number of distinct values by however many nulls there are. This could lead to very poor selectivity estimates, as for example in a recent report from Andreas Joseph Krogh. We should discount the stadistinct value by whatever we've estimated the nulls fraction to be. (That is what will happen if we choose to use a negative stadistinct for a column that does have repeated entries, so this code path was just inconsistent.) In addition to fixing the stadistinct entries stored by several different ANALYZE code paths, adjust the logic where get_variable_numdistinct() forces an "all distinct" estimate on the basis of finding a relevant unique index. Unique indexes don't reject nulls, so there's no reason to assume that the null fraction doesn't apply. Back-patch to all supported branches. Back-patching is a bit of a judgment call, but this problem seems to affect only a few users (else we'd have identified it long ago), and it's bad enough when it does happen that destabilizing plan choices in a worse direction seems unlikely. Patch by me, with documentation wording suggested by Dean Rasheed Report: &lt;VisenaEmail.26.df42f82acae38a58.156463942b8@tc7-visena&gt; Discussion: &lt;16143.1470350371@sss.pgh.pa.us&gt; <a target="_blank" href="http://git.postgresql.org/pg/commitdiff/95bee941be4c009ebbc29162a0dc9664f40de12f">http://git.postgresql.org/pg/commitdiff/95bee941be4c009ebbc29162a0dc9664f40de12f</a></li>
+<li>Release notes for 9.5.4, 9.4.9, 9.3.14, 9.2.18, 9.1.23. <a target="_blank" href="http://git.postgresql.org/pg/commitdiff/19322c0a785f656b82a780c3db44920dcc9bd658">http://git.postgresql.org/pg/commitdiff/19322c0a785f656b82a780c3db44920dcc9bd658</a></li>
+<li>Update 9.6 release notes through today. <a target="_blank" href="http://git.postgresql.org/pg/commitdiff/be7f7ee5ea73626c037600b515087e8f98038140">http://git.postgresql.org/pg/commitdiff/be7f7ee5ea73626c037600b515087e8f98038140</a></li>
+<li>Update 9.6 release notes through today. <a target="_blank" href="http://git.postgresql.org/pg/commitdiff/de4b3ea16d8b053e95eb9d862075b0de123e45b9">http://git.postgresql.org/pg/commitdiff/de4b3ea16d8b053e95eb9d862075b0de123e45b9</a></li>
+<li>Stamp 9.6beta4. <a target="_blank" href="http://git.postgresql.org/pg/commitdiff/67c08c0d704a5f828492642bf9d133cbb2af3661">http://git.postgresql.org/pg/commitdiff/67c08c0d704a5f828492642bf9d133cbb2af3661</a></li>
+<li>Doc: clarify description of CREATE/ALTER FUNCTION ... SET FROM CURRENT. Per discussion with David Johnston. <a target="_blank" href="http://git.postgresql.org/pg/commitdiff/e775d35317590793863327fedcf3737c3ab838d4">http://git.postgresql.org/pg/commitdiff/e775d35317590793863327fedcf3737c3ab838d4</a></li>
+<li>Doc: write some for adminpack. Previous contents of adminpack.sgml were rather far short of project norms. Not to mention being outright wrong about the signature of pg_file_read(). <a target="_blank" href="http://git.postgresql.org/pg/commitdiff/ff2fd6b06ac00a3c5d451063e0a87dca6156db4e">http://git.postgresql.org/pg/commitdiff/ff2fd6b06ac00a3c5d451063e0a87dca6156db4e</a></li>
+<li>Fix busted Assert for CREATE MATVIEW ... WITH NO DATA. Commit 874fe3aea changed the command tag returned for CREATE MATVIEW/CREATE TABLE AS ... WITH NO DATA, but missed that there was code in spi.c that expected the command tag to always be "SELECT". Fortunately, the consequence was only an Assert failure, so this oversight should have no impact in production builds. Since this code path was evidently un-exercised, add a regression test. Per report from Shivam Saxena. Back-patch to 9.3, like the previous commit. Michael Paquier Report: &lt;97218716-480B-4527-B5CD-D08D798A0C7B@dresources.com&gt; <a target="_blank" href="http://git.postgresql.org/pg/commitdiff/0f249fe5f5cb3c83fd8e05743740b35ff5d34196">http://git.postgresql.org/pg/commitdiff/0f249fe5f5cb3c83fd8e05743740b35ff5d34196</a></li>
+<li>Trivial cosmetic cleanup in bloom/blutils.c. Don't spell "InvalidOid" as "0". Initialize method fields in the same order as amapi.h declares them (and every other AM handler initializes them). <a target="_blank" href="http://git.postgresql.org/pg/commitdiff/e3049285a3b8790e26e584fdf1ca31ea2e2eb4bc">http://git.postgresql.org/pg/commitdiff/e3049285a3b8790e26e584fdf1ca31ea2e2eb4bc</a></li>
+<li>Last-minute updates for release notes. Security: CVE-2016-5423, CVE-2016-5424 <a target="_blank" href="http://git.postgresql.org/pg/commitdiff/9b8271c5a655ef1c35141b266d5039da8d3b2337">http://git.postgresql.org/pg/commitdiff/9b8271c5a655ef1c35141b266d5039da8d3b2337</a></li>
+<li>Fix two errors with nested CASE/WHEN constructs. ExecEvalCase() tried to save a cycle or two by passing &amp;econtext-&gt;caseValue_isNull as the isNull argument to its sub-evaluation of the CASE value expression. If that subexpression itself contained a CASE, then *isNull was an alias for econtext-&gt;caseValue_isNull within the recursive call of ExecEvalCase(), leading to confusion about whether the inner call's caseValue was null or not. In the worst case this could lead to a core dump due to dereferencing a null pointer. Fix by not assigning to the global variable until control comes back from the subexpression. Also, avoid using the passed-in isNull pointer transiently for evaluation of WHEN expressions. (Either one of these changes would have been sufficient to fix the known misbehavior, but it's clear now that each of these choices was in itself dangerous coding practice and best avoided. There do not seem to be any similar hazards elsewhere in execQual.c.) Also, it was possible for inlining of a SQL function that implements the equality operator used for a CASE comparison to result in one CASE expression's CaseTestExpr node being inserted inside another CASE expression. This would certainly result in wrong answers since the improperly nested CaseTestExpr would be caused to return the inner CASE's comparison value not the outer's. If the CASE values were of different data types, a crash might result; moreover such situations could be abused to allow disclosure of portions of server memory. To fix, teach inline_function to check for "bare" CaseTestExpr nodes in the arguments of a function to be inlined, and avoid inlining if there are any. Heikki Linnakangas, Michael Paquier, Tom Lane Report: <a target="_blank" href="https://github.com/greenplum-db/gpdb/pull/327">https://github.com/greenplum-db/gpdb/pull/327</a> Report: &lt;4DDCEEB8.50602@enterprisedb.com&gt; Security: CVE-2016-5423 <a target="_blank" href="http://git.postgresql.org/pg/commitdiff/f0c7b789ab12fbc8248b671c7882dd96ac932ef4">http://git.postgresql.org/pg/commitdiff/f0c7b789ab12fbc8248b671c7882dd96ac932ef4</a></li>
+<li>Fix inappropriate printing of never-measured times in EXPLAIN. EXPLAIN (ANALYZE, TIMING OFF) would print an elapsed time of zero for a trigger function, because no measurement has been taken but it printed the field anyway. This isn't what EXPLAIN does elsewhere, so suppress it. In the same vein, EXPLAIN (ANALYZE, BUFFERS) with non-text output format would print buffer I/O timing numbers even when no measurement has been taken because track_io_timing is off. That seems not per policy, either, so change it. Back-patch to 9.2 where these features were introduced. Maksim Milyutin Discussion: &lt;081c0540-ecaa-bd29-3fd2-6358f3b359a9@postgrespro.ru&gt; <a target="_blank" href="http://git.postgresql.org/pg/commitdiff/4b234fd8bf21cd6f5ff44f1f1c613bf40860998d">http://git.postgresql.org/pg/commitdiff/4b234fd8bf21cd6f5ff44f1f1c613bf40860998d</a></li>
+<li>Doc: clarify that DROP ... CASCADE is recursive. Apparently that's not obvious to everybody, so let's belabor the point. In passing, document that DROP POLICY has CASCADE/RESTRICT options (which it does, per gram.y) but they do nothing (I assume, anyway). Also update some long-obsolete commentary in gram.y. Discussion: &lt;20160805104837.1412.84915@wrigleys.postgresql.org&gt; <a target="_blank" href="http://git.postgresql.org/pg/commitdiff/499787819309293f3d2cd7219aee334a0e7d5069">http://git.postgresql.org/pg/commitdiff/499787819309293f3d2cd7219aee334a0e7d5069</a></li>
+<li>Add SQL-accessible functions for inspecting index AM properties. Per discussion, we should provide such functions to replace the lost ability to discover AM properties by inspecting pg_am (cf commit 65c5fcd35). The added functionality is also meant to displace any code that was looking directly at pg_index.indoption, since we'd rather not believe that the bit meanings in that field are part of any client API contract. As future-proofing, define the SQL API to not assume that properties that are currently AM-wide or index-wide will remain so unless they logically must be; instead, expose them only when inquiring about a specific index or even specific index column. Also provide the ability for an index AM to override the behavior. In passing, document pg_am.amtype, overlooked in commit 473b93287. Andrew Gierth, with kibitzing by me and others Discussion: &lt;87mvl5on7n.fsf@news-spur.riddles.org.uk&gt; <a target="_blank" href="http://git.postgresql.org/pg/commitdiff/ed0097e4f9e6b1227935e01fa67f12a238b66064">http://git.postgresql.org/pg/commitdiff/ed0097e4f9e6b1227935e01fa67f12a238b66064</a></li>
+<li>Fix assorted bugs in contrib/bloom. In blinsert(), cope with the possibility that a page we pull from the notFullPage list is marked BLOOM_DELETED. This could happen if VACUUM recently marked it deleted but hasn't (yet) updated the metapage. We can re-use such a page safely, but we *must* reinitialize it so that it's no longer marked deleted. Fix blvacuum() so that it updates the notFullPage list even if it's going to update it to empty. The previous "optimization" of skipping the update seems pretty dubious, since it means that the next blinsert() will uselessly visit whatever pages we left in the list. Uniformly treat PageIsNew pages the same as deleted pages. This should allow proper recovery if a crash occurs just after relation extension. Properly use vacuum_delay_point, not assorted ad-hoc CHECK_FOR_INTERRUPTS calls, in the blvacuum() main loop. Fix broken tuple-counting logic: blvacuum.c counted the number of live index tuples over again in each scan, leading to VACUUM VERBOSE reporting some multiple of the actual number of surviving index tuples after any vacuum that removed any tuples (since they'd be counted in blvacuum, maybe more than once, and then again in blvacuumcleanup, without ever zeroing the counter). It's sufficient to count them in blvacuumcleanup. stats-&gt;estimated_count is a boolean, not a counter, and we don't want to set it true, so don't add tuple counts to it. Add a couple of Asserts that we don't overrun available space on a bloom page. I don't think there's any bug there today, but the way the FreeBlockNumberArray size calculation is set up is scarily fragile, and BloomPageGetFreeSpace isn't much better. The Asserts should help catch any future mistakes. Per investigation of a report from Jeff Janes. I think the first item above may explain his report; the other changes were things I noticed while casting about for an explanation. Report: &lt;CAMkU=1xEUuBphDwDmB1WjN4+td4kpnEniFaTBxnk1xzHCw8_OQ@mail.gmail.com&gt; <a target="_blank" href="http://git.postgresql.org/pg/commitdiff/d6c9e05cb7db64239887fac65b243229594f331d">http://git.postgresql.org/pg/commitdiff/d6c9e05cb7db64239887fac65b243229594f331d</a></li>
+<li>Remove bogus dependencies on NUMERIC_MAX_PRECISION. NUMERIC_MAX_PRECISION is a purely arbitrary constraint on the precision and scale you can write in a numeric typmod. It might once have had something to do with the allowed range of a typmod-less numeric value, but at least since 9.1 we've allowed, and documented that we allowed, any value that would physically fit in the numeric storage format; which is something over 100000 decimal digits, not 1000. Hence, get rid of numeric_in()'s use of NUMERIC_MAX_PRECISION as a limit on the allowed range of the exponent in scientific-format input. That was especially silly in view of the fact that you can enter larger numbers as long as you don't use 'e' to do it. Just constrain the value enough to avoid localized overflow, and let make_result be the final arbiter of what is too large. Likewise adjust ecpg's equivalent of this code. Also get rid of numeric_recv()'s use of NUMERIC_MAX_PRECISION to limit the number of base-NBASE digits it would accept. That created a dump/restore hazard for binary COPY without doing anything useful; the wire-format limit on number of digits (65535) is about as tight as we would want. In HEAD, also get rid of pg_size_bytes()'s unnecessary intimacy with what the numeric range limit is. That code doesn't exist in the back branches. Per gripe from Aravind Kumar. Back-patch to all supported branches, since they all contain the documentation claim about allowed range of NUMERIC (cf commit cabf5d84b). Discussion: &lt;2895.1471195721@sss.pgh.pa.us&gt; <a target="_blank" href="http://git.postgresql.org/pg/commitdiff/9389fbd0385776adf3252eb8cfe6e37a640fdff4">http://git.postgresql.org/pg/commitdiff/9389fbd0385776adf3252eb8cfe6e37a640fdff4</a></li>
+</ul>
+<p>Peter Eisentraut pushed:</p>
+<ul>
+<li>doc: Move mention of rsync of temp tables to better place <a target="_blank" href="http://git.postgresql.org/pg/commitdiff/4a1f42f287c33e457cb3f081e692853a65dc0efb">http://git.postgresql.org/pg/commitdiff/4a1f42f287c33e457cb3f081e692853a65dc0efb</a></li>
+<li>Correct column name in information schema. Although the standard has routines.result_cast_character_set_name, given the naming of the surrounding columns, we concluded that this must have been a mistake and that result_cast_char_set_name was intended, so change the implementation. The documentation was already using the new name. found by Cl&eacute;ment Pr&eacute;vost &lt;prevostclement@gmail.com&gt; <a target="_blank" href="http://git.postgresql.org/pg/commitdiff/d8710f18f4a63947874301311f5558e7d3d93438">http://git.postgresql.org/pg/commitdiff/d8710f18f4a63947874301311f5558e7d3d93438</a></li>
+<li>Make format() error messages consistent again. 07d25a964 changed only one occurrence. Change the other one as well. <a target="_blank" href="http://git.postgresql.org/pg/commitdiff/8a56d4e361d4566ce5d6b55f25c3f23aa44f4741">http://git.postgresql.org/pg/commitdiff/8a56d4e361d4566ce5d6b55f25c3f23aa44f4741</a></li>
+<li>doc: Update benchmark results. From: Alexander Law &lt;exclusion@gmail.com&gt; <a target="_blank" href="http://git.postgresql.org/pg/commitdiff/a1f8b6bd14adb724365d91dcc58079ac3a2293e7">http://git.postgresql.org/pg/commitdiff/a1f8b6bd14adb724365d91dcc58079ac3a2293e7</a></li>
+<li>Translation updates. Source-Git-URL: git://git.postgresql.org/git/pgtranslation/messages.git Source-Git-Hash: cda21c1d7b160b303dc21dfe9d4169f2c8064c60 <a target="_blank" href="http://git.postgresql.org/pg/commitdiff/34927b2920a865559be743836c1aa60a3621c133">http://git.postgresql.org/pg/commitdiff/34927b2920a865559be743836c1aa60a3621c133</a></li>
+<li>Fix several one-byte buffer over-reads in to_number. Several places in NUM_numpart_from_char(), which is called from the SQL function to_number(text, text), could accidentally read one byte past the end of the input buffer (which comes from the input text datum and is not null-terminated). 1. One leading space character would be skipped, but there was no check that the input was at least one byte long. This does not happen in practice, but for defensiveness, add a check anyway. 2. Commit 4a3a1e2cf apparently accidentally doubled that code that skips one space character (so that two spaces might be skipped), but there was no overflow check before skipping the second byte. Fix by removing that duplicate code. 3. A logic error would allow a one-byte over-read when looking for a trailing sign (S) placeholder. In each case, the extra byte cannot be read out directly, but looking at it might cause a crash. The third item was discovered by Piotr Stefaniak, the first two were found and analyzed by Tom Lane and Peter Eisentraut. <a target="_blank" href="http://git.postgresql.org/pg/commitdiff/9a46324fd46506c86b190d3163902ed90072c53c">http://git.postgresql.org/pg/commitdiff/9a46324fd46506c86b190d3163902ed90072c53c</a></li>
+<li>Fix typo <a target="_blank" href="http://git.postgresql.org/pg/commitdiff/ab0a23c7c9a4b6dfba7fbffe798452299a6444b9">http://git.postgresql.org/pg/commitdiff/ab0a23c7c9a4b6dfba7fbffe798452299a6444b9</a></li>
+</ul>
+<p>Bruce Momjian pushed:</p>
+<ul>
+<li>doc: update list of pg_trgm authors. Author: Oleg Bartunov <a target="_blank" href="http://git.postgresql.org/pg/commitdiff/cfdadf5f930c4e613e3a13ab09673856aa59351e">http://git.postgresql.org/pg/commitdiff/cfdadf5f930c4e613e3a13ab09673856aa59351e</a></li>
+<li>docs: my first pass over the 9.6 release notes <a target="_blank" href="http://git.postgresql.org/pg/commitdiff/2abf92bc698558699c199ff14261b00ee92e98dd">http://git.postgresql.org/pg/commitdiff/2abf92bc698558699c199ff14261b00ee92e98dd</a></li>
+<li>docs: my second pass over the 9.6 release notes <a target="_blank" href="http://git.postgresql.org/pg/commitdiff/fd5a2db774c1952567f75603dffb6d9fb0b0013d">http://git.postgresql.org/pg/commitdiff/fd5a2db774c1952567f75603dffb6d9fb0b0013d</a></li>
+</ul>
+<p>Noah Misch pushed:</p>
+<ul>
+<li>Promote pg_dumpall shell/connstr quoting functions to src/fe_utils. Rename these newly-extern functions with terms more typical of their new neighbors. No functional changes; a subsequent commit will use them in more places. Back-patch to 9.1 (all supported versions). Back branches lack src/fe_utils, so instead rename the functions in place; the subsequent commit will copy them into the other programs using them. Security: CVE-2016-5424 <a target="_blank" href="http://git.postgresql.org/pg/commitdiff/41f18f021a0882eccbeca62e2ed4b66c6b96e9c9">http://git.postgresql.org/pg/commitdiff/41f18f021a0882eccbeca62e2ed4b66c6b96e9c9</a></li>
+<li>Sort out paired double quotes in \connect, \password and \crosstabview. In arguments, these meta-commands wrongly treated each pair as closing the double quoted string. Make the behavior match the documentation. This is a compatibility break, but I more expect to find software with untested reliance on the documented behavior than software reliant on today's behavior. Back-patch to 9.1 (all supported versions). Reviewed by Tom Lane and Peter Eisentraut. Security: CVE-2016-5424 <a target="_blank" href="http://git.postgresql.org/pg/commitdiff/984e5beb38a7c79a5a9243865d9598c405df17f6">http://git.postgresql.org/pg/commitdiff/984e5beb38a7c79a5a9243865d9598c405df17f6</a></li>
+<li>Reject, in pg_dumpall, names containing CR or LF. These characters prematurely terminate Windows shell command processing, causing the shell to execute a prefix of the intended command. The chief alternative to rejecting these characters was to bypass the Windows shell with CreateProcess(), but the ability to use such names has little value. Back-patch to 9.1 (all supported versions). This change formally revokes support for these characters in database names and roles names. Don't document this; the error message is self-explanatory, and too few users would benefit. A future major release may forbid creation of databases and roles so named. For now, check only at known weak points in pg_dumpall. Future commits will, without notice, reject affected names from other frontend programs. Also extend the restriction to pg_dumpall --dbname=CONNSTR arguments and --file arguments. Unlike the effects on role name arguments and database names, this does not reflect a broad policy change. A migration to CreateProcess() could lift these two restrictions. Reviewed by Peter Eisentraut. Security: CVE-2016-5424 <a target="_blank" href="http://git.postgresql.org/pg/commitdiff/142c24c23447f212e642a0ffac9af878b93f490d">http://git.postgresql.org/pg/commitdiff/142c24c23447f212e642a0ffac9af878b93f490d</a></li>
+<li>Field conninfo strings throughout src/bin/scripts. These programs nominally accepted conninfo strings, but they would proceed to use the original dbname parameter as though it were an unadorned database name. This caused "reindexdb dbname=foo" to issue an SQL command that always failed, and other programs printed a conninfo string in error messages that purported to print a database name. Fix both problems by using PQdb() to retrieve actual database names. Continue to print the full conninfo string when reporting a connection failure. It is informative there, and if the database name is the sole problem, the server-side error message will include the name. Beyond those user-visible fixes, this allows a subsequent commit to synthesize and use conninfo strings without that implementation detail leaking into messages. As a side effect, the "vacuuming database" message now appears after, not before, the connection attempt. Back-patch to 9.1 (all supported versions). Reviewed by Michael Paquier and Peter Eisentraut. Security: CVE-2016-5424 <a target="_blank" href="http://git.postgresql.org/pg/commitdiff/c400717172d77e5b07e51e04c5e5e13da181572e">http://git.postgresql.org/pg/commitdiff/c400717172d77e5b07e51e04c5e5e13da181572e</a></li>
+<li>Fix Windows shell argument quoting. The incorrect quoting may have permitted arbitrary command execution. At a minimum, it gave broader control over the command line to actors supposed to have control over a single argument. Back-patch to 9.1 (all supported versions). Security: CVE-2016-5424 <a target="_blank" href="http://git.postgresql.org/pg/commitdiff/bd65371851b7a9964b4b265d06fe1304315e37c1">http://git.postgresql.org/pg/commitdiff/bd65371851b7a9964b4b265d06fe1304315e37c1</a></li>
+<li>Obstruct shell, SQL, and conninfo injection via database and role names. Due to simplistic quoting and confusion of database names with conninfo strings, roles with the CREATEDB or CREATEROLE option could escalate to superuser privileges when a superuser next ran certain maintenance commands. The new coding rule for PQconnectdbParams() calls, documented at conninfo_array_parse(), is to pass expand_dbname=true and wrap literal database names in a trivial connection string. Escape zero-length values in appendConnStrVal(). Back-patch to 9.1 (all supported versions). Nathan Bossart, Michael Paquier, and Noah Misch. Reviewed by Peter Eisentraut. Reported by Nathan Bossart. Security: CVE-2016-5424 <a target="_blank" href="http://git.postgresql.org/pg/commitdiff/fcd15f13581f6d75c63d213220d5a94889206c1b">http://git.postgresql.org/pg/commitdiff/fcd15f13581f6d75c63d213220d5a94889206c1b</a></li>
+<li>Introduce a psql "\connect -reuse-previous=on|off" option. The decision to reuse values of parameters from a previous connection has been based on whether the new target is a conninfo string. Add this means of overriding that default. This feature arose as one component of a fix for security vulnerabilities in pg_dump, pg_dumpall, and pg_upgrade, so back-patch to 9.1 (all supported versions). In 9.3 and later, comment paragraphs that required update had already-incorrect claims about behavior when no connection is open; fix those problems. Security: CVE-2016-5424 <a target="_blank" href="http://git.postgresql.org/pg/commitdiff/9d924e9a64b91571e04252424c01210fc0f6f6d9">http://git.postgresql.org/pg/commitdiff/9d924e9a64b91571e04252424c01210fc0f6f6d9</a></li>
+</ul>
+<p>&Aacute;lvaro Herrera pushed:</p>
+<ul>
+<li>Add ID property to replication slots' sect2 <a target="_blank" href="http://git.postgresql.org/pg/commitdiff/371b572df2d7e24750f8d0fc2e45d673ac70beec">http://git.postgresql.org/pg/commitdiff/371b572df2d7e24750f8d0fc2e45d673ac70beec</a></li>
+</ul>
+<p>Simon Riggs pushed:</p>
+<ul>
+<li>Correct TABLESAMPLE docs. Original wording was correct but not the intended meaning. Reported by Patrik Wenger <a target="_blank" href="http://git.postgresql.org/pg/commitdiff/6e75559ea9cb0bc8fd07543567cd02d4ec85ca20">http://git.postgresql.org/pg/commitdiff/6e75559ea9cb0bc8fd07543567cd02d4ec85ca20</a></li>
+<li>Code cleanup in SyncRepWaitForLSN() Commit 14e8803f1 removed LWLocks when accessing MyProc-&gt;syncRepState but didn't clean up the surrounding code and comments. Cleanup and backpatch to 9.5, to keep code similar. Julien Rouhaud, improved by suggestion from Michael Paquier, implemented trivially by myself. <a target="_blank" href="http://git.postgresql.org/pg/commitdiff/e05f6f75dbe00a7349dccf1116b5ed983b4728c0">http://git.postgresql.org/pg/commitdiff/e05f6f75dbe00a7349dccf1116b5ed983b4728c0</a></li>
+</ul>
+<h2>Correctifs en attente</h2>
+<p>Thomas Munro sent in a patch to implement dsm_unpin_segment.</p>
+<p>Peter Eisentraut sent in a patch to set log_line_prefix and application name in test drivers for pg_regress.</p>
+<p>David G. Johnston sent in a patch to make comprehension of the code in "TS_phrase_execute" a bit easier.</p>
+<p>Amit Langote sent in another revision of the patch set to implement declarative table partitioning.</p>
+<p>Robert Haas sent in a patch to run pgindent before the branch.</p>
+<p>Tom Lane sent in a patch to allow GIN array_ops to work on anyarray.</p>
+<p>Micha&euml;l Paquier sent in a patch to forbid use of LF and CR characters in database and role names.</p>
+<p>Robert Haas sent in a patch to introduce condition variables. <a target="_blank" href="https://en.wikipedia.org/wiki/Monitor_(synchronization)#Condition_variables_2">https://en.wikipedia.org/wiki/Monitor_(synchronization)#Condition_variables_2</a></p>
+<p>Craig Ringer sent in a patch to give a more helpful hint as to when psql's \copy or similar trickery might be needed, as opposed to COPY.</p>
+<p>Mart&iacute;n Marqu&eacute;s sent in a patch to add a test which will fail if it finds tables created by EXTENSIONs in pg_dump output.</p>
+<p>Thomas Munro sent in a patch to create jumbo DSM segments, producing a SIGBUS if overallocated, which is not the right error.</p>
+<p>Rushabh Lathia sent in a patch to fix a crash caused by a run of TPC-H.</p>
+<p>Andreas Scherbaum sent in another revision of a patch to add to_date_valid().</p>
+<p>Thomas Munro sent in a patch to add "barriers" to aid parallel computation.</p>
+<p>Ryan Murphy sent in two revisions of a patch to make it possible for initdb to work with paths that contain spaces.</p></div>
+
+      </div>
+
+  
+
+    
+  
+    
+    
+    </div>
+</div> <!-- End #main -->
+
+</div> <!-- End #wrapper -->
+
+<div id="pgFooter">
+  <p>Propulsé par <a href="http://dotclear.org/">Dotclear</a></p>
+</div>
+
+</div> <!-- End #page -->
+</body>
+
+<!-- Mirrored from blog2.postgresql.fr/index.php?post/2016/08/18/Nouvelles-hebdomadaires-de-PostgreSQL-14-ao%C3%BBt-2016 by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 May 2020 21:40:19 GMT -->
+</html>

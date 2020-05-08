@@ -1,0 +1,186 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr">
+
+<!-- Mirrored from blog2.postgresql.fr/index.php?post/drupal/134 by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 May 2020 21:40:20 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="MSSmartTagsPreventParsing" content="TRUE" />
+  <meta name="ROBOTS" content="INDEX, FOLLOW" />
+  
+  <title>== PostgreSQL Weekly News - 13 novembre 2005 == - PostgreSQLfr.org</title>
+  <meta name="description" lang="fr" content="PostgreSQL v.8.1 est sorti :-) Vous trouverez tous les détails ici: http://www.postgresql.org/docs/whatsnew PostgreSQL 8.1.0 est désormais présent dans l'arbre des" />
+  <meta name="copyright" content="" />
+  <meta name="author" content="Jean-Paul Argudo" />
+  <meta name="date" scheme="ISO8601" content="2005-11-18T09:23:00+00:00" />
+  
+  <link rel="schema.dc" href="http://purl.org/dc/elements/1.1/" />
+  <meta name="dc.title" content="== PostgreSQL Weekly News - 13 novembre 2005 ==" />
+  <meta name="dc.description" lang="fr" content="PostgreSQL v.8.1 est sorti :-) Vous trouverez tous les détails ici: http://www.postgresql.org/docs/whatsnew PostgreSQL 8.1.0 est désormais présent dans l'arbre des" />
+  <meta name="dc.creator" content="Jean-Paul Argudo" />
+  <meta name="dc.language" content="fr" />
+  <meta name="dc.publisher" content="" />
+  <meta name="dc.rights" content="" />
+  <meta name="dc.date" scheme="ISO8601" content="2005-11-18T09:23:00+00:00" />
+  <meta name="dc.type" content="text" />
+  <meta name="dc.format" content="text/html" />
+  
+  <link rel="top" href="indexd41d.html?" title="Accueil" />
+  <link rel="contents" href="index888d.html?archive" title="Archives" />
+  
+  <link rel="next" href="index5ed0.html?post/drupal/135"
+  title="== PostgreSQL Weekly News - 20 novembre 2005 ==" />
+  
+  <link rel="previous" href="index805d.html?post/drupal/385"
+  title=".po corrompus pour les versions 7.4.9 et 8.0.4 de PostgreSQL" />
+  
+  <link rel="alternate" type="application/atom+xml" title="Atom 1.0" href="index4ca3.php?feed/atom" />
+  
+  <style type="text/css" media="screen">
+@import url(themes/postgresql/style.css);
+</style>
+<style type="text/css" media="print">
+@import url(themes/default/print.css);
+</style>
+
+<script type="text/javascript" src="themes/default/js/jquery.js"></script>
+<script type="text/javascript" src="themes/default/js/jquery.cookie.js"></script>
+
+  
+  <script type="text/javascript" src="themes/default/js/post.js"></script>
+  <script type="text/javascript">
+  //<![CDATA[
+  var post_remember_str = 'Se souvenir de moi sur ce blog';
+  //]]>
+  </script>
+</head>
+
+<body class="dc-post">
+<div id="page">
+
+
+<div id="top">
+  <div id="pgHeader">
+    <span id="pgHeaderLogoLeft">
+      <a href="index.html" title="PostgreSQL"><img src="https://blog.postgresql.fr/themes/postgresql/img/hdr_left.png" width="230" height="80" alt="PostgreSQL" /></a>
+    </span>
+    <span id="pgHeaderLogoRight">
+      <a href="index.html" title="La base de donnees la plus sophistiquee au monde."><img src="https://blog.postgresql.fr/themes/postgresql/img/hdr_right.png" width="210" height="80" alt="La base de donnees la plus sophistiquee au monde." /></a>
+    </span>
+  </div>
+
+  </div>
+
+<div class="pgTopNav">
+  <div class="pgTopNavLeft"> 
+    <img src="https://blog.postgresql.fr/themes/postgresql/img/nav_lft.png" width="7" height="23" alt="" />
+  </div>
+  <div class="pgTopNavRight">
+    <img src="https://blog.postgresql.fr/themes/postgresql/img/nav_rgt.png" width="7" height="23" alt="" />
+  </div>
+  <ul class="pgTopNavList">
+    <li><a href="https://www.postgresql.fr/" title="Accueil">Accueil</a></li>
+    <li><a href="https://blog.postgresql.fr/" title="Lire les actualités">Actualités</a></li>
+    <li><a href="https://docs.postgresql.fr/" title="Lire la documentation officielle">Documentation</a></li>
+    <li><a href="https://forums.postgresql.fr/" title="Pour poser des questions">Forums</a></li>
+    <li><a href="https://www.postgresql.fr/asso/" title="La vie de l'association">Association</a></li>
+    <li><a href="https://www.postgresql.fr/devel:accueil" title="Informations pour les développeurs/traducteurs">Développeurs</a></li>
+    <li><a href="https://planete.postgresql.fr/" title="La planète francophone sur PostgreSQL">Planète</a></li>
+    <li><a href="https://www.postgresql.fr/support/" title="Support sur PostgreSQL">Support</a></li>
+  </ul>
+</div>
+
+<div id="wrapper">
+
+<div id="pgContent">
+
+  <div id="pgSideWrap">
+  <div id="pgSideNav">
+    <div id="blognav">
+      <div id="search"><h2><label for="q">Rechercher</label></h2><form action="http://blog2.postgresql.fr/index.php?" method="get"><fieldset><p><input type="text" size="10" maxlength="255" id="q" name="q" value="" /> <input class="submit" type="submit" value="ok" /></p></fieldset></form></div><div class="categories"><h2>Catégories</h2><ul><li><a href="index199b.html?category/Articles">Articles</a></li><li><a href="indexb4c6.html?category/Dans-les-bacs">Dans les bacs</a></li><li><a href="index025a.html?category/Evenements">Événements</a></li><li class="category-current"><a href="index8c6d.html?category/PostgreSQL-Weekly-News">PostgreSQL Weekly News</a></li><li><a href="index1835.html?category/Securite">Sécurité</a></li><li><a href="index2251.html?category/Vie-de-l-association">Vie de l'association</a></li><li><a href="index91de.html?category/Vie-du-site">Vie du site</a></li></ul></div><div class="text"><h2>Licence</h2>Tous les articles de ce blog sont disponibles sous la <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/">license Creative Commons BY-NC-SA 3.0</a>.</div>    </div> <!-- End #blognav -->
+  
+    <div id="blogextra">
+      <div class="syndicate"><h2>S'abonner</h2><ul><li><a type="application/atom+xml" href="index4ca3.php?feed/atom" title="Fil Atom des billets de ce blog" class="feed">Fil des billets</a></li></ul></div>    </div> <!-- End #blogextra -->
+  </div>
+  </div>
+
+  <div id="pgContentWrap">
+  <div id="pgDownloadsWrap">
+  <div id="content">
+
+  <p id="navlinks">
+  <a href="index805d.html?post/drupal/385"
+  title=".po corrompus pour les versions 7.4.9 et 8.0.4 de PostgreSQL" class="prev">&#171; .po corrompus pour les versions 7.4.9 et 8.0.4 de</a>
+   <span>-</span> <a href="index5ed0.html?post/drupal/135"
+  title="== PostgreSQL Weekly News - 20 novembre 2005 ==" class="next">== PostgreSQL Weekly News - 20 novembre 2005 == &#187;</a>
+  </p>
+  
+  <div class="post">
+    <h2 id="p134" class="post-title">== PostgreSQL Weekly News - 13 novembre 2005 ==</h2>
+    
+    <p class="post-info">Par Jean-Paul Argudo    le vendredi 18 novembre 2005, 09:23        - <a href="index8c6d.html?category/PostgreSQL-Weekly-News">PostgreSQL Weekly News</a>
+        - <a href="index5415.html?post/drupal/134">Lien permanent</a>
+    </p>
+    
+    
+    
+          <div class="post-excerpt"><p>
+PostgreSQL v.8.1 est sorti :-) Vous trouverez tous les détails ici:<br />
+<a href="http://www.postgresql.org/docs/whatsnew" target="_blank">http://www.postgresql.org/docs/whatsnew</a></p>
+<p>PostgreSQL 8.1.0 est désormais présent dans l'arbre des "ports" OpenBSD</p>
+<p>Teodor Sigaev a ajouté nombre d'améliorations à tsearch2, qui est un moteur de recherche plein texte.</p>
+<p>Il y a eu des discussions très animées sur la liste de diffusion pgsql-hackers au sujet de MERGE et des index multi-tables. Espérons que cela continue&nbsp;!
+</p>
+<p>Les gens de SRA (NDT: Software Research Associates, une des grosses
+compagnies supportant PostgreSQL) ont spammé une publicité à une liste
+de courriels qu'ils avaient récupérés. Bien qu'il se soient rapidement
+excusés de l'avoir envoyée à la mauvaise liste, ils doivent toujours
+démolir la liste de courriels collectés et ne plus jamais en faire une
+autre.</p></div>
+        
+    <div class="post-content"><h3>== Nouveaux produits autour de PostgreSQL ==</h3>
+<p>Sortie de Wikipgedia v.0.0.2 (NDT: Wikipédia tourne sous MySQL depuis le début, mais montre de nombreux signes de faiblesse. Il a donc été décidé de faire un "port" vers PostgreSQL...):<br /><a href="http://pgfoundry.org/projects/wikipedia/" target="_blank">http://pgfoundry.org/projects/wikipedia/</a></p>
+<p>Sortie de PL/sh v.1.2:<br /><a href="http://pgfoundry.org/projects/plsh/" target="_blank">http://pgfoundry.org/projects/plsh/</a></p>
+<p>Greenplum a sorti Bizgres MPP en Beta. (NDT: Bizgres est une solution complète de Business Intelligence, bâtie autour de plusieurs modules Open Source (un loader de données de masse, un datawarehouse bâti sur PostgreSQL, une base cube/hypercube, un générateur d'états, etc..):<br /><a href="http://www.greenplum.com/mpp-beta/" target="_blank">http://www.greenplum.com/mpp-beta/</a></p>
+<p>Sortie de pgPool v.2.6.5 (NDT: pgPool est un pooler de connexion, avec des fonctionalités de type load-balancing, il supporte aussi Slony-I, avec une base maître et un esclave):<br />
+<a href="http://pgfoundry.org/projects/pgpool/">http://pgfoundry.org/projects/pgpool/</a></p>
+<p>Le projet PostgreSQL RPM a construit des RPMs pour plusieurs plates-formes:<br />
+<a href="http://archives.postgresql.org/pgsql-announce/2005-11/msg00017.php" target="_blank">http://archives.postgresql.org/pgsql-announce/2005-11/msg00017.php</a><br />
+Ce projet a aussi sorti un document sur comment installer les RPMs de PostgreSQL sur des machines Red Hat ou Fedora Core:<br /><a href="http://pgfoundry.org/docman/?group_id=1000048" target="_blank">http://pgfoundry.org/docman/?group_id=1000048</a></p>
+<p>Slony-I 1.1 a été adapté pour supporter la version 8.1 de PostgreSQL. Il n'y a pas de backport de cette modification pour Slony-I 1.0, vous devrez donc upgrader.</p>
+<p>psqlODBC 08.01.0100 est sorti:(NDT: d'énomes modifications ont été faites sur le driver ODBC, je vous engage à le tester rapidement):<br /><a href="http://www.postgresql.org/about/news.418" target="_blank">http://www.postgresql.org/about/news.418</a></p>
+<p>pgAdmin 1.4.0 est sorti (NDT: tout comme pour psqlODBC, les améliorations apportées par cette nouvelle version sont conséquentes, avec entre autres, le support de Slony-I&nbsp;!):<br />
+<a href="http://www.postgresql.org/ftp/pgadmin3/beta/" target="_blank">http://www.postgresql.org/ftp/pgadmin3/beta/</a></p>
+<h3>== PostgreSQL Local ==</h3>
+<p>La page des utilisateurs Turcs de PostgreSQL est ouverte&nbsp;!<br /><a href="http://www.postgresql.org.tr/" target="_blank">http://www.PostgreSQL.org.tr</a><br />
+<strong>Toute l'équipe de PostgreSQLFr souhaite bienvenue et longue vie à nos homologues Turcs&nbsp;!</strong></p>
+<h3>== PostgreSQL dans l'actualité ==</h3>
+<p>Andrew Dunstan a publié un article sur l'utilisation de Perl avec PostgreSQL:<br />
+<a href="http://www.oreillynet.com/pub/a/databases/2005/11/10/using-perl-in-postgresql.html" target="_blank">http://www.oreillynet.com/pub/a/databases/2005/11/10/using-perl-in-postgresql.html</a></p>
+<p>Planet PostgreSQL: <a href="http://www.planetpostgresql.org/" target="_blank">http://www.planetpostgresql.org/</a></p>
+<p>General Bits, est publié les Lundi: <a href="http://www.varlena.com/GeneralBits/" target="_blank">http://www.varlena.com/GeneralBits/</a></p>
+<p><small>Ce numéro des Nouvelles Hebdomadaires de PostgreSQL a été rédigé par David Fetter et Devrim Gunduz. Il a été traduit de l'anglais et commenté par Jean-Paul Argudo.</small></p></div>
+
+      </div>
+
+  
+
+    
+  
+    
+    
+    </div>
+</div> <!-- End #main -->
+
+</div> <!-- End #wrapper -->
+
+<div id="pgFooter">
+  <p>Propulsé par <a href="http://dotclear.org/">Dotclear</a></p>
+</div>
+
+</div> <!-- End #page -->
+</body>
+
+<!-- Mirrored from blog2.postgresql.fr/index.php?post/drupal/134 by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 May 2020 21:40:20 GMT -->
+</html>

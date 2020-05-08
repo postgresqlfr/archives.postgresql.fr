@@ -1,0 +1,313 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr">
+
+<!-- Mirrored from blog2.postgresql.fr/index.php?post/2010/05/20/Nouvelles-hebdomadaires-de-PostgreSQL-16-mai-2010 by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 May 2020 21:40:20 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="MSSmartTagsPreventParsing" content="TRUE" />
+  <meta name="ROBOTS" content="INDEX, FOLLOW" />
+  
+  <title>Nouvelles hebdomadaires de PostgreSQL - 16 mai 2010 - PostgreSQLfr.org</title>
+  <meta name="description" lang="fr" content="Les mises à jour correctrices [ndt: et de sécurité] 8.4.4, 8.3.11, 8.2.17, 8.1.21, 8.0.25 et 7.4.29 seront disponibles sous peu. Préparez-vous ! Les élections du bureau de" />
+  <meta name="copyright" content="" />
+  <meta name="author" content="chl" />
+  <meta name="date" scheme="ISO8601" content="2010-05-20T22:22:00+02:00" />
+  
+  <link rel="schema.dc" href="http://purl.org/dc/elements/1.1/" />
+  <meta name="dc.title" content="Nouvelles hebdomadaires de PostgreSQL - 16 mai 2010" />
+  <meta name="dc.description" lang="fr" content="Les mises à jour correctrices [ndt: et de sécurité] 8.4.4, 8.3.11, 8.2.17, 8.1.21, 8.0.25 et 7.4.29 seront disponibles sous peu. Préparez-vous ! Les élections du bureau de" />
+  <meta name="dc.creator" content="chl" />
+  <meta name="dc.language" content="fr" />
+  <meta name="dc.publisher" content="" />
+  <meta name="dc.rights" content="" />
+  <meta name="dc.date" scheme="ISO8601" content="2010-05-20T22:22:00+02:00" />
+  <meta name="dc.type" content="text" />
+  <meta name="dc.format" content="text/html" />
+  
+  <link rel="top" href="indexd41d.html?" title="Accueil" />
+  <link rel="contents" href="index888d.html?archive" title="Archives" />
+  
+  <link rel="next" href="index228e.html?post/2010/05/29/Nouvelles-hebdomadaires-de-PostgreSQL-23-mai-2010"
+  title="Nouvelles hebdomadaires de PostgreSQL - 23 mai 2010" />
+  
+  <link rel="previous" href="indexee05.html?post/2010/05/12/Nouvelles-hebdomadaires-de-PostgreSQL-9-mai-2010"
+  title="Nouvelles hebdomadaires de PostgreSQL - 9 mai 2010" />
+  
+  <link rel="alternate" type="application/atom+xml" title="Atom 1.0" href="index4ca3.php?feed/atom" />
+  
+  <style type="text/css" media="screen">
+@import url(themes/postgresql/style.css);
+</style>
+<style type="text/css" media="print">
+@import url(themes/default/print.css);
+</style>
+
+<script type="text/javascript" src="themes/default/js/jquery.js"></script>
+<script type="text/javascript" src="themes/default/js/jquery.cookie.js"></script>
+
+  
+  <script type="text/javascript" src="themes/default/js/post.js"></script>
+  <script type="text/javascript">
+  //<![CDATA[
+  var post_remember_str = 'Se souvenir de moi sur ce blog';
+  //]]>
+  </script>
+</head>
+
+<body class="dc-post">
+<div id="page">
+
+
+<div id="top">
+  <div id="pgHeader">
+    <span id="pgHeaderLogoLeft">
+      <a href="index.html" title="PostgreSQL"><img src="https://blog.postgresql.fr/themes/postgresql/img/hdr_left.png" width="230" height="80" alt="PostgreSQL" /></a>
+    </span>
+    <span id="pgHeaderLogoRight">
+      <a href="index.html" title="La base de donnees la plus sophistiquee au monde."><img src="https://blog.postgresql.fr/themes/postgresql/img/hdr_right.png" width="210" height="80" alt="La base de donnees la plus sophistiquee au monde." /></a>
+    </span>
+  </div>
+
+  </div>
+
+<div class="pgTopNav">
+  <div class="pgTopNavLeft"> 
+    <img src="https://blog.postgresql.fr/themes/postgresql/img/nav_lft.png" width="7" height="23" alt="" />
+  </div>
+  <div class="pgTopNavRight">
+    <img src="https://blog.postgresql.fr/themes/postgresql/img/nav_rgt.png" width="7" height="23" alt="" />
+  </div>
+  <ul class="pgTopNavList">
+    <li><a href="https://www.postgresql.fr/" title="Accueil">Accueil</a></li>
+    <li><a href="https://blog.postgresql.fr/" title="Lire les actualités">Actualités</a></li>
+    <li><a href="https://docs.postgresql.fr/" title="Lire la documentation officielle">Documentation</a></li>
+    <li><a href="https://forums.postgresql.fr/" title="Pour poser des questions">Forums</a></li>
+    <li><a href="https://www.postgresql.fr/asso/" title="La vie de l'association">Association</a></li>
+    <li><a href="https://www.postgresql.fr/devel:accueil" title="Informations pour les développeurs/traducteurs">Développeurs</a></li>
+    <li><a href="https://planete.postgresql.fr/" title="La planète francophone sur PostgreSQL">Planète</a></li>
+    <li><a href="https://www.postgresql.fr/support/" title="Support sur PostgreSQL">Support</a></li>
+  </ul>
+</div>
+
+<div id="wrapper">
+
+<div id="pgContent">
+
+  <div id="pgSideWrap">
+  <div id="pgSideNav">
+    <div id="blognav">
+      <div id="search"><h2><label for="q">Rechercher</label></h2><form action="http://blog2.postgresql.fr/index.php?" method="get"><fieldset><p><input type="text" size="10" maxlength="255" id="q" name="q" value="" /> <input class="submit" type="submit" value="ok" /></p></fieldset></form></div><div class="categories"><h2>Catégories</h2><ul><li><a href="index199b.html?category/Articles">Articles</a></li><li><a href="indexb4c6.html?category/Dans-les-bacs">Dans les bacs</a></li><li><a href="index025a.html?category/Evenements">Événements</a></li><li class="category-current"><a href="index8c6d.html?category/PostgreSQL-Weekly-News">PostgreSQL Weekly News</a></li><li><a href="index1835.html?category/Securite">Sécurité</a></li><li><a href="index2251.html?category/Vie-de-l-association">Vie de l'association</a></li><li><a href="index91de.html?category/Vie-du-site">Vie du site</a></li></ul></div><div class="text"><h2>Licence</h2>Tous les articles de ce blog sont disponibles sous la <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/">license Creative Commons BY-NC-SA 3.0</a>.</div>    </div> <!-- End #blognav -->
+  
+    <div id="blogextra">
+      <div class="syndicate"><h2>S'abonner</h2><ul><li><a type="application/atom+xml" href="index4ca3.php?feed/atom" title="Fil Atom des billets de ce blog" class="feed">Fil des billets</a></li></ul></div>    </div> <!-- End #blogextra -->
+  </div>
+  </div>
+
+  <div id="pgContentWrap">
+  <div id="pgDownloadsWrap">
+  <div id="content">
+
+  <p id="navlinks">
+  <a href="indexee05.html?post/2010/05/12/Nouvelles-hebdomadaires-de-PostgreSQL-9-mai-2010"
+  title="Nouvelles hebdomadaires de PostgreSQL - 9 mai 2010" class="prev">&#171; Nouvelles hebdomadaires de PostgreSQL - 9 mai 2010</a>
+   <span>-</span> <a href="index228e.html?post/2010/05/29/Nouvelles-hebdomadaires-de-PostgreSQL-23-mai-2010"
+  title="Nouvelles hebdomadaires de PostgreSQL - 23 mai 2010" class="next">Nouvelles hebdomadaires de PostgreSQL - 23 mai &#187;</a>
+  </p>
+  
+  <div class="post">
+    <h2 id="p543" class="post-title">Nouvelles hebdomadaires de PostgreSQL - 16 mai 2010</h2>
+    
+    <p class="post-info">Par chl    le jeudi 20 mai 2010, 22:22        - <a href="index8c6d.html?category/PostgreSQL-Weekly-News">PostgreSQL Weekly News</a>
+        - <a href="index1dd6.html?post/2010/05/20/Nouvelles-hebdomadaires-de-PostgreSQL-16-mai-2010">Lien permanent</a>
+    </p>
+    
+    
+    
+          <div class="post-excerpt"><p>Les mises à jour correctrices [ndt: et de sécurité] 8.4.4, 8.3.11, 8.2.17, 8.1.21, 8.0.25 et 7.4.29 seront disponibles sous peu. Préparez-vous&nbsp;!</p>
+<p>Les élections du bureau de PostgreSQL EU courent jusqu'au 23 mai 2010&nbsp;:
+<a target="_blank" href="https://www.postgresql.eu/elections/">https://www.postgresql.eu/elections/</a></p>
+<p>Conférence de Michael Renner au Netways OSDC à Nuremberg (All.) les 23 &amp; 24 juin 2010&nbsp;:
+<a target="_blank" href="http://www.netways.de/osdc/y2010/programm/">http://www.netways.de/osdc/y2010/programm/</a></p>
+<p>Le PDXPUG Day est programmé pour le 18 juillet 2010 à "l'Oregon Convention Center" à Portland. D'avantage d'informations&nbsp;:
+<a target="_blank" href="http://wiki.postgresql.org/wiki/PDXPUGDay2010">http://wiki.postgresql.org/wiki/PDXPUGDay2010</a></p>
+<p><strong>Les nouveautés des produits dérivés</strong></p>
+<ul>
+<li>tail_n_mail 1.10.3, un programme Perl pour scanner les fichiers de logs et envoyer les résultats par mail&nbsp;:
+<a target="_blank" href="http://bucardo.org/wiki/Tail_n_mail">http://bucardo.org/wiki/Tail_n_mail</a></li>
+<li>neo_my2pg 0.8, un utilitaire de conversion depuis MySQL&nbsp;:
+<a target="_blank" href="http://pgfoundry.org/projects/my2postgres/">http://pgfoundry.org/projects/my2postgres/</a></li>
+<li>pgAdmin 1.10.3, une interface graphique de gestion pour PostgreSQL&nbsp;:
+<a target="_blank" href="http://www.pgadmin.org/download/">http://www.pgadmin.org/download/</a></li>
+<li>pgbouncer 1.3.3, un gestionnaire léger de connexions pour PostgreSQL&nbsp;:
+<a target="_blank" href="http://pgfoundry.org/projects/pgbouncer/">http://pgfoundry.org/projects/pgbouncer/</a></li>
+<li>pglesslog 1.4.1, un ensemble d'outils visant à réduire la taille des WALs&nbsp;:
+<a target="_blank" href="http://pglesslog.projects.postgresql.org/">http://pglesslog.projects.postgresql.org/</a></li>
+<li>psycopg2 2.2.0, un connecteur Python pour PostgreSQL&nbsp;:
+<a target="_blank" href="http://initd.org/psycopg/">http://initd.org/psycopg/</a></li>
+</ul>
+<p><strong>La fonctionnalité 9.0 de la semaine</strong></p>
+<p>pg_ctl a maintenant une option "initdb".</p>
+<p><strong>Offres d'emplois autour de PostgreSQL en mai</strong></p>
+<ul>
+<li>Internationales&nbsp;:
+<a target="_blank" href="http://archives.postgresql.org/pgsql-jobs/2010-05/threads.php">http://archives.postgresql.org/pgsql-jobs/2010-05/threads.php</a>;</li>
+<li>Francophones&nbsp;:
+<a target="_blank" href="http://forums.postgresql.fr/viewforum.php?id=4">http://forums.postgresql.fr/viewforum.php?id=4</a>.</li>
+</ul>
+<p><strong>PostgreSQL Local</strong></p>
+<ul>
+<li>La PgCon 2010 aura lieu les 20 &amp; 21 mai 2010 à Ottawa avec des tutoriels les 18 et 19&nbsp;:
+<a target="_blank" href="http://www.pgcon.org/2010/registration.php">http://www.pgcon.org/2010/registration.php</a></li>
+<li>Le "Prague PostgreSQL Test Day" aura lieu le 21 mai 2010 à Prague, République Tchèque&nbsp;:
+<a target="_blank" href="http://www.nic.cz/page/747/test-the-new-beta-version-of-postgresql-in-the-cz.nic-laboratories/">http://www.nic.cz/page/747/test-the-new-beta-version-of-postgresql-in-the-cz.nic-laboratories/</a></li>
+<li>Les inscriptions sont ouvertes pour l'Open Source Bridge et les conférences sont annoncées&nbsp;! L'événement aura lieu du 1er au 4 juin 2010 à Portland (Oregon)&nbsp;:
+<a target="_blank" href="http://opensourcebridge.org/events/2010/proposals/">http://opensourcebridge.org/events/2010/proposals/</a></li>
+<li>Michael Renner tiendra une conférence au AMOOCON qui aura lieu du 4 au 6 juin 2010&nbsp;:
+<a target="_blank" href="http://www.amoocon.de/speakers/214">http://www.amoocon.de/speakers/214</a></li>
+<li>La "Southeast Linuxfest 2010" aura lieu à Spartanburg (Caroline du Sud, États-Unis) du 11 au 13 juin. Nos PG-gourous Joshua Drake et Andrew Dunstan donneront des présentations à ne pas manquer&nbsp;:
+<a target="_blank" href="http://southeastlinuxfest.org/">http://southeastlinuxfest.org/</a></li>
+<li>L'OSCON aura lieu à Portland (Oregon) du 19 au 23 juillet 2010&nbsp;:
+<a target="_blank" href="http://www.oscon.com/oscon2010">http://www.oscon.com/oscon2010</a></li>
+</ul>
+<p><strong>PostgreSQL dans les média</strong></p>
+<ul>
+<li>Planet PostgreSQL&nbsp;:
+<a target="_blank" href="http://planet.postgresql.org/">http://planet.postgresql.org/</a></li>
+<li>Planet PostgreSQLFr&nbsp;:
+<a target="_blank" href="http://planete.postgresql.fr/">http://planete.postgresql.fr/</a></li>
+</ul>
+<p><em>PostgreSQL Weekly News / les nouvelles hebdomadaires vous sont offertes cette semaine par David Fetter et Devrim Gunduz. Traduction par l'équipe PostgreSQLFr sous licence CC BY-NC-SA.</em></p>
+<p><em>Proposez vos articles ou annonces avant dimanche 15:00 (heure du Pacifique). Merci de les envoyer en anglais à david (a) fetter.org, en allemand à pwn (a) pgug.de, en italien à pwn (a) itpug.org et en espagnol à pwn (a) arpug.com.ar.</em></p>
+<p>(<a target="_blank" href="http://www.postgresql.org/community/weeklynews/pwn20100516">lien vers l'article original</a>)</p></div>
+        
+    <div class="post-content"><p><strong>Correctifs appliqués</strong></p>
+<p>Tom Lane a commité&nbsp;:</p>
+<ul>
+<li>In pgsql/src/backend/optimizer/plan/planagg.c, when adding a "target IS NOT NULL" indexqual to the plan for an index-optimized MIN or MAX, we must take care to insert the added qual in a legal place among the existing indexquals, if any. The btree index AM requires the quals to appear in index-column order. We didn't have to worry about this before because "target IS NOT NULL" was just treated as a plain scan filter condition; but as of 9.0 it can be an index qual and then it has to follow the rule. Per report from Ian Barwick.</li>
+<li>In pgsql/src/backend/optimizer/prep/prepunion.c, fix incorrect patch that removed permission checks on inheritance child tables --- the parent table no longer got checked, either. Per bug #5458 from Takahiro Itagaki.</li>
+<li>In pgsql/src/backend/postmaster/pgarch.c, cause the archiver process to adopt new postgresql.conf settings (particularly archive_command) as soon as possible, namely just before issuing a new call of archive_command, even when there is a backlog of files to be archived. The original coding would only absorb new settings after clearing the backlog and returning to the outer loop. Per discussion. Back-patch to 8.3. The logic in prior versions is a bit different and it doesn't seem worth taking any risks of breaking it.</li>
+<li>Add PKST to the default set of timezone abbreviations. Per discussion, if we have PKT in there then PKST should be too. Also, fix mistaken claim that these abbrevs are not known to zic.</li>
+<li>Update time zone data files to tzdata release 2010j: DST law changes in Argentina, Australian Antarctic, Bangladesh, Mexico, Morocco, Pakistan, Palestine, Russia, Syria, Tunisia. Historical corrections for Taiwan.</li>
+<li>Clean up unnecessary unportability and compiler warnings by removing the cmp parameter for pg_scandir(). The code failed to support this anyway for Sun/Windows, so pretending we could accept a parameter other than NULL was just asking for trouble.</li>
+<li>Hook pg_upgrade into the contrib makefile structure so it gets built on the buildfarm.</li>
+<li>Preliminary release notes for releases 8.4.4, 8.3.11, 8.2.17, 8.1.21, 8.0.25, 7.4.29.</li>
+<li>In pgsql/contrib/pg_upgrade_support/Makefile, fix wrong subdir. Per buildfarm.</li>
+<li>Use "TOAST table" in place of the vague, not-used-elsewhere phrase "supplementary storage table".</li>
+<li>In pgsql/doc/src/sgml/rules.sgml, use an entity instead of non-ASCII letter. Thom Brown.</li>
+<li>Fix up lame idea of not using autoconf to determine if platform has scandir(). Should fix buildfarm failures.</li>
+<li>In pgsql/contrib/pg_upgrade/file.c, spell __darwin__ correctly, to suppress compiler warning on OSX.</li>
+<li>In pg_upgrade, get rid of unsafe sprintf and snprintf usages. Per compiler warnings.</li>
+<li>In pgsql/contrib/pg_upgrade/controldata.c, remove another unsafe use of random data as a format string.</li>
+<li>In pgsql/contrib/pg_upgrade/info.c, fix another obvious bug pointed out by a compiler warning.</li>
+<li>In pgsql/src/include/port.h, spell __NetBSD__ the same way everywhere. Per Giles Lean.</li>
+<li>In pgsql/doc/src/sgml/ref/pg_restore.sgml, improve documentation of pg_restore's -l and -L switches to point out their interactions with filtering switches, such as -n and -t. Per a complaint from Russell Smith.</li>
+<li>Ensure that pg_restore -l will output DATABASE entries whether or not -C is specified. Per bug report from Russell Smith and ensuing discussion. Since this is a corner case behavioral change, I'm going to be conservative and not back-patch it. In passing, also rename the RestoreOptions field for the -C switch to something less generic than "create".</li>
+</ul>
+<p>ITAGAKI Takahiro a commité&nbsp;:</p>
+<ul>
+<li>In pgsql/src/backend/catalog/pg_proc.c, set per-function GUC settings during validating the function. Now validators work properly even when the settings contain parameters that affect behavior of the function, like search_path. Reported by Erwin Brandstetter.</li>
+<li>In pgsql/src/backend/po/ja.po, remove CRs.</li>
+</ul>
+<p>Robert Haas a commité&nbsp;:</p>
+<ul>
+<li>In pgsql/doc/src/sgml/ref/cluster.sgml, mention related ALTER TABLE variants in documentation for CLUSTER. As suggested by Andy Lester.</li>
+<li>In pgsql/src/include/utils/rbtree.h, change typedef for rb_appendator to avoid conflict with C++ reserved words. Fixes a complaint from src/tools/pginclude/cpluspluscheck reported by Peter Eisentraut.</li>
+<li>In pgsql/src/backend/postmaster/postmaster.c, we now accept read-only connections in state PM_RECOVERY_CONSISTENT.</li>
+<li>Rename PM_RECOVERY_CONSISTENT and PMSIGNAL_RECOVERY_CONSISTENT. The new names PM_HOT_STANDBY and PMSIGNAL_BEGIN_HOT_STANDBY more accurately reflect their actual function.</li>
+<li>In pgsql/doc/src/sgml/xfunc.sgml, fix longstanding typo in V1 calling conventions documentation. Erik Rijkers</li>
+<li>In pgsql/doc/src/sgml/xfunc.sgml, insert line breaks in two places in SQL functions documentation. This avoids a formatting problem in the PDF output. In the HTML output this isn't necessary, but we've done similar things elsewhere in the documentation so I think it's OK to do it here, too. I've refrained from breaking a longish error message which also causes problems for the PDF output, because that would make the HTML output look wrong. Erik Rijkers.</li>
+</ul>
+<p>Bruce Momjian a commité&nbsp;:</p>
+<ul>
+<li>Add pg_upgrade to /contrib; will be in 9.0 beta2. Add documentation. Supports migration from PG 8.3 and 8.4.</li>
+<li>Add pgsql/contrib/pg_upgrade/TODO file to CVS.</li>
+<li>Add pgsql/contrib/pg_upgrade/IMPLEMENTATION file to CVS.</li>
+<li>In pgsql/contrib/pg_upgrade/info.c, small formatting adjustment.</li>
+<li>Add PGFILEDESC description to Makefiles for all /contrib executables. Add PGAPPICON to all executable makefiles.</li>
+<li>Move pg_upgrade TODO to TODO wiki.</li>
+<li>In pgsql/src/backend/Makefile, remove Makefile PGFILEDESC tag that the postmaster is an executable.</li>
+<li>In pgsql/src/backend/Makefile, update comment about why postmaster doesn't get an icon.</li>
+<li>Move pg_upgrade shared library out into its own /contrib directory (pg_upgrade_support).</li>
+<li>In pgsql/doc/src/sgml/release-9.0.sgml, update release notes to current.</li>
+<li>In pgsql/doc/src/sgml/release-9.0.sgml, fix HISTORY.html build using , not &lt;/&gt;.</li>
+<li>In pgsql/doc/src/sgml/pgupgrade.sgml, comment out EnterpriseDB Advanced Server mention in SGML docs.</li>
+<li>Remove all mentions of EnterpriseDB Advanced Server from pg_upgrade; EDB must maintain their own patch set for this.</li>
+<li>Use NAMEDATALEN instead of local define. Modify path separators for Win32. Per ideas from Takahiro Itagaki.</li>
+<li>In pgsql/contrib/pg_upgrade/file.c, change bsdi define to __bsdi__.</li>
+<li>Use __bsdi__ consistently.</li>
+<li>In pgsql/contrib/pg_upgrade/file.c, adjust pg_upgrade BSD defines for scandir(), per report from Giles Lean.</li>
+</ul>
+<p>Peter Eisentraut a commité&nbsp;:</p>
+<ul>
+<li>Update config.guess and config.sub.</li>
+<li>Translation update</li>
+<li>Fix vpath installation from distribution tarball (bug #5447)</li>
+<li>In pgsql/src/nls-global.mk, avoid error from mkdir if no languages are to be installed mkinstalldirs used to handle no arguments, but mkdir doesn't. Also remove the .SILENT setting, that was previously removed from Makefile.global as well.</li>
+<li>Translation update</li>
+</ul>
+<p>Simon Riggs a commité&nbsp;:</p>
+<ul>
+<li>In pgsql/src/backend/tcop/postgres.c, give most recovery conflict errors a retryable error code. From recent requests and discussions with Yeb Havinga and Kevin Grittner.</li>
+<li>Cleanup initialization of Hot Standby. Clarify working with reanalysis of requirements and documentation on LogStandbySnapshot(). Fixes two minor bugs reported by Tom Lane that would lead to an incorrect snapshot after transaction wraparound. Also fix two other problems discovered that would give incorrect snapshots in certain cases. ProcArrayApplyRecoveryInfo() substantially rewritten. Some minor refactoring of xact_redo_apply() and ExpireTreeKnownAssignedTransactionIds().</li>
+<li>In pgsql/src/backend/access/transam/xact.c, ensure that top level aborts call XLogSetAsyncCommit(). Not doing so simply leads to data waiting in wal_buffers which then causes later commits to potentially do emergency writes and for all forms of replication to be potentially delayed without need or benefit. Issue pointed out exactly by Fujii Masao, following bug report by Robert Haas on a separate though related topic.</li>
+<li>Add many new Asserts in code and fix simple bug that slipped through without them, related to previous commit. Report by Bruce Momjian.</li>
+<li>In pgsql/src/backend/access/transam/xlog.c, fix bug in processing of checkpoint time for max_standby_delay. Latest log time was incorrectly set, typically leading to dates in the past, which would cause more cancellations in Hot Standby on a quiet server.</li>
+</ul>
+<p>Andrew Dunstan a commité&nbsp;:</p>
+<ul>
+<li>In pgsql/src/tools/msvc/Mkvcbuild.pm, add missing library and include support for pg_upgrade to MSVC build system.</li>
+</ul>
+<p>Magnus Hagander a commité&nbsp;:</p>
+<ul>
+<li>Fix some spelling errors. Thom Brown.</li>
+<li>In pgsql/src/tools/msvc/Mkvcbuild.pm, properly support multi-line entires (such as OBJS=) when building PROGRAM, not just MODULE, in contrib.</li>
+<li>Assorted fixes to make pg_upgrade build on MSVC. 1. There is no chmod() on Windows. 2. Must always use the 3-parameter version of open(). 3. There is no dynloader.h - but it also appears unnecessary on all platforms. 4. Don't include shlobj.h because it causes compile errors, and from what I can see it's not actually used. This may need to be added back for mingw and/or cygwin in the worst case.</li>
+</ul>
+<p>Marc Fournier a commité&nbsp;:</p>
+<ul>
+<li>Tag 8.4.4, 8.3.11, 8.2.17, 8.1.21, 8.0.25, 7.4.29.</li>
+</ul>
+<p>Heikki Linnakangas a commité&nbsp;:</p>
+<ul>
+<li>In pgsql/contrib/pg_standby/pg_standby.c, fix typos in comments, spotted by Josh Kupershmidt.</li>
+</ul>
+<p><strong>Correctifs rejetés (à ce jour)</strong></p>
+<ul>
+<li>Greg Sabino Mullane's patch to change pg_dump not to use CREATE OR REPLACE LANGUAGE when talking to pre-9.0 databases. There never was a guarantee that the output of pg_dump would be backward-compatible.</li>
+</ul>
+<p><strong>Correctifs en attente</strong></p>
+<ul>
+<li>ITAGAKI Takahiro sent in a patch to change the search_path check for function bodies to the current search_path, where they had been using the one at create time.</li>
+<li>Mike Fowler sent in a patch to add a function xpath_exists() for 9.1.</li>
+<li>Alexander Korotkov sent in two revisions of a patch to make the levenshtein distance function in contrib/fuzzystrmatch work with multibyte character sets in 9.1.</li>
+<li>Simon Riggs sent in a patch to change the startup code for Hot Standby.</li>
+<li>Stephen Frost sent in a patch to add a handler for SIGCHLD to psql. This is for 9.1.</li>
+<li>Simon Riggs sent in a patch to add a keepalive message to ensure max_standby_delay is useful. Heikki Linnakangas responded with one which rearranges the walsender loops slightly so that XLogSend() now only sends up to MAX_SEND_SIZE bytes (== XLOG_SEG_SIZE / 2) in one round and returns to the main loop after that even if there's unsent WAL, and the main loop no longer sleeps if there's unsent WAL. Simon Riggs sent in another with wait processing cleanup.</li>
+<li>Joachim Wieland sent in a patch to fix some locking behavior for 9.1 in the case of SERIALIZABLE transactions.</li>
+<li>Robert Haas sent in a patch to implement a fix for smart shutdown in recovery.</li>
+</ul></div>
+
+      </div>
+
+  
+
+    
+  
+    
+    
+    </div>
+</div> <!-- End #main -->
+
+</div> <!-- End #wrapper -->
+
+<div id="pgFooter">
+  <p>Propulsé par <a href="http://dotclear.org/">Dotclear</a></p>
+</div>
+
+</div> <!-- End #page -->
+</body>
+
+<!-- Mirrored from blog2.postgresql.fr/index.php?post/2010/05/20/Nouvelles-hebdomadaires-de-PostgreSQL-16-mai-2010 by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 May 2020 21:40:20 GMT -->
+</html>

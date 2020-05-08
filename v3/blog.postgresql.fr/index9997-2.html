@@ -1,0 +1,239 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr">
+
+<!-- Mirrored from blog2.postgresql.fr/index.php?post/drupal/50 by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 May 2020 21:40:20 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="MSSmartTagsPreventParsing" content="TRUE" />
+  <meta name="ROBOTS" content="INDEX, FOLLOW" />
+  
+  <title>== PostgreSQL Weekly News - 15 novembre 2004 == - PostgreSQLfr.org</title>
+  <meta name="description" lang="fr" content="Le 15 novembre 2004, Robert Treat, nous annonçait sur la liste pgsql-announce: Cette semaine a été relativement calme avec la préparation de la béta 5, que vous pouvez attendre" />
+  <meta name="copyright" content="" />
+  <meta name="author" content="Jean-Paul Argudo" />
+  <meta name="date" scheme="ISO8601" content="2004-11-16T09:45:00+00:00" />
+  
+  <link rel="schema.dc" href="http://purl.org/dc/elements/1.1/" />
+  <meta name="dc.title" content="== PostgreSQL Weekly News - 15 novembre 2004 ==" />
+  <meta name="dc.description" lang="fr" content="Le 15 novembre 2004, Robert Treat, nous annonçait sur la liste pgsql-announce: Cette semaine a été relativement calme avec la préparation de la béta 5, que vous pouvez attendre" />
+  <meta name="dc.creator" content="Jean-Paul Argudo" />
+  <meta name="dc.language" content="fr" />
+  <meta name="dc.publisher" content="" />
+  <meta name="dc.rights" content="" />
+  <meta name="dc.date" scheme="ISO8601" content="2004-11-16T09:45:00+00:00" />
+  <meta name="dc.type" content="text" />
+  <meta name="dc.format" content="text/html" />
+  
+  <link rel="top" href="indexd41d.html?" title="Accueil" />
+  <link rel="contents" href="index888d.html?archive" title="Archives" />
+  
+  <link rel="next" href="indexed40.html?post/drupal/381"
+  title="Un article sur Slony-1, le système de réplication, sur le site OnLamp" />
+  
+  <link rel="previous" href="index865c.html?post/drupal/49"
+  title="== Nouvelles Hebdomadaires de PostgreSQL - 9 Novembre 2004 ==" />
+  
+  <link rel="alternate" type="application/atom+xml" title="Atom 1.0" href="index4ca3.php?feed/atom" />
+  
+  <style type="text/css" media="screen">
+@import url(themes/postgresql/style.css);
+</style>
+<style type="text/css" media="print">
+@import url(themes/default/print.css);
+</style>
+
+<script type="text/javascript" src="themes/default/js/jquery.js"></script>
+<script type="text/javascript" src="themes/default/js/jquery.cookie.js"></script>
+
+  
+  <script type="text/javascript" src="themes/default/js/post.js"></script>
+  <script type="text/javascript">
+  //<![CDATA[
+  var post_remember_str = 'Se souvenir de moi sur ce blog';
+  //]]>
+  </script>
+</head>
+
+<body class="dc-post">
+<div id="page">
+
+
+<div id="top">
+  <div id="pgHeader">
+    <span id="pgHeaderLogoLeft">
+      <a href="index.html" title="PostgreSQL"><img src="https://blog.postgresql.fr/themes/postgresql/img/hdr_left.png" width="230" height="80" alt="PostgreSQL" /></a>
+    </span>
+    <span id="pgHeaderLogoRight">
+      <a href="index.html" title="La base de donnees la plus sophistiquee au monde."><img src="https://blog.postgresql.fr/themes/postgresql/img/hdr_right.png" width="210" height="80" alt="La base de donnees la plus sophistiquee au monde." /></a>
+    </span>
+  </div>
+
+  </div>
+
+<div class="pgTopNav">
+  <div class="pgTopNavLeft"> 
+    <img src="https://blog.postgresql.fr/themes/postgresql/img/nav_lft.png" width="7" height="23" alt="" />
+  </div>
+  <div class="pgTopNavRight">
+    <img src="https://blog.postgresql.fr/themes/postgresql/img/nav_rgt.png" width="7" height="23" alt="" />
+  </div>
+  <ul class="pgTopNavList">
+    <li><a href="https://www.postgresql.fr/" title="Accueil">Accueil</a></li>
+    <li><a href="https://blog.postgresql.fr/" title="Lire les actualités">Actualités</a></li>
+    <li><a href="https://docs.postgresql.fr/" title="Lire la documentation officielle">Documentation</a></li>
+    <li><a href="https://forums.postgresql.fr/" title="Pour poser des questions">Forums</a></li>
+    <li><a href="https://www.postgresql.fr/asso/" title="La vie de l'association">Association</a></li>
+    <li><a href="https://www.postgresql.fr/devel:accueil" title="Informations pour les développeurs/traducteurs">Développeurs</a></li>
+    <li><a href="https://planete.postgresql.fr/" title="La planète francophone sur PostgreSQL">Planète</a></li>
+    <li><a href="https://www.postgresql.fr/support/" title="Support sur PostgreSQL">Support</a></li>
+  </ul>
+</div>
+
+<div id="wrapper">
+
+<div id="pgContent">
+
+  <div id="pgSideWrap">
+  <div id="pgSideNav">
+    <div id="blognav">
+      <div id="search"><h2><label for="q">Rechercher</label></h2><form action="http://blog2.postgresql.fr/index.php?" method="get"><fieldset><p><input type="text" size="10" maxlength="255" id="q" name="q" value="" /> <input class="submit" type="submit" value="ok" /></p></fieldset></form></div><div class="categories"><h2>Catégories</h2><ul><li><a href="index199b.html?category/Articles">Articles</a></li><li><a href="indexb4c6.html?category/Dans-les-bacs">Dans les bacs</a></li><li><a href="index025a.html?category/Evenements">Événements</a></li><li class="category-current"><a href="index8c6d.html?category/PostgreSQL-Weekly-News">PostgreSQL Weekly News</a></li><li><a href="index1835.html?category/Securite">Sécurité</a></li><li><a href="index2251.html?category/Vie-de-l-association">Vie de l'association</a></li><li><a href="index91de.html?category/Vie-du-site">Vie du site</a></li></ul></div><div class="text"><h2>Licence</h2>Tous les articles de ce blog sont disponibles sous la <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/">license Creative Commons BY-NC-SA 3.0</a>.</div>    </div> <!-- End #blognav -->
+  
+    <div id="blogextra">
+      <div class="syndicate"><h2>S'abonner</h2><ul><li><a type="application/atom+xml" href="index4ca3.php?feed/atom" title="Fil Atom des billets de ce blog" class="feed">Fil des billets</a></li></ul></div>    </div> <!-- End #blogextra -->
+  </div>
+  </div>
+
+  <div id="pgContentWrap">
+  <div id="pgDownloadsWrap">
+  <div id="content">
+
+  <p id="navlinks">
+  <a href="index865c.html?post/drupal/49"
+  title="== Nouvelles Hebdomadaires de PostgreSQL - 9 Novembre 2004 ==" class="prev">&#171; == Nouvelles Hebdomadaires de PostgreSQL - 9</a>
+   <span>-</span> <a href="indexed40.html?post/drupal/381"
+  title="Un article sur Slony-1, le système de réplication, sur le site OnLamp" class="next">Un article sur Slony-1, le système de réplication, &#187;</a>
+  </p>
+  
+  <div class="post">
+    <h2 id="p50" class="post-title">== PostgreSQL Weekly News - 15 novembre 2004 ==</h2>
+    
+    <p class="post-info">Par Jean-Paul Argudo    le mardi 16 novembre 2004, 09:45        - <a href="index8c6d.html?category/PostgreSQL-Weekly-News">PostgreSQL Weekly News</a>
+        - <a href="index9997-2.html?post/drupal/50">Lien permanent</a>
+    </p>
+    
+    
+    
+          <div class="post-excerpt"><p>
+Le 15 novembre 2004, Robert Treat, nous annonçait sur la liste
+pgsql-announce:</p>
+<p>
+Cette semaine a été relativement calme avec la préparation de la béta 5, que
+vous pouvez attendre pour ce début de semaine. À moins d'une surprise de
+dernière minute, la béta 5 sera probablement la dernière des bétas, avant la
+sortie officielle d'une "release candidate". Aussi, gardez les yeux grands
+ouverts et testez tout ce que vous n'avez pas encore pu tester!
+</p>
+<p>
+Dû à cette semaine relativement calme, nous avons seulement une poignée de
+nouveautés cette semaine. Le plus grand changement est probablement la
+disparition du la catégorie de variables de type "GUC userlimit", les variables
+affectées ont été changées en SUSET basique à la place. Le plannificateur a
+évolué pour classer les fonctions "stables" en constantes lors des estimations
+de sélectivité. Le processus de démarrage du postmaster a été amélioré afin de
+mieux détecter lorsqu'il est sûr de redemarrer après un boot ou pas. Un premier
+support de la localisation a été ajouté à l'installateur Windows, avec une
+traduction partielle vers l'Allemand. Enfin, la documentation de l'organisation
+du filesystem sous-jacent à PostgreSQL a été faite.
+</p></div>
+        
+    <div class="post-content"><h3>== Nouveaux produits autour de PostgreSQL ==</h3>
+<p>
+La version 1.1.0 de pfm est disponible au téléchargement.<br />
+<a href="http://gborg.postgresql.org/project/pfm/news/newsfull.php?news_id=199">
+http://gborg.postgresql.org/project/pfm/news/newsfull.php?news_id=199
+</a>
+</p>
+<p>EMS PostgreSQL Manager version 1.4<br />
+<a href="http://freshmeat.net/projects/emspgmanager/?branch_id=39341&amp;release_id=178604">
+http://freshmeat.net/projects/emspgmanager/?branch_id=39341&amp;release_id=178604
+</a>
+</p>
+<p>
+Nexonia annonce 100 entreprises sur leur report de dépenses et leur système de
+plannification.<br />
+<a href="http://www.emediawire.com/releases/2004/11/emw176711.htm">
+http://www.emediawire.com/releases/2004/11/emw176711.htm
+</a>
+</p>
+<h3>== PostgreSQL dans les News ==</h3>
+<p>
+Migrer d'Oracle/tcl vers PostgreSQL/Perl<br />
+<a href="http://techdocs.postgresql.org/techdocs/interview-stosberg.php">
+http://techdocs.postgresql.org/techdocs/interview-stosberg.php
+</a>
+</p>
+<p>
+Melbourne uni works to close grid 'loop'<br />
+<a href="http://www.computerworld.com.au/index.php/id;294629988;fp;16;fpid;0">
+http://www.computerworld.com.au/index.php/id;294629988;fp;16;fpid;0
+</a>
+</p>
+<p>
+PostgreSQL Bootcamp<br />
+<a href="http://www.ccnmag.com/?nav=headlines&amp;id=3459">
+http://www.ccnmag.com/?nav=headlines&amp;id=3459
+</a>
+</p>
+<p>
+Squirrelmail avec PostgreSQL (blog)<br />
+<a href="http://www.dailystuff.nl/archives/2004/11/squirrelmail-using-postgresql/">
+http://www.dailystuff.nl/archives/2004/11/squirrelmail-using-postgresql/
+</a>
+</p>
+<p>
+Développement de X-VR2 (blog)<br />
+<a href="http://johnwarrior.blogspot.com/2004/11/x-vr2-development.html">
+http://johnwarrior.blogspot.com/2004/11/x-vr2-development.html
+</a>
+</p>
+<h3>== Évènements autour de PostgreSQL ==</h3>
+<p>
+Vanmtagem + Developers 2004: Lisbane, Portugal: 15-19 novembre<br />
+Plusieurs sessions sur PostgreSQL, modélisation entité-relation, SQL, etc.<br />
+<a href="http://www.v-developers.com/">
+http://www.v-developers.com
+</a>
+</p>
+<p>
+Séminaire PostgreSQL : Ankura, Turquie: 1er décembre<br />
+Devrim Gunduz présentera un séminaire sur les nouveautés apportées par
+PostgreSQL 8.0<br />
+<a href="http://seminer.linux.org.tr/">
+http://seminer.linux.org.tr
+</a>
+</p></div>
+
+      </div>
+
+  
+
+    
+  
+    
+    
+    </div>
+</div> <!-- End #main -->
+
+</div> <!-- End #wrapper -->
+
+<div id="pgFooter">
+  <p>Propulsé par <a href="http://dotclear.org/">Dotclear</a></p>
+</div>
+
+</div> <!-- End #page -->
+</body>
+
+<!-- Mirrored from blog2.postgresql.fr/index.php?post/drupal/50 by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 May 2020 21:40:20 GMT -->
+</html>

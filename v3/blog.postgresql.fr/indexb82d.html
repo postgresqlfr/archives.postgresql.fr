@@ -1,0 +1,183 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr">
+
+<!-- Mirrored from blog2.postgresql.fr/index.php?post/drupal/389 by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 May 2020 21:40:20 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="MSSmartTagsPreventParsing" content="TRUE" />
+  <meta name="ROBOTS" content="INDEX, FOLLOW" />
+  
+  <title>Langages de procédure : type OUT et INOUT - PostgreSQLfr.org</title>
+  <meta name="description" lang="fr" content="Attention, tous les exemples de cet article utilisent le langage PL/pgsql. Pour l'utiliser, vous devez l'intégrer à votre base. Cela se fait tout simplement avec cette commande :" />
+  <meta name="copyright" content="" />
+  <meta name="author" content="gleu" />
+  <meta name="date" scheme="ISO8601" content="2005-12-15T23:59:00+00:00" />
+  
+  <link rel="schema.dc" href="http://purl.org/dc/elements/1.1/" />
+  <meta name="dc.title" content="Langages de procédure : type OUT et INOUT" />
+  <meta name="dc.description" lang="fr" content="Attention, tous les exemples de cet article utilisent le langage PL/pgsql. Pour l'utiliser, vous devez l'intégrer à votre base. Cela se fait tout simplement avec cette commande :" />
+  <meta name="dc.creator" content="gleu" />
+  <meta name="dc.language" content="fr" />
+  <meta name="dc.publisher" content="" />
+  <meta name="dc.rights" content="" />
+  <meta name="dc.date" scheme="ISO8601" content="2005-12-15T23:59:00+00:00" />
+  <meta name="dc.type" content="text" />
+  <meta name="dc.format" content="text/html" />
+  
+  <link rel="top" href="indexd41d.html?" title="Accueil" />
+  <link rel="contents" href="index888d.html?archive" title="Archives" />
+  
+  <link rel="next" href="indexb19a.html?post/drupal/145"
+  title="Nouvelles hebdomadaires de PostgreSQL - 5 Décembre 2005" />
+  
+  <link rel="previous" href="index3aeb.html?post/drupal/388"
+  title="Sortie des versions 7.3.12, 7.4.10, 8.0.5 et 8.1.1" />
+  
+  <link rel="alternate" type="application/atom+xml" title="Atom 1.0" href="index4ca3.php?feed/atom" />
+  
+  <style type="text/css" media="screen">
+@import url(themes/postgresql/style.css);
+</style>
+<style type="text/css" media="print">
+@import url(themes/default/print.css);
+</style>
+
+<script type="text/javascript" src="themes/default/js/jquery.js"></script>
+<script type="text/javascript" src="themes/default/js/jquery.cookie.js"></script>
+
+  
+  <script type="text/javascript" src="themes/default/js/post.js"></script>
+  <script type="text/javascript">
+  //<![CDATA[
+  var post_remember_str = 'Se souvenir de moi sur ce blog';
+  //]]>
+  </script>
+</head>
+
+<body class="dc-post">
+<div id="page">
+
+
+<div id="top">
+  <div id="pgHeader">
+    <span id="pgHeaderLogoLeft">
+      <a href="index.html" title="PostgreSQL"><img src="https://blog.postgresql.fr/themes/postgresql/img/hdr_left.png" width="230" height="80" alt="PostgreSQL" /></a>
+    </span>
+    <span id="pgHeaderLogoRight">
+      <a href="index.html" title="La base de donnees la plus sophistiquee au monde."><img src="https://blog.postgresql.fr/themes/postgresql/img/hdr_right.png" width="210" height="80" alt="La base de donnees la plus sophistiquee au monde." /></a>
+    </span>
+  </div>
+
+  </div>
+
+<div class="pgTopNav">
+  <div class="pgTopNavLeft"> 
+    <img src="https://blog.postgresql.fr/themes/postgresql/img/nav_lft.png" width="7" height="23" alt="" />
+  </div>
+  <div class="pgTopNavRight">
+    <img src="https://blog.postgresql.fr/themes/postgresql/img/nav_rgt.png" width="7" height="23" alt="" />
+  </div>
+  <ul class="pgTopNavList">
+    <li><a href="https://www.postgresql.fr/" title="Accueil">Accueil</a></li>
+    <li><a href="https://blog.postgresql.fr/" title="Lire les actualités">Actualités</a></li>
+    <li><a href="https://docs.postgresql.fr/" title="Lire la documentation officielle">Documentation</a></li>
+    <li><a href="https://forums.postgresql.fr/" title="Pour poser des questions">Forums</a></li>
+    <li><a href="https://www.postgresql.fr/asso/" title="La vie de l'association">Association</a></li>
+    <li><a href="https://www.postgresql.fr/devel:accueil" title="Informations pour les développeurs/traducteurs">Développeurs</a></li>
+    <li><a href="https://planete.postgresql.fr/" title="La planète francophone sur PostgreSQL">Planète</a></li>
+    <li><a href="https://www.postgresql.fr/support/" title="Support sur PostgreSQL">Support</a></li>
+  </ul>
+</div>
+
+<div id="wrapper">
+
+<div id="pgContent">
+
+  <div id="pgSideWrap">
+  <div id="pgSideNav">
+    <div id="blognav">
+      <div id="search"><h2><label for="q">Rechercher</label></h2><form action="http://blog2.postgresql.fr/index.php?" method="get"><fieldset><p><input type="text" size="10" maxlength="255" id="q" name="q" value="" /> <input class="submit" type="submit" value="ok" /></p></fieldset></form></div><div class="categories"><h2>Catégories</h2><ul><li class="category-current"><a href="index199b.html?category/Articles">Articles</a></li><li><a href="indexb4c6.html?category/Dans-les-bacs">Dans les bacs</a></li><li><a href="index025a.html?category/Evenements">Événements</a></li><li><a href="index8c6d.html?category/PostgreSQL-Weekly-News">PostgreSQL Weekly News</a></li><li><a href="index1835.html?category/Securite">Sécurité</a></li><li><a href="index2251.html?category/Vie-de-l-association">Vie de l'association</a></li><li><a href="index91de.html?category/Vie-du-site">Vie du site</a></li></ul></div><div class="text"><h2>Licence</h2>Tous les articles de ce blog sont disponibles sous la <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/">license Creative Commons BY-NC-SA 3.0</a>.</div>    </div> <!-- End #blognav -->
+  
+    <div id="blogextra">
+      <div class="syndicate"><h2>S'abonner</h2><ul><li><a type="application/atom+xml" href="index4ca3.php?feed/atom" title="Fil Atom des billets de ce blog" class="feed">Fil des billets</a></li></ul></div>    </div> <!-- End #blogextra -->
+  </div>
+  </div>
+
+  <div id="pgContentWrap">
+  <div id="pgDownloadsWrap">
+  <div id="content">
+
+  <p id="navlinks">
+  <a href="index3aeb.html?post/drupal/388"
+  title="Sortie des versions 7.3.12, 7.4.10, 8.0.5 et 8.1.1" class="prev">&#171; Sortie des versions 7.3.12, 7.4.10, 8.0.5 et 8.1.1</a>
+   <span>-</span> <a href="indexb19a.html?post/drupal/145"
+  title="Nouvelles hebdomadaires de PostgreSQL - 5 Décembre 2005" class="next">Nouvelles hebdomadaires de PostgreSQL - 5 Décembre &#187;</a>
+  </p>
+  
+  <div class="post">
+    <h2 id="p389" class="post-title">Langages de procédure : type OUT et INOUT</h2>
+    
+    <p class="post-info">Par gleu    le jeudi 15 décembre 2005, 23:59        - <a href="index199b.html?category/Articles">Articles</a>
+        - <a href="indexb82d.html?post/drupal/389">Lien permanent</a>
+    </p>
+    
+    
+    
+          <div class="post-excerpt"><p></p></div>
+        
+    <div class="post-content"><p>Attention, tous les exemples de cet article utilisent le langage PL/pgsql. Pour l'utiliser, vous devez l'intégrer à votre base. Cela se fait tout simplement avec cette commande&nbsp;:</p>
+<pre>createlang plpgsql metier</pre>
+<p>Je viens donc d'intégrer le langage de procédures plpgsql dans la base metier.</p>
+<p>Avant la version 8.1, PostgreSQL n'acceptait que des arguments en entrée dans la déclaration des fonctions (et quelque soit le langage de procédures utilisé). Pour renvoyer un résultat, il fallait passer par la « valeur de retour ». Malgré tout, il était possible de renvoyer plusieurs valeurs en utilisant un type composite. En fait, cela revenait à renvoyer une ligne de plusieurs colonnes d'une table « virtuelle ».</p>
+<p>Créons une première fonction servant uniquement à incrémenter la valeur en entrée&nbsp;:</p>
+<pre>CREATE FUNCTION incremente(valeur int4) RETURNS int4 AS<br />$$<br />BEGIN<br />RETURN valeur + 1;<br />END<br />$$ LANGUAGE plpgsql;</pre>
+<p>« RETURNS int4 » (sur la première ligne) indique le type de la valeur renvoyée (ici un entier, plus précisément un int4). « RETURN ... » (4è ligne) sert à indiquer la valeur à renvoyer. Voici les résultats sur deux tests&nbsp;:</p>
+<pre>metier=# SELECT incremente(1);<br /> incremente<br />------------<br />          2<br />(1 ligne)<br /><br />metier=# SELECT incremente(2);<br /> incremente<br />------------<br />          3<br />(1 ligne)</pre>
+<p>Créons maintenant une fonction renvoyant plusieurs valeurs. Nous devons passer par un type composite, équivalent d'une structure en C&nbsp;:</p>
+<pre>CREATE TYPE inc AS (<br />  val1 int4,<br />  val2 int4,<br />  str  varchar(10));</pre>
+<p>Une fois ce type déclaré, nous pouvons passer à la création de la procédure stockée&nbsp;:</p>
+<pre>CREATE FUNCTION incremente_2(valeur int4) RETURNS inc AS<br />$$<br />DECLARE<br />r inc;<br />BEGIN<br />SELECT INTO r valeur + 1, valeur + 2, 'test';<br />RETURN r;<br />END<br />$$ LANGUAGE plpgsql;</pre>
+<p>Comme précédemment, « RETURNS ... » indique le type (composite dans ce cas) renvoyé et « RETURN ... » indique la valeur renvoyée. Voici quelques exemples d'utilisation de la fonction&nbsp;:</p>
+<pre>metier=# SELECT incremente_2(5);<br /> incremente<br />------------<br /> (6,7,test)<br />(1 ligne)<br /><br />metier=# SELECT (incremente_2(5)).val1;<br /> val1<br />------<br />    6<br />(1 ligne)<br /><br />metier=# SELECT (incremente_2(5)).str;<br /> str<br />------<br /> test<br />(1 ligne)</pre>
+<p>La fonction utilise tous les <a href="http://traduc.postgresqlfr.org/pgsql-8.1.0-fr/rowtypes.html">concepts des types composites</a>, ce qui en rend la gestion un peu lourde. Elle ne renvoie pas réellement une ligne d'un tableau mais un type ROW. De plus, elle oblige à créer un type séparément.</p>
+<p>La version 8.1 apporte une solution élégante à ce problème grâce à deux nouveaux types de paramètres&nbsp;: un paramètre en sortie seule (OUT) et un paramètre en entrée/sortie (INOUT). Sans indication, un paramètre est en entrée. Pour indiquer le type de paramètre, il faut l'écrire avant le nom de la variable et/ou son type de variable).</p>
+<p>Commençons par le type OUT.</p>
+<pre>CREATE FUNCTION incremente81(IN int4, OUT int4) AS<br />$$<br />BEGIN<br />$2 = $1 + 1;<br />END;<br />LANGUAGE plpgsql;</pre>
+<p>Premier point intéressant, je n'ai pas indiqué de type en retour (avec l'élement RETURNS). Deuxième point intéressant qui en découle, il n'y a pas non plus d'instruction RETURN. La valeur renvoyée sera le seul paramètre déclaré en sortie, $2 dans cet exemple. Exécutons cette fonction&nbsp;:</p>
+<pre>metier=# SELECT incremente81(5);<br /> incremente81<br />----------------<br /> 6<br />(1 ligne)</pre>
+<p>Elle fonctionne exactement comme notre ancienne fonction « incremente ». Remarquez simplement que je n'ai indiqué qu'un seul paramètre. Le paramètre de type OUT ne peut pas être fourni. Vous ne pouvez pas non plus y placer une variable comme dans le cas des fonctions avec paramètres par référence dans des langages comme le C. Tous les paramètres OUT et INOUT sont renvoyés comme valeur de retour. Continuons avec le type INOUT qui vous permet d'y stocker une valeur et de la récupérer modifiée en sortie de la fonction.</p>
+<pre>CREATE FUNCTION incremente81(INOUT int4) AS<br />$$<br />BEGIN<br />$1 = $1 + 1;<br />END;<br />$$ LANGUAGE plpgsql;</pre>
+<p>Là aussi, pas de RETURNS et de RETURN.</p>
+<pre>metier=# SELECT incremente81(5);<br /> incremente81<br />----------------<br /> 6<br />(1 ligne)</pre>
+<p>Ce type est surtout utile pour éviter de déclarer une variable en entrée et une variable en sortie quand elles sont du même type.</p>
+<p>Pour en revenir à notre exemple complexe où plusieurs valeurs sont renvoyées par une seule fonction, voici comment elle s'écrirait avec cette nouvelle fonctionnalité&nbsp;:</p>
+<pre>CREATE FUNCTION incremente81_2(IN valeur int4, OUT val1 int4, OUT val2 int4, OUT str varchar(10)) AS<br />$$<br />BEGIN<br />val1 = valeur + 1;<br />val2 = valeur + 2;<br />str = 'test';<br />END<br />$$ LANGUAGE plpgsql;</pre>
+<p>Pas de déclaration d'un type composite, pas de RETURNS et de RETURN&nbsp;: la valeur renvoyée et son type dépendent du nombre d'arguments déclarés en sortie (donc OUT et INOUT). Remarquez aussi que je n'indique rien pour les paramètres OUT. S'il y a plusieurs arguments, l'élément renvoyé sera de type composite. Si les arguments sont nommés comme dans l'exemple ci-dessus, il sera possible d'accéder à chaque élément&nbsp;:</p>
+<pre>metier=# SELECT incremente81_2(5);<br /> incremente<br />------------<br /> (6,7,test)<br />(1 ligne)<br /><br />metier=# SELECT (incremente81_2(5)).val1;<br /> val1<br />------<br />    6<br />(1 ligne)<br /><br />metier=# SELECT (incremente81_2(5)).str;<br /> str<br />------<br /> test<br />(1 ligne)</pre>
+<p>L'écriture de la fonction est plus intuitive, sa compréhension est plus simple (par exemple, il n'est plus nécessaire de savoir ce que représente le type inc).</p>
+<p>Cette fonctionnalité a aussi été ajoutée pour faciliter le passage d'Oracle vers PostgreSQL. Oracle propose aussi ce type d'arguments. Il propose en plus le passage de variables par référence, ce que PostgreSQL ne fait pas (encore&nbsp;?).</p></div>
+
+      </div>
+
+  
+
+    
+  
+    
+    
+    </div>
+</div> <!-- End #main -->
+
+</div> <!-- End #wrapper -->
+
+<div id="pgFooter">
+  <p>Propulsé par <a href="http://dotclear.org/">Dotclear</a></p>
+</div>
+
+</div> <!-- End #page -->
+</body>
+
+<!-- Mirrored from blog2.postgresql.fr/index.php?post/drupal/389 by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 May 2020 21:40:20 GMT -->
+</html>

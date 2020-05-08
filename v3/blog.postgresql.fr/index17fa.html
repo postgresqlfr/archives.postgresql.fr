@@ -1,0 +1,257 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr">
+
+<!-- Mirrored from blog2.postgresql.fr/index.php?post/2009/07/02/PostgreSQL-8.4-disponible by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 May 2020 21:40:20 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="MSSmartTagsPreventParsing" content="TRUE" />
+  <meta name="ROBOTS" content="INDEX, FOLLOW" />
+  
+  <title>PostgreSQL 8.4 disponible - PostgreSQLfr.org</title>
+  <meta name="description" lang="fr" content="PostgreSQL 8.4 1er juillet 2009 Le groupe de développement mondial de PostgreSQL (PGDG) a publié la version 8.4, dans la continuité du développement rapide de ce SGBD avancé." />
+  <meta name="copyright" content="" />
+  <meta name="author" content="SAS" />
+  <meta name="date" scheme="ISO8601" content="2009-07-02T12:08:00+02:00" />
+  
+  <link rel="schema.dc" href="http://purl.org/dc/elements/1.1/" />
+  <meta name="dc.title" content="PostgreSQL 8.4 disponible" />
+  <meta name="dc.description" lang="fr" content="PostgreSQL 8.4 1er juillet 2009 Le groupe de développement mondial de PostgreSQL (PGDG) a publié la version 8.4, dans la continuité du développement rapide de ce SGBD avancé." />
+  <meta name="dc.creator" content="SAS" />
+  <meta name="dc.language" content="fr" />
+  <meta name="dc.publisher" content="" />
+  <meta name="dc.rights" content="" />
+  <meta name="dc.date" scheme="ISO8601" content="2009-07-02T12:08:00+02:00" />
+  <meta name="dc.type" content="text" />
+  <meta name="dc.format" content="text/html" />
+  
+  <link rel="top" href="indexd41d.html?" title="Accueil" />
+  <link rel="contents" href="index888d.html?archive" title="Archives" />
+  
+  <link rel="next" href="index95af.html?post/2009/07/09/ma-fonctionnalit%C3%A9-8.4-pr%C3%A9f%C3%A9r%C3%A9e-%3A-pg_stat_statement"
+  title="ma fonctionnalité 8.4 préférée : pg_stat_statement" />
+  
+  <link rel="previous" href="index947b.html?post/2009/06/30/Nouvelles-hebdomadaires-de-PostgreSQL-28-juin-2009"
+  title="Nouvelles hebdomadaires de PostgreSQL - 28 juin 2009" />
+  
+  <link rel="alternate" type="application/atom+xml" title="Atom 1.0" href="index4ca3.php?feed/atom" />
+  
+  <style type="text/css" media="screen">
+@import url(themes/postgresql/style.css);
+</style>
+<style type="text/css" media="print">
+@import url(themes/default/print.css);
+</style>
+
+<script type="text/javascript" src="themes/default/js/jquery.js"></script>
+<script type="text/javascript" src="themes/default/js/jquery.cookie.js"></script>
+
+  
+  <script type="text/javascript" src="themes/default/js/post.js"></script>
+  <script type="text/javascript">
+  //<![CDATA[
+  var post_remember_str = 'Se souvenir de moi sur ce blog';
+  //]]>
+  </script>
+</head>
+
+<body class="dc-post">
+<div id="page">
+
+
+<div id="top">
+  <div id="pgHeader">
+    <span id="pgHeaderLogoLeft">
+      <a href="index.html" title="PostgreSQL"><img src="https://blog.postgresql.fr/themes/postgresql/img/hdr_left.png" width="230" height="80" alt="PostgreSQL" /></a>
+    </span>
+    <span id="pgHeaderLogoRight">
+      <a href="index.html" title="La base de donnees la plus sophistiquee au monde."><img src="https://blog.postgresql.fr/themes/postgresql/img/hdr_right.png" width="210" height="80" alt="La base de donnees la plus sophistiquee au monde." /></a>
+    </span>
+  </div>
+
+  </div>
+
+<div class="pgTopNav">
+  <div class="pgTopNavLeft"> 
+    <img src="https://blog.postgresql.fr/themes/postgresql/img/nav_lft.png" width="7" height="23" alt="" />
+  </div>
+  <div class="pgTopNavRight">
+    <img src="https://blog.postgresql.fr/themes/postgresql/img/nav_rgt.png" width="7" height="23" alt="" />
+  </div>
+  <ul class="pgTopNavList">
+    <li><a href="https://www.postgresql.fr/" title="Accueil">Accueil</a></li>
+    <li><a href="https://blog.postgresql.fr/" title="Lire les actualités">Actualités</a></li>
+    <li><a href="https://docs.postgresql.fr/" title="Lire la documentation officielle">Documentation</a></li>
+    <li><a href="https://forums.postgresql.fr/" title="Pour poser des questions">Forums</a></li>
+    <li><a href="https://www.postgresql.fr/asso/" title="La vie de l'association">Association</a></li>
+    <li><a href="https://www.postgresql.fr/devel:accueil" title="Informations pour les développeurs/traducteurs">Développeurs</a></li>
+    <li><a href="https://planete.postgresql.fr/" title="La planète francophone sur PostgreSQL">Planète</a></li>
+    <li><a href="https://www.postgresql.fr/support/" title="Support sur PostgreSQL">Support</a></li>
+  </ul>
+</div>
+
+<div id="wrapper">
+
+<div id="pgContent">
+
+  <div id="pgSideWrap">
+  <div id="pgSideNav">
+    <div id="blognav">
+      <div id="search"><h2><label for="q">Rechercher</label></h2><form action="http://blog2.postgresql.fr/index.php?" method="get"><fieldset><p><input type="text" size="10" maxlength="255" id="q" name="q" value="" /> <input class="submit" type="submit" value="ok" /></p></fieldset></form></div><div class="categories"><h2>Catégories</h2><ul><li><a href="index199b.html?category/Articles">Articles</a></li><li class="category-current"><a href="indexb4c6.html?category/Dans-les-bacs">Dans les bacs</a></li><li><a href="index025a.html?category/Evenements">Événements</a></li><li><a href="index8c6d.html?category/PostgreSQL-Weekly-News">PostgreSQL Weekly News</a></li><li><a href="index1835.html?category/Securite">Sécurité</a></li><li><a href="index2251.html?category/Vie-de-l-association">Vie de l'association</a></li><li><a href="index91de.html?category/Vie-du-site">Vie du site</a></li></ul></div><div class="text"><h2>Licence</h2>Tous les articles de ce blog sont disponibles sous la <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/">license Creative Commons BY-NC-SA 3.0</a>.</div>    </div> <!-- End #blognav -->
+  
+    <div id="blogextra">
+      <div class="syndicate"><h2>S'abonner</h2><ul><li><a type="application/atom+xml" href="index4ca3.php?feed/atom" title="Fil Atom des billets de ce blog" class="feed">Fil des billets</a></li></ul></div>    </div> <!-- End #blogextra -->
+  </div>
+  </div>
+
+  <div id="pgContentWrap">
+  <div id="pgDownloadsWrap">
+  <div id="content">
+
+  <p id="navlinks">
+  <a href="index947b.html?post/2009/06/30/Nouvelles-hebdomadaires-de-PostgreSQL-28-juin-2009"
+  title="Nouvelles hebdomadaires de PostgreSQL - 28 juin 2009" class="prev">&#171; Nouvelles hebdomadaires de PostgreSQL - 28 juin</a>
+   <span>-</span> <a href="index95af.html?post/2009/07/09/ma-fonctionnalit%C3%A9-8.4-pr%C3%A9f%C3%A9r%C3%A9e-%3A-pg_stat_statement"
+  title="ma fonctionnalité 8.4 préférée : pg_stat_statement" class="next">ma fonctionnalité 8.4 préférée : pg_stat_statement &#187;</a>
+  </p>
+  
+  <div class="post">
+    <h2 id="p491" class="post-title">PostgreSQL 8.4 disponible</h2>
+    
+    <p class="post-info">Par SAS    le jeudi  2 juillet 2009, 12:08        - <a href="indexb4c6.html?category/Dans-les-bacs">Dans les bacs</a>
+        - <a href="index17fa.html?post/2009/07/02/PostgreSQL-8.4-disponible">Lien permanent</a>
+    </p>
+    
+    
+    
+        
+    <div class="post-content"><h1>PostgreSQL 8.4</h1>
+<p><strong>1er juillet 2009</strong> Le groupe de développement mondial de PostgreSQL (PGDG) a publié la version 8.4, dans la continuité du développement rapide de ce SGBD avancé.
+</p>
+<p>
+Cette version apporte un nombre considérable d'améliorations facilitant plus encore l'administration, le requêtage et la programmation des bases de données PostgreSQL.
+</p>
+<p>
+Les 293 fonctionnalités nouvelles ou améliorées sont autant de raisons supplémentaires de choisir PostgreSQL pour vos projets futurs.</p>
+<h2>Contenu</h2>
+<p>
+&nbsp; <a href="#original_release">Texte d'origine</a><br />
+&nbsp; <a href="#additional_features">Liste des fonctionnalités</a><br />
+&nbsp; <a href="#download">Où la télécharger</a><br />
+&nbsp; <a href="#docs">Documentation</a><br />
+&nbsp; <a href="#license">Licence</a><br />
+&nbsp; <a href="#contact">Contacts</a><br />
+&nbsp; <a href="#quoted_companies">Informations concernant les sociétés citées</a><br />
+&nbsp; <a href="#companies">Support commercial</a></p>
+<h2>Texte d'origine</h2>
+<p><strong>1er juillet 2009</strong> Le groupe de développement mondial de PostgreSQL (PGDG) a publié la version 8.4, dans la continuité du développement rapide de ce SGBD avancé.
+</p>
+<p>
+Cette version apporte un nombre considérable d'améliorations facilitant plus encore l'administration, le requêtage et la programmation des bases de données PostgreSQL.
+</p>
+<p>
+Les 293 fonctionnalités nouvelles ou améliorées sont autant de raisons supplémentaires de choisir PostgreSQL pour vos projets futurs.</p>
+<p>Les modifications les plus nombreusses concernent des outils et commandes d'administration et de surveillance nouveaux ou améliorés. Tout utilisateur trouvera son outil préféré pour faciliter son utilisation quotidienne de PostgreSQL et améliorer sa productivité.</p>
+<p><em>«&nbsp;Nous utilisons PostgreSQL depuis 7 ans maintenant, et attendons beaucoup des nombreuses fonctionnalités de PostgreSQL 8.4, notamment les droits de niveau colonne, les locales par base, les correspondances partielles d'index GIN et les exceptions utilisateur&nbsp;»,</em> déclare Jeffrey Webster, CTO de ZooLoo.com. <em>«&nbsp;PostgreSQL nous a permis de croître sans sacrifier l'intégrité des données.&nbsp;»</em></p>
+<p>Parmi les améliorations les plus populaires, citons&nbsp;:</p>
+<ul>
+<li><strong>la restauration parallèle de bases</strong>, accélarant jusqu'à un facteur 8 les restaurations&nbsp;;</li>
+<li><strong>les droits de niveau colonne</strong>, permettant un contrôle plus granulaire des données sensibles&nbsp;;</li>
+<li><strong>le support des interclassement par base</strong>, améliorant l'utilisabilité de PostgreSQL en environnement multi-lingual&nbsp;</li>
+<li><strong>les mises à jour en place</strong> à travers pg_migrator bêta, permettant des mises à jour de 8.3 vers 8.4 sans interruption de service excessive&nbsp;</li>
+<li><strong>de nouveaux outils de requêtage</strong>, donnant aux administrateurs une meilleure compréhension de l'activité des requêtes.</li>
+</ul>
+<p>La version 8.4 facilite l'analyse de données au travers des fonctionnalités ANSI SQL 2003 étendues de <strong>fonctions de fenêtrage</strong>, <strong>d'expressions de table commune</strong> et de <strong>jointures récursives</strong>.
+</p>
+<p>
+<em>«&nbsp;Ces structures de requête accroissent l'expressivité du dialecte SQL de PostgreSQL en permettant aux utilisateurs de poser d'intéressantes questions en une seule requête. Chose impossible jusque-là.&nbsp;»</em>, explique Sailesh Krishnamurthy, fondateur de Truviso.
+</p>
+<p>Les améliorations des procédures stockées, telles que les <strong>paramètres par défaut</strong> et les <strong>paramètres de nombre variable</strong>, simplifient la programmation serveur.</p>
+<p>La nouvelle version accélère également les performances applicatives, comme le commente Kevin Grittner, administrateur de bases de données au sein des systèmes de la cour du Wisconsin, <em>«&nbsp;Chaque version majeure apporte son lot d'amélioration des performances de PostgreSQL. La version 8.4 a ajouté de nombreuses optimisations, telles que les semi-jointures et les anti-jointures, ce qui améliore considérablement les temps d'exécution de nos requêtes les plus gourmandes.&nbsp;»</em></p>
+<p>Ces fonctionnalités signifient que PostgreSQL 8.4 permettra de servir encore plus d'utilisateurs, comme le projet OpenStreetMap. <em>«&nbsp;Lorsque nous avons planifié la nouvelle version de l'API OpenStreetMap, il apparaissait évident que nous avions besoin d'une base de données de renommée mondiale, qui non seulement fournirait les bonnes fonctionnalités, mais en plus se comporterait correctement à notre échelle. Bien qu'il existe de nombreuses bases de données libres, PostgreSQL était un choix évident.&nbsp;»</em>, déclare Tom Hughes, administrateur système chez OpenStreetMap.</p>
+<h2>Version étendue</h2>
+<h2>Liste des fonctionnalités</h2>
+<p>
+La version 8.4 offre un nombre de nouvelles fonctionnalités sans précédent. Nous avons créé de nouvelles pages pour les présenter&nbsp;:
+</p>
+<ul>
+<li><a href="about/press/features84.html">Liste complète des fonctionnalités (en anglais)</a></li>
+<li><a href="about/featurematrix.html">Matrices des fonctionnalités (en anglais)</a></li>
+<li><a href="docs/8.4/static/release-8-4.html">Notes de version</a></li>
+</ul>
+<h2>Téléchargements</h2>
+<ul>
+<li><a href="download.html">Pages de téléchargement</a>, avec des liens vers les installeurs et les outils.</li>
+<li><a href="ftp/source/v8.4.html">Code source</a></li>
+<li><a href="download/windows.html">Installeurs Windows</a></li>
+<li><a href="download/linux.html">Installeurs Linux</a> et dépôts des paquets</li>
+<li><a href="download/solaris.html">Paquets Solaris</a></li>
+<li><a href="download/macosx.html">Installeurs Mac OSX</a></li>
+<li><a href="download/freebsd.html">Portages FreeBSD</a></li>
+<li><a href="http://pgfoundry.org/projects/pg-migrator/">Projet pg_migrator</a></li>
+<li><a href="http://www.pgfoundry.org/">Composants optionnels et additiels</a></li>
+<li><a href="http://www.postgresql.org/download/product-categories">Logiciels liés et commerciaux</a></li>
+</ul>
+<h2>Documentation</h2>
+<p>La documentation HTML et les pages de manuel sont installées avec PostgreSQL, mais n'hésitez pas à parcourir, chercher et commenter notre <a href="docs/8.4/interactive.html">documentation en ligne</a>, exhaustive et interactive.</p>
+<h2>License</h2>
+<p>
+PostgreSQL utilise la <a href="about/licence.html">licence BSD</a>, qui ne nécessite que le maintien des informations de licence et de copyright dans le code source sous licence. Cette
+<a href="http://www.opensource.org/licenses/bsd-license.php">licence certifiée par l'OSI</a> est largement appréciée, flexible et compatible avec les contraintes du monde des affaires, puisqu'elle ne restreint pas l'utilisation de PostgreSQL avec les applications commerciales et proprétaires. Associée au support de multiples compagnies et à une possession publique du code, la licence BSD rend PostgreSQL très populaire au sein des revendeurs souhaitant embarquer une base dans leurs produits sans crainte d'une redevance, de verrous vendeur ou de modification de la licence.
+</p>
+<h2>Contacts</h2>
+<p>Web Pages</p>
+<ul>
+<li><a href="http://www.postgresql.org/">Page d'accueil PostgreSQL</a></li>
+<li><a href="http://www.postgresqlfr.org/">La page d'acceuil de l'association francophone</a></li>
+</ul>
+<p>Requêtes presse</p>
+<p>France et Europe francophone<br />
+Stéphane A. Schildknecht<br />
+<a href="fr%40postgresql.html">fr@postgresql.org</a><br />
++33 953 699 712</p>
+<p>Pour les contacts dans les autres régions, consulter <a href="about/press/contact.html">notre page de contacts internationaux.</a></p>
+<h2>Informations concernant les sociétés citées et texte des citations</h2>
+<p>Les contacts suivants sont exclusivement anglophones.</p>
+<p><em>«&nbsp;Nous utilisons PostgreSQL depuis 7 ans maintenant, et attendons beaucoup des nombreuses fonctionnalités de PostgreSQL 8.4, notamment les droits de niveau colonne, les locales par base, les correspondances partielles d'index GIN et les exceptions utilisateur&nbsp;»,</em> déclare Jeffrey Webster, CTO de ZooLoo.com. <em>«&nbsp;PostgreSQL nous a permis de croître sans sacrifier l'intégrité des données.&nbsp;»</em><br />
+Contact&nbsp;: <a href="mailto:melissa@zooloo.com">Melissa</a> ou visiter <a href="http://www.zooloo.com/">ZooLoo.com</a></p>
+<p><em>«&nbsp;Chaque version majeure apporte son lot d'amélioration des performances de PostgreSQL,&nbsp;»</em>
+déclare Kevin Grittner, administrateur de bases de données, Consolidated Court Automation Programs, Wisconsin Court System.
+<em>«&nbsp;La version 8.4 a ajouté de nombreuses optimisations, telles que les semi-jointures et les anti-jointures, ce qui améliore considérablement les temps d'exécution de nos requêtes les plus gourmandes.&nbsp;»</em><br />
+Contact&nbsp;: <a href="mailto:Kevin.Grittner@wicourts.gov">Kevin Grittner</a> ou visiter <a href="http://www.wicourts.gov/">Wisconsin Court System</a> </p>
+<p><em>«&nbsp;Ces structures de requête accroissent l'expressivité du dialecte SQL de PostgreSQL en permettant aux utilisateurs de poser d'intéressantes questions en une seule requête. Chose impossible jusque-là.&nbsp;»</em>, explique Sailesh Krishnamurthy, fondateur de Truviso.<br />
+Contact&nbsp;: <a href="mailto:info@truviso.com">Info e-mail</a> ou visiter <a href="http://www.truviso.com/">Truviso</a>.</p>
+<p><em>«&nbsp;Lorsque nous avons planifié la nouvelle version de l'API
+OpenStreetMap, il apparaissait évident que nous avions besoin d'une base de
+données de renommée mondiale, qui non seulement fournirait les bonnes
+fonctionnalités, mais en plus se comporterait correctement à notre échelle.
+PostgreSQL nous permet de supporter la cohérence de la base de données à l'aide des clés étrangères et des mises à jours transactionnelles, tout en donnant à nos administrateurs les outils requis pour travailler sur notre base de 850 Go, tout en maintenant le développement continuel des structures de nos tables et les aspects opérationnels tels que les instantanés cohérents.Bien qu'il existe de nombreuses bases de données libres, PostgreSQL était un choix évident.&nbsp;»</em> déclare Tom Hughes, administrateur projet chez OpenStreetMap.<br />
+Contact&nbsp;: <a href="mailto:webmaster@openstreetmap.org">Tom Hughes</a> ou visiter <a href="http://www.openstreetmap.org/">OpenStreetMap</a>.</p>
+<h2>Support commercial</h2>
+<p>PostgreSQL bénéficie du support de nombreuses companies, qui financent les développeurs, aident à l'hébergement et apportent un support financier. Les principaux mécènes sont mentionnés sur <a href="about/sponsors.html">page des mécènes du développement.</a></p>
+<p>Il existe également une vaste communauté de <a href="support/professional_support.html">compagnies fournissant du support PostgreSQL</a>, du consultant indépendant aux compagnies multi-nationales.</p>
+<p><a href="about/donate.html">Dons</a> acceptés avec joie.</p></div>
+
+      </div>
+
+  
+
+    
+  
+    
+    
+    </div>
+</div> <!-- End #main -->
+
+</div> <!-- End #wrapper -->
+
+<div id="pgFooter">
+  <p>Propulsé par <a href="http://dotclear.org/">Dotclear</a></p>
+</div>
+
+</div> <!-- End #page -->
+</body>
+
+<!-- Mirrored from blog2.postgresql.fr/index.php?post/2009/07/02/PostgreSQL-8.4-disponible by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 May 2020 21:40:20 GMT -->
+</html>

@@ -1,0 +1,178 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr">
+
+<!-- Mirrored from blog2.postgresql.fr/index.php?post/drupal/102 by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 May 2020 21:40:20 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="MSSmartTagsPreventParsing" content="TRUE" />
+  <meta name="ROBOTS" content="INDEX, FOLLOW" />
+  
+  <title>== Nouvelles Hebdomadaires de PostgreSQL du 24 juillet 2005 == - PostgreSQLfr.org</title>
+  <meta name="description" lang="fr" content="== Nouvelles Hebdomadaires de PostgreSQL du 24 juillet 2005 == Dans son courrier du 24 juillet 2005 David Fetter annoçait sur pg-announce Le gel des fonctionnalités de la version" />
+  <meta name="copyright" content="" />
+  <meta name="author" content="jca" />
+  <meta name="date" scheme="ISO8601" content="2005-08-02T10:05:00+00:00" />
+  
+  <link rel="schema.dc" href="http://purl.org/dc/elements/1.1/" />
+  <meta name="dc.title" content="== Nouvelles Hebdomadaires de PostgreSQL du 24 juillet 2005 ==" />
+  <meta name="dc.description" lang="fr" content="== Nouvelles Hebdomadaires de PostgreSQL du 24 juillet 2005 == Dans son courrier du 24 juillet 2005 David Fetter annoçait sur pg-announce Le gel des fonctionnalités de la version" />
+  <meta name="dc.creator" content="jca" />
+  <meta name="dc.language" content="fr" />
+  <meta name="dc.publisher" content="" />
+  <meta name="dc.rights" content="" />
+  <meta name="dc.date" scheme="ISO8601" content="2005-08-02T10:05:00+00:00" />
+  <meta name="dc.type" content="text" />
+  <meta name="dc.format" content="text/html" />
+  
+  <link rel="top" href="indexd41d.html?" title="Accueil" />
+  <link rel="contents" href="index888d.html?archive" title="Archives" />
+  
+  <link rel="next" href="index9856.html?post/drupal/103"
+  title="== Nouvelles hebdomadaires de PostgreSQL -  21 Août 2005 ==" />
+  
+  <link rel="previous" href="index3133.html?post/drupal/106"
+  title="RMLL 2005" />
+  
+  <link rel="alternate" type="application/atom+xml" title="Atom 1.0" href="index4ca3.php?feed/atom" />
+  
+  <style type="text/css" media="screen">
+@import url(themes/postgresql/style.css);
+</style>
+<style type="text/css" media="print">
+@import url(themes/default/print.css);
+</style>
+
+<script type="text/javascript" src="themes/default/js/jquery.js"></script>
+<script type="text/javascript" src="themes/default/js/jquery.cookie.js"></script>
+
+  
+  <script type="text/javascript" src="themes/default/js/post.js"></script>
+  <script type="text/javascript">
+  //<![CDATA[
+  var post_remember_str = 'Se souvenir de moi sur ce blog';
+  //]]>
+  </script>
+</head>
+
+<body class="dc-post">
+<div id="page">
+
+
+<div id="top">
+  <div id="pgHeader">
+    <span id="pgHeaderLogoLeft">
+      <a href="index.html" title="PostgreSQL"><img src="https://blog.postgresql.fr/themes/postgresql/img/hdr_left.png" width="230" height="80" alt="PostgreSQL" /></a>
+    </span>
+    <span id="pgHeaderLogoRight">
+      <a href="index.html" title="La base de donnees la plus sophistiquee au monde."><img src="https://blog.postgresql.fr/themes/postgresql/img/hdr_right.png" width="210" height="80" alt="La base de donnees la plus sophistiquee au monde." /></a>
+    </span>
+  </div>
+
+  </div>
+
+<div class="pgTopNav">
+  <div class="pgTopNavLeft"> 
+    <img src="https://blog.postgresql.fr/themes/postgresql/img/nav_lft.png" width="7" height="23" alt="" />
+  </div>
+  <div class="pgTopNavRight">
+    <img src="https://blog.postgresql.fr/themes/postgresql/img/nav_rgt.png" width="7" height="23" alt="" />
+  </div>
+  <ul class="pgTopNavList">
+    <li><a href="https://www.postgresql.fr/" title="Accueil">Accueil</a></li>
+    <li><a href="https://blog.postgresql.fr/" title="Lire les actualités">Actualités</a></li>
+    <li><a href="https://docs.postgresql.fr/" title="Lire la documentation officielle">Documentation</a></li>
+    <li><a href="https://forums.postgresql.fr/" title="Pour poser des questions">Forums</a></li>
+    <li><a href="https://www.postgresql.fr/asso/" title="La vie de l'association">Association</a></li>
+    <li><a href="https://www.postgresql.fr/devel:accueil" title="Informations pour les développeurs/traducteurs">Développeurs</a></li>
+    <li><a href="https://planete.postgresql.fr/" title="La planète francophone sur PostgreSQL">Planète</a></li>
+    <li><a href="https://www.postgresql.fr/support/" title="Support sur PostgreSQL">Support</a></li>
+  </ul>
+</div>
+
+<div id="wrapper">
+
+<div id="pgContent">
+
+  <div id="pgSideWrap">
+  <div id="pgSideNav">
+    <div id="blognav">
+      <div id="search"><h2><label for="q">Rechercher</label></h2><form action="http://blog2.postgresql.fr/index.php?" method="get"><fieldset><p><input type="text" size="10" maxlength="255" id="q" name="q" value="" /> <input class="submit" type="submit" value="ok" /></p></fieldset></form></div><div class="categories"><h2>Catégories</h2><ul><li><a href="index199b.html?category/Articles">Articles</a></li><li><a href="indexb4c6.html?category/Dans-les-bacs">Dans les bacs</a></li><li><a href="index025a.html?category/Evenements">Événements</a></li><li class="category-current"><a href="index8c6d.html?category/PostgreSQL-Weekly-News">PostgreSQL Weekly News</a></li><li><a href="index1835.html?category/Securite">Sécurité</a></li><li><a href="index2251.html?category/Vie-de-l-association">Vie de l'association</a></li><li><a href="index91de.html?category/Vie-du-site">Vie du site</a></li></ul></div><div class="text"><h2>Licence</h2>Tous les articles de ce blog sont disponibles sous la <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/">license Creative Commons BY-NC-SA 3.0</a>.</div>    </div> <!-- End #blognav -->
+  
+    <div id="blogextra">
+      <div class="syndicate"><h2>S'abonner</h2><ul><li><a type="application/atom+xml" href="index4ca3.php?feed/atom" title="Fil Atom des billets de ce blog" class="feed">Fil des billets</a></li></ul></div>    </div> <!-- End #blogextra -->
+  </div>
+  </div>
+
+  <div id="pgContentWrap">
+  <div id="pgDownloadsWrap">
+  <div id="content">
+
+  <p id="navlinks">
+  <a href="index3133.html?post/drupal/106"
+  title="RMLL 2005" class="prev">&#171; RMLL 2005</a>
+   <span>-</span> <a href="index9856.html?post/drupal/103"
+  title="== Nouvelles hebdomadaires de PostgreSQL -  21 Août 2005 ==" class="next">== Nouvelles hebdomadaires de PostgreSQL -  21 &#187;</a>
+  </p>
+  
+  <div class="post">
+    <h2 id="p102" class="post-title">== Nouvelles Hebdomadaires de PostgreSQL du 24 juillet 2005 ==</h2>
+    
+    <p class="post-info">Par jca    le mardi  2 août 2005, 10:05        - <a href="index8c6d.html?category/PostgreSQL-Weekly-News">PostgreSQL Weekly News</a>
+        - <a href="index9d35.html?post/drupal/102">Lien permanent</a>
+    </p>
+    
+    
+    
+          <div class="post-excerpt"><p><strong>== Nouvelles Hebdomadaires de PostgreSQL du 24 juillet 2005 ==</strong></p>
+<p><em>Dans son courrier du 24 juillet 2005 David Fetter annoçait sur pg-announce</em></p>
+<p>
+Le gel des fonctionnalités de la version 8.1 est effectif. Il est maintenant temps de se mettre au travail sur les détails d'implémentation, le débuggage et de tester, tester et encore tester.  </p>
+<p>
+EnterpriseDB, Neil Conway et (par la suite) Sean Chittenden on travaillé avec Coverity à la réalisation d'une analyse de code statique sur les sources de PostgreSQL. Ils ont trouvé 20 bugs dans les 750000 de lignes de code de notre projet favori.
+</p></div>
+        
+    <div class="post-content">Vous allez à l'OSCON? Nous avons besoin de volontaires pour tenir le stand PostgreSQL. Prenez contact avec Josh Berkus josh@agliodbs.com pour plus d'informations à ce sujet.<br />
+<p>
+LinuxWorld Expo de San Fransisco a lieu la semaine suivante. Prenez contact avec David Fetter david@fetter.org si vous êtes volontaires pour représenter PostgreSQL sur le stand d'EnterpriseDB et pour répondre aux questions auprés du SF PostgreSQL Users' Group. Les dates sont du mardi 9 au jeudi 11 août.
+</p>
+<p>
+Abhijit Menon-Sen a ajouté les fonctions spi_query() et spi_fetchrow() au PL/Perl, permettant ainsi la résolution de problèmes mémoire.</p>
+<p><strong>== Nouvelle des produits autour dePostgreSQL ==</strong></p>
+<ul>
+<li>Reece Hart de Genentech a livré Unison Protein Database sous la licence Academic Free License v2.1. <a href="http://unison-db.sourceforge.net/ ">http://unison-db.sourceforge.net/</a></li>
+<li>Bricolage 1.8.6 est sorti <a href="http://bricolage.cc/">http://bricolage.cc/</a></li>
+<li>EMS Company a livré PostgreSQL Manager 3.1.5 pour Windows <a href="http://www.sqlmanager.net/products/postgresql/manager/">http://www.sqlmanager.net/products/postgresql/manager/</a></li>
+<li>Dave Cramer a écrit une version Java du configurateur. Josh Berkus
+et Bizgres on commencé l'utilisation du moteur de règle Drools. Pour plus d'information sur Drools aller sur <a href="http://www.drools.org/">http://www.drools.org/</a>
+et sur le configurateur <a href="http://pgfoundry.org/projects/configurator/">http://pgfoundry.org/projects/configurator/</a> </li>
+<li>DMSoft Technologies est heureux de vous annoncer la sortie de Access2PostrgreSQL Pro v1.0.0 <a href="http://data-conversions.net/access-to-postgresql-pro-converter.html">http://data-conversions.net/access-to-postgresql-pro-converter.html</a>
+</li>
+</ul>
+<p><strong>== PostgreSQL les médias ==</strong></p>
+<ul><li> General Bits: <a href="http://www.varlena.com/GeneralBits/">http://www.varlena.com/GeneralBits/</a></li>
+</ul></div>
+
+      </div>
+
+  
+
+    
+  
+    
+    
+    </div>
+</div> <!-- End #main -->
+
+</div> <!-- End #wrapper -->
+
+<div id="pgFooter">
+  <p>Propulsé par <a href="http://dotclear.org/">Dotclear</a></p>
+</div>
+
+</div> <!-- End #page -->
+</body>
+
+<!-- Mirrored from blog2.postgresql.fr/index.php?post/drupal/102 by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 May 2020 21:40:20 GMT -->
+</html>

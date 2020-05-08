@@ -1,0 +1,270 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr">
+
+<!-- Mirrored from blog2.postgresql.fr/index.php?post/2009/12/17/Nouvelles-hebdomadaires-de-PostgreSQL-13-d%C3%A9cembre-2009 by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 May 2020 21:40:20 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="MSSmartTagsPreventParsing" content="TRUE" />
+  <meta name="ROBOTS" content="INDEX, FOLLOW" />
+  
+  <title>Nouvelles hebdomadaires de PostgreSQL - 13 décembre 2009 - PostgreSQLfr.org</title>
+  <meta name="description" lang="fr" content="Les publications d'appoints 8.4.2, 8.3.9, 8.2.15, 8.1.19, 8.0.23 et 7.4.27 seront disponibles sous peu. Préparez-vous à mettre à jour ! [ndt: article PGFr] Robert Haas, ITAGAKI" />
+  <meta name="copyright" content="" />
+  <meta name="author" content="chl" />
+  <meta name="date" scheme="ISO8601" content="2009-12-17T23:09:00+01:00" />
+  
+  <link rel="schema.dc" href="http://purl.org/dc/elements/1.1/" />
+  <meta name="dc.title" content="Nouvelles hebdomadaires de PostgreSQL - 13 décembre 2009" />
+  <meta name="dc.description" lang="fr" content="Les publications d'appoints 8.4.2, 8.3.9, 8.2.15, 8.1.19, 8.0.23 et 7.4.27 seront disponibles sous peu. Préparez-vous à mettre à jour ! [ndt: article PGFr] Robert Haas, ITAGAKI" />
+  <meta name="dc.creator" content="chl" />
+  <meta name="dc.language" content="fr" />
+  <meta name="dc.publisher" content="" />
+  <meta name="dc.rights" content="" />
+  <meta name="dc.date" scheme="ISO8601" content="2009-12-17T23:09:00+01:00" />
+  <meta name="dc.type" content="text" />
+  <meta name="dc.format" content="text/html" />
+  
+  <link rel="top" href="indexd41d.html?" title="Accueil" />
+  <link rel="contents" href="index888d.html?archive" title="Archives" />
+  
+  <link rel="next" href="index0856.html?post/2009/12/24/Nouvelles-hebdomadaires-de-PostgreSQL-20-d%C3%A9cembre-2009"
+  title="Nouvelles hebdomadaires de PostgreSQL - 20 décembre 2009" />
+  
+  <link rel="previous" href="index1821.html?post/2009/12/14/Nouvelles-versions-mineures-%288.4.2%2C-8.3.9%2C-8.2.15...%29"
+  title="Nouvelles versions mineures (8.4.2, 8.3.9, 8.2.15...)" />
+  
+  <link rel="alternate" type="application/atom+xml" title="Atom 1.0" href="index4ca3.php?feed/atom" />
+  
+  <style type="text/css" media="screen">
+@import url(themes/postgresql/style.css);
+</style>
+<style type="text/css" media="print">
+@import url(themes/default/print.css);
+</style>
+
+<script type="text/javascript" src="themes/default/js/jquery.js"></script>
+<script type="text/javascript" src="themes/default/js/jquery.cookie.js"></script>
+
+  
+  <script type="text/javascript" src="themes/default/js/post.js"></script>
+  <script type="text/javascript">
+  //<![CDATA[
+  var post_remember_str = 'Se souvenir de moi sur ce blog';
+  //]]>
+  </script>
+</head>
+
+<body class="dc-post">
+<div id="page">
+
+
+<div id="top">
+  <div id="pgHeader">
+    <span id="pgHeaderLogoLeft">
+      <a href="index.html" title="PostgreSQL"><img src="https://blog.postgresql.fr/themes/postgresql/img/hdr_left.png" width="230" height="80" alt="PostgreSQL" /></a>
+    </span>
+    <span id="pgHeaderLogoRight">
+      <a href="index.html" title="La base de donnees la plus sophistiquee au monde."><img src="https://blog.postgresql.fr/themes/postgresql/img/hdr_right.png" width="210" height="80" alt="La base de donnees la plus sophistiquee au monde." /></a>
+    </span>
+  </div>
+
+  </div>
+
+<div class="pgTopNav">
+  <div class="pgTopNavLeft"> 
+    <img src="https://blog.postgresql.fr/themes/postgresql/img/nav_lft.png" width="7" height="23" alt="" />
+  </div>
+  <div class="pgTopNavRight">
+    <img src="https://blog.postgresql.fr/themes/postgresql/img/nav_rgt.png" width="7" height="23" alt="" />
+  </div>
+  <ul class="pgTopNavList">
+    <li><a href="https://www.postgresql.fr/" title="Accueil">Accueil</a></li>
+    <li><a href="https://blog.postgresql.fr/" title="Lire les actualités">Actualités</a></li>
+    <li><a href="https://docs.postgresql.fr/" title="Lire la documentation officielle">Documentation</a></li>
+    <li><a href="https://forums.postgresql.fr/" title="Pour poser des questions">Forums</a></li>
+    <li><a href="https://www.postgresql.fr/asso/" title="La vie de l'association">Association</a></li>
+    <li><a href="https://www.postgresql.fr/devel:accueil" title="Informations pour les développeurs/traducteurs">Développeurs</a></li>
+    <li><a href="https://planete.postgresql.fr/" title="La planète francophone sur PostgreSQL">Planète</a></li>
+    <li><a href="https://www.postgresql.fr/support/" title="Support sur PostgreSQL">Support</a></li>
+  </ul>
+</div>
+
+<div id="wrapper">
+
+<div id="pgContent">
+
+  <div id="pgSideWrap">
+  <div id="pgSideNav">
+    <div id="blognav">
+      <div id="search"><h2><label for="q">Rechercher</label></h2><form action="http://blog2.postgresql.fr/index.php?" method="get"><fieldset><p><input type="text" size="10" maxlength="255" id="q" name="q" value="" /> <input class="submit" type="submit" value="ok" /></p></fieldset></form></div><div class="categories"><h2>Catégories</h2><ul><li><a href="index199b.html?category/Articles">Articles</a></li><li><a href="indexb4c6.html?category/Dans-les-bacs">Dans les bacs</a></li><li><a href="index025a.html?category/Evenements">Événements</a></li><li class="category-current"><a href="index8c6d.html?category/PostgreSQL-Weekly-News">PostgreSQL Weekly News</a></li><li><a href="index1835.html?category/Securite">Sécurité</a></li><li><a href="index2251.html?category/Vie-de-l-association">Vie de l'association</a></li><li><a href="index91de.html?category/Vie-du-site">Vie du site</a></li></ul></div><div class="text"><h2>Licence</h2>Tous les articles de ce blog sont disponibles sous la <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/">license Creative Commons BY-NC-SA 3.0</a>.</div>    </div> <!-- End #blognav -->
+  
+    <div id="blogextra">
+      <div class="syndicate"><h2>S'abonner</h2><ul><li><a type="application/atom+xml" href="index4ca3.php?feed/atom" title="Fil Atom des billets de ce blog" class="feed">Fil des billets</a></li></ul></div>    </div> <!-- End #blogextra -->
+  </div>
+  </div>
+
+  <div id="pgContentWrap">
+  <div id="pgDownloadsWrap">
+  <div id="content">
+
+  <p id="navlinks">
+  <a href="index1821.html?post/2009/12/14/Nouvelles-versions-mineures-%288.4.2%2C-8.3.9%2C-8.2.15...%29"
+  title="Nouvelles versions mineures (8.4.2, 8.3.9, 8.2.15...)" class="prev">&#171; Nouvelles versions mineures (8.4.2, 8.3.9,</a>
+   <span>-</span> <a href="index0856.html?post/2009/12/24/Nouvelles-hebdomadaires-de-PostgreSQL-20-d%C3%A9cembre-2009"
+  title="Nouvelles hebdomadaires de PostgreSQL - 20 décembre 2009" class="next">Nouvelles hebdomadaires de PostgreSQL - 20 &#187;</a>
+  </p>
+  
+  <div class="post">
+    <h2 id="p519" class="post-title">Nouvelles hebdomadaires de PostgreSQL - 13 décembre 2009</h2>
+    
+    <p class="post-info">Par chl    le jeudi 17 décembre 2009, 23:09        - <a href="index8c6d.html?category/PostgreSQL-Weekly-News">PostgreSQL Weekly News</a>
+        - <a href="index84fe.html?post/2009/12/17/Nouvelles-hebdomadaires-de-PostgreSQL-13-d%C3%A9cembre-2009">Lien permanent</a>
+    </p>
+    
+    
+    
+          <div class="post-excerpt"><p>Les publications d'appoints 8.4.2, 8.3.9, 8.2.15, 8.1.19, 8.0.23 et 7.4.27 seront disponibles sous peu. Préparez-vous à mettre à jour&nbsp;! [ndt: <a href="http://blog.postgresql.fr/index.php?post/2009/12/14/Nouvelles-versions-mineures-%288.4.2%2C-8.3.9%2C-8.2.15...%29" target="_blank">article PGFr</a>]</p>
+<p>Robert Haas, ITAGAKI Takahiro, Simon Riggs et Greg Stark ont maintenant leurs entrées au CVS. Félicitations&nbsp;!</p>
+<p><strong>Les nouveautés des produits dérivés</strong></p>
+<ul>
+<li>pgpool-II 2.3, un gestionnaire de connexion et bien plus, ainsi que pgpoolAdmin 2.3, une interface d'administration dédiée&nbsp;:
+<a target="_blank" href="http://pgfoundry.org/projects/pgpool/">http://pgfoundry.org/projects/pgpool/</a></li>
+</ul>
+<p><strong>La fonctionnalité 8.5 de la semaine</strong></p>
+<p>Les contraintes d'exclusion (par Jeff Davis) permettent de spécifier comme étant "unique" des données qui couvrent un segment, comme un aire géométrique, un intervalle de temps ou un tableau. Testez la 8.5 dès maintenant&nbsp;:
+<a target="_blank" href="http://www.postgresql.org/developer/testing">http://www.postgresql.org/developer/testing</a></p>
+<p><strong>L'astuce de la semaine</strong></p>
+<p>pgPool2 est meilleur en répartition de charge lorsqu'il est couplé avec des systèmes de réplications comme Slony ou Bucardo, et pgBouncer est meilleur pour une gestion évolutive des connexions.</p>
+<p><strong>Offres d'emplois autour de PostgreSQL en décembre</strong></p>
+<p><a target="_blank" href="http://archives.postgresql.org/pgsql-jobs/2009-12/threads.php">http://archives.postgresql.org/pgsql-jobs/2009-12/threads.php</a></p>
+<p><strong>PostgreSQL Local</strong></p>
+<ul>
+<li>La première réunion du "New York Capital District PUG" aura lieu le 7 janvier 2010&nbsp;:
+<a target="_blank" href="http://nycdpug.x10hosting.com/">http://nycdpug.x10hosting.com/</a></li>
+<li>Stefan Keller, de l'université des sciences appliquées de Rapperswil (HSR), animera un séminaire intitulé "Introduction à PostGIS/PostgreSQL" le 14 janvier 2010 à Zurich (Suisse)&nbsp;:
+<a target="_blank" href="http://www.gis.hsr.ch/wiki/Agenda">http://www.gis.hsr.ch/wiki/Agenda</a></li>
+<li>Le PGDay-Cuba 2010 sera tenu du 4 au 6 février 2010 à l'Université des Sciences Informatiques, à La Havane. Sont invités les participants de Cuba, de la République Dominicaine et du Venezuela.</li>
+<li>Le FOSDEM 2010 aura lieu à Bruxelles les 6 &amp; 7 février 2010&nbsp;:
+<a target="_blank" href="http://www.fosdem.org/">http://www.fosdem.org/</a></li>
+<li>Le "Chemnitzer Linuxtage" aura lieu à Chemnitz (All.) les 13 &amp; 14 mars 2010&nbsp;:
+<a target="_blank" href="http://chemnitzer.linux-tage.de/">http://chemnitzer.linux-tage.de/</a></li>
+<li>La PgCon 2010 aura lieu les 20 &amp; 21 mai 2010 à Ottawa avec des tutoriels les 18 et 19. L'appel à conférenciers est lancé&nbsp;!
+<a target="_blank" href="http://www.pgcon.org/2010/papers.php">http://www.pgcon.org/2010/papers.php</a></li>
+</ul>
+<p><strong>PostgreSQL dans les média</strong></p>
+<ul>
+<li>Planet PostgreSQL&nbsp;:
+<a target="_blank" href="http://planet.postgresql.org/">http://planet.postgresql.org/</a></li>
+<li>Planet PostgreSQLFr&nbsp;:
+<a target="_blank" href="http://planete.postgresql.fr/">http://planete.postgresql.fr/</a></li>
+</ul>
+<p><em>PostgreSQL Weekly News / les nouvelles hebdomadaires vous sont offertes cette semaine par David Fetter et Josh Berkus. Traduction par l'équipe PostgreSQLFr sous licence CC BY-NC-SA.</em></p>
+<p><em>Proposez vos articles ou annonces avant dimanche 15:00 (heure du Pacifique). Merci de les envoyer en anglais à david (a) fetter.org, en allemand à pwn (a) pgug.de, en italien à pwn (a) itpug.org.</em></p>
+<p>(<a target="_blank" href="http://www.postgresql.org/community/weeklynews/pwn20091213">lien vers l'article original</a>)</p></div>
+        
+    <div class="post-content"><p><strong>Revues</strong></p>
+<p>Greg Smith reviewed the ACL patch for large objects.</p>
+<p>Euler Taveira de Oliveira reviewed the EXPLAIN BUFFERS patch.</p>
+<p>Jaime Casanova reviewed Zoltan Boszormenyi's ECPG patch to add SQLDA support.</p>
+<p>Jaime Casanova reviewed Jeff Janes's XLogInsert patch and said he'd mark it, "ready for committer." Greg Smith's review was less positive.</p>
+<p>ITAGAKI Takahiro reviewed Michael Paquier's patch to allow launching shell commands from pgbench.</p>
+<p>Greg Smith reviewed the documentation in Zdenek Kotala's patch to add "init" as a pg_ctl option.</p>
+<p><strong>Correctifs appliqués</strong></p>
+<p>Tom Lane a commité&nbsp;:</p>
+<ul>
+<li>Add exclusion constraints, which generalize the concept of uniqueness to support any indexable commutative operator, not just equality. Two rows violate the exclusion constraint if "row1.col OP row2.col" is TRUE for each of the columns in the constraint. Jeff Davis, reviewed by Robert Haas.</li>
+<li>Update time zone data files to tzdata release 2009s: DST law changes in Antarctica, Argentina, Bangladesh, Fiji, Novokuznetsk, Pakistan, Palestine, Samoa, Syria. Also historical corrections for Hong Kong.</li>
+<li>Update release notes for releases 8.4.2, 8.3.9, 8.2.15, 8.1.19, 8.0.23, 7.4.27.</li>
+<li>In pgsql/src/backend/executor/execMain.c, ensure that the result tuple of an EvalPlanQual cycle gets materialized before we zap the input tuple. Otherwise, pass-by-reference columns of the result slot are likely to contain just references to the input tuple, leading to big trouble if the pfree'd space is reused. Per trouble report from Jaime Casanova. This is a new bug in the recent rewrite of EvalPlanQual, so nothing to back-patch.</li>
+<li>In pgsql/contrib/pgbench/pgbench.c, arrange to generate different random sequences in the different child processes of a pgbench run, when we are using -j &gt; 1 and are emulating threads via fork(). Otherwise the children all inherit the same random sequence state and produce the same random-number sequence. In the threaded case the different threads will share one RNG state, so they will produce different subsets of one sequence, which is maybe more correlated than a purist would like but will not be "the same". So we leave that case alone. First noticed by Takahiro Itagaki, and is also part of the explanation for the pgbench misbehavior recently reported by Jaime Casanova.</li>
+<li>In pgsql/src/backend/utils/adt/varbit.c, fix integer-to-bit-string conversions to handle the first fractional byte correctly when the output bit width is wider than the given integer by something other than a multiple of 8 bits. This has been wrong since I first wrote that code for 8.0 :-( . Kudos to Roman Kononov for being the first to notice, though I didn't use his patch. Per bug #5237.</li>
+<li>Fix a bug introduced when set-returning SQL functions were made inline-able: we have to cope with the possibility that the declared result rowtype contains dropped columns. This fails in 8.4, as per bug #5240. While at it, be more paranoid about inserting binary coercions when inlining. The pre-8.4 code did not really need to worry about that because it could not inline at all in any case where an added coercion could change the behavior of the function's statement. However, when inlining a SRF we allow sorting, grouping, and set-ops such as UNION. In these cases, modifying one of the targetlist entries that the sort/group/setop depends on could conceivably change the behavior of the function's statement --- so don't inline when such a case applies.</li>
+</ul>
+<p>Magnus Hagander a commité&nbsp;:</p>
+<ul>
+<li>Update CVS documentation to be more current and add documentation about git mirror. Remove information about cvsup and documentation that's more about cvs than our use of cvs. Backpatch to 8.4 so we get the git information up on the website as soon as possible.</li>
+<li>In pgsql/doc/src/sgml/installation.sgml, replace broken link to custom local gettext package with one to the main GNU site for gettext.</li>
+<li>Fix a couple of broken links to third-party sites.</li>
+<li>In pgsql/doc/src/sgml/installation.sgml, update size references in installation instructions to be a bit more up-to-date with current versions.</li>
+<li>In pgsql/src/tools/RELEASE_CHANGES, add notes about updating disk and shared memory size information in the documentation when doing new major release.</li>
+<li>Allow LDAP authentication to operate in search+bind mode, meaning it does a search for the user in the directory first, and then binds with the DN found for this user. This allows for LDAP logins in scenarios where the DN of the user cannot be determined simply by prefix and suffix, such as the case where different users are located in different containers. The old way of authentication can be significantly faster, so it's kept as an option. Robert Fleming and Magnus Hagander</li>
+</ul>
+<p>Peter Eisentraut a commité&nbsp;:</p>
+<ul>
+<li>Translation updates.</li>
+<li>Add init[db] option to pg_ctl. pg_ctl gets a new mode that runs initdb. Adjust the documentation a bit to not assume that initdb is the only way to run database cluster initialization. But don't replace initdb as the canonical way. Zdenek Kotala.</li>
+<li>PL/Python array support. Support arrays as parameters and return values of PL/Python functions.</li>
+</ul>
+<p>Robert Haas a commité&nbsp;:</p>
+<ul>
+<li>In pgsql/contrib/fuzzystrmatch/fuzzystrmatch.c, fix levenshtein with costs. The previous code multiplied by the cost in only 3 of the 7 relevant locations. Marcin Mank, slightly adjusted by Robert Haas.</li>
+<li>Export ExplainBeginOutput() and ExplainEndOutput() for auto_explain. Without these functions, anyone outside of explain.c can't actually use ExplainPrintPlan, because the ExplainState won't be initialized properly. The user-visible result of this was a crash when using auto_explain with the JSON output format. Report by Euler Taveira de Oliveira. Analysis by Tom Lane. Patch by Robert Haas.</li>
+</ul>
+<p>Marc Fournier a commité&nbsp;:</p>
+<ul>
+<li>Tag 8.4.2, 8.3.9, 8.2.15, 8.1.19, 8.0.23, 7.4.27.</li>
+</ul>
+<p>Andrew Dunstan a commité&nbsp;:</p>
+<ul>
+<li>Add YAML to list of EXPLAIN formats. Greg Sabino Mullane, reviewed by Takahiro Itagaki.</li>
+</ul>
+<p>Bruce Momjian a commité&nbsp;:</p>
+<ul>
+<li>Properly define ENABLE_THREAD_SAFETY in conflgure, per suggestion from Peter Eisentraut.</li>
+</ul>
+<p>ITAGAKI Takahiro a commité&nbsp;:</p>
+<ul>
+<li>Add large object access control. A new system catalog pg_largeobject_metadata manages ownership and access privileges of large objects. KaiGai Kohei, reviewed by Jaime Casanova.</li>
+<li>Additional fixes for large object access control. Use pg_largeobject_metadata.oid instead of pg_largeobject.loid to enumerate existing large objects in pg_dump, pg_restore, and contrib modules.</li>
+</ul>
+<p><strong>Correctifs rejetés (à ce jour)</strong></p>
+<ul>
+<li>Pas de déception cette semaine&nbsp;:-)</li>
+</ul>
+<p><strong>Correctifs en attente</strong></p>
+<ul>
+<li>KaiGai Kohei sent in three more revision of the ACL patch for large objects per feedback from Greg Smith and ITAGAKI Takahiro. ITAGAKI Takahiro sent in two patches atop them to fix some issues with pg_restore and contrib.</li>
+<li>ITAGAKI Takahiro sent in two more revisions of the VACUUM FULL patch.</li>
+<li>ITAGAKI Takahiro sent in a patch to fix a bug in the auto_explain patch.</li>
+<li>Michael Paquier sent in two more revisions of the patch to add shell commands to pgbench, per review from Greg Smith. ITAGAKI Takahiro sent in another one.</li>
+<li>Magnus Hagander sent in a doc patch for CVS and git.</li>
+<li>Zdenek Kotala sent in two more revisions of the pg_ctl init extension per review from Greg Smith.</li>
+<li>ITAGAKI Takahiro sent in three more revisions of the EXPLAIN BUFFERS patch per feedback from Euler Taveira de Oliveira. Robert Haas sent in some doc and idiom changes atop those, then ITAGAKI Takahiro sent in yet another revision.</li>
+<li>Fujii Masao sent in a patch for the January 2010 commitfest which adds XLOG UNLOGGED to how WALs are handled.</li>
+<li>Marcin Mank sent in and Robert Haas reviewed and fixed a patch to fix a bug in Levenshtein distance calculation in contrib/fuzzystrmatch.</li>
+<li>Bruce Momjian sent in a patch to install PL/pgsql by default. Tom Lane reviewed same.</li>
+<li>Joachim Wieland sent in another revision of the patch to add payloads to LISTEN and NOTIFY.</li>
+<li>Zdenek Kotala sent in a WIP patch to add dtrace probes for the memory manager. Bernd Helmle sent in an updated revision which splits it into executor and slru parts.</li>
+<li>Robert Haas sent in a patch to fix an issue where ALTER TABLE ... RENAME COLUMN can change a VIEW.</li>
+<li>Andreas Freund sent in another revision of the patch to make tsearch's parser more efficient.</li>
+<li>Peter Eisentraut sent in a WIP patch for PL/Python3.</li>
+<li>Robert Haas sent in a fix atop the EXPLAIN YAML patch.</li>
+<li>Simon Riggs sent in another revision of the Hot Standby patch.</li>
+<li>KaiGai Kohei sent in two reworked patched for an ACE (Access Control Extension) framework.</li>
+<li>James Pye sent in another revision of the PL/Python3 patch.</li>
+</ul></div>
+
+      </div>
+
+  
+
+    
+  
+    
+    
+    </div>
+</div> <!-- End #main -->
+
+</div> <!-- End #wrapper -->
+
+<div id="pgFooter">
+  <p>Propulsé par <a href="http://dotclear.org/">Dotclear</a></p>
+</div>
+
+</div> <!-- End #page -->
+</body>
+
+<!-- Mirrored from blog2.postgresql.fr/index.php?post/2009/12/17/Nouvelles-hebdomadaires-de-PostgreSQL-13-d%C3%A9cembre-2009 by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 May 2020 21:40:20 GMT -->
+</html>

@@ -1,0 +1,261 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr">
+
+<!-- Mirrored from blog2.postgresql.fr/index.php?post/2016/03/01/Nouvelles-hebdomadaires-de-PostgreSQL-28-f%C3%A9vrier-2016 by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 May 2020 21:40:19 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="MSSmartTagsPreventParsing" content="TRUE" />
+  <meta name="ROBOTS" content="INDEX, FOLLOW" />
+  
+  <title>Nouvelles hebdomadaires de PostgreSQL - 28 février 2016 - PostgreSQLfr.org</title>
+  <meta name="description" lang="fr" content="Les nouveautés des produits dérivés Ora2PG 17.0, un système de migration depuis Oracle et MySQL vers PostgreSQL : http://ora2pg.darold.net/ pgBadger 8.0, un analyseur de log" />
+  <meta name="copyright" content="" />
+  <meta name="author" content="chl" />
+  <meta name="date" scheme="ISO8601" content="2016-03-01T00:34:00+01:00" />
+  
+  <link rel="schema.dc" href="http://purl.org/dc/elements/1.1/" />
+  <meta name="dc.title" content="Nouvelles hebdomadaires de PostgreSQL - 28 février 2016" />
+  <meta name="dc.description" lang="fr" content="Les nouveautés des produits dérivés Ora2PG 17.0, un système de migration depuis Oracle et MySQL vers PostgreSQL : http://ora2pg.darold.net/ pgBadger 8.0, un analyseur de log" />
+  <meta name="dc.creator" content="chl" />
+  <meta name="dc.language" content="fr" />
+  <meta name="dc.publisher" content="" />
+  <meta name="dc.rights" content="" />
+  <meta name="dc.date" scheme="ISO8601" content="2016-03-01T00:34:00+01:00" />
+  <meta name="dc.type" content="text" />
+  <meta name="dc.format" content="text/html" />
+  
+  <link rel="top" href="indexd41d.html?" title="Accueil" />
+  <link rel="contents" href="index888d.html?archive" title="Archives" />
+  
+  <link rel="next" href="index2bf9.html?post/2016/03/08/Nouvelles-hebdomadaires-de-PostgreSQL-6-mars-2016"
+  title="Nouvelles hebdomadaires de PostgreSQL - 6 mars 2016" />
+  
+  <link rel="previous" href="indexc73b.html?post/2016/02/22/Nouvelles-hebdomadaires-de-PostgreSQL-21-f%C3%A9vrier-2016"
+  title="Nouvelles hebdomadaires de PostgreSQL - 21 février 2016" />
+  
+  <link rel="alternate" type="application/atom+xml" title="Atom 1.0" href="index4ca3.php?feed/atom" />
+  
+  <style type="text/css" media="screen">
+@import url(themes/postgresql/style.css);
+</style>
+<style type="text/css" media="print">
+@import url(themes/default/print.css);
+</style>
+
+<script type="text/javascript" src="themes/default/js/jquery.js"></script>
+<script type="text/javascript" src="themes/default/js/jquery.cookie.js"></script>
+
+  
+  <script type="text/javascript" src="themes/default/js/post.js"></script>
+  <script type="text/javascript">
+  //<![CDATA[
+  var post_remember_str = 'Se souvenir de moi sur ce blog';
+  //]]>
+  </script>
+</head>
+
+<body class="dc-post">
+<div id="page">
+
+
+<div id="top">
+  <div id="pgHeader">
+    <span id="pgHeaderLogoLeft">
+      <a href="index.html" title="PostgreSQL"><img src="https://blog.postgresql.fr/themes/postgresql/img/hdr_left.png" width="230" height="80" alt="PostgreSQL" /></a>
+    </span>
+    <span id="pgHeaderLogoRight">
+      <a href="index.html" title="La base de donnees la plus sophistiquee au monde."><img src="https://blog.postgresql.fr/themes/postgresql/img/hdr_right.png" width="210" height="80" alt="La base de donnees la plus sophistiquee au monde." /></a>
+    </span>
+  </div>
+
+  </div>
+
+<div class="pgTopNav">
+  <div class="pgTopNavLeft"> 
+    <img src="https://blog.postgresql.fr/themes/postgresql/img/nav_lft.png" width="7" height="23" alt="" />
+  </div>
+  <div class="pgTopNavRight">
+    <img src="https://blog.postgresql.fr/themes/postgresql/img/nav_rgt.png" width="7" height="23" alt="" />
+  </div>
+  <ul class="pgTopNavList">
+    <li><a href="https://www.postgresql.fr/" title="Accueil">Accueil</a></li>
+    <li><a href="https://blog.postgresql.fr/" title="Lire les actualités">Actualités</a></li>
+    <li><a href="https://docs.postgresql.fr/" title="Lire la documentation officielle">Documentation</a></li>
+    <li><a href="https://forums.postgresql.fr/" title="Pour poser des questions">Forums</a></li>
+    <li><a href="https://www.postgresql.fr/asso/" title="La vie de l'association">Association</a></li>
+    <li><a href="https://www.postgresql.fr/devel:accueil" title="Informations pour les développeurs/traducteurs">Développeurs</a></li>
+    <li><a href="https://planete.postgresql.fr/" title="La planète francophone sur PostgreSQL">Planète</a></li>
+    <li><a href="https://www.postgresql.fr/support/" title="Support sur PostgreSQL">Support</a></li>
+  </ul>
+</div>
+
+<div id="wrapper">
+
+<div id="pgContent">
+
+  <div id="pgSideWrap">
+  <div id="pgSideNav">
+    <div id="blognav">
+      <div id="search"><h2><label for="q">Rechercher</label></h2><form action="http://blog2.postgresql.fr/index.php?" method="get"><fieldset><p><input type="text" size="10" maxlength="255" id="q" name="q" value="" /> <input class="submit" type="submit" value="ok" /></p></fieldset></form></div><div class="categories"><h2>Catégories</h2><ul><li><a href="index199b.html?category/Articles">Articles</a></li><li><a href="indexb4c6.html?category/Dans-les-bacs">Dans les bacs</a></li><li><a href="index025a.html?category/Evenements">Événements</a></li><li class="category-current"><a href="index8c6d.html?category/PostgreSQL-Weekly-News">PostgreSQL Weekly News</a></li><li><a href="index1835.html?category/Securite">Sécurité</a></li><li><a href="index2251.html?category/Vie-de-l-association">Vie de l'association</a></li><li><a href="index91de.html?category/Vie-du-site">Vie du site</a></li></ul></div><div class="text"><h2>Licence</h2>Tous les articles de ce blog sont disponibles sous la <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/">license Creative Commons BY-NC-SA 3.0</a>.</div>    </div> <!-- End #blognav -->
+  
+    <div id="blogextra">
+      <div class="syndicate"><h2>S'abonner</h2><ul><li><a type="application/atom+xml" href="index4ca3.php?feed/atom" title="Fil Atom des billets de ce blog" class="feed">Fil des billets</a></li></ul></div>    </div> <!-- End #blogextra -->
+  </div>
+  </div>
+
+  <div id="pgContentWrap">
+  <div id="pgDownloadsWrap">
+  <div id="content">
+
+  <p id="navlinks">
+  <a href="indexc73b.html?post/2016/02/22/Nouvelles-hebdomadaires-de-PostgreSQL-21-f%C3%A9vrier-2016"
+  title="Nouvelles hebdomadaires de PostgreSQL - 21 février 2016" class="prev">&#171; Nouvelles hebdomadaires de PostgreSQL - 21 février</a>
+   <span>-</span> <a href="index2bf9.html?post/2016/03/08/Nouvelles-hebdomadaires-de-PostgreSQL-6-mars-2016"
+  title="Nouvelles hebdomadaires de PostgreSQL - 6 mars 2016" class="next">Nouvelles hebdomadaires de PostgreSQL - 6 mars &#187;</a>
+  </p>
+  
+  <div class="post">
+    <h2 id="p896" class="post-title">Nouvelles hebdomadaires de PostgreSQL - 28 février 2016</h2>
+    
+    <p class="post-info">Par chl    le mardi  1 mars 2016, 00:34        - <a href="index8c6d.html?category/PostgreSQL-Weekly-News">PostgreSQL Weekly News</a>
+        - <a href="index9b5a.html?post/2016/03/01/Nouvelles-hebdomadaires-de-PostgreSQL-28-f%C3%A9vrier-2016">Lien permanent</a>
+    </p>
+    
+    
+    
+          <div class="post-excerpt"><h2>Les nouveaut&eacute;s des produits d&eacute;riv&eacute;s</h2>
+<ul>
+<li>Ora2PG 17.0, un syst&egrave;me de migration depuis Oracle et MySQL vers PostgreSQL&nbsp;: <a target="_blank" href="http://ora2pg.darold.net/">http://ora2pg.darold.net/</a></li>
+<li>pgBadger 8.0, un analyseur de log PostgreSQL parall&eacute;lisable &eacute;crit en Perl&nbsp;: <a target="_blank" href="https://github.com/dalibo/pgbadger/blob/master/ChangeLog">https://github.com/dalibo/pgbadger/blob/master/ChangeLog</a><br>
+D&eacute;veloppement&nbsp;: <a target="_blank" href="https://github.com/dalibo/pgbadger/">https://github.com/dalibo/pgbadger/</a></li>
+<li>pgbouncer 1.7.2, un pooler l&eacute;ger de connexions &agrave; PostgreSQL&nbsp;: <a target="_blank" href="https://pgbouncer.github.io/changelog.html">https://pgbouncer.github.io/changelog.html</a></li>
+</ul>
+<h2>Offres d'emplois autour de PostgreSQL en f&eacute;vrier</h2>
+<ul>
+<li>Internationales : <a target="_blank" href="http://archives.postgresql.org/pgsql-jobs/2016-02/">http://archives.postgresql.org/pgsql-jobs/2016-02/</a></li>
+<li>Francophones : <a target="_blank" href="http://forums.postgresql.fr/viewforum.php?id=4">http://forums.postgresql.fr/viewforum.php?id=4</a></li>
+</ul>
+<h2>PostgreSQL Local</h2>
+<ul>
+<li>La premi&egrave;re conf&eacute;rence PostgreSQL pan-asiatique se tiendra les 17 et 19 mars 2016 &agrave; Singapour. Les inscriptions sont ouvertes&nbsp;: <a target="_blank" href="http://2016.pgday.asia/">http://2016.pgday.asia/</a></li>
+<li>Le PGDay nordique, une s&eacute;rie de conf&eacute;rences sur une seule journ&eacute;e, aura lieu &agrave; Helsinki (Finlande) le 17 mars 2016. Les inscriptions sont encore ouvertes&nbsp;: <a target="_blank" href="http://2016.nordicpgday.org/">http://2016.nordicpgday.org/</a></li>
+<li>Les inscriptions pour le PGDay Paris 2016, pr&eacute;vu pour le 31 mars, sont ouvertes&nbsp;: <a target="_blank" href="http://www.pgday.paris/registration/">http://www.pgday.paris/registration/</a></li>
+<li>La 8<sup>&egrave;me</sup> Session PostgreSQL aura lieu le 6 avril 2016 &agrave; Lyon (France). L'appel &agrave; conf&eacute;renciers court jusqu'au 29 f&eacute;vrier &agrave; l'adresse call-for-paper AT postgresql-sessions POINT org.</li>
+<li>La <em>PGConf US 2016</em> aura lieu les 18, 19 et 20 avril &agrave; New-York City. Les inscriptions sont ouvertes&nbsp;: <a target="_blank" href="http://www.pgconf.us/2016/">http://www.pgconf.us/2016/</a></li>
+<li>La <em>LinuxFest Northwest</em> aura lieu les 23 et 24 avril 2016 au Coll&egrave;ge Technique de Bellingham (Washington, USA). L'appel &agrave; conf&eacute;renciers est maintenant lanc&eacute;&nbsp;: <a target="_blank" href="http://www.linuxfestnorthwest.org/2016/present">http://www.linuxfestnorthwest.org/2016/present</a></li>
+<li>FOSS4G NA (<em>Free and Open Source Software for Geospatial - North America</em>) se tiendra &agrave; Raleigh, en Caroline du Nord, du 2 au 5 mai 2016. Les candidatures de conf&eacute;renciers sont encore accept&eacute;es&nbsp;: <a target="_blank" href="https://2016.foss4g-na.org/cfp">https://2016.foss4g-na.org/cfp</a></li>
+<li>La <em>PGCon 2016</em> se tiendra du 17 au 21 mai 2016 &agrave; Ottawa&nbsp;: <a target="_blank" href="http://www.pgcon.org/">http://www.pgcon.org/</a></li>
+<li>Le PGDay suisse sera, cette ann&eacute;e, tenue &agrave; l'Universit&eacute; des Sciences Appliqu&eacute;es (HSR) de Rapperswil le 24 juin 2016. L'appel &agrave; conf&eacute;renciers est lanc&eacute;&nbsp;: <a target="_blank" href="http://www.pgday.ch/">http://www.pgday.ch/</a></li>
+<li>"5432 ... Meet us!" aura lieu &agrave; Milan (Italie) les 28 &amp; 29 juin 2016. L'appel &agrave; conf&eacute;renciers court jusqu'au 28 f&eacute;vrier&nbsp;: <a target="_blank" href="http://5432meet.us/">http://5432meet.us/</a></li>
+</ul>
+<h2>PostgreSQL dans les m&eacute;dia</h2>
+<ul>
+<li>Planet PostgreSQL : <a target="_blank" href="http://planet.postgresql.org/">http://planet.postgresql.org/</a></li>
+<li>Planet PostgreSQLFr : <a target="_blank" href="http://planete.postgresql.fr/">http://planete.postgresql.fr/</a></li>
+</ul>
+<p>PostgreSQL Weekly News / les nouvelles hebdomadaires vous sont offertes cette semaine par David Fetter. Traduction par l'&eacute;quipe PostgreSQLFr sous licence CC BY-NC-SA. La version originale se trouve &agrave; l'adresse suivante : <a target="_blank" href="http://www.postgresql.org/message-id/20160228235746.GA1232@fetter.org">http://www.postgresql.org/message-id/20160228235746.GA1232@fetter.org</a></p>
+<p>Proposez vos articles ou annonces avant dimanche 15:00 (heure du Pacifique). Merci de les envoyer en anglais &agrave; david (a) fetter.org, en allemand &agrave; pwn (a) pgug.de, en italien &agrave; pwn (a) itpug.org et en espagnol &agrave; pwn (a) arpug.com.ar.</p></div>
+        
+    <div class="post-content"><h2>Correctifs appliqu&eacute;s</h2>
+<p>Andres Freund pushed:</p>
+<ul>
+<li>Fix wrong keysize in PrivateRefCountHash creation. In 4b4b680c3 I accidentally used sizeof(PrivateRefCountArray) instead of sizeof(PrivateRefCountEntry) when creating the refcount overflow hashtable. As the former is bigger than the latter, this luckily only resulted in a slightly increased memory usage when many buffers are pinned in a backend. Reported-By: Takashi Horikawa Discussion: 73FA3881462C614096F815F75628AFCD035A48C3@BPXM01GP.gisp.nec.co.jp Backpatch: 9.5, where thew new ref count infrastructure was introduced <a target="_blank" href="http://git.postgresql.org/pg/commitdiff/ea56b06cf77a6932a74f9d4ec6c950a333d1527d">http://git.postgresql.org/pg/commitdiff/ea56b06cf77a6932a74f9d4ec6c950a333d1527d</a></li>
+</ul>
+<p>Tom Lane pushed:</p>
+<ul>
+<li>Remove redundant PGPROC.lockGroupLeaderIdentifier field. We don't really need this field, because it's either zero or redundant with PGPROC.pid. The use of zero to mark "not a group leader" is not necessary since we can just as well test whether lockGroupLeader is NULL. This does not save very much, either as to code or data, but the simplification seems worthwhile anyway. <a target="_blank" href="http://git.postgresql.org/pg/commitdiff/73bf8715aa7430bd003516bde448507fbe789c05">http://git.postgresql.org/pg/commitdiff/73bf8715aa7430bd003516bde448507fbe789c05</a></li>
+<li>Create a function to reliably identify which sessions block which others. This patch introduces "pg_blocking_pids(int) returns int[]", which returns the PIDs of any sessions that are blocking the session with the given PID. Historically people have obtained such information using a self-join on the pg_locks view, but it's unreasonably tedious to do it that way with any modicum of correctness, and the addition of parallel queries has pretty much broken that approach altogether. (Given some more columns in the view than there are today, you could imagine handling parallel-query cases with a 4-way join; but ugh.) The new function has the following behaviors that are painful or impossible to get right via pg_locks: 1. Correctly understands which lock modes block which other ones. 2. In soft-block situations (two processes both waiting for conflicting lock modes), only the one that's in front in the wait queue is reported to block the other. 3. In parallel-query cases, reports all sessions blocking any member of the given PID's lock group, and reports a session by naming its leader process's PID, which will be the pg_backend_pid() value visible to clients. The motivation for doing this right now is mostly to fix the isolation tests. Commit 38f8bdcac4982215beb9f65a19debecaf22fd470 lobotomized isolationtester's is-it-waiting query by removing its ability to recognize nonconflicting lock modes, as a crude workaround for the inability to handle soft-block situations properly. But even without the lock mode tests, the old query was excessively slow, particularly in CLOBBER_CACHE_ALWAYS builds; some of our buildfarm animals fail the new deadlock-hard test because the deadlock timeout elapses before they can probe the waiting status of all eight sessions. Replacing the pg_locks self-join with use of pg_blocking_pids() is not only much more correct, but a lot faster: I measure it at about 9X faster in a typical dev build with Asserts, and 3X faster in CLOBBER_CACHE_ALWAYS builds. That should provide enough headroom for the slower CLOBBER_CACHE_ALWAYS animals to pass the test, without having to lengthen deadlock_timeout yet more and thus slow down the test for everyone else. <a target="_blank" href="http://git.postgresql.org/pg/commitdiff/52f5d578d6c29bf254e93c69043b817d4047ca67">http://git.postgresql.org/pg/commitdiff/52f5d578d6c29bf254e93c69043b817d4047ca67</a></li>
+</ul>
+<p>Noah Misch pushed:</p>
+<ul>
+<li>MSVC: Clean tmp_check directory of pg_controldata test suite. Back-patch to 9.4, where the suite was introduced. <a target="_blank" href="http://git.postgresql.org/pg/commitdiff/41635887835d54715a2fd4745dbf0fdb99f57f4f">http://git.postgresql.org/pg/commitdiff/41635887835d54715a2fd4745dbf0fdb99f57f4f</a></li>
+<li>Clean the last few TAP suite tmp_check directories. Back-patch to 9.5, where the suites were introduced. <a target="_blank" href="http://git.postgresql.org/pg/commitdiff/25924ac47abde5330ca502e23796e9d37cd1ae68">http://git.postgresql.org/pg/commitdiff/25924ac47abde5330ca502e23796e9d37cd1ae68</a></li>
+</ul>
+<p>Robert Haas pushed:</p>
+<ul>
+<li>Enable parallelism for prepared statements and extended query protocol. Parallel query can't handle running a query only partially rather than to completion. However, there seems to be no way to run a statement prepared via SQL PREPARE other than to completion, so we can enable it there without a problem. The situation is more complicated for the extend query protocol. libpq seems to provide no way to send an Execute message with a non-zero rowcount, but some other client might. If that happens, and a parallel plan was chosen, we'll execute the parallel plan without using any workers, which may be somewhat inefficient but should still work. Hopefully this won't be a problem; users can always set max_parallel_degree=0 to avoid choosing parallel plans in the first place. Amit Kapila, reviewed by me. <a target="_blank" href="http://git.postgresql.org/pg/commitdiff/57a6a72b6bc98f3003e87bc31de4b9c2c89fe019">http://git.postgresql.org/pg/commitdiff/57a6a72b6bc98f3003e87bc31de4b9c2c89fe019</a></li>
+<li>Add new FDW API to test for parallel-safety. This is basically a bug fix; the old code assumes that a ForeignScan is always parallel-safe, but for postgres_fdw, for example, this is definitely false. It should be true for file_fdw, though, since a worker can read a file from the filesystem just as well as any other backend process. Original patch by Thomas Munro. Documentation, and changes to the comments, by me. <a target="_blank" href="http://git.postgresql.org/pg/commitdiff/35746bc348b6bf1f690fe17f4f80cfb68e22f504">http://git.postgresql.org/pg/commitdiff/35746bc348b6bf1f690fe17f4f80cfb68e22f504</a></li>
+<li>On second thought, disable parallelism for prepared statements. CREATE TABLE .. AS EXECUTE can turn an apparently read-only query into a write operation, which parallel query can't handle. It's a bit of a shame that requires us to avoid parallel query for queries prepared via PREPARE in all cases, but for right now it does. <a target="_blank" href="http://git.postgresql.org/pg/commitdiff/7bea19d0a9d3e6975418ffe685fb510bd31ab434">http://git.postgresql.org/pg/commitdiff/7bea19d0a9d3e6975418ffe685fb510bd31ab434</a></li>
+<li>Respect TEMP_CONFIG when running contrib regression tests. Thomas Munro <a target="_blank" href="http://git.postgresql.org/pg/commitdiff/9117985b6ba9beda4f280f596035649fc23b6233">http://git.postgresql.org/pg/commitdiff/9117985b6ba9beda4f280f596035649fc23b6233</a></li>
+</ul>
+<p>&Atilde;lvaro Herrera pushed:</p>
+<ul>
+<li>Fix typos Backpatch to: 9.4 <a target="_blank" href="http://git.postgresql.org/pg/commitdiff/343f709c0691abdc779bec91fa3587dda259808e">http://git.postgresql.org/pg/commitdiff/343f709c0691abdc779bec91fa3587dda259808e</a></li>
+<li>Add README in src/test and src/test/modules. Author: Craig Ringer Reviewed by: Micha&Atilde;&laquo;l Paquier <a target="_blank" href="http://git.postgresql.org/pg/commitdiff/bda0b081984011ba5347bf3eecc95b71833de082">http://git.postgresql.org/pg/commitdiff/bda0b081984011ba5347bf3eecc95b71833de082</a></li>
+<li>Add POD docs to PostgresNode. Also, the dump_info method got split into another method that returns the stuff as a string instead of just printing it to stdout. Add a new README in src/test/perl too. Author: Craig Ringer Reviewed by: Micha&Atilde;&laquo;l Paquier <a target="_blank" href="http://git.postgresql.org/pg/commitdiff/e64009303d4e2434abafbdafe4d571cc4f279d39">http://git.postgresql.org/pg/commitdiff/e64009303d4e2434abafbdafe4d571cc4f279d39</a></li>
+<li>Move some code from RewindTest into PostgresNode. Some code in the RewindTest test suite is more generally useful than just for that suite, so put it where other test suites can reach it. Some postgresql.conf parameters change their default values when a cluster is initialized with 'allows_streaming' than the previous behavior; most notably, autovacuum is no longer turned off. (Also, we no longer call pg_ctl promote with -w, but that flag doesn't actually do anything in promote so there's no behavior change.) Author: Michael Paquier <a target="_blank" href="http://git.postgresql.org/pg/commitdiff/89ac7004dadf4116d9b180bb5ff64b64bfce94b1">http://git.postgresql.org/pg/commitdiff/89ac7004dadf4116d9b180bb5ff64b64bfce94b1</a></li>
+<li>Apply last revision of recovery patch. I applied the previous-to-last revision of Micha&Atilde;&laquo;l's submitted patch instead of the last; these two tweaks pointed out by Craig were left out of the previous commit by accident. <a target="_blank" href="http://git.postgresql.org/pg/commitdiff/74d58425c70f9f7f1cb5d7f428ceaa1b56aa081d">http://git.postgresql.org/pg/commitdiff/74d58425c70f9f7f1cb5d7f428ceaa1b56aa081d</a></li>
+<li>Add a test framework for recovery. This long-awaited framework is an expansion of the existing PostgresNode stuff to support additional features for recovery testing; the recovery tests included in this commit are a starting point that cover some of the recovery features we have. More scripts are expected to be added later. Author: Micha&Atilde;&laquo;l Paquier, a bit of help from Amir Rohan. Reviewed by: Amir Rohan, Stas Kelvich, Kyotaro Horiguchi, Victor Wagner, Craig Ringer, &Atilde;lvaro Herrera. Discussion: <a target="_blank" href="http://www.postgresql.org/message-id/CAB7nPqTf7V6rswrFa=q_rrWeETUWagP=h8LX8XAov2Jcxw0DRg@mail.gmail.com">http://www.postgresql.org/message-id/CAB7nPqTf7V6rswrFa=q_rrWeETUWagP=h8LX8XAov2Jcxw0DRg@mail.gmail.com</a> Discussion: <a target="_blank" href="http://www.postgresql.org/message-id/trinity-b4a8035d-59af-4c42-a37e-258f0f28e44a-1443795007012@3capp-mailcom-lxa08">http://www.postgresql.org/message-id/trinity-b4a8035d-59af-4c42-a37e-258f0f28e44a-1443795007012@3capp-mailcom-lxa08</a> <a target="_blank" href="http://git.postgresql.org/pg/commitdiff/49148645f7f30f461b09618b5342b37425f33b22">http://git.postgresql.org/pg/commitdiff/49148645f7f30f461b09618b5342b37425f33b22</a></li>
+<li>Add isolationtester spec for old heapam.c bug. In 0e5680f4737a, I fixed a bug in heapam that caused spurious deadlocks when multiple updates concurrently attempted to modify the old version of an updated tuple whose new version was key-share locked. I proposed an isolationtester spec file that reproduced the bug, but back then isolationtester wasn't mature enough to be able to run it. Now that 38f8bdcac498 is in the tree, we can have this spec file too. Discussion: <a target="_blank" href="https://www.postgresql.org/message-id/20141212205254.GC1768%40alvh.no-ip.org">https://www.postgresql.org/message-id/20141212205254.GC1768%40alvh.no-ip.org</a> <a target="_blank" href="http://git.postgresql.org/pg/commitdiff/c9578135f769072e2597b88402f256a398279c91">http://git.postgresql.org/pg/commitdiff/c9578135f769072e2597b88402f256a398279c91</a></li>
+</ul>
+<p>Andrew Dunstan pushed:</p>
+<ul>
+<li>Respect TEMP_CONFIG when pg_regress_check and friends are called. This reverts commit 9117985b6ba9beda4f280f596035649fc23b6233 in favor of a more general solution. <a target="_blank" href="http://git.postgresql.org/pg/commitdiff/87cc6b57a911bf439ff9e53f1eddba58e9749ffe">http://git.postgresql.org/pg/commitdiff/87cc6b57a911bf439ff9e53f1eddba58e9749ffe</a></li>
+<li>Allow multiple --temp-config arguments to pg_regress. This means that if, for example, TEMP_CONFIG is set and a Makefile explicitly sets a temp-config file, both will now be used. Patch from John Gorman. <a target="_blank" href="http://git.postgresql.org/pg/commitdiff/26fdff1b8f76f3c47d4e19be7c4aef3cdcd3393c">http://git.postgresql.org/pg/commitdiff/26fdff1b8f76f3c47d4e19be7c4aef3cdcd3393c</a></li>
+</ul>
+<h2>Correctifs rejet&eacute;s (&agrave; ce jour)</h2>
+<p>No one was disappointed this week :-)</p>
+<h2>Correctifs en attente</h2>
+<p>Amit Kapila sent in another revision of a patch to extend pg_stat_activity with wait_type_event.</p>
+<p>Corey Huinker sent in another revision of a patch to add \gexec to psql.</p>
+<p>Rushabh Lathia sent in another revision of a patch to help fix some slowness in FDW DML.</p>
+<p>Micha&Atilde;&laquo;l Paquier sent in another revision of a patch to add new authentication methods with SCRAM as one example.</p>
+<p>Vitaly Burovoy sent in a patch to fix handling of negative years.</p>
+<p>Ashutosh Bapat sent in another revision of a patch to push sorted joins down to FDWs.</p>
+<p>Fujii Masao sent in a patch to add tab completion in psql to CREATE USER MAPPING.</p>
+<p>Micha&Atilde;&laquo;l Paquier sent in a pair of patches, one which extends XLogInsert() with an extra argument for flags, the other which introduces XLogInsertExtended with this extra argument and leaves XLogInsert() alone.</p>
+<p>Micha&Atilde;&laquo;l Paquier sent in another revision of a patch to fix a potential data loss bug on ext4 filesystems.</p>
+<p>Craig Ringer sent in another revision of a patch to implement failover slots.</p>
+<p>Tomas Vondra and Mark Dilger traded patches to improve GROUP BY estimation.</p>
+<p>Tomas Vondra and Kyotaro HORIGUCHI traded patches to allow index-only scans with partial indexes.</p>
+<p>Jim Nasby sent in another revision of a patch to convert PL/Tcl from strings to objects.</p>
+<p>Thomas Munro sent in two more revisions of a patch to make the PostgreSQL in parallel mode safer on PPC.</p>
+<p>Teodor Sigaev sent in two more revisions of a patch to fix a GIN corruption bug.</p>
+<p>Vitaly Burovoy sent in a patch to fix some overflows in timstamp[tz].</p>
+<p>Iacob Catalin and Pavel St&Auml;&rsaquo;hule traded patches to add an ereport function to PL/PythonU.</p>
+<p>Mithun Cy sent in another revision of a patch to cache data in GetSnapshotData().</p>
+<p>Kyotaro HORIGUCHI and SAWADA Masahiko traded patches to support N&gt;1 synchronous standby servers.</p>
+<p>Petr Jel&Atilde;&shy;nek sent in another revision of a patch to add generic WAL messages.</p>
+<p>Julien Rouhaud sent in a patch to ensure that the CREATE OPERATOR CLASS documentation mentions that BRIN indexes also support the STORAGE parameter.</p>
+<p>Kyotaro HORIGUCHI sent in a patch to fix wrong comments for PQmblen() and PQdsplen().</p>
+<p>Kyotaro HORIGUCHI sent in a patch to fix identifier completion with multibyte characters.</p>
+<p>Peter Eisentraut sent in a patch to add table qualifications to some tags in pg_dump.</p>
+<p>Kyotaro HORIGUCHI sent in another revision of a patch to add "IF [NOT] EXISTS" support to psql's tab completion.</p>
+<p>Micha&Atilde;&laquo;l Paquier sent in four more revisions of a patch to add new regression tests for recovery, etc.</p>
+<p>Peter Eisentraut sent in a patch to introduce new configuration parameters syslog_sequence_numbers and syslog_split_lines.</p>
+<p>Amit Kapila sent in another revision of a patch to speed up CLOG access.</p>
+<p>Vitaly Burovoy sent in a patch to allow infinite values in to_timestamp.</p>
+<p>Pavel St&Auml;&rsaquo;hule sent in another revision of a patch to add a raw format to COPY.</p>
+<p>Vinayak Pokure sent in another revision of a patch to add a vacuum progress checker.</p>
+<p>Roma Sokolov sent in two revisions of a patch to fix DROP OPERATOR to reset links to itself on commutator and negator.</p>
+<p>Ivan Kartyshov sent in two revisions of a patch to add a pg_oldest_xlog_location() function.</p>
+<p>Simon Riggs sent in two revisions of a patch to fix an issue with relcache invalidation on a physical replica.</p>
+<p>Amit Langote sent in a patch to fix a typo in src/backend/utils/init/postinit.c.</p>
+<p>Joe Conway sent in two more revisions of a patch to add control data functions.</p>
+<p>Tom Lane sent in a WIP patch to path-ify the upper planner. And there was much rejoicing.</p>
+<p>Jim Nasby sent in a patch to improve error handling in PL/Tcl.</p></div>
+
+      </div>
+
+  
+
+    
+  
+    
+    
+    </div>
+</div> <!-- End #main -->
+
+</div> <!-- End #wrapper -->
+
+<div id="pgFooter">
+  <p>Propulsé par <a href="http://dotclear.org/">Dotclear</a></p>
+</div>
+
+</div> <!-- End #page -->
+</body>
+
+<!-- Mirrored from blog2.postgresql.fr/index.php?post/2016/03/01/Nouvelles-hebdomadaires-de-PostgreSQL-28-f%C3%A9vrier-2016 by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 May 2020 21:40:19 GMT -->
+</html>

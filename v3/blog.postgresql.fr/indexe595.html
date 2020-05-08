@@ -1,0 +1,388 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr">
+
+<!-- Mirrored from blog2.postgresql.fr/index.php?post/2011/01/29/Nouvelles-hebdomadaires-de-PostgreSQL-23-janvier-2011 by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 May 2020 21:40:20 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="MSSmartTagsPreventParsing" content="TRUE" />
+  <meta name="ROBOTS" content="INDEX, FOLLOW" />
+  
+  <title>Nouvelles hebdomadaires de PostgreSQL - 23 janvier 2011 - PostgreSQLfr.org</title>
+  <meta name="description" lang="fr" content="Les nouveautés des produits dérivés DBSolo 4.0, un outil à requêtes SQL, compatible PostgreSQL : http://www.dbsolo.com/ Offres d'emplois autour de PostgreSQL en janvier" />
+  <meta name="copyright" content="" />
+  <meta name="author" content="chl" />
+  <meta name="date" scheme="ISO8601" content="2011-01-29T21:43:00+01:00" />
+  
+  <link rel="schema.dc" href="http://purl.org/dc/elements/1.1/" />
+  <meta name="dc.title" content="Nouvelles hebdomadaires de PostgreSQL - 23 janvier 2011" />
+  <meta name="dc.description" lang="fr" content="Les nouveautés des produits dérivés DBSolo 4.0, un outil à requêtes SQL, compatible PostgreSQL : http://www.dbsolo.com/ Offres d'emplois autour de PostgreSQL en janvier" />
+  <meta name="dc.creator" content="chl" />
+  <meta name="dc.language" content="fr" />
+  <meta name="dc.publisher" content="" />
+  <meta name="dc.rights" content="" />
+  <meta name="dc.date" scheme="ISO8601" content="2011-01-29T21:43:00+01:00" />
+  <meta name="dc.type" content="text" />
+  <meta name="dc.format" content="text/html" />
+  
+  <link rel="top" href="indexd41d.html?" title="Accueil" />
+  <link rel="contents" href="index888d.html?archive" title="Archives" />
+  
+  <link rel="next" href="indexcd9b.html?post/2011/02/05/Nouvelles-hebdomadaires-de-PostgreSQL-30-janvier-2011"
+  title="Nouvelles hebdomadaires de PostgreSQL - 30 janvier 2011" />
+  
+  <link rel="previous" href="index5f9e.html?post/2011/01/19/Nouvelles-hebdomadaires-de-PostgreSQL-16-janvier-2011"
+  title="Nouvelles hebdomadaires de PostgreSQL - 16 janvier 2011" />
+  
+  <link rel="alternate" type="application/atom+xml" title="Atom 1.0" href="index4ca3.php?feed/atom" />
+  
+  <style type="text/css" media="screen">
+@import url(themes/postgresql/style.css);
+</style>
+<style type="text/css" media="print">
+@import url(themes/default/print.css);
+</style>
+
+<script type="text/javascript" src="themes/default/js/jquery.js"></script>
+<script type="text/javascript" src="themes/default/js/jquery.cookie.js"></script>
+
+  
+  <script type="text/javascript" src="themes/default/js/post.js"></script>
+  <script type="text/javascript">
+  //<![CDATA[
+  var post_remember_str = 'Se souvenir de moi sur ce blog';
+  //]]>
+  </script>
+</head>
+
+<body class="dc-post">
+<div id="page">
+
+
+<div id="top">
+  <div id="pgHeader">
+    <span id="pgHeaderLogoLeft">
+      <a href="index.html" title="PostgreSQL"><img src="https://blog.postgresql.fr/themes/postgresql/img/hdr_left.png" width="230" height="80" alt="PostgreSQL" /></a>
+    </span>
+    <span id="pgHeaderLogoRight">
+      <a href="index.html" title="La base de donnees la plus sophistiquee au monde."><img src="https://blog.postgresql.fr/themes/postgresql/img/hdr_right.png" width="210" height="80" alt="La base de donnees la plus sophistiquee au monde." /></a>
+    </span>
+  </div>
+
+  </div>
+
+<div class="pgTopNav">
+  <div class="pgTopNavLeft"> 
+    <img src="https://blog.postgresql.fr/themes/postgresql/img/nav_lft.png" width="7" height="23" alt="" />
+  </div>
+  <div class="pgTopNavRight">
+    <img src="https://blog.postgresql.fr/themes/postgresql/img/nav_rgt.png" width="7" height="23" alt="" />
+  </div>
+  <ul class="pgTopNavList">
+    <li><a href="https://www.postgresql.fr/" title="Accueil">Accueil</a></li>
+    <li><a href="https://blog.postgresql.fr/" title="Lire les actualités">Actualités</a></li>
+    <li><a href="https://docs.postgresql.fr/" title="Lire la documentation officielle">Documentation</a></li>
+    <li><a href="https://forums.postgresql.fr/" title="Pour poser des questions">Forums</a></li>
+    <li><a href="https://www.postgresql.fr/asso/" title="La vie de l'association">Association</a></li>
+    <li><a href="https://www.postgresql.fr/devel:accueil" title="Informations pour les développeurs/traducteurs">Développeurs</a></li>
+    <li><a href="https://planete.postgresql.fr/" title="La planète francophone sur PostgreSQL">Planète</a></li>
+    <li><a href="https://www.postgresql.fr/support/" title="Support sur PostgreSQL">Support</a></li>
+  </ul>
+</div>
+
+<div id="wrapper">
+
+<div id="pgContent">
+
+  <div id="pgSideWrap">
+  <div id="pgSideNav">
+    <div id="blognav">
+      <div id="search"><h2><label for="q">Rechercher</label></h2><form action="http://blog2.postgresql.fr/index.php?" method="get"><fieldset><p><input type="text" size="10" maxlength="255" id="q" name="q" value="" /> <input class="submit" type="submit" value="ok" /></p></fieldset></form></div><div class="categories"><h2>Catégories</h2><ul><li><a href="index199b.html?category/Articles">Articles</a></li><li><a href="indexb4c6.html?category/Dans-les-bacs">Dans les bacs</a></li><li><a href="index025a.html?category/Evenements">Événements</a></li><li class="category-current"><a href="index8c6d.html?category/PostgreSQL-Weekly-News">PostgreSQL Weekly News</a></li><li><a href="index1835.html?category/Securite">Sécurité</a></li><li><a href="index2251.html?category/Vie-de-l-association">Vie de l'association</a></li><li><a href="index91de.html?category/Vie-du-site">Vie du site</a></li></ul></div><div class="text"><h2>Licence</h2>Tous les articles de ce blog sont disponibles sous la <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/">license Creative Commons BY-NC-SA 3.0</a>.</div>    </div> <!-- End #blognav -->
+  
+    <div id="blogextra">
+      <div class="syndicate"><h2>S'abonner</h2><ul><li><a type="application/atom+xml" href="index4ca3.php?feed/atom" title="Fil Atom des billets de ce blog" class="feed">Fil des billets</a></li></ul></div>    </div> <!-- End #blogextra -->
+  </div>
+  </div>
+
+  <div id="pgContentWrap">
+  <div id="pgDownloadsWrap">
+  <div id="content">
+
+  <p id="navlinks">
+  <a href="index5f9e.html?post/2011/01/19/Nouvelles-hebdomadaires-de-PostgreSQL-16-janvier-2011"
+  title="Nouvelles hebdomadaires de PostgreSQL - 16 janvier 2011" class="prev">&#171; Nouvelles hebdomadaires de PostgreSQL - 16 janvier</a>
+   <span>-</span> <a href="indexcd9b.html?post/2011/02/05/Nouvelles-hebdomadaires-de-PostgreSQL-30-janvier-2011"
+  title="Nouvelles hebdomadaires de PostgreSQL - 30 janvier 2011" class="next">Nouvelles hebdomadaires de PostgreSQL - 30 janvier &#187;</a>
+  </p>
+  
+  <div class="post">
+    <h2 id="p589" class="post-title">Nouvelles hebdomadaires de PostgreSQL - 23 janvier 2011</h2>
+    
+    <p class="post-info">Par chl    le samedi 29 janvier 2011, 21:43        - <a href="index8c6d.html?category/PostgreSQL-Weekly-News">PostgreSQL Weekly News</a>
+        - <a href="indexe595.html?post/2011/01/29/Nouvelles-hebdomadaires-de-PostgreSQL-23-janvier-2011">Lien permanent</a>
+    </p>
+    
+    
+    
+          <div class="post-excerpt"><p><strong>Les nouveaut&eacute;s des produits d&eacute;riv&eacute;s</strong></p>
+<ul>
+<li>DBSolo 4.0, un outil &agrave; requ&ecirc;tes SQL, compatible PostgreSQL&nbsp;: 
+<a target="_blank" href="http://www.dbsolo.com/">http://www.dbsolo.com/</a></li>
+</ul>
+<p><strong>Offres d'emplois autour de PostgreSQL en janvier</strong></p>
+<ul>
+<li>Internationales&nbsp;: 
+<a target="_blank" href="http://archives.postgresql.org/pgsql-jobs/2011-01/threads.php">http://archives.postgresql.org/pgsql-jobs/2011-01/threads.php</a>;</li>
+<li>Francophones&nbsp;: 
+<a target="_blank" href="http://forums.postgresql.fr/viewforum.php?id=4">http://forums.postgresql.fr/viewforum.php?id=4</a>.</li>
+</ul>
+<p><strong>PostgreSQL Local</strong></p>
+<ul>
+<li>Selena Deckelmann parlera de la communaut&eacute; et du d&eacute;veloppement PostgreSQL le 7 f&eacute;vrier 2010 &agrave; 16h, &agrave; l'universit&eacute; d'&eacute;tat de l'Oregon &agrave; Corvallis.</li>
+<li>L'appel &agrave; conf&eacute;renciers pour l'annuel "<em>Prague PostgreSQL Developers' Day</em>", 4&egrave;me &eacute;dition, est lanc&eacute;. L'&eacute;v&eacute;nement sera tenu le 10 f&eacute;vrier 2011 &agrave; l'<em>Universitas Carolinas</em>&nbsp;: 
+<a target="_blank" href="http://archives.postgresql.org/pgsql-announce/2010-12/msg00009.php">http://archives.postgresql.org/pgsql-announce/2010-12/msg00009.php</a></li>
+<li>L'appel &agrave; projets de PostgreSQLFr a &eacute;t&eacute; lanc&eacute;. Les projets doivent concerner PostgreSQL et la communaut&eacute; francophone. Mail &agrave; appel-projets-2010 (AT) postgresql (DOT) fr. 
+<a target="_blank" href="http://www.postgresql.fr/appel_a_projets_2010:appel">http://www.postgresql.fr/appel_a_projets_2010:appel</a></li>
+<li>Le PGDay.US est au programme du <em>Southern California Linux Exposition (SCALE)</em> de cette ann&eacute;e, tenu &agrave; l'h&ocirc;tel LAX Hilton de Los Angeles (Californie) le vendredi 25 f&eacute;vrier 2011. Proposez vos conf&eacute;rences sur pgday-submissions (AT) googlegroups (DOT) com.</li>
+<li>PostgreSQL Conference East 2011&nbsp;: New-York City, du 22 au 25 mars&nbsp;: 
+<a target="_blank" href="http://www.postgresqlconference.org/">http://www.postgresqlconference.org</a></li>
+<li>L'<em>Open Database Camp</em> aura lieu du 7 au 9 mai 2011 en Sardaigne (Italie)&nbsp;: 
+<a target="_blank" href="http://datacharmer.blogspot.com/2011/01/announcing-open-database-camp-sardinia.html">http://datacharmer.blogspot.com/2011/01/announcing-open-database-camp-sardinia.html</a></li>
+<li>PGCon aura lieu les 19 &amp; 20 mai 2011 &agrave; l'Universit&eacute; d'Ottawa, pr&eacute;c&eacute;d&eacute; par deux jours de tutoriels les 17 &amp; 18 mai&nbsp;. L'appel &agrave; conf&eacute;renciers a &eacute;t&eacute; lanc&eacute;&nbsp;! 
+<a target="_blank" href="http://www.pgcon.org/2011/">http://www.pgcon.org/2011/</a></li>
+</ul>
+<p><strong>PostgreSQL dans les m&eacute;dia</strong></p>
+<ul>
+<li>Planet PostgreSQL: 
+<a target="_blank" href="http://planet.postgresql.org/">http://planet.postgresql.org/</a></li>
+<li>Planet PostgreSQLFr&nbsp;: 
+<a target="_blank" href="http://planete.postgresql.fr/">http://planete.postgresql.fr/</a></li>
+</ul>
+<p><i>PostgreSQL Weekly News / les nouvelles hebdomadaires vous sont offertes cette semaine par David Fetter. Traduction par l'&eacute;quipe PostgreSQLFr sous licence CC BY-NC-SA.</i></p>
+<p><i>Proposez vos articles ou annonces avant dimanche 15:00 (heure du Pacifique). Merci de les envoyer en anglais &agrave; david (a) fetter.org, en allemand &agrave; pwn (a) pgug.de, en italien &agrave; pwn (a) itpug.org et en espagnol &agrave; pwn (a) arpug.com.ar.</i></p>
+<p>(<a target="_blank" href="http://www.postgresql.org/community/weeklynews/pwn20110123">lien vers l'article original</a>)</p></div>
+        
+    <div class="post-content"><p><strong>Revues de code</strong></p>
+<ul>
+<li>ITAGAKI Takahiro reviewed Marko (johto) Tiikkaja's patch to add transaction-scope advisory locks.</li>
+<li>Anssi Kaariainen reviewed Dimitri Fontaine's patch to add EXTENSION support to pg_dump, several times.</li>
+<li>Chris Browne reviewed the patch to compact the fsync request queue.</li>
+<li>Steve Singer reviewed the patch for log_hostname and pg_stat_activity.</li>
+<li>Kevin Grittner reviewed the file_fdw patch.</li>
+<li>Noah Misch reviewed the snapshot synchronization patch.</li>
+<li>Jan Urbanski reviewed the patch to add wildcard search support for pg_trgm.</li>
+<li>Dimitri Fontaine reviewed the patch to add FOR KEY LOCK for foreign key checks.</li>
+<li>Stephen Frost reviewed the patch to add FOREACH ... IN ARRAY to PL/pgsql.</li>
+<li>Marko (johto) Tiikkaja reviewed the patch to add ALTER TABLE ... ADD FOREIGN KEY ... NOT ENFORCED.</li>
+</ul>
+<p><strong>Correctifs appliqu&eacute;s</strong></p>
+<p>Heikki Linnakangas a pouss&eacute;&nbsp;:</p>
+<ul>
+<li>Before exiting walreceiver, fsync() all the WAL received. Otherwise WAL recovery will replay the un-flushed WAL after walreceiver has exited, which can lead to a non-recoverable standby if the system crashes hard at that point. 
+<a target="_blank" href="http://git.postgresql.org/gitweb?p=postgresql.git;a=commitdiff;h=34ef02b4d4c06e2bae6ad09cfd6d9c097eb73743">http://git.postgresql.org/gitweb?p=postgresql.git;a=commitdiff;h=34ef02b4d4c06e2bae6ad09cfd6d9c097eb73743</a></li>
+<li>Set fallback_application_name in walreceiver. Makes replication slaves identify themselves in the new pg_stat_replication view. 
+<a target="_blank" href="http://git.postgresql.org/gitweb?p=postgresql.git;a=commitdiff;h=48075095ac3ce1aaa63624ea0148dbe5bcba3b09">http://git.postgresql.org/gitweb?p=postgresql.git;a=commitdiff;h=48075095ac3ce1aaa63624ea0148dbe5bcba3b09</a></li>
+<li>Fix thinko in comment. Spotted by Jim Nasby. 
+<a target="_blank" href="http://git.postgresql.org/gitweb?p=postgresql.git;a=commitdiff;h=b1dc45c11d8e63df34044ea73e643f5fa9d8c316">http://git.postgresql.org/gitweb?p=postgresql.git;a=commitdiff;h=b1dc45c11d8e63df34044ea73e643f5fa9d8c316</a></li>
+<li>Don't require usage privileges on the foreign data wrapper when creating a foreign table. We check for usage privileges on the foreign server, that ought to be enough. Shigeru HANADA. 
+<a target="_blank" href="http://git.postgresql.org/gitweb?p=postgresql.git;a=commitdiff;h=8aea1373d8f88bf389def1af10d06f1e67e25249">http://git.postgresql.org/gitweb?p=postgresql.git;a=commitdiff;h=8aea1373d8f88bf389def1af10d06f1e67e25249</a></li>
+<li>Add 'directory' format to pg_dump. The new directory format is compatible with the 'tar' format, in that untarring a tar format archive produces a valid directory format archive. Joachim Wieland and Heikki Linnakangas 
+<a target="_blank" href="http://git.postgresql.org/gitweb?p=postgresql.git;a=commitdiff;h=7f508f1c6b515df66d27f860b2faa7b5761fa55d">http://git.postgresql.org/gitweb?p=postgresql.git;a=commitdiff;h=7f508f1c6b515df66d27f860b2faa7b5761fa55d</a></li>
+<li>Silence compiler warning about uninitialized variable, noted by Itagaki Takahiro. 
+<a target="_blank" href="http://git.postgresql.org/gitweb?p=postgresql.git;a=commitdiff;h=56d77c9e56adbd856beba00af3dc607687d30198">http://git.postgresql.org/gitweb?p=postgresql.git;a=commitdiff;h=56d77c9e56adbd856beba00af3dc607687d30198</a></li>
+</ul>
+<p>Bruce Momjian a pouss&eacute;&nbsp;:</p>
+<ul>
+<li>Add getopt() support to test_fsync; also fix printf() format problem. 
+<a target="_blank" href="http://git.postgresql.org/gitweb?p=postgresql.git;a=commitdiff;h=08af45f4ff89ff5bee25c7d5bf496e987eb90060">http://git.postgresql.org/gitweb?p=postgresql.git;a=commitdiff;h=08af45f4ff89ff5bee25c7d5bf496e987eb90060</a></li>
+<li>In the docs, better distinguish server from client SSL settings in the documentation. Ray Stell. Also fix some libpq title capitalization problems. 
+<a target="_blank" href="http://git.postgresql.org/gitweb?p=postgresql.git;a=commitdiff;h=74bcdfbe2dd656f04db4e883b5bdcdafddebff08">http://git.postgresql.org/gitweb?p=postgresql.git;a=commitdiff;h=74bcdfbe2dd656f04db4e883b5bdcdafddebff08</a></li>
+<li>github test. 
+<a target="_blank" href="http://git.postgresql.org/gitweb?p=postgresql.git;a=commitdiff;h=2c38cce1be4f57e353805e529e6d993c9c28535e">http://git.postgresql.org/gitweb?p=postgresql.git;a=commitdiff;h=2c38cce1be4f57e353805e529e6d993c9c28535e</a></li>
+<li>Remove "github test" that somehow got into my tree. Sorry. 
+<a target="_blank" href="http://git.postgresql.org/gitweb?p=postgresql.git;a=commitdiff;h=4acfd43a7d6194fa735a6b7b06a1554909123d41">http://git.postgresql.org/gitweb?p=postgresql.git;a=commitdiff;h=4acfd43a7d6194fa735a6b7b06a1554909123d41</a></li>
+<li>In test_fsync, adjust test headings to match wal_sync_method values; add more test cases for open_sync of different sizes. 
+<a target="_blank" href="http://git.postgresql.org/gitweb?p=postgresql.git;a=commitdiff;h=8995440e387846261d18e728f11adc528ccc5c1b">http://git.postgresql.org/gitweb?p=postgresql.git;a=commitdiff;h=8995440e387846261d18e728f11adc528ccc5c1b</a></li>
+<li>Move test_fsync to /contrib. 
+<a target="_blank" href="http://git.postgresql.org/gitweb?p=postgresql.git;a=commitdiff;h=606a3d54fcd053c31e52886f4c69848a68777480">http://git.postgresql.org/gitweb?p=postgresql.git;a=commitdiff;h=606a3d54fcd053c31e52886f4c69848a68777480</a></li>
+<li>Update C banner on new pg_test_fsync file. 
+<a target="_blank" href="http://git.postgresql.org/gitweb?p=postgresql.git;a=commitdiff;h=b35bfcae937810f43fdf2327bcea2e8a03ccbf68">http://git.postgresql.org/gitweb?p=postgresql.git;a=commitdiff;h=b35bfcae937810f43fdf2327bcea2e8a03ccbf68</a></li>
+<li>Update SGML docs to point to new /contrib/pg_test_fsync. 
+<a target="_blank" href="http://git.postgresql.org/gitweb?p=postgresql.git;a=commitdiff;h=5925aa09a9110fe0d12393c758812e7149546443">http://git.postgresql.org/gitweb?p=postgresql.git;a=commitdiff;h=5925aa09a9110fe0d12393c758812e7149546443</a></li>
+</ul>
+<p>Alvaro Herrera a pouss&eacute;&nbsp;:</p>
+<ul>
+<li>Increment Py_None refcount for NULL array elements. Per bug #5835 by Julien Demoor Author: Alex Hunsaker 
+<a target="_blank" href="http://git.postgresql.org/gitweb?p=postgresql.git;a=commitdiff;h=978445bece6ce3df55599ee971a4a5dc217bf34c">http://git.postgresql.org/gitweb?p=postgresql.git;a=commitdiff;h=978445bece6ce3df55599ee971a4a5dc217bf34c</a></li>
+</ul>
+<p>Tom Lane a pouss&eacute;&nbsp;:</p>
+<ul>
+<li>Fix miscalculation of itemsafter in array_set_slice(). If the slice to be assigned to was before the existing array lower bound (requiring at least one null element to spring into existence to fill the gap), the code miscalculated how many entries needed to be copied from the old array's null bitmap. This could result in trashing the array's data area (as seen in bug #5840 from Karsten Loesing), or worse. This has been broken since we first allowed the behavior of assigning to non-adjacent slices, in 8.2. Back-patch to all affected versions. 
+<a target="_blank" href="http://git.postgresql.org/gitweb?p=postgresql.git;a=commitdiff;h=bdd8ed973da9ab48aba2292b01f71d2f9968b82c">http://git.postgresql.org/gitweb?p=postgresql.git;a=commitdiff;h=bdd8ed973da9ab48aba2292b01f71d2f9968b82c</a></li>
+<li>Avoid detoast in texteq/textne/byteaeq/byteane for unequal-length strings. We can get the length of a compressed or out-of-line datum without actually detoasting it. If the lengths of two strings are unequal, we can then conclude they are unequal without detoasting. That saves considerable work in an admittedly less-common case, without costing anything much when the optimization doesn't apply. Noah Misch. 
+<a target="_blank" href="http://git.postgresql.org/gitweb?p=postgresql.git;a=commitdiff;h=1b393f4e5db4fd6bbc86a4e88785b6945a1541d0">http://git.postgresql.org/gitweb?p=postgresql.git;a=commitdiff;h=1b393f4e5db4fd6bbc86a4e88785b6945a1541d0</a></li>
+<li>Show correct datatype for pg_class.relpersistence, plus a typo fix. Thom Brown 
+<a target="_blank" href="http://git.postgresql.org/gitweb?p=postgresql.git;a=commitdiff;h=357faea82e93712937cd109b48ce006789ec7a8f">http://git.postgresql.org/gitweb?p=postgresql.git;a=commitdiff;h=357faea82e93712937cd109b48ce006789ec7a8f</a></li>
+<li>Fix pg_restore to do the right thing when escaping large objects. Specifically, this makes the workflow pg_dump -Fc -&gt; pg_restore -&gt; file produce correct output for BLOBs when the source database has standard_conforming_strings turned on. It was already okay when that was off, or if pg_restore was told to restore directly into a database. This is a back-port of commit b1732111f233bbb72788e92a627242ec28a85631 of 2009-08-04, with additional changes to emit old-style escaped bytea data instead of hex-style. At the time, we had not heard of anyone encountering the problem in the field, so I judged it not worth the risk of changing back branches. Now we do have a report, from Bosco Rama, so back-patch into 8.2 through 8.4. 9.0 and up are okay already. 
+<a target="_blank" href="http://git.postgresql.org/gitweb?p=postgresql.git;a=commitdiff;h=2a1ef1011548e329f4eca86671401bf4124f9d1e">http://git.postgresql.org/gitweb?p=postgresql.git;a=commitdiff;h=2a1ef1011548e329f4eca86671401bf4124f9d1e</a></li>
+<li>Fix broken markup, also minor copy-editing. 
+<a target="_blank" href="http://git.postgresql.org/gitweb?p=postgresql.git;a=commitdiff;h=0cf3db2175ec770097b9c44d9a8e1e8c281ee5a6">http://git.postgresql.org/gitweb?p=postgresql.git;a=commitdiff;h=0cf3db2175ec770097b9c44d9a8e1e8c281ee5a6</a></li>
+<li>Clean up pg_test_fsync commit. Actually rename the program, rather than just claiming we did. Hook it into the build system. Get rid of useless dependency on libpq. Clean up #include list and messy whitespace. 
+<a target="_blank" href="http://git.postgresql.org/gitweb?p=postgresql.git;a=commitdiff;h=bc616703e8767d2a5d0312cdbf5dc3c6de2b86fe">http://git.postgresql.org/gitweb?p=postgresql.git;a=commitdiff;h=bc616703e8767d2a5d0312cdbf5dc3c6de2b86fe</a></li>
+<li>More pg_test_fsync cleanup. Un-break Windows build (I hope) by making the HAVE_FSYNC_WRITETHROUGH code match the backend. Fix incorrect program help message. static-ize all functions. 
+<a target="_blank" href="http://git.postgresql.org/gitweb?p=postgresql.git;a=commitdiff;h=cb38ab6d3b89eccb75b3337f8723cfc283fb77fb">http://git.postgresql.org/gitweb?p=postgresql.git;a=commitdiff;h=cb38ab6d3b89eccb75b3337f8723cfc283fb77fb</a></li>
+<li>Suppress unused-variables warning when OPEN_SYNC_FLAG isn't defined. Per buildfarm. 
+<a target="_blank" href="http://git.postgresql.org/gitweb?p=postgresql.git;a=commitdiff;h=3ae28ce8c437811bba47c09d1212c2d3c41cb7ff">http://git.postgresql.org/gitweb?p=postgresql.git;a=commitdiff;h=3ae28ce8c437811bba47c09d1212c2d3c41cb7ff</a></li>
+<li>More pg_test_fsync fixups. Reduce #includes to minimum actually needed; in particular include postgres_fe.h not postgres.h, so as to stop build failures on some platforms. Use get_progname() instead of hardwired program name; improve error checking for command line syntax; bring error messages into line with style guidelines; include strerror result in die() cases. 
+<a target="_blank" href="http://git.postgresql.org/gitweb?p=postgresql.git;a=commitdiff;h=37eb2cd4ad4c3323f1c7ed1c893c9d645fbaeb1a">http://git.postgresql.org/gitweb?p=postgresql.git;a=commitdiff;h=37eb2cd4ad4c3323f1c7ed1c893c9d645fbaeb1a</a></li>
+<li>Suppress possibly-uninitialized-variable warnings from gcc 4.5. It appears that gcc 4.5 can issue such warnings for whole structs, not just scalar variables as in the past. Refactor some pg_dump code slightly so that the OutputContext local variables are always initialized, even if they won't be used. It's cheap enough to not be worth worrying about. 
+<a target="_blank" href="http://git.postgresql.org/gitweb?p=postgresql.git;a=commitdiff;h=e2627258c3cc43b8b00c5c29c35933a33259e718">http://git.postgresql.org/gitweb?p=postgresql.git;a=commitdiff;h=e2627258c3cc43b8b00c5c29c35933a33259e718</a></li>
+<li>Suppress "control reaches end of non-void function" warning from gcc 4.5. Not sure why I'm seeing this on Fedora 14 and not earlier versions. Seems like a regression that gcc no longer knows that DIE() doesn't return. Still, adding a dummy return is harmless enough. 
+<a target="_blank" href="http://git.postgresql.org/gitweb?p=postgresql.git;a=commitdiff;h=518b1e96c02ba0fa52227c528d6e951004d0653f">http://git.postgresql.org/gitweb?p=postgresql.git;a=commitdiff;h=518b1e96c02ba0fa52227c528d6e951004d0653f</a></li>
+<li>Allow the wal_buffers setting to be auto-tuned to a reasonable value. If wal_buffers is initially set to -1 (which is now the default), it's replaced by 1/32nd of shared_buffers, with a minimum of 8 (the old default) and a maximum of the XLOG segment size. The allowed range for manual settings is still from 4 up to whatever will fit in shared memory. Greg Smith, with implementation correction by me. 
+<a target="_blank" href="http://git.postgresql.org/gitweb?p=postgresql.git;a=commitdiff;h=0f73aae13def660371c34c8feda6e684e6366bdb">http://git.postgresql.org/gitweb?p=postgresql.git;a=commitdiff;h=0f73aae13def660371c34c8feda6e684e6366bdb</a></li>
+<li>Quick hack to un-break plpython regression tests. It's not clear to me what should happen to the other plpython_unicode variant expected files, but this patch gets things passing on my own machines and at least some of the buildfarm. 
+<a target="_blank" href="http://git.postgresql.org/gitweb?p=postgresql.git;a=commitdiff;h=cc73c160507588bdc5822d7f2bb79d6b3a386761">http://git.postgresql.org/gitweb?p=postgresql.git;a=commitdiff;h=cc73c160507588bdc5822d7f2bb79d6b3a386761</a></li>
+<li>Suppress uninitialized-variable warning. 
+<a target="_blank" href="http://git.postgresql.org/gitweb?p=postgresql.git;a=commitdiff;h=b3cfcdaad27bea9bb86d6de6cbf8d184c16fbceb">http://git.postgresql.org/gitweb?p=postgresql.git;a=commitdiff;h=b3cfcdaad27bea9bb86d6de6cbf8d184c16fbceb</a></li>
+<li>Add .gitignore file to silence complaints about pg_basebackup. 
+<a target="_blank" href="http://git.postgresql.org/gitweb?p=postgresql.git;a=commitdiff;h=10e99f15d423b1730929af1992593c6649952fd5">http://git.postgresql.org/gitweb?p=postgresql.git;a=commitdiff;h=10e99f15d423b1730929af1992593c6649952fd5</a></li>
+<li>Revert "Factor out functions responsible for caching I/O routines". This reverts commit 740e54ca84c437fd67524f97a3ea9ddea752e208, which seems to have tickled an optimization bug in gcc 4.5.x, as reported upstream at 
+<a target="_blank" href="https://bugzilla.redhat.com/show_bug.cgi?id=671899">https://bugzilla.redhat.com/show_bug.cgi?id=671899</a> Since this patch had no purpose beyond code beautification, it's not worth expending a lot of effort to look for another workaround. <a target="_blank" href="http://git.postgresql.org/gitweb?p=postgresql.git;a=commitdiff;h=de3c2d6e928b0f7fb2840914351b96fecce2a30d">http://git.postgresql.org/gitweb?p=postgresql.git;a=commitdiff;h=de3c2d6e928b0f7fb2840914351b96fecce2a30d</a></li>
+<li>Improve getObjectDescription's display of pg_amop and pg_amproc entries. Include the lefttype/righttype columns explicitly (instead of assuming the reader can deduce them from the operator or function description), and move the operator or function description to the end of the string, to make it clearer that it's a referenced object and not the amop or amproc item itself. Per extensive discussion of Andreas Karlsson's original patch. Andreas Karlsson, Tom Lane 
+<a target="_blank" href="http://git.postgresql.org/gitweb?p=postgresql.git;a=commitdiff;h=dd5f0db96ba68553e3ab2c1d9d117863a5637c67">http://git.postgresql.org/gitweb?p=postgresql.git;a=commitdiff;h=dd5f0db96ba68553e3ab2c1d9d117863a5637c67</a></li>
+<li>Fix another portability issue in pg_basebackup. The target of sscanf with a %o format had better be of integer width, but "mode_t" conceivably isn't that. Another compiler warning seen only on some platforms; this one I think is potentially a real bug and not just a warning. 
+<a target="_blank" href="http://git.postgresql.org/gitweb?p=postgresql.git;a=commitdiff;h=f36920796ec1335733493f7860d6f2f711c20398">http://git.postgresql.org/gitweb?p=postgresql.git;a=commitdiff;h=f36920796ec1335733493f7860d6f2f711c20398</a></li>
+</ul>
+<p>Peter Eisentraut a pouss&eacute;&nbsp;:</p>
+<ul>
+<li>Use HTABs instead of Python dictionary objects to cache procedures Two separate hash tables are used for regular procedures and for trigger procedures, since the way trigger procedures work is quite different from normal stored procedures. Change the signatures of PLy_procedure_{get,create} to accept the function OID and a Boolean flag indicating whether it's a trigger. This should make implementing a PL/Python validator easier. Using HTABs instead of Python dictionaries makes error recovery easier, and allows for procedures to be cached based on their OIDs, not their names. It also allows getting rid of the PyCObject field that used to hold a pointer to PLyProcedure, since PyCObjects are deprecated in Python 2.7 and replaced by Capsules in Python 3. Jan Urba&#324;ski 
+<a target="_blank" href="http://git.postgresql.org/gitweb?p=postgresql.git;a=commitdiff;h=46211da1b84bc3537e799ee1126098e71c2428e8">http://git.postgresql.org/gitweb?p=postgresql.git;a=commitdiff;h=46211da1b84bc3537e799ee1126098e71c2428e8</a></li>
+<li>Skip dropped attributes when converting Python objects to tuples. Pay attention to the attisdropped field and skip over TupleDesc fields that have it set. Not a real problem until we get table returning functions, but it's the right thing to do anyway. Jan Urba&#324;ski. 
+<a target="_blank" href="http://git.postgresql.org/gitweb?p=postgresql.git;a=commitdiff;h=41282111e6cc73aca4b63dffe950ba7a63e4bd8a">http://git.postgresql.org/gitweb?p=postgresql.git;a=commitdiff;h=41282111e6cc73aca4b63dffe950ba7a63e4bd8a</a></li>
+<li>Free plan values in the PLyPlanObject dealloc function. Jan Urba&#324;ski. 
+<a target="_blank" href="http://git.postgresql.org/gitweb?p=postgresql.git;a=commitdiff;h=847e8c7783e877bbdc6a89250ade7d264eee5593">http://git.postgresql.org/gitweb?p=postgresql.git;a=commitdiff;h=847e8c7783e877bbdc6a89250ade7d264eee5593</a></li>
+<li>Use palloc in TopMemoryContext instead of malloc. As discussed, even if the PL needs a permanent memory location, it should use palloc, not malloc. It also makes error handling easier. Jan Urba&#324;ski. 
+<a target="_blank" href="http://git.postgresql.org/gitweb?p=postgresql.git;a=commitdiff;h=59ea9ef9aa216d0bc718539cd5622628943d3f21">http://git.postgresql.org/gitweb?p=postgresql.git;a=commitdiff;h=59ea9ef9aa216d0bc718539cd5622628943d3f21</a></li>
+<li>Use PyObject_New instead of PyObject_NEW. The latter is undocumented and the speed gain is negligible. Jan Urba&#324;ski. 
+<a target="_blank" href="http://git.postgresql.org/gitweb?p=postgresql.git;a=commitdiff;h=d9a95c0adb11f7a3ca5aa9ab8a900018832ed4ea">http://git.postgresql.org/gitweb?p=postgresql.git;a=commitdiff;h=d9a95c0adb11f7a3ca5aa9ab8a900018832ed4ea</a></li>
+<li>Improve message for errors in compiling anonymous PL/Python blocks The previous code would try to print out a null pointer. Jan Urba&#324;ski. 
+<a target="_blank" href="http://git.postgresql.org/gitweb?p=postgresql.git;a=commitdiff;h=719461b7a28c04a84b0fb1e5faa9b3cb5ee66605">http://git.postgresql.org/gitweb?p=postgresql.git;a=commitdiff;h=719461b7a28c04a84b0fb1e5faa9b3cb5ee66605</a></li>
+<li>Fix an error when a set-returning function fails halfway through the execution. If the function using yield to return rows fails halfway, the iterator stays open and subsequent calls to the function will resume reading from it. The fix is to unref the iterator and set it to NULL if there has been an error. Jan Urba&#324;ski. 
+<a target="_blank" href="http://git.postgresql.org/gitweb?p=postgresql.git;a=commitdiff;h=88047e59ba12479ef9adcaf3dee61b48566ce6eb">http://git.postgresql.org/gitweb?p=postgresql.git;a=commitdiff;h=88047e59ba12479ef9adcaf3dee61b48566ce6eb</a></li>
+<li>Add braces around an if block, for readability. Jan Urba&#324;ski, reviewed by Peter Eisentraut, &Aacute;lvaro Herrera, Tom Lane :-) 
+<a target="_blank" href="http://git.postgresql.org/gitweb?p=postgresql.git;a=commitdiff;h=fbed5d48307528c8b49ba48e741817e75146ea8f">http://git.postgresql.org/gitweb?p=postgresql.git;a=commitdiff;h=fbed5d48307528c8b49ba48e741817e75146ea8f</a></li>
+<li>Fix typo. Hitoshi Harada 
+<a target="_blank" href="http://git.postgresql.org/gitweb?p=postgresql.git;a=commitdiff;h=81f79dbf2e551978300ee85d42026e26f932089a">http://git.postgresql.org/gitweb?p=postgresql.git;a=commitdiff;h=81f79dbf2e551978300ee85d42026e26f932089a</a></li>
+<li>Factor out functions responsible for caching I/O routines. This makes PLy_procedure_create a bit more manageable. Jan Urba&#324;ski 
+<a target="_blank" href="http://git.postgresql.org/gitweb?p=postgresql.git;a=commitdiff;h=740e54ca84c437fd67524f97a3ea9ddea752e208">http://git.postgresql.org/gitweb?p=postgresql.git;a=commitdiff;h=740e54ca84c437fd67524f97a3ea9ddea752e208</a></li>
+<li>Fix wrong comment. Hitoshi Harada. 
+<a target="_blank" href="http://git.postgresql.org/gitweb?p=postgresql.git;a=commitdiff;h=14b9f69cb2077c65a09df78d167d45c35b1d7973">http://git.postgresql.org/gitweb?p=postgresql.git;a=commitdiff;h=14b9f69cb2077c65a09df78d167d45c35b1d7973</a></li>
+<li>Correctly add exceptions to the plpy module for Python 3. The way the exception types where added to the module was wrong for Python 3. Exception classes were not actually available from plpy. Fix that by factoring out code that is responsible for defining new Python exceptions and make it work with Python 3. New regression test makes sure the plpy module has the expected contents. Jan Urban&#347;ki, slightly revised by me. 
+<a target="_blank" href="http://git.postgresql.org/gitweb?p=postgresql.git;a=commitdiff;h=4609caf3645ae975724af1f7f57f831e516cf220">http://git.postgresql.org/gitweb?p=postgresql.git;a=commitdiff;h=4609caf3645ae975724af1f7f57f831e516cf220</a></li>
+<li>Get rid of the global variable holding the error state. Global error handling led to confusion and was hard to manage. With this change, errors from PostgreSQL are immediately reported to Python as exceptions. This requires setting a Python exception after reporting the caught PostgreSQL error as a warning, because PLy_elog destroys the Python exception state. Ideally, all places where PostgreSQL errors need to be reported back to Python should be wrapped in subtransactions, to make going back to Python from a longjmp safe. This will be handled in a separate patch. Jan Urba&#324;ski. 
+<a target="_blank" href="http://git.postgresql.org/gitweb?p=postgresql.git;a=commitdiff;h=116ce2f4d01b929cc7c3bd0f7e6bca631f83da50">http://git.postgresql.org/gitweb?p=postgresql.git;a=commitdiff;h=116ce2f4d01b929cc7c3bd0f7e6bca631f83da50</a></li>
+</ul>
+<p>Magnus Hagander a pouss&eacute;&nbsp;:</p>
+<ul>
+<li>Log replication connections only when log_connections is on. Previously we'd always log replication connections, with no way to turn them off. 
+<a target="_blank" href="http://git.postgresql.org/gitweb?p=postgresql.git;a=commitdiff;h=6e1726d082b5a9c305ed44a69ff50bc3407d01a2">http://git.postgresql.org/gitweb?p=postgresql.git;a=commitdiff;h=6e1726d082b5a9c305ed44a69ff50bc3407d01a2</a></li>
+<li>Link libpgport into pg_test_fsync on msvc 
+<a target="_blank" href="http://git.postgresql.org/gitweb?p=postgresql.git;a=commitdiff;h=f5a0fd2f3bbe233802cbbddfe8bdf086c69c1ac3">http://git.postgresql.org/gitweb?p=postgresql.git;a=commitdiff;h=f5a0fd2f3bbe233802cbbddfe8bdf086c69c1ac3</a></li>
+<li>Add pg_basebackup tool for streaming base backups. This tool makes it possible to do the pg_start_backup/ copy files/pg_stop_backup step in a single command. There are still some steps to be done before this is a complete backup solution, such as the ability to stream the required WAL logs, but it's still usable, and could do with some buildfarm coverage. In passing, make the checkpoint request optionally fast instead of hardcoding it. Magnus Hagander, reviewed by Fujii Masao and Dimitri Fontaine 
+<a target="_blank" href="http://git.postgresql.org/gitweb?p=postgresql.git;a=commitdiff;h=048d148fe63102fafb2336ab5439c950dea7f692">http://git.postgresql.org/gitweb?p=postgresql.git;a=commitdiff;h=048d148fe63102fafb2336ab5439c950dea7f692</a></li>
+<li>filemode is parsed on win32 even if never used. Per buildfarm failure. 
+<a target="_blank" href="http://git.postgresql.org/gitweb?p=postgresql.git;a=commitdiff;h=fe12263c9f3db78a5359865a6617e23a27e59691">http://git.postgresql.org/gitweb?p=postgresql.git;a=commitdiff;h=fe12263c9f3db78a5359865a6617e23a27e59691</a></li>
+<li>Only show pg_stat_replication details to superusers. 
+<a target="_blank" href="http://git.postgresql.org/gitweb?p=postgresql.git;a=commitdiff;h=f88a638199d8505e7a01548cb647f908ae1e469f">http://git.postgresql.org/gitweb?p=postgresql.git;a=commitdiff;h=f88a638199d8505e7a01548cb647f908ae1e469f</a></li>
+<li>Use pg_strcasecmp instead of strcasecmp for portability. Per buildfarm. 
+<a target="_blank" href="http://git.postgresql.org/gitweb?p=postgresql.git;a=commitdiff;h=d13e0975c9812dea583486e1d2efd3bc3e638df5">http://git.postgresql.org/gitweb?p=postgresql.git;a=commitdiff;h=d13e0975c9812dea583486e1d2efd3bc3e638df5</a></li>
+<li>Reorder includes to unbreak MSVC. 
+<a target="_blank" href="http://git.postgresql.org/gitweb?p=postgresql.git;a=commitdiff;h=39e911e28a7a998d9439c0f5886c97fbbfc72a75">http://git.postgresql.org/gitweb?p=postgresql.git;a=commitdiff;h=39e911e28a7a998d9439c0f5886c97fbbfc72a75</a></li>
+<li>Make walsender options order-independent While doing this, also move base backup options into a struct instead of increasing the number of parameters to multiple functions for each new option. 
+<a target="_blank" href="http://git.postgresql.org/gitweb?p=postgresql.git;a=commitdiff;h=e5487f65fdbd05716ade642a3ae1c5c6e85b6f22">http://git.postgresql.org/gitweb?p=postgresql.git;a=commitdiff;h=e5487f65fdbd05716ade642a3ae1c5c6e85b6f22</a></li>
+</ul>
+<p>Robert Haas a pouss&eacute;&nbsp;:</p>
+<ul>
+<li>Document that WITH queries are also called Common Table Expressions. Peter Geoghegan, reviewed by Stephen Frost. 
+<a target="_blank" href="http://git.postgresql.org/gitweb?p=postgresql.git;a=commitdiff;h=92f7eebbbd6554f0414ab869abd8733cef751249">http://git.postgresql.org/gitweb?p=postgresql.git;a=commitdiff;h=92f7eebbbd6554f0414ab869abd8733cef751249</a></li>
+<li>Add new psql command \dL to list languages. Original patch by Fernando Ike, revived by Josh Kuperschmidt, reviewed by Andreas Karlsson, and in earlier versions by Tom Lane and Peter Eisentraut. 
+<a target="_blank" href="http://git.postgresql.org/gitweb?p=postgresql.git;a=commitdiff;h=9c5e2c120be42fbd1a743ddf539ff451e1cce23b">http://git.postgresql.org/gitweb?p=postgresql.git;a=commitdiff;h=9c5e2c120be42fbd1a743ddf539ff451e1cce23b</a></li>
+<li>Make ALTER TABLE revalidate uniqueness and exclusion constraints. Failure to do so can lead to constraint violations. This was broken by commit 1ddc2703a936d03953657f43345460b9242bbed1 on 2010-02-07, so back-patch to 9.0. Noah Misch. Regression test by me. 
+<a target="_blank" href="http://git.postgresql.org/gitweb?p=postgresql.git;a=commitdiff;h=8ceb24568054232696dddc1166a8563bc78c900a">http://git.postgresql.org/gitweb?p=postgresql.git;a=commitdiff;h=8ceb24568054232696dddc1166a8563bc78c900a</a></li>
+<li>Emphasize where OVER needs to be when using a window function. Jeff Turner. 
+<a target="_blank" href="http://git.postgresql.org/gitweb?p=postgresql.git;a=commitdiff;h=d3b372e92d4efdd6f63da35996f04ff009c932b5">http://git.postgresql.org/gitweb?p=postgresql.git;a=commitdiff;h=d3b372e92d4efdd6f63da35996f04ff009c932b5</a></li>
+<li>Code cleanup for assign_XactIsoLevel. The new coding avoids a spurious debug message when a transaction that has changed the isolation level has been rolled back. It also allows the property to be freely changed to the current value within a subtransaction. Kevin Grittner, with one small change by me. 
+<a target="_blank" href="http://git.postgresql.org/gitweb?p=postgresql.git;a=commitdiff;h=fb4c5d2798730f60b102d775f22fb53c26a6445d">http://git.postgresql.org/gitweb?p=postgresql.git;a=commitdiff;h=fb4c5d2798730f60b102d775f22fb53c26a6445d</a></li>
+<li>Avoid treating WAL senders as normal backends. The previous coding treated anything that wasn't an autovacuum launcher as a normal backend, which is wrong now that we also have WAL senders. Fujii Masao, reviewed by Robert Haas, Alvaro Herrera, Tom Lane, and Bernd Helmle. 
+<a target="_blank" href="http://git.postgresql.org/gitweb?p=postgresql.git;a=commitdiff;h=a0c75f55394fe904e09f7caee9a8195e3a09c801">http://git.postgresql.org/gitweb?p=postgresql.git;a=commitdiff;h=a0c75f55394fe904e09f7caee9a8195e3a09c801</a></li>
+<li>Code cleanup for assign_transaction_read_only. As in commit fb4c5d2798730f60b102d775f22fb53c26a6445d on 2011-01-21, this avoids spurious debug messages and allows idempotent changes at any time. Along the way, make assign_XactIsoLevel allow idempotent changes even when not within a subtransaction, to be consistent with the new coding of assign_transaction_read_only and because there's no compelling reason to do otherwise. Kevin Grittner, with some adjustments. 
+<a target="_blank" href="http://git.postgresql.org/gitweb?p=postgresql.git;a=commitdiff;h=6f59777c65d557485e933a383ebc4c3fdfc1a2b7">http://git.postgresql.org/gitweb?p=postgresql.git;a=commitdiff;h=6f59777c65d557485e933a383ebc4c3fdfc1a2b7</a></li>
+<li>sepgsql, an SE-Linux integration for PostgreSQL. This is still pretty rough - among other things, the documentation needs work, and the messages need a visit from the style police - but this gets the basic framework in place. KaiGai Kohei. 
+<a target="_blank" href="http://git.postgresql.org/gitweb?p=postgresql.git;a=commitdiff;h=968bc6fac91d6aaca594488ab85c179b686cbbdd">http://git.postgresql.org/gitweb?p=postgresql.git;a=commitdiff;h=968bc6fac91d6aaca594488ab85c179b686cbbdd</a></li>
+<li>First round of cleanup of sepgsql code and documentation. Robert Haas, with a few suggestions from Thom Brown. 
+<a target="_blank" href="http://git.postgresql.org/gitweb?p=postgresql.git;a=commitdiff;h=194c8f713aa62a528afa4ce4274b80aaff9eb264">http://git.postgresql.org/gitweb?p=postgresql.git;a=commitdiff;h=194c8f713aa62a528afa4ce4274b80aaff9eb264</a></li>
+<li>Blind attempt to exclude sepgsql from MSVC build system. 
+<a target="_blank" href="http://git.postgresql.org/gitweb?p=postgresql.git;a=commitdiff;h=c26ac226e45fbf84cd63588498c00da9417aebc1">http://git.postgresql.org/gitweb?p=postgresql.git;a=commitdiff;h=c26ac226e45fbf84cd63588498c00da9417aebc1</a></li>
+<li>PGXS support for contrib/hstore. Joey Adams 
+<a target="_blank" href="http://git.postgresql.org/gitweb?p=postgresql.git;a=commitdiff;h=41611f16e933dafa9c3ae0477f89537ea1459eb6">http://git.postgresql.org/gitweb?p=postgresql.git;a=commitdiff;h=41611f16e933dafa9c3ae0477f89537ea1459eb6</a></li>
+</ul>
+<p>Andrew Dunstan a pouss&eacute;&nbsp;:</p>
+<ul>
+<li>Silence flex warnings about DOS file paths in MSVC builds. 
+<a target="_blank" href="http://git.postgresql.org/gitweb?p=postgresql.git;a=commitdiff;h=6c41cf5977ca3f13159b980d4b216e3bc9df90e8">http://git.postgresql.org/gitweb?p=postgresql.git;a=commitdiff;h=6c41cf5977ca3f13159b980d4b216e3bc9df90e8</a></li>
+</ul>
+<p><strong>Correctifs rejet&eacute;s (&agrave; ce jour)</strong></p>
+<ul>
+<li>Pavel Stehule's patch to remove redundant code from PL/pgsql. Too much added complexity for too little benefit.</li>
+</ul>
+<p><strong>Correctifs en attente</strong></p>
+<ul>
+<li>Alexander Korotkov sent in another revision of the patch to add wildcards to contrib/pg_trgm.</li>
+<li>Heikki Linnakangas sent in a patch to fix some typos, etc., in the SSI patch.</li>
+<li>Dimitri Fontaine sent in two more revisions of the patch to add extensions.</li>
+<li>Shigeru HANADA sent in another revision of the patch to add file_fdw, which implements file-based access in SQL/MED.</li>
+<li>ITAGAKI Takahiro sent in another revision of the MULTISET patch.</li>
+<li>Magnus Hagander sent in two more revisions of the patch to add pg_basebackup to streaming backups.</li>
+<li>Shigeru HANADA sent in another revision of the patches to implement the foreign data wrapper API for SQL/MED.</li>
+<li>Jan Urbanski sent in another revision of the PL/Python validator function.</li>
+<li>Joachim Wieland sent in another revision of the patch to implement synchronized snapshots.</li>
+<li>Stephen Frost sent in another revision of the patch to allow logging roles.</li>
+<li>Fujii Masao sent in another revision of the patch to add "pg_ctl promote," used when the replication origin has failed, or is presumed to have failed.</li>
+<li>Robert Haas sent in another revision of the patch to limit hint bit I/O.</li>
+<li>Noah Misch sent in a review and another revision of the patch to add ALTER TABLE...REPLACE WITH.</li>
+<li>Jan Urbanski sent another flock of patches to refactor PL/PythonU.</li>
+<li>Stephen Frost sent in another revision of the patch to add FOREACH ... IN ARRAY to PL/pgsql.</li>
+<li>Jeff Davis sent in another revision of the patch to add range types, this one with generic range functions.</li>
+<li>Stephen Frost reviewed and revised the patch to add nfiltered to EXPLAIN output.</li>
+<li>Kevin Grittner sent in another revision of the patch to implement true serializability.</li>
+<li>Noah Misch sent in another revision of the ALTER TYPE patch.</li>
+<li>Kris Shannon sent in a patch to fix gripes with an ECPG conversion script, which was using deprecated features in Perl.</li>
+<li>Per review from Hitoshi Harada, Jan Urbanski sent in another revision of the patch to fix table functions in PL/PythonU.</li>
+<li>Pavel Stehule sent in another revision of the patch to add FOREACH ... IN ARRAY to PL/pgsql.</li>
+<li>Fujii Masao sent in another revision of the patch to fix a bug in SignalSomeChildren.</li>
+</ul></div>
+
+      </div>
+
+  
+
+    
+  
+    
+    
+    </div>
+</div> <!-- End #main -->
+
+</div> <!-- End #wrapper -->
+
+<div id="pgFooter">
+  <p>Propulsé par <a href="http://dotclear.org/">Dotclear</a></p>
+</div>
+
+</div> <!-- End #page -->
+</body>
+
+<!-- Mirrored from blog2.postgresql.fr/index.php?post/2011/01/29/Nouvelles-hebdomadaires-de-PostgreSQL-23-janvier-2011 by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 May 2020 21:40:20 GMT -->
+</html>

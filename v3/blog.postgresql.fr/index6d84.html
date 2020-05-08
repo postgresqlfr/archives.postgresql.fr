@@ -1,0 +1,172 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr">
+
+<!-- Mirrored from blog2.postgresql.fr/index.php?post/drupal/115 by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 May 2020 21:40:20 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="MSSmartTagsPreventParsing" content="TRUE" />
+  <meta name="ROBOTS" content="INDEX, FOLLOW" />
+  
+  <title>Nouvelles hebdomadaires de PostgreSQL - 11 Septembre 2005 - PostgreSQLfr.org</title>
+  <meta name="description" lang="fr" content="Nouvelles hebdomadaires de PostgreSQL - 11 Septembre 2005 Tom Lane vient de créer une nouvelle manière d'enregistrer les langages de procédures stockées. Une des conséquences en" />
+  <meta name="copyright" content="" />
+  <meta name="author" content="jca" />
+  <meta name="date" scheme="ISO8601" content="2005-09-12T20:09:00+00:00" />
+  
+  <link rel="schema.dc" href="http://purl.org/dc/elements/1.1/" />
+  <meta name="dc.title" content="Nouvelles hebdomadaires de PostgreSQL - 11 Septembre 2005" />
+  <meta name="dc.description" lang="fr" content="Nouvelles hebdomadaires de PostgreSQL - 11 Septembre 2005 Tom Lane vient de créer une nouvelle manière d'enregistrer les langages de procédures stockées. Une des conséquences en" />
+  <meta name="dc.creator" content="jca" />
+  <meta name="dc.language" content="fr" />
+  <meta name="dc.publisher" content="" />
+  <meta name="dc.rights" content="" />
+  <meta name="dc.date" scheme="ISO8601" content="2005-09-12T20:09:00+00:00" />
+  <meta name="dc.type" content="text" />
+  <meta name="dc.format" content="text/html" />
+  
+  <link rel="top" href="indexd41d.html?" title="Accueil" />
+  <link rel="contents" href="index888d.html?archive" title="Archives" />
+  
+  <link rel="next" href="indexc8a0.html?post/drupal/116"
+  title="Nouvelles hebdomadaires de PostgreSQL - 18 Septembre 2005" />
+  
+  <link rel="previous" href="index9a62.html?post/drupal/113"
+  title="Fiche mémoire sur PostgreSQL" />
+  
+  <link rel="alternate" type="application/atom+xml" title="Atom 1.0" href="index4ca3.php?feed/atom" />
+  
+  <style type="text/css" media="screen">
+@import url(themes/postgresql/style.css);
+</style>
+<style type="text/css" media="print">
+@import url(themes/default/print.css);
+</style>
+
+<script type="text/javascript" src="themes/default/js/jquery.js"></script>
+<script type="text/javascript" src="themes/default/js/jquery.cookie.js"></script>
+
+  
+  <script type="text/javascript" src="themes/default/js/post.js"></script>
+  <script type="text/javascript">
+  //<![CDATA[
+  var post_remember_str = 'Se souvenir de moi sur ce blog';
+  //]]>
+  </script>
+</head>
+
+<body class="dc-post">
+<div id="page">
+
+
+<div id="top">
+  <div id="pgHeader">
+    <span id="pgHeaderLogoLeft">
+      <a href="index.html" title="PostgreSQL"><img src="https://blog.postgresql.fr/themes/postgresql/img/hdr_left.png" width="230" height="80" alt="PostgreSQL" /></a>
+    </span>
+    <span id="pgHeaderLogoRight">
+      <a href="index.html" title="La base de donnees la plus sophistiquee au monde."><img src="https://blog.postgresql.fr/themes/postgresql/img/hdr_right.png" width="210" height="80" alt="La base de donnees la plus sophistiquee au monde." /></a>
+    </span>
+  </div>
+
+  </div>
+
+<div class="pgTopNav">
+  <div class="pgTopNavLeft"> 
+    <img src="https://blog.postgresql.fr/themes/postgresql/img/nav_lft.png" width="7" height="23" alt="" />
+  </div>
+  <div class="pgTopNavRight">
+    <img src="https://blog.postgresql.fr/themes/postgresql/img/nav_rgt.png" width="7" height="23" alt="" />
+  </div>
+  <ul class="pgTopNavList">
+    <li><a href="https://www.postgresql.fr/" title="Accueil">Accueil</a></li>
+    <li><a href="https://blog.postgresql.fr/" title="Lire les actualités">Actualités</a></li>
+    <li><a href="https://docs.postgresql.fr/" title="Lire la documentation officielle">Documentation</a></li>
+    <li><a href="https://forums.postgresql.fr/" title="Pour poser des questions">Forums</a></li>
+    <li><a href="https://www.postgresql.fr/asso/" title="La vie de l'association">Association</a></li>
+    <li><a href="https://www.postgresql.fr/devel:accueil" title="Informations pour les développeurs/traducteurs">Développeurs</a></li>
+    <li><a href="https://planete.postgresql.fr/" title="La planète francophone sur PostgreSQL">Planète</a></li>
+    <li><a href="https://www.postgresql.fr/support/" title="Support sur PostgreSQL">Support</a></li>
+  </ul>
+</div>
+
+<div id="wrapper">
+
+<div id="pgContent">
+
+  <div id="pgSideWrap">
+  <div id="pgSideNav">
+    <div id="blognav">
+      <div id="search"><h2><label for="q">Rechercher</label></h2><form action="http://blog2.postgresql.fr/index.php?" method="get"><fieldset><p><input type="text" size="10" maxlength="255" id="q" name="q" value="" /> <input class="submit" type="submit" value="ok" /></p></fieldset></form></div><div class="categories"><h2>Catégories</h2><ul><li><a href="index199b.html?category/Articles">Articles</a></li><li><a href="indexb4c6.html?category/Dans-les-bacs">Dans les bacs</a></li><li><a href="index025a.html?category/Evenements">Événements</a></li><li class="category-current"><a href="index8c6d.html?category/PostgreSQL-Weekly-News">PostgreSQL Weekly News</a></li><li><a href="index1835.html?category/Securite">Sécurité</a></li><li><a href="index2251.html?category/Vie-de-l-association">Vie de l'association</a></li><li><a href="index91de.html?category/Vie-du-site">Vie du site</a></li></ul></div><div class="text"><h2>Licence</h2>Tous les articles de ce blog sont disponibles sous la <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/">license Creative Commons BY-NC-SA 3.0</a>.</div>    </div> <!-- End #blognav -->
+  
+    <div id="blogextra">
+      <div class="syndicate"><h2>S'abonner</h2><ul><li><a type="application/atom+xml" href="index4ca3.php?feed/atom" title="Fil Atom des billets de ce blog" class="feed">Fil des billets</a></li></ul></div>    </div> <!-- End #blogextra -->
+  </div>
+  </div>
+
+  <div id="pgContentWrap">
+  <div id="pgDownloadsWrap">
+  <div id="content">
+
+  <p id="navlinks">
+  <a href="index9a62.html?post/drupal/113"
+  title="Fiche mémoire sur PostgreSQL" class="prev">&#171; Fiche mémoire sur PostgreSQL</a>
+   <span>-</span> <a href="indexc8a0.html?post/drupal/116"
+  title="Nouvelles hebdomadaires de PostgreSQL - 18 Septembre 2005" class="next">Nouvelles hebdomadaires de PostgreSQL - 18 &#187;</a>
+  </p>
+  
+  <div class="post">
+    <h2 id="p115" class="post-title">Nouvelles hebdomadaires de PostgreSQL - 11 Septembre 2005</h2>
+    
+    <p class="post-info">Par jca    le lundi 12 septembre 2005, 20:09        - <a href="index8c6d.html?category/PostgreSQL-Weekly-News">PostgreSQL Weekly News</a>
+        - <a href="index6d84.html?post/drupal/115">Lien permanent</a>
+    </p>
+    
+    
+    
+          <div class="post-excerpt"><p><strong>Nouvelles hebdomadaires de PostgreSQL - 11 Septembre 2005</strong></p>
+<p>
+Tom Lane vient de créer une nouvelle manière d'enregistrer les langages de procédures stockées. Une des conséquences en sera qu'il sera possible de faire un "<em>drop</em>" du schéma 'public', comme certains préfèreraient le faire. Une autre conséquence est un pg_dump(all) plus propre et fonctionnant mieux.</p></div>
+        
+    <div class="post-content"><strong>Nouvelles des produits autour de PostgreSQL</strong>
+<ul>
+<li>
+PyGreSQL v3.7 est sorti  <a target="_blank" href="http://www.pygresql.org/">http://www.pygresql.org/</a>. Téléchargement sur : <a target="_blank" href="ftp://ftp.druid.net/pub/distrib/PyGreSQL-3.7.tgz">ftp://ftp.druid.net/pub/distrib/PyGreSQL-3.7.tgz</a> </li>
+</ul>
+<p><strong>PostgreSQL dans la presse</strong></p>
+<ul>
+<li>
+Josh Berkus est en train d'écrire pour ITToolBox.com.  <a target="_blank" href="http://blogs.ittoolbox.com/database/soup/">http://blogs.ittoolbox.com/database/soup/</a>
+</li>
+<li>
+EnterpriseDB a reçu 7 millions de dollars de la part d'investisseurs externes.  <a target="_blank" href="http://home.businesswire.com/portal/site/google/index.jsp?ndmViewId=news_view&amp;newsId=20050907005471&amp;newsLang=en">http://home.businesswire.com/...</a>
+</li>
+<li>L'Open Source Database Conference ( <a target="_blank" href="http://www.opendbcon.net/">http://www.opendbcon.net/</a>) prendra place le 8 et 9 novembre à Frankfort en Allemagne. A un certain nombre d'éminences de PostgreSQL, incluant Peter Eisentraut, Gavin Sherry, Hans-Juergen Schoenig, Arnulf Christl et Josh Berkus, donneront des conférences sur des sujets comme PostgreSQL 8.1, l'architecture de Slony-II et Bizgres. Cette conférence sera immédiatement suivie de la International PHP Conference, réservez donc votre voyage à Frankfort maintenant!
+</li>
+General Bits:  <a target="_blank" href="http://www.varlena.com/GeneralBits/">http://www.varlena.com/GeneralBits/</a>
+</ul>
+<p>PostgreSQL Weekly News a été rédigé cette semaine par David Fetter, Josh Berkus, Devrim Gunduz et Brobdignanian </p></div>
+
+      </div>
+
+  
+
+    
+  
+    
+    
+    </div>
+</div> <!-- End #main -->
+
+</div> <!-- End #wrapper -->
+
+<div id="pgFooter">
+  <p>Propulsé par <a href="http://dotclear.org/">Dotclear</a></p>
+</div>
+
+</div> <!-- End #page -->
+</body>
+
+<!-- Mirrored from blog2.postgresql.fr/index.php?post/drupal/115 by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 May 2020 21:40:20 GMT -->
+</html>

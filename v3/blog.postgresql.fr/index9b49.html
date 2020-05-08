@@ -1,0 +1,359 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr">
+
+<!-- Mirrored from blog2.postgresql.fr/index.php?post/2010/09/20/Sortie-de-PostgreSQL-9.0 by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 May 2020 21:40:20 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="MSSmartTagsPreventParsing" content="TRUE" />
+  <meta name="ROBOTS" content="INDEX, FOLLOW" />
+  
+  <title>Sortie de PostgreSQL 9.0 - PostgreSQLfr.org</title>
+  <meta name="description" lang="fr" content="PostgreSQL 9.0 Sortie de PostgreSQL 9.0 Sommaire   Texte de la publication   Liste des fonctionnalités   Où télécharger   Documentation   Licence   Contacts   Texte intégral des" />
+  <meta name="copyright" content="" />
+  <meta name="author" content="SAS" />
+  <meta name="date" scheme="ISO8601" content="2010-09-20T14:00:00+02:00" />
+  
+  <link rel="schema.dc" href="http://purl.org/dc/elements/1.1/" />
+  <meta name="dc.title" content="Sortie de PostgreSQL 9.0" />
+  <meta name="dc.description" lang="fr" content="PostgreSQL 9.0 Sortie de PostgreSQL 9.0 Sommaire   Texte de la publication   Liste des fonctionnalités   Où télécharger   Documentation   Licence   Contacts   Texte intégral des" />
+  <meta name="dc.creator" content="SAS" />
+  <meta name="dc.language" content="fr" />
+  <meta name="dc.publisher" content="" />
+  <meta name="dc.rights" content="" />
+  <meta name="dc.date" scheme="ISO8601" content="2010-09-20T14:00:00+02:00" />
+  <meta name="dc.type" content="text" />
+  <meta name="dc.format" content="text/html" />
+  
+  <link rel="top" href="indexd41d.html?" title="Accueil" />
+  <link rel="contents" href="index888d.html?archive" title="Archives" />
+  
+  <link rel="next" href="index25aa.html?post/2010/09/26/Nouvelles-hebdomadaires-de-PostgreSQL-19-septembre-2010"
+  title="Nouvelles hebdomadaires de PostgreSQL - 19 septembre 2010" />
+  
+  <link rel="previous" href="index78f9.html?post/2010/09/16/Nouvelles-mensuelles-de-l-association-PostgreSQLFr-%3A-septembre-2010"
+  title="Nouvelles mensuelles de l'association PostgreSQLFr : septembre 2010" />
+  
+  <link rel="alternate" type="application/atom+xml" title="Atom 1.0" href="index4ca3.php?feed/atom" />
+  
+  <style type="text/css" media="screen">
+@import url(themes/postgresql/style.css);
+</style>
+<style type="text/css" media="print">
+@import url(themes/default/print.css);
+</style>
+
+<script type="text/javascript" src="themes/default/js/jquery.js"></script>
+<script type="text/javascript" src="themes/default/js/jquery.cookie.js"></script>
+
+  
+  <script type="text/javascript" src="themes/default/js/post.js"></script>
+  <script type="text/javascript">
+  //<![CDATA[
+  var post_remember_str = 'Se souvenir de moi sur ce blog';
+  //]]>
+  </script>
+</head>
+
+<body class="dc-post">
+<div id="page">
+
+
+<div id="top">
+  <div id="pgHeader">
+    <span id="pgHeaderLogoLeft">
+      <a href="index.html" title="PostgreSQL"><img src="https://blog.postgresql.fr/themes/postgresql/img/hdr_left.png" width="230" height="80" alt="PostgreSQL" /></a>
+    </span>
+    <span id="pgHeaderLogoRight">
+      <a href="index.html" title="La base de donnees la plus sophistiquee au monde."><img src="https://blog.postgresql.fr/themes/postgresql/img/hdr_right.png" width="210" height="80" alt="La base de donnees la plus sophistiquee au monde." /></a>
+    </span>
+  </div>
+
+  </div>
+
+<div class="pgTopNav">
+  <div class="pgTopNavLeft"> 
+    <img src="https://blog.postgresql.fr/themes/postgresql/img/nav_lft.png" width="7" height="23" alt="" />
+  </div>
+  <div class="pgTopNavRight">
+    <img src="https://blog.postgresql.fr/themes/postgresql/img/nav_rgt.png" width="7" height="23" alt="" />
+  </div>
+  <ul class="pgTopNavList">
+    <li><a href="https://www.postgresql.fr/" title="Accueil">Accueil</a></li>
+    <li><a href="https://blog.postgresql.fr/" title="Lire les actualités">Actualités</a></li>
+    <li><a href="https://docs.postgresql.fr/" title="Lire la documentation officielle">Documentation</a></li>
+    <li><a href="https://forums.postgresql.fr/" title="Pour poser des questions">Forums</a></li>
+    <li><a href="https://www.postgresql.fr/asso/" title="La vie de l'association">Association</a></li>
+    <li><a href="https://www.postgresql.fr/devel:accueil" title="Informations pour les développeurs/traducteurs">Développeurs</a></li>
+    <li><a href="https://planete.postgresql.fr/" title="La planète francophone sur PostgreSQL">Planète</a></li>
+    <li><a href="https://www.postgresql.fr/support/" title="Support sur PostgreSQL">Support</a></li>
+  </ul>
+</div>
+
+<div id="wrapper">
+
+<div id="pgContent">
+
+  <div id="pgSideWrap">
+  <div id="pgSideNav">
+    <div id="blognav">
+      <div id="search"><h2><label for="q">Rechercher</label></h2><form action="http://blog2.postgresql.fr/index.php?" method="get"><fieldset><p><input type="text" size="10" maxlength="255" id="q" name="q" value="" /> <input class="submit" type="submit" value="ok" /></p></fieldset></form></div><div class="categories"><h2>Catégories</h2><ul><li><a href="index199b.html?category/Articles">Articles</a></li><li class="category-current"><a href="indexb4c6.html?category/Dans-les-bacs">Dans les bacs</a></li><li><a href="index025a.html?category/Evenements">Événements</a></li><li><a href="index8c6d.html?category/PostgreSQL-Weekly-News">PostgreSQL Weekly News</a></li><li><a href="index1835.html?category/Securite">Sécurité</a></li><li><a href="index2251.html?category/Vie-de-l-association">Vie de l'association</a></li><li><a href="index91de.html?category/Vie-du-site">Vie du site</a></li></ul></div><div class="text"><h2>Licence</h2>Tous les articles de ce blog sont disponibles sous la <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/">license Creative Commons BY-NC-SA 3.0</a>.</div>    </div> <!-- End #blognav -->
+  
+    <div id="blogextra">
+      <div class="syndicate"><h2>S'abonner</h2><ul><li><a type="application/atom+xml" href="index4ca3.php?feed/atom" title="Fil Atom des billets de ce blog" class="feed">Fil des billets</a></li></ul></div>    </div> <!-- End #blogextra -->
+  </div>
+  </div>
+
+  <div id="pgContentWrap">
+  <div id="pgDownloadsWrap">
+  <div id="content">
+
+  <p id="navlinks">
+  <a href="index78f9.html?post/2010/09/16/Nouvelles-mensuelles-de-l-association-PostgreSQLFr-%3A-septembre-2010"
+  title="Nouvelles mensuelles de l'association PostgreSQLFr : septembre 2010" class="prev">&#171; Nouvelles mensuelles de l'association PostgreSQLFr</a>
+   <span>-</span> <a href="index25aa.html?post/2010/09/26/Nouvelles-hebdomadaires-de-PostgreSQL-19-septembre-2010"
+  title="Nouvelles hebdomadaires de PostgreSQL - 19 septembre 2010" class="next">Nouvelles hebdomadaires de PostgreSQL - 19 &#187;</a>
+  </p>
+  
+  <div class="post">
+    <h2 id="p566" class="post-title">Sortie de PostgreSQL 9.0</h2>
+    
+    <p class="post-info">Par SAS    le lundi 20 septembre 2010, 14:00        - <a href="indexb4c6.html?category/Dans-les-bacs">Dans les bacs</a>
+        - <a href="index9b49.html?post/2010/09/20/Sortie-de-PostgreSQL-9.0">Lien permanent</a>
+    </p>
+    
+    
+    
+        
+    <div class="post-content"><!-- BEGIN page_title_block -->
+PostgreSQL 9.0
+<!-- END page_title_block -->
+<h1>Sortie de PostgreSQL 9.0</h1>
+<h2>Sommaire</h2>
+<p>
+&nbsp; <a href="#original_release">Texte de la publication</a><br />
+&nbsp; <a href="#additional_features">Liste des fonctionnalités</a><br />
+&nbsp; <a href="#download">Où télécharger</a><br />
+&nbsp; <a href="#docs">Documentation</a><br />
+&nbsp; <a href="#license">Licence</a><br />
+&nbsp; <a href="#contact">Contacts</a><br />
+&nbsp; <a href="#quoted_companies">Texte intégral des citations et informations concernant les sociétés</a><br />
+&nbsp; <a href="#companies">Support commercial</a></p>
+<h2><a name="original_release">Publication originale</a></h2>
+<p>
+20 SEPTEMBRE 2010&nbsp;: Le « PostgreSQL Global Development Group » annonce la publication de PostgreSQL 9.0, la dernière version en date du système de gestion de bases de données relationnelles OpenSource de référence.
+Cette version majeure apporte des avancées considérables dans les domaines de la sécurité, du support applicatif, de la supervision, des performances, et du stockage de données spécialisées. L'intérêt des utilisateurs est grand pour les nouvelles possibilités de réplication et de reprise à chaud, qui accéléreront son adoption dans l'hébergement en nuage et les applications extensibles.
+</p>
+<p>
+« La réplication interne de la version 9.0 et la possibilité d'interroger un serveur de reprise sont les fonctionnalités les plus demandées depuis de nombreuses années, » déclare Simon Riggs, CTO de 2ndQuadrant et chef du projet « reprise à chaud » (« hot standby » en VO). « Une réplication continue efficace, et à faible latence, offre une meilleure protection de vos données, tandis que la reprise à chaud réduit le coût total de possession (« TCO » ou « Total Cost of Ownership » en VO). Au sein des produits propriétaires, cette possibilité, optionnelle, coûte plusieurs milliers de dollars. »
+</p>
+<p>
+PostgreSQL 9.0 inclut plus d'une douzaine d'autres améliorations majeures qui améliorent chaque aspect de la conception et de la performance des applications qui s'appuient sur une base de données. Cela inclut&nbsp;: le support de Windows 64 bit, les déclencheurs conditionnels et de niveau colonne, la mise-à-niveau sur site (« upgrade-in-place » en VO) à partir des version 8.3 et 8.4, les contraintes d'unicité retardées, et la messagerie d'événements performante. La liste complète des nouvelles fonctionnalités est disponible sur la page d'informations relatives à la version.
+</p>
+<p>
+« Étant l'un des plus gros opérateurs de registres de l'infrastructure d'Internet, Afilias est satisfait de voir que PostgreSQL intègre les mises-à-niveau sur site pour effectuer les montées de version du système de gestion des bases de données avec une interruption minimale de notre base de 16 millions de noms de domaine, » déclare le CTO d'Afilias, Ram Mohan.
+</p>
+<p>
+« Nous sommes enchantés par les nouvelles fonctionnalités... en particulier, nous envisageons les contraintes d'unicité retardées comme une opportunité d'accélérer les actualisations et mises-à-niveau pour nos clients, » annonce Paolo Juvara, CTO d'OpenBravo.
+</p>
+<p>
+Marc Balmer, fondateur de Micro Systems, en Suisse, est particulièrement intéressé par les améliorations des capacités de messagerie d'événements LISTEN/NOTIFY&nbsp;: « La nouvelle option de charge des données par notifications asynchrones va motoriser la prochaine version de nos programmes d'affichages des données déportées. »
+</p>
+<p>
+Grâce aux contributions de développeurs et compagnies à travers le monde, telles que NTT Open Source, EnterpriseDB, 2ndQuadrant, Red Hat, entre autres, l'adoption par les utilisateurs et l'accélération des développements sont plus fortes que jamais.
+</p>
+<p>
+« À la CAIXA bank, nous utilisons PostgreSQL dans des environnements financiers critiques parce qu'il a la qualité nécessaire à nos applications », insiste Clarice Coppetti, vice-président IT, CAIXA Bank, Brésil. « La nouvelle version montre que PostgreSQL s'améliore avec la rapidité nécessaire pour rester en phase avec nos besoins professionnels. »
+</p>
+<p>
+À propos de PostgreSQL&nbsp;:
+PostgreSQL est le système de gestion de bases de données OpenSource de référence. Sa communauté, mondiale, est composée de milliers d'utilisateurs et contributeurs, et de plusieurs dizaines de compagnies et institutions.
+Le projet PostgreSQL, démarré il y a plus de 20 ans, à l'université de Californie, à Berkeley, a atteint aujourd'hui un rythme de développement sans pareil.
+L'ensemble des fonctionnalités matures a, non seulement, rejoint celui de systèmes commerciaux leaders, mais le dépasse même dans les fonctionnalités avancées, les extensions, la sécurité et la stabilité.
+Pour en savoir plus, et prendre part à la communauté, se rendre sur www.postgresql.org.
+</p>
+<h2><a name="additional_features">Informations complémentaires</a></h2>
+<h2>Liste des fonctionnalités</h2>
+<p>
+La version 9.0 dispose d'une liste de nouvelles fonctionnalités sans précédent, preuve de l'accélération de la croissance de la communauté de développeurs sur l'année passée.
+</p>
+<h3>
+Réplication et extensibilité
+</h3>
+<ul>
+<li>Reprise à chaud</li>
+<li>Réplication en continue</li>
+</ul>
+<h3>
+Administration et sécurité
+</h3>
+<ul>
+<li>Mise-à-niveau sur site intégrée (pg_upgrade)</li>
+<li>Authentification RADIUS</li>
+<li>Vérification de la force des mots de passe (passwordcheck)</li>
+<li>Commandes facilitant la gestion des permissions de la base (GRANT ON ALL et DEFAULT PERMISSIONS)</li>
+</ul>
+<h3>
+Conception de bases et SQL
+</h3>
+<ul>
+<li>Contraintes d'unicité retardées</li>
+<li>Déclencheurs sur condition</li>
+<li>Déclencheurs de niveau colonne</li>
+<li>Tri dans les agrégats</li>
+<li>Nouvelles fonctions de fenêtrage (ROWS PRECEEDING et FOLLOWING)</li>
+</ul>
+<h3>
+Procédures stockées
+</h3>
+<ul>
+<li>Blocs de code procédural anonyme (instruction DO)</li>
+<li>Procédures stockées Perl et Python améliorées (incluant le support de Python 3)</li>
+<li>Appels par paramètres nommés</li>
+</ul>
+<h3>
+Performance et fonctionnalités avancées
+</h3>
+<ul>
+<li>Messagerie d'événements améliorée (LISTEN/NOTIFY)</li>
+<li>Support de Windows 64-bit</li>
+<li>Optimisation des requêtes produites par les ORM (suppression de JOIN)</li>
+<li>Clés d'unicité pour les données non-scalaires (contraintes d'exclusion)</li>
+<li>Support étendu des données clé-valeur (HStore)</li>
+<li>Plans aux formats JSON et XML</li>
+</ul>
+<h3>
+Informations complémentaires concernant les fonctionnalités
+</h3>
+<p>
+Pour les explications concernant ces fonctionnalités, ou d'autres, se référer aux ressources suivantes&nbsp;:
+</p>
+<ul>
+<li><a href="http://docs.postgresql.fr/9.0/release.html">Notes de version</a></li>
+<li><a href="http://blog.postgresql.fr/index.php?post/2010/06/16/Pr%C3%A9sentation-de-la-version-9.0-de-PostgreSQL2">Les nouveautés de la version 9.0</a></li>
+<li><a href="http://www.postgresql.org/about/featurematrix">Matrice des fonctionnalités (en anglais)</a></li>
+</ul>
+<h2><a name="download">Téléchargements</a></h2>
+<ul>
+<li><a href="http://www.postgresql.org/download">Page de téléchargement</a> avec liens vers les installateurs et outils</li>
+<li><a href="http://www.postgresql.org/ftp/source/v9.0.0">Code source</a></li>
+<li><a href="http://www.postgresql.org/download/windows">Installateurs Windows</a></li>
+<li><a href="http://www.postgresql.org/download/linux">Installateurs Linux</a> et dépôts de paquets</li>
+<li><a href="http://www.postgresql.org/download/solaris">Paquets Solaris</a></li>
+<li><a href="http://www.postgresql.org/download/macosx">Installateurs Mac OSX</a></li>
+<li><a href="http://www.postgresql.org/download/freebsd">Portages FreeBSD</a></li>
+<li><a href="http://www.pgfoundry.org/">Addiciels et composants optionnels</a></li>
+<li><a href="http://www.postgresql.org/download/product-categories">Logiciels commerciaux et liés</a></li>
+</ul>
+<h2><a name="docs">Documentation</a></h2>
+<p>La documentation au format HTML et les pages de manuel sont installées avec PostgreSQL. La <a href="http://doc.postgresql.fr/9.0">documentation en ligne</a>, exhaustive et interactive, peut être parcourue, requêtée et commentée.</p>
+<h2><a name="license">Licence</a></h2>
+<p>
+PostgreSQL utilise la <a href="http://www.postgresql.org/about/licence">licence PostgreSQL</a>, une licence de type BSD qui nécessite simplement le maintien du copyright et des informations de licence dans le code source sous licence. Cette <a href="http://www.opensource.org/licenses/postgresql">licence certifiée par l'OSI</a> est largement appréciée pour sa flexibilité et sa compatibilité avec le monde des affaires, puisqu'elle ne restreint pas l'utilisation de PostgreSQL au sein d'applications propriétaires ou commerciales. Associée à un support proposé par de multiples sociétés et une propriété publique du code, sa licence rend PostgreSQL très populaire parmi les revendeurs souhaitant embarquer une base de données dans leurs produits sans avoir à se soucier des droits de licence, des verrous commerciaux ou modifications des termes des licences.
+</p>
+<h2><a name="contact">Contacts</a></h2>
+<p>Pages Web</p>
+<ul>
+<li><a href="http://www.postgresql.org/">Page d'accueil PostgreSQL</a></li>
+<li><a href="http://www.postgresql.fr/">Page d'accueil de l'association francophone</a></li>
+</ul>
+<p>Contact presse</p>
+<p>France et pays francophones<br />
+Stéphane Schildknecht<br />
+<a href="mailto:fr@postgresql.org">fr at postgresql dot org</a><br />
++33 (0) 617 11 37 42</p>
+<p>Pour les contacts d'autres régions, consulter <a href="http://www.postgresql.org/about/press/contact">la liste des contacts internationaux.</a></p>
+<h2><a name="quoted_companies">Texte intégral des citations et informations concernant les sociétés</a></h2>
+<p>
+PostgreSQL 9.0 attise l'intérêt des utilisateurs de bases de données professionnelles dans le monde entier. Les citations qui suivent décrivent l'enthousiasme de compagnies d'Angleterre, du Canada, d'Espagne, de Suisse et du Brésil pour les nouvelles fonctionnalités. N'hésitez pas à nous contacter si vous souhaitez échanger avec l'une de ces sociétés. (Les informations de contacts suivent les citations.)
+</p>
+<h3>2ndQuadrant</h3>
+<p>
+« La réplication interne de la version 9.0 et la possibilité d'interroger un serveur de reprise sont les fonctionnalités les plus demandées depuis de nombreuses années, » déclare Simon Riggs, CTO de 2ndQuadrant et chef du projet « reprise à chaud » (« hot standby » en VO). « Une réplication continue efficace, et à faible latence, offre une meilleure protection de vos données, tandis que la reprise à chaud réduit le coût total de possession (« TCO » ou « Total Cost of Ownership » en VO). Au sein des produits propriétaires, cette possibilité, optionnelle, coûte plusieurs milliers de dollars. »
+</p>
+<p>
+<em>À propos de 2ndQuadrant&nbsp;:</em> <a href="http://www.2ndquadrant.com/">2ndQuadrant</a> est une société internationale de conseil et de support spécialisée dans les services autour des bases de données PostgreSQL, avec des clients dans plus de 15 pays. Ses consultants ont participé au développement de fonctionnalités majeures dans les six dernières versions de PostgreSQL. Contact&nbsp;: <a href="mailto:info@2ndQuadrant.com">info@2ndQuadrant.com</a> +44 8707667756 (Anglais, Italien, Français, Estonien, Espagnol)
+</p>
+<h3>Afilias</h3>
+<p>
+« Étant l'un des plus gros opérateurs de registres de l'infrastructure d'Internet, Afilias est satisfait de voir que PostgreSQL intègre les mises-à-niveau sur site pour effectuer les montées de version du système de gestion des bases de données avec une interruption minimale de notre base de 16 millions de noms de domaine. De plus, nous étudions les fonctionnalités de reprise à chaud et de réplication en continu, qui étendent la réplication robuste déjà offerte par Slony. Cette accumulation de fonctionnalités nous conforte dans la certitude que la puissance, la flexibilité et la robustesse de PostgreSQL permettent de pérenniser la prise en charge de tâches technologiques critiques.» déclare le CTO d'Afilias, Ram Mohan.
+</p>
+<p>
+<em>À propos d'Afilias</em>&nbsp;: <a href="http://www.afilias.info/">Afilias</a> est un fournisseur mondial de services d'infrastructure Internet qui connectent les gens à leur données. Les technologies d'Afilias, sûre, sécurisées, extensibles et mondiales, comprennent de nombreuses applications, dont les services de registre de domaines Internet, la gestion de DNS, et les services de RFID et de logistique au travers d'Afilias Discovery Services. Pour de plus amples informations, visiter <a href="http://www.afilias.info/">leur page d'accueil</a> ou contacter <a href="mailto:hread@afilias.info">Heather Read</a> (Anglais uniquement).
+</p>
+<h3>Openbravo</h3>
+<p>
+« Openbravo est un utilisateur enthousiaste de PostgreSQL. Nous embarquons PostgreSQL dans nos applications en nuage et nous fions à PostgreSQL dans nos paquets Ubuntu. Bien que le produit supporte de multiples bases de données, 93% des déploiements d'Openbravo se font avec PostgreSQL. Chaque nouvelle version de PostgreSQL apporte de meilleures performances et une solidité accrue. Nous supposons qu'il en sera de même avec PostgreSQL 9.0. Nous sommes impatients d'utiliser les nouvelles fonctionnalités de PostgreSQL. En particulier, les contraintes d'unicité décalables dans le temps nous semblent être une opportunité d'accélérer les mises à jour pour nos clients. La nouvelle réplication incluse, binaire et fondée sur les journaux, contentera nos plus gros utilisateurs qui recherchent de la redondance et de la haute-disponibilité. Enfin, notre développement se focalise sur la nouvelle commande VACUUM FULL. Nous avons déjà effectué des tests préliminaires avec PostgreSQL 9.0, et n'avons pas relevé de difficulté particulière. Nous avons certes relevé de petites incompatibilités, mais nous espérons que leur résolution sera triviale. Openbravo a l'intention de supporter PostgreSQL 9.0 dès sa sortie, et de l'adopter comme option de déploiement par défaut dès que les principales distributions Linux le supporteront, » affirme Paolo Juvara, CTO, OpenBravo.
+</p>
+<p>
+<em>À propos d'Openbravo</em>&nbsp;: <a href="http://www.openbravo.com/">Openbravo</a> est le développeur récompensé d'Openbravo ERP, un PGI OpenSource commercial en ligne pour les PME -- la première vraie alternative au monde propriétaire. Les solutions PGI et Points de Vente de la société, les plus populaires de leur marché, ont été télchargés plus de 1,5 millions de fois, et sont utilisées dans plus de 50 pays. Contact&nbsp;: <a href="mailto:media@openbravo.com">Carme Zaragoza</a> +34 932725947 (Espagnol, Anglais).
+</p>
+<h3>Micro Systems</h3>
+<p>
+Marc Balmer, fondateur de Micro Systems, en Suisse, est particulièrement intéressé par les améliorations des capacités de messagerie d'événements LISTEN/NOTIFY : « L'option de signalisation asynchrone de la présence de nouvelles données utiles va enrichir la prochaine version de nos programmes d'affichage déporté, pour arcapos, notre solution de vente de tickets et de vente au détail pour les zoos et musées. »
+</p>
+<p>
+<em>À Propos de Micro Systems</em>: <a href="http://www.msys.ch/">Micro Systems</a> est une société suisse de conseil et de développements centrée sur les produits OpenSource matures en environnement commercial, tels les Unix BSD et PostgreSQL. Micro Systems fournit le meilleur de l'OpenSource à ses clients, et reverse aux communautées OpenSource. Contact&nbsp;: <a href="mailto:vera@msys.ch">Vera Hardmeier</a>, +41 61 383 50 10 (Allemand, Anglais).
+</p>
+<h3>CAIXA Bank</h3>
+<p>
+« À la CAIXA bank, nous utilisons PostgreSQL dans des environnements financiers critiques parce qu'il a la qualité requise par nos applications », insiste Clarice Coppetti, vice-président IT, CAIXA Bank, Brésil. « La nouvelle version montre que PostgreSQL s'améliore avec la rapidité nécessaire pour rester en phase avec nos besoins professionnels. »
+</p>
+<p>
+<em>À propos de CAIXA</em>&nbsp;: <a href="http://www.caixa.gov.br/">CAIXA</a> est l'agent principal des politiques publiques du gouvernement Fédéral. elle  est présente dans la vie de millions de brésiliens. L'institution est 100% publique et sert non seulement les clients de la banque, mais aussi l'ensemble de la population brésilienne au travers des loteries, des investissements d'infrastructure urbaine et des paiements de programmes sociaux, « FGTS », « PIS » et allocations chômage. Au travers de ces axes, la CAIXA a reversé plus de 150 Milliards de dollars à l'économie en 2009, soit près de 6% du PIB. En agissant dans les domaines de l'habitat, de la salubrité, des infrastructures et des services, la CAIXA joue un rôle primordial dans la promotion des développements urbains et de la justice sociale dans le pays, contribuant ainsi à l'amélioration de la qualité de vie de la population, principalement parmi les faibles revenus. <a href="http://www.caixa.gov.br/">page d'accueil de CAIXA</a> (Portugais uniquement).
+</p>
+<h2><a name="companies">Support commercial</a></h2>
+<p>PostgreSQL bénéficie du support de nombreuses compagnies, qui financent des développeurs, fournissent l'hébergement ou donnent des fonds. Les plus généreux mécènes sont listés sur la <a href="http://www.postgresql.org/about/sponsors">page des mécènes du développement.</a></p>
+<p>Il existe également une très grande communauté de <a href="http://www.postgresql.org/support/professional_support">sociétés fournissant du support PostgreSQL Support</a>, des consultants indépendants aux sociétés multinationales.</p>
+<p><a href="http://www.postgresql.org/about/donate">Dons</a> plaisamment acceptés.</p></div>
+
+      </div>
+
+  
+
+                <div id="comments">
+        <h3>Commentaires</h3>
+      <dl>
+          <dt id="c6599" class=" odd first"><a
+      href="#c6599" class="comment-number">1.</a>
+      Le lundi 20 septembre 2010, 13:18      par <a href="http://www.oslandia.com/" rel="nofollow">Vincent</a></dt>
+      
+      <dd class=" odd first">
+
+            
+      <p>Le grand jour est arrivé ! Longue vie à PostgreSQL !</p>
+
+
+<p>Le dernier lien des sociétés de support est un 404, correction possible ?</p>
+            </dd>
+                  <dt id="c6600" class="  "><a
+      href="#c6600" class="comment-number">2.</a>
+      Le mardi 21 septembre 2010, 10:29      par <a href="http://www.loxodata.com/" rel="nofollow">SAS</a></dt>
+      
+      <dd class="  ">
+
+            
+      <p>Bonjour, </p>
+<p>Les erreurs de liens ont été corrigées.</p>
+            </dd>
+          </dl>
+      </div>
+            
+  
+    
+    
+    </div>
+</div> <!-- End #main -->
+
+</div> <!-- End #wrapper -->
+
+<div id="pgFooter">
+  <p>Propulsé par <a href="http://dotclear.org/">Dotclear</a></p>
+</div>
+
+</div> <!-- End #page -->
+</body>
+
+<!-- Mirrored from blog2.postgresql.fr/index.php?post/2010/09/20/Sortie-de-PostgreSQL-9.0 by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 May 2020 21:40:20 GMT -->
+</html>

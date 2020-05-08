@@ -1,0 +1,341 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr">
+
+<!-- Mirrored from blog2.postgresql.fr/index.php?post/2013/07/12/Nouvelles-hebdomadaires-de-PostgreSQL-30-juin-2013 by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 May 2020 21:40:20 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="MSSmartTagsPreventParsing" content="TRUE" />
+  <meta name="ROBOTS" content="INDEX, FOLLOW" />
+  
+  <title>Nouvelles hebdomadaires de PostgreSQL - 30 juin 2013 - PostgreSQLfr.org</title>
+  <meta name="description" lang="fr" content="Publication de la version 9.3 Beta 2 de PostgreSQL. TEST ! http://www.postgresql.org/developer/beta PGDay.IT 2013 aura lieu à Prato le 25 octobre 2013. Un appel international à" />
+  <meta name="copyright" content="" />
+  <meta name="author" content="chl" />
+  <meta name="date" scheme="ISO8601" content="2013-07-12T01:55:00+02:00" />
+  
+  <link rel="schema.dc" href="http://purl.org/dc/elements/1.1/" />
+  <meta name="dc.title" content="Nouvelles hebdomadaires de PostgreSQL - 30 juin 2013" />
+  <meta name="dc.description" lang="fr" content="Publication de la version 9.3 Beta 2 de PostgreSQL. TEST ! http://www.postgresql.org/developer/beta PGDay.IT 2013 aura lieu à Prato le 25 octobre 2013. Un appel international à" />
+  <meta name="dc.creator" content="chl" />
+  <meta name="dc.language" content="fr" />
+  <meta name="dc.publisher" content="" />
+  <meta name="dc.rights" content="" />
+  <meta name="dc.date" scheme="ISO8601" content="2013-07-12T01:55:00+02:00" />
+  <meta name="dc.type" content="text" />
+  <meta name="dc.format" content="text/html" />
+  
+  <link rel="top" href="indexd41d.html?" title="Accueil" />
+  <link rel="contents" href="index888d.html?archive" title="Archives" />
+  
+  <link rel="next" href="indexac46.html?post/2013/07/13/Nouvelles-hebdomadaires-de-PostgreSQL-7-juillet-2013"
+  title="Nouvelles hebdomadaires de PostgreSQL - 7 juillet 2013" />
+  
+  <link rel="previous" href="index6c36.html?post/2013/06/28/Sortie-de-PostgreSQL-9.3-B%C3%AAta-2"
+  title="Sortie de PostgreSQL 9.3 Bêta 2" />
+  
+  <link rel="alternate" type="application/atom+xml" title="Atom 1.0" href="index4ca3.php?feed/atom" />
+  
+  <style type="text/css" media="screen">
+@import url(themes/postgresql/style.css);
+</style>
+<style type="text/css" media="print">
+@import url(themes/default/print.css);
+</style>
+
+<script type="text/javascript" src="themes/default/js/jquery.js"></script>
+<script type="text/javascript" src="themes/default/js/jquery.cookie.js"></script>
+
+  
+  <script type="text/javascript" src="themes/default/js/post.js"></script>
+  <script type="text/javascript">
+  //<![CDATA[
+  var post_remember_str = 'Se souvenir de moi sur ce blog';
+  //]]>
+  </script>
+</head>
+
+<body class="dc-post">
+<div id="page">
+
+
+<div id="top">
+  <div id="pgHeader">
+    <span id="pgHeaderLogoLeft">
+      <a href="index.html" title="PostgreSQL"><img src="https://blog.postgresql.fr/themes/postgresql/img/hdr_left.png" width="230" height="80" alt="PostgreSQL" /></a>
+    </span>
+    <span id="pgHeaderLogoRight">
+      <a href="index.html" title="La base de donnees la plus sophistiquee au monde."><img src="https://blog.postgresql.fr/themes/postgresql/img/hdr_right.png" width="210" height="80" alt="La base de donnees la plus sophistiquee au monde." /></a>
+    </span>
+  </div>
+
+  </div>
+
+<div class="pgTopNav">
+  <div class="pgTopNavLeft"> 
+    <img src="https://blog.postgresql.fr/themes/postgresql/img/nav_lft.png" width="7" height="23" alt="" />
+  </div>
+  <div class="pgTopNavRight">
+    <img src="https://blog.postgresql.fr/themes/postgresql/img/nav_rgt.png" width="7" height="23" alt="" />
+  </div>
+  <ul class="pgTopNavList">
+    <li><a href="https://www.postgresql.fr/" title="Accueil">Accueil</a></li>
+    <li><a href="https://blog.postgresql.fr/" title="Lire les actualités">Actualités</a></li>
+    <li><a href="https://docs.postgresql.fr/" title="Lire la documentation officielle">Documentation</a></li>
+    <li><a href="https://forums.postgresql.fr/" title="Pour poser des questions">Forums</a></li>
+    <li><a href="https://www.postgresql.fr/asso/" title="La vie de l'association">Association</a></li>
+    <li><a href="https://www.postgresql.fr/devel:accueil" title="Informations pour les développeurs/traducteurs">Développeurs</a></li>
+    <li><a href="https://planete.postgresql.fr/" title="La planète francophone sur PostgreSQL">Planète</a></li>
+    <li><a href="https://www.postgresql.fr/support/" title="Support sur PostgreSQL">Support</a></li>
+  </ul>
+</div>
+
+<div id="wrapper">
+
+<div id="pgContent">
+
+  <div id="pgSideWrap">
+  <div id="pgSideNav">
+    <div id="blognav">
+      <div id="search"><h2><label for="q">Rechercher</label></h2><form action="http://blog2.postgresql.fr/index.php?" method="get"><fieldset><p><input type="text" size="10" maxlength="255" id="q" name="q" value="" /> <input class="submit" type="submit" value="ok" /></p></fieldset></form></div><div class="categories"><h2>Catégories</h2><ul><li><a href="index199b.html?category/Articles">Articles</a></li><li><a href="indexb4c6.html?category/Dans-les-bacs">Dans les bacs</a></li><li><a href="index025a.html?category/Evenements">Événements</a></li><li class="category-current"><a href="index8c6d.html?category/PostgreSQL-Weekly-News">PostgreSQL Weekly News</a></li><li><a href="index1835.html?category/Securite">Sécurité</a></li><li><a href="index2251.html?category/Vie-de-l-association">Vie de l'association</a></li><li><a href="index91de.html?category/Vie-du-site">Vie du site</a></li></ul></div><div class="text"><h2>Licence</h2>Tous les articles de ce blog sont disponibles sous la <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/">license Creative Commons BY-NC-SA 3.0</a>.</div>    </div> <!-- End #blognav -->
+  
+    <div id="blogextra">
+      <div class="syndicate"><h2>S'abonner</h2><ul><li><a type="application/atom+xml" href="index4ca3.php?feed/atom" title="Fil Atom des billets de ce blog" class="feed">Fil des billets</a></li></ul></div>    </div> <!-- End #blogextra -->
+  </div>
+  </div>
+
+  <div id="pgContentWrap">
+  <div id="pgDownloadsWrap">
+  <div id="content">
+
+  <p id="navlinks">
+  <a href="index6c36.html?post/2013/06/28/Sortie-de-PostgreSQL-9.3-B%C3%AAta-2"
+  title="Sortie de PostgreSQL 9.3 Bêta 2" class="prev">&#171; Sortie de PostgreSQL 9.3 Bêta 2</a>
+   <span>-</span> <a href="indexac46.html?post/2013/07/13/Nouvelles-hebdomadaires-de-PostgreSQL-7-juillet-2013"
+  title="Nouvelles hebdomadaires de PostgreSQL - 7 juillet 2013" class="next">Nouvelles hebdomadaires de PostgreSQL - 7 juillet &#187;</a>
+  </p>
+  
+  <div class="post">
+    <h2 id="p740" class="post-title">Nouvelles hebdomadaires de PostgreSQL - 30 juin 2013</h2>
+    
+    <p class="post-info">Par chl    le vendredi 12 juillet 2013, 01:55        - <a href="index8c6d.html?category/PostgreSQL-Weekly-News">PostgreSQL Weekly News</a>
+        - <a href="indexdd02.html?post/2013/07/12/Nouvelles-hebdomadaires-de-PostgreSQL-30-juin-2013">Lien permanent</a>
+    </p>
+    
+    
+    
+          <div class="post-excerpt"><p>Publication de la version 9.3 Beta 2 de PostgreSQL. TEST&nbsp;! 
+<a target="_blank" href="http://www.postgresql.org/developer/beta">http://www.postgresql.org/developer/beta</a></p>
+<p>PGDay.IT 2013 aura lieu &agrave; Prato le 25 octobre 2013. Un appel international &agrave; conf&eacute;renciers est lanc&eacute;&nbsp;: 
+<a target="_blank" href="http://2013.pgday.it/index.php/programma/call-for-papers-english/">http://2013.pgday.it/index.php/programma/call-for-papers-english/</a></p>
+<p><strong>Offres d'emplois autour de PostgreSQL en juin</strong></p>
+<ul>
+<li>Internationales&nbsp;: 
+<a target="_blank" href="http://archives.postgresql.org/pgsql-jobs/2013-06/threads.php">http://archives.postgresql.org/pgsql-jobs/2013-06/threads.php</a>;</li>
+<li>Francophones&nbsp;: 
+<a target="_blank" href="http://forums.postgresql.fr/viewforum.php?id=4">http://forums.postgresql.fr/viewforum.php?id=4</a>.</li>
+</ul>
+<p><strong>PostgreSQL Local</strong></p>
+<ul>
+<li>Nous aurons un stand lors de l'OSCON cette ann&eacute;e. N'h&eacute;sitez pas &agrave; vous inscrire et y passer une heure ou deux&nbsp;: 
+<a target="_blank" href="https://wiki.postgresql.org/wiki/Oscon_2013_signup">https://wiki.postgresql.org/wiki/Oscon_2013_signup</a></li>
+<li>Le <em>PGDay UK 2013</em> aura lieu le 12 juillet 2013. Les inscriptions sont ouvertes&nbsp;: 
+<a target="_blank" href="http://postgresqlusergroup.org.uk/">http://postgresqlusergroup.org.uk</a></li>
+<li><em>PostgreSQL Brazil</em> aura lieu du 15 au 17 ao&ucirc;t 2013 &agrave; Porto Velho, &Eacute;tat du Rond&ocirc;nia au Br&eacute;sil&nbsp;: 
+<a target="_blank" href="http://pgbr.postgresql.org.br/2013/chamada.en.php">http://pgbr.postgresql.org.br/2013/chamada.en.php</a></li>
+<li><em>Postgres Open 2013</em> aura lieu &agrave; Chicago (Illinois, USA) du 16 au 18 septembre. Les inscriptions "l&egrave;ve-t&ocirc;t" et l'appel &agrave; conf&eacute;renciers se terminent le 30 juin&nbsp;: 
+<a target="_blank" href="http://postgresopen.org/">http://postgresopen.org/</a></li>
+<li>La <em>PGConf.EU 2013</em> sera tenue du 29 octobre au 1<sup>er</sup> novembre au Conrad Hotel dans le centre-ville de Dublin en Irlande. L'appel &agrave; conf&eacute;renciers est lanc&eacute;&nbsp;: 
+<a target="_blank" href="http://2013.pgconf.eu/">http://2013.pgconf.eu/</a></li>
+<li><em>PGConf.DE 2013</em> aura lieu le 8 novembre 2013 au mus&eacute;e industriel de la Rh&eacute;nanie &agrave; Oberhausen. L'appel &agrave; conf&eacute;renciers porte jusqu'au 15 septembre&nbsp;: 
+<a target="_blank" href="http://2013.pgconf.de/">http://2013.pgconf.de/</a></li>
+</ul>
+<p><strong>PostgreSQL dans les m&eacute;dia</strong></p>
+<ul>
+<li>Planet PostgreSQL&nbsp;: 
+<a target="_blank" href="http://planet.postgresql.org/">http://planet.postgresql.org/</a></li>
+<li>Planet PostgreSQLFr&nbsp;: 
+<a target="_blank" href="http://planete.postgresql.fr/">http://planete.postgresql.fr/</a></li>
+</ul>
+<p><i>PostgreSQL Weekly News / les nouvelles hebdomadaires vous sont offertes cette semaine par David Fetter. Traduction par l'&eacute;quipe PostgreSQLFr sous licence CC BY-NC-SA.</i></p>
+<p><i>Proposez vos articles ou annonces avant dimanche 15:00 (heure du Pacifique). Merci de les envoyer en anglais &agrave; david (a) fetter.org, en allemand &agrave; pwn (a) pgug.de, en italien &agrave; pwn (a) itpug.org et en espagnol &agrave; pwn (a) arpug.com.ar.</i></p>
+<p>(<a target="_blank" href="http://www.postgresql.org/message-id/20130701061206.GF4365@fetter.org">lien vers l'article original</a>)</p></div>
+        
+    <div class="post-content"><p><strong>Correctifs appliqu&eacute;s</strong></p>
+<p>Peter Eisentraut a pouss&eacute;&nbsp;:</p>
+<ul>
+<li>Translation updates 
+<a target="_blank" href="http://git.postgresql.org/pg/commitdiff/ce18b011596389cbff1589494411643f995b0421">http://git.postgresql.org/pg/commitdiff/ce18b011596389cbff1589494411643f995b0421</a></li>
+<li>pg_receivexlog: Fix logic error. The code checking the WAL file name contained a logic error and wouldn't actually catch some bad names. 
+<a target="_blank" href="http://git.postgresql.org/pg/commitdiff/2c1031bd8602f749a81672015811f365a129acff">http://git.postgresql.org/pg/commitdiff/2c1031bd8602f749a81672015811f365a129acff</a></li>
+<li>ecpg: Consistently use mm_strdup(). mm_strdup() is provided to check errors from strdup(), but some places were failing to use it. 
+<a target="_blank" href="http://git.postgresql.org/pg/commitdiff/14a85031b16239708d4f208528709153779c590d">http://git.postgresql.org/pg/commitdiff/14a85031b16239708d4f208528709153779c590d</a></li>
+<li>Fix cpluspluscheck in checksum code. C++ is more picky about comparing signed and unsigned integers. 
+<a target="_blank" href="http://git.postgresql.org/pg/commitdiff/129759d6a539059cde85d0dad19992ff45da3bb4">http://git.postgresql.org/pg/commitdiff/129759d6a539059cde85d0dad19992ff45da3bb4</a></li>
+</ul>
+<p>Simon Riggs a pouss&eacute;&nbsp;:</p>
+<ul>
+<li>ALTER TABLE ... ALTER CONSTRAINT for FKs. Allow constraint attributes to be altered, so the default setting of NOT DEFERRABLE can be altered to DEFERRABLE and back. Review by Abhijit Menon-Sen 
+<a target="_blank" href="http://git.postgresql.org/pg/commitdiff/b577a57d4113bcbd1a7900b78b3e41df528c9a35">http://git.postgresql.org/pg/commitdiff/b577a57d4113bcbd1a7900b78b3e41df528c9a35</a></li>
+<li>Reverting previous commit, pending investigation of sporadic seg faults from various build farm members. 
+<a target="_blank" href="http://git.postgresql.org/pg/commitdiff/4f14c86d7434376b95477aeeb07fcc7272f4c47d">http://git.postgresql.org/pg/commitdiff/4f14c86d7434376b95477aeeb07fcc7272f4c47d</a></li>
+<li>ALTER TABLE ... ALTER CONSTRAINT for FKs. Allow constraint attributes to be altered, so the default setting of NOT DEFERRABLE can be altered to DEFERRABLE and back. Review by Abhijit Menon-Sen 
+<a target="_blank" href="http://git.postgresql.org/pg/commitdiff/f177cbfe676dc2c7ca2b206c54d6bf819feeea8b">http://git.postgresql.org/pg/commitdiff/f177cbfe676dc2c7ca2b206c54d6bf819feeea8b</a></li>
+<li>Assert that ALTER TABLE subcommands have pass set 
+<a target="_blank" href="http://git.postgresql.org/pg/commitdiff/2f74e4ec50dc625605e9a7afd63bd8a48c981d9e">http://git.postgresql.org/pg/commitdiff/2f74e4ec50dc625605e9a7afd63bd8a48c981d9e</a></li>
+<li>Change errcode for lock_timeout to match NOWAIT. Set errcode to ERRCODE_LOCK_NOT_AVAILABLE Zolt&aacute;n Bs&ouml;sz&ouml;rm&eacute;nyi 
+<a target="_blank" href="http://git.postgresql.org/pg/commitdiff/d51b271059ba736f71c5372f713d907f711208ec">http://git.postgresql.org/pg/commitdiff/d51b271059ba736f71c5372f713d907f711208ec</a></li>
+</ul>
+<p>Fujii Masao a pouss&eacute;&nbsp;:</p>
+<ul>
+<li>Support clean switchover. In replication, when we shutdown the master, walsender tries to send all the outstanding WAL records to the standby, and then to exit. This basically means that all the WAL records are fully synced between two servers after the clean shutdown of the master. So, after promoting the standby to new master, we can restart the stopped master as new standby without the need for a fresh backup from new master. But there was one problem so far: though walsender tries to send all the outstanding WAL records, it doesn't wait for them to be replicated to the standby. Then, before receiving all the WAL records, walreceiver can detect the closure of connection and exit. We cannot guarantee that there is no missing WAL in the standby after clean shutdown of the master. In this case, backup from new master is required when restarting the stopped master as new standby. This patch fixes this problem. It just changes walsender so that it waits for all the outstanding WAL records to be replicated to the standby before closing the replication connection. Per discussion, this is a fix that needs to get backpatched rather than new feature. So, back-patch to 9.1 where enough infrastructure for this exists. Patch by me, reviewed by Andres Freund. 
+<a target="_blank" href="http://git.postgresql.org/pg/commitdiff/985bd7d49726c9f178558491d31a570d47340459">http://git.postgresql.org/pg/commitdiff/985bd7d49726c9f178558491d31a570d47340459</a></li>
+</ul>
+<p>Andrew Dunstan a pouss&eacute;&nbsp;:</p>
+<ul>
+<li>Properly dump dropped foreign table cols in binary-upgrade mode. In binary upgrade mode, we need to recreate and then drop dropped columns so that all the columns get the right attribute number. This is true for foreign tables as well as for native tables. For foreign tables we have been getting the first part right but not the second, leading to bogus columns in the upgraded database. Fix this all the way back to 9.1, where foreign tables were introduced. 
+<a target="_blank" href="http://git.postgresql.org/pg/commitdiff/81166a2f7e1e792a746c907fe9e0318cc736311a">http://git.postgresql.org/pg/commitdiff/81166a2f7e1e792a746c907fe9e0318cc736311a</a></li>
+</ul>
+<p>Alvaro Herrera a pouss&eacute;&nbsp;:</p>
+<ul>
+<li>Avoid inconsistent type declaration. Clang 3.3 correctly complains that a variable of type enum MultiXactStatus cannot hold a value of -1, which makes sense. Change the declared type of the variable to int instead, and apply casting as necessary to avoid the warning. Per notice from Andres Freund 
+<a target="_blank" href="http://git.postgresql.org/pg/commitdiff/4ca50e071024421e3b75bf7e48fda08141360636">http://git.postgresql.org/pg/commitdiff/4ca50e071024421e3b75bf7e48fda08141360636</a></li>
+<li>Update pg_resetxlog's documentation on multixacts. I added some more functionality to it in 0ac5ad5134f27 but neglected to add it to the docs. Per Peter Eisentraut in message 1367112171.32604.4.camel@vanquo.pezone.net 
+<a target="_blank" href="http://git.postgresql.org/pg/commitdiff/9db4ad44eb02326bbe8eeaf7d1dd452844764a20">http://git.postgresql.org/pg/commitdiff/9db4ad44eb02326bbe8eeaf7d1dd452844764a20</a></li>
+<li>Document relminmxid and datminmxid. I introduced these new fields in 0ac5ad5134f27 but neglected to add them to the system catalogs section of the docs. Per Thom Brown in message CAA-aLv7UiO=Whiq3MVbsEqSyQRthuX8Tb_RLyBuQt0KQBp=6EQ@mail.gmail.com 
+<a target="_blank" href="http://git.postgresql.org/pg/commitdiff/863fad1bcc9de52381e117bfecc89dfb4a52f84a">http://git.postgresql.org/pg/commitdiff/863fad1bcc9de52381e117bfecc89dfb4a52f84a</a></li>
+<li>Send SIGKILL to children if they don't die quickly in immediate shutdown. On immediate shutdown, or during a restart-after-crash sequence, postmaster used to send SIGQUIT (and then abandon ship if shutdown); but this is not a good strategy if backends don't die because of that signal. (This might happen, for example, if a backend gets tangled trying to malloc() due to gettext(), as in an example illustrated by MauMau.) This causes problems when later trying to restart the server, because some processes are still attached to the shared memory segment. Instead of just abandoning such backends to their fates, we now have postmaster hang around for a little while longer, send a SIGKILL after some reasonable waiting period, and then exit. This makes immediate shutdown more reliable. There is disagreement on whether it's best for postmaster to exit after sending SIGKILL, or to stick around until all children have reported death. If this controversy is resolved differently than what this patch implements, it's an easy change to make. Bug reported by MauMau in message 20DAEA8949EC4E2289C6E8E58560DEC0@maumau MauMau and &Aacute;lvaro Herrera 
+<a target="_blank" href="http://git.postgresql.org/pg/commitdiff/82233ce7ea42d6ba519aaec63008aff49da6c7af">http://git.postgresql.org/pg/commitdiff/82233ce7ea42d6ba519aaec63008aff49da6c7af</a></li>
+</ul>
+<p>Noah Misch a pouss&eacute;&nbsp;:</p>
+<ul>
+<li>Renovate display of non-ASCII messages on Windows. GNU gettext selects a default encoding for the messages it emits in a platform-specific manner; it uses the Windows ANSI code page on Windows and follows LC_CTYPE on other platforms. This is inconvenient for PostgreSQL server processes, so realize consistent cross-platform behavior by calling bind_textdomain_codeset() on Windows each time we permanently change LC_CTYPE. This primarily affects SQL_ASCII databases and processes like the postmaster that do not attach to a database, making their behavior consistent with PostgreSQL on non-Windows platforms. Messages from SQL_ASCII databases use the encoding implied by the database LC_CTYPE, and messages from non-database processes use LC_CTYPE from the postmaster system environment. PlatformEncoding becomes unused, so remove it. Make write_console() prefer WriteConsoleW() to write() regardless of the encodings in use. In this situation, write() will invariably mishandle non-ASCII characters. elog.c has assumed that messages conform to the database encoding. While usually true, this does not hold for SQL_ASCII and MULE_INTERNAL. Introduce MessageEncoding to track the actual encoding of message text. The present consumers are Windows-specific code for converting messages to UTF16 for use in system interfaces. This fixes the appearance in Windows event logs and consoles of translated messages from SQL_ASCII processes like the postmaster. Note that SQL_ASCII inherently disclaims a strong notion of encoding, so non-ASCII byte sequences interpolated into messages by %s may yet yield a nonsensical message. MULE_INTERNAL has similar problems at present, albeit for a different reason: its lack of libiconv support or a conversion to UTF8. Consequently, one need no longer restart Windows with a different Windows ANSI code page to broadly test backend logging under a given language. Changing the user's locale ("Format") is enough. Several accounts can simultaneously run postmasters under different locales, all correctly logging localized messages to Windows event logs and consoles. Alexander Law and Noah Misch 
+<a target="_blank" href="http://git.postgresql.org/pg/commitdiff/5f538ad004aa00cf0881f179f0cde789aad4f47e">http://git.postgresql.org/pg/commitdiff/5f538ad004aa00cf0881f179f0cde789aad4f47e</a></li>
+<li>Initialize pad bytes in GinFormTuple(). Every other core buffer page consumer initializes the bytes it furnishes to PageAddItem(). For consistency, do the same here. No back-patch; regardless, we couldn't count on the fix so long as binary upgrade can carry forward affected index builds. 
+<a target="_blank" href="http://git.postgresql.org/pg/commitdiff/1d96bb96024c51f5a445f85ec45ce2e9bbd08c56">http://git.postgresql.org/pg/commitdiff/1d96bb96024c51f5a445f85ec45ce2e9bbd08c56</a></li>
+<li>Document effect of constant folding on CASE. Back-patch to all supported versions. Laurenz Albe 
+<a target="_blank" href="http://git.postgresql.org/pg/commitdiff/d53f7cf11658a3252a6fddf308b992b751379f09">http://git.postgresql.org/pg/commitdiff/d53f7cf11658a3252a6fddf308b992b751379f09</a></li>
+<li>Cooperate with the Valgrind instrumentation framework. Valgrind "client requests" in aset.c and mcxt.c teach Valgrind and its Memcheck tool about the PostgreSQL allocator. This makes Valgrind roughly as sensitive to memory errors involving palloc chunks as it is to memory errors involving malloc chunks. Further client requests in PageAddItem() and printtup() verify that all bits being added to a buffer page or furnished to an output function are predictably-defined. Those tests catch failures of C-language functions to fully initialize the bits of a Datum, which in turn stymie optimizations that rely on _equalConst(). Define the USE_VALGRIND symbol in pg_config_manual.h to enable these additions. An included "suppression file" silences nominal errors we don't plan to fix. Reviewed in earlier versions by Peter Geoghegan and Korry Douglas. 
+<a target="_blank" href="http://git.postgresql.org/pg/commitdiff/19085116eeecfde0a3fc1611eaffccc35bcec204">http://git.postgresql.org/pg/commitdiff/19085116eeecfde0a3fc1611eaffccc35bcec204</a></li>
+<li>Refactor aset.c and mcxt.c in preparation for Valgrind cooperation. Move some repeated debugging code into functions and store intermediates in variables where not presently necessary. No code-generation changes in a production build, and no functional changes. This simplifies and focuses the main patch. 
+<a target="_blank" href="http://git.postgresql.org/pg/commitdiff/a855148a29b786b179308b3bd5c59fe5b67110d8">http://git.postgresql.org/pg/commitdiff/a855148a29b786b179308b3bd5c59fe5b67110d8</a></li>
+<li>Permit super-MaxAllocSize allocations with MemoryContextAllocHuge(). The MaxAllocSize guard is convenient for most callers, because it reduces the need for careful attention to overflow, data type selection, and the SET_VARSIZE() limit. A handful of callers are happy to navigate those hazards in exchange for the ability to allocate a larger chunk. Introduce MemoryContextAllocHuge() and repalloc_huge(). Use this in tuplesort.c and tuplestore.c, enabling internal sorts of up to INT_MAX tuples, a factor-of-48 increase. In particular, B-tree index builds can now benefit from much-larger maintenance_work_mem settings. Reviewed by Stephen Frost, Simon Riggs and Jeff Janes. 
+<a target="_blank" href="http://git.postgresql.org/pg/commitdiff/263865a48973767ce8ed7b7788059a38a24a9f37">http://git.postgresql.org/pg/commitdiff/263865a48973767ce8ed7b7788059a38a24a9f37</a></li>
+</ul>
+<p>Robert Haas a pouss&eacute;&nbsp;:</p>
+<ul>
+<li>pgbench: Add long options for all existing short options. Fabien Coelho, reviewed by Fabr&iacute;zio de Royes Mello, with some further changes by me 
+<a target="_blank" href="http://git.postgresql.org/pg/commitdiff/79cddb18419778be3202c971b3f21cdd90f7b719">http://git.postgresql.org/pg/commitdiff/79cddb18419778be3202c971b3f21cdd90f7b719</a></li>
+<li>pgbench: Fix inadvertent inconsistency in help message. Per report from Fujii Masao. 
+<a target="_blank" href="http://git.postgresql.org/pg/commitdiff/682d977f816e7fa7f29c723666248a8c3ac09bd6">http://git.postgresql.org/pg/commitdiff/682d977f816e7fa7f29c723666248a8c3ac09bd6</a></li>
+<li>Define Trap and TrapMacro even in non-cassert builds. In some cases, the use of these macros may be preferable to Assert() or AssertMacro(), since this way the caller can set the trap message. Andres Freund and Robert Haas 
+<a target="_blank" href="http://git.postgresql.org/pg/commitdiff/5ee73525d57380a55b5c87f8df1c30bd32fb98b3">http://git.postgresql.org/pg/commitdiff/5ee73525d57380a55b5c87f8df1c30bd32fb98b3</a></li>
+<li>Make the OVER keyword unreserved. This results in a slightly less specific error message when OVER is used in a context where we don't accept window functions, but per discussion, it's worth it to get the benefit of not needing to reserve this keyword any more. This same refactoring will also let us avoid reserving some other keywords that we expect to add in upcoming patches (specifically, IGNORE, RESPECT, and FILTER). Troels Nielsen, with minor changes by me 
+<a target="_blank" href="http://git.postgresql.org/pg/commitdiff/5893ffa79c03824f34ae3d37f211381fd1c17283">http://git.postgresql.org/pg/commitdiff/5893ffa79c03824f34ae3d37f211381fd1c17283</a></li>
+</ul>
+<p>Tom Lane a pouss&eacute;&nbsp;:</p>
+<ul>
+<li>Tweak wording in sequence-function docs to avoid PDF build failures. Adjust the wording in the first para of "Sequence Manipulation Functions" so that neither of the link phrases in it break across line boundaries, in either A4- or US-page-size PDF output. This fixes a reported build failure for the 9.3beta2 A4 PDF docs, and future-proofs this particular para against causing similar problems in future. (Perhaps somebody will fix this issue in the SGML/TeX documentation tool chain someday, but I'm not holding my breath.) Back-patch to all supported branches, since the same problem could rise up to bite us in future updates if anyone changes anything earlier than this in func.sgml. 
+<a target="_blank" href="http://git.postgresql.org/pg/commitdiff/a03ae56e40d7b401ebf93f5732e89ef8cb5237f9">http://git.postgresql.org/pg/commitdiff/a03ae56e40d7b401ebf93f5732e89ef8cb5237f9</a></li>
+<li>Expect EWOULDBLOCK from a non-blocking connect() call only on Windows. On Unix-ish platforms, EWOULDBLOCK may be the same as EAGAIN, which is *not* a success return, at least not on Linux. We need to treat it as a failure to avoid giving a misleading error message. Per the Single Unix Spec, only EINPROGRESS and EINTR returns indicate that the connection attempt is in progress. On Windows, on the other hand, EWOULDBLOCK (WSAEWOULDBLOCK) is the expected case. We must accept EINPROGRESS as well because Cygwin will return that, and it doesn't seem worth distinguishing Cygwin from native Windows here. It's not very clear whether EINTR can occur on Windows, but let's leave that part of the logic alone in the absence of concrete trouble reports. Also, remove the test for errno == 0, effectively reverting commit da9501bddb42222dc33c031b1db6ce2133bcee7b, which AFAICS was just a thinko; or at best it might have been a workaround for a platform-specific bug, which we can hope is gone now thirteen years later. In any case, since libpq makes no effort to reset errno to zero before calling connect(), it seems unlikely that that test has ever reliably done anything useful. Andres Freund and Tom Lane 
+<a target="_blank" href="http://git.postgresql.org/pg/commitdiff/a099482c86d85299f1942b2919721a23da37724e">http://git.postgresql.org/pg/commitdiff/a099482c86d85299f1942b2919721a23da37724e</a></li>
+<li>Mark index-constraint comments with correct dependency in pg_dump. When there's a comment on an index that was created with UNIQUE or PRIMARY KEY constraint syntax, we need to label the comment as depending on the constraint not the index, since only the constraint object actually appears in the dump. This incorrect dependency can lead to parallel pg_restore trying to restore the comment before the index has been created, per bug #8257 from Lloyd Albin. This patch fixes pg_dump to produce the right dependency in dumps made in the future. Usually we also try to hack pg_restore to work around bogus dependencies, so that existing (wrong) dumps can still be restored in parallel mode; but that doesn't seem practical here since there's no easy way to relate the constraint dump entry to the comment after the fact. Andres Freund 
+<a target="_blank" href="http://git.postgresql.org/pg/commitdiff/9ef86cd994e9f2a684996df994d4657e84a6c0bb">http://git.postgresql.org/pg/commitdiff/9ef86cd994e9f2a684996df994d4657e84a6c0bb</a></li>
+</ul>
+<p>Michael Meskes a pouss&eacute;&nbsp;:</p>
+<ul>
+<li>Fixed incorrect description of EXEC SQL VAR command. Thanks to MauMau &lt;maumau307@gmail.com&gt; for finding and fixing this. 
+<a target="_blank" href="http://git.postgresql.org/pg/commitdiff/a2769a4e2137bda5f3ad2834fbb5f353f86cab40">http://git.postgresql.org/pg/commitdiff/a2769a4e2137bda5f3ad2834fbb5f353f86cab40</a></li>
+</ul>
+<p>Heikki Linnakangas a pouss&eacute;&nbsp;:</p>
+<ul>
+<li>Track spinlock delay in microsecond granularity. On many platforms the OS will round the sleep time to millisecond resolution, but there is no reason for us to pre-emptively round the argument to pg_usleep. When the delay was measured in milliseconds and started from 1 ms, it sometimes took many attempts until the logic that increases the delay by multiplying with a random value between 1 and 2 actually managed to bump it from 1 ms to 2 ms. That lead to a sequence of 1 ms waits until the delay started to increase. This wasn't really a problem but it looked odd if you observed the waits. There is no measurable difference in performance, but it's more readable this way. Jeff Janes 
+<a target="_blank" href="http://git.postgresql.org/pg/commitdiff/9e0bc7c1e84d7fffb93130f2b7d079a0853329ed">http://git.postgresql.org/pg/commitdiff/9e0bc7c1e84d7fffb93130f2b7d079a0853329ed</a></li>
+<li>Inline ginCompareItemPointers function for speed. ginCompareItemPointers function is called heavily in gin index scans - inlining it speeds up some kind of queries a lot. 
+<a target="_blank" href="http://git.postgresql.org/pg/commitdiff/ee6556555b237c0feeb175e7ea7ce23af959e7ba">http://git.postgresql.org/pg/commitdiff/ee6556555b237c0feeb175e7ea7ce23af959e7ba</a></li>
+</ul>
+<p>Bruce Momjian a pouss&eacute;&nbsp;:</p>
+<ul>
+<li>pg_upgrade: change -u to -U, for consistency. Change -u (user) option to -U, for consistency with other tools like pg_dump and psql. Also expand --user to --username, again for consistency. BACKWARD INCOMPATIBILITY 
+<a target="_blank" href="http://git.postgresql.org/pg/commitdiff/457d6cf049c57cabe9b46ea13f26138040a214ec">http://git.postgresql.org/pg/commitdiff/457d6cf049c57cabe9b46ea13f26138040a214ec</a></li>
+<li>pg_upgrade: trim down --help and doc option descriptions. Previous code had old/new prefixes on option values, e.g. --old-datadir=OLDDATADIR. Remove them, for simplicity; now: --old-datadir=DATADIR. Also update docs to do the same. 
+<a target="_blank" href="http://git.postgresql.org/pg/commitdiff/fb771f9086aab3018b652e1d8e5207208311bb23">http://git.postgresql.org/pg/commitdiff/fb771f9086aab3018b652e1d8e5207208311bb23</a></li>
+<li>pg_upgrade: remove -h option. -h (help) is not needed; pg_upgrade already supports --help and -?, which is consistent with other tools. 
+<a target="_blank" href="http://git.postgresql.org/pg/commitdiff/e029275cdeb39cd2178ac23e2fcc65520f7b7b9c">http://git.postgresql.org/pg/commitdiff/e029275cdeb39cd2178ac23e2fcc65520f7b7b9c</a></li>
+<li>pg_upgrade: pass username to analyze script. If -U (user) is specified, pass the username into the created analyze script. Per request from Ray Stell 
+<a target="_blank" href="http://git.postgresql.org/pg/commitdiff/f85136106d87f54e87635736dfe1b8227b6803ad">http://git.postgresql.org/pg/commitdiff/f85136106d87f54e87635736dfe1b8227b6803ad</a></li>
+</ul>
+<p><strong>Correctifs rejet&eacute;s (&agrave; ce jour)</strong></p>
+<ul>
+<li>No one was disappointed this week</li>
+</ul>
+<p><strong>Correctifs en attente</strong></p>
+<ul>
+<li>Laurenz Albe sent in another revision of a patch to document some portability issues and approaches to same using floating point numbers.</li>
+<li>Dean Rasheed sent in another revision of a patch to implement WITH CHECK OPTION for updateable views.</li>
+<li>Andres Freund and Fabien COELHO traded patches to implement CREATE CAST ... AS EXPLICIT.</li>
+<li>Alvaro Herrera sent in another revision of a patch to remove unused targets.</li>
+<li>Amit Kapila sent in another revision of a patch to implement ALTER SYSTEM to change GUC variables durably across restarts of the PostgreSQL server.</li>
+<li>Rushabh Lathia and Pavel Stehule traded patches to allow access to the call stack in PL/pgsql's SET DIAGNOSTICS statement.</li>
+<li>Dimitri Fontaine sent in another revision of a patch to implement EXTENSION templates.</li>
+<li>Andres Freund sent in another revision of a patch to help with generating logical changesets in WAL.</li>
+<li>Joe Conway sent in two more revisions of a patch to add Levenshtein-Demerau distance to fuzzystrmatch.</li>
+<li>Alexander Korotkov and Heikki Linnakangas traded patches to add some helpful information to GIN indexes.</li>
+<li>Alexander Korotkov sent in another revision of a patch to do fast scans on GIN indexes.</li>
+<li>Alexander Korotkov and Heikki Linnakangas traded patches to optimize ordering in a GIN index.</li>
+<li>Michael Paquier sent in three more revisions of a patch to implement REINDEX CONCURRENTLY.</li>
+<li>Nicholas White sent in seven more revisions of a patch to implement IGNORE NULLS in windowing functions.</li>
+<li>Mark Wong sent in another revision of a patch to add an SPI_gettypmod() function to return a field's typemod from a TupleDesc.</li>
+<li>Heikki Linnakangas and Amit Kapila traded patches to improve the pglz compressor's performance.</li>
+<li>Kyotaro HORIGUCHI sent in two more revisions of a patch to reduce the maximum error in tuple estimation after a VACUUM.</li>
+<li>Josh Kupershmidt sent in another revision of a patch to fix some misbehavior of pg_ctl with relative paths.</li>
+<li>Heikki Linnakangas sent in another revision of a patch to improve the checkpoint IO scheduler for stable transaction responses.</li>
+<li>Pavel Stehule sent in another revision of a patch to add some new error fields to PL/pgsql.</li>
+<li>Szymon Guz, Ronan Deklau, and Steve Singer traded patches to fix conversion for Decimal arguments in plpython functions.</li>
+<li>Robins Tharakan sent in another revision of a patch to add more regression tests for DDL affecting databases themselves (ALTER DATABASE, e.g.).</li>
+<li>Cedric Villemain sent in another revision of a patch to make VPATH builds work better.</li>
+<li>Peter Eisentraut sent in another revision of a patch to revive the line type.</li>
+<li>Kevin Grittner sent in another revision of a patch to allow for refreshing materialized views concurrently.</li>
+<li>Heikki Linnakangas sent in another revision of a patch to scale xlog inserts better.</li>
+<li>Fabien COELHO sent in two more revisions of a patch to add --progress to pgbench.</li>
+<li>Jeff Davis sent in another revision of a patch to teach pg_filedump about page checksums.</li>
+<li>Pavel Stehule sent in two more revisions of a patch to change the ANY variadic elements to array in PL/pgsql.</li>
+<li>Andres Freund sent in another revision of a patch to enable extensible external toast tuple support.</li>
+<li>Robert Haas sent in two more revisions of a patch to implement MVCC access to the calalog.</li>
+<li>Fabien COELHO sent in another revision of a patch to implement pgbench --throttle.</li>
+<li>Ian Link sent in another revision of a patch to add a query result history on demand to psql.</li>
+<li>Robins Tharakan sent in another revision of a patch to add regression tests for CREATE OPERATOR.</li>
+<li>Bruce Momjian sent in a patch to add a way to get timezone offsets from UTC with to_char().</li>
+<li>Bruce Momjian sent in another revision of a patch to make pg_ctl promote status more in line with the LSB standards for same.</li>
+<li>Gilles Darold sent in a patch to make psql's \pset without arguments dump out the currently set psql variables: name and content.</li>
+<li>David Fetter sent in two more revisions of a patch to add makeFuncArgs.</li>
+<li>Fabien COELHO sent in two revisions of a patch to add another regression test suite which is fuller but more time-consuming.</li>
+<li>Gurjeet Singh sent in two more revisions of a patch to make AND/OR lists more efficient.</li>
+<li>David Fetter sent in another revision of a patch to add FILTER for aggregates per the SQL spec.</li>
+<li>David Fetter sent in another revision of a patch to add a WITH ORDINALITY option for calls to set-returning functions.</li>
+<li>Jon Nelson, Jeff Davis, and Greg Smith traded patches to fallocate / posix_fallocate for new WAL file creation when those functions are available.</li>
+</ul></div>
+
+      </div>
+
+  
+
+    
+  
+    
+    
+    </div>
+</div> <!-- End #main -->
+
+</div> <!-- End #wrapper -->
+
+<div id="pgFooter">
+  <p>Propulsé par <a href="http://dotclear.org/">Dotclear</a></p>
+</div>
+
+</div> <!-- End #page -->
+</body>
+
+<!-- Mirrored from blog2.postgresql.fr/index.php?post/2013/07/12/Nouvelles-hebdomadaires-de-PostgreSQL-30-juin-2013 by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 May 2020 21:40:20 GMT -->
+</html>

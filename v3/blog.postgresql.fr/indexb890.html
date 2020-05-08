@@ -1,0 +1,257 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr">
+
+<!-- Mirrored from blog2.postgresql.fr/index.php?post/2009/09/19/Nouvelles-hebdomadaires-de-PostgreSQL-13-septembre-2009 by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 May 2020 21:40:20 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="MSSmartTagsPreventParsing" content="TRUE" />
+  <meta name="ROBOTS" content="INDEX, FOLLOW" />
+  
+  <title>Nouvelles hebdomadaires de PostgreSQL - 13 septembre 2009 - PostgreSQLfr.org</title>
+  <meta name="description" lang="fr" content="Les mises à jour de sécurité 8.4.1, 8.3.8, 8.2.14, 8.1.18, 8.0.22 et 7.4.26 sont disponibles. Mettez à jour dès que possible ! [ndt] Guillaume Lelarge fera une conférence sur les" />
+  <meta name="copyright" content="" />
+  <meta name="author" content="chl" />
+  <meta name="date" scheme="ISO8601" content="2009-09-19T13:07:00+02:00" />
+  
+  <link rel="schema.dc" href="http://purl.org/dc/elements/1.1/" />
+  <meta name="dc.title" content="Nouvelles hebdomadaires de PostgreSQL - 13 septembre 2009" />
+  <meta name="dc.description" lang="fr" content="Les mises à jour de sécurité 8.4.1, 8.3.8, 8.2.14, 8.1.18, 8.0.22 et 7.4.26 sont disponibles. Mettez à jour dès que possible ! [ndt] Guillaume Lelarge fera une conférence sur les" />
+  <meta name="dc.creator" content="chl" />
+  <meta name="dc.language" content="fr" />
+  <meta name="dc.publisher" content="" />
+  <meta name="dc.rights" content="" />
+  <meta name="dc.date" scheme="ISO8601" content="2009-09-19T13:07:00+02:00" />
+  <meta name="dc.type" content="text" />
+  <meta name="dc.format" content="text/html" />
+  
+  <link rel="top" href="indexd41d.html?" title="Accueil" />
+  <link rel="contents" href="index888d.html?archive" title="Archives" />
+  
+  <link rel="next" href="indexf32a.html?post/2009/09/23/Nouvelles-hebdomadaires-de-PostgreSQL-20-septembre-2009"
+  title="Nouvelles hebdomadaires de PostgreSQL - 20 septembre 2009" />
+  
+  <link rel="previous" href="index80de.html?post/2009/09/10/Nouvelles-versions-mineures-%288.4.1%2C-8.3.8%2C-8.2.14...%29"
+  title="Nouvelles versions mineures (8.4.1, 8.3.8, 8.2.14...)" />
+  
+  <link rel="alternate" type="application/atom+xml" title="Atom 1.0" href="index4ca3.php?feed/atom" />
+  
+  <style type="text/css" media="screen">
+@import url(themes/postgresql/style.css);
+</style>
+<style type="text/css" media="print">
+@import url(themes/default/print.css);
+</style>
+
+<script type="text/javascript" src="themes/default/js/jquery.js"></script>
+<script type="text/javascript" src="themes/default/js/jquery.cookie.js"></script>
+
+  
+  <script type="text/javascript" src="themes/default/js/post.js"></script>
+  <script type="text/javascript">
+  //<![CDATA[
+  var post_remember_str = 'Se souvenir de moi sur ce blog';
+  //]]>
+  </script>
+</head>
+
+<body class="dc-post">
+<div id="page">
+
+
+<div id="top">
+  <div id="pgHeader">
+    <span id="pgHeaderLogoLeft">
+      <a href="index.html" title="PostgreSQL"><img src="https://blog.postgresql.fr/themes/postgresql/img/hdr_left.png" width="230" height="80" alt="PostgreSQL" /></a>
+    </span>
+    <span id="pgHeaderLogoRight">
+      <a href="index.html" title="La base de donnees la plus sophistiquee au monde."><img src="https://blog.postgresql.fr/themes/postgresql/img/hdr_right.png" width="210" height="80" alt="La base de donnees la plus sophistiquee au monde." /></a>
+    </span>
+  </div>
+
+  </div>
+
+<div class="pgTopNav">
+  <div class="pgTopNavLeft"> 
+    <img src="https://blog.postgresql.fr/themes/postgresql/img/nav_lft.png" width="7" height="23" alt="" />
+  </div>
+  <div class="pgTopNavRight">
+    <img src="https://blog.postgresql.fr/themes/postgresql/img/nav_rgt.png" width="7" height="23" alt="" />
+  </div>
+  <ul class="pgTopNavList">
+    <li><a href="https://www.postgresql.fr/" title="Accueil">Accueil</a></li>
+    <li><a href="https://blog.postgresql.fr/" title="Lire les actualités">Actualités</a></li>
+    <li><a href="https://docs.postgresql.fr/" title="Lire la documentation officielle">Documentation</a></li>
+    <li><a href="https://forums.postgresql.fr/" title="Pour poser des questions">Forums</a></li>
+    <li><a href="https://www.postgresql.fr/asso/" title="La vie de l'association">Association</a></li>
+    <li><a href="https://www.postgresql.fr/devel:accueil" title="Informations pour les développeurs/traducteurs">Développeurs</a></li>
+    <li><a href="https://planete.postgresql.fr/" title="La planète francophone sur PostgreSQL">Planète</a></li>
+    <li><a href="https://www.postgresql.fr/support/" title="Support sur PostgreSQL">Support</a></li>
+  </ul>
+</div>
+
+<div id="wrapper">
+
+<div id="pgContent">
+
+  <div id="pgSideWrap">
+  <div id="pgSideNav">
+    <div id="blognav">
+      <div id="search"><h2><label for="q">Rechercher</label></h2><form action="http://blog2.postgresql.fr/index.php?" method="get"><fieldset><p><input type="text" size="10" maxlength="255" id="q" name="q" value="" /> <input class="submit" type="submit" value="ok" /></p></fieldset></form></div><div class="categories"><h2>Catégories</h2><ul><li><a href="index199b.html?category/Articles">Articles</a></li><li><a href="indexb4c6.html?category/Dans-les-bacs">Dans les bacs</a></li><li><a href="index025a.html?category/Evenements">Événements</a></li><li class="category-current"><a href="index8c6d.html?category/PostgreSQL-Weekly-News">PostgreSQL Weekly News</a></li><li><a href="index1835.html?category/Securite">Sécurité</a></li><li><a href="index2251.html?category/Vie-de-l-association">Vie de l'association</a></li><li><a href="index91de.html?category/Vie-du-site">Vie du site</a></li></ul></div><div class="text"><h2>Licence</h2>Tous les articles de ce blog sont disponibles sous la <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/">license Creative Commons BY-NC-SA 3.0</a>.</div>    </div> <!-- End #blognav -->
+  
+    <div id="blogextra">
+      <div class="syndicate"><h2>S'abonner</h2><ul><li><a type="application/atom+xml" href="index4ca3.php?feed/atom" title="Fil Atom des billets de ce blog" class="feed">Fil des billets</a></li></ul></div>    </div> <!-- End #blogextra -->
+  </div>
+  </div>
+
+  <div id="pgContentWrap">
+  <div id="pgDownloadsWrap">
+  <div id="content">
+
+  <p id="navlinks">
+  <a href="index80de.html?post/2009/09/10/Nouvelles-versions-mineures-%288.4.1%2C-8.3.8%2C-8.2.14...%29"
+  title="Nouvelles versions mineures (8.4.1, 8.3.8, 8.2.14...)" class="prev">&#171; Nouvelles versions mineures (8.4.1, 8.3.8,</a>
+   <span>-</span> <a href="indexf32a.html?post/2009/09/23/Nouvelles-hebdomadaires-de-PostgreSQL-20-septembre-2009"
+  title="Nouvelles hebdomadaires de PostgreSQL - 20 septembre 2009" class="next">Nouvelles hebdomadaires de PostgreSQL - 20 &#187;</a>
+  </p>
+  
+  <div class="post">
+    <h2 id="p505" class="post-title">Nouvelles hebdomadaires de PostgreSQL - 13 septembre 2009</h2>
+    
+    <p class="post-info">Par chl    le samedi 19 septembre 2009, 13:07        - <a href="index8c6d.html?category/PostgreSQL-Weekly-News">PostgreSQL Weekly News</a>
+        - <a href="indexb890.html?post/2009/09/19/Nouvelles-hebdomadaires-de-PostgreSQL-13-septembre-2009">Lien permanent</a>
+    </p>
+    
+    
+    
+          <div class="post-excerpt"><p>Les mises &agrave; jour de s&eacute;curit&eacute; 8.4.1, 8.3.8, 8.2.14, 8.1.18, 8.0.22 et 7.4.26 sont disponibles. Mettez &agrave; jour d&egrave;s que possible&nbsp;!</p>
+<p>[ndt] Guillaume Lelarge fera une conf&eacute;rence sur les solutions de r&eacute;plication avec PostgreSQL le 16 octobre lors des JDLL 2009 au CPE de Lyon (Villeurbanne)&nbsp;: 
+<a target="_blank" href="http://jdll.org/edition-2009">http://jdll.org/edition-2009</a></p>
+<p><strong>Les nouveaut&eacute;s des produits d&eacute;riv&eacute;s</strong></p>
+<ul>
+<li>Bucardo 4.0.1, un syst&egrave;me de r&eacute;plication capable de g&eacute;rer deux instances "ma&icirc;tres"&nbsp;: 
+<a target="_blank" href="http://bucardo.org/wiki/Bucardo">http://bucardo.org/wiki/Bucardo</a></li>
+</ul>
+<p>(<a target="_blank" href="http://www.postgresql.org/community/weeklynews/pwn20090913">lien vers l'article original</a>)</p></div>
+        
+    <div class="post-content"><p><strong>Offres d'emplois autour de PostgreSQL en septembre</strong></p>
+<ul>
+<li><a target="_blank" href="http://archives.postgresql.org/pgsql-jobs/2009-09/threads.php">http://archives.postgresql.org/pgsql-jobs/2009-09/threads.php</a></li>
+</ul>
+<p><strong>PostgreSQL Local</strong></p>
+<ul>
+<li>Une suite de conf&eacute;rences est organis&eacute;e &agrave; Seattle (&Eacute;tat de Washington, &Eacute;tats-Unis) du 16 au 18 octobre 2009&nbsp;: 
+<a target="_blank" href="http://www.postgresqlconference.org/2009/west">http://www.postgresqlconference.org/2009/west</a></li>
+<li>La "PGCon Brazil" prendra place &agrave; l'Unicamp de Campinas (&Eacute;tat de S&atilde;o Paulo) les 23 &amp; 24 octobre 2009. Les inscriptions sont ouvertes&nbsp;! 
+<a target="_blank" href="http://pgcon.postgresql.org.br/2009/">http://pgcon.postgresql.org.br/2009/</a></li>
+<li>Le PGDay.EU 2009 est programm&eacute; pour les 6 &amp; 7 novembre 2009 &agrave; Telecom ParisTech [ndt: ENST ?]&nbsp;: 
+<a target="_blank" href="http://www.pgday.eu/">http://www.pgday.eu/</a></li>
+<li>L'OpenSQL Camp de Portland est &agrave; la recherche de sponsors. Pensez &agrave; votre voyage d&egrave;s maintenant&nbsp;!&nbsp;:) 
+<a target="_blank" href="http://www.chesnok.com/daily/2009/07/29/opensql-camp-comes-to-portland-november-14-15-2009/">http://www.chesnok.com/daily/2009/07/29/opensql-camp-comes-to-portland-november-14-15-2009/</a></li>
+<li>Le rassemblement &agrave; l'occasion du 10<sup>&egrave;me</sup> anniversaire du JPUG est programm&eacute; pour les 20 &amp; 21 novembre 2009 &agrave; Tokyo, Japon&nbsp;: 
+<a target="_blank" href="http://archives.postgresql.org/pgsql-announce/2009-05/msg00018.php">http://archives.postgresql.org/pgsql-announce/2009-05/msg00018.php</a></li>
+<li>Le FOSDEM 2010 aura lieu &agrave; Bruxelles les 6 &amp; 7 f&eacute;vrier 2010&nbsp;: 
+<a target="_blank" href="http://www.fosdem.org/">http://www.fosdem.org/</a></li>
+<li>Le "Chemnitzer Linuxtage" aura lieu &agrave; Chemnitz (All.) les 13 &amp; 14 mars 2010&nbsp;: 
+<a target="_blank" href="http://chemnitzer.linux-tage.de/">http://chemnitzer.linux-tage.de/</a></li>
+</ul>
+<p><strong>PostgreSQL dans les m&eacute;dia</strong></p>
+<ul>
+<li>Planet PostgreSQL&nbsp;: 
+<a target="_blank" href="http://planet.postgresql.org/">http://planet.postgresql.org/</a></li>
+<li>Planet PostgreSQLFr&nbsp;: 
+<a target="_blank" href="http://planete.postgresql.fr/">http://planete.postgresql.fr/</a></li>
+</ul>
+<p><i>PostgreSQL Weekly News / les nouvelles hebdomadaires vous sont offertes cette semaine par David Fetter. Traduction par l'&eacute;quipe PostgreSQLFr sous licence CC BY-NC-SA.</i></p>
+<p><i>Proposez vos articles ou annonces avant dimanche 15:00 (heure du Pacifique). Merci de les envoyer en anglais &agrave; david (a) fetter.org, en allemand &agrave; pwn (a) pgug.de, en italien &agrave; pwn (a) itpug.org.</i></p>
+<p><strong>Correctifs appliqu&eacute;s</strong></p>
+<p>Tom Lane a commit&eacute;&nbsp;:</p>
+<ul>
+<li>Disallow RESET ROLE and RESET SESSION AUTHORIZATION inside security-definer. functions. This extends the previous patch that forbade SETting these variables inside security-definer functions. RESET is equally a security hole, since it would allow regaining privileges of the caller; furthermore it can trigger Assert failures and perhaps other internal errors, since the code is not expecting these variables to change in such contexts. The previous patch did not cover this case because assign hooks don't really have enough information, so move the responsibility for preventing this into guc.c. Problem discovered by Heikki Linnakangas. Security: no CVE assigned yet, extends CVE-2007-6600</li>
+<li>Make LOAD of an already-loaded library into a no-op, instead of attempting to unload and re-load the library. The difficulty with unloading a library is that we haven't defined safe protocols for doing so. In particular, there's no safe mechanism for getting out of a "hook" function pointer unless libraries are unloaded in reverse order of loading. And there's no mechanism at all for undefining a custom GUC variable, so GUC would be left with a pointer to an old value that might or might not still be valid, and very possibly wouldn't be in the same place anymore. While the unload and reload behavior had some usefulness in easing development of new loadable libraries, it's of no use whatever to normal users, so just disabling it isn't giving up that much. Someday we might care to expend the effort to develop safe unload protocols; but even if we did, there'd be little certainty that every third-party loadable module was following them, so some security restrictions would still be needed. Back-patch to 8.2; before that, LOAD was superuser-only anyway. Security: unprivileged users could crash backend. CVE not assigned yet</li>
+<li>Remove outside-the-scanner references to "yyleng". It seems the flex developers have decided to change yyleng from int to size_t. This has already happened in the latest release of OS X, and will start happening elsewhere once the next release of flex appears. Rather than trying to divine how it's declared in any particular build, let's just remove the one existing not-very-necessary external usage. Back-patch to all supported branches; not so much because users in the field are likely to care about building old branches with cutting-edge flex, as to keep OSX-based buildfarm members from having problems with old branches.</li>
+<li>Replace use of the long-deprecated Bonjour API DNSServiceRegistrationCreate with the not-so-deprecated DNSServiceRegister. This patch shouldn't change any user-visible behavior, it just gets rid of a deprecation warning in --with-bonjour builds. The new code will fail on OS X releases before 10.3, but it seems unlikely that anyone will want to run Postgres 8.5 on 10.2.</li>
+<li>Add a boolean GUC parameter "bonjour" to control whether a Bonjour-enabled build actually attempts to advertise itself via Bonjour. Formerly it always did so, which meant that packagers had to decide for their users whether this behavior was wanted or not. The default is "off" to be on the safe side, though this represents a change in the default behavior of a Bonjour-enabled build. Per discussion.</li>
+<li>Remove any -arch switches given in ExtUtils::Embed's ldopts from our perl_embed_ldflags setting. On OS X it seems that ExtUtils::Embed is trying to force a universal binary to be built, but you need to specify that a lot further upstream if you want Postgres built that way; the only result of including -arch in perl_embed_ldflags is some warnings at the plperl.so link step. Per my complaint and Jan Otto's suggestion.</li>
+<li>Fix bug with WITH RECURSIVE immediately inside WITH RECURSIVE. 99% of the code was already okay with this, but the hack that obtained the output column types of a recursive union in advance of doing real parse analysis of the recursive union forgot to handle the case where there was an inner WITH clause available to the non-recursive term. Best fix seems to be to refactor so that we don't need the "throwaway" parse analysis step at all. Instead, teach the transformSetOperationStmt code to set up the CTE's output column information after it's processed the non-recursive term normally. Per report from David Fetter.</li>
+<li>Increase the maximum value of extra_float_digits to 3, and have pg_dump use that value when the backend is new enough to allow it. This responds to bug report from Keh-Cheng Chu pointing out that although 2 extra digits should be sufficient to dump and restore float8 exactly, it is possible to need 3 extra digits for float4 values.</li>
+<li>Fix assertion failure when a SELECT DISTINCT ON expression is volatile. In this case we generate two PathKey references to the expression (one for DISTINCT and one for ORDER BY) and they really need to refer to the same EquivalenceClass. However get_eclass_for_sort_expr was being overly paranoid and creating two different Emmanuel Cecchet's. Correct behavior is to use the SortGroupRef index to decide whether two references to volatile expressions that are equal() (ie textually equivalent) should be considered the same. Backpatch to 8.4. Possibly this should be changed in 8.3 as well, but I'll refrain in the absence of evidence of a visible failure in that branch. Per bug #5049.</li>
+<li>In pgsql/src/backend/commands/tablespace.c, install a hopefully-temporary workaround for Snow Leopard readdir() bug. If Apple doesn't fix that reasonably soon, we'll have to consider back-patching a workaround; but for now, just hack it in HEAD so that we can get buildfarm reports on HEAD from OS X machines. Per Jan Otto.</li>
+<li>In pgsql/doc/src/sgml/ref/grant.sgml, improve GRANT reference page's description of object ownership privileges by mentioning the possibility of granting membership in the owning role.</li>
+<li>Rewrite the planner's handling of materialized plan types so that there is an explicit model of rescan costs being different from first-time costs. The costing of Material nodes in particular now has some visible relationship to the actual runtime behavior, where before it was essentially fantasy. This also fixes up a couple of places where different materialized plan types were treated differently for no very good reason (probably just oversights). A couple of the regression tests are affected, because the planner now chooses to put the other relation on the inside of a nestloop-with-materialize. So far as I can see both changes are sane, and the planner is now more consistently following the expectation that it should prefer to materialize the smaller of two relations. Per a recent discussion with Robert Haas.</li>
+<li>Write psql's ~/.psql_history file using history_truncate_file() and append_history(), if libreadline is new enough to have those functions (they seem to be present at least since 4.2; but libedit may not have them). This gives significantly saner behavior when two or more sessions overlap in their use of the history file; although having two sessions exit at just the same time is still perilous to your history. The behavior of \s remains unchanged, ie, overwrite whatever was there. Per bug #5052 from Marek W?jtowicz.</li>
+</ul>
+<p>Magnus Hagander a commit&eacute;&nbsp;:</p>
+<ul>
+<li>Change our WIN32 API version to be 5.01 (Windows XP), to bring in the proper IPV6 headers in newer SDKs.</li>
+</ul>
+<p>Peter Eisentraut a commit&eacute;&nbsp;:</p>
+<ul>
+<li>Fix/improve bytea and boolean support in PL/Python. Before, PL/Python converted data between SQL and Python by going through a C string representation. This broke for bytea in two ways: 1. On input (function parameters), you would get a Python string that contains bytea's particular external representation with backslashes etc., instead of a sequence of bytes, which is what you would expect in a Python environment. This problem is exacerbated by the new bytea output format. 2. On output (function return value), null bytes in the Python string would cause truncation before the data gets stored into a bytea datum. This is now fixed by converting directly between the PostgreSQL datum and the Python representation. The required generalized infrastructure also allows for other improvements in passing: 1. When returning a boolean value, the SQL datum is now true if and only if Python considers the value that was passed out of the PL/Python function to be true. Previously, this determination was left to the boolean data type input function. So, now returning 'foo' results in true, because Python considers it true, rather than false because PostgreSQL considers it false. 2. On input, we can convert the integer and float types directly to their Python equivalents without having to go through an intermediate string representation. Original patch by Caleb Welton, with updates by myself.</li>
+<li>In pgsql/doc/src/sgml/dml.sgml, remove claim that this chapter discusses rules and triggers. Per Bruno Guimaraes Carneiro.</li>
+<li>Remove PL/Python TODO file; it has been added to the main Todo list in the wiki.</li>
+<li>Add Unicode support in PL/Python. PL/Python now accepts Unicode objects where it previously only accepted string objects (for example, as return value). Unicode objects are converted to the PostgreSQL server encoding as necessary. This change is also necessary for future Python 3 support, which treats all strings as Unicode objects. Since this removes the error conditions that the plpython_unicode test file tested for, the alternative result files are no longer necessary.</li>
+<li>In pgsql/doc/src/sgml/config.sgml, document that autovacuum_max_workers can only be set at server start. Per Joshua Tolley.</li>
+<li>Fix Unicode support in PL/Python. Check calls of PyUnicode_AsEncodedString() for NULL return, probably because the encoding name is not known. Add special treatment for SQL_ASCII, which Python definitely does not know. Since using SQL_ASCII produces errors in the regression tests when non-ASCII characters are involved, we have to put back various regression test result variants.</li>
+</ul>
+<p>Heikki Linnakangas a commit&eacute;&nbsp;:</p>
+<ul>
+<li>In pgsql/src/backend/access/transam/xlog.c, on Windows, when a file is deleted and another process still has an open file handle on it, the file goes into "pending deletion" state where it still shows up in directory listing, but isn't accessible otherwise. That confuses RemoveOldXLogFiles(), making it think that the file hasn't been archived yet, while it actually was, and it was deleted along with the .done file. Fix that by renaming the file with ".deleted" extension before deleting it. Also check the return value of rename() and unlink(), so that if the removal fails for any reason (e.g another process is holding the file locked), we don't delete the .done file until the WAL file is really gone. Backpatch to 8.2, which is the oldest version supported on Windows.</li>
+<li>Don't error out if recycling or removing an old WAL segment fails at the end of checkpoint. Although the checkpoint has been written to WAL at that point already, so that all data is safe, and we'll retry removing the WAL segment at the next checkpoint, if such a failure persists we won't be able to remove any other old WAL segments either and will eventually run out of disk space. It's better to treat the failure as non-fatal, and move on to clean any other WAL segment and continue with any other end-of-checkpoint cleanup. We don't normally expect any such failures, but on Windows it can happen with some anti-virus or backup software that lock files without FILE_SHARE_DELETE flag. Also, the loop in pgrename() to retry when the file is locked was broken. If a file is locked on Windows, you get ERROR_SHARE_VIOLATION, not ERROR_ACCESS_DENIED, at least on modern versions. Fix that, although I left the check for ERROR_ACCESS_DENIED in there as well (presumably it was correct in some environment), and added ERROR_LOCK_VIOLATION to be consistent with similar checks in pgwin32_open(). Reduce the timeout on the loop from 30s to 10s, on the grounds that since it's been broken, we've effectively had a timeout of 0s and no-one has complained, so a smaller timeout is actually closer to the old behavior. A longer timeout would mean that if recycling a WAL file fails because it's locked for some reason, InstallXLogFileSegment() will hold ControlFileLock for longer, potentially blocking other backends, so a long timeout isn't totally harmless. While we're at it, set errno correctly in pgrename(). Backpatch to 8.2, which is the oldest version supported on Windows. The xlog.c changes would make sense on other platforms and thus on older versions as well, but since there's no such locking issues on other platforms, it's not worth it.</li>
+</ul>
+<p>Tatsuo Ishii a commit&eacute;&nbsp;:</p>
+<ul>
+<li>In pgsql/contrib/pgbench/pgbench.c, pgbench has #defines for number of branches, tellers, and accounts. There are used to populate the tables with -i, but when running actual benchmark it has values separately hard-coded in the query metacommands. This patch makes the metacommands obtain their values from the relevant #defines. Patch provided by Jeff Janes.</li>
+</ul>
+<p>Alvaro Herrera a commit&eacute;&nbsp;:</p>
+<ul>
+<li>In pgsql/doc/src/sgml/config.sgml, add note that the logging collector can block backends in high load situations.</li>
+</ul>
+<p>Joe Conway a commit&eacute;&nbsp;:</p>
+<ul>
+<li>In pgsql/contrib/dblink/dblink.c, plug dblink resource leak. dblink generates orphaned connections when called with a connection string, fail_on_error = true, and an ERROR occurs. Discovery and patch by Tatsuhito Kasahara. Introduced in 8.4.</li>
+</ul>
+<p><strong>Correctifs rejet&eacute;s (&agrave; ce jour)</strong></p>
+<ul>
+<li>Pas de d&eacute;ception cette semaine&nbsp;:-)</li>
+</ul>
+<p><strong>Correctifs en attente</strong></p>
+<ul>
+<li>ITAGAKI Takahiro sent in two revisions of a patch to implement CREATE TABLE LIKE...INCLUDING (COMMENTS|STORAGE).</li>
+<li>ITAGAKI Takahiro sent in two more revisions of the per-column trigger patch.</li>
+<li>Zoltan Boszormenyi sent in a small patch to fix a typo in an earlier ECPG patch he sent.</li>
+<li>Marko Kreen sent in another revision of the patch to add Unicode escapes for strings in UTF8 databases.</li>
+<li>Emmanuel Cecchet sent in a patch to log errors and do auto-partitioning.</li>
+<li>Heikki Linnakangas sent in another revision of the patch to fix WAL issues in non-renamable files on Windows.</li>
+<li>Josh Tolley sent in a doc patch to mention that autovacuum_max_workers can only be set on server start.</li>
+<li>Robert Haas sent in a proof-of-concept patch to add generic COPY options.</li>
+<li>Jeff Janes sent in a patch to improve XLogInsert.</li>
+<li>Andrew Dunstan sent in a patch to allow for ragged CSV input in COPY.</li>
+<li>Peter Eisentraut sent in a patch to make translating psql help easier.</li>
+<li>ITAGAKI Takahiro sent in a patch to add a GUC parameter syslog_line_prefix for syslog and eventlog.</li>
+<li>Jeff Janes sent in a patch to improve tools/fsync.</li>
+</ul></div>
+
+      </div>
+
+  
+
+    
+  
+    
+    
+    </div>
+</div> <!-- End #main -->
+
+</div> <!-- End #wrapper -->
+
+<div id="pgFooter">
+  <p>Propulsé par <a href="http://dotclear.org/">Dotclear</a></p>
+</div>
+
+</div> <!-- End #page -->
+</body>
+
+<!-- Mirrored from blog2.postgresql.fr/index.php?post/2009/09/19/Nouvelles-hebdomadaires-de-PostgreSQL-13-septembre-2009 by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 May 2020 21:40:20 GMT -->
+</html>

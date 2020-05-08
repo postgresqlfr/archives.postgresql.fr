@@ -1,0 +1,281 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr">
+
+<!-- Mirrored from blog2.postgresql.fr/index.php?post/2009/06/18/Nouvelles-hebdomadaires-de-PostgreSQL-14-juin-2009 by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 May 2020 21:40:20 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="MSSmartTagsPreventParsing" content="TRUE" />
+  <meta name="ROBOTS" content="INDEX, FOLLOW" />
+  
+  <title>Nouvelles hebdomadaires de PostgreSQL - 14 juin 2009 - PostgreSQLfr.org</title>
+  <meta name="description" lang="fr" content="PostgreSQL 8.4 RC1 sera bientôt disponible. Faites préchauffer les bancs de test ! http://www.postgresql.org/developer/beta [ndt: cf" />
+  <meta name="copyright" content="" />
+  <meta name="author" content="chl" />
+  <meta name="date" scheme="ISO8601" content="2009-06-18T01:08:00+02:00" />
+  
+  <link rel="schema.dc" href="http://purl.org/dc/elements/1.1/" />
+  <meta name="dc.title" content="Nouvelles hebdomadaires de PostgreSQL - 14 juin 2009" />
+  <meta name="dc.description" lang="fr" content="PostgreSQL 8.4 RC1 sera bientôt disponible. Faites préchauffer les bancs de test ! http://www.postgresql.org/developer/beta [ndt: cf" />
+  <meta name="dc.creator" content="chl" />
+  <meta name="dc.language" content="fr" />
+  <meta name="dc.publisher" content="" />
+  <meta name="dc.rights" content="" />
+  <meta name="dc.date" scheme="ISO8601" content="2009-06-18T01:08:00+02:00" />
+  <meta name="dc.type" content="text" />
+  <meta name="dc.format" content="text/html" />
+  
+  <link rel="top" href="indexd41d.html?" title="Accueil" />
+  <link rel="contents" href="index888d.html?archive" title="Archives" />
+  
+  <link rel="next" href="index4722.html?post/2009/06/20/Guide-de-demarrage-rapide-avec-PostgreSQL"
+  title="Guide de démarrage rapide avec PostgreSQL" />
+  
+  <link rel="previous" href="index6f3e.html?post/2009/06/17/PostgreSQL-8.4-Release-Candidate-1-disponible"
+  title="PostgreSQL 8.4 Release Candidate 1 disponible" />
+  
+  <link rel="alternate" type="application/atom+xml" title="Atom 1.0" href="index4ca3.php?feed/atom" />
+  
+  <style type="text/css" media="screen">
+@import url(themes/postgresql/style.css);
+</style>
+<style type="text/css" media="print">
+@import url(themes/default/print.css);
+</style>
+
+<script type="text/javascript" src="themes/default/js/jquery.js"></script>
+<script type="text/javascript" src="themes/default/js/jquery.cookie.js"></script>
+
+  
+  <script type="text/javascript" src="themes/default/js/post.js"></script>
+  <script type="text/javascript">
+  //<![CDATA[
+  var post_remember_str = 'Se souvenir de moi sur ce blog';
+  //]]>
+  </script>
+</head>
+
+<body class="dc-post">
+<div id="page">
+
+
+<div id="top">
+  <div id="pgHeader">
+    <span id="pgHeaderLogoLeft">
+      <a href="index.html" title="PostgreSQL"><img src="https://blog.postgresql.fr/themes/postgresql/img/hdr_left.png" width="230" height="80" alt="PostgreSQL" /></a>
+    </span>
+    <span id="pgHeaderLogoRight">
+      <a href="index.html" title="La base de donnees la plus sophistiquee au monde."><img src="https://blog.postgresql.fr/themes/postgresql/img/hdr_right.png" width="210" height="80" alt="La base de donnees la plus sophistiquee au monde." /></a>
+    </span>
+  </div>
+
+  </div>
+
+<div class="pgTopNav">
+  <div class="pgTopNavLeft"> 
+    <img src="https://blog.postgresql.fr/themes/postgresql/img/nav_lft.png" width="7" height="23" alt="" />
+  </div>
+  <div class="pgTopNavRight">
+    <img src="https://blog.postgresql.fr/themes/postgresql/img/nav_rgt.png" width="7" height="23" alt="" />
+  </div>
+  <ul class="pgTopNavList">
+    <li><a href="https://www.postgresql.fr/" title="Accueil">Accueil</a></li>
+    <li><a href="https://blog.postgresql.fr/" title="Lire les actualités">Actualités</a></li>
+    <li><a href="https://docs.postgresql.fr/" title="Lire la documentation officielle">Documentation</a></li>
+    <li><a href="https://forums.postgresql.fr/" title="Pour poser des questions">Forums</a></li>
+    <li><a href="https://www.postgresql.fr/asso/" title="La vie de l'association">Association</a></li>
+    <li><a href="https://www.postgresql.fr/devel:accueil" title="Informations pour les développeurs/traducteurs">Développeurs</a></li>
+    <li><a href="https://planete.postgresql.fr/" title="La planète francophone sur PostgreSQL">Planète</a></li>
+    <li><a href="https://www.postgresql.fr/support/" title="Support sur PostgreSQL">Support</a></li>
+  </ul>
+</div>
+
+<div id="wrapper">
+
+<div id="pgContent">
+
+  <div id="pgSideWrap">
+  <div id="pgSideNav">
+    <div id="blognav">
+      <div id="search"><h2><label for="q">Rechercher</label></h2><form action="http://blog2.postgresql.fr/index.php?" method="get"><fieldset><p><input type="text" size="10" maxlength="255" id="q" name="q" value="" /> <input class="submit" type="submit" value="ok" /></p></fieldset></form></div><div class="categories"><h2>Catégories</h2><ul><li><a href="index199b.html?category/Articles">Articles</a></li><li><a href="indexb4c6.html?category/Dans-les-bacs">Dans les bacs</a></li><li><a href="index025a.html?category/Evenements">Événements</a></li><li class="category-current"><a href="index8c6d.html?category/PostgreSQL-Weekly-News">PostgreSQL Weekly News</a></li><li><a href="index1835.html?category/Securite">Sécurité</a></li><li><a href="index2251.html?category/Vie-de-l-association">Vie de l'association</a></li><li><a href="index91de.html?category/Vie-du-site">Vie du site</a></li></ul></div><div class="text"><h2>Licence</h2>Tous les articles de ce blog sont disponibles sous la <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/">license Creative Commons BY-NC-SA 3.0</a>.</div>    </div> <!-- End #blognav -->
+  
+    <div id="blogextra">
+      <div class="syndicate"><h2>S'abonner</h2><ul><li><a type="application/atom+xml" href="index4ca3.php?feed/atom" title="Fil Atom des billets de ce blog" class="feed">Fil des billets</a></li></ul></div>    </div> <!-- End #blogextra -->
+  </div>
+  </div>
+
+  <div id="pgContentWrap">
+  <div id="pgDownloadsWrap">
+  <div id="content">
+
+  <p id="navlinks">
+  <a href="index6f3e.html?post/2009/06/17/PostgreSQL-8.4-Release-Candidate-1-disponible"
+  title="PostgreSQL 8.4 Release Candidate 1 disponible" class="prev">&#171; PostgreSQL 8.4 Release Candidate 1 disponible</a>
+   <span>-</span> <a href="index4722.html?post/2009/06/20/Guide-de-demarrage-rapide-avec-PostgreSQL"
+  title="Guide de démarrage rapide avec PostgreSQL" class="next">Guide de démarrage rapide avec PostgreSQL &#187;</a>
+  </p>
+  
+  <div class="post">
+    <h2 id="p487" class="post-title">Nouvelles hebdomadaires de PostgreSQL - 14 juin 2009</h2>
+    
+    <p class="post-info">Par chl    le jeudi 18 juin 2009, 01:08        - <a href="index8c6d.html?category/PostgreSQL-Weekly-News">PostgreSQL Weekly News</a>
+        - <a href="index12f1.html?post/2009/06/18/Nouvelles-hebdomadaires-de-PostgreSQL-14-juin-2009">Lien permanent</a>
+    </p>
+    
+    
+    
+          <div class="post-excerpt"><p>PostgreSQL 8.4 RC1 sera bient&ocirc;t disponible. Faites pr&eacute;chauffer les bancs de test&nbsp;! 
+<a target="_blank" href="http://www.postgresql.org/developer/beta">http://www.postgresql.org/developer/beta</a><br>
+[ndt: cf <a href="http://blog.postgresql.fr/index.php?post/2009/06/17/PostgreSQL-8.4-Release-Candidate-1-disponible" target="_blank">http://blog.postgresql.fr/index.php?post/2009/06/17/PostgreSQL-8.4-Release-Candidate-1-disponible</a>]</p>
+<p>Nouveau sondage&nbsp;: quelle est votre plus forte attente concernant le d&eacute;veloppement de PostgreSQL&nbsp;? 
+<a target="_blank" href="http://www.postgresql.org/community">http://www.postgresql.org/community</a></p>
+<p>Le projet TikiWiki a besoin d'une aide postgresqlienne&nbsp;! TikiWiki a besoin d'un mainteneur de compatibilit&eacute; PostgreSQL, sans quoi le support pourrait &ecirc;tre arr&ecirc;t&eacute;. Si vous utilisez TikiWiki et pouvez aider, veuillez contacter marclaporte AT tikiwiki DOT org.</p>
+<p><strong>Les nouveaut&eacute;s des produits d&eacute;riv&eacute;s</strong></p>
+<ul>
+<li>Mogwai ER-DesignerNG 1.7-SNAPSHOT, un outil pour l'ERD, bas&eacute; sur Java&nbsp;: 
+<a target="_blank" href="http://mogwai.sourceforge.net/">http://mogwai.sourceforge.net/</a></li>
+<li>Slony1-ctl 1.1.4, un ensemble de script pour administrer Slony&nbsp;: 
+<a target="_blank" href="http://pgfoundry.org/projects/slony1-ctl/">http://pgfoundry.org/projects/slony1-ctl/</a></li>
+</ul>
+<p><strong>La fonctionnalit&eacute; 8.4 de la semaine</strong></p>
+<p>C'est le module pg_stat_statements (contrib) qui permet d'&eacute;tablir des statistiques d'ex&eacute;cution pour l'ensemble du serveur. Que les devins de la charge serveur se r&eacute;jouissent&nbsp;!<br>
+[ndt: <a href="http://docs.postgresql.fr/8.4/pgstatstatements.html" target="_blank">http://docs.postgresql.fr/8.4/pgstatstatements.html</a>]</p>
+<p><strong>L'astuce de la semaine</strong></p>
+<p>Il est conseill&eacute; d'indexer les champs de clefs &eacute;trang&egrave;res (c&ocirc;t&eacute; r&eacute;f&eacute;ren&ccedil;ant ou "fils"), &agrave; moins que les valeurs r&eacute;f&eacute;renc&eacute;es aient une tr&egrave;s faible cardinalit&eacute;. PostgreSQL ne met pas cela en place automatiquement.</p>
+<p>(<a target="_blank" href="http://www.postgresql.org/community/weeklynews/pwn20090614">lien vers l'article original</a>)</p></div>
+        
+    <div class="post-content"><p><strong>Offres d'emplois autour de PostgreSQL en juin</strong></p>
+<ul>
+<li><a target="_blank" href="http://archives.postgresql.org/pgsql-jobs/2009-06/threads.php">http://archives.postgresql.org/pgsql-jobs/2009-06/threads.php</a></li>
+</ul>
+<p><strong>PostgreSQL Local</strong></p>
+<ul>
+<li>Le pgDay San Jose est programmé pour le dimanche 19 juillet, juste avant l'OSCON. Inscription ci-dessous&nbsp;:
+<a target="_blank" href="http://postgresql.meetup.com/1/calendar/10626647">http://postgresql.meetup.com/1/calendar/10626647</a></li>
+<li style="list-style-type: none; list-style-image: none; list-style-position: outside; display: inline;">
+<p>L'appel aux conférenciers est lancé pour la "PGCon Brazil"&nbsp;!
+<a target="_blank" href="http://pgcon.postgresql.org.br/2009/chamadas.en.php">http://pgcon.postgresql.org.br/2009/chamadas.en.php</a></p>
+</li>
+<li>La "PGCon Brazil" prendra place à l'Unicamp de Campinas (État de São Paulo) les 23 &amp; 24 octobre 2009.</li>
+<li>Le PGDay.EU 2009 est programmé pour les 6 &amp; 7 novembre 2009 à Telecom ParisTech (ndt: ENST ?)&nbsp;:
+<a target="_blank" href="http://www.pgday.eu/">http://www.pgday.eu/</a></li>
+<li>Vos propositions de conférences sont attendues pour le 10<sup>ème</sup> anniversaire du JPUG. Le rassemblement aura lieu les 20 &amp; 21 novembre 2009 à Tokyo, Japan&nbsp;:
+<a target="_blank" href="http://archives.postgresql.org/pgsql-announce/2009-05/msg00018.php">http://archives.postgresql.org/pgsql-announce/2009-05/msg00018.php</a></li>
+</ul>
+<p><strong>PostgreSQL dans les média</strong></p>
+<ul>
+<li>Planet PostgreSQL&nbsp;:
+<a target="_blank" href="http://planet.postgresql.org/">http://planet.postgresql.org/</a></li>
+<li>Planet PostgreSQLFr&nbsp;:
+<a target="_blank" href="http://planete.postgresql.fr/">http://planete.postgresql.fr/</a></li>
+</ul>
+<p><em>PostgreSQL Weekly News / les nouvelles hebdomadaires vous sont offertes cette semaine par David Fetter et Josh Berkus. La traduction en est assurée par l'équipe PostgreSQLFr.</em></p>
+<p><em>Proposez vos articles ou annonces avant dimanche 15:00 (heure du Pacifique). Merci de les envoyer en anglais à david (a) fetter.org, en allemand à pwn (a) pgug.de, en italien à pwn (a) itpug.org.</em></p>
+<p><strong>Correctifs appliqués</strong></p>
+<p>Tom Lane a commité&nbsp;:</p>
+<ul>
+<li>In pgsql/doc/src/sgml/release-8.4.sgml, be a bit more verbose about the effects of string literal processing changes in plpgsql. Per bug #4843.</li>
+<li>Fix contrib/pageinspect to not create an ABI breakage between 8.3 and 8.4. The original implementation of the 3-argument form of get_raw_page() risked core dumps if the 8.3 SQL function definition was mistakenly used with the 8.4 module, which is entirely likely after a dump-and-reload upgrade. To protect 8.4 beta testers against upgrade problems, add a check on PG_NARGS. In passing, fix missed additions to the uninstall script, and polish the docs a trifle.</li>
+<li>In pgsql/src/backend/utils/adt/ruleutils.c, fix failure to double-quote function argument names when needed, in pg_get_function_arguments() and related functions. Per report from Andreas Nolte.</li>
+<li>Restore dblink_current_query() to being a C-language function, so as to not create an ABI break between 8.3 and 8.4. It is still just a wrapper around the built-in current_query() function, but at a different implementation level. Per my proposal. Note: this change doesn't break 8.4beta installations, since their SQL-language definition of the function still works fine.</li>
+<li>In pgsql/src/backend/utils/adt/array_userfuncs.c, switch order of tests to avoid possible Assert failure for "array_agg_finalfn(null)". We should modify pg_proc entries to prevent this query from being accepted, but let's just make the function itself secure too. Per my note of today.</li>
+<li>In pgsql/src/include/catalog/pg_proc.h, mark internal_in as not strict, so that the construct "null::internal" will throw an error, rather than possibly allowing someone to synthesize a manual call to an internal-accepting function. As of CVS HEAD and existing releases, all such functions are either STRICT or careful about null inputs, so there is no current security issue here. But it seems like a good idea to lock this down to protect against future mistakes. In passing, similarly lock down trigger_in, language_handler_in, opaque_in, and shell_in. These are not believed to present any security risk, but there's still no good reason to allow nulls of these types to be created. I left the polymorphic pseudotypes (anyelement etc) alone, since a null of one of those types doesn't seem to be a problem --- the worst you can say about it is that it doesn't have an underlying non-polymorphic type. If we were to make this change during normal development, we'd just automatically bump catversion for a pg_proc.h change. But since this doesn't create a compatibility risk and isn't believed to be fixing a live bug, it seems better not to force a catversion bump in late beta.</li>
+<li>In pgsql/src/backend/utils/adt/xml.c, ensure xmlFree(NULL) is a no-op instead of a core dump. Per report from Sergey Burladyan, there are at least some dank corners of libxml2 that assume this behavior, even though their published documentation suggests they shouldn't. This is only really a live problem in 8.3, but the code is still there for possible debugging use in HEAD, so patch both branches.</li>
+<li>Make handling of INTERVAL DAY TO MINUTE and INTERVAL DAY TO SECOND input more consistent with other cases, by having an unlabeled integer field be treated as a number of minutes or seconds respectively. These cases are outside the spec (which insists on full "dd hh:mm" or "dd hh:mm:ss" input respectively), so it's not much help to us in deciding what to do. But with this change, it's uniformly the case that an unlabeled integer will be considered as being a number of the interval's rightmost field. The change also takes us back to the 8.3 behavior of throwing error for certain ambiguous inputs such as INTERVAL '1 2' DAY TO MINUTE. Per recent discussion.</li>
+<li>In pgsql/src/backend/utils/adt/cash.c, fix cash_in() to behave properly in locales where frac_digits is zero, eg Japan. Report and fix by Itagaki Takahiro. Also fix CASHDEBUG printout format for branches with 64-bit money type, and some minor comment cleanup. Back-patch to 7.4, because it's broken all the way back.</li>
+<li>In pgsql/src/backend/access/heap/heapam.c, keep rs_startblock the same during heap_rescan, so that a rescan of a SeqScan node starts from the same place as the first scan did. This avoids surprising behavior of scrollable and WITH HOLD cursors, as seen in Mark Kirkwood's bug report of yesterday. It's not entirely clear whether a rescan should be forced to drop out of the syncscan mode, but for the moment I left the code behaving the same on that point. Any change there would only be a performance and not a correctness issue, anyway. Back-patch to 8.3, since the unstable behavior was created by the syncscan patch.</li>
+<li>In pgsql/doc/src/sgml/ref/declare.sgml, add a warning about possible strange behavior of volatile functions in cursors. This has always been the case, but given the lack of user complaints about it, I'm not going to bother back-patching this.</li>
+<li>In pgsql/doc/src/sgml/datatype.sgml, add warning that xpath() doesn't work with non-UTF8 data.</li>
+<li>Support Kerberos on platforms where libcom_err depends on OpenSSL, as reportedly is true on OpenBSD. Also support OpenBSD's spelling of -Wl,--as-needed. Per Simon Bertrang.</li>
+<li>Properly mark pg_freespace() function as strict. Also update uninstall script to match reality.</li>
+<li>Fix ill-advised whitespace prettification, per buildfarm.</li>
+<li>In pgsql/src/backend/foreign/foreign.c, somebody seems to have thought they could get away without checking for rsinfo-&gt;expectedDesc == NULL in deflist_to_tuplestore(), but that doesn't look very safe to me. Noted in passing while studying problem report from Greg Davidson.</li>
+<li>Fix things so that you can still do "select foo()" where foo is a SQL function returning setof record. This used to work, more or less accidentally, but I had broken it while extending the code to allow materialize-mode functions to be called in select lists. Add a regression test case so it doesn't get broken again. Per gripe from Greg Davidson.</li>
+<li>Update time zone data files to tzdata release 2009i: DST law changes in Bangladesh, Egypt, Jordan, Pakistan.</li>
+<li>Mark contrib's GiST and GIN opclass support functions as STRICT, for safety. (Note: GiST penalty functions could possibly be non-strict, but none are at present.)</li>
+<li>Remove our inadequate kluge that tried to get AIX's various broken versions of getaddrinfo() to work. Instead, recommend updating the OS to get a working version of getaddrinfo. Per recent discussions.</li>
+<li>Revisit AlterTableCreateToastTable's API once again, hoping to make it what pg_migrator actually needs and not just a partial solution. We have to be able to specify the OID that the new toast table should be created with.</li>
+<li>In pgsql/doc/src/sgml/release-8.4.sgml, update release notes to today.</li>
+<li>In pgsql/doc/src/sgml/installation.sgml, add info about minimum recommended AIX fix levels, per Laurenz Albe.</li>
+<li>Fix several places where a function was declared static and then defined without static. Per testing with a compiler that complains about this.</li>
+<li>In pgsql/doc/src/sgml/gist.sgml, improve documentation about GiST opclass support functions. Dimitri Fontaine.</li>
+<li>In pgsql/src/backend/parser/parse_oper.c, fix get_sort_group_operators() so that it doesn't think arrays can be grouped via hashing. Eventually we ought to make that possible, but it won't happen for 8.4. Per yesterday's report from Robert Haas.</li>
+<li>Change test tables in copy2 regression test to be temporary tables. This prevents autovacuum from reclaiming free space in them and causing the test's output row order to change, which is causing intermittent bogus failure reports in the buildfarm. Backpatch to 8.3. The issue exists further back, but since autovacuum was not on by default before 8.3, it's not a problem for buildfarm testing.</li>
+</ul>
+<p>Peter Eisentraut a commité&nbsp;:</p>
+<ul>
+<li>In pgsql/src/backend/utils/adt/xml.c, fix map_sql_table_to_xmlschema() with dropped attributes. Also backpatched to 8.3.</li>
+<li>Fix xmlattribute escaping XML special characters twice (bug #4822). ITAGAKI Takahiro.</li>
+<li>Correct/improve the datetime_precision field in the information schema. In particular, always show 0 for the date type instead of null, and show 6 (the default) for time, timestamp, and interval without a declared precision. This is now in fuller conformance with the SQL standard. Also clarify the documentation about this. Discovered and analyzed by Konstantin Izmailov and Tom Lane</li>
+<li>In pgsql/src/backend/access/gist/gist.c, improve capitalization and punctuation in recently added GiST message.</li>
+<li>In pgsql/src/bin/psql/describe.c, clarify error message.</li>
+<li>In pgsql/src/pl/plpgsql/src/scan.l, clarify to the translator that plpgsql_yyerror() deals with the translation of "syntax error", not the literal string. This same change was made in the backend a while ago; but it applies to plpgsql as well.</li>
+<li>In ecpg, arrange that the string "syntax error" generated by bison is translated.</li>
+<li>Translation updates.</li>
+<li>In pgsql/src/bin/psql/describe.c, tweak the display of incoming foreign-key constraints in \d, per discussion on hackers. Also, take that string out of the translation roster, since it's now entirely pseudo-SQL.</li>
+</ul>
+<p>Joe Conway a commité&nbsp;:</p>
+<ul>
+<li>In pgsql/contrib/dblink/dblink.c, default client encoding to server encoding for dblink connections. Addresses issue raised by Ruzsinszky Attila and confirmed by others.</li>
+</ul>
+<p>Alvaro Herrera a commité&nbsp;:</p>
+<ul>
+<li>In pgsql/src/backend/postmaster/autovacuum.c, dynamically set a lower bound on autovacuum nap time so that we don't rebuild the database list too often. Per bug report from Lukasz Jagiello and ensuing discussion on pgsql-performance.</li>
+<li>In pgsql/src/backend/postmaster/autovacuum.c, fix typo, per Tom Lane.</li>
+</ul>
+<p>Bruce Momjian a commité&nbsp;:</p>
+<ul>
+<li>In pgsql/src/tools/pgindent/README, document new location for typedef list.</li>
+<li>In pgsql/src/tools/pgindent/README, update pgindent instructions.</li>
+<li>In pgsql/src/tools/find_typedef, fix BSD find_typedef logic.</li>
+<li>In pgsql/src/tools/find_typedef, fix Linux typedef code.</li>
+<li>In pgsql/src/tools/find_typedef, add FreeBSD support for find_typedef, per request from Andrew Dunstan.</li>
+<li>8.4 pgindent run, with new combined Linux/FreeBSD/MinGW typedef list provided by Andrew Dunstan.</li>
+<li>In pgsql/src/tools/pgindent/pgindent, document struct/union problem with pgindent.</li>
+<li>In pgsql/src/tools/find_typedef, mention BSD/OS find_typedef behavior.</li>
+<li>In pgsql/src/tools/find_typedef, tighten typedef check for Linux.</li>
+</ul>
+<p>Marc Fournier a commité&nbsp;:</p>
+<ul>
+<li>Time to tag rc1 ...</li>
+</ul>
+<p><strong>Correctifs rejetés (à ce jour)</strong></p>
+<ul>
+<li>Pas de déception cette semaine&nbsp;:-)</li>
+</ul>
+<p><strong>Correctifs en attente</strong></p>
+<ul>
+<li>Kedar Potdar sent in a patch targeted for 8.5 to allow automated range- and hash-based partitioning.</li>
+<li>KaiGai Kohei sent in another revision of his SE-PostgreSQL patches.</li>
+<li>Jeremy Kerr sent in three versions of a patch to refactor the sigpipe-masking code in libpq from macros to private structs.</li>
+<li>Kevin Grittner sent in a patch to make TOAST happen with less enthusiasm.</li>
+<li>Robert Haas sent in another revision of his patch refactoring EXPLAIN for more generic output.</li>
+<li>Robert Haas sent in another revision of his "generic options for explain" patch.</li>
+<li>Robert Haas sent in a patch to allow EXPLAIN to output in XML and JSON. It depends on the two patches above.</li>
+<li>Robert Haas sent in a patch to have do_tup_output() take Datums. This is in aid of the EXPLAIN outputs above.</li>
+<li>David Fetter and Petr Jelinek sent in patches to allow RETURNING in CTEs.</li>
+</ul></div>
+
+      </div>
+
+  
+
+    
+  
+    
+    
+    </div>
+</div> <!-- End #main -->
+
+</div> <!-- End #wrapper -->
+
+<div id="pgFooter">
+  <p>Propulsé par <a href="http://dotclear.org/">Dotclear</a></p>
+</div>
+
+</div> <!-- End #page -->
+</body>
+
+<!-- Mirrored from blog2.postgresql.fr/index.php?post/2009/06/18/Nouvelles-hebdomadaires-de-PostgreSQL-14-juin-2009 by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 May 2020 21:40:20 GMT -->
+</html>

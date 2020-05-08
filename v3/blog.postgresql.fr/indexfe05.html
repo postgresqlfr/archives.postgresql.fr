@@ -1,0 +1,176 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr">
+
+<!-- Mirrored from blog2.postgresql.fr/index.php?post/drupal/396 by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 May 2020 21:40:18 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="MSSmartTagsPreventParsing" content="TRUE" />
+  <meta name="ROBOTS" content="INDEX, FOLLOW" />
+  
+  <title>Utiliser un index pour les recherches sur des motifs tels que « colonne LIKE '%chaîne' » - PostgreSQLfr.org</title>
+  <meta name="description" lang="fr" content="Depuis la version 8i, Oracle implémente les index inversés. Les index inversés permettent d’accélérer les recherches sur les motifs tels que « colonne LIKE '%chaîne' ». Dans ce" />
+  <meta name="copyright" content="" />
+  <meta name="author" content="gleu" />
+  <meta name="date" scheme="ISO8601" content="2007-07-15T13:44:00+00:00" />
+  
+  <link rel="schema.dc" href="http://purl.org/dc/elements/1.1/" />
+  <meta name="dc.title" content="Utiliser un index pour les recherches sur des motifs tels que « colonne LIKE '%chaîne' »" />
+  <meta name="dc.description" lang="fr" content="Depuis la version 8i, Oracle implémente les index inversés. Les index inversés permettent d’accélérer les recherches sur les motifs tels que « colonne LIKE '%chaîne' ». Dans ce" />
+  <meta name="dc.creator" content="gleu" />
+  <meta name="dc.language" content="fr" />
+  <meta name="dc.publisher" content="" />
+  <meta name="dc.rights" content="" />
+  <meta name="dc.date" scheme="ISO8601" content="2007-07-15T13:44:00+00:00" />
+  <meta name="dc.type" content="text" />
+  <meta name="dc.format" content="text/html" />
+  
+  <link rel="top" href="indexd41d.html?" title="Accueil" />
+  <link rel="contents" href="index888d.html?archive" title="Archives" />
+  
+  <link rel="next" href="index4736.html?post/drupal/120"
+  title="Nouvelles neuves de PG" />
+  
+  <link rel="previous" href="index658a-2.html?post/drupal/209"
+  title="PostgreSQLFr aux RMLL" />
+  
+  <link rel="alternate" type="application/atom+xml" title="Atom 1.0" href="index4ca3.php?feed/atom" />
+  
+  <style type="text/css" media="screen">
+@import url(themes/postgresql/style.css);
+</style>
+<style type="text/css" media="print">
+@import url(themes/default/print.css);
+</style>
+
+<script type="text/javascript" src="themes/default/js/jquery.js"></script>
+<script type="text/javascript" src="themes/default/js/jquery.cookie.js"></script>
+
+  
+  <script type="text/javascript" src="themes/default/js/post.js"></script>
+  <script type="text/javascript">
+  //<![CDATA[
+  var post_remember_str = 'Se souvenir de moi sur ce blog';
+  //]]>
+  </script>
+</head>
+
+<body class="dc-post">
+<div id="page">
+
+
+<div id="top">
+  <div id="pgHeader">
+    <span id="pgHeaderLogoLeft">
+      <a href="index.html" title="PostgreSQL"><img src="https://blog.postgresql.fr/themes/postgresql/img/hdr_left.png" width="230" height="80" alt="PostgreSQL" /></a>
+    </span>
+    <span id="pgHeaderLogoRight">
+      <a href="index.html" title="La base de donnees la plus sophistiquee au monde."><img src="https://blog.postgresql.fr/themes/postgresql/img/hdr_right.png" width="210" height="80" alt="La base de donnees la plus sophistiquee au monde." /></a>
+    </span>
+  </div>
+
+  </div>
+
+<div class="pgTopNav">
+  <div class="pgTopNavLeft"> 
+    <img src="https://blog.postgresql.fr/themes/postgresql/img/nav_lft.png" width="7" height="23" alt="" />
+  </div>
+  <div class="pgTopNavRight">
+    <img src="https://blog.postgresql.fr/themes/postgresql/img/nav_rgt.png" width="7" height="23" alt="" />
+  </div>
+  <ul class="pgTopNavList">
+    <li><a href="https://www.postgresql.fr/" title="Accueil">Accueil</a></li>
+    <li><a href="https://blog.postgresql.fr/" title="Lire les actualités">Actualités</a></li>
+    <li><a href="https://docs.postgresql.fr/" title="Lire la documentation officielle">Documentation</a></li>
+    <li><a href="https://forums.postgresql.fr/" title="Pour poser des questions">Forums</a></li>
+    <li><a href="https://www.postgresql.fr/asso/" title="La vie de l'association">Association</a></li>
+    <li><a href="https://www.postgresql.fr/devel:accueil" title="Informations pour les développeurs/traducteurs">Développeurs</a></li>
+    <li><a href="https://planete.postgresql.fr/" title="La planète francophone sur PostgreSQL">Planète</a></li>
+    <li><a href="https://www.postgresql.fr/support/" title="Support sur PostgreSQL">Support</a></li>
+  </ul>
+</div>
+
+<div id="wrapper">
+
+<div id="pgContent">
+
+  <div id="pgSideWrap">
+  <div id="pgSideNav">
+    <div id="blognav">
+      <div id="search"><h2><label for="q">Rechercher</label></h2><form action="http://blog2.postgresql.fr/index.php?" method="get"><fieldset><p><input type="text" size="10" maxlength="255" id="q" name="q" value="" /> <input class="submit" type="submit" value="ok" /></p></fieldset></form></div><div class="categories"><h2>Catégories</h2><ul><li class="category-current"><a href="index199b.html?category/Articles">Articles</a></li><li><a href="indexb4c6.html?category/Dans-les-bacs">Dans les bacs</a></li><li><a href="index025a.html?category/Evenements">Événements</a></li><li><a href="index8c6d.html?category/PostgreSQL-Weekly-News">PostgreSQL Weekly News</a></li><li><a href="index1835.html?category/Securite">Sécurité</a></li><li><a href="index2251.html?category/Vie-de-l-association">Vie de l'association</a></li><li><a href="index91de.html?category/Vie-du-site">Vie du site</a></li></ul></div><div class="text"><h2>Licence</h2>Tous les articles de ce blog sont disponibles sous la <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/">license Creative Commons BY-NC-SA 3.0</a>.</div>    </div> <!-- End #blognav -->
+  
+    <div id="blogextra">
+      <div class="syndicate"><h2>S'abonner</h2><ul><li><a type="application/atom+xml" href="index4ca3.php?feed/atom" title="Fil Atom des billets de ce blog" class="feed">Fil des billets</a></li></ul></div>    </div> <!-- End #blogextra -->
+  </div>
+  </div>
+
+  <div id="pgContentWrap">
+  <div id="pgDownloadsWrap">
+  <div id="content">
+
+  <p id="navlinks">
+  <a href="index658a-2.html?post/drupal/209"
+  title="PostgreSQLFr aux RMLL" class="prev">&#171; PostgreSQLFr aux RMLL</a>
+   <span>-</span> <a href="index4736.html?post/drupal/120"
+  title="Nouvelles neuves de PG" class="next">Nouvelles neuves de PG &#187;</a>
+  </p>
+  
+  <div class="post">
+    <h2 id="p396" class="post-title">Utiliser un index pour les recherches sur des motifs tels que « colonne LIKE '%chaîne' »</h2>
+    
+    <p class="post-info">Par gleu    le dimanche 15 juillet 2007, 13:44        - <a href="index199b.html?category/Articles">Articles</a>
+        - <a href="indexfe05.html?post/drupal/396">Lien permanent</a>
+    </p>
+    
+    
+    
+          <div class="post-excerpt"><p></p></div>
+        
+    <div class="post-content"><p>Depuis la version 8i, Oracle implémente les index inversés. Les index inversés permettent d’accélérer les recherches sur les motifs tels que « colonne LIKE '%chaîne' ». Dans ce type de cas de figure, PostgreSQL effectue un parcours séquentiel (ou «&nbsp;sequential scan&nbsp;») de la table interrogée. Toutefois, il est possible d’émuler un index inverse au moyen d’une fonction de renversement de chaîne couplée à un index sur fonction. Voici une proposition d’implémentation équivalente pour PostgreSQL.</p>
+<!--break-->
+<p>Tout d’abord, il est nécessaire d’activer le support du <a href="http://docs.postgresqlfr.org/8.2/plpgsql.html">langage procédural PL/pgSQL</a> au sein de la base de données cible à l’aide de la commande Unix «&nbsp;<code><a href="http://docs.postgresqlfr.org/8.2/app-createlang.html">createlang</a> plpgsql BASECIBLE</code>&nbsp;».</p>
+<p>La fonction appelée «&nbsp;reverse&nbsp;» prendra comme seul et unique argument une chaîne de type varchar et retournera une chaîne de type varchar.</p>
+<pre>CREATE OR REPLACE FUNCTION reverse(varchar) RETURNS varchar AS $PROC$<br />&nbsp;<br />DECLARE<br />&nbsp;&nbsp;str_in ALIAS FOR $1;<br />&nbsp;&nbsp;str_out varchar;<br />&nbsp;&nbsp;str_temp varchar;<br />&nbsp;&nbsp;position integer;<br />BEGIN<br />&nbsp;&nbsp;-- Initialisation de str_out, sinon sa valeur reste à NULL<br />&nbsp;&nbsp;str_out := '';<br />&nbsp;&nbsp;-- Suppression des espaces en début et fin de chaîne<br />&nbsp;&nbsp;str_temp := trim(both ' ' from str_in);<br />&nbsp;&nbsp;-- position initialisée a la longueur de la chaîne<br />&nbsp;&nbsp;-- la chaîne est traitée a l’envers<br />&nbsp;&nbsp;position := char_length(str_temp);<br />&nbsp;&nbsp;-- Boucle: Inverse l'ordre des caractères d'une chaîne de caractères<br />&nbsp;&nbsp;WHILE position &gt; 0 LOOP<br />&nbsp;&nbsp;&nbsp;&nbsp;-- la chaîne donnée en argument est parcourue<br />&nbsp;&nbsp;&nbsp;&nbsp;-- à l’envers,<br />&nbsp;&nbsp;&nbsp;&nbsp;-- et les caractères sont extraits individuellement au<br />&nbsp;&nbsp;&nbsp;&nbsp;-- moyen de la fonction interne substring<br />&nbsp;&nbsp;&nbsp;&nbsp;str_out := str_out || substring(str_temp, position, 1);<br />&nbsp;&nbsp;&nbsp;&nbsp;position := position - 1;<br />&nbsp;&nbsp;END LOOP;<br />&nbsp;&nbsp;RETURN str_out;<br />END;<br />$PROC$ <br />LANGUAGE plpgsql IMMUTABLE;</pre>
+<p>La fonction reverse est structurée en trois partie&nbsp;:
+</p>
+<ul>
+<li>La déclaration elle-même via l’ordre <a href="http://docs.postgresqlfr.org/8.2/sql-createfunction.html">CREATE OR REPLACE FUNCTION</a>&nbsp;;</li>
+<li>La déclaration des variables utilisées, sous le bloc DECLARE&nbsp;;</li>
+<li>Le corps de la fonction, entre BEGIN et END.</li>
+</ul>
+<p>On notera que la fonction reverse est catégorisée en tant que «&nbsp;IMMUTABLE&nbsp;», ceci indiquant au SGBD que la fonction ne modifie pas les données et garantit que la fonction retournera toujours le même résultat quand elle est appelée avec les mêmes arguments, condition indispensable à la création d’un index sur fonction. Voir la documentation PostgreSQL « <a href="http://docs.postgresqlfr.org/8.2/xfunc-volatility.html">Catégories de volatilité des fonctions</a> » dans la partie « Étendre le SQL ».</p>
+<p>Un essai de la procédure permet de s’assurer de son bon fonctionnement&nbsp;:</p>
+<pre>DPAR=# SELECT reverse('Chaîne à renverser');<br />      reverse<br />--------------------<br /> resrevner à enîahC<br />(1 ligne)</pre>
+<p>Pour optimiser les recherches par suffixes, il est nécessaire de créer un index sur fonction, sans oublier une collecte des statistiques pour l’optimiseur&nbsp;:</p>
+<p class="code">CREATE INDEX reverse_index_prenom
+ON personnes (REVERSE(prenom) varchar_pattern_ops);
+ANALYZE TABLE personnes;</p>
+<p>Ensuite, au lieu d’écrire un prédicat du type « WHERE prenom LIKE ’%mas’», on écrira&nbsp;:</p>
+<p class="code">SELECT * FROM personnes WHERE reverse(prenom) LIKE reverse(’%mas’);</p>
+<p>PostgreSQL utilisera alors l’index créé précédemment et répondra instantanément. Sur une base de test contenant 4 millions d’enregistrement, les temps de réponse sont passés de 10s à 33ms pour la requête.</p>
+<p>La fonction « reverse » pourrait être améliorée, mais l’implémentation décrite a l’avantage de montrer une réalisation simple et donne un exemple d’écriture de fonction pour PostgreSQL. On notera que la fonction renvoie une chaîne vide lorsque la valeur NULL est donnée en entrée. Un autre axe d’amélioration de la vitesse d’exécution serait la réécriture de cette fonction sous forme de fonction native en C couplée au choix d’un algorithme de renversement efficace.</p>
+<p><em>Article écrit par Thomas Reiss, publié sur postgresqlfr.org avec sa permission. Merci beaucoup.</em></p></div>
+
+      </div>
+
+  
+
+    
+  
+    
+    
+    </div>
+</div> <!-- End #main -->
+
+</div> <!-- End #wrapper -->
+
+<div id="pgFooter">
+  <p>Propulsé par <a href="http://dotclear.org/">Dotclear</a></p>
+</div>
+
+</div> <!-- End #page -->
+</body>
+
+<!-- Mirrored from blog2.postgresql.fr/index.php?post/drupal/396 by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 May 2020 21:40:18 GMT -->
+</html>

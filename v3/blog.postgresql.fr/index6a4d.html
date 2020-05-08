@@ -1,0 +1,264 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr">
+
+<!-- Mirrored from blog2.postgresql.fr/index.php?post/2014/02/20/Sortie-des-versions-correctives-9.3.3%2C-9.2.7%2C-9.1.12%2C-9.0.16-et-8.4.20 by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 May 2020 21:40:19 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="MSSmartTagsPreventParsing" content="TRUE" />
+  <meta name="ROBOTS" content="INDEX, FOLLOW" />
+  
+  <title>Sortie des versions correctives 9.3.3, 9.2.7, 9.1.12, 9.0.16 et 8.4.20 - PostgreSQLfr.org</title>
+  <meta name="description" lang="fr" content="Le PostgreSQL Global Development Group publie aujourd'hui une mise-à-jour importante de toutes les versions supportées du SGBD PostgreSQL. Les versions publiées sont : 9.3.3," />
+  <meta name="copyright" content="" />
+  <meta name="author" content="SAS" />
+  <meta name="date" scheme="ISO8601" content="2014-02-20T15:01:00+01:00" />
+  
+  <link rel="schema.dc" href="http://purl.org/dc/elements/1.1/" />
+  <meta name="dc.title" content="Sortie des versions correctives 9.3.3, 9.2.7, 9.1.12, 9.0.16 et 8.4.20" />
+  <meta name="dc.description" lang="fr" content="Le PostgreSQL Global Development Group publie aujourd'hui une mise-à-jour importante de toutes les versions supportées du SGBD PostgreSQL. Les versions publiées sont : 9.3.3," />
+  <meta name="dc.creator" content="SAS" />
+  <meta name="dc.language" content="fr" />
+  <meta name="dc.publisher" content="" />
+  <meta name="dc.rights" content="" />
+  <meta name="dc.date" scheme="ISO8601" content="2014-02-20T15:01:00+01:00" />
+  <meta name="dc.type" content="text" />
+  <meta name="dc.format" content="text/html" />
+  
+  <link rel="top" href="indexd41d.html?" title="Accueil" />
+  <link rel="contents" href="index888d.html?archive" title="Archives" />
+  
+  <link rel="next" href="indexbdd6.html?post/2014/02/23/Nouvelles-hebdomadaires-de-PostgreSQL-23-f%C3%A9vrier-2014"
+  title="Nouvelles hebdomadaires de PostgreSQL - 23 février 2014" />
+  
+  <link rel="previous" href="indexc6a0.html?post/2014/02/16/Nouvelles-hebdomadaires-de-PostgreSQL-16-f%C3%A9vrier-2014"
+  title="Nouvelles hebdomadaires de PostgreSQL - 16 février 2014" />
+  
+  <link rel="alternate" type="application/atom+xml" title="Atom 1.0" href="index4ca3.php?feed/atom" />
+  
+  <style type="text/css" media="screen">
+@import url(themes/postgresql/style.css);
+</style>
+<style type="text/css" media="print">
+@import url(themes/default/print.css);
+</style>
+
+<script type="text/javascript" src="themes/default/js/jquery.js"></script>
+<script type="text/javascript" src="themes/default/js/jquery.cookie.js"></script>
+
+  
+  <script type="text/javascript" src="themes/default/js/post.js"></script>
+  <script type="text/javascript">
+  //<![CDATA[
+  var post_remember_str = 'Se souvenir de moi sur ce blog';
+  //]]>
+  </script>
+</head>
+
+<body class="dc-post">
+<div id="page">
+
+
+<div id="top">
+  <div id="pgHeader">
+    <span id="pgHeaderLogoLeft">
+      <a href="index.html" title="PostgreSQL"><img src="https://blog.postgresql.fr/themes/postgresql/img/hdr_left.png" width="230" height="80" alt="PostgreSQL" /></a>
+    </span>
+    <span id="pgHeaderLogoRight">
+      <a href="index.html" title="La base de donnees la plus sophistiquee au monde."><img src="https://blog.postgresql.fr/themes/postgresql/img/hdr_right.png" width="210" height="80" alt="La base de donnees la plus sophistiquee au monde." /></a>
+    </span>
+  </div>
+
+  </div>
+
+<div class="pgTopNav">
+  <div class="pgTopNavLeft"> 
+    <img src="https://blog.postgresql.fr/themes/postgresql/img/nav_lft.png" width="7" height="23" alt="" />
+  </div>
+  <div class="pgTopNavRight">
+    <img src="https://blog.postgresql.fr/themes/postgresql/img/nav_rgt.png" width="7" height="23" alt="" />
+  </div>
+  <ul class="pgTopNavList">
+    <li><a href="https://www.postgresql.fr/" title="Accueil">Accueil</a></li>
+    <li><a href="https://blog.postgresql.fr/" title="Lire les actualités">Actualités</a></li>
+    <li><a href="https://docs.postgresql.fr/" title="Lire la documentation officielle">Documentation</a></li>
+    <li><a href="https://forums.postgresql.fr/" title="Pour poser des questions">Forums</a></li>
+    <li><a href="https://www.postgresql.fr/asso/" title="La vie de l'association">Association</a></li>
+    <li><a href="https://www.postgresql.fr/devel:accueil" title="Informations pour les développeurs/traducteurs">Développeurs</a></li>
+    <li><a href="https://planete.postgresql.fr/" title="La planète francophone sur PostgreSQL">Planète</a></li>
+    <li><a href="https://www.postgresql.fr/support/" title="Support sur PostgreSQL">Support</a></li>
+  </ul>
+</div>
+
+<div id="wrapper">
+
+<div id="pgContent">
+
+  <div id="pgSideWrap">
+  <div id="pgSideNav">
+    <div id="blognav">
+      <div id="search"><h2><label for="q">Rechercher</label></h2><form action="http://blog2.postgresql.fr/index.php?" method="get"><fieldset><p><input type="text" size="10" maxlength="255" id="q" name="q" value="" /> <input class="submit" type="submit" value="ok" /></p></fieldset></form></div><div class="categories"><h2>Catégories</h2><ul><li><a href="index199b.html?category/Articles">Articles</a></li><li class="category-current"><a href="indexb4c6.html?category/Dans-les-bacs">Dans les bacs</a></li><li><a href="index025a.html?category/Evenements">Événements</a></li><li><a href="index8c6d.html?category/PostgreSQL-Weekly-News">PostgreSQL Weekly News</a></li><li><a href="index1835.html?category/Securite">Sécurité</a></li><li><a href="index2251.html?category/Vie-de-l-association">Vie de l'association</a></li><li><a href="index91de.html?category/Vie-du-site">Vie du site</a></li></ul></div><div class="text"><h2>Licence</h2>Tous les articles de ce blog sont disponibles sous la <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/">license Creative Commons BY-NC-SA 3.0</a>.</div>    </div> <!-- End #blognav -->
+  
+    <div id="blogextra">
+      <div class="syndicate"><h2>S'abonner</h2><ul><li><a type="application/atom+xml" href="index4ca3.php?feed/atom" title="Fil Atom des billets de ce blog" class="feed">Fil des billets</a></li></ul></div>    </div> <!-- End #blogextra -->
+  </div>
+  </div>
+
+  <div id="pgContentWrap">
+  <div id="pgDownloadsWrap">
+  <div id="content">
+
+  <p id="navlinks">
+  <a href="indexc6a0.html?post/2014/02/16/Nouvelles-hebdomadaires-de-PostgreSQL-16-f%C3%A9vrier-2014"
+  title="Nouvelles hebdomadaires de PostgreSQL - 16 février 2014" class="prev">&#171; Nouvelles hebdomadaires de PostgreSQL - 16 février</a>
+   <span>-</span> <a href="indexbdd6.html?post/2014/02/23/Nouvelles-hebdomadaires-de-PostgreSQL-23-f%C3%A9vrier-2014"
+  title="Nouvelles hebdomadaires de PostgreSQL - 23 février 2014" class="next">Nouvelles hebdomadaires de PostgreSQL - 23 février &#187;</a>
+  </p>
+  
+  <div class="post">
+    <h2 id="p771" class="post-title">Sortie des versions correctives 9.3.3, 9.2.7, 9.1.12, 9.0.16 et 8.4.20</h2>
+    
+    <p class="post-info">Par SAS    le jeudi 20 février 2014, 15:01        - <a href="indexb4c6.html?category/Dans-les-bacs">Dans les bacs</a>
+        - <a href="index6a4d.html?post/2014/02/20/Sortie-des-versions-correctives-9.3.3%2C-9.2.7%2C-9.1.12%2C-9.0.16-et-8.4.20">Lien permanent</a>
+    </p>
+    
+    
+    
+        
+    <div class="post-content"><p>Le PostgreSQL Global Development Group publie aujourd'hui une mise-à-jour importante de toutes les versions supportées du SGBD PostgreSQL. Les versions publiées sont&nbsp;: 9.3.3, 9.2.7, 9.1.12, 9.0.16 et 8.4.20.</p>
+
+
+<p>Cette mise-à-jour contient les correctifs de nombreux problèmes de sécurité et d'intégrité des données.</p>
+
+
+<p>Cette mise-à-jour doit être appliquée avec la plus grande célérité, spécialement si la réplication binaire est utilisée, ou dans le cas d'applications sécurisées.</p>
+
+
+
+<h2>Correctifs de sécurité</h2>
+
+<hr />
+
+<p>Cette mise-à-jour corrige l'annonce de sécurité <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-0060" hreflang="en">CVE-2014-0060</a>, qui relève que PostgreSQL n'applique pas correctement la permission WITH ADMIN OPTION de la gestion des rôles.<br />
+Avant ce correctif, tout membre d'un ROLE pouvait accorder à d'autres la possibilité d'accéder à ce ROLE, même s'il n'avait pas le pouvoir WITH ADMIN OPTION.
+Il corrige aussi plusieurs problèmes d'escalade de privilèges, dont :<br />
+<a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-0061" hreflang="en">CVE-2014-0061</a>, <br />
+<a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-0062" hreflang="en">CVE-2014-0062</a>, <br />
+<a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-0063" hreflang="en">CVE-2014-0063</a>, <br />
+<a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-0064" hreflang="en">CVE-2014-0064</a>, <br />
+<a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-0065" hreflang="en">CVE-2014-0065</a> et <br />
+<a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-0066" hreflang="en">CVE-2014-0066</a>.</p>
+
+
+<p>Pour plus d'informations concernant ces problèmes, se référer aux <a href="http://www.postgresql.org/support/security/" hreflang="en">pages de sécurité</a> et au détail sur le <a href="http://wiki.postgresql.org/wiki/20140220securityrelease" hreflang="en">WIKI</a>.</p>
+
+
+<p>Avec cette version, nous alertons également les utilisateurs sur une faille de sécurité connue qui permet aux utilisateurs d'une même machine d'accéder à un compte système lors d'un "make check" en cas de compilation depuis les sources&nbsp;:
+<a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-0067" hreflang="en">CVE-2014-0067</a>.</p>
+
+
+<p>Cette faille ne peut être corrigée sans problème pour notre infrastructure de test, aussi nous publierons un correctif distinct, et publique. Cette vulnérabilité étant temporelle, il est fortement recommandé de ne pas lancer de "make check" sur des systèmes où se trouvent des comptes utilisateurs non approuvés.</p>
+
+
+
+<h2>Corectifs de réplication et d'intégrité des données</h2>
+
+<hr />
+
+
+<p>Cette mise-à-jour corrige également des problèmes affectant la réplication binaire et le verrouillage de niveau ligne, et peut conduire à des corruptions de données récupérables.</p>
+
+
+<p>Elle contient aussi des correctifs au verrouillage des pages d'index qui peut entraîner la corruption des index sur le réplica.</p>
+
+
+<p>Un correctif d'un bogue du gel de transaction est fourni pour la version 9.3. Ce bogue pouvait faire réapparaître d'anciennes versions de lignes au sein de bases qui ont subit de nombreuses boucles dans les ID de transactions.</p>
+
+
+<p>3 bogues pouvant empêcher le démarrage de nouveaux serveurs en StandBy.</p>
+
+
+<p>Enfin, cette version corrige un bogue de corruption de clés étrangères, bien que les clés doivent être réparées manuellement après l'application du correctif.</p>
+
+
+<p>En version 9.3, ces correctifs résultent en l'ajout de nouveaux paramètres de configuration du serveur pour gérer le gel des multixact.</p>
+
+
+<p>À noter que les serveurs de secours doivent être mis à jour en 9.3.3 avant que le maître de réplication ne soit mis à jour, au risque de casser la réplication.</p>
+
+
+
+<h2>Autres améliorations</h2>
+
+<hr />
+
+
+<p>En plus des informations précédentes, les problèmes suivants ont été corrigés&nbsp;:</p>
+
+<ul>
+<li>Correctif des traces binaires des modifications de la carte de visibilité&nbsp;;</li>
+<li>S'assurer que les index GIN tracent toutes les insertions&nbsp;;</li>
+<li>S'assurer que pause_at_recovery_target s'interrompe au bon moment&nbsp;;</li>
+<li>S'assurer que walreceiver envoie les messages de retour hot-standby au bon moment&nbsp;;</li>
+<li>Empêcher le code principal de perdre la main du fait de timeout&nbsp;;</li>
+<li>Eliminer de nombreuses conditions de concurrence critique&nbsp;;</li>
+<li>Corriger quelques HINTs dans les messages d'erreur&nbsp;;</li>
+<li>Prévenir le blocage du serveur en cas de perte de la connexion SSL&nbsp;;</li>
+<li>Correction de deux erreurs de gestion de l'Unicode&nbsp;;</li>
+<li>Prévenir le crash sur certaines syntaxes de sous-requêtes&nbsp;;</li>
+<li>Prévenir le crash lors de sélection sur des tables sans colonnes&nbsp;;</li>
+<li>Correction de deux bogues sur LATERAL&nbsp;;</li>
+<li>Correction de problèmes avec UNION ALL, le partitionnement et les updates&nbsp;;</li>
+<li>S'assurer que ANALYZE comprenne les domaines sur intervalles&nbsp;;</li>
+<li>Eliminer les vérifications de permissions lors de l'utilisation du tablespace par défaut&nbsp;;</li>
+<li>Correction de fuites mémoire dans les fonctions JSON&nbsp;;</li>
+<li>Autoriser les extensions sur déclencheurs par événement (event triggers)&nbsp;;</li>
+<li>Distinguer correctement les nombres dans les sorties JSON&nbsp;;</li>
+<li>Corriger les permissions pour pg_start_backup() et pg_stop_backup()&nbsp;;</li>
+<li>Accepter SHIFT_JIS comme nom de locale&nbsp;;</li>
+<li>Corriger le développement des .* pour les variables de fonctions SQL&nbsp;;</li>
+<li>Prévenir les boucles sans fin dans quelques erreurs de COPY&nbsp;;</li>
+<li>Plusieurs correctifs de problème client sous Windows&nbsp;;</li>
+<li>Rendre possible la construction de PostgreSQL avec Visual Studio 2013&nbsp;;</li>
+<li>Mise-à-jour des fichiers de time zone en fonction des modifications récentes.</li>
+</ul>
+
+<p>Des correctifs des modules suivants sont également publiés&nbsp;: ECPG, dblink, ISN, pgbench, pg_stat_statements et postgres_fdw. Les modifications et détails sont accessibles dans les notes de version de la documentation officielle.</p>
+
+
+<p>Comme pour toute mise-à-jour mineure, il n'est pas nécessaire d'exporter/importer les bases ou d'utiliser pg_upgrade. Il suffit d'arrêter PostgreSQL, d'installer les nouveaux binaires, et de redémarrer.
+Si des versions mineures ont été oubliées précédemment, il peut être nécessaire de procéder à des étapes supplémentaires.
+Tous les détails sont accessibles dans les notes de version de la documentation officielle.</p>
+
+
+
+<h2>Liens:</h2>
+
+<pre> * <a href="http://postgresql.org/download" hreflang="en">Téléchargement</a>
+ * <a href="http://www.postgresql.org/docs/current/static/release.html" hreflang="en">Notes de version</a>
+ * <a href="http://www.postgresql.org/support/security/" hreflang="en">Security Page</a>
+ * <a href="http://wiki.postgresql.org/wiki/20140220securityrelease" hreflang="en">Security Issue Detail Page</a></pre></div>
+
+      </div>
+
+  
+
+    
+  
+    
+    
+    </div>
+</div> <!-- End #main -->
+
+</div> <!-- End #wrapper -->
+
+<div id="pgFooter">
+  <p>Propulsé par <a href="http://dotclear.org/">Dotclear</a></p>
+</div>
+
+</div> <!-- End #page -->
+</body>
+
+<!-- Mirrored from blog2.postgresql.fr/index.php?post/2014/02/20/Sortie-des-versions-correctives-9.3.3%2C-9.2.7%2C-9.1.12%2C-9.0.16-et-8.4.20 by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 May 2020 21:40:19 GMT -->
+</html>

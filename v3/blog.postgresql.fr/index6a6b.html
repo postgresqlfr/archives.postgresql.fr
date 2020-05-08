@@ -1,0 +1,222 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr">
+
+<!-- Mirrored from blog2.postgresql.fr/index.php?post/2010/08/02/PostgreSQL-9.0-Beta-4-disponible by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 May 2020 21:40:20 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="MSSmartTagsPreventParsing" content="TRUE" />
+  <meta name="ROBOTS" content="INDEX, FOLLOW" />
+  
+  <title>PostgreSQL 9.0 Beta 4 disponible - PostgreSQLfr.org</title>
+  <meta name="description" lang="fr" content="Billet original de Selena Deckelmann, corrigé par Josh Berkus. Traductions de Stéphane Schildknecht. La quatrième version bêta de PostgreSQL 9.0 est désormais disponible. Elle" />
+  <meta name="copyright" content="" />
+  <meta name="author" content="SAS" />
+  <meta name="date" scheme="ISO8601" content="2010-08-02T10:06:00+02:00" />
+  
+  <link rel="schema.dc" href="http://purl.org/dc/elements/1.1/" />
+  <meta name="dc.title" content="PostgreSQL 9.0 Beta 4 disponible" />
+  <meta name="dc.description" lang="fr" content="Billet original de Selena Deckelmann, corrigé par Josh Berkus. Traductions de Stéphane Schildknecht. La quatrième version bêta de PostgreSQL 9.0 est désormais disponible. Elle" />
+  <meta name="dc.creator" content="SAS" />
+  <meta name="dc.language" content="fr" />
+  <meta name="dc.publisher" content="" />
+  <meta name="dc.rights" content="" />
+  <meta name="dc.date" scheme="ISO8601" content="2010-08-02T10:06:00+02:00" />
+  <meta name="dc.type" content="text" />
+  <meta name="dc.format" content="text/html" />
+  
+  <link rel="top" href="indexd41d.html?" title="Accueil" />
+  <link rel="contents" href="index888d.html?archive" title="Archives" />
+  
+  <link rel="next" href="index6c2b.html?post/2010/08/04/Nouvelles-hebdomadaires-de-PostgreSQL-1er-ao%C3%BBt-2010"
+  title="Nouvelles hebdomadaires de PostgreSQL - 1er août 2010" />
+  
+  <link rel="previous" href="index4de4.html?post/2010/07/29/Nouvelles-hebdomadaires-de-PostgreSQL-25-juillet-2010"
+  title="Nouvelles hebdomadaires de PostgreSQL - 25 juillet 2010" />
+  
+  <link rel="alternate" type="application/atom+xml" title="Atom 1.0" href="index4ca3.php?feed/atom" />
+  
+  <style type="text/css" media="screen">
+@import url(themes/postgresql/style.css);
+</style>
+<style type="text/css" media="print">
+@import url(themes/default/print.css);
+</style>
+
+<script type="text/javascript" src="themes/default/js/jquery.js"></script>
+<script type="text/javascript" src="themes/default/js/jquery.cookie.js"></script>
+
+  
+  <script type="text/javascript" src="themes/default/js/post.js"></script>
+  <script type="text/javascript">
+  //<![CDATA[
+  var post_remember_str = 'Se souvenir de moi sur ce blog';
+  //]]>
+  </script>
+</head>
+
+<body class="dc-post">
+<div id="page">
+
+
+<div id="top">
+  <div id="pgHeader">
+    <span id="pgHeaderLogoLeft">
+      <a href="index.html" title="PostgreSQL"><img src="https://blog.postgresql.fr/themes/postgresql/img/hdr_left.png" width="230" height="80" alt="PostgreSQL" /></a>
+    </span>
+    <span id="pgHeaderLogoRight">
+      <a href="index.html" title="La base de donnees la plus sophistiquee au monde."><img src="https://blog.postgresql.fr/themes/postgresql/img/hdr_right.png" width="210" height="80" alt="La base de donnees la plus sophistiquee au monde." /></a>
+    </span>
+  </div>
+
+  </div>
+
+<div class="pgTopNav">
+  <div class="pgTopNavLeft"> 
+    <img src="https://blog.postgresql.fr/themes/postgresql/img/nav_lft.png" width="7" height="23" alt="" />
+  </div>
+  <div class="pgTopNavRight">
+    <img src="https://blog.postgresql.fr/themes/postgresql/img/nav_rgt.png" width="7" height="23" alt="" />
+  </div>
+  <ul class="pgTopNavList">
+    <li><a href="https://www.postgresql.fr/" title="Accueil">Accueil</a></li>
+    <li><a href="https://blog.postgresql.fr/" title="Lire les actualités">Actualités</a></li>
+    <li><a href="https://docs.postgresql.fr/" title="Lire la documentation officielle">Documentation</a></li>
+    <li><a href="https://forums.postgresql.fr/" title="Pour poser des questions">Forums</a></li>
+    <li><a href="https://www.postgresql.fr/asso/" title="La vie de l'association">Association</a></li>
+    <li><a href="https://www.postgresql.fr/devel:accueil" title="Informations pour les développeurs/traducteurs">Développeurs</a></li>
+    <li><a href="https://planete.postgresql.fr/" title="La planète francophone sur PostgreSQL">Planète</a></li>
+    <li><a href="https://www.postgresql.fr/support/" title="Support sur PostgreSQL">Support</a></li>
+  </ul>
+</div>
+
+<div id="wrapper">
+
+<div id="pgContent">
+
+  <div id="pgSideWrap">
+  <div id="pgSideNav">
+    <div id="blognav">
+      <div id="search"><h2><label for="q">Rechercher</label></h2><form action="http://blog2.postgresql.fr/index.php?" method="get"><fieldset><p><input type="text" size="10" maxlength="255" id="q" name="q" value="" /> <input class="submit" type="submit" value="ok" /></p></fieldset></form></div><div class="categories"><h2>Catégories</h2><ul><li><a href="index199b.html?category/Articles">Articles</a></li><li class="category-current"><a href="indexb4c6.html?category/Dans-les-bacs">Dans les bacs</a></li><li><a href="index025a.html?category/Evenements">Événements</a></li><li><a href="index8c6d.html?category/PostgreSQL-Weekly-News">PostgreSQL Weekly News</a></li><li><a href="index1835.html?category/Securite">Sécurité</a></li><li><a href="index2251.html?category/Vie-de-l-association">Vie de l'association</a></li><li><a href="index91de.html?category/Vie-du-site">Vie du site</a></li></ul></div><div class="text"><h2>Licence</h2>Tous les articles de ce blog sont disponibles sous la <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/">license Creative Commons BY-NC-SA 3.0</a>.</div>    </div> <!-- End #blognav -->
+  
+    <div id="blogextra">
+      <div class="syndicate"><h2>S'abonner</h2><ul><li><a type="application/atom+xml" href="index4ca3.php?feed/atom" title="Fil Atom des billets de ce blog" class="feed">Fil des billets</a></li></ul></div>    </div> <!-- End #blogextra -->
+  </div>
+  </div>
+
+  <div id="pgContentWrap">
+  <div id="pgDownloadsWrap">
+  <div id="content">
+
+  <p id="navlinks">
+  <a href="index4de4.html?post/2010/07/29/Nouvelles-hebdomadaires-de-PostgreSQL-25-juillet-2010"
+  title="Nouvelles hebdomadaires de PostgreSQL - 25 juillet 2010" class="prev">&#171; Nouvelles hebdomadaires de PostgreSQL - 25 juillet</a>
+   <span>-</span> <a href="index6c2b.html?post/2010/08/04/Nouvelles-hebdomadaires-de-PostgreSQL-1er-ao%C3%BBt-2010"
+  title="Nouvelles hebdomadaires de PostgreSQL - 1er août 2010" class="next">Nouvelles hebdomadaires de PostgreSQL - 1er août &#187;</a>
+  </p>
+  
+  <div class="post">
+    <h2 id="p556" class="post-title">PostgreSQL 9.0 Beta 4 disponible</h2>
+    
+    <p class="post-info">Par SAS    le lundi  2 août 2010, 10:06        - <a href="indexb4c6.html?category/Dans-les-bacs">Dans les bacs</a>
+        - <a href="index6a6b.html?post/2010/08/02/PostgreSQL-9.0-Beta-4-disponible">Lien permanent</a>
+    </p>
+    
+    
+    
+        
+    <div class="post-content"><p>Billet original de Selena Deckelmann, corrigé par Josh Berkus. Traductions de Stéphane Schildknecht.</p>
+
+
+<p>La quatrième version bêta de PostgreSQL 9.0 est désormais disponible.
+Elle contient divers correctifs et quelques changements par rapport à la bêta 3.</p>
+
+
+<p>Plus elle sera téléchargée, installée, et testée, plus nous nous rapprocherons
+de la version 9.0 finale. Il est d'ailleurs fort probable qu'il s'agisse de la dernière version bêta.</p>
+
+
+<p>Quelques modifications significatives ont été introduites dans la bêta 4
+qui requièrent que les applications soient re-testées au regard de la version
+9.0.</p>
+
+
+<p>Le changement le plus significatif pour l'utilisateur concerne la remontée d'informations par \timing, même lorsque psql tourne en mode "quiet" (silencieux).
+Ces modifications incluent&nbsp;:</p>
+
+<ul>
+<li>une remontée correcte des erreurs d'espace disque et le non-chargement</li>
+</ul>
+<p>du .psqlrc lors de l'utilisation de pg_upgrade;</p>
+<ul>
+<li>une vérification compète du certificat SSL lorsque «&nbsp;host&nbsp;» et «&nbsp;hostaddr&nbsp;»</li>
+</ul>
+<p>sont tous deux précisés, rétro-correctif en 8.4&nbsp;;</p>
+<ul>
+<li>un correctif pour la gestion des objets SQL/MED par pg_dump&nbsp;;</li>
+<li>un correctif et amélioration des performances pour le parcours de pointeurs d'index GIN à trous&nbsp;;</li>
+<li>un correctif pour une possible corruption de page dans ALTER TABLE .. SET TABLESPACE&nbsp;;</li>
+<li>la ré-exécution correcte de CREATE TABLESPACE lors d'une récupération après incident&nbsp;;</li>
+<li>le nettoyage des sous-transactions dans les boucles FOR, et la limitation des niveaux de</li>
+</ul>
+<p>récursions lors de l'assignation des XID sur des niveaux multiples de sous-transactions,
+tous deux rétro-corrigés en 8.0.</p>
+
+
+<p>À l'inverse des versions bêta précédentes, il n'y a pas eu de modification du catalogue système par rapport à la bêta3. initdb n'est donc pas nécessaire pour une mise à jour de la bêta3. En revanche, une mise à jour depuis des versions bêta plus anciennes nécessite un initdb et un
+rechargement de la base.</p>
+
+
+<p>Nous vous encourageons à utiliser cette opportunité pour tester pg_upgrade pour les mises à jour
+à partir d'une version bêta plus ancienne de la version 9.0.
+Merci de remonter vos résultats.</p>
+
+
+<p>Si vous pouvez nous aider à tester la version bêta, jetez un œil à la page&nbsp;:
+http://wiki.postgresql.org/wiki/HowToBetaTest</p>
+
+
+<p>Les bêtas ne sont pas stable, et ne doivent, par conséquent, jamais être utilisées en
+environnement de production&nbsp;; elles n'ont d'autre but que d'être testées.
+Une version «&nbsp;release candidate&nbsp;» sera bientôt disponible.</p>
+
+
+<p>Le code source et les installeurs binaires pour de nombreuses plateformes
+sont disponibles sur le site de PostgreSQL&nbsp;:</p>
+<ul>
+<li>Source: http://www.postgresql.org/ftp/source/v9.0beta4</li>
+<li>One-Click installer dont version Windows 64bits&nbsp;:</li>
+</ul>
+<p>http://www.enterprisedb.com/products/pgdownload.do</p>
+<ul>
+<li>binaires pour les autres plateformes&nbsp;: http://www.postgresql.org/ftp/binary/v9.0beta4</li>
+<li>Notes de version&nbsp;:</li>
+</ul>
+<p>http://developer.postgresql.org/pgdocs/postgres/release-9-0.html</p>
+<ul>
+<li>Participer aux tests&nbsp;: http://www.postgresql.org/developer/beta</li>
+</ul></div>
+
+      </div>
+
+  
+
+    
+  
+    
+    
+    </div>
+</div> <!-- End #main -->
+
+</div> <!-- End #wrapper -->
+
+<div id="pgFooter">
+  <p>Propulsé par <a href="http://dotclear.org/">Dotclear</a></p>
+</div>
+
+</div> <!-- End #page -->
+</body>
+
+<!-- Mirrored from blog2.postgresql.fr/index.php?post/2010/08/02/PostgreSQL-9.0-Beta-4-disponible by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 May 2020 21:40:20 GMT -->
+</html>

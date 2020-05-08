@@ -1,0 +1,267 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr">
+
+<!-- Mirrored from blog2.postgresql.fr/index.php?post/2010/08/09/Nouvelles-hebdomadaires-de-PostgreSQL-8-ao%C3%BBt-2010 by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 May 2020 21:40:20 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="MSSmartTagsPreventParsing" content="TRUE" />
+  <meta name="ROBOTS" content="INDEX, FOLLOW" />
+  
+  <title>Nouvelles hebdomadaires de PostgreSQL - 8 août 2010 - PostgreSQLfr.org</title>
+  <meta name="description" lang="fr" content="Visite guidée de PostgreSQL 9.0 par Bruce Momjian lors du prochain &quot;NYC PostgreSQL Meetup&quot;, le 10 août à 18h. RSVP ci-après :" />
+  <meta name="copyright" content="" />
+  <meta name="author" content="chl" />
+  <meta name="date" scheme="ISO8601" content="2010-08-09T22:51:00+02:00" />
+  
+  <link rel="schema.dc" href="http://purl.org/dc/elements/1.1/" />
+  <meta name="dc.title" content="Nouvelles hebdomadaires de PostgreSQL - 8 août 2010" />
+  <meta name="dc.description" lang="fr" content="Visite guidée de PostgreSQL 9.0 par Bruce Momjian lors du prochain &quot;NYC PostgreSQL Meetup&quot;, le 10 août à 18h. RSVP ci-après :" />
+  <meta name="dc.creator" content="chl" />
+  <meta name="dc.language" content="fr" />
+  <meta name="dc.publisher" content="" />
+  <meta name="dc.rights" content="" />
+  <meta name="dc.date" scheme="ISO8601" content="2010-08-09T22:51:00+02:00" />
+  <meta name="dc.type" content="text" />
+  <meta name="dc.format" content="text/html" />
+  
+  <link rel="top" href="indexd41d.html?" title="Accueil" />
+  <link rel="contents" href="index888d.html?archive" title="Archives" />
+  
+  <link rel="next" href="index17ea.html?post/2010/08/17/Nouvelles-hebdomadaires-de-PostgreSQL-15-ao%C3%BBt-2010"
+  title="Nouvelles hebdomadaires de PostgreSQL - 15 août 2010" />
+  
+  <link rel="previous" href="index6c2b.html?post/2010/08/04/Nouvelles-hebdomadaires-de-PostgreSQL-1er-ao%C3%BBt-2010"
+  title="Nouvelles hebdomadaires de PostgreSQL - 1er août 2010" />
+  
+  <link rel="alternate" type="application/atom+xml" title="Atom 1.0" href="index4ca3.php?feed/atom" />
+  
+  <style type="text/css" media="screen">
+@import url(themes/postgresql/style.css);
+</style>
+<style type="text/css" media="print">
+@import url(themes/default/print.css);
+</style>
+
+<script type="text/javascript" src="themes/default/js/jquery.js"></script>
+<script type="text/javascript" src="themes/default/js/jquery.cookie.js"></script>
+
+  
+  <script type="text/javascript" src="themes/default/js/post.js"></script>
+  <script type="text/javascript">
+  //<![CDATA[
+  var post_remember_str = 'Se souvenir de moi sur ce blog';
+  //]]>
+  </script>
+</head>
+
+<body class="dc-post">
+<div id="page">
+
+
+<div id="top">
+  <div id="pgHeader">
+    <span id="pgHeaderLogoLeft">
+      <a href="index.html" title="PostgreSQL"><img src="https://blog.postgresql.fr/themes/postgresql/img/hdr_left.png" width="230" height="80" alt="PostgreSQL" /></a>
+    </span>
+    <span id="pgHeaderLogoRight">
+      <a href="index.html" title="La base de donnees la plus sophistiquee au monde."><img src="https://blog.postgresql.fr/themes/postgresql/img/hdr_right.png" width="210" height="80" alt="La base de donnees la plus sophistiquee au monde." /></a>
+    </span>
+  </div>
+
+  </div>
+
+<div class="pgTopNav">
+  <div class="pgTopNavLeft"> 
+    <img src="https://blog.postgresql.fr/themes/postgresql/img/nav_lft.png" width="7" height="23" alt="" />
+  </div>
+  <div class="pgTopNavRight">
+    <img src="https://blog.postgresql.fr/themes/postgresql/img/nav_rgt.png" width="7" height="23" alt="" />
+  </div>
+  <ul class="pgTopNavList">
+    <li><a href="https://www.postgresql.fr/" title="Accueil">Accueil</a></li>
+    <li><a href="https://blog.postgresql.fr/" title="Lire les actualités">Actualités</a></li>
+    <li><a href="https://docs.postgresql.fr/" title="Lire la documentation officielle">Documentation</a></li>
+    <li><a href="https://forums.postgresql.fr/" title="Pour poser des questions">Forums</a></li>
+    <li><a href="https://www.postgresql.fr/asso/" title="La vie de l'association">Association</a></li>
+    <li><a href="https://www.postgresql.fr/devel:accueil" title="Informations pour les développeurs/traducteurs">Développeurs</a></li>
+    <li><a href="https://planete.postgresql.fr/" title="La planète francophone sur PostgreSQL">Planète</a></li>
+    <li><a href="https://www.postgresql.fr/support/" title="Support sur PostgreSQL">Support</a></li>
+  </ul>
+</div>
+
+<div id="wrapper">
+
+<div id="pgContent">
+
+  <div id="pgSideWrap">
+  <div id="pgSideNav">
+    <div id="blognav">
+      <div id="search"><h2><label for="q">Rechercher</label></h2><form action="http://blog2.postgresql.fr/index.php?" method="get"><fieldset><p><input type="text" size="10" maxlength="255" id="q" name="q" value="" /> <input class="submit" type="submit" value="ok" /></p></fieldset></form></div><div class="categories"><h2>Catégories</h2><ul><li><a href="index199b.html?category/Articles">Articles</a></li><li><a href="indexb4c6.html?category/Dans-les-bacs">Dans les bacs</a></li><li><a href="index025a.html?category/Evenements">Événements</a></li><li class="category-current"><a href="index8c6d.html?category/PostgreSQL-Weekly-News">PostgreSQL Weekly News</a></li><li><a href="index1835.html?category/Securite">Sécurité</a></li><li><a href="index2251.html?category/Vie-de-l-association">Vie de l'association</a></li><li><a href="index91de.html?category/Vie-du-site">Vie du site</a></li></ul></div><div class="text"><h2>Licence</h2>Tous les articles de ce blog sont disponibles sous la <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/">license Creative Commons BY-NC-SA 3.0</a>.</div>    </div> <!-- End #blognav -->
+  
+    <div id="blogextra">
+      <div class="syndicate"><h2>S'abonner</h2><ul><li><a type="application/atom+xml" href="index4ca3.php?feed/atom" title="Fil Atom des billets de ce blog" class="feed">Fil des billets</a></li></ul></div>    </div> <!-- End #blogextra -->
+  </div>
+  </div>
+
+  <div id="pgContentWrap">
+  <div id="pgDownloadsWrap">
+  <div id="content">
+
+  <p id="navlinks">
+  <a href="index6c2b.html?post/2010/08/04/Nouvelles-hebdomadaires-de-PostgreSQL-1er-ao%C3%BBt-2010"
+  title="Nouvelles hebdomadaires de PostgreSQL - 1er août 2010" class="prev">&#171; Nouvelles hebdomadaires de PostgreSQL - 1er août</a>
+   <span>-</span> <a href="index17ea.html?post/2010/08/17/Nouvelles-hebdomadaires-de-PostgreSQL-15-ao%C3%BBt-2010"
+  title="Nouvelles hebdomadaires de PostgreSQL - 15 août 2010" class="next">Nouvelles hebdomadaires de PostgreSQL - 15 août &#187;</a>
+  </p>
+  
+  <div class="post">
+    <h2 id="p558" class="post-title">Nouvelles hebdomadaires de PostgreSQL - 8 août 2010</h2>
+    
+    <p class="post-info">Par chl    le lundi  9 août 2010, 22:51        - <a href="index8c6d.html?category/PostgreSQL-Weekly-News">PostgreSQL Weekly News</a>
+        - <a href="indexbe89.html?post/2010/08/09/Nouvelles-hebdomadaires-de-PostgreSQL-8-ao%C3%BBt-2010">Lien permanent</a>
+    </p>
+    
+    
+    
+          <div class="post-excerpt"><p>Visite guidée de PostgreSQL 9.0 par Bruce Momjian lors du prochain "NYC PostgreSQL Meetup", le 10 août à 18h. RSVP ci-après&nbsp;:
+<a target="_blank" href="http://www.meetup.com/postgresql-3/calendar/14310923/">http://www.meetup.com/postgresql-3/calendar/14310923/</a></p>
+<p><strong>Les nouveautés des produits dérivés</strong></p>
+<ul>
+<li>Npgsql 2.0.10, un "fournisseur de données" PostgreSQL pour .NET&nbsp;:
+<a target="_blank" href="http://www.npgsql.org/">http://www.npgsql.org</a></li>
+</ul>
+<p><strong>Offres d'emplois autour de PostgreSQL en août</strong></p>
+<ul>
+<li>Internationales&nbsp;:
+<a target="_blank" href="http://archives.postgresql.org/pgsql-jobs/2010-08/threads.php">http://archives.postgresql.org/pgsql-jobs/2010-08/threads.php</a>;</li>
+<li>Francophones&nbsp;:
+<a target="_blank" href="http://forums.postgresql.fr/viewforum.php?id=4">http://forums.postgresql.fr/viewforum.php?id=4</a>.</li>
+</ul>
+<p><strong>PostgreSQL Local</strong></p>
+<ul>
+<li>La FrOSCon 2010 aura lieu à St. Augustin (Allemagne) les 21 &amp; 22 août 2010. Le PUG allemand a obtenu sa propre salle de dev. et est à la recherche de conférenciers. Plus de détails&nbsp;:
+<a target="_blank" href="http://andreas.scherbaum.la/blog/archives/711-FrOSCon-2010-PostgreSQL-devroom-Call-for-papers.html">http://andreas.scherbaum.la/blog/archives/711-FrOSCon-2010-PostgreSQL-devroom-Call-for-papers.html</a></li>
+<li>L'appel à conférenciers pour la "West" est lancé jusqu'au 5 septembre 2010. Détails sur&nbsp;:
+<a target="_blank" href="http://www.postgresqlconference.org/">http://www.postgresqlconference.org/</a></li>
+</ul>
+<p><strong>PostgreSQL dans les média</strong></p>
+<ul>
+<li>Planet PostgreSQL&nbsp;:
+<a target="_blank" href="http://planet.postgresql.org/">http://planet.postgresql.org/</a></li>
+<li>Planet PostgreSQLFr&nbsp;:
+<a target="_blank" href="http://planete.postgresql.fr/">http://planete.postgresql.fr/</a></li>
+</ul>
+<p><em>PostgreSQL Weekly News / les nouvelles hebdomadaires vous sont offertes cette semaine par David Fetter. Traduction par l'équipe PostgreSQLFr sous licence CC BY-NC-SA.</em></p>
+<p><em>Proposez vos articles ou annonces avant dimanche 15:00 (heure du Pacifique). Merci de les envoyer en anglais à david (a) fetter.org, en allemand à pwn (a) pgug.de, en italien à pwn (a) itpug.org et en espagnol à pwn (a) arpug.com.ar.</em></p>
+<p>(<a target="_blank" href="http://www.postgresql.org/community/weeklynews/pwn20100808">lien vers l'article original</a>)</p></div>
+        
+    <div class="post-content"><p><strong>Revues</strong></p>
+<p>Brendan Jurd reviewed the patch to reduce the on-disk size of NUMERIC.</p>
+<p>KaiGai Kohei reviewed Robert Haas's patch to refactor comment.c</p>
+<p><strong>Correctifs appliqués</strong></p>
+<p>Simon Riggs a commité&nbsp;:</p>
+<ul>
+<li>Reduce lock levels of CREATE TRIGGER and some ALTER TABLE, CREATE RULE actions. Avoid hard-coding lockmode used for many altering DDL commands, allowing easier future changes of lock levels. Implementation of initial analysis on DDL sub-commands, so that many lock levels are now at ShareUpdateExclusiveLock or ShareRowExclusiveLock, allowing certain DDL not to block reads/writes. First of number of planned changes in this area; additional docs required when full project complete.</li>
+</ul>
+<p>Robert Haas a commité&nbsp;:</p>
+<ul>
+<li>Remove ancient PL/pgsql line numbering hack. While this hack arguably has some benefit in terms of making PL/pgsql's line numbering match the programmer's expectations, it also makes PL/pgsql inconsistent with the remaining PLs, making it difficult for clients to reliably determine where the error actually is. On balance, it seems better to be consistent. Pavel Stehule</li>
+<li>Add btree_gist support for searching on "not equals". Jeff Davis, with slight editorialization by me.</li>
+<li>In contrib/fuzzystrmatch, teach levenshtein() about multi-byte characters. Based on a patch by, and further ideas from, Alexander Korotkov.</li>
+<li>In pgsql/src/backend/commands/tablecmds.c, fix inheritance count tracking in ALTER TABLE .. ADD CONSTRAINT. Without this patch, constraints inherited by children of a parent table which itself has multiple inheritance parents can end up with the wrong coninhcount. After dropping the constraint, the children end up with a leftover copy of the constraint that is not dumped and cannot be dropped. There is a similar problem with ALTER TABLE .. ADD COLUMN, but that looks significantly more difficult to resolve, so I'm committing this fix separately. Back-patch to 8.4, which is the first release that has coninhcount. Report by Hank Enting.</li>
+<li>Regression tests for new btree_gist "not equals" support. Jeff Davis, with minor adjustments by me.</li>
+<li>In pgsql/src/backend/utils/adt/numeric.c, allow numeric to use a more compact, 2-byte header in many cases. Review by Brendan Jurd and Tom Lane.</li>
+<li>In pgsql/src/backend/utils/adt/numeric.c, fix numeric_maximum_size() calculation. The old computation can sometimes underestimate the necessary space by 2 bytes; however we're not back-patching this, because this result isn't used for anything critical. Per discussion with Tom Lane, make the typmod test in this function match the ones in numeric() and apply_typmod() exactly.</li>
+<li>In pgsql/src/include/utils/numeric.h, fix declared argument name for numeric_maximum_size. The previous commit changed the function to say 'typmod' rather than 'typemod', but I forgot to update the header file.</li>
+<li>Standardize get_whatever_oid functions for object types with unqualified names: 1. Add a missing_ok parameter to get_tablespace_oid. 2. Avoid duplicating get_tablespace_od guts in objectNamesToOids. 3. Add a missing_ok parameter to get_database_oid. 4. Replace get_roleid and get_role_checked with get_role_oid. 5. Add get_namespace_oid, get_language_oid, get_am_oid. 6. Refactor existing code to use new interfaces. Thanks to KaiGai Kohei for the review.</li>
+<li>Standardize get_whatever_oid functions for other object types: 1. Rename TSParserGetPrsid to get_ts_parser_oid. 2. Rename TSDictionaryGetDictid to get_ts_dict_oid. 3. Rename TSTemplateGetTmplid to get_ts_template_oid. 4. Rename TSConfigGetCfgid to get_ts_config_oid. 5. Rename FindConversionByName to get_conversion_oid. 6. Rename GetConstraintName to get_constraint_oid. 7. Add new functions get_opclass_oid, get_opfamily_oid, get_rewrite_oid, get_rewrite_oid_without_relid, get_trigger_oid, and get_cast_oid. The name of each function matches the corresponding catalog. Thanks to KaiGai Kohei for the review.</li>
+<li>In pgsql/src/backend/utils/cache/syscache.c, fix incorrect pathname in comment.</li>
+<li>In pgsql/doc/src/sgml/release-9.0.sgml, rearrange "big features" section of the release notes. Josh Berkus</li>
+</ul>
+<p>Tom Lane a commité&nbsp;:</p>
+<ul>
+<li>Fix core dump in QTNodeCompare when tsquery_cmp() is applied to two empty tsqueries. CompareTSQ has to have a guard for the case rather than blindly applying QTNodeCompare to random data past the end of the datums. Also, change QTNodeCompare to be a little less trusting: use an actual test rather than just Assert'ing that the input is sane. Problem encountered while investigating another issue (I saw a core dump in autoanalyze on a table containing multiple empty tsquery values). Back-patch to all branches with tsquery support. In HEAD, also fix some bizarre (though not outright wrong) coding in tsq_mcontains().</li>
+<li>Be a little more careful with the shift computations in QT2QTN and makeTSQuerySign. The first of these is a live bug, on some platforms, as per bug #5590 from John Regehr. However the consequences seem limited because of the relatively narrow scope of use of QTNode.sign. The shift in makeTSQuerySign is actually safe because TSQS_SIGLEN is unsigned, but it seems like a good idea to insert an explicit cast rather than depend on that.</li>
+<li>In pgsql/doc/src/sgml/btree-gist.sgml, fix markup, other minor editing for recent btree_gist doc changes.</li>
+<li>In pgsql/src/backend/utils/adt/nabstime.c, add some comments to tinterval_cmp_internal pointing out its severe implementation deficiencies. Per discussion of bug #5592, we're not going to change it, but these things should be documented so that if anyone ever reimplements type tinterval, they will be more careful.</li>
+<li>Kibitzing on \conninfo patch: adjust the order of field output to match the parameters of \connect, and fix oversight of not enabling translation of the messages. Also, adjust \connect's similar messages to match, and deal with 8.2-era violation of basic translatability guidelines there.</li>
+<li>In pgsql/doc/src/sgml/config.sgml, fix mangled grammar.</li>
+<li>Code review for --quote-all-identifiers patch: add missing --help documentation for new pg_dump/pg_dumpall parameters, make a couple of trivial stylistic adjustments to make the code follow usual project style.</li>
+<li>Replace the naive HYPOT() macro with a standards-conformant hypotenuse function. This avoids unnecessary overflows and probably gives a more accurate result as well. Paul Matthews, reviewed by Andrew Geery</li>
+<li>In pgsql/doc/src/sgml/syntax.sgml, add an example to clarify the use of ORDER BY in multiple-argument aggregates. People seem to not get this right without help.</li>
+<li>In pgsql/doc/src/sgml/libpq.sgml, fix sloppy mistakes in documentation of PQescapeLiteral and PQescapeIdentifier. Noted by Dmitriy Igrishin.</li>
+<li>In pgsql/doc/src/sgml/syntax.sgml, forgot to back-patch earlier change to documentation for aggregate ORDER BY clauses. Tags: ---- REL9_0_STABLE</li>
+<li>Remove the single-argument form of string_agg(). It added nothing much in functionality, while creating an ambiguity in usage with ORDER BY that at least two people have already gotten seriously confused by. Also, add an opr_sanity test to check that we don't in future violate the newly minted policy of not having built-in aggregates with the same name and different numbers of parameters. Per discussion of a complaint from Thom Brown.</li>
+<li>In pgsql/src/backend/parser/parse_func.c, add a very specific hint for the case that we're unable to locate a function matching a call like f(x, ORDER BY y,z). It could be that what the user really wants is f(x,z ORDER BY y). We now have pretty conclusive evidence that many people won't understand this problem without concrete guidance, so give it to them. Per further discussion of the string_agg() problem.</li>
+<li>In pgsql/src/backend/utils/misc/guc.c, add a comment about the initial default value of max_stack_depth.</li>
+<li>In pgsql/doc/src/sgml/release-9.0.sgml, fix inaccurate description of deferrable unique constraints, per Dean Rasheed.</li>
+<li>In pgsql/doc/src/sgml/release-9.0.sgml, let's put that &lt;/link&gt; in a sane place ...</li>
+<li>Recognize functional dependency on primary keys. This allows a table's other columns to be referenced without listing them in GROUP BY, so long as the primary key column(s) are listed in GROUP BY. Eventually we should also allow functional dependency on a UNIQUE constraint when the columns are marked NOT NULL, but that has to wait until NOT NULL constraints are represented in pg_constraint, because we need to have pg_constraint OIDs for all the conditions needed to ensure functional dependency. Peter Eisentraut, reviewed by Alex Hunsaker and Tom Lane.</li>
+<li>Add stats functions and views to provide access to a transaction's own statistics counts. These numbers are being accumulated but haven't yet been transmitted to the collector (and won't be, until the transaction ends). For some purposes, though, it's handy to be able to look at them. Joel Jacobson, reviewed by Itagaki Takahiro</li>
+<li>Add an xpath_exists() function. This is equivalent to XMLEXISTS except that it offers support for namespace mapping. Mike Fowler, reviewed by David Fetter</li>
+</ul>
+<p>Bruce Momjian a commité&nbsp;:</p>
+<ul>
+<li>In pgsql/doc/src/sgml/ref/explain.sgml, add EXPLAIN documentation example. Gabrielle Roth.</li>
+<li>In pgsql/doc/src/sgml/release-9.0.sgml, fix 9.0 release notes vacuum mention, not -&gt; now. Peter Fokkinga.</li>
+</ul>
+<p>Peter Eisentraut a commité&nbsp;:</p>
+<ul>
+<li>Add xmlexists function by Mike Fowler, reviewed by Peter Eisentraut.</li>
+<li>In pgsql/doc/src/sgml/plpython.sgml, document which Python environment variables affect PL/Python</li>
+<li>In pgsql/doc/src/sgml/xfunc.sgml, fix indexterm spelling.</li>
+</ul>
+<p><strong>Correctifs rejetés (à ce jour)</strong></p>
+<ul>
+<li>Pas de déception cette semaine&nbsp;:-)</li>
+</ul>
+<p><strong>Correctifs en attente</strong></p>
+<ul>
+<li>Mike Fowler sent in another revision of the xml_is_well_formed() patch.</li>
+<li>Robert Haas and Yeb Havinga traded patches fixing the issue with multiply-inherited columns.</li>
+<li>Tom Lane sent in a patch to fix an issue with ANALYZE in the case of expression indexes with opckeytype that is not the default one.</li>
+<li>Pavel Stehule and Robert Haas traded patches for the \ef [line number] and \sf (show function) feature in psql.</li>
+<li>Zoltan Boszormenyi sent in another revision of the lock_timeout patch.</li>
+<li>Pavel Stehule sent in two more revisions of the xslt with no limits patch.</li>
+<li>Josh Tolley, David Fetter and Pavel Stehule sent in new revisions of the GROUPING SETS patch.</li>
+<li>Florian Pflug sent in another revision of the "true serialization" patch.</li>
+<li>Zoltan Boszormenyi sent in a patch to fix ECPG in the case of dynamic cursor names, which did not exist before 9.0.</li>
+<li>Florian Pflug sent in two more revisions of the patch to show individual statement latencies in pgbench output.</li>
+<li>Boxuan Zhai, Heikki Linnakangas and Simon Riggs traded patches which implement, describe and test MERGE.</li>
+<li>Simon Riggs sent in a detailed specification for MERGE.</li>
+<li>Dean Rasheed sent in a WIP patch to add triggers for VIEWs.</li>
+<li>Jan Otto sent in a patch to fix and update contrib/isn.</li>
+<li>Fujii Masao sent in another patch to help with synchronous replication.</li>
+<li>Heikki Linnakangas sent in a patch to fix an infelicity in EXECUTE ... USING with unknown parameters.</li>
+<li>Robert Haas sent in a patch to refactor comment.c, partly as a preface to adding a SECURITY LABEL command.</li>
+<li>Tom Lane sent in another revision of the gincostestimate patch.</li>
+<li>Kris Jurka sent in another revision of the patch to fix JDBC in certain situations with COPY IN.</li>
+<li>Tom Lane sent in a patch with a different approach to the gincostestimate issue.</li>
+<li>Peter Eisentraut sent in a patch to add the following functionalities to ALTER TYPE: ADD ATTRIBUTE, DROP ATTRIBUTE, ALTER ATTRIBUTE...SET DATA TYPE and RENAME ATTRIBUTE.</li>
+<li>Mark Wong sent in a WIP patch to implement parallel quicksort.</li>
+</ul></div>
+
+      </div>
+
+  
+
+    
+  
+    
+    
+    </div>
+</div> <!-- End #main -->
+
+</div> <!-- End #wrapper -->
+
+<div id="pgFooter">
+  <p>Propulsé par <a href="http://dotclear.org/">Dotclear</a></p>
+</div>
+
+</div> <!-- End #page -->
+</body>
+
+<!-- Mirrored from blog2.postgresql.fr/index.php?post/2010/08/09/Nouvelles-hebdomadaires-de-PostgreSQL-8-ao%C3%BBt-2010 by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 May 2020 21:40:20 GMT -->
+</html>

@@ -1,0 +1,199 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr">
+
+<!-- Mirrored from blog2.postgresql.fr/index.php?post/drupal/73 by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 May 2020 21:40:20 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="MSSmartTagsPreventParsing" content="TRUE" />
+  <meta name="ROBOTS" content="INDEX, FOLLOW" />
+  
+  <title>== PostgreSQL Weekly News - 4 Février 2005 == - PostgreSQLfr.org</title>
+  <meta name="description" lang="fr" content="Dans son mail sur pg-announce, David Fetter annonçait == PostgreSQL Weekly News - 4 Février 2005 == Versions de sécurité de PostgreSQL PostgreSQL 8.0.1, 7.4.7, 7.3.9 et 7.2.7 sont" />
+  <meta name="copyright" content="" />
+  <meta name="author" content="jca" />
+  <meta name="date" scheme="ISO8601" content="2005-02-08T10:01:00+00:00" />
+  
+  <link rel="schema.dc" href="http://purl.org/dc/elements/1.1/" />
+  <meta name="dc.title" content="== PostgreSQL Weekly News - 4 Février 2005 ==" />
+  <meta name="dc.description" lang="fr" content="Dans son mail sur pg-announce, David Fetter annonçait == PostgreSQL Weekly News - 4 Février 2005 == Versions de sécurité de PostgreSQL PostgreSQL 8.0.1, 7.4.7, 7.3.9 et 7.2.7 sont" />
+  <meta name="dc.creator" content="jca" />
+  <meta name="dc.language" content="fr" />
+  <meta name="dc.publisher" content="" />
+  <meta name="dc.rights" content="" />
+  <meta name="dc.date" scheme="ISO8601" content="2005-02-08T10:01:00+00:00" />
+  <meta name="dc.type" content="text" />
+  <meta name="dc.format" content="text/html" />
+  
+  <link rel="top" href="indexd41d.html?" title="Accueil" />
+  <link rel="contents" href="index888d.html?archive" title="Archives" />
+  
+  <link rel="next" href="index556b.html?post/drupal/74"
+  title="Modéliser un arbre simplement dans PostgreSQL" />
+  
+  <link rel="previous" href="indexcca7.html?post/drupal/72"
+  title="Présentations des conférences PostgreSQL - Solutions Linux 2005 Paris" />
+  
+  <link rel="alternate" type="application/atom+xml" title="Atom 1.0" href="index4ca3.php?feed/atom" />
+  
+  <style type="text/css" media="screen">
+@import url(themes/postgresql/style.css);
+</style>
+<style type="text/css" media="print">
+@import url(themes/default/print.css);
+</style>
+
+<script type="text/javascript" src="themes/default/js/jquery.js"></script>
+<script type="text/javascript" src="themes/default/js/jquery.cookie.js"></script>
+
+  
+  <script type="text/javascript" src="themes/default/js/post.js"></script>
+  <script type="text/javascript">
+  //<![CDATA[
+  var post_remember_str = 'Se souvenir de moi sur ce blog';
+  //]]>
+  </script>
+</head>
+
+<body class="dc-post">
+<div id="page">
+
+
+<div id="top">
+  <div id="pgHeader">
+    <span id="pgHeaderLogoLeft">
+      <a href="index.html" title="PostgreSQL"><img src="https://blog.postgresql.fr/themes/postgresql/img/hdr_left.png" width="230" height="80" alt="PostgreSQL" /></a>
+    </span>
+    <span id="pgHeaderLogoRight">
+      <a href="index.html" title="La base de donnees la plus sophistiquee au monde."><img src="https://blog.postgresql.fr/themes/postgresql/img/hdr_right.png" width="210" height="80" alt="La base de donnees la plus sophistiquee au monde." /></a>
+    </span>
+  </div>
+
+  </div>
+
+<div class="pgTopNav">
+  <div class="pgTopNavLeft"> 
+    <img src="https://blog.postgresql.fr/themes/postgresql/img/nav_lft.png" width="7" height="23" alt="" />
+  </div>
+  <div class="pgTopNavRight">
+    <img src="https://blog.postgresql.fr/themes/postgresql/img/nav_rgt.png" width="7" height="23" alt="" />
+  </div>
+  <ul class="pgTopNavList">
+    <li><a href="https://www.postgresql.fr/" title="Accueil">Accueil</a></li>
+    <li><a href="https://blog.postgresql.fr/" title="Lire les actualités">Actualités</a></li>
+    <li><a href="https://docs.postgresql.fr/" title="Lire la documentation officielle">Documentation</a></li>
+    <li><a href="https://forums.postgresql.fr/" title="Pour poser des questions">Forums</a></li>
+    <li><a href="https://www.postgresql.fr/asso/" title="La vie de l'association">Association</a></li>
+    <li><a href="https://www.postgresql.fr/devel:accueil" title="Informations pour les développeurs/traducteurs">Développeurs</a></li>
+    <li><a href="https://planete.postgresql.fr/" title="La planète francophone sur PostgreSQL">Planète</a></li>
+    <li><a href="https://www.postgresql.fr/support/" title="Support sur PostgreSQL">Support</a></li>
+  </ul>
+</div>
+
+<div id="wrapper">
+
+<div id="pgContent">
+
+  <div id="pgSideWrap">
+  <div id="pgSideNav">
+    <div id="blognav">
+      <div id="search"><h2><label for="q">Rechercher</label></h2><form action="http://blog2.postgresql.fr/index.php?" method="get"><fieldset><p><input type="text" size="10" maxlength="255" id="q" name="q" value="" /> <input class="submit" type="submit" value="ok" /></p></fieldset></form></div><div class="categories"><h2>Catégories</h2><ul><li><a href="index199b.html?category/Articles">Articles</a></li><li><a href="indexb4c6.html?category/Dans-les-bacs">Dans les bacs</a></li><li><a href="index025a.html?category/Evenements">Événements</a></li><li class="category-current"><a href="index8c6d.html?category/PostgreSQL-Weekly-News">PostgreSQL Weekly News</a></li><li><a href="index1835.html?category/Securite">Sécurité</a></li><li><a href="index2251.html?category/Vie-de-l-association">Vie de l'association</a></li><li><a href="index91de.html?category/Vie-du-site">Vie du site</a></li></ul></div><div class="text"><h2>Licence</h2>Tous les articles de ce blog sont disponibles sous la <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/">license Creative Commons BY-NC-SA 3.0</a>.</div>    </div> <!-- End #blognav -->
+  
+    <div id="blogextra">
+      <div class="syndicate"><h2>S'abonner</h2><ul><li><a type="application/atom+xml" href="index4ca3.php?feed/atom" title="Fil Atom des billets de ce blog" class="feed">Fil des billets</a></li></ul></div>    </div> <!-- End #blogextra -->
+  </div>
+  </div>
+
+  <div id="pgContentWrap">
+  <div id="pgDownloadsWrap">
+  <div id="content">
+
+  <p id="navlinks">
+  <a href="indexcca7.html?post/drupal/72"
+  title="Présentations des conférences PostgreSQL - Solutions Linux 2005 Paris" class="prev">&#171; Présentations des conférences PostgreSQL -</a>
+   <span>-</span> <a href="index556b.html?post/drupal/74"
+  title="Modéliser un arbre simplement dans PostgreSQL" class="next">Modéliser un arbre simplement dans PostgreSQL &#187;</a>
+  </p>
+  
+  <div class="post">
+    <h2 id="p73" class="post-title">== PostgreSQL Weekly News - 4 Février 2005 ==</h2>
+    
+    <p class="post-info">Par jca    le mardi  8 février 2005, 10:01        - <a href="index8c6d.html?category/PostgreSQL-Weekly-News">PostgreSQL Weekly News</a>
+        - <a href="indexe73a.html?post/drupal/73">Lien permanent</a>
+    </p>
+    
+    
+    
+          <div class="post-excerpt"><p><em>Dans son mail sur pg-announce, David Fetter annonçait</em></p>
+<p><strong>== PostgreSQL Weekly News - 4 Février 2005 ==</strong></p>
+<p>
+Versions de sécurité de PostgreSQL<br />
+PostgreSQL 8.0.1, 7.4.7, 7.3.9 et 7.2.7 sont sortis cette semaine afin de corriger une vulnérabilité dans LOAD. Veuillez mettre à jour vos logiciels en cours de fonctionnement à cette dernière version dès que celà vous sera possible.
+</p>
+<p>Stephen Frost a soumis un patch jetant les bases de conception pour l'appartenance des objets de la base à des groupes avec l'idée sous-jacente d'implémenter la notion de rôles dans la base. Matthias Schmidt a demandé de l'aide pour définir une syntaxe permettant de définir des permission à tous les objets d'un schéma.
+</p>
+<p>
+Victor Y. Yegorov et plusieurs autres personnes ont discuté de l'implémentation des index bitmaps.
+</p>
+<p>Josh Berkus a proposé d'étendre les vues systèmes pour couvrir
+l'ensemble des objets de la base de données. D'autres ont poursuivi en
+proposant des améliorations et des commentaires.
+</p>
+<p>Peter Eisentraut a mis en évidence un point d'incompatibilité entre
+la version 8.0 et la version 7.4 de la libpq. Surveillez donc la liste
+-hackers pour savoir comment ce point sera résolu.
+</p>
+<p>Le trés discuté code ARC se trouve maintenant dans freelist.c. Qu'il
+soit modifié ou retiré, tout se trouve maintenant au même endroit.
+</p>
+<p>John Hansen a contributé en fournissant des patches afin de faire marcher upper() et lower() avec Unicode. Prière de tester.
+</p></div>
+        
+    <div class="post-content"><strong>== Nouvelles des produits autour de PostgreSQL ==</strong>
+<p>
+Greg Sabino Mullane a commencé à travailler sur une fonctionctionnalité  "last_ID" pour DBD::Pg.  Ceci devrait faciliter l'écriture d'applications et le portage d'applications en provenance d'autre systèmes de stockage.
+</p>
+<p>
+theKompany.com a sorti la version 1.4 de dbRadar
+<a href="http://www.thekompany.com/products/dbradar/">http://www.thekompany.com/products/dbradar/</a>
+comprenant la coloration syntaxique pour PL/PgSQL.
+</p>
+<p><strong>== PostgreSQL dans la presse ==</strong></p>
+<p>
+Nous souhaiterions rappeler aux membres Européens de la communauté PostgreSQL de contacter leur députés et d'exprimer leur désapprobation concernant les brevets logiciels. La deuxième phase d'audition sur le sujet. Un point pouvant apporter du poids à l'argumentation est tout témoignage de sociétés décrivant comment les brevets logiciels perturbent leurs activiés. Regardez sur <a href="http://www.nosoftwarepatents.com/">http://www.nosoftwarepatents.com/</a>
+au cas où vous ne seriez pas informé de ce type d'enjeux.</p>
+<p>
+Les professionnels de la justice en NSW auront bientôt accès aux support de référence de la court de justice de NSW via le nouveau système de recherche d'information juridique (Judicial Information Research System (JIRS)) qui est une application développé entièrement en interne avec un système utilisant Linux, Apache PostgreSQL et PHP (LAPP).
+<a href="http://www.linuxworld.com.au/index.php/id;631120522;fp;4;fpid;3">http://www.linuxworld.com.au/index.php/id;631120522;fp;4;fpid;3</a>
+</p>
+<p>
+General Bits: <a href="http://www.varlena.com/GeneralBits/">http://www.varlena.com/GeneralBits/</a>
+</p>
+<p>
+La date de cloture pour les conférences à l' O'Reilly Open Source Convention talks est le 13 février! Prière de soumettre vos propositions trés rapidement. Ce serait une bonne idée de transmettre votre propositions au sous-comité PostgreSQL-OSCON en premier lieu, afin d'éviter les doublons. Contactez  <a href="mailto:josh@postgresql.org">josh@postgresql.org</a>.<br />
+OSCON: <a href="http://conferences.oreillynet.com/os2005/">http://conferences.oreillynet.com/os2005/</a>
+</p></div>
+
+      </div>
+
+  
+
+    
+  
+    
+    
+    </div>
+</div> <!-- End #main -->
+
+</div> <!-- End #wrapper -->
+
+<div id="pgFooter">
+  <p>Propulsé par <a href="http://dotclear.org/">Dotclear</a></p>
+</div>
+
+</div> <!-- End #page -->
+</body>
+
+<!-- Mirrored from blog2.postgresql.fr/index.php?post/drupal/73 by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 May 2020 21:40:20 GMT -->
+</html>

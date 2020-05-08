@@ -1,0 +1,205 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr">
+
+<!-- Mirrored from blog2.postgresql.fr/index.php?post/2016/02/12/Sortie-de-PostgreSQL-9.5.1%2C-9.4.6%2C-9.3.11%2C-9.2.15-et-9.1.20 by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 May 2020 21:40:19 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="MSSmartTagsPreventParsing" content="TRUE" />
+  <meta name="ROBOTS" content="INDEX, FOLLOW" />
+  
+  <title>Sortie de PostgreSQL 9.5.1, 9.4.6, 9.3.11, 9.2.15 et 9.1.20 - PostgreSQLfr.org</title>
+  <meta name="description" lang="fr" content="Le PostgreSQL Global Development Group a publié une mise à jour de toutes les versions supportées du SGBD, incluant les versions 9.5.1, 9.4.6, 9.3.11, 9.2.15 et 9.1.20. Ces" />
+  <meta name="copyright" content="" />
+  <meta name="author" content="daamien" />
+  <meta name="date" scheme="ISO8601" content="2016-02-12T13:24:00+00:00" />
+  
+  <link rel="schema.dc" href="http://purl.org/dc/elements/1.1/" />
+  <meta name="dc.title" content="Sortie de PostgreSQL 9.5.1, 9.4.6, 9.3.11, 9.2.15 et 9.1.20" />
+  <meta name="dc.description" lang="fr" content="Le PostgreSQL Global Development Group a publié une mise à jour de toutes les versions supportées du SGBD, incluant les versions 9.5.1, 9.4.6, 9.3.11, 9.2.15 et 9.1.20. Ces" />
+  <meta name="dc.creator" content="daamien" />
+  <meta name="dc.language" content="fr" />
+  <meta name="dc.publisher" content="" />
+  <meta name="dc.rights" content="" />
+  <meta name="dc.date" scheme="ISO8601" content="2016-02-12T13:24:00+00:00" />
+  <meta name="dc.type" content="text" />
+  <meta name="dc.format" content="text/html" />
+  
+  <link rel="top" href="indexd41d.html?" title="Accueil" />
+  <link rel="contents" href="index888d.html?archive" title="Archives" />
+  
+  <link rel="next" href="indexdf56.html?post/2016/02/15/Nouvelles-hebdomadaires-de-PostgreSQL-14-f%C3%A9vrier-2016"
+  title="Nouvelles hebdomadaires de PostgreSQL - 14 février 2016" />
+  
+  <link rel="previous" href="indexb75c.html?post/2016/02/03/Nouvelles-hebdomadaires-de-PostgreSQL-31-janvier-2016"
+  title="Nouvelles hebdomadaires de PostgreSQL - 31 janvier 2016" />
+  
+  <link rel="alternate" type="application/atom+xml" title="Atom 1.0" href="index4ca3.php?feed/atom" />
+  
+  <style type="text/css" media="screen">
+@import url(themes/postgresql/style.css);
+</style>
+<style type="text/css" media="print">
+@import url(themes/default/print.css);
+</style>
+
+<script type="text/javascript" src="themes/default/js/jquery.js"></script>
+<script type="text/javascript" src="themes/default/js/jquery.cookie.js"></script>
+
+  
+  <script type="text/javascript" src="themes/default/js/post.js"></script>
+  <script type="text/javascript">
+  //<![CDATA[
+  var post_remember_str = 'Se souvenir de moi sur ce blog';
+  //]]>
+  </script>
+</head>
+
+<body class="dc-post">
+<div id="page">
+
+
+<div id="top">
+  <div id="pgHeader">
+    <span id="pgHeaderLogoLeft">
+      <a href="index.html" title="PostgreSQL"><img src="https://blog.postgresql.fr/themes/postgresql/img/hdr_left.png" width="230" height="80" alt="PostgreSQL" /></a>
+    </span>
+    <span id="pgHeaderLogoRight">
+      <a href="index.html" title="La base de donnees la plus sophistiquee au monde."><img src="https://blog.postgresql.fr/themes/postgresql/img/hdr_right.png" width="210" height="80" alt="La base de donnees la plus sophistiquee au monde." /></a>
+    </span>
+  </div>
+
+  </div>
+
+<div class="pgTopNav">
+  <div class="pgTopNavLeft"> 
+    <img src="https://blog.postgresql.fr/themes/postgresql/img/nav_lft.png" width="7" height="23" alt="" />
+  </div>
+  <div class="pgTopNavRight">
+    <img src="https://blog.postgresql.fr/themes/postgresql/img/nav_rgt.png" width="7" height="23" alt="" />
+  </div>
+  <ul class="pgTopNavList">
+    <li><a href="https://www.postgresql.fr/" title="Accueil">Accueil</a></li>
+    <li><a href="https://blog.postgresql.fr/" title="Lire les actualités">Actualités</a></li>
+    <li><a href="https://docs.postgresql.fr/" title="Lire la documentation officielle">Documentation</a></li>
+    <li><a href="https://forums.postgresql.fr/" title="Pour poser des questions">Forums</a></li>
+    <li><a href="https://www.postgresql.fr/asso/" title="La vie de l'association">Association</a></li>
+    <li><a href="https://www.postgresql.fr/devel:accueil" title="Informations pour les développeurs/traducteurs">Développeurs</a></li>
+    <li><a href="https://planete.postgresql.fr/" title="La planète francophone sur PostgreSQL">Planète</a></li>
+    <li><a href="https://www.postgresql.fr/support/" title="Support sur PostgreSQL">Support</a></li>
+  </ul>
+</div>
+
+<div id="wrapper">
+
+<div id="pgContent">
+
+  <div id="pgSideWrap">
+  <div id="pgSideNav">
+    <div id="blognav">
+      <div id="search"><h2><label for="q">Rechercher</label></h2><form action="http://blog2.postgresql.fr/index.php?" method="get"><fieldset><p><input type="text" size="10" maxlength="255" id="q" name="q" value="" /> <input class="submit" type="submit" value="ok" /></p></fieldset></form></div><div class="categories"><h2>Catégories</h2><ul><li><a href="index199b.html?category/Articles">Articles</a></li><li class="category-current"><a href="indexb4c6.html?category/Dans-les-bacs">Dans les bacs</a></li><li><a href="index025a.html?category/Evenements">Événements</a></li><li><a href="index8c6d.html?category/PostgreSQL-Weekly-News">PostgreSQL Weekly News</a></li><li><a href="index1835.html?category/Securite">Sécurité</a></li><li><a href="index2251.html?category/Vie-de-l-association">Vie de l'association</a></li><li><a href="index91de.html?category/Vie-du-site">Vie du site</a></li></ul></div><div class="text"><h2>Licence</h2>Tous les articles de ce blog sont disponibles sous la <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/">license Creative Commons BY-NC-SA 3.0</a>.</div>    </div> <!-- End #blognav -->
+  
+    <div id="blogextra">
+      <div class="syndicate"><h2>S'abonner</h2><ul><li><a type="application/atom+xml" href="index4ca3.php?feed/atom" title="Fil Atom des billets de ce blog" class="feed">Fil des billets</a></li></ul></div>    </div> <!-- End #blogextra -->
+  </div>
+  </div>
+
+  <div id="pgContentWrap">
+  <div id="pgDownloadsWrap">
+  <div id="content">
+
+  <p id="navlinks">
+  <a href="indexb75c.html?post/2016/02/03/Nouvelles-hebdomadaires-de-PostgreSQL-31-janvier-2016"
+  title="Nouvelles hebdomadaires de PostgreSQL - 31 janvier 2016" class="prev">&#171; Nouvelles hebdomadaires de PostgreSQL - 31 janvier</a>
+   <span>-</span> <a href="indexdf56.html?post/2016/02/15/Nouvelles-hebdomadaires-de-PostgreSQL-14-f%C3%A9vrier-2016"
+  title="Nouvelles hebdomadaires de PostgreSQL - 14 février 2016" class="next">Nouvelles hebdomadaires de PostgreSQL - 14 février &#187;</a>
+  </p>
+  
+  <div class="post">
+    <h2 id="p894" class="post-title">Sortie de PostgreSQL 9.5.1, 9.4.6, 9.3.11, 9.2.15 et 9.1.20</h2>
+    
+    <p class="post-info">Par daamien    le vendredi 12 février 2016, 13:24        - <a href="indexb4c6.html?category/Dans-les-bacs">Dans les bacs</a>
+        - <a href="index8dad.html?post/2016/02/12/Sortie-de-PostgreSQL-9.5.1%2C-9.4.6%2C-9.3.11%2C-9.2.15-et-9.1.20">Lien permanent</a>
+    </p>
+    
+    
+    
+        
+    <div class="post-content"><p>Le PostgreSQL Global Development Group a publié une mise à jour de toutes les versions supportées du SGBD, incluant les versions 9.5.1, 9.4.6, 9.3.11, 9.2.15 et 9.1.20. Ces versions mineures corrigent deux problèmes de sécurité, ainsi qu'un certain nombre de problèmes découverts sur les quatre derniers mois. Les utilisateurs vulnérables aux problèmes de sécurité doivent mettre à jour leur installation immédiatement; les autres doivent planifier la mise à jour dès que possible.</p>
+
+
+<h2>Correction d'un problème de sécurité dans les expressions régulières, PL/Java</h2>
+
+
+<p>Cette publication clôt la faille de sécurité CVE-2016-0773, un problème avec l'analyse d'expressions régulières (regex). Le code précédent permettait à l'utilisateur de passer dans les expressions des valeurs en dehors de l'intervalle de caractères unicodes, déclenchant l'arrêt brutal du backend. Ce problème est critique pour les systèmes PostgreSQL avec des utilisateurs non approuvés (untrusted) ou qui génèrent des regex basées sur une entrée utilisateur.</p>
+
+
+<p>Cette mise à jour corrige aussi CVE-2016-0766, un problème d'élévation de privilège pour les utilisateurs de PL/Java. Certains paramètres de configuration particuliers (GUCS) pour le PL/Java sont maintenant seulement modifiables par le super-utilisateur de la base de données.</p>
+
+
+<h2>Autres corrections et améliorations</h2>
+
+<p>En plus des corrections indiquées ci-dessus, de nombreuses corrections de problèmes rapportés par les utilisateurs ces derniers mois ont été inclues. Ceci inclut notamment de nombreuses corrections sur les nouvelles fonctionnalités introduites en version 9.5.0, ainsi que la réécriture de pg_dump pour éliminer des problèmes chroniques dans la sauvegarde des extensions. Parmi eux il y a&nbsp;:</p>
+
+<ul>
+<li>Correction de nombreux problèmes dans pg_dump avec certains types d'objets</li>
+<li>Prévention de l'affaissement over-eager des clauses HAVING pour les GROUPING SETS</li>
+<li>Correction de la transformation en chaîne de caractères des erreurs avec les clauses ON CONFLICT ... WHERE</li>
+<li>Correction d'erreurs de tableoid pour postgres_fdw</li>
+<li>Prévention d'exception sur les floating-point dans pgbench</li>
+<li>Fait en sorte que \det recherche toujours les noms de tables distantes</li>
+<li>Correction de l'encadrement par quote des noms de contraintes des domaines dans pg_dump</li>
+<li>Prévention d'introduire des objets étendus dans les noeuds Const</li>
+<li>Permet la compilation du PL/Java sur Windows</li>
+<li>Correction de l'erreur "unresolved symbol" dans l'exécution de code PL/Python</li>
+<li>Permet l'utilisation de Python2 et Python3 dans la même base de donnée</li>
+<li>Ajout du support de Python 3.5 dans le PL/Python</li>
+<li>Corrige un problème avec la création de sous répertoire pendant l'initdb</li>
+<li>Fait en sorte que pg_ctl rapporte le statut correctement sur Windows</li>
+<li>Supprime une erreur apportant de la confusion quand pg_receivexlog est utilisé avec de vieux serveurs</li>
+<li>Nombreuses corrections et ajouts dans la documentation</li>
+<li>Correction de calculs de hash erronés dans gin_extract_jsonb_path()</li>
+</ul>
+
+<p>Cette publication contient aussi la version 2016a de tzdata, qui réalise les mises à jour des timezones pour les zones Iles Caiman, Metlakatla, Trans-Baikal Territory (Zabaykalsky Krai), et Pakistan.</p>
+
+
+<h2>Comment mettre à jour&nbsp;?</h2>
+
+
+<p>Les utilisateurs des versions 9.4 devront reindexer tout index jsonb_path_ops déjà créé, pour corriger un problème persistant d'entrées manquantes dans ces index.</p>
+
+
+<p>Comme avec les autres versions mineures, les utilisateurs n'ont pas besoin de sauvegarder et restaurer les bases de données ou d'utiliser pg_upgrade pour mettre en place cette mise à jour. Vous pouvez simplement arrêter PostgreSQL, mettre à jour les binaires et le redémarrer. Les utilisateurs qui ont ignoré plusieurs mises à jour mineures peuvent avoir besoin de réaliser des opérations après mise à jour. Voir les notes de version pour les détails.</p>
+
+
+<h2>Liens:</h2>
+
+<ul>
+<li>Téléchargement: <a href="http://postgresql.org/download">http://postgresql.org/download</a></li>
+<li>Notes de version: <a href="http://www.postgresql.org/docs/current/static/release.html">http://www.postgresql.org/docs/current/static/release.html</a></li>
+</ul></div>
+
+      </div>
+
+  
+
+    
+  
+    
+    
+    </div>
+</div> <!-- End #main -->
+
+</div> <!-- End #wrapper -->
+
+<div id="pgFooter">
+  <p>Propulsé par <a href="http://dotclear.org/">Dotclear</a></p>
+</div>
+
+</div> <!-- End #page -->
+</body>
+
+<!-- Mirrored from blog2.postgresql.fr/index.php?post/2016/02/12/Sortie-de-PostgreSQL-9.5.1%2C-9.4.6%2C-9.3.11%2C-9.2.15-et-9.1.20 by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 May 2020 21:40:19 GMT -->
+</html>

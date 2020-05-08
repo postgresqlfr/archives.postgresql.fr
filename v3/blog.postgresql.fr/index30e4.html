@@ -1,0 +1,254 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr">
+
+<!-- Mirrored from blog2.postgresql.fr/index.php?post/2009/03/26/Nouvelles-neuves-de-PostgreSQL by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 May 2020 21:40:20 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="MSSmartTagsPreventParsing" content="TRUE" />
+  <meta name="ROBOTS" content="INDEX, FOLLOW" />
+  
+  <title>Nouvelles neuves de PostgreSQL - PostgreSQLfr.org</title>
+  <meta name="description" lang="fr" content="Nouvelles hebdomadaires de PostgreSQL - 22 mars 2009 Mises à jour de sécurité 8.3.7, 8.2.13, 8.1.17, 8.0.21 et 7.4.25 disponibles. Ces versions corrigent une possibilité de déni de" />
+  <meta name="copyright" content="" />
+  <meta name="author" content="chl" />
+  <meta name="date" scheme="ISO8601" content="2009-03-26T00:42:00+01:00" />
+  
+  <link rel="schema.dc" href="http://purl.org/dc/elements/1.1/" />
+  <meta name="dc.title" content="Nouvelles neuves de PostgreSQL" />
+  <meta name="dc.description" lang="fr" content="Nouvelles hebdomadaires de PostgreSQL - 22 mars 2009 Mises à jour de sécurité 8.3.7, 8.2.13, 8.1.17, 8.0.21 et 7.4.25 disponibles. Ces versions corrigent une possibilité de déni de" />
+  <meta name="dc.creator" content="chl" />
+  <meta name="dc.language" content="fr" />
+  <meta name="dc.publisher" content="" />
+  <meta name="dc.rights" content="" />
+  <meta name="dc.date" scheme="ISO8601" content="2009-03-26T00:42:00+01:00" />
+  <meta name="dc.type" content="text" />
+  <meta name="dc.format" content="text/html" />
+  
+  <link rel="top" href="indexd41d.html?" title="Accueil" />
+  <link rel="contents" href="index888d.html?archive" title="Archives" />
+  
+  <link rel="next" href="index22a7.html?post/2009/04/02/Nouvelles-neuves-de-PostgreSQL"
+  title="Nouvelles neuves de PostgreSQL" />
+  
+  <link rel="previous" href="indexd797.html?post/2009/03/22/Nouvelles-neuves-de-PostgreSQL"
+  title="Nouvelles neuves de PostgreSQL" />
+  
+  <link rel="alternate" type="application/atom+xml" title="Atom 1.0" href="index4ca3.php?feed/atom" />
+  
+  <style type="text/css" media="screen">
+@import url(themes/postgresql/style.css);
+</style>
+<style type="text/css" media="print">
+@import url(themes/default/print.css);
+</style>
+
+<script type="text/javascript" src="themes/default/js/jquery.js"></script>
+<script type="text/javascript" src="themes/default/js/jquery.cookie.js"></script>
+
+  
+  <script type="text/javascript" src="themes/default/js/post.js"></script>
+  <script type="text/javascript">
+  //<![CDATA[
+  var post_remember_str = 'Se souvenir de moi sur ce blog';
+  //]]>
+  </script>
+</head>
+
+<body class="dc-post">
+<div id="page">
+
+
+<div id="top">
+  <div id="pgHeader">
+    <span id="pgHeaderLogoLeft">
+      <a href="index.html" title="PostgreSQL"><img src="https://blog.postgresql.fr/themes/postgresql/img/hdr_left.png" width="230" height="80" alt="PostgreSQL" /></a>
+    </span>
+    <span id="pgHeaderLogoRight">
+      <a href="index.html" title="La base de donnees la plus sophistiquee au monde."><img src="https://blog.postgresql.fr/themes/postgresql/img/hdr_right.png" width="210" height="80" alt="La base de donnees la plus sophistiquee au monde." /></a>
+    </span>
+  </div>
+
+  </div>
+
+<div class="pgTopNav">
+  <div class="pgTopNavLeft"> 
+    <img src="https://blog.postgresql.fr/themes/postgresql/img/nav_lft.png" width="7" height="23" alt="" />
+  </div>
+  <div class="pgTopNavRight">
+    <img src="https://blog.postgresql.fr/themes/postgresql/img/nav_rgt.png" width="7" height="23" alt="" />
+  </div>
+  <ul class="pgTopNavList">
+    <li><a href="https://www.postgresql.fr/" title="Accueil">Accueil</a></li>
+    <li><a href="https://blog.postgresql.fr/" title="Lire les actualités">Actualités</a></li>
+    <li><a href="https://docs.postgresql.fr/" title="Lire la documentation officielle">Documentation</a></li>
+    <li><a href="https://forums.postgresql.fr/" title="Pour poser des questions">Forums</a></li>
+    <li><a href="https://www.postgresql.fr/asso/" title="La vie de l'association">Association</a></li>
+    <li><a href="https://www.postgresql.fr/devel:accueil" title="Informations pour les développeurs/traducteurs">Développeurs</a></li>
+    <li><a href="https://planete.postgresql.fr/" title="La planète francophone sur PostgreSQL">Planète</a></li>
+    <li><a href="https://www.postgresql.fr/support/" title="Support sur PostgreSQL">Support</a></li>
+  </ul>
+</div>
+
+<div id="wrapper">
+
+<div id="pgContent">
+
+  <div id="pgSideWrap">
+  <div id="pgSideNav">
+    <div id="blognav">
+      <div id="search"><h2><label for="q">Rechercher</label></h2><form action="http://blog2.postgresql.fr/index.php?" method="get"><fieldset><p><input type="text" size="10" maxlength="255" id="q" name="q" value="" /> <input class="submit" type="submit" value="ok" /></p></fieldset></form></div><div class="categories"><h2>Catégories</h2><ul><li><a href="index199b.html?category/Articles">Articles</a></li><li><a href="indexb4c6.html?category/Dans-les-bacs">Dans les bacs</a></li><li><a href="index025a.html?category/Evenements">Événements</a></li><li class="category-current"><a href="index8c6d.html?category/PostgreSQL-Weekly-News">PostgreSQL Weekly News</a></li><li><a href="index1835.html?category/Securite">Sécurité</a></li><li><a href="index2251.html?category/Vie-de-l-association">Vie de l'association</a></li><li><a href="index91de.html?category/Vie-du-site">Vie du site</a></li></ul></div><div class="text"><h2>Licence</h2>Tous les articles de ce blog sont disponibles sous la <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/">license Creative Commons BY-NC-SA 3.0</a>.</div>    </div> <!-- End #blognav -->
+  
+    <div id="blogextra">
+      <div class="syndicate"><h2>S'abonner</h2><ul><li><a type="application/atom+xml" href="index4ca3.php?feed/atom" title="Fil Atom des billets de ce blog" class="feed">Fil des billets</a></li></ul></div>    </div> <!-- End #blogextra -->
+  </div>
+  </div>
+
+  <div id="pgContentWrap">
+  <div id="pgDownloadsWrap">
+  <div id="content">
+
+  <p id="navlinks">
+  <a href="indexd797.html?post/2009/03/22/Nouvelles-neuves-de-PostgreSQL"
+  title="Nouvelles neuves de PostgreSQL" class="prev">&#171; Nouvelles neuves de PostgreSQL</a>
+   <span>-</span> <a href="index22a7.html?post/2009/04/02/Nouvelles-neuves-de-PostgreSQL"
+  title="Nouvelles neuves de PostgreSQL" class="next">Nouvelles neuves de PostgreSQL &#187;</a>
+  </p>
+  
+  <div class="post">
+    <h2 id="p470" class="post-title">Nouvelles neuves de PostgreSQL</h2>
+    
+    <p class="post-info">Par chl    le jeudi 26 mars 2009, 00:42        - <a href="index8c6d.html?category/PostgreSQL-Weekly-News">PostgreSQL Weekly News</a>
+        - <a href="index30e4.html?post/2009/03/26/Nouvelles-neuves-de-PostgreSQL">Lien permanent</a>
+    </p>
+    
+    
+    
+          <div class="post-excerpt"><p><strong>Nouvelles hebdomadaires de PostgreSQL - 22 mars 2009</strong></p>
+<ul>
+<li>Mises &agrave; jour de s&eacute;curit&eacute; 8.3.7, 8.2.13, 8.1.17, 8.0.21 et 7.4.25 disponibles. Ces versions corrigent une possibilit&eacute; de d&eacute;ni de service offerte par la conversion d'encodage, et il est conseill&eacute; &agrave; tous les utilisateurs de mettre &agrave; jour d&egrave;s qu'une occasion raisonnable se pr&eacute;sente.</li>
+<li>Les "bouts de code" (code snippets) sont maintenant h&eacute;berg&eacute;s sur le wiki&nbsp;: 
+<a target="_blank" href="http://wiki.postgresql.org/wiki/Snippets">http://wiki.postgresql.org/wiki/Snippets</a></li>
+<li>Fernando Ike de Oliveira a cr&eacute;&eacute; un groupe Identica sur PostgreSQL&nbsp;: 
+<a target="_blank" href="http://identi.ca/group/postgresql">http://identi.ca/group/postgresql</a></li>
+<li>Le programme de la pgCon est en place&nbsp;: 
+<a target="_blank" href="http://www.pgcon.org/2009/schedule/">http://www.pgcon.org/2009/schedule/</a></li>
+<li>Le PgDay de Brasilia aura lieu le 17 avril. Contactez [fernando.ike (a) gmail (point) com] ou [eduardo (a) planejamento (point) gov (point) br] pour participer.</li>
+<li>L'appel aux conf&eacute;rences est lanc&eacute; pour le PgDay de S&atilde;o Paulo, programm&eacute; le 24 avril. Contactez [marins (point) consultoria (a) gmail (point) com] ou [marcelojscosta (a) gmail (point) com] pour participer.</li>
+<li>Il y aura &eacute;galement des PgDays les 29 et 30 avril, respectivement &agrave; Porto Velho (RO) et Ji-Parana (RO). Contactez Luis Fernando Bueno&nbsp;: [proflfbueno (a) gmail (point) com] pour participer.</li>
+</ul>
+<p><strong>Les nouveaut&eacute;s des produits d&eacute;riv&eacute;s</strong></p>
+<ul>
+<li>Benetl 2.6, un ETL pour fichiers utilisant PostgreSQL&nbsp;: 
+<a target="_blank" href="http://www.benetl.net/">http://www.benetl.net</a></li>
+<li>dataPro 1.6, un outil graphique de gestion, d&eacute;veloppement et conversion de bases de donn&eacute;es&nbsp;: 
+<a target="_blank" href="http://www.vive.net/products/datapro.htm">http://www.vive.net/products/datapro.htm</a></li>
+<li>Simpycity 0.2.0a9, un syst&egrave;me de mapping en Python pour PostgreSQL&nbsp;: 
+<a target="_blank" href="https://projects.commandprompt.com/public/simpycity/repo/trunk/dist/Simpycity-0.2.0a9-py2.6.egg">https://projects.commandprompt.com/public/simpycity/repo/trunk/dist/Simpycity-0.2.0a9-py2.6.egg</a></li>
+</ul>
+<p><strong>La fonctionnalit&eacute; 8.4 de la semaine</strong></p>
+<p>&Eacute;dition de fonctions&nbsp;: psql peut maintenant &eacute;diter les fonctions via la commande \ef qui lancera votre &eacute;diteur favori.</p>
+<p><strong>L'astuce de la semaine</strong></p>
+<p>bonnie++, dd, et iozone sont chacun de bons outils pour tester rapidement les performances de votre syst&egrave;me de fichier. Si votre base de donn&eacute;es est trop volumineuse pour tenir en RAM, &ccedil;a ne pourra pas aller plus rapidement que le syst&egrave;me de stockage&nbsp;!</p>
+<p>(<a target="_blank" href="http://www.postgresql.org/community/weeklynews/pwn20090322">lien vers l'article original</a>)</p></div>
+        
+    <div class="post-content"><p><strong>Offres d'emplois autour de PostgreSQL en mars</strong></p>
+<ul>
+<li><a target="_blank" href="http://archives.postgresql.org/pgsql-jobs/2009-03/threads.php">http://archives.postgresql.org/pgsql-jobs/2009-03/threads.php</a></li>
+</ul>
+<p><strong>PostgreSQL Local</strong></p>
+<ul>
+<li>PostgreSQLFr tiendra un stand aux Solutions Linux 2009 &agrave; Paris. Volontaires&nbsp;: sas (a) postgresql (point) fr, ou sur le wiki&nbsp;: 
+<a target="_blank" href="http://postgresql.fr/sl2009:start">http://postgresql.fr/sl2009:start</a></li>
+<li>Les inscriptions pour la "PostgreSQL Conference (JDCon) East 2009" sont &agrave; pr&eacute;sent ouvertes&nbsp;: 
+<a target="_blank" href="http://www.postgresql.us/purchase">http://www.postgresql.us/purchase</a></li>
+<li>Kevin Kempter fera une pr&eacute;sentation des sauvegardes et des r&eacute;cup&eacute;rations lors de la premi&egrave;re r&eacute;union du PUG de Denver, le 8 avril 2009&nbsp;: 
+<a target="_blank" href="http://www.diapug.org/Meeting.html">http://www.diapug.org/Meeting.html</a></li>
+<li>"PostgreSQL Conference, U.S." organise un PgDay lors de la "LinuxFest Northwest" (25 &amp; 26 avril). L'appel aux conf&eacute;rences est visible &agrave; l'adresse&nbsp;: 
+<a target="_blank" href="http://www.postgresqlconference.org/">http://www.postgresqlconference.org/</a></li>
+<li>Michael Renner animera un atelier sur la r&eacute;plication PostgreSQL lors des "Netways OSDC", les 29 et 30 avril 2009, &agrave; Nuremberg (All.)&nbsp;: 
+<a target="_blank" href="http://www.netways.de/english/osdc/y2009/programm/w/michael_renner_postgresql_repliziert_ein_ueberblick/">http://www.netways.de/english/osdc/y2009/programm/w/michael_renner_postgresql_repliziert_ein_ueberblick/</a></li>
+<li>La PGCon 2009 se tiendra &agrave; l'Universit&eacute; d'Ottawa les 21 et 22 mai 2009. Elle sera pr&eacute;c&eacute;d&eacute;e de deux jours de tutoriels les 19 &amp; 20 mai&nbsp;: 
+<a target="_blank" href="http://www.pgcon.org/2009/">http://www.pgcon.org/2009/</a></li>
+<li>Notez la date&nbsp;: pgDay San Jose, dimanche 19 juillet juste avant l'OSCON. Appel &agrave; conf&eacute;renciers, plus d'infos sous peu&nbsp;!</li>
+<li>La "PGCon Brazil" prendra place &agrave; l'Unicamp de Campinas (&Eacute;tat de S&atilde;o Paulo) les 23 &amp; 24 octobre 2009.</li>
+</ul>
+<p><strong>PostgreSQL dans les m&eacute;dia</strong></p>
+<ul>
+<li>Planet PostgreSQL&nbsp;: 
+<a target="_blank" href="http://planet.postgresql.org/">http://planet.postgresql.org/</a></li>
+</ul>
+<p><i>PostgreSQL Weekly News / les nouvelles hebdomadaires vous sont offertes cette semaine par David Fetter et Josh Berkus. La traduction en est assur&eacute;e par l'&eacute;quipe PostgreSQLFr.</i></p>
+<p><i>Proposez vos articles ou annonces avant dimanche 15:00 (heure du Pacifique). Merci de les envoyer en anglais &agrave; david (a) fetter.org, en allemand &agrave; pwn (a) pgug.de, en italien &agrave; pwn (a) itpug.org.</i></p>
+<p><strong>Correctifs appliqu&eacute;s</strong></p>
+<p>Peter Eisentraut a commit&eacute;&nbsp;:</p>
+<ul>
+<li>In pgsql/src/bin/pg_dump/pg_dump.c, add -w option to --help output. It was apparently forgotten when -w was implemented.</li>
+<li>Rename pg_restore -m to -j, and add documentation about what good numbers are. Per discussion on -hackers.</li>
+</ul>
+<p>Bruce Momjian a commit&eacute;&nbsp;:</p>
+<ul>
+<li>In pgsql/src/backend/utils/adt/datetime.c, document that datetime year '0' is considered in a recent century, not just '00'.</li>
+<li>In pgsql/src/backend/utils/adt/datetime.c, improve zero-year comments.</li>
+<li>In pgsql/doc/src/sgml/client-auth.sgml, clarify 'cert' authentication documention.</li>
+<li>In pgsql/doc/src/sgml/libpq.sgml, clarify libpq 'sslverify' documentation wording.</li>
+</ul>
+<p>Tom Lane a commit&eacute;&nbsp;:</p>
+<ul>
+<li>In pgsql/doc/src/sgml/release.sgml, add just-assigned CVE number to release notes for recent security issue.</li>
+<li>In pgsql/doc/src/sgml/intarray.sgml, be more clear about when to use gist__int_ops vs. gist__intbig_ops. Per suggestion from Ron Mayer.</li>
+<li>Optimize multi-batch hash joins when the outer relation has a nonuniform distribution, by creating a special fast path for the (first few) most common values of the outer relation. Tuples having hashvalues matching the MCVs are effectively forced to be in the first batch, so that we never write them out to the batch temp files. Bryce Cutt and Ramon Lawrence, with some editorialization by me.</li>
+<li>Remove the datetime keywords ABSTIME and RELTIME, which we'd been treating as noise words for the last twelve years, for compatibility with Berkeley-era output formatting of the special INVALID values for those datatypes. Considering that the datatypes themselves have been deprecated for awhile, this is taking backwards compatibility a little far. Per gripe from Josh Berkus.</li>
+<li>Remove the -d and -D options of pg_dump and pg_dumpall. The functionality is still available, but you must now write the long equivalent --inserts or --column-inserts. This change is made to eliminate confusion with the use of -d to specify a database name in most other Postgres client programs. Original patch by Greg Sabino Mullane, modified per subsequent discussion.</li>
+<li>Clean up pg_SSPI_error() coding a little bit: make the messages more consistent, translate where intended, const-ify declarations. Resolves a gripe from Alvaro Herrera as well as some stuff I didn't like.</li>
+<li>Add isExtend to the parameters of the buffer_read_start and buffer_read_done DTrace probes, so that ordinary reads can be distinguished from relation extension operations. Move buffer_read_start probe to before the smgrnblocks() call that's needed in the isExtend case, since really that step should be charged as part of the time needed for the extension operation. (This makes it slightly harder to match the read_start with the associated read_done, since now you can't match them on blockNumber, but it should still be possible since isExtend operations on the same relation can never be interleaved.) Per recent discussion. In passing, add the page identity (forkNum/blockNum) to the parameters of the buffer_flush_start/buffer_flush_done probes, which were unaccountably lacking the info.</li>
+<li>More fixes for 8.4 DTrace probes. Remove useless BUFFER_HIT/BUFFER_MISS probes --- the BUFFER_READ_DONE probe provides the same information and more besides. Expand the LOCK_WAIT_START/DONE probe arguments so that there's actually some chance of telling what is being waited for. Update and clean up the documentation.</li>
+</ul>
+<p>Heikki Linnakangas a commit&eacute;&nbsp;:</p>
+<ul>
+<li>In pgsql/src/backend/postmaster, fix Windows-specific race condition in syslogger. This could've been the cause of the "could not write to log file: Bad file descriptor" errors reported at 
+<a target="_blank" href="http://archives.postgresql.org//pgsql-general/2008-06/msg00193.php">http://archives.postgresql.org//pgsql-general/2008-06/msg00193.php</a> Backpatch to 8.3, the race condition was introduced by the CSV logging patch. Analysis and patch by Gurjeet Singh.</li>
+<li>Add seven kanji characters defined in the Windows 950 codepage to our big5/win950 &lt;-&gt; UTF8 conversion tables. Per report by Roger Chang.</li>
+<li>Fix case of the just resurrected UCS_to_BIG5.pl script, and update Makefile to use it.</li>
+<li>In pgsql/contrib/pg_standby/pg_standby.c, don't intercept SIGQUIT as a signal to trigger failover; that's what postmaster uses for immediate shutdown. Trap SIGUSR1 as the preferred signal for that. Per report by Fujii Masao and subsequent discussion on -hackers.</li>
+<li>In pgsql/contrib/pg_standby/pg_standby.c, don't set the signal handler for SIGQUIT on Windows. Buildfarm shows that reinstalling the default signal handler doesn't work as it is on Windows. Presumably core dumps on SIGQUIT are not a problem on Windows, so rather than figure out what header files or other changes are required to make it work, just don't bother.</li>
+</ul>
+<p><strong>Correctifs rejet&eacute;s (&agrave; ce jour)</strong></p>
+<ul>
+<li>Pas de d&eacute;ception cette semaine&nbsp;:-)</li>
+</ul>
+<p><strong>Correctifs en attente</strong></p>
+<ul>
+<li>Koichi Suzuki sent in another revision of the PITR performance improvement patch.</li>
+<li>Magnus Hagander sent in a patch which changes the path separator for files on windows to a backslash unconditionally.</li>
+<li>Teodor Sigaev sent in another revision of the patch to add B-Tree emulation to GIN indexes.</li>
+<li>Shrish Purohit sent in another revision of the Thick Index patch.</li>
+<li>Michael Renner sent in a doc patch to clarify between redo and checkpoint records.</li>
+<li>Pavel Stehule sent in a WIP patch to add transformationHook.</li>
+<li>Sergey Burladyan sent in a patch to check for ngettext in configure, add some new macros for ngettext, and change psql's "(1 row)" messages to _P(...) macros.</li>
+<li>Tom Lane sent in a patch which fixes some libxml incompatibilities.</li>
+</ul></div>
+
+      </div>
+
+  
+
+    
+  
+    
+    
+    </div>
+</div> <!-- End #main -->
+
+</div> <!-- End #wrapper -->
+
+<div id="pgFooter">
+  <p>Propulsé par <a href="http://dotclear.org/">Dotclear</a></p>
+</div>
+
+</div> <!-- End #page -->
+</body>
+
+<!-- Mirrored from blog2.postgresql.fr/index.php?post/2009/03/26/Nouvelles-neuves-de-PostgreSQL by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 May 2020 21:40:20 GMT -->
+</html>

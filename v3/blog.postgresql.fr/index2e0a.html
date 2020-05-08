@@ -1,0 +1,185 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr">
+
+<!-- Mirrored from blog2.postgresql.fr/index.php?post/2019/12/17/Nouvelles-hebdomadaires-de-PostgreSQL-15-d%C3%A9cembre-2019 by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 May 2020 21:40:17 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="MSSmartTagsPreventParsing" content="TRUE" />
+  <meta name="ROBOTS" content="INDEX, FOLLOW" />
+  
+  <title>Nouvelles hebdomadaires de PostgreSQL - 15 décembre 2019 - PostgreSQLfr.org</title>
+  <meta name="description" lang="fr" content="La PGCon 2020 se tiendra à Ottawa du 26 au 29 mai 2020. L'appel à conférenciers court jusqu'au 19 janvier 2020 sur : http://www.pgcon.org/2020/papers.php" />
+  <meta name="copyright" content="" />
+  <meta name="author" content="chl" />
+  <meta name="date" scheme="ISO8601" content="2019-12-17T01:05:00+01:00" />
+  
+  <link rel="schema.dc" href="http://purl.org/dc/elements/1.1/" />
+  <meta name="dc.title" content="Nouvelles hebdomadaires de PostgreSQL - 15 décembre 2019" />
+  <meta name="dc.description" lang="fr" content="La PGCon 2020 se tiendra à Ottawa du 26 au 29 mai 2020. L'appel à conférenciers court jusqu'au 19 janvier 2020 sur : http://www.pgcon.org/2020/papers.php" />
+  <meta name="dc.creator" content="chl" />
+  <meta name="dc.language" content="fr" />
+  <meta name="dc.publisher" content="" />
+  <meta name="dc.rights" content="" />
+  <meta name="dc.date" scheme="ISO8601" content="2019-12-17T01:05:00+01:00" />
+  <meta name="dc.type" content="text" />
+  <meta name="dc.format" content="text/html" />
+  
+  <link rel="top" href="indexd41d.html?" title="Accueil" />
+  <link rel="contents" href="index888d.html?archive" title="Archives" />
+  
+  <link rel="next" href="indexd680.html?post/2019/12/24/Nouvelles-hebdomadaires-de-PostgreSQL-22-d%C3%A9cembre-2019"
+  title="Nouvelles hebdomadaires de PostgreSQL - 22 décembre 2019" />
+  
+  <link rel="previous" href="index481e.html?post/2019/12/17/Nouvelles-hebdomadaires-de-PostgreSQL-08-d%C3%A9cembre-2019"
+  title="Nouvelles hebdomadaires de PostgreSQL - 8 décembre 2019" />
+  
+  <link rel="alternate" type="application/atom+xml" title="Atom 1.0" href="index4ca3.php?feed/atom" />
+  
+  <style type="text/css" media="screen">
+@import url(themes/postgresql/style.css);
+</style>
+<style type="text/css" media="print">
+@import url(themes/default/print.css);
+</style>
+
+<script type="text/javascript" src="themes/default/js/jquery.js"></script>
+<script type="text/javascript" src="themes/default/js/jquery.cookie.js"></script>
+
+  
+  <script type="text/javascript" src="themes/default/js/post.js"></script>
+  <script type="text/javascript">
+  //<![CDATA[
+  var post_remember_str = 'Se souvenir de moi sur ce blog';
+  //]]>
+  </script>
+</head>
+
+<body class="dc-post">
+<div id="page">
+
+
+<div id="top">
+  <div id="pgHeader">
+    <span id="pgHeaderLogoLeft">
+      <a href="index.html" title="PostgreSQL"><img src="https://blog.postgresql.fr/themes/postgresql/img/hdr_left.png" width="230" height="80" alt="PostgreSQL" /></a>
+    </span>
+    <span id="pgHeaderLogoRight">
+      <a href="index.html" title="La base de donnees la plus sophistiquee au monde."><img src="https://blog.postgresql.fr/themes/postgresql/img/hdr_right.png" width="210" height="80" alt="La base de donnees la plus sophistiquee au monde." /></a>
+    </span>
+  </div>
+
+  </div>
+
+<div class="pgTopNav">
+  <div class="pgTopNavLeft"> 
+    <img src="https://blog.postgresql.fr/themes/postgresql/img/nav_lft.png" width="7" height="23" alt="" />
+  </div>
+  <div class="pgTopNavRight">
+    <img src="https://blog.postgresql.fr/themes/postgresql/img/nav_rgt.png" width="7" height="23" alt="" />
+  </div>
+  <ul class="pgTopNavList">
+    <li><a href="https://www.postgresql.fr/" title="Accueil">Accueil</a></li>
+    <li><a href="https://blog.postgresql.fr/" title="Lire les actualités">Actualités</a></li>
+    <li><a href="https://docs.postgresql.fr/" title="Lire la documentation officielle">Documentation</a></li>
+    <li><a href="https://forums.postgresql.fr/" title="Pour poser des questions">Forums</a></li>
+    <li><a href="https://www.postgresql.fr/asso/" title="La vie de l'association">Association</a></li>
+    <li><a href="https://www.postgresql.fr/devel:accueil" title="Informations pour les développeurs/traducteurs">Développeurs</a></li>
+    <li><a href="https://planete.postgresql.fr/" title="La planète francophone sur PostgreSQL">Planète</a></li>
+    <li><a href="https://www.postgresql.fr/support/" title="Support sur PostgreSQL">Support</a></li>
+  </ul>
+</div>
+
+<div id="wrapper">
+
+<div id="pgContent">
+
+  <div id="pgSideWrap">
+  <div id="pgSideNav">
+    <div id="blognav">
+      <div id="search"><h2><label for="q">Rechercher</label></h2><form action="http://blog2.postgresql.fr/index.php?" method="get"><fieldset><p><input type="text" size="10" maxlength="255" id="q" name="q" value="" /> <input class="submit" type="submit" value="ok" /></p></fieldset></form></div><div class="categories"><h2>Catégories</h2><ul><li><a href="index199b.html?category/Articles">Articles</a></li><li><a href="indexb4c6.html?category/Dans-les-bacs">Dans les bacs</a></li><li><a href="index025a.html?category/Evenements">Événements</a></li><li class="category-current"><a href="index8c6d.html?category/PostgreSQL-Weekly-News">PostgreSQL Weekly News</a></li><li><a href="index1835.html?category/Securite">Sécurité</a></li><li><a href="index2251.html?category/Vie-de-l-association">Vie de l'association</a></li><li><a href="index91de.html?category/Vie-du-site">Vie du site</a></li></ul></div><div class="text"><h2>Licence</h2>Tous les articles de ce blog sont disponibles sous la <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/">license Creative Commons BY-NC-SA 3.0</a>.</div>    </div> <!-- End #blognav -->
+  
+    <div id="blogextra">
+      <div class="syndicate"><h2>S'abonner</h2><ul><li><a type="application/atom+xml" href="index4ca3.php?feed/atom" title="Fil Atom des billets de ce blog" class="feed">Fil des billets</a></li></ul></div>    </div> <!-- End #blogextra -->
+  </div>
+  </div>
+
+  <div id="pgContentWrap">
+  <div id="pgDownloadsWrap">
+  <div id="content">
+
+  <p id="navlinks">
+  <a href="index481e.html?post/2019/12/17/Nouvelles-hebdomadaires-de-PostgreSQL-08-d%C3%A9cembre-2019"
+  title="Nouvelles hebdomadaires de PostgreSQL - 8 décembre 2019" class="prev">&#171; Nouvelles hebdomadaires de PostgreSQL - 8 décembre</a>
+   <span>-</span> <a href="indexd680.html?post/2019/12/24/Nouvelles-hebdomadaires-de-PostgreSQL-22-d%C3%A9cembre-2019"
+  title="Nouvelles hebdomadaires de PostgreSQL - 22 décembre 2019" class="next">Nouvelles hebdomadaires de PostgreSQL - 22 &#187;</a>
+  </p>
+  
+  <div class="post">
+    <h2 id="p1080" class="post-title">Nouvelles hebdomadaires de PostgreSQL - 15 décembre 2019</h2>
+    
+    <p class="post-info">Par chl    le mardi 17 décembre 2019, 01:05        - <a href="index8c6d.html?category/PostgreSQL-Weekly-News">PostgreSQL Weekly News</a>
+        - <a href="index2e0a.html?post/2019/12/17/Nouvelles-hebdomadaires-de-PostgreSQL-15-d%C3%A9cembre-2019">Lien permanent</a>
+    </p>
+    
+    
+    
+          <div class="post-excerpt"><p>La <em>PGCon 2020</em> se tiendra &agrave; Ottawa du 26 au 29 mai 2020. L'appel &agrave; conf&eacute;renciers court jusqu'au 19 janvier 2020 sur&nbsp;: <a target="_blank" href="http://www.pgcon.org/2020/papers.php">http://www.pgcon.org/2020/papers.php</a> <a target="_blank" href="https://www.pgcon.org/2020/">https://www.pgcon.org/2020/</a></p>
+<p>La conf&eacute;rence germanophone <em>PostgreSQL Conference 2020</em> aura lieu le 15 mai 2020 &agrave; Stuttgart. L'appel &agrave; conf&eacute;renciers court jusqu'au 3 f&eacute;vrier 2020&nbsp;: <a target="_blank" href="https://2020.pgconf.de/callforpapers/">https://2020.pgconf.de/callforpapers/</a> <a target="_blank" href="https://2020.pgconf.de/">https://2020.pgconf.de/</a></p>
+<h2>Les nouveaut&eacute;s des produits d&eacute;riv&eacute;s</h2>
+<ul>
+<li>pgBackRest 2.20, un syst&egrave;me de sauvegarde et restauration pour PostgreSQL&nbsp;: <a target="_blank" href="https://pgbackrest.org/release.html#2.20">https://pgbackrest.org/release.html#2.20</a></li>
+<li>barman 2.10, un gestionnaire de sauvegarde et restauration pour PostgreSQL&nbsp;: <a target="_blank" href="https://www.pgbarman.org/barman-2-10-released/">https://www.pgbarman.org/barman-2-10-released/</a></li>
+<li>Odyssey 1.0, un pooleur multi-thread&eacute; de connexions pour PostgreSQL&nbsp;: <a target="_blank" href="https://github.com/yandex/odyssey/releases">https://github.com/yandex/odyssey/releases</a></li>
+<li>phpPgAdmin 7.12.1, un outil web d'administration pour PostgreSQL&nbsp;: <a target="_blank" href="https://xzilla.net//blog/2019/Dec/phpPgAdmin-7-12-1-released.html">https://xzilla.net//blog/2019/Dec/phpPgAdmin-7-12-1-released.html</a></li>
+<li>pg_chameleon 2.0.12, un outil pour r&eacute;pliquer de MySQL vers PostgreSQL&nbsp;: <a target="_blank" href="https://pgchameleon.org/blog/2019/12/11/release-2012/">https://pgchameleon.org/blog/2019/12/11/release-2012/</a></li>
+<li>pgAdmin4 4.16, un centre de contr&ocirc;le pour PostgreSQL en web & GUI native&nbsp;: <a target="_blank" href="https://www.pgadmin.org/docs/pgadmin4/dev/release_notes_4_16.html">https://www.pgadmin.org/docs/pgadmin4/dev/release_notes_4_16.html</a></li>
+<li>pitrery 2.4, un ensemble de scripts Bash permettant de g&eacute;rer les sauvegardes PITR de PostgreSQL&nbsp;: <a target="_blank" href="http://dalibo.github.io/pitrery/">http://dalibo.github.io/pitrery/</a></li>
+</ul></div>
+        
+    <div class="post-content"><h2>Offres d'emplois autour de PostgreSQL en d&eacute;cembre</h2>
+<ul>
+<li>Internationales : <a target="_blank" href="http://archives.postgresql.org/pgsql-jobs/2019-12/">http://archives.postgresql.org/pgsql-jobs/2019-12/</a></li>
+<li>Francophones : <a target="_blank" href="http://forums.postgresql.fr/viewforum.php?id=4">http://forums.postgresql.fr/viewforum.php?id=4</a></li>
+</ul>
+<h2>PostgreSQL Local</h2>
+<ul>
+<li>Le PGDay SF aura lieu au <em>Swedish American Hall</em> de San Francisco le 21 janvier 2020&nbsp;: <a target="_blank" href="https://2020.pgdaysf.org/">https://2020.pgdaysf.org/</a></li>
+<li>Le pgDay isra&eacute;lien 2020 aura lieu le 19 mars 2020 &agrave; Tel Aviv. L'appel &agrave; conf&eacute;renciers court jusqu'au 15 janvier 2020&nbsp;: <a target="_blank" href="http://pgday.org.il/">http://pgday.org.il/</a></li>
+<li>Le <em>pgDay Paris 2020</em> se tiendra &agrave; Paris le 26 mars 2020 &agrave; l'espace St Martin. L'appel &agrave; conf&eacute;renciers court jusqu'au 31 d&eacute;cembre 2019 minuit, heure fran&ccedil;aise&nbsp;: <a target="_blank" href="https://2020.pgday.paris/callforpapers/">https://2020.pgday.paris/callforpapers/</a> <a target="_blank" href="https://2020.pgday.paris/">https://2020.pgday.paris/</a></li>
+<li>Le PGDay nordique 2020 se tiendra &agrave; Helsinki (Finlande) au Hilton Helsinki Strand Hotel le 24 mars 2020. L'appel &agrave; conf&eacute;renciers court jusqu'au 31 d&eacute;cembre 2019 &agrave; l'adresse&nbsp;: <a target="_blank" href="https://2020.nordicpgday.org/cfp/">https://2020.nordicpgday.org/cfp/</a></li>
+<li>La <em>PGConf India 2020</em> aura lieu du 26 au 28 f&eacute;vrier 2020 &agrave; Bengalore (&Eacute;tat du Karnataka en Inde)&nbsp;: <a target="_blank" href="http://pgconf.in/">http://pgconf.in/</a></li>
+<li>PostgreSQL@SCaLE est un &eacute;v&eacute;nement de 2 jours &agrave; double programmes qui aura lieu les 5 & 6 mars 2020 au centre de convention de Pasadena, int&eacute;gr&eacute; au SCaLE 18X&nbsp;: <a target="_blank" href="https://www.socallinuxexpo.org/scale/18x/postgresscale">https://www.socallinuxexpo.org/scale/18x/postgresscale</a></li>
+<li>La conf&eacute;rence germanophone <em>PostgreSQL Conference 2020</em> aura lieu le 15 mai 2020 &agrave; Stuttgart.</li>
+</ul>
+<h2>PostgreSQL dans les m&eacute;dia</h2>
+<ul>
+<li>Planet PostgreSQL : <a target="_blank" href="http://planet.postgresql.org/">http://planet.postgresql.org/</a></li>
+<li>Planet PostgreSQLFr : <a target="_blank" href="http://planete.postgresql.fr/">http://planete.postgresql.fr/</a></li>
+</ul>
+<p>PostgreSQL Weekly News / les nouvelles hebdomadaires vous sont offertes cette semaine par David Fetter. Traduction par l'&eacute;quipe PostgreSQLFr sous licence CC BY-NC-SA. La version originale se trouve &agrave; l'adresse suivante : <a target="_blank" href="http://www.postgresql.org/message-id/20191215214920.GA20131@fetter.org">http://www.postgresql.org/message-id/20191215214920.GA20131@fetter.org</a></p>
+<p>Proposez vos articles ou annonces avant dimanche 15:00 (heure du Pacifique) &agrave; david (a) fetter.org.</p></div>
+
+      </div>
+
+  
+
+    
+  
+    
+    
+    </div>
+</div> <!-- End #main -->
+
+</div> <!-- End #wrapper -->
+
+<div id="pgFooter">
+  <p>Propulsé par <a href="http://dotclear.org/">Dotclear</a></p>
+</div>
+
+</div> <!-- End #page -->
+</body>
+
+<!-- Mirrored from blog2.postgresql.fr/index.php?post/2019/12/17/Nouvelles-hebdomadaires-de-PostgreSQL-15-d%C3%A9cembre-2019 by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 May 2020 21:40:17 GMT -->
+</html>

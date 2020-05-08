@@ -1,0 +1,203 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr">
+
+<!-- Mirrored from blog2.postgresql.fr/index.php?post/2016/05/13/PostgreSQL-9.6-Beta-est-sortie-%21-Testez-le-parall%C3%A8lisme by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 May 2020 21:40:18 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="MSSmartTagsPreventParsing" content="TRUE" />
+  <meta name="ROBOTS" content="INDEX, FOLLOW" />
+  
+  <title>PostgreSQL 9.6 Beta est sortie ! Testez le parallèlisme - PostgreSQLfr.org</title>
+  <meta name="description" lang="fr" content="Le PostgreSQL Global Development Group (PGDG) vient d'annoncer la sortie de la première version bêta de PostgreSQL 9.6. Cette version donne un aperçu de toutes les fonctionnalités" />
+  <meta name="copyright" content="" />
+  <meta name="author" content="daamien" />
+  <meta name="date" scheme="ISO8601" content="2016-05-13T15:41:00+01:00" />
+  
+  <link rel="schema.dc" href="http://purl.org/dc/elements/1.1/" />
+  <meta name="dc.title" content="PostgreSQL 9.6 Beta est sortie ! Testez le parallèlisme" />
+  <meta name="dc.description" lang="fr" content="Le PostgreSQL Global Development Group (PGDG) vient d'annoncer la sortie de la première version bêta de PostgreSQL 9.6. Cette version donne un aperçu de toutes les fonctionnalités" />
+  <meta name="dc.creator" content="daamien" />
+  <meta name="dc.language" content="fr" />
+  <meta name="dc.publisher" content="" />
+  <meta name="dc.rights" content="" />
+  <meta name="dc.date" scheme="ISO8601" content="2016-05-13T15:41:00+01:00" />
+  <meta name="dc.type" content="text" />
+  <meta name="dc.format" content="text/html" />
+  
+  <link rel="top" href="indexd41d.html?" title="Accueil" />
+  <link rel="contents" href="index888d.html?archive" title="Archives" />
+  
+  <link rel="next" href="index8f0e.html?post/2016/06/28/Nouvelles-hebdomadaires-de-PostgreSQL-26-juin-2016"
+  title="Nouvelles hebdomadaires de PostgreSQL - 26 juin 2016" />
+  
+  <link rel="previous" href="indexe8a9.html?post/2016/05/13/Sortie-de-PostgreSQL-9.5.3%2C-9.4.8%2C-9.3.13%2C-9.2.17-et-9.1.22"
+  title="Sortie de PostgreSQL 9.5.3, 9.4.8, 9.3.13, 9.2.17 et 9.1.22" />
+  
+  <link rel="alternate" type="application/atom+xml" title="Atom 1.0" href="index4ca3.php?feed/atom" />
+  
+  <style type="text/css" media="screen">
+@import url(themes/postgresql/style.css);
+</style>
+<style type="text/css" media="print">
+@import url(themes/default/print.css);
+</style>
+
+<script type="text/javascript" src="themes/default/js/jquery.js"></script>
+<script type="text/javascript" src="themes/default/js/jquery.cookie.js"></script>
+
+  
+  <script type="text/javascript" src="themes/default/js/post.js"></script>
+  <script type="text/javascript">
+  //<![CDATA[
+  var post_remember_str = 'Se souvenir de moi sur ce blog';
+  //]]>
+  </script>
+</head>
+
+<body class="dc-post">
+<div id="page">
+
+
+<div id="top">
+  <div id="pgHeader">
+    <span id="pgHeaderLogoLeft">
+      <a href="index.html" title="PostgreSQL"><img src="https://blog.postgresql.fr/themes/postgresql/img/hdr_left.png" width="230" height="80" alt="PostgreSQL" /></a>
+    </span>
+    <span id="pgHeaderLogoRight">
+      <a href="index.html" title="La base de donnees la plus sophistiquee au monde."><img src="https://blog.postgresql.fr/themes/postgresql/img/hdr_right.png" width="210" height="80" alt="La base de donnees la plus sophistiquee au monde." /></a>
+    </span>
+  </div>
+
+  </div>
+
+<div class="pgTopNav">
+  <div class="pgTopNavLeft"> 
+    <img src="https://blog.postgresql.fr/themes/postgresql/img/nav_lft.png" width="7" height="23" alt="" />
+  </div>
+  <div class="pgTopNavRight">
+    <img src="https://blog.postgresql.fr/themes/postgresql/img/nav_rgt.png" width="7" height="23" alt="" />
+  </div>
+  <ul class="pgTopNavList">
+    <li><a href="https://www.postgresql.fr/" title="Accueil">Accueil</a></li>
+    <li><a href="https://blog.postgresql.fr/" title="Lire les actualités">Actualités</a></li>
+    <li><a href="https://docs.postgresql.fr/" title="Lire la documentation officielle">Documentation</a></li>
+    <li><a href="https://forums.postgresql.fr/" title="Pour poser des questions">Forums</a></li>
+    <li><a href="https://www.postgresql.fr/asso/" title="La vie de l'association">Association</a></li>
+    <li><a href="https://www.postgresql.fr/devel:accueil" title="Informations pour les développeurs/traducteurs">Développeurs</a></li>
+    <li><a href="https://planete.postgresql.fr/" title="La planète francophone sur PostgreSQL">Planète</a></li>
+    <li><a href="https://www.postgresql.fr/support/" title="Support sur PostgreSQL">Support</a></li>
+  </ul>
+</div>
+
+<div id="wrapper">
+
+<div id="pgContent">
+
+  <div id="pgSideWrap">
+  <div id="pgSideNav">
+    <div id="blognav">
+      <div id="search"><h2><label for="q">Rechercher</label></h2><form action="http://blog2.postgresql.fr/index.php?" method="get"><fieldset><p><input type="text" size="10" maxlength="255" id="q" name="q" value="" /> <input class="submit" type="submit" value="ok" /></p></fieldset></form></div><div class="categories"><h2>Catégories</h2><ul><li><a href="index199b.html?category/Articles">Articles</a></li><li class="category-current"><a href="indexb4c6.html?category/Dans-les-bacs">Dans les bacs</a></li><li><a href="index025a.html?category/Evenements">Événements</a></li><li><a href="index8c6d.html?category/PostgreSQL-Weekly-News">PostgreSQL Weekly News</a></li><li><a href="index1835.html?category/Securite">Sécurité</a></li><li><a href="index2251.html?category/Vie-de-l-association">Vie de l'association</a></li><li><a href="index91de.html?category/Vie-du-site">Vie du site</a></li></ul></div><div class="text"><h2>Licence</h2>Tous les articles de ce blog sont disponibles sous la <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/">license Creative Commons BY-NC-SA 3.0</a>.</div>    </div> <!-- End #blognav -->
+  
+    <div id="blogextra">
+      <div class="syndicate"><h2>S'abonner</h2><ul><li><a type="application/atom+xml" href="index4ca3.php?feed/atom" title="Fil Atom des billets de ce blog" class="feed">Fil des billets</a></li></ul></div>    </div> <!-- End #blogextra -->
+  </div>
+  </div>
+
+  <div id="pgContentWrap">
+  <div id="pgDownloadsWrap">
+  <div id="content">
+
+  <p id="navlinks">
+  <a href="indexe8a9.html?post/2016/05/13/Sortie-de-PostgreSQL-9.5.3%2C-9.4.8%2C-9.3.13%2C-9.2.17-et-9.1.22"
+  title="Sortie de PostgreSQL 9.5.3, 9.4.8, 9.3.13, 9.2.17 et 9.1.22" class="prev">&#171; Sortie de PostgreSQL 9.5.3, 9.4.8, 9.3.13, 9.2.17</a>
+   <span>-</span> <a href="index8f0e.html?post/2016/06/28/Nouvelles-hebdomadaires-de-PostgreSQL-26-juin-2016"
+  title="Nouvelles hebdomadaires de PostgreSQL - 26 juin 2016" class="next">Nouvelles hebdomadaires de PostgreSQL - 26 juin &#187;</a>
+  </p>
+  
+  <div class="post">
+    <h2 id="p906" class="post-title">PostgreSQL 9.6 Beta est sortie ! Testez le parallèlisme</h2>
+    
+    <p class="post-info">Par daamien    le vendredi 13 mai 2016, 15:41        - <a href="indexb4c6.html?category/Dans-les-bacs">Dans les bacs</a>
+        - <a href="indexdb2e.html?post/2016/05/13/PostgreSQL-9.6-Beta-est-sortie-%21-Testez-le-parall%C3%A8lisme">Lien permanent</a>
+    </p>
+    
+    
+    
+        
+    <div class="post-content"><p>Le PostgreSQL Global Development Group (PGDG) vient d'annoncer la sortie de la première version bêta de PostgreSQL 9.6. Cette version donne un aperçu de toutes les fonctionnalités qui seront présentes dans la version finale, même si certains détails peuvent encore changer. Le projet PostgreSQL encourage tous les utilisateurs à tester leurs applications sur cette version.</p>
+
+
+<h2>Fonctionnalités principales de la 9.6</h2>
+
+
+<p>La version 9.6 contient des changements importants et des améliorations prometteuses, notamment&nbsp;:</p>
+
+<ul>
+<li>Le parallélisme&nbsp;: les parcours séquentiels, les jointures et les agrégats peuvent désormais être exécutés en parallèle</li>
+<li>La cohérence des lectures entre plusieurs noeuds Hot Standby synchrones</li>
+<li>la recherche plein-texte de phrases&nbsp;;</li>
+<li>Le connecteur postgres_fdw peut exécuter les tris, jointures, UPDATEs, DELETEs sur les serveurs distants&nbsp;;</li>
+<li>La réduction de l'impact des autovacuum sur les grandes tables en évitant de "refreezer" les données anciennes.</li>
+</ul>
+
+<p>Parmi ces nouveautés, le parallèlisme devrait apporter un gain de performance important pour certaines requêtes.</p>
+
+
+<h2>La chasse aux bugs est ouvertes</h2>
+
+
+<p>Comme pour toutes les versions majeures, les améliorations de PostgreSQL impliquent des modifications sur de très grandes parties du code. La communauté PostgreSQL compte sur vous pour tester cette version dans votre contexte et signaler les bugs et les régressions avant la sortie de la version 9.6.0. Au-delà des nouvelles fonctionnalités, vous pouvez également tester si&nbsp;:</p>
+
+<ul>
+<li>les requêtes parallèles améliorent les performances pour vous&nbsp;?</li>
+<li>les requêtes parallèles crashent ou provoquent des pertes de données&nbsp;?</li>
+<li>PostgreSQL fonctionne correctement sur vos plateformes&nbsp;?</li>
+<li>l'amélioration du vacuum freeze réduit l'autovacuum des tables volumineuses&nbsp;?</li>
+<li>la recherche plein texte sur des phrases retourne les résultats attendus&nbsp;?</li>
+</ul>
+
+<p>La version 9.6 beta 1 modifie également l'API des backups binaires. Les DBA sont invités à tester la version 9.6 avec les outils de sauvegarde tels que pgBackRest, Barman, WAL-E ou tout autre outil interne ou packagé.</p>
+
+
+<p>Il s'agit d'une beta et donc des modifications mineures sont possibles au niveau du comportement, des fonctionnalités et des APIs. Votre feedback et vos tests aideront à finaliser les nouveautés, alors attaquez les tests le plus rapidement possible&nbsp;! La qualité des tests utilisateurs  a un impact important sur la date de sortie de la version finale.</p>
+
+
+<h3>Calendrier</h3>
+
+
+<p>Ceci est la première version beta de la version 9.6. Le projet PostgreSQL sortira des versions beta supplémentaires aussi souvent que nécessaires, suivies de version candidates et enfin la version finale prévue pour fin 2016. Pour plus d'information, rendez-vous sur cette page&nbsp;: <a href="http://www.postgresql.org/developer/beta/">http://www.postgresql.org/developer/beta/</a></p>
+
+
+<h2>Liens</h2>
+
+<ul>
+<li>Annonce officielle&nbsp;: <a href="http://www.postgresql.org/about/news/1668/">http://www.postgresql.org/about/news/1668/</a></li>
+<li>Nouveautés de PostgreSQL 9.6&nbsp;: <a href="https://wiki.postgresql.org/wiki/NewIn96"></a></li>
+<li>Travaux en cour ssure la 9.6&nbsp;: <a href="https://wiki.postgresql.org/wiki/PostgreSQL_9.6_Open_Items">https://wiki.postgresql.org/wiki/PostgreSQL_9.6_Open_Items</a></li>
+<li>Page de téléchargement&nbsp;: <a href="http://www.postgresql.org/download/"></a></li>
+</ul></div>
+
+      </div>
+
+  
+
+    
+  
+    
+    
+    </div>
+</div> <!-- End #main -->
+
+</div> <!-- End #wrapper -->
+
+<div id="pgFooter">
+  <p>Propulsé par <a href="http://dotclear.org/">Dotclear</a></p>
+</div>
+
+</div> <!-- End #page -->
+</body>
+
+<!-- Mirrored from blog2.postgresql.fr/index.php?post/2016/05/13/PostgreSQL-9.6-Beta-est-sortie-%21-Testez-le-parall%C3%A8lisme by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 May 2020 21:40:18 GMT -->
+</html>

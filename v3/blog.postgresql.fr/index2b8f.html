@@ -1,0 +1,189 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr">
+
+<!-- Mirrored from blog2.postgresql.fr/index.php?post/2011/08/24/Sortie-de-PostgreSQL-9.1-RC-1 by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 May 2020 21:40:20 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="MSSmartTagsPreventParsing" content="TRUE" />
+  <meta name="ROBOTS" content="INDEX, FOLLOW" />
+  
+  <title>Sortie de PostgreSQL 9.1 RC 1 - PostgreSQLfr.org</title>
+  <meta name="description" lang="fr" content="La première version candidate (RC1) de PostgreSQL 9.1 est disponible. Cette version contient des correctifs pour tous les bugs remontés sur les différentes bêtas de la version" />
+  <meta name="copyright" content="" />
+  <meta name="author" content="daamien" />
+  <meta name="date" scheme="ISO8601" content="2011-08-24T10:17:00+01:00" />
+  
+  <link rel="schema.dc" href="http://purl.org/dc/elements/1.1/" />
+  <meta name="dc.title" content="Sortie de PostgreSQL 9.1 RC 1" />
+  <meta name="dc.description" lang="fr" content="La première version candidate (RC1) de PostgreSQL 9.1 est disponible. Cette version contient des correctifs pour tous les bugs remontés sur les différentes bêtas de la version" />
+  <meta name="dc.creator" content="daamien" />
+  <meta name="dc.language" content="fr" />
+  <meta name="dc.publisher" content="" />
+  <meta name="dc.rights" content="" />
+  <meta name="dc.date" scheme="ISO8601" content="2011-08-24T10:17:00+01:00" />
+  <meta name="dc.type" content="text" />
+  <meta name="dc.format" content="text/html" />
+  
+  <link rel="top" href="indexd41d.html?" title="Accueil" />
+  <link rel="contents" href="index888d.html?archive" title="Archives" />
+  
+  <link rel="next" href="indexe69e.html?post/2011/08/31/Nouvelles-hebdomadaires-de-PostgreSQL-28-ao%C3%BBt-2011"
+  title="Nouvelles hebdomadaires de PostgreSQL - 28 août 2011" />
+  
+  <link rel="previous" href="indexbfa0.html?post/2011/07/27/Pr%C3%A9sentation-de-la-version-9.1-de-PostgreSQL2"
+  title="Présentation de la version 9.1 de PostgreSQL" />
+  
+  <link rel="alternate" type="application/atom+xml" title="Atom 1.0" href="index4ca3.php?feed/atom" />
+  
+  <style type="text/css" media="screen">
+@import url(themes/postgresql/style.css);
+</style>
+<style type="text/css" media="print">
+@import url(themes/default/print.css);
+</style>
+
+<script type="text/javascript" src="themes/default/js/jquery.js"></script>
+<script type="text/javascript" src="themes/default/js/jquery.cookie.js"></script>
+
+  
+  <script type="text/javascript" src="themes/default/js/post.js"></script>
+  <script type="text/javascript">
+  //<![CDATA[
+  var post_remember_str = 'Se souvenir de moi sur ce blog';
+  //]]>
+  </script>
+</head>
+
+<body class="dc-post">
+<div id="page">
+
+
+<div id="top">
+  <div id="pgHeader">
+    <span id="pgHeaderLogoLeft">
+      <a href="index.html" title="PostgreSQL"><img src="https://blog.postgresql.fr/themes/postgresql/img/hdr_left.png" width="230" height="80" alt="PostgreSQL" /></a>
+    </span>
+    <span id="pgHeaderLogoRight">
+      <a href="index.html" title="La base de donnees la plus sophistiquee au monde."><img src="https://blog.postgresql.fr/themes/postgresql/img/hdr_right.png" width="210" height="80" alt="La base de donnees la plus sophistiquee au monde." /></a>
+    </span>
+  </div>
+
+  </div>
+
+<div class="pgTopNav">
+  <div class="pgTopNavLeft"> 
+    <img src="https://blog.postgresql.fr/themes/postgresql/img/nav_lft.png" width="7" height="23" alt="" />
+  </div>
+  <div class="pgTopNavRight">
+    <img src="https://blog.postgresql.fr/themes/postgresql/img/nav_rgt.png" width="7" height="23" alt="" />
+  </div>
+  <ul class="pgTopNavList">
+    <li><a href="https://www.postgresql.fr/" title="Accueil">Accueil</a></li>
+    <li><a href="https://blog.postgresql.fr/" title="Lire les actualités">Actualités</a></li>
+    <li><a href="https://docs.postgresql.fr/" title="Lire la documentation officielle">Documentation</a></li>
+    <li><a href="https://forums.postgresql.fr/" title="Pour poser des questions">Forums</a></li>
+    <li><a href="https://www.postgresql.fr/asso/" title="La vie de l'association">Association</a></li>
+    <li><a href="https://www.postgresql.fr/devel:accueil" title="Informations pour les développeurs/traducteurs">Développeurs</a></li>
+    <li><a href="https://planete.postgresql.fr/" title="La planète francophone sur PostgreSQL">Planète</a></li>
+    <li><a href="https://www.postgresql.fr/support/" title="Support sur PostgreSQL">Support</a></li>
+  </ul>
+</div>
+
+<div id="wrapper">
+
+<div id="pgContent">
+
+  <div id="pgSideWrap">
+  <div id="pgSideNav">
+    <div id="blognav">
+      <div id="search"><h2><label for="q">Rechercher</label></h2><form action="http://blog2.postgresql.fr/index.php?" method="get"><fieldset><p><input type="text" size="10" maxlength="255" id="q" name="q" value="" /> <input class="submit" type="submit" value="ok" /></p></fieldset></form></div><div class="categories"><h2>Catégories</h2><ul><li><a href="index199b.html?category/Articles">Articles</a></li><li class="category-current"><a href="indexb4c6.html?category/Dans-les-bacs">Dans les bacs</a></li><li><a href="index025a.html?category/Evenements">Événements</a></li><li><a href="index8c6d.html?category/PostgreSQL-Weekly-News">PostgreSQL Weekly News</a></li><li><a href="index1835.html?category/Securite">Sécurité</a></li><li><a href="index2251.html?category/Vie-de-l-association">Vie de l'association</a></li><li><a href="index91de.html?category/Vie-du-site">Vie du site</a></li></ul></div><div class="text"><h2>Licence</h2>Tous les articles de ce blog sont disponibles sous la <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/">license Creative Commons BY-NC-SA 3.0</a>.</div>    </div> <!-- End #blognav -->
+  
+    <div id="blogextra">
+      <div class="syndicate"><h2>S'abonner</h2><ul><li><a type="application/atom+xml" href="index4ca3.php?feed/atom" title="Fil Atom des billets de ce blog" class="feed">Fil des billets</a></li></ul></div>    </div> <!-- End #blogextra -->
+  </div>
+  </div>
+
+  <div id="pgContentWrap">
+  <div id="pgDownloadsWrap">
+  <div id="content">
+
+  <p id="navlinks">
+  <a href="indexbfa0.html?post/2011/07/27/Pr%C3%A9sentation-de-la-version-9.1-de-PostgreSQL2"
+  title="Présentation de la version 9.1 de PostgreSQL" class="prev">&#171; Présentation de la version 9.1 de PostgreSQL</a>
+   <span>-</span> <a href="indexe69e.html?post/2011/08/31/Nouvelles-hebdomadaires-de-PostgreSQL-28-ao%C3%BBt-2011"
+  title="Nouvelles hebdomadaires de PostgreSQL - 28 août 2011" class="next">Nouvelles hebdomadaires de PostgreSQL - 28 août &#187;</a>
+  </p>
+  
+  <div class="post">
+    <h2 id="p627" class="post-title">Sortie de PostgreSQL 9.1 RC 1</h2>
+    
+    <p class="post-info">Par daamien    le mercredi 24 août 2011, 10:17        - <a href="indexb4c6.html?category/Dans-les-bacs">Dans les bacs</a>
+        - <a href="index2b8f.html?post/2011/08/24/Sortie-de-PostgreSQL-9.1-RC-1">Lien permanent</a>
+    </p>
+    
+    
+    
+        
+    <div class="post-content"><p>La première version candidate (RC1) de PostgreSQL 9.1 est disponible. Cette version contient des correctifs pour tous les bugs remontés sur les
+différentes bêtas de la version 9.1. Afin d'éviter tout bug sur la version de production, il est essentiel que les utilisateurs testent cette version et vérifie que toutes les erreurs sont effectivement corrigés.</p>
+
+
+<p>De nombreux utilisateurs ont déjà aidé en testant la bêta 3 et en remontant les problèmes rencontrés.</p>
+
+
+<p>Parmi les problèmes corrigés, citons&nbsp;:</p>
+<ul>
+<li>l'échec de pg_upgrade avec les tables temporaires orphelines&nbsp;;</li>
+<li>l'erreur de pg_restore avec standard_conforming_strings&nbsp;;</li>
+<li>les soucis rencontrés avec SSI et le two-phase commit.</li>
+</ul>
+
+<p>Merci à tous les utilisateurs qui ont rapporté les bugs et contribué à leurs résolutions.</p>
+
+
+<p>Si vous avez testé les fonctionnalités de la version 9.1 précédemment et
+remonté des erreurs sur la bêta 3 ou les alphas précédentes, téléchargez la version RC1
+et vérifiez que les problèmes sont désormais résolus.
+Il est possible que la sortie de la version 9.1.0 soit précédée par la publication d'autres versions candidates.</p>
+
+
+<p>la RC1 de PostgreSQL 9.1 est publié sous deux formes&nbsp;: le code source et les installateurs (ou paquets binaires) pour Windows, Mac OSX et Linux.</p>
+
+
+<p>Quelque liens&nbsp;:</p>
+
+<ul>
+<li>Site officiel de PostgreSQL&nbsp;: <a href="http://www.postgresql.org/" title="http://www.postgresql.org">http://www.postgresql.org</a></li>
+<li>Téléchargement&nbsp;: <a href="http://www.postgresql.org/download/" title="http://www.postgresql.org/download/">http://www.postgresql.org/download/</a></li>
+<li>Infos sur les tests de versions bêta&nbsp;: <a href="http://www.postgresql.org/developer/beta" title="http://www.postgresql.org/developer/beta">http://www.postgresql.org/developer...</a></li>
+<li>Note de version de PostgreSQL 9.1&nbsp;: <a href="http://www.postgresql.org/docs/9.1/static/release-9-1.html" title="http://www.postgresql.org/docs/9.1/static/release-9-1.html">http://www.postgresql.org/docs/9.1/...</a></li>
+<li>Documentation de PostgreSQL 9.1&nbsp;: <a href="http://www.postgresql.org/docs/9.1/static/index.html" title="http://www.postgresql.org/docs/9.1/static/index.html">http://www.postgresql.org/docs/9.1/...</a></li>
+</ul>
+
+<p>PS&nbsp;: Ceci est une adaptation libre de l'annonce officielle. La version
+originale de ce texte est disponible ici&nbsp;: <a href="http://www.postgresql.org/about/news.1341" title="http://www.postgresql.org/about/news.1341">http://www.postgresql.org/about/new...</a></p></div>
+
+      </div>
+
+  
+
+    
+  
+    
+    
+    </div>
+</div> <!-- End #main -->
+
+</div> <!-- End #wrapper -->
+
+<div id="pgFooter">
+  <p>Propulsé par <a href="http://dotclear.org/">Dotclear</a></p>
+</div>
+
+</div> <!-- End #page -->
+</body>
+
+<!-- Mirrored from blog2.postgresql.fr/index.php?post/2011/08/24/Sortie-de-PostgreSQL-9.1-RC-1 by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 May 2020 21:40:20 GMT -->
+</html>

@@ -1,0 +1,263 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr">
+
+<!-- Mirrored from blog2.postgresql.fr/index.php?post/2015/10/08/Nouvelles-versions-mineures-au-8-octobre-2015 by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 May 2020 21:40:19 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="MSSmartTagsPreventParsing" content="TRUE" />
+  <meta name="ROBOTS" content="INDEX, FOLLOW" />
+  
+  <title>Nouvelles versions mineures au 8 octobre 2015 - PostgreSQLfr.org</title>
+  <meta name="description" lang="fr" content="Le PostgreSQL Global Development Group a publié une mise à jour de toutes les versions maintenues du système de gestion de bases de données. Cette mise à jour inclut les versions" />
+  <meta name="copyright" content="" />
+  <meta name="author" content="SAS" />
+  <meta name="date" scheme="ISO8601" content="2015-10-08T17:15:00+02:00" />
+  
+  <link rel="schema.dc" href="http://purl.org/dc/elements/1.1/" />
+  <meta name="dc.title" content="Nouvelles versions mineures au 8 octobre 2015" />
+  <meta name="dc.description" lang="fr" content="Le PostgreSQL Global Development Group a publié une mise à jour de toutes les versions maintenues du système de gestion de bases de données. Cette mise à jour inclut les versions" />
+  <meta name="dc.creator" content="SAS" />
+  <meta name="dc.language" content="fr" />
+  <meta name="dc.publisher" content="" />
+  <meta name="dc.rights" content="" />
+  <meta name="dc.date" scheme="ISO8601" content="2015-10-08T17:15:00+02:00" />
+  <meta name="dc.type" content="text" />
+  <meta name="dc.format" content="text/html" />
+  
+  <link rel="top" href="indexd41d.html?" title="Accueil" />
+  <link rel="contents" href="index888d.html?archive" title="Archives" />
+  
+  <link rel="next" href="index31c5.html?post/2015/10/08/PostgreSQL-9.5-Beta-1"
+  title="Publication de PostgreSQL 9.5 Beta 1" />
+  
+  <link rel="previous" href="index4c8d.html?post/2015/09/28/Nouvelles-hebdomadaires-de-PostgreSQL-27-septembre-2015"
+  title="Nouvelles hebdomadaires de PostgreSQL - 27 septembre 2015" />
+  
+  <link rel="alternate" type="application/atom+xml" title="Atom 1.0" href="index4ca3.php?feed/atom" />
+  
+  <style type="text/css" media="screen">
+@import url(themes/postgresql/style.css);
+</style>
+<style type="text/css" media="print">
+@import url(themes/default/print.css);
+</style>
+
+<script type="text/javascript" src="themes/default/js/jquery.js"></script>
+<script type="text/javascript" src="themes/default/js/jquery.cookie.js"></script>
+
+  
+  <script type="text/javascript" src="themes/default/js/post.js"></script>
+  <script type="text/javascript">
+  //<![CDATA[
+  var post_remember_str = 'Se souvenir de moi sur ce blog';
+  //]]>
+  </script>
+</head>
+
+<body class="dc-post">
+<div id="page">
+
+
+<div id="top">
+  <div id="pgHeader">
+    <span id="pgHeaderLogoLeft">
+      <a href="index.html" title="PostgreSQL"><img src="https://blog.postgresql.fr/themes/postgresql/img/hdr_left.png" width="230" height="80" alt="PostgreSQL" /></a>
+    </span>
+    <span id="pgHeaderLogoRight">
+      <a href="index.html" title="La base de donnees la plus sophistiquee au monde."><img src="https://blog.postgresql.fr/themes/postgresql/img/hdr_right.png" width="210" height="80" alt="La base de donnees la plus sophistiquee au monde." /></a>
+    </span>
+  </div>
+
+  </div>
+
+<div class="pgTopNav">
+  <div class="pgTopNavLeft"> 
+    <img src="https://blog.postgresql.fr/themes/postgresql/img/nav_lft.png" width="7" height="23" alt="" />
+  </div>
+  <div class="pgTopNavRight">
+    <img src="https://blog.postgresql.fr/themes/postgresql/img/nav_rgt.png" width="7" height="23" alt="" />
+  </div>
+  <ul class="pgTopNavList">
+    <li><a href="https://www.postgresql.fr/" title="Accueil">Accueil</a></li>
+    <li><a href="https://blog.postgresql.fr/" title="Lire les actualités">Actualités</a></li>
+    <li><a href="https://docs.postgresql.fr/" title="Lire la documentation officielle">Documentation</a></li>
+    <li><a href="https://forums.postgresql.fr/" title="Pour poser des questions">Forums</a></li>
+    <li><a href="https://www.postgresql.fr/asso/" title="La vie de l'association">Association</a></li>
+    <li><a href="https://www.postgresql.fr/devel:accueil" title="Informations pour les développeurs/traducteurs">Développeurs</a></li>
+    <li><a href="https://planete.postgresql.fr/" title="La planète francophone sur PostgreSQL">Planète</a></li>
+    <li><a href="https://www.postgresql.fr/support/" title="Support sur PostgreSQL">Support</a></li>
+  </ul>
+</div>
+
+<div id="wrapper">
+
+<div id="pgContent">
+
+  <div id="pgSideWrap">
+  <div id="pgSideNav">
+    <div id="blognav">
+      <div id="search"><h2><label for="q">Rechercher</label></h2><form action="http://blog2.postgresql.fr/index.php?" method="get"><fieldset><p><input type="text" size="10" maxlength="255" id="q" name="q" value="" /> <input class="submit" type="submit" value="ok" /></p></fieldset></form></div><div class="categories"><h2>Catégories</h2><ul><li><a href="index199b.html?category/Articles">Articles</a></li><li class="category-current"><a href="indexb4c6.html?category/Dans-les-bacs">Dans les bacs</a></li><li><a href="index025a.html?category/Evenements">Événements</a></li><li><a href="index8c6d.html?category/PostgreSQL-Weekly-News">PostgreSQL Weekly News</a></li><li><a href="index1835.html?category/Securite">Sécurité</a></li><li><a href="index2251.html?category/Vie-de-l-association">Vie de l'association</a></li><li><a href="index91de.html?category/Vie-du-site">Vie du site</a></li></ul></div><div class="text"><h2>Licence</h2>Tous les articles de ce blog sont disponibles sous la <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/">license Creative Commons BY-NC-SA 3.0</a>.</div>    </div> <!-- End #blognav -->
+  
+    <div id="blogextra">
+      <div class="syndicate"><h2>S'abonner</h2><ul><li><a type="application/atom+xml" href="index4ca3.php?feed/atom" title="Fil Atom des billets de ce blog" class="feed">Fil des billets</a></li></ul></div>    </div> <!-- End #blogextra -->
+  </div>
+  </div>
+
+  <div id="pgContentWrap">
+  <div id="pgDownloadsWrap">
+  <div id="content">
+
+  <p id="navlinks">
+  <a href="index4c8d.html?post/2015/09/28/Nouvelles-hebdomadaires-de-PostgreSQL-27-septembre-2015"
+  title="Nouvelles hebdomadaires de PostgreSQL - 27 septembre 2015" class="prev">&#171; Nouvelles hebdomadaires de PostgreSQL - 27</a>
+   <span>-</span> <a href="index31c5.html?post/2015/10/08/PostgreSQL-9.5-Beta-1"
+  title="Publication de PostgreSQL 9.5 Beta 1" class="next">Publication de PostgreSQL 9.5 Beta 1 &#187;</a>
+  </p>
+  
+  <div class="post">
+    <h2 id="p871" class="post-title">Nouvelles versions mineures au 8 octobre 2015</h2>
+    
+    <p class="post-info">Par SAS    le jeudi  8 octobre 2015, 17:15        - <a href="indexb4c6.html?category/Dans-les-bacs">Dans les bacs</a>
+        - <a href="index846d.html?post/2015/10/08/Nouvelles-versions-mineures-au-8-octobre-2015">Lien permanent</a>
+    </p>
+    
+    
+    
+          <div class="post-excerpt"><p>Le PostgreSQL Global Development Group a publié une mise à jour de
+toutes les versions maintenues du système de gestion de bases de
+données.<br />
+Cette mise à jour inclut les versions 9.4.5, 9.3.10, 9.2.14, 9.1.19 et 9.0.23. <br />
+Elle corrige deux failles de sécurité, et les bogues découverts au cours des 4 derniers mois.<br />
+Les utilisateurs vulnérables aux failles de sécurité doivent procéder à la mise à jour le plus vite possible.<br />
+Les autres peuvent utiliser la prochaine fenêtre de maintenance programmée pour procéder à la mise à jour.<br />
+<br />
+Il s'agit également de la dernière version corrective pour la branche 9.0.
+</p></div>
+        
+    <div class="post-content"><h2>2015-10-08 Correctif de sécurité</h2>
+Le PostgreSQL Global Development Group a publié une mise à jour de toutes les versions maintenues du système de gestion de bases de données.<br />
+Cette mise à jour inclut les versions 9.4.5, 9.3.10, 9.2.14, 9.1.19 et 9.0.23. <br />
+Elle corrige deux failles de sécurité, et les bogues découverts au cours des 4 derniers mois.<br />
+Les utilisateurs vulnérables aux failles de sécurité doivent procéder à la mise à jour le plus vite possible.<br />
+Les autres peuvent utiliser la prochaine fenêtre de maintenance programmée pour procéder à la mise à jour.<br />
+<br />
+Il s'agit également de la dernière version corrective pour la branche 9.0.
+<h2>Correctifs de sécurité</h2>
+Deux failles de sécurité ont été corrigées.<br />
+Elles concernent les utilisateurs des fonctionnalités suivantes :
+<strong>CVE-2015-5289</strong> : les valeurs json ou jsonb en entrée, construites à partir de saisies utilisateurs aléatoires, peuvent entraîner un crash de PostgreSQL et un déni de service.<br />
+<strong>CVE-2015-5288</strong> : La fonction crypt() incluse dans le paquet d'extension optionnel pgCrypto peut être exploitée pour lire quelques octets supplémentaires de mémoire. Aucun exploit fonctionnel n'a été développé pour cette faille.<br />
+Le projet PostgreSQL est redevable à Josh Kupershmidt et Oskari Saarenmaa pour la découverte de ces failles.<br />
+Cette mise à jour désactive également la renégociation SSL par défaut.<br />
+Auparavant, elle était activée par défaut.<br />
+La renégociation SSL sera complètement supprimée des versions de PostgreSQL postérieures à la 9.5.<br />
+<h2>Autres correctifs et améliorations</h2>
+En plus de ce qui précède, d'autres problèmes, remontés par les utilisateurs au cours des derniers mois, ont été corrigés.
+Citons :
+<ul>
+<li> Empêcher les expressions rationnelles imbriquées et comparaisons LIKE et SIMILAR de crasher le serveur ;
+</li>
+<li> De nombreux autres correctifs de gestion des expressions rationnnelles ;
+</li>
+<li> S'assurer que ALTER TABLE positionne tous les verrous pour les modifications de contraintes ;
+</li>
+<li> Nettoyer les sous-transactions pour éviter les crashs serveur en cas d'échec d'un curseur ;
+</li>
+<li> Éviter les deadlocks lors d'insertions dans les WAL lorsque commit_delay est défini ;
+</li>
+<li> Correction du verrouillage lors de l'actualisation de vues modifiables ;
+</li>
+<li> Éviter la corruption de l'« init file » du cache des relations ;
+</li>
+<li> Amélioration de la performance des résultats des requêtes SPI volumineuses ;
+</li>
+<li> Amélioration du temps de démarrage du LISTEN ;
+</li>
+<li> Désactivation de la renégociation SSL par défaut ;
+</li>
+<li> Diminution de la valeur minimale des paramètres *_freeze_max_age ;
+</li>
+<li> Limitation de la valeur maximale des wal_buffers à 2 Go ;
+</li>
+<li> Se prémunir des possibles dépassements de piles en différents endroits ;
+</li>
+<li> Correction de la gestion de DOW, DOY dans les dates saisies en entrée ;
+</li>
+<li> Permettre aux requêtes à expressions rationnelles d'être annulées plus rapidement ;
+</li>
+<li> Correction de bogues du planificateur ;
+</li>
+<li> Correction de plusieurs problèmes d'arrêt du postmaster ;
+</li>
+<li> Rendre l'autovacuum de prévention du wraparound plus robuste ;
+</li>
+<li> Correction de quelques problèmes mineurs sur les index GIN et SP-GiST ;
+</li>
+<li> Correction de différents problèmes sur PL/Python, PL/Perl et PL/Tcl ;
+</li>
+<li> Amélioration du ramasse-miettes de pg_stat_statements ;
+</li>
+<li> Amélioration de la gestion des collations dans pgsql_fdw ;
+</li>
+<li> Amélioration de la gestion par libpq des conditions de dépassement mémoire ;
+</li>
+<li> Éviter le crash de psql quand il n'y a pas de connexion établie ;
+</li>
+<li> Diverses corrections de pg_dump, dont les permissions sur les fichiers et objets ;
+</li>
+<li> Amélioration de la gestion des privilèges lors de sauvegardes de bases d'anciennes versions de PostgreSQL ;
+</li>
+<li> Corrections spécifiques aux plateformes Alpha, PPC, AIX et Solaris ;
+</li>
+<li> Correction de problèmes au démarrage sous Windows en locale Chinoise ;
+</li>
+<li> Correction du script Windows install.bat pour gérer les espaces dans les noms de fichiers ;
+</li>
+<li> Rendre disponible aux extensions le numéro de version de PostgreSQL au format numérique.
+</li>
+</ul>
+Cette version contient également la mise à jour 2015g de tzdata, avec les correctifs pour les Iles Caïmans, Fidji, La Moldavie, le Maroc, Norfolk Island, la Corée du Nord, La Turquie, l'Uruguay, et la nouvelle zone America/Fort_Nelson.
+<h2>Dernier correctif pour la version 9.0</h2>
+9.0.23 est la dernière mise à jour pour la branche 9.0. Comme prévu, cette branche arrive en fin de vie.<br />
+Les prochaines mises à jour de sécurité n'inclueront plus la version 9.0.<br />
+C'est pourquoi les utilisateurs de cette branche sont encouragés à passer à une version plus récente dès que possible.<br /><br />
+Pour plus d'informations sur la politique de support de la communauté et les échéances de fin de vie, on peut se référer à la page [Politique de versions](http://www.postgresql.org/support/versioning/).<br />
+<h2>Mise à jour</h2>
+Toutes les mises à jour de PostgreSQL sont cumulatives.<br />
+Comme pour les autres versions mineures, il n'est pas nécessaire d'extraire et recharger les bases ou d'utiliser pg_upgrade pour appliquer cette mise à jour. Il suffit d'arrêter PostgreSQL, et de mettre à jour les binaires.<br />
+Les utilisateurs qui auraient laissé passer plusieurs mises à jour auront éventuellement quelques étapes post-mise à jour à effectuer.<br />
+Pour les détails, on peut se référer aux notes de versions.<br />
+<h2>Liens</h2>
+<ul>
+<li> [Téléchargement](http://www.postgresql.org/download)
+</li>
+<li> [Notes de version](http://www.postgresql.org/docs/current/static/release.html)
+</li>
+<li> [Page de sécurité](http://www.postgresql.org/support/security/)
+</li>
+</ul></div>
+
+      </div>
+
+  
+
+    
+  
+    
+    
+    </div>
+</div> <!-- End #main -->
+
+</div> <!-- End #wrapper -->
+
+<div id="pgFooter">
+  <p>Propulsé par <a href="http://dotclear.org/">Dotclear</a></p>
+</div>
+
+</div> <!-- End #page -->
+</body>
+
+<!-- Mirrored from blog2.postgresql.fr/index.php?post/2015/10/08/Nouvelles-versions-mineures-au-8-octobre-2015 by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 May 2020 21:40:19 GMT -->
+</html>

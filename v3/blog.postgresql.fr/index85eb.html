@@ -1,0 +1,234 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr">
+
+<!-- Mirrored from blog2.postgresql.fr/index.php?post/drupal/53 by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 May 2020 21:40:20 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="MSSmartTagsPreventParsing" content="TRUE" />
+  <meta name="ROBOTS" content="INDEX, FOLLOW" />
+  
+  <title>Sortie de pgAdmin III 1.2.0 - PostgreSQLfr.org</title>
+  <meta name="description" lang="fr" content="Dans son mail du 1er décembre sur pg-announce Dave Page nous annonçait que : L'équipe de développement de pgAdmin est fière d'annoncer la sortie de pgAdminIII v1.2.0. Il s'agit" />
+  <meta name="copyright" content="" />
+  <meta name="author" content="jca" />
+  <meta name="date" scheme="ISO8601" content="2004-12-02T09:43:00+00:00" />
+  
+  <link rel="schema.dc" href="http://purl.org/dc/elements/1.1/" />
+  <meta name="dc.title" content="Sortie de pgAdmin III 1.2.0" />
+  <meta name="dc.description" lang="fr" content="Dans son mail du 1er décembre sur pg-announce Dave Page nous annonçait que : L'équipe de développement de pgAdmin est fière d'annoncer la sortie de pgAdminIII v1.2.0. Il s'agit" />
+  <meta name="dc.creator" content="jca" />
+  <meta name="dc.language" content="fr" />
+  <meta name="dc.publisher" content="" />
+  <meta name="dc.rights" content="" />
+  <meta name="dc.date" scheme="ISO8601" content="2004-12-02T09:43:00+00:00" />
+  <meta name="dc.type" content="text" />
+  <meta name="dc.format" content="text/html" />
+  
+  <link rel="top" href="indexd41d.html?" title="Accueil" />
+  <link rel="contents" href="index888d.html?archive" title="Archives" />
+  
+  <link rel="next" href="index3bff.html?post/drupal/383"
+  title="Sortie de PostgreSQL-8.0.0-RC1" />
+  
+  <link rel="previous" href="index019e.html?post/drupal/52"
+  title="== PostgreSQL Weekly News - 29 novembre 2004 ==" />
+  
+  <link rel="alternate" type="application/atom+xml" title="Atom 1.0" href="index4ca3.php?feed/atom" />
+  
+  <style type="text/css" media="screen">
+@import url(themes/postgresql/style.css);
+</style>
+<style type="text/css" media="print">
+@import url(themes/default/print.css);
+</style>
+
+<script type="text/javascript" src="themes/default/js/jquery.js"></script>
+<script type="text/javascript" src="themes/default/js/jquery.cookie.js"></script>
+
+  
+  <script type="text/javascript" src="themes/default/js/post.js"></script>
+  <script type="text/javascript">
+  //<![CDATA[
+  var post_remember_str = 'Se souvenir de moi sur ce blog';
+  //]]>
+  </script>
+</head>
+
+<body class="dc-post">
+<div id="page">
+
+
+<div id="top">
+  <div id="pgHeader">
+    <span id="pgHeaderLogoLeft">
+      <a href="index.html" title="PostgreSQL"><img src="https://blog.postgresql.fr/themes/postgresql/img/hdr_left.png" width="230" height="80" alt="PostgreSQL" /></a>
+    </span>
+    <span id="pgHeaderLogoRight">
+      <a href="index.html" title="La base de donnees la plus sophistiquee au monde."><img src="https://blog.postgresql.fr/themes/postgresql/img/hdr_right.png" width="210" height="80" alt="La base de donnees la plus sophistiquee au monde." /></a>
+    </span>
+  </div>
+
+  </div>
+
+<div class="pgTopNav">
+  <div class="pgTopNavLeft"> 
+    <img src="https://blog.postgresql.fr/themes/postgresql/img/nav_lft.png" width="7" height="23" alt="" />
+  </div>
+  <div class="pgTopNavRight">
+    <img src="https://blog.postgresql.fr/themes/postgresql/img/nav_rgt.png" width="7" height="23" alt="" />
+  </div>
+  <ul class="pgTopNavList">
+    <li><a href="https://www.postgresql.fr/" title="Accueil">Accueil</a></li>
+    <li><a href="https://blog.postgresql.fr/" title="Lire les actualités">Actualités</a></li>
+    <li><a href="https://docs.postgresql.fr/" title="Lire la documentation officielle">Documentation</a></li>
+    <li><a href="https://forums.postgresql.fr/" title="Pour poser des questions">Forums</a></li>
+    <li><a href="https://www.postgresql.fr/asso/" title="La vie de l'association">Association</a></li>
+    <li><a href="https://www.postgresql.fr/devel:accueil" title="Informations pour les développeurs/traducteurs">Développeurs</a></li>
+    <li><a href="https://planete.postgresql.fr/" title="La planète francophone sur PostgreSQL">Planète</a></li>
+    <li><a href="https://www.postgresql.fr/support/" title="Support sur PostgreSQL">Support</a></li>
+  </ul>
+</div>
+
+<div id="wrapper">
+
+<div id="pgContent">
+
+  <div id="pgSideWrap">
+  <div id="pgSideNav">
+    <div id="blognav">
+      <div id="search"><h2><label for="q">Rechercher</label></h2><form action="http://blog2.postgresql.fr/index.php?" method="get"><fieldset><p><input type="text" size="10" maxlength="255" id="q" name="q" value="" /> <input class="submit" type="submit" value="ok" /></p></fieldset></form></div><div class="categories"><h2>Catégories</h2><ul><li><a href="index199b.html?category/Articles">Articles</a></li><li class="category-current"><a href="indexb4c6.html?category/Dans-les-bacs">Dans les bacs</a></li><li><a href="index025a.html?category/Evenements">Événements</a></li><li><a href="index8c6d.html?category/PostgreSQL-Weekly-News">PostgreSQL Weekly News</a></li><li><a href="index1835.html?category/Securite">Sécurité</a></li><li><a href="index2251.html?category/Vie-de-l-association">Vie de l'association</a></li><li><a href="index91de.html?category/Vie-du-site">Vie du site</a></li></ul></div><div class="text"><h2>Licence</h2>Tous les articles de ce blog sont disponibles sous la <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/">license Creative Commons BY-NC-SA 3.0</a>.</div>    </div> <!-- End #blognav -->
+  
+    <div id="blogextra">
+      <div class="syndicate"><h2>S'abonner</h2><ul><li><a type="application/atom+xml" href="index4ca3.php?feed/atom" title="Fil Atom des billets de ce blog" class="feed">Fil des billets</a></li></ul></div>    </div> <!-- End #blogextra -->
+  </div>
+  </div>
+
+  <div id="pgContentWrap">
+  <div id="pgDownloadsWrap">
+  <div id="content">
+
+  <p id="navlinks">
+  <a href="index019e.html?post/drupal/52"
+  title="== PostgreSQL Weekly News - 29 novembre 2004 ==" class="prev">&#171; == PostgreSQL Weekly News - 29 novembre 2004 ==</a>
+   <span>-</span> <a href="index3bff.html?post/drupal/383"
+  title="Sortie de PostgreSQL-8.0.0-RC1" class="next">Sortie de PostgreSQL-8.0.0-RC1 &#187;</a>
+  </p>
+  
+  <div class="post">
+    <h2 id="p53" class="post-title">Sortie de pgAdmin III 1.2.0</h2>
+    
+    <p class="post-info">Par jca    le jeudi  2 décembre 2004, 09:43        - <a href="indexb4c6.html?category/Dans-les-bacs">Dans les bacs</a>
+        - <a href="index85eb.html?post/drupal/53">Lien permanent</a>
+    </p>
+    
+    
+    
+          <div class="post-excerpt"><p></p></div>
+        
+    <div class="post-content"><p>
+<em>Dans son mail du 1er décembre sur pg-announce Dave Page nous annonçait que : </em>
+</p>
+<p>
+L'équipe de développement de pgAdmin est fière d'annoncer la sortie de pgAdminIII v1.2.0. Il s'agit d'une toute nouvelle version majeure de pgAdmin issue du travail de développement de toute une année par différents contributeurs.</p>
+<p>
+pgAdmin est l'interface graphique la plus populaire pour l'administration et la gestion de PostgreSQL. Il dispose d'un support natif pour Windows et Linux/FreeBSD et inclut les fonctionnalités suivantes:
+</p>
+<blockquote><p>
+<li>Navigation dans le schéma sur tous les types d'objets PostgreSQL.
+</li>
+<li>Formulaires de création et de propriétés d'objets.
+</li>
+<li>Outil de requêtage threadé ad-hoc disposant du support de la clause EXPLAIN.
+</li>
+<li>Outil de visualisation et d'édition de table.
+</li>
+<li>Support de SSL.
+</li>
+<li>Possibilité de connecter et naviguer sur des serveurs différentes à partir d'une même interface.
+</li>
+<li>Support des bases de données Unicode.
+</li>
+<li>Support de plus de 20 langues au niveau de l'interface.
+</li>
+</p></blockquote>
+<p>
+<ins>Résumé des changements majeurs:</ins>
+</p>
+<blockquote><p>
+<li>Support de PostgreSQL 8.0.
+</li>
+<li>Amélioration du dimensionnement des fenêtres basé sur les métriques de polices de caractères.
+</li>
+<li>La fenêtre d'état du serveur indique maintenant les verrouillages.
+</li>
+<li>L'outil de requêtage peut maintenant sauvegarder sa sortie directement dans un fichier.
+</li>
+<li>Les données peuvent être triées et filtrées dans la grille de saisie.
+</li>
+<li>Les statistiques sur colonnes sont maintenant supportées.
+</li>
+<li>Le référencement d'objets et les objets référencés peuvent être maintenant visualisés pour chaque objet.
+</li>
+<li>Les fonctions peuvent être visualisées et crées avec des classes comme type de données.
+</li>
+<li>La perte de connection avec une base de données sont maintenant élégamment traîtées.
+</li>
+<li>Ajout de la possibilité de contrôler localement un service de base de données.
+</li>
+<li>Support des tablespaces.
+</li>
+<li>Ajout d'un outil de gestion des permissions (GRANT).
+</li>
+<li>Affichage des fichiers journaux (log) à condition d'utiliser le paquetage de contribution «server».
+</li>
+<li>Les lignes de la grille d'édition et de l'outil de requêtage peuvent maintenant être copiées dans le presse-papier.
+</li>
+<li>Sauvegarde et restoration de la base de données.
+</li>
+<li>Un grand nombre d'améliorations et de corrections de bugs.
+</li>
+</p></blockquote>
+<p>
+Pour une liste complète des modifications, reportez-vous au changelog sur :
+</p>
+<center>
+<a href="http://cvs.pgadmin.org/cgi-bin/viewcvs.cgi/pgadmin3/CHANGELOG.txt?rev=1.171&amp;content-type=text/vnd.viewcvs-markup">http://cvs.pgadmin.org/cgi-bin/viewcvs.cgi/pgadmin3/CHANGELOG.txt?rev=1.171&amp;content-type=text/vnd.viewcvs-markup</a>
+</center>
+<p>
+pgAdmin III est librement disponible sous licence Artistique et peut être téléchargé à partir des sites listés sur :
+</p>
+<center>
+<a href="http://www.pgadmin.org/pgadmin3/download.php">http://www.pgadmin.org/pgadmin3/download.php</a>
+</center>
+<p>
+Je souhaite également utiliser l'opportunité de cette annonce pour remercier tous les développeurs, testeurs, fabriquants de paquetages et traducteurs pour leur dur travail tout au long de l'année écoulée.
+</p>
+<p>
+Dave Page<br />
+Projet pgAdmin
+</p></div>
+
+      </div>
+
+  
+
+    
+  
+    
+    
+    </div>
+</div> <!-- End #main -->
+
+</div> <!-- End #wrapper -->
+
+<div id="pgFooter">
+  <p>Propulsé par <a href="http://dotclear.org/">Dotclear</a></p>
+</div>
+
+</div> <!-- End #page -->
+</body>
+
+<!-- Mirrored from blog2.postgresql.fr/index.php?post/drupal/53 by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 May 2020 21:40:20 GMT -->
+</html>

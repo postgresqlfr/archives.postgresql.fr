@@ -1,0 +1,235 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr">
+
+<!-- Mirrored from blog2.postgresql.fr/index.php?post/drupal/352 by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 May 2020 21:40:21 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="MSSmartTagsPreventParsing" content="TRUE" />
+  <meta name="ROBOTS" content="INDEX, FOLLOW" />
+  
+  <title>PostgreSQL Weekly News - 2 février 2004 - PostgreSQLfr.org</title>
+  <meta name="description" lang="fr" content="== Nouvelles hebdomadaires de PostgreSQL - 2 février 2004 == Cette semaine a vu un peu de tout, les nouvelles fonctionnalités et l'éradication de bogues se prenant la part du lion." />
+  <meta name="copyright" content="" />
+  <meta name="author" content="gleu" />
+  <meta name="date" scheme="ISO8601" content="2004-03-11T19:49:00+00:00" />
+  
+  <link rel="schema.dc" href="http://purl.org/dc/elements/1.1/" />
+  <meta name="dc.title" content="PostgreSQL Weekly News - 2 février 2004" />
+  <meta name="dc.description" lang="fr" content="== Nouvelles hebdomadaires de PostgreSQL - 2 février 2004 == Cette semaine a vu un peu de tout, les nouvelles fonctionnalités et l'éradication de bogues se prenant la part du lion." />
+  <meta name="dc.creator" content="gleu" />
+  <meta name="dc.language" content="fr" />
+  <meta name="dc.publisher" content="" />
+  <meta name="dc.rights" content="" />
+  <meta name="dc.date" scheme="ISO8601" content="2004-03-11T19:49:00+00:00" />
+  <meta name="dc.type" content="text" />
+  <meta name="dc.format" content="text/html" />
+  
+  <link rel="top" href="indexd41d.html?" title="Accueil" />
+  <link rel="contents" href="index888d.html?archive" title="Archives" />
+  
+  <link rel="next" href="indexc335.html?post/drupal/353"
+  title="PostgreSQL Weekly News - 16 février 2004" />
+  
+  <link rel="previous" href="index196a.html?post/drupal/351"
+  title="PostgreSQL Weekly News - 9 février 2004" />
+  
+  <link rel="alternate" type="application/atom+xml" title="Atom 1.0" href="index4ca3.php?feed/atom" />
+  
+  <style type="text/css" media="screen">
+@import url(themes/postgresql/style.css);
+</style>
+<style type="text/css" media="print">
+@import url(themes/default/print.css);
+</style>
+
+<script type="text/javascript" src="themes/default/js/jquery.js"></script>
+<script type="text/javascript" src="themes/default/js/jquery.cookie.js"></script>
+
+  
+  <script type="text/javascript" src="themes/default/js/post.js"></script>
+  <script type="text/javascript">
+  //<![CDATA[
+  var post_remember_str = 'Se souvenir de moi sur ce blog';
+  //]]>
+  </script>
+</head>
+
+<body class="dc-post">
+<div id="page">
+
+
+<div id="top">
+  <div id="pgHeader">
+    <span id="pgHeaderLogoLeft">
+      <a href="index.html" title="PostgreSQL"><img src="https://blog.postgresql.fr/themes/postgresql/img/hdr_left.png" width="230" height="80" alt="PostgreSQL" /></a>
+    </span>
+    <span id="pgHeaderLogoRight">
+      <a href="index.html" title="La base de donnees la plus sophistiquee au monde."><img src="https://blog.postgresql.fr/themes/postgresql/img/hdr_right.png" width="210" height="80" alt="La base de donnees la plus sophistiquee au monde." /></a>
+    </span>
+  </div>
+
+  </div>
+
+<div class="pgTopNav">
+  <div class="pgTopNavLeft"> 
+    <img src="https://blog.postgresql.fr/themes/postgresql/img/nav_lft.png" width="7" height="23" alt="" />
+  </div>
+  <div class="pgTopNavRight">
+    <img src="https://blog.postgresql.fr/themes/postgresql/img/nav_rgt.png" width="7" height="23" alt="" />
+  </div>
+  <ul class="pgTopNavList">
+    <li><a href="https://www.postgresql.fr/" title="Accueil">Accueil</a></li>
+    <li><a href="https://blog.postgresql.fr/" title="Lire les actualités">Actualités</a></li>
+    <li><a href="https://docs.postgresql.fr/" title="Lire la documentation officielle">Documentation</a></li>
+    <li><a href="https://forums.postgresql.fr/" title="Pour poser des questions">Forums</a></li>
+    <li><a href="https://www.postgresql.fr/asso/" title="La vie de l'association">Association</a></li>
+    <li><a href="https://www.postgresql.fr/devel:accueil" title="Informations pour les développeurs/traducteurs">Développeurs</a></li>
+    <li><a href="https://planete.postgresql.fr/" title="La planète francophone sur PostgreSQL">Planète</a></li>
+    <li><a href="https://www.postgresql.fr/support/" title="Support sur PostgreSQL">Support</a></li>
+  </ul>
+</div>
+
+<div id="wrapper">
+
+<div id="pgContent">
+
+  <div id="pgSideWrap">
+  <div id="pgSideNav">
+    <div id="blognav">
+      <div id="search"><h2><label for="q">Rechercher</label></h2><form action="http://blog2.postgresql.fr/index.php?" method="get"><fieldset><p><input type="text" size="10" maxlength="255" id="q" name="q" value="" /> <input class="submit" type="submit" value="ok" /></p></fieldset></form></div><div class="categories"><h2>Catégories</h2><ul><li><a href="index199b.html?category/Articles">Articles</a></li><li><a href="indexb4c6.html?category/Dans-les-bacs">Dans les bacs</a></li><li><a href="index025a.html?category/Evenements">Événements</a></li><li class="category-current"><a href="index8c6d.html?category/PostgreSQL-Weekly-News">PostgreSQL Weekly News</a></li><li><a href="index1835.html?category/Securite">Sécurité</a></li><li><a href="index2251.html?category/Vie-de-l-association">Vie de l'association</a></li><li><a href="index91de.html?category/Vie-du-site">Vie du site</a></li></ul></div><div class="text"><h2>Licence</h2>Tous les articles de ce blog sont disponibles sous la <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/">license Creative Commons BY-NC-SA 3.0</a>.</div>    </div> <!-- End #blognav -->
+  
+    <div id="blogextra">
+      <div class="syndicate"><h2>S'abonner</h2><ul><li><a type="application/atom+xml" href="index4ca3.php?feed/atom" title="Fil Atom des billets de ce blog" class="feed">Fil des billets</a></li></ul></div>    </div> <!-- End #blogextra -->
+  </div>
+  </div>
+
+  <div id="pgContentWrap">
+  <div id="pgDownloadsWrap">
+  <div id="content">
+
+  <p id="navlinks">
+  <a href="index196a.html?post/drupal/351"
+  title="PostgreSQL Weekly News - 9 février 2004" class="prev">&#171; PostgreSQL Weekly News - 9 février 2004</a>
+   <span>-</span> <a href="indexc335.html?post/drupal/353"
+  title="PostgreSQL Weekly News - 16 février 2004" class="next">PostgreSQL Weekly News - 16 février 2004 &#187;</a>
+  </p>
+  
+  <div class="post">
+    <h2 id="p352" class="post-title">PostgreSQL Weekly News - 2 février 2004</h2>
+    
+    <p class="post-info">Par gleu    le jeudi 11 mars 2004, 19:49        - <a href="index8c6d.html?category/PostgreSQL-Weekly-News">PostgreSQL Weekly News</a>
+        - <a href="index3735.html?post/drupal/352">Lien permanent</a>
+    </p>
+    
+    
+    
+          <div class="post-excerpt"><h2>== Nouvelles hebdomadaires de PostgreSQL - 2 février 2004 ==</h2>
+<p>Cette semaine a vu un peu de tout, les nouvelles fonctionnalités et
+l'éradication de bogues se prenant la part du lion. Néanmoins, je pense que la
+nouvelle la plus excitante de la semaine a été l'implémentation d'un nouveau
+moteur de recherche sur le site web PostgreSQL. Ce nouveau moteur est basé sur
+un port, actuellement non disponible, d'ASPSeek, fonctionnant avec PostgreSQL et
+remplaçant l'ancien, ayant subi de nombreuses plaintes, basé sur le moteur
+mnogo. <em>pause pour se réjouir</em> Celui-ci, couplé avec le nouveau tsearch2 basé
+sur le moteur de PostgreSQL est disponible sur <a href="http://www.pgsql.ru/">http://www.pgsql.ru</a>,
+devrait faciliter grandement la recherche d'informations liées à PostgreSQL.
+</p>
+<p>Sur le front des bogues, nous avons vu plusieurs erreurs corrigées. Ces
+corrections ont aussi été porté sur le code de la 7.4 cette semaine. Un bogue
+concernant un ordre des opérations incorrect et empêchant un démarrage en douceur
+de la base de données sur certains cas rares de manque d'espace disque a été corrigé.
+Cette correction était basée sur un rapport de Christopher Kings-Lynne sur la liste
+-hackers. Un autre problème impliquant une évaluation incorrecte de fonctions
+renvoyant des types composés a aussi été corrigé ainsi que la correction d'expressions
+complexes de groupement.</p>
+<p>Le travail sur la 7.5 a continué à un bon rythme. Les clauses USING et
+WITH ont été rendues optionnelles pour \copy, ce qui coincide joliment avec ce
+que prétend la documentation à ce sujet. La fonction length() ne tient plus
+compte des espaces pour les champs de type char(n), après discussion sur la liste
+-hackers. Une lecture d'une partie mémoire non initialisée dans la fonction interne
+next_token() de hba.c a été découvert en utilisant valgrind et est maintenant corrigée.
+Sur une suggestion de Michael Brusser, nous utilisons enfin Tcl_PutEnv() au lieu de
+putenv() dans libpgtcl, car ce dernier corrompt apparemment le runtime Tcl. Des ajouts
+supplémentaires au niveau de la documentation expliquent comment libpq gère la mémoire
+pour les pointeurs de caractères renvoyés par les fonctions de libpq.</p>
+<p>Nous avons vu quelques améliorations pour ecpg cette semaine, incluant l'affichage
+d'un message d'attention (niveau warning) si un curseur est déclaré mais non ouvert, la
+correction du prototype d'ECPGprepared_statement pour ne pas grogner avec les "const char"
+et la correction de l'analyse des structure imbriquées lors de l'ajout d'une option pour
+analyser les fichiers d'en-têtes.</p>
+<p>Sur le front win32, une réorganisation importante du moteur, principalement sur
+fork, exec, process et sur les gestion des signaux a été effectué. Une modification
+spécifique concernait l'utilisation de SleepEx() pour PG_USLEEP pour ajouter une
+interruption de signal. D'autres modifications concernant win32 incluaient configure et
+Makefile, le cas de la mémoire partagée attachée à EXEC_BACKEND et l'ajout d'une fonction
+win32 rand qui avait été oublié. Il est intéressant de noter que cette semaine nous a
+apporté une version win32 compilable et quasiment utilisable. C'est certainement trop
+récent pour que l'utilisateur moyen puisse même le tester mais, si vous êtes intéressé
+par le côté bas niveau, cela devrait être bien plus facile maintenant de vous impliquer.</p>
+<p>Une dernière note, Simon Riggs a posté un superbe résumé de développement effectué
+jusqu'à maintenant sur la branche 7.5 de PostgreSQL. Vous pouvez le lire dans les archives sur
+<a href="http://archives.postgresql.org/pgsql-hackers/2004-01/msg00723.php">http://archives.postgresql.org/pgsql-hackers/2004-01/msg00723.php</a>.
+(Juste un point, cela m'a pris 0.084 secondes pour le trouver avec le nouveau moteur de recherche :-)
+Simon a précisé son intention de mettre à jour constamment ce résumé et l'équipe web recherche un
+endroit permanent pour le conserver. Une fois trouvé, je vous fournirais cette information.</p></div>
+        
+    <div class="post-content"><p><!--break--></p>
+<h2>== Nouvelles des produits PostgreSQL ==</h2>
+<ul>
+<li>Linux Labs ont sorti "Clustered PostgreSQL Database for Enterprise Computing"<br />
+<a href="http://biz.yahoo.com/prnews/040129/lath071_1.html">http://biz.yahoo.com/prnews/040129/lath071_1.html</a></li>
+<li>pljava est maintenant disponible en téléchargement<br />
+<a href="http://gborg.postgresql.org/project/pljava/news/newsfull.php?news_id=149">http://gborg.postgresql.org/project/pljava/news/newsfull.php?news_id=149</a></li>
+<li>Disponibilités de nouveaux utilitaires d'import et d'export pour PostgreSQL<br />
+<a href="http://gborg.postgresql.org/project/pgimport/news/newsfull.php?news_id=151">http://gborg.postgresql.org/project/pgimport/news/newsfull.php?news_id=151</a></li>
+</ul>
+<h2>== PostgreSQL dans la presse ==</h2>
+<ul>
+<li>SourceBeat Launches Site and Open Source Dynamic Publishing Model<br />
+<a href="http://www.prnewswire.com/cgi-bin/stories.pl?ACCT=SVBIZINK3.story&amp;STORY=/www/story/02-02-2004/0002101112&amp;EDATE=MON+Feb+02+2004,+01:00+PM">http://www.prnewswire.com/cgi-bin/stories.pl?ACCT=SVBIZINK3.story&amp;STORY=/www/story/02-02-2004/0002101112&amp;EDATE=MON+Feb+02+2004,+01:00+PM</a></li>
+</ul>
+<h2>== Evénements à venir ==</h2>
+<ul>
+<li>Linux Solutions 2004: Paris, France: du 3 au 5 février<br />
+Bruce Momjian fera des présentations<br />
+<a href="http://www.solutionslinux.fr/en/index.php">http://www.solutionslinux.fr/en/index.php</a></li>
+<li>Chemnitzer Linux-Tag: Chemnitz, Germany: 6 au 7 mars<br />
+Peter Eisentraut organise un tour de table et fera une présentation<br />
+<a href="http://www.tu-chemnitz.de/linux/tag/2004/allgemeines/">http://www.tu-chemnitz.de/linux/tag/2004/allgemeines/</a></li>
+</ul>
+<h2>== Nouvelles hebdomadaires PostgreSQL - 2 février 2004 ==</h2>
+<p>N'oubliez pas de lire le résumé de la semaine pour la liste de diffusion
+générale d'Elein Mustain</p>
+<p>Liste de diffusion générale <a href="http://www.varlena.com/GeneralBits/">http://www.varlena.com/GeneralBits/</a>
+</p>
+<p>Sur le web :
+</p>
+<ul>
+<li><a href="http://www.postgresql.org/">http://www.postgresql.org</a></li>
+<li><a href="http://advocacy.postgresql.org/">http://advocacy.postgresql.org</a></li>
+</ul></div>
+
+      </div>
+
+  
+
+    
+  
+    
+    
+    </div>
+</div> <!-- End #main -->
+
+</div> <!-- End #wrapper -->
+
+<div id="pgFooter">
+  <p>Propulsé par <a href="http://dotclear.org/">Dotclear</a></p>
+</div>
+
+</div> <!-- End #page -->
+</body>
+
+<!-- Mirrored from blog2.postgresql.fr/index.php?post/drupal/352 by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 May 2020 21:40:21 GMT -->
+</html>

@@ -1,0 +1,956 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr">
+
+<!-- Mirrored from blog2.postgresql.fr/index.php?category/PostgreSQL-Weekly-News/page/38 by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 May 2020 21:40:21 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="MSSmartTagsPreventParsing" content="TRUE" />
+  <meta name="ROBOTS" content="NOINDEX, FOLLOW" />
+  
+  <title>PostgreSQL Weekly News - PostgreSQLfr.org - page 38</title>
+  <meta name="description" lang="fr" content="" />
+  <meta name="copyright" content="" />
+  <meta name="author" content="" />
+  <meta name="date" scheme="ISO8601" content="2020-04-26T22:23:31+01:00" />
+  
+  <link rel="schema.dc" href="http://purl.org/dc/elements/1.1/" />
+  <meta name="dc.title" lang="fr" content="PostgreSQL Weekly News - PostgreSQLfr.org - page 38" />
+  <meta name="dc.description" lang="fr" content="" />
+  <meta name="dc.language" content="fr" />
+  <meta name="dc.publisher" content="" />
+  <meta name="dc.rights" content="" />
+  <meta name="dc.date" scheme="ISO8601" content="2020-04-26T22:23:31+01:00" />
+  <meta name="dc.type" content="text" />
+  <meta name="dc.format" content="text/html" />
+  
+  <link rel="top" href="indexd41d.html?" title="Accueil" />
+  <link rel="contents" href="index888d.html?archive" title="Archives" />
+  
+                            <link rel="previous" title="billets précédents" href="indexf07b.html?category/PostgreSQL-Weekly-News/page/39" />
+                
+                <link rel="next" title="billets suivants" href="index4570.html?category/PostgreSQL-Weekly-News/page/37" />
+                      
+    <link rel="chapter" href="index00b1.html?post/drupal/77" title="== PostgreSQL Weekly News - 19 février 2005 ==" />
+          
+    <link rel="chapter" href="indexd19f.html?post/drupal/76" title="== PostgreSQL Weekly News - 11 Février 2005 ==" />
+          
+    <link rel="chapter" href="indexe73a.html?post/drupal/73" title="== PostgreSQL Weekly News - 4 Février 2005 ==" />
+          
+    <link rel="chapter" href="index66be.html?post/drupal/69" title="== PostgreSQL Weekly News - 28 Janvier 2005 ==" />
+          
+    <link rel="chapter" href="index45f4.html?post/drupal/61" title="==PostgreSQL Weekly News  - 4 janvier 2005 ==" />
+          
+    <link rel="chapter" href="index6302.html?post/drupal/59" title="== PostgreSQL Weekly News - 28 décembre 2004 ==" />
+          
+    <link rel="chapter" href="index1394.html?post/drupal/58" title="== PostgreSQL Weekly News - 21 décembre 2004 ==" />
+          
+    <link rel="chapter" href="index99ba.html?post/drupal/56" title="== PostgreSQL Weekly News - 14 décembre 2004 ==" />
+          
+    <link rel="chapter" href="index44af.html?post/drupal/54" title="== PostgreSQL Weekly News - 7 décembre 2004 ==" />
+          
+    <link rel="chapter" href="index019e.html?post/drupal/52" title="== PostgreSQL Weekly News - 29 novembre 2004 ==" />
+          
+    <link rel="chapter" href="indexbd02.html?post/drupal/382" title="PostgreSQL Weekly News - 22 novembre 2004" />
+          
+    <link rel="chapter" href="index9997-2.html?post/drupal/50" title="== PostgreSQL Weekly News - 15 novembre 2004 ==" />
+          
+    <link rel="chapter" href="index865c.html?post/drupal/49" title="== Nouvelles Hebdomadaires de PostgreSQL - 9 Novembre 2004 ==" />
+          
+    <link rel="chapter" href="indexed87.html?post/drupal/380" title="PostgreSQL Weekly News - 01 novembre 2004" />
+          
+    <link rel="chapter" href="index716c.html?post/drupal/46" title="== PostgreSQL Weekly News - 27 Octobre 2004 ==" />
+          
+    <link rel="chapter" href="index1145.html?post/drupal/41" title="== PostgreSQL Weekly News - 18 octobre 2004 ==" />
+          
+    <link rel="chapter" href="index6205.html?post/drupal/40" title="== PostgreSQL Weekly News - 11 octobre 2004 ==" />
+          
+    <link rel="chapter" href="indexc284.html?post/drupal/39" title="== PostgreSQL Weekly News - 5 octobre 2004 ==" />
+          
+    <link rel="chapter" href="index0107.html?post/drupal/379" title="PostgreSQL Weekly News - 21 septembre 2004" />
+          
+    <link rel="chapter" href="index858f.html?post/drupal/378" title="PostgreSQL Weekly News - 13 septembre 2004" />
+    
+  <link rel="alternate" type="application/atom+xml" title="Atom 1.0" href="indexa21f.php?feed/category/PostgreSQL-Weekly-News/atom" />
+  
+  <style type="text/css" media="screen">
+@import url(themes/postgresql/style.css);
+</style>
+<style type="text/css" media="print">
+@import url(themes/default/print.css);
+</style>
+
+<script type="text/javascript" src="themes/default/js/jquery.js"></script>
+<script type="text/javascript" src="themes/default/js/jquery.cookie.js"></script>
+
+</head>
+
+<body class="dc-category">
+<div id="page">
+<div id="top">
+  <div id="pgHeader">
+    <span id="pgHeaderLogoLeft">
+      <a href="index.html" title="PostgreSQL"><img src="https://blog.postgresql.fr/themes/postgresql/img/hdr_left.png" width="230" height="80" alt="PostgreSQL" /></a>
+    </span>
+    <span id="pgHeaderLogoRight">
+      <a href="index.html" title="La base de donnees la plus sophistiquee au monde."><img src="https://blog.postgresql.fr/themes/postgresql/img/hdr_right.png" width="210" height="80" alt="La base de donnees la plus sophistiquee au monde." /></a>
+    </span>
+  </div>
+
+  </div>
+
+<div class="pgTopNav">
+  <div class="pgTopNavLeft"> 
+    <img src="https://blog.postgresql.fr/themes/postgresql/img/nav_lft.png" width="7" height="23" alt="" />
+  </div>
+  <div class="pgTopNavRight">
+    <img src="https://blog.postgresql.fr/themes/postgresql/img/nav_rgt.png" width="7" height="23" alt="" />
+  </div>
+  <ul class="pgTopNavList">
+    <li><a href="https://www.postgresql.fr/" title="Accueil">Accueil</a></li>
+    <li><a href="https://blog.postgresql.fr/" title="Lire les actualités">Actualités</a></li>
+    <li><a href="https://docs.postgresql.fr/" title="Lire la documentation officielle">Documentation</a></li>
+    <li><a href="https://forums.postgresql.fr/" title="Pour poser des questions">Forums</a></li>
+    <li><a href="https://www.postgresql.fr/asso/" title="La vie de l'association">Association</a></li>
+    <li><a href="https://www.postgresql.fr/devel:accueil" title="Informations pour les développeurs/traducteurs">Développeurs</a></li>
+    <li><a href="https://planete.postgresql.fr/" title="La planète francophone sur PostgreSQL">Planète</a></li>
+    <li><a href="https://www.postgresql.fr/support/" title="Support sur PostgreSQL">Support</a></li>
+  </ul>
+</div>
+
+<div id="wrapper">
+
+<div id="pgContent">
+
+  <div id="pgSideWrap">
+  <div id="pgSideNav">
+    <div id="blognav">
+      <div id="search"><h2><label for="q">Rechercher</label></h2><form action="http://blog2.postgresql.fr/index.php?" method="get"><fieldset><p><input type="text" size="10" maxlength="255" id="q" name="q" value="" /> <input class="submit" type="submit" value="ok" /></p></fieldset></form></div><div class="categories"><h2>Catégories</h2><ul><li><a href="index199b.html?category/Articles">Articles</a></li><li><a href="indexb4c6.html?category/Dans-les-bacs">Dans les bacs</a></li><li><a href="index025a.html?category/Evenements">Événements</a></li><li class="category-current"><a href="index8c6d.html?category/PostgreSQL-Weekly-News">PostgreSQL Weekly News</a></li><li><a href="index1835.html?category/Securite">Sécurité</a></li><li><a href="index2251.html?category/Vie-de-l-association">Vie de l'association</a></li><li><a href="index91de.html?category/Vie-du-site">Vie du site</a></li></ul></div><div class="text"><h2>Licence</h2>Tous les articles de ce blog sont disponibles sous la <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/">license Creative Commons BY-NC-SA 3.0</a>.</div>    </div> <!-- End #blognav -->
+  
+    <div id="blogextra">
+      <div class="syndicate"><h2>S'abonner</h2><ul><li><a type="application/atom+xml" href="index4ca3.php?feed/atom" title="Fil Atom des billets de ce blog" class="feed">Fil des billets</a></li></ul></div>    </div> <!-- End #blogextra -->
+  </div>
+  </div>
+
+  <div id="pgContentWrap">
+  <div id="pgDownloadsWrap">
+  <div id="content">
+
+  <div id="content-info">
+    <h2>PostgreSQL Weekly News</h2>
+      
+    <p><a type="application/atom+xml" href="indexa21f.php?feed/category/PostgreSQL-Weekly-News/atom"
+    title="Fil Atom des billets de cette catégorie" class="feed">Fil des billets</a>
+    
+        </p>
+  </div>
+  
+      <div class="post odd first" lang="fr" xml:lang="fr">
+
+    <p class="day-date">dimanche 20 février 2005</p>    
+    <h2 id="p77" class="post-title"><a
+    href="index00b1.html?post/drupal/77">== PostgreSQL Weekly News - 19 février 2005 ==</a></h2>
+    
+    <p class="post-info">Par jca    le dimanche 20 février 2005, 01:23</p>
+    
+    
+    
+          <div class="post-content"><p><em>Dans son message du 19 février, David Fetter nous annonçait sur pg-annouce</em></p>
+<p><strong>== PostgreSQL Weekly News - 19 février 2005 ==</strong></p>
+<p>Une grande discussion autour du rebouclage des identifiants de transactions (Transaction ID ou TID) a eu lieu cette semaine. Il semble que pg_autovacuum soit intégré dans la version 8.1 de PostgreSQL.</p>
+<p>Les soumissions à OSCON sont maintenant en cours. Si c'est le cas de l'une des votre, sachez que des discussions ont encore lieu à ce sujet en ce moment.</p>
+<p>Sean Chittenden a utilisé l'outil d'audit de code de Coverity sur le code de base de PostgreSQL et a trouvé quelques bugs.
+<a href="http://www.coverity.com/">http://www.coverity.com/<br />
+</a></p>
+<p>Abhijit Menon-Sen a trouvé un cas où INSERT ... SELECT ... peut
+faire planter le moteur du serveur PostgreSQL. Cependant ce crash ne
+corrompt pas les données et Tom Lane a corrigé ce point en moins de 4
+heures.</p></div>
+      <p class="read-it"><a href="index00b1.html?post/drupal/77"
+      title="Lire la suite == PostgreSQL Weekly News - 19 février 2005 ==">Lire la suite</a>...</p>
+    
+    
+    
+                        </div>
+    
+          <div class="post  " lang="fr" xml:lang="fr">
+
+    <p class="day-date">vendredi 11 février 2005</p>    
+    <h2 id="p76" class="post-title"><a
+    href="indexd19f.html?post/drupal/76">== PostgreSQL Weekly News - 11 Février 2005 ==</a></h2>
+    
+    <p class="post-info">Par jca    le vendredi 11 février 2005, 18:10</p>
+    
+    
+    
+          <div class="post-content"><p><em>Dans son mail sur pg-announce du 11 Février David Fetter annonçait</em></p>
+<p><strong>== PostgreSQL Weekly News - 11 Février 2005 ==</strong></p>
+<p>
+Tom Lane a proposé un moyen de corriger le problème du « context swap storm» (l'orage du changement de contexte).
+<a href="http://archives.postgresql.org/pgsql-hackers/2005-02/msg00228.php">http://archives.postgresql.org/pgsql-hackers/2005-02/msg00228.php</a>
+</p>
+<p>PHP est en passe de disposer d'une couche d'accès pleinement fonctionnelle avec PHP/PDO. Les personnes intéressées peuvent le télécharger et jeter un oeil sur <a href="http://pecl.php.net/package/pdo">http://pecl.php.net/package/pdo</a>.
+</p>
+<p>Les fonctions d'entrées pour float4, float8 et oid rejettent
+maintenant les chaines de caractères vides plutôt que de les traîter
+comme des 0. Si votre application dépend du comportement précédemment
+implanté, il est temps de la corriger.
+</p>
+<p>Les curseurs SPI supportent maintenant le parcours des
+résultats de commandes utilitaires qui retournent des tuples. Nous
+cherchons des outils permettant de rendre les résultats des EXPLAINs un
+peu plus facile à lire.</p>
+<p>Quatre (rares) dépassements de tampons supplémentaires ont été supprimé dans le parseur PL/PgSQL.</p>
+<p>La documentation a été améliorée et clarifiée.</p>
+<p>PGCluster a été déplacé sur pgfoundry.org</p></div>
+      <p class="read-it"><a href="indexd19f.html?post/drupal/76"
+      title="Lire la suite == PostgreSQL Weekly News - 11 Février 2005 ==">Lire la suite</a>...</p>
+    
+    
+    
+                        </div>
+    
+          <div class="post odd " lang="fr" xml:lang="fr">
+
+    <p class="day-date">mardi  8 février 2005</p>    
+    <h2 id="p73" class="post-title"><a
+    href="indexe73a.html?post/drupal/73">== PostgreSQL Weekly News - 4 Février 2005 ==</a></h2>
+    
+    <p class="post-info">Par jca    le mardi  8 février 2005, 10:01</p>
+    
+    
+    
+          <div class="post-content"><p><em>Dans son mail sur pg-announce, David Fetter annonçait</em></p>
+<p><strong>== PostgreSQL Weekly News - 4 Février 2005 ==</strong></p>
+<p>
+Versions de sécurité de PostgreSQL<br />
+PostgreSQL 8.0.1, 7.4.7, 7.3.9 et 7.2.7 sont sortis cette semaine afin de corriger une vulnérabilité dans LOAD. Veuillez mettre à jour vos logiciels en cours de fonctionnement à cette dernière version dès que celà vous sera possible.
+</p>
+<p>Stephen Frost a soumis un patch jetant les bases de conception pour l'appartenance des objets de la base à des groupes avec l'idée sous-jacente d'implémenter la notion de rôles dans la base. Matthias Schmidt a demandé de l'aide pour définir une syntaxe permettant de définir des permission à tous les objets d'un schéma.
+</p>
+<p>
+Victor Y. Yegorov et plusieurs autres personnes ont discuté de l'implémentation des index bitmaps.
+</p>
+<p>Josh Berkus a proposé d'étendre les vues systèmes pour couvrir
+l'ensemble des objets de la base de données. D'autres ont poursuivi en
+proposant des améliorations et des commentaires.
+</p>
+<p>Peter Eisentraut a mis en évidence un point d'incompatibilité entre
+la version 8.0 et la version 7.4 de la libpq. Surveillez donc la liste
+-hackers pour savoir comment ce point sera résolu.
+</p>
+<p>Le trés discuté code ARC se trouve maintenant dans freelist.c. Qu'il
+soit modifié ou retiré, tout se trouve maintenant au même endroit.
+</p>
+<p>John Hansen a contributé en fournissant des patches afin de faire marcher upper() et lower() avec Unicode. Prière de tester.
+</p></div>
+      <p class="read-it"><a href="indexe73a.html?post/drupal/73"
+      title="Lire la suite == PostgreSQL Weekly News - 4 Février 2005 ==">Lire la suite</a>...</p>
+    
+    
+    
+                        </div>
+    
+          <div class="post  " lang="fr" xml:lang="fr">
+
+    <p class="day-date">mardi  1 février 2005</p>    
+    <h2 id="p69" class="post-title"><a
+    href="index66be.html?post/drupal/69">== PostgreSQL Weekly News - 28 Janvier 2005 ==</a></h2>
+    
+    <p class="post-info">Par jca    le mardi  1 février 2005, 14:30</p>
+    
+    
+    
+          <div class="post-content"><p><em>David Fetter est le nouveau responsable du PostgreSQL Weekly News.</em></p>
+<p><strong>== PostgreSQL Weekly News - 28 Janvier 2005 ==</strong></p>
+<p>
+PostgreSQL 8.0.0 incluant le plus grand nombre de modifications duepuis la version 6.3 est sorti. Réservez le meilleur accueil dans la communauté aux nouveaux utilisateurs Windows . Les détails techniques des nouvelles fonctionnalités se trouve sur
+<a href="http://www.postgresql.org/about/news.277">http://www.postgresql.org/about/news.277</a>
+</p>
+<p>
+Pervasive Software Inc. a annoncé la sortie de Pervasive Postgres,
+leur version du code PostgreSQL incluant un support. Pervasive est connue comme étant l'heureux propriétaire de la base de données embarquée propriétaire Btrieve.  Leur équipe, de 12 programmeurs, est trés motivée par la contribution qu'elle pourrait apporté au code Open Source de PostgreSQL. Pour plus d'informations lisez la page <a href="http://www.pervasivepostgres.com/">http://www.pervasivepostgres.com</a>.
+</p>
+<p>Il y a eu une discussion animée sur -hackers au sujet d'un brevet
+d'IBM portant sur ARC. Souvenez vous que les opinions des développeurs
+de logiciels sur les aspects légaux ont un poids équivalent à ceux des
+avocats.
+</p>
+<p>
+Les futures versions 8.0.1, 7.4.7, 7.3.9 et 7.2.7 vont corriger un bug de sécurité sur l'extension LOAD décrite dans <a href="http://archives.postgresql.org/pgsql-bugs/2005-01/msg00269.php">http://archives.postgresql.org/pgsql-bugs/2005-01/msg00269.php</a>
+et permettant à un utilisateur disposant de petits privilèges de
+charger arbitrairement des bibliothèques dans l'espace de processus de
+postgres, au moins sous Windows. Les autres patches inclus dans la
+8.0.1 contiennent des améliorations pour Windows NT4 et un moyen de
+fixer la taille de la pile sous Windows pouvant mener à un crash dans
+les clauses IN() de taille conséquente.
+</p>
+<p>Jean-Gérard Pailloncy est parti de l'idée purement théorique de
+types étendus (nombre + unité) pour arriver à une implémentation
+pratique incluant l'arithmétique sur les unités en une semaine. Les
+détails sur ce point sont sur <a href="http://archives.postgresql.org/pgsql-general/2005-01/msg01355.php">http://archives.postgresql.org/pgsql-general/2005-01/msg01355.php</a>.
+</p></div>
+      <p class="read-it"><a href="index66be.html?post/drupal/69"
+      title="Lire la suite == PostgreSQL Weekly News - 28 Janvier 2005 ==">Lire la suite</a>...</p>
+    
+    
+    
+                        </div>
+    
+          <div class="post odd " lang="fr" xml:lang="fr">
+
+    <p class="day-date">mardi  4 janvier 2005</p>    
+    <h2 id="p61" class="post-title"><a
+    href="index45f4.html?post/drupal/61">==PostgreSQL Weekly News  - 4 janvier 2005 ==</a></h2>
+    
+    <p class="post-info">Par jca    le mardi  4 janvier 2005, 15:43</p>
+    
+    
+    
+          <div class="post-content"><p></p></div>
+      <p class="read-it"><a href="index45f4.html?post/drupal/61"
+      title="Lire la suite ==PostgreSQL Weekly News  - 4 janvier 2005 ==">Lire la suite</a>...</p>
+    
+    
+    
+                        </div>
+    
+          <div class="post  " lang="fr" xml:lang="fr">
+
+    <p class="day-date">mercredi 29 décembre 2004</p>    
+    <h2 id="p59" class="post-title"><a
+    href="index6302.html?post/drupal/59">== PostgreSQL Weekly News - 28 décembre 2004 ==</a></h2>
+    
+    <p class="post-info">Par Jean-Paul Argudo    le mercredi 29 décembre 2004, 09:17</p>
+    
+    
+    
+          <div class="post-content"><p></p></div>
+      <p class="read-it"><a href="index6302.html?post/drupal/59"
+      title="Lire la suite == PostgreSQL Weekly News - 28 décembre 2004 ==">Lire la suite</a>...</p>
+    
+    
+    
+                        </div>
+    
+          <div class="post odd " lang="fr" xml:lang="fr">
+
+    <p class="day-date">jeudi 23 décembre 2004</p>    
+    <h2 id="p58" class="post-title"><a
+    href="index1394.html?post/drupal/58">== PostgreSQL Weekly News - 21 décembre 2004 ==</a></h2>
+    
+    <p class="post-info">Par SAS    le jeudi 23 décembre 2004, 11:32</p>
+    
+    
+    
+          <div class="post-content"><h2>== Nouvelles hebdomadaires de PostgreSQL - 21 décembre 2004 ==</h2>
+<p>Le 21 décembre dernier, Robert Treat nous annonçait sur la liste pgsql-announce&nbsp;:</p>
+<p>La RC2 de PostgreSQL 8.0.0 a été publiée plus tôt ce jour et devrait déjà être disponible sur votre site miroir local ou via bittorrent. C'est vraisemblablement la dernière RC avant la version finale, mais comme toujours, restez à l'écoute pour plus d'informations au fur et à mesure que la situation évolue.</p>
+<p>La semaine passée a été l'occasion de quelques modifications à ce point du cycle de développement&nbsp;: l'utilisation de SETOF comme donnée d'entrée à la fonction parseTypeString() est maintenant explicitement rejetée plutôt que silencieusement ignorée, comportement précédemment accepté. Un problème de sécurité des threads sous AIX a été corrigé. La variable GUC checkpoints_segments peut maintenant être composée de plus de 255 caractères.
+Le processus d'ActiveSnapshot à l'intérieur d'une fonction plpgsql a été peaufiné. Le programme pg_resetxlog a été modifié pour tenir compte des noms de fichiers WAL de la 8.0. Le support des mises à jour de Kerberos 5 1.0.* a été supprimé du fait de problèmes lors du configure et des propres problèmes de sécurité des paquetages de Kerberos. Enfin, le support de l'encodage Latin9 a été ajouté à la fonction to_ascii().
+</p>
+<p>Une histoire intéressante postée sur la liste de diffusion -hackers
+la semaine passée est celle postée par Joe Conway et relatant la
+restauration d'une base de données. Joe a rencontré une situation
+étrange avec une large base de données tournant sur un système de
+fichiers en NFS. Les détails sont assez techniques, mais la lecture de
+cette histoire est intéressante pour quiconque souhaite une bonne
+histoire de restauration quand les choses tournent mal. Lisez cette
+histoire en détail sur <a href="http://archives.postgresql.org/pgsql-hackers/2004-12/msg00628.php">http://archives.postgresql.org/pgsql-hackers/2004-12/msg00628.php</a>.</p></div>
+      <p class="read-it"><a href="index1394.html?post/drupal/58"
+      title="Lire la suite == PostgreSQL Weekly News - 21 décembre 2004 ==">Lire la suite</a>...</p>
+    
+    
+    
+                        </div>
+    
+          <div class="post  " lang="fr" xml:lang="fr">
+
+    <p class="day-date">lundi 20 décembre 2004</p>    
+    <h2 id="p56" class="post-title"><a
+    href="index99ba.html?post/drupal/56">== PostgreSQL Weekly News - 14 décembre 2004 ==</a></h2>
+    
+    <p class="post-info">Par SAS    le lundi 20 décembre 2004, 20:04</p>
+    
+    
+    
+          <div class="post-content"><h2>== Nouvelles hebdomadaires PostgreSQL - 14 décembre 2004 ==</h2>
+<p>Le 14 décembre dernier, Robert Treat nous annonçait sur la liste pgsql-announce&nbsp;:</p>
+<p>La grande histoire de la semaine dernière a certainement été le problème de réseau qui a interrompu un nombre important de services communautaires. Cependant, la bonne nouvelle concerne la redondance mise en place. Elle semble fonctionner. Malheureusement, il y a encore des services qui n'ont pas mis leur redondance en place. Il est à espérer que la semaine passée servira de leçon alors que nous continuons à construire l'infrastructure de postgresql.org.
+</p>
+<p>Avec un développement quelque peu empêché, l'équipe centrale de
+développement n'a pris aucune décision quant à la date de sortie de la
+prochaine version. Mais il y a fort à parier qu'une autre RC voit le
+jour avant la version finale. Malgré les problèmes indiqués ci-dessus,
+nous avons remarqué que quelques correctifs ont été insérés dans le CVS
+la semaine dernière. Plusieurs problèmes récurrents de compatibilité
+binaire (ou plus précisément d'incompatibilité) entre les tables
+parentes et les tables enfants ont été résolus. Un bogue concernant les
+commentaires de contraintes de tables a été corrigé sur pg_dump. Le
+programme pg_resetxlog a été corrigé pour pouvoir être utilisé avec les
+droits root, de façon à éviter la prolifération de certaines erreurs
+sur les droits des fichiers. Enfin, la documentation pl/perl a été mise
+à jour, clarifiant la portée des données globales et apportant un
+exemple de stockage d'un code de référence.</p></div>
+      <p class="read-it"><a href="index99ba.html?post/drupal/56"
+      title="Lire la suite == PostgreSQL Weekly News - 14 décembre 2004 ==">Lire la suite</a>...</p>
+    
+    
+    
+                        </div>
+    
+          <div class="post odd " lang="fr" xml:lang="fr">
+
+    <p class="day-date">dimanche 12 décembre 2004</p>    
+    <h2 id="p54" class="post-title"><a
+    href="index44af.html?post/drupal/54">== PostgreSQL Weekly News - 7 décembre 2004 ==</a></h2>
+    
+    <p class="post-info">Par Jean-Paul Argudo    le dimanche 12 décembre 2004, 12:18</p>
+    
+    
+    
+          <div class="post-content"><p>
+Le 7 décembre dernier, Robert Treat nous annonçait sur la liste pgsql-announce:
+</p>
+<p>
+Après bien des conversations et des débats, la core team a décidé de sortir
+PostgreSQL 8.0.0 RC1 la semaine dernière, en nous mettant de fait dans la
+phase finale du cycle de développement de la version 8.0. <strong>Le but étant de sortir
+la version finale autour du 15 décembre si tout se passe bien</strong>. Tous les rapports
+sur les portages, les traductions et les améliorations de dernière minute de la documentation
+devraient être livrées rapidement. (La documentation actualisée sur les
+portages peut être consultée sur le site
+<a href="http://developer.postgresql.org/docs/postgres/supported-platforms.html">
+http://developer.postgresql.org/docs/postgres/supported-platforms.html</a>).
+Il y aura au moins une Release Candidate de plus avant la sortie finale, aussi
+gardez un oeuil là dessus, les choses vont aller très vite à présent.
+</p></div>
+      <p class="read-it"><a href="index44af.html?post/drupal/54"
+      title="Lire la suite == PostgreSQL Weekly News - 7 décembre 2004 ==">Lire la suite</a>...</p>
+    
+    
+    
+                        </div>
+    
+          <div class="post  " lang="fr" xml:lang="fr">
+
+    <p class="day-date">mardi 30 novembre 2004</p>    
+    <h2 id="p52" class="post-title"><a
+    href="index019e.html?post/drupal/52">== PostgreSQL Weekly News - 29 novembre 2004 ==</a></h2>
+    
+    <p class="post-info">Par Jean-Paul Argudo    le mardi 30 novembre 2004, 12:26</p>
+    
+    
+    
+          <div class="post-content"><p>
+Sur la liste pgsql-announce@postgresql.org, Robert Treat nous annonçait le 30 novembre 2004:
+</p>
+<p>
+Une semaine de vacances mène à une courte liste de nouveautés pour celle-ci, qui
+est la première semaine de passée pour la béta 5. Le module pgcrypto refuse de se
+compiler si aucune source de hasard correcte n'a été trouvée, plutôt que de se
+compiler et d'être inutilisable. La commande "\s" dans l'aide de psql est
+désormais documentée correctement sur les plates-formes avec la librairie
+readline. Un problème trouvé récemment sur la spécification de client_encoding et
+le process InitPostgres a été résolu. Le moteur de regexp a été mis à jour
+depuis la version 8.4.1 vers la version 8.4.8. La documentation pour la
+conformité a SQL 2003 a été mise à jour. Enfin, l'utilitaire pg_dumplo prends
+désormais en compte les schémas.
+</p>
+<p>
+Je voulais aussi alerter les lecteurs sur un nouveau sondage sur
+<a href="http://www.postgresql.org/">www.postgresql.org</a>, au sujet de
+l'utilisation des listes de diffusion et d'Usenet. Il y a eu de nombreuses
+discussions plus tard sur comment configurer les listes de diffusion de
+PostgreSQLet les nntp. Votre avis pourrait vraiment nous aider à déterminer la
+voie que nous devrions suivre.
+</p></div>
+      <p class="read-it"><a href="index019e.html?post/drupal/52"
+      title="Lire la suite == PostgreSQL Weekly News - 29 novembre 2004 ==">Lire la suite</a>...</p>
+    
+    
+    
+                        </div>
+    
+          <div class="post odd " lang="fr" xml:lang="fr">
+
+    <p class="day-date">mercredi 24 novembre 2004</p>    
+    <h2 id="p382" class="post-title"><a
+    href="indexbd02.html?post/drupal/382">PostgreSQL Weekly News - 22 novembre 2004</a></h2>
+    
+    <p class="post-info">Par gleu    le mercredi 24 novembre 2004, 01:50</p>
+    
+    
+    
+          <div class="post-content"><h2>== PostgreSQL Weekly News - 22 novembre 2004 ==</h2>
+<p>Après un mois de développement, cette semaine a vu l'arrivée de la beta 5 de
+PostgreSQL 8.0.0. Elle devrait être disponible sur votre miroir local et sur le
+site bittorrent. Pour plus d'informations, consultez l'annonce officielle (<a href="http://archives.postgresql.org/pgsql-announce/2004-11/msg00005.php">http:/
+/archives.postgresql.org/pgsql-announce/2004-11/msg00005.php</a>). Les
+personnes testant les versions natives pour Windows et Cygwin devraient aussi
+attendre ces nouvelles constructions.</p>
+<p>Étant donné la date tardive de notre processus de tests beta, nous avons
+corrigé un bon nombre de problème la semaine dernière. Les problèmes de la
+plateforme win32 avec les signaux et les sockets ont été résolus. Quelques
+scénarios de plantage du serveur ont été corrigés&nbsp;; le premier impliquait
+la création de tables de plus de 65K colonnes et le second se produisait lors
+du traitement de requêtes de sélection comprenant plus de 65K d'entrées de
+liste. La taille par défaut de la table de hachage des verrous locaux a été
+réduit, accélérant l'entrée et la sortie des sous-transactions. Le calcul des
+statistiques a été déplacé pour se produire au moment de la validation d'une
+transaction, évitant ainsi la confusion lorsqu'une transaction de mise à jour
+est en exécution depuis longtemps. Quelques nouvelles options ont été ajoutées
+à pg_autovacuum pour supporter la configuration des paramètres
+cost-based-vacuum différement de leurs valeurs par défaut. Les mises à jour de
+pg_database sont maintenant effectuées directement sur disque après un
+ALTER DATABASE, évitant des scénarios où un serveur arrivant ne trouve aucune
+copie de la ligne de la base de données.
+</p>
+<p>La gestion de Plpgsql pour les exécutions de SPI lors d'un bloc d'exception
+a été modifié pour continuer avec l'utilisation de l'ancienne connexion plutôt
+que le lancement d'une nouvelle connexion SPI. Ceci a aussi corrigé quelques
+problèmes de gestion de mémoire, récemment rapportés. Plusieurs corrections
+sont aussi intervenues dans plperl, incluant le nettoyage de quelques
+messages d'avertissement du compilateur, la consolidation de code dupliqué,
+l'amélioration de vérification du type de données renvoyé par perl,
+l'ajustement des restrictions de sécurité et la modification de la gestion des
+erreurs dans les fonctions.</p></div>
+      <p class="read-it"><a href="indexbd02.html?post/drupal/382"
+      title="Lire la suite PostgreSQL Weekly News - 22 novembre 2004">Lire la suite</a>...</p>
+    
+    
+    
+                        </div>
+    
+          <div class="post  " lang="fr" xml:lang="fr">
+
+    <p class="day-date">mardi 16 novembre 2004</p>    
+    <h2 id="p50" class="post-title"><a
+    href="index9997-2.html?post/drupal/50">== PostgreSQL Weekly News - 15 novembre 2004 ==</a></h2>
+    
+    <p class="post-info">Par Jean-Paul Argudo    le mardi 16 novembre 2004, 09:45</p>
+    
+    
+    
+          <div class="post-content"><p>
+Le 15 novembre 2004, Robert Treat, nous annonçait sur la liste
+pgsql-announce:</p>
+<p>
+Cette semaine a été relativement calme avec la préparation de la béta 5, que
+vous pouvez attendre pour ce début de semaine. À moins d'une surprise de
+dernière minute, la béta 5 sera probablement la dernière des bétas, avant la
+sortie officielle d'une "release candidate". Aussi, gardez les yeux grands
+ouverts et testez tout ce que vous n'avez pas encore pu tester!
+</p>
+<p>
+Dû à cette semaine relativement calme, nous avons seulement une poignée de
+nouveautés cette semaine. Le plus grand changement est probablement la
+disparition du la catégorie de variables de type "GUC userlimit", les variables
+affectées ont été changées en SUSET basique à la place. Le plannificateur a
+évolué pour classer les fonctions "stables" en constantes lors des estimations
+de sélectivité. Le processus de démarrage du postmaster a été amélioré afin de
+mieux détecter lorsqu'il est sûr de redemarrer après un boot ou pas. Un premier
+support de la localisation a été ajouté à l'installateur Windows, avec une
+traduction partielle vers l'Allemand. Enfin, la documentation de l'organisation
+du filesystem sous-jacent à PostgreSQL a été faite.
+</p></div>
+      <p class="read-it"><a href="index9997-2.html?post/drupal/50"
+      title="Lire la suite == PostgreSQL Weekly News - 15 novembre 2004 ==">Lire la suite</a>...</p>
+    
+    
+    
+                        </div>
+    
+          <div class="post odd " lang="fr" xml:lang="fr">
+
+    <p class="day-date">mercredi 10 novembre 2004</p>    
+    <h2 id="p49" class="post-title"><a
+    href="index865c.html?post/drupal/49">== Nouvelles Hebdomadaires de PostgreSQL - 9 Novembre 2004 ==</a></h2>
+    
+    <p class="post-info">Par jca    le mercredi 10 novembre 2004, 10:37</p>
+    
+    
+    
+          <div class="post-content"><em>Dans son mail du 9 novembre, Robert Treat nous annonçait ceci :</em><br />
+<p>Avec la résolution des problèmes persistants concernant les
+<em>tablespace</em>, il ne restait plus qu'une paire de points à régler
+concernant Win32 et quelques modifications mineures avant qu'il ne
+soit possible de sortir la version candidate officielle. Une
+discussion sur la liste <tt>hackers</tt> a permis d'établir qu'il sera
+produit une ou plusieurs versions béta qui sera suivie d'un gel.
+Cet événement aura lieu probablement dans le courant de la semaine,
+donc gardez l'oeil ouvert sur l'annonce de la sortie officielle.
+</p>
+<p>
+Comme il est dit au-dessus, le grand changement de la semaine a été
+l'implantation d'un espace de tables (<em>tablespace</em>) par défaut pour GUC dont le but est d'être utilisée implicitement chaque fois qu'il ne sera pas donné de <em>tablespace</em> explicite. Ceci permet de corriger les restaurations de <tt>pg_dump</tt> sur des bases de données avec des implémentations de <em>tablespace</em> différentes. Nous avons
+également pu voir des améliorations du code dans <tt>path.c</tt> et <tt>exec.c</tt>
+afin de prendre en compte les points concernant les disques
+Windows et les spécifications réseau et afin de se débarrasser de
+«&nbsp;.&nbsp;» et de «&nbsp;..&nbsp;» lors de la construction de chemins à partir de
+différents éléments le constituant. Du code a été ajouté à la
+fonction interne <tt>find_my_exec()</tt> afin de lui permettre de résoudre
+les liens symboliques vers leur emplacement réel. Une partie du
+code de <tt>SocAddr_cidr_mask</tt> qui n'était pas portable a été corrigé.
+Un bug dans la commande <tt>REVOKE</tt> dans <tt>ecpg</tt> a été corrigé. Les
+fichiers temporaires dans le paquetage <tt>findoidjoins</tt> des
+contributions sont maintenant créés de manière sécurisée. Quelques
+fichiers additionnels ont été ajoutés dans <tt>dbmirror</tt> afin d'en
+améliorer l'installation. Les paquetages <tt>contrib/xml</tt> et
+<tt>contrib/xml2</tt> ont été modifié afin de prendre en compte les options
+pour <tt>libxml2</tt>. Les commandes <tt>\e</tt> et <tt>\</tt>! de <tt>psql</tt> ont été corrigées pour
+win32. La complétion automatique (tab) pour les arguments de <tt>CREATE
+TABLESPACE</tt> dans <tt>psq</tt>l a été ajoutée. Les messages d'erreur on été
+clarifiés à plusieurs endroits dans le backend et des mises à jour
+de la documentation pour reindex, la configuration en cours de
+fonctionnement, PITR et les variables GUC.
+</p>
+<p>
+L'autre grand sujet de discussion de cette semaine a été la
+retranscription des listes de mails PostgreSQL en newsgroup
+officiels par opposition à la situation actuelle où ils sont
+officieux et que certains serveurs les prennent en compte alors que
+d'autres non. Comme les listes ont toujours été une passerelle vers
+usenet, celà nous offre l'opportunié de se comporter
+de manière civilisée (au sens internaute du terme) tout en ayant un
+faible impact sur les utilisateurs actuels. Si vous souhaitez suivre
+la discussion, vous pouvez lire la «&nbsp;requête de discussion&nbsp;» sur <a href="http://groups.google.com/groups?q=g:thl849962492d&amp;dq=&amp;hl=en&amp;lr=&amp;selm=1099584239.20542%40isc.org">http://groups.google.com/groups?q=g:thl849962492d&amp;dq=&amp;hl=en&amp;lr=&amp;selm=1099584239.20542%40isc.org  </a>
+</p></div>
+      <p class="read-it"><a href="index865c.html?post/drupal/49"
+      title="Lire la suite == Nouvelles Hebdomadaires de PostgreSQL - 9 Novembre 2004 ==">Lire la suite</a>...</p>
+    
+    
+    
+                        </div>
+    
+          <div class="post  " lang="fr" xml:lang="fr">
+
+    <p class="day-date">mardi  2 novembre 2004</p>    
+    <h2 id="p380" class="post-title"><a
+    href="indexed87.html?post/drupal/380">PostgreSQL Weekly News - 01 novembre 2004</a></h2>
+    
+    <p class="post-info">Par gleu    le mardi  2 novembre 2004, 08:27</p>
+    
+    
+    
+          <div class="post-content"><h3>== PostgreSQL Weekly News - 1er novembre 2004 ==</h3>
+<p>Après beaucoup d'activité cette dernière semaine, les choses se sont un peu
+tassées pour notre première semaine en beta 4. Bien sûr, si vous souhaitez
+une stabilisation, c'est probablement un bon signe&nbsp;; voici la liste des
+modifications pour cette semaine&nbsp;: les compilations Cygwin sur les fuseaux
+horaires ont été corrigées. Maintenant, nous forçons un point de vérification
+juste avant de supprimer les fichiers physiques des bases de données, ce qui a
+corrigé un problème sur la suppression des bases de données rapporté sur cette
+plateforme. Les traces ont été ajustés pour le début et la fin du point de
+vérification, pour le recyclage et la suppression des journaux de traces. Un
+problème sur les erreurs de conversion lors d'un codage a été corrigé pour COPY.
+Une nouvelle méthode pour des threads sûrs améliorés a été ajouté dans le moteur
+pour les requêtes annulées et implémentée dans psql, activant l'annulation de
+requête dans la version win32 de psql. Enfin, quelques modifications ont eu lieu
+pour les types de données timestamp permettant de mieux gérer les décalages de
+zone horaire.
+</p>
+<p>Avec la sortie finale approchant, nous avons aussi besoin de personnes pour
+traduire les informations de sortie vers d'autres langues. Les personnes
+intéressées devraient jeter un œil à l'appel à l'aide sur les listes de diffusion
+cette semaine
+(<a href="http://archives.postgresql.org/pgsql-advocacy/2004-11/msg00000.php">http://archives.postgresql.org/pgsql-advocacy/2004-11/msg00000.php</a>) et s'impliquer. Cela ne devrait plus être long maintenant.</p></div>
+      <p class="read-it"><a href="indexed87.html?post/drupal/380"
+      title="Lire la suite PostgreSQL Weekly News - 01 novembre 2004">Lire la suite</a>...</p>
+    
+    
+    
+                        </div>
+    
+          <div class="post odd " lang="fr" xml:lang="fr">
+
+    <p class="day-date">jeudi 28 octobre 2004</p>    
+    <h2 id="p46" class="post-title"><a
+    href="index716c.html?post/drupal/46">== PostgreSQL Weekly News - 27 Octobre 2004 ==</a></h2>
+    
+    <p class="post-info">Par jca    le jeudi 28 octobre 2004, 09:24</p>
+    
+    
+    
+          <div class="post-content"><em>Traduction d'un article posté sur pgsql-annouce par Robert Treat</em>
+<p>
+La première chose frappante cette semaine a été un correctif de sécurité pour les versions 7.2.6, 7.3.8 et 7.4.6. Les modifications se sont concentrées sur une vulnérabilité potentielle dans pg_ctl. Il est donc fortement conseillé de lire des notes de versions pour la version qui vous concerne et pour les autres correctifs qui y ont été inclus. Actuellement les téléchargements doivent pouvoir être réalisés sur les sites habituels ainsi que sur les miroirs FTP et sur Bittorrent.
+</p>
+<p>Tout d'abord, il y a eu une nouvelle version beta qui est sortie lundi. Il s'agit de PostgreSQL 8.0 Beta 4 et cette version doit être disponible sur tous les sites miroirs FTP et sur Bittorrent. Il y a un grand nombre de corrections par rapport aux betas précédentes. Vous pouvez en vérifier la liste complète sur le message d'annonce. Quelques éclaircissements sur les corrections de la semaine passée : le manque d'un index sur le contrôle d'accès  sur les vacuums oisifs (lazy vacuums), la suppression des transtypages qui n'étaient pas nécessaires, la labellisation de pg_tablespace en tant que catalogue partagé, l'écriture correcte des fichiers de configuration pour la plate-forme win32 sous la forme de fichiers textes à la place de fichiers binaires, la suppression du débordement dans cost_sort lorsque work_mem est supérieur à 1GO et la prévention de la perte de la synchronisation de la communication lorsqu'un message surdimensionné est envoyé au serveur.
+</p>
+<p>
+Les autres modifications incluent la synchronisation des fuseaux
+horaires avec la dernière base de données zic, l'ajout d'un drapeau
+GUC_SUPERUSER_ONLY dans le code afin d'identifier les variable qui ne
+doivent pas être visibles des autres utilisateurs, le remaniement du
+code de ALTER COLUMN TYPE afin d'y supprimer les opérations de
+coercition apparaissant au premier niveau de l'ancienne expression
+d'une colonne avant l'ajout d'une coercition implicite à un nouveau
+type de colonne, la résolution de quelques points concernant des
+valeurs par défaut et n'ayant plus cours dans des types de données
+comparables. L'utilisation des macros Min, Max et Abs dans leur version
+<em>ad hoc</em>
+a été supprimée dans les modules de contribution au profit de
+l'utilisation de macros standards inclues dans les traitements centraux
+du serveurs. Les actions d'intégrité référentielle ne sont plus
+autorisées à être différées (seule la vérification NO ACTION est encore
+différable). Enfin, nous nous sommes encore rapprochés de la
+compatibilité avec le standard SQL</p></div>
+      <p class="read-it"><a href="index716c.html?post/drupal/46"
+      title="Lire la suite == PostgreSQL Weekly News - 27 Octobre 2004 ==">Lire la suite</a>...</p>
+    
+    
+    
+                        </div>
+    
+          <div class="post  " lang="fr" xml:lang="fr">
+
+    <p class="day-date">mercredi 20 octobre 2004</p>    
+    <h2 id="p41" class="post-title"><a
+    href="index1145.html?post/drupal/41">== PostgreSQL Weekly News - 18 octobre 2004 ==</a></h2>
+    
+    <p class="post-info">Par Jean-Paul Argudo    le mercredi 20 octobre 2004, 10:29</p>
+    
+    
+    
+          <div class="post-content"><p>
+Le 19 octobre 2004, Robert Treat écrivait sur la liste pgsql-announce:
+</p>
+<p>
+Il y a eu assez de progrès cette semaine pour commencer à espérer une sortie en
+Release Candidate (NDT: Les "releases candidates" annoncent la sortie du cycle
+béta, pour s'approcher peu à peu de la version finale). Je pense que nous en
+sommes cependant encore à une semaine ou plus, avec une béta version encore
+possible, mais c'est toujours bon signe, nous nous rapprochons d'une version,
+l'étau se ressérant autour des bugs sur les tablespaces et la version windows.
+</p>
+<p>
+En étant aussi près du but, les corrections de cette semaine sont plus larges que profondes. Quelques problèmes avec CygWin et DLLINIT ont étés corrigés. La compilations statique des librairies sur la version Win32 avec CygWin est désormais possible. Tous les modules de /contrib devraient aujourd'hui compiler sans soucis sous CygWin. La fonction getpid() est à présent castée en entier, ce qui résout un problème sur quelques versions de Solaris lorsqu'elle retournait un entier long.
+Quelques casts inutiles sur void* lorsqu'on utilisait pfree() dans les
+modules contrib/xml et contrib/xml2 ont été supprimés. Nous rapportons
+à présent le chemin complet dans les logs d'erreurs pour des
+non-concordances de versions dans les binaires. Plusieurs bugs ont été
+corrigés et des améliorations faites sur plperl. Un bug sur
+pg_get_indexdef() a été supprimé. On peut maintenant arrêter le
+processus d'écriture en arrière plan (NDT: "background writer") en
+définissant les valeurs limites à zéro. Les fonctions PQprepare et
+PQsendPreparend ont été ajoutées à la libpq pour permettre la
+préparation des requêtes sans spécifier les types de données de leurs
+paramètres.
+</p></div>
+      <p class="read-it"><a href="index1145.html?post/drupal/41"
+      title="Lire la suite == PostgreSQL Weekly News - 18 octobre 2004 ==">Lire la suite</a>...</p>
+    
+    
+    
+                        </div>
+    
+          <div class="post odd " lang="fr" xml:lang="fr">
+
+    <p class="day-date">mardi 12 octobre 2004</p>    
+    <h2 id="p40" class="post-title"><a
+    href="index6205.html?post/drupal/40">== PostgreSQL Weekly News - 11 octobre 2004 ==</a></h2>
+    
+    <p class="post-info">Par Jean-Paul Argudo    le mardi 12 octobre 2004, 19:35</p>
+    
+    
+    
+          <div class="post-content"><p>Le 11 octobre 2004, Robert Treat écrivait sur la liste pgsql-announce:</p>
+<p>
+Encore une semaine de passée, qui nous rapproche de la sortie de la
+version v.8.0, et pendant laquelle nous avons encore eu un bon nombre de report de bugs. Nous sommes encore un peu loin d'une nouvelle version béta, mais souvenez-vous que vous pouvez toujours vérifier l'avancement de la béta sur <a href="http://candle.pha.pa.us/cgi-bin/pgopenitems">
+http://candle.pha.pa.us/cgi-bin/pgopenitems</a>.
+</p>
+<p>
+Nous avons tout particulièrement corrigé un grand nombre de bugs sur la version win32, rapportés par un bon nombre de personnes qui nous aident à tester cette nouvelle version. Plusieurs DEFINE Win32 ont étés convertis en TYPEDEFS. Le langage fonctionel plpython peut à présent être compilé sous Win32. Tout comme le support du SSL a été corrigé pour Win32. L'installation des tablespaces sous Cygwin a été corrigé. Enfin, nous testons désormais sur des sockets de domaines unix avant de définir l'authentification par défaut pour s'y connecter.
+</p>
+<p>
+D'autres corrections cette semaine encore, comme l'échappement de
+simples quotes et l'utilisation de backslashes dans les locales
+définies dans le fichier postgresql.conf, la correction de quelques cas
+où PostgreSQL acceptait des valeurs CIDR invalides, mise en exergue de
+problêmes avec des fonctions SQL qui retournaient des tableaux qui ont
+des colonnes supprimées, ajout des noms des schémas dans la sortie de
+pg_restore -l, et correction de la vue pg_indexes pour qu'elle affiche
+le tablespace de l'index plutôt que le tablespace de la table parente.
+</p>
+<p>Un dernier mot pour tous ceux qui utilisent l'accès CVS: nous venons
+juste de terminer notre ménage qui va vous demander de faire un cvs
+checkout rapidement avant de pouvoir continuer à faire des cvs update.
+Pour plus d'informations, merci de lire <a href="http://archives.postgresql.org/pgsql-announce/2004-10/msg00006.php">
+cette annonce officielle</a>
+</p></div>
+      <p class="read-it"><a href="index6205.html?post/drupal/40"
+      title="Lire la suite == PostgreSQL Weekly News - 11 octobre 2004 ==">Lire la suite</a>...</p>
+    
+    
+    
+                        </div>
+    
+          <div class="post  " lang="fr" xml:lang="fr">
+
+    <p class="day-date">lundi 11 octobre 2004</p>    
+    <h2 id="p39" class="post-title"><a
+    href="indexc284.html?post/drupal/39">== PostgreSQL Weekly News - 5 octobre 2004 ==</a></h2>
+    
+    <p class="post-info">Par Jean-Paul Argudo    le lundi 11 octobre 2004, 12:01</p>
+    
+    
+    
+          <div class="post-content"><p>
+Rien ne vaut quelques ouragans et des coupures d'électricité pour vous inspirer
+des variations de ces nouvelles hebdomadaires. Bien sur, lorsque vous êtes dans un
+environnement de développement distribué, le temps qu'il fait importe peu, ainsi
+lorsque j'étais à l'extérieur pour nettoyer les arbres cassés et autres, les
+développeurs de PostgreSQL préparaient PostgreSQL 8.0 beta 3.
+Ceux qui n'ont pas encore mis à jour sont priés de le faire, les paquets sont
+disponibles sur les serveurs habituels. Ceux qui voudraient savoir quelles
+corrections il nous reste à apporter peuvent aller voir la liste des items
+ouverts sur <a href="http://candle.pha.pa.us/cgi-bin/pgopenitems">
+http://candle.pha.pa.us/cgi-bin/pgopenitems
+</a>.
+</p>
+<p>
+Ainsi, après deux semaines et une nouvelle beta, nous avons certainement une
+bonne liste de changements à balayer. Le code assembleur pour l'instruction
+test-and-set (TAS) sous Solaris/386 a été corrigé. Un cas particulier dans
+lequel la libpq auraît pu traiter une commande défectueuse comme étant réussie a
+aussi été corrigé. Quelques conditions de dépassement de pile dans les
+opérateurs arithmétiques sur des entiers sont désormais détectés. Une
+optimisation des hash joins pour lesquels la relation INNER est complètement
+vide a été ajoutée. ALTER TABLE OWNER a été ajusté pour mettre à jour la
+propriété des séquences afférentes, en accord avec les index. Le code de
+vérrouillage sur les index a été amélioré, et le code de mise à jour de table
+héritées a été amélioré. Enfin, le label de volatilité des fonctions relatives
+au timestamp a été revu et corrigé comme il le fallait.
+</p>
+<p>
+Un autre domaine qui a bénéficié de tout un tas d'améliorations a été le
+programme psql. Parmi les ajouts, on trouve le support des tabulation pour ALTER
+SEQUENCE, ajout de "RENAME TO" pour ALTER TRIGGER xx ON yy, support de ALTER
+USER xxx, support de ALTER LANGUAGE, support amélioré de ALTER TABLE xxx ALTER
+COLUMN xxx. Parmi les corrections, on trouve la bonne table pour ALTER TRIGGER
+xx ON ..., ALTER GROUP xxx DROP ..., ALTER DOMAIN xxx DROP ... et ALTER DOMAIN
+xx SET DEFAULT. Merci à Greg Sabino-Mullane pour cet important travail.
+</p>
+<p>
+Un autre domaine qui se doit d'être cité est le travail continu d'amélioration
+de la documentation. Les récents endroits où on a travaillé sont par exemple la
+commande CREATE TABLE AS, l'installation de PL/Python, le support de SSL dans la
+libpq, l'utilisation de PERFORM en plpgsql, la procédure de mise à jour, et
+plusieurs nouvelles entrées dans l'index de la documentation. Si vous le l'avez
+pas encore fait, veuillez vous ballader dans cette nouvelle documentation et
+nous envoyer toutes les suggestions que vous auriez.
+</p></div>
+      <p class="read-it"><a href="indexc284.html?post/drupal/39"
+      title="Lire la suite == PostgreSQL Weekly News - 5 octobre 2004 ==">Lire la suite</a>...</p>
+    
+    
+    
+                        </div>
+    
+          <div class="post odd " lang="fr" xml:lang="fr">
+
+    <p class="day-date">mardi 21 septembre 2004</p>    
+    <h2 id="p379" class="post-title"><a
+    href="index0107.html?post/drupal/379">PostgreSQL Weekly News - 21 septembre 2004</a></h2>
+    
+    <p class="post-info">Par gleu    le mardi 21 septembre 2004, 12:43</p>
+    
+    
+    
+          <div class="post-content"><h3>== Nouvelles hebdomadaires de PostgreSQL - 21 septembre 2004 ==</h3>
+<p>Les tests de PostgreSQL continuent avec le dernier paquetage beta. Beaucoup
+de bogues ont été rapportés, ce qui signifie que nous nous approchons d'une
+nouvelle version beta. Ceci est aussi une bonne indication que d'autres nombreux
+tests sont nécessaires.</p>
+<p>Différents problèmes de compilateur dans plusieurs modules de contribution
+pour la partie win32 ont été corrigés . Cela inclut dbase, pgbench, pgcrypto,
+tsearch et miscutil. Aussi sur win32, un petit problème de perte mémoire a été
+corrigé au niveau de psql et pltcl a vu la résolution de quelques soucis. Pour
+les autres modifications, le code de gestion des sous-transactions a été
+restructuré pour réduire la consomnation de mémoire, pour adresser un problème
+de régression et pour colmater certaines pertes mémoire. Enfin, le support de
+GNU/Hurd et GNU/*BSD a été ajouté.
+</p>
+<p>Le "&nbsp;query-snapshot timing&nbsp;" a été refait de façon à ce que les fonctions volatiles
+du mode "&nbsp;READ COMMITTED&nbsp;" voient un aperçu à jour pour chaque commande
+de la fonction, plutôt que le dernier aperçu de la commande interactive. C'est une
+modification non compatible avec les versions précédentes (à la demande nombreux
+utilisateurs), donc il est recommendé aux personnes intéressées par cette fonctionnalité
+de tester la prochaine version beta à ce niveau.</p>
+<p>La dernière information de cette semaine concerne l'annonce de l'arrivé de
+Peter Eisentraut au sein du comité principal de PostgreSQL. Peter est le
+principal développeur concernant le front de l'internationalisation et a fourni
+un travail remarquable dans le processus de construction et de sortie de
+versions. Félicitations, Peter&nbsp;!</p></div>
+      <p class="read-it"><a href="index0107.html?post/drupal/379"
+      title="Lire la suite PostgreSQL Weekly News - 21 septembre 2004">Lire la suite</a>...</p>
+    
+    
+    
+                        </div>
+    
+          <div class="post  " lang="fr" xml:lang="fr">
+
+    <p class="day-date">samedi 18 septembre 2004</p>    
+    <h2 id="p378" class="post-title"><a
+    href="index858f.html?post/drupal/378">PostgreSQL Weekly News - 13 septembre 2004</a></h2>
+    
+    <p class="post-info">Par gleu    le samedi 18 septembre 2004, 19:17</p>
+    
+    
+    
+          <div class="post-content"><h3>== Nouvelles hebdomadaires de PostgreSQL - 13 septembre 2004 ==</h3>
+<p>Une rapide mise à jour cette semaine car la chasse aux bogues continue sur
+le paquetage de la beta 2 de PostgreSQL 8.0. Les personnes curieuses de
+connaître les élémentes encore ouverts peuvent lire la liste la plus à jour sur
+<a href="http://candle.pha.pa.us/cgi-bin/pgopenitems">
+http://candle.pha.pa.us/cgi-bin/pgopenitems</a> mais pour l'instant, voyons les
+corrections de la semaine.</p>
+<p>Quelques petites corrections dans la gestion de liste des déclencheurs ont
+été apportées. Des conflits entre les constructions win32 et cygwin ont été
+règlés. Des tests de filtres ont été nettoyés des entrées inutiles. Un problème
+avec la gestion des erreurs dans les fonctions de déclencheurs a été adressée
+en exécutant immédiatement les déclencheurs «&nbsp;après&nbsp;» non déferrés
+avant la fin de la requête (c'est-à-dire alors qu'on se trouve toujours dans la
+fonction du déclencheur). Quelques bogues de restauration de bases de données
+possédées par des utilisateurs standards ont aussi été corrigés.
+</p>
+<p>Plusieurs correctifs ont été soumis pour dbmirror incluant des corrections
+de bogues pour la gestion des appels de setval, de nouvelles instructions de
+mise à jour ainsi que quelques corrections pour le script clean_pending.
+Quelques modifications ont été apportées à psql pour améliorer sa
+cohérence&nbsp;; \df affiche maintenant le schéma et le nom en premier, \di+
+affiche la description en dernier et \dl SQL est un peu plus standard
+maintenant.</p>
+<p>Un dernier élément qui vaut la peine d'être mentionné&nbsp;: le groupe
+d'utilisateurs PostgreSQL de Sydney annonce leur rencontre inaugural pour la
+semaine prochaine. Si vous êtes à Sydney (Australie&nbsp;!) ou que vous
+souhaitez faire le voyage, nous vous encourageons à y aller. Plus de détails
+sont disponibles sur <a href="http://www.postgresql.org/events/221.html">
+http://www.postgresql.org/events/221.html</a>.</p></div>
+      <p class="read-it"><a href="index858f.html?post/drupal/378"
+      title="Lire la suite PostgreSQL Weekly News - 13 septembre 2004">Lire la suite</a>...</p>
+    
+    
+    
+                        </div>
+    
+                  <p class="pagination"><a href="indexf07b.html?category/PostgreSQL-Weekly-News/page/39" class="prev">&#171;
+        billets précédents</a> -         page 38 de 40         - <a href="index4570.html?category/PostgreSQL-Weekly-News/page/37" class="next">billets suivants        &#187;</a></p>
+              </div>
+</div> <!-- End #main -->
+
+</div> <!-- End #wrapper -->
+
+<div id="pgFooter">
+  <p>Propulsé par <a href="http://dotclear.org/">Dotclear</a></p>
+</div>
+
+</div> <!-- End #page -->
+</body>
+
+<!-- Mirrored from blog2.postgresql.fr/index.php?category/PostgreSQL-Weekly-News/page/38 by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 May 2020 21:40:21 GMT -->
+</html>

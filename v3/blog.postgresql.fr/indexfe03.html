@@ -1,0 +1,785 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr">
+
+<!-- Mirrored from blog2.postgresql.fr/index.php?category/PostgreSQL-Weekly-News/page/27 by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 May 2020 21:40:21 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="MSSmartTagsPreventParsing" content="TRUE" />
+  <meta name="ROBOTS" content="NOINDEX, FOLLOW" />
+  
+  <title>PostgreSQL Weekly News - PostgreSQLfr.org - page 27</title>
+  <meta name="description" lang="fr" content="" />
+  <meta name="copyright" content="" />
+  <meta name="author" content="" />
+  <meta name="date" scheme="ISO8601" content="2020-04-26T22:23:31+01:00" />
+  
+  <link rel="schema.dc" href="http://purl.org/dc/elements/1.1/" />
+  <meta name="dc.title" lang="fr" content="PostgreSQL Weekly News - PostgreSQLfr.org - page 27" />
+  <meta name="dc.description" lang="fr" content="" />
+  <meta name="dc.language" content="fr" />
+  <meta name="dc.publisher" content="" />
+  <meta name="dc.rights" content="" />
+  <meta name="dc.date" scheme="ISO8601" content="2020-04-26T22:23:31+01:00" />
+  <meta name="dc.type" content="text" />
+  <meta name="dc.format" content="text/html" />
+  
+  <link rel="top" href="indexd41d.html?" title="Accueil" />
+  <link rel="contents" href="index888d.html?archive" title="Archives" />
+  
+                            <link rel="previous" title="billets précédents" href="index457e.html?category/PostgreSQL-Weekly-News/page/28" />
+                
+                <link rel="next" title="billets suivants" href="index839e.html?category/PostgreSQL-Weekly-News/page/26" />
+                      
+    <link rel="chapter" href="index9ebb.html?post/2009/10/29/Nouvelles-hebdomadaires-de-PostgreSQL-25-octobre-2009" title="Nouvelles hebdomadaires de PostgreSQL - 25 octobre 2009" />
+          
+    <link rel="chapter" href="indexccf7.html?post/2009/10/22/Nouvelles-hebdomadaires-de-PostgreSQL-18-octobre-2009" title="Nouvelles hebdomadaires de PostgreSQL - 18 octobre 2009" />
+          
+    <link rel="chapter" href="index5f30.html?post/2009/10/14/Nouvelles-hebdomadaires-de-PostgreSQL-11-octobre-2009" title="Nouvelles hebdomadaires de PostgreSQL - 11 octobre 2009" />
+          
+    <link rel="chapter" href="indexbfe3.html?post/2009/10/08/Nouvelles-hebdomadaires-de-PostgreSQL-4-octobre-2009" title="Nouvelles hebdomadaires de PostgreSQL - 4 octobre 2009" />
+          
+    <link rel="chapter" href="indexb4de.html?post/2009/09/30/Nouvelles-hebdomadaires-de-PostgreSQL-27-septembre-2009" title="Nouvelles hebdomadaires de PostgreSQL - 27 septembre 2009" />
+          
+    <link rel="chapter" href="indexf32a.html?post/2009/09/23/Nouvelles-hebdomadaires-de-PostgreSQL-20-septembre-2009" title="Nouvelles hebdomadaires de PostgreSQL - 20 septembre 2009" />
+          
+    <link rel="chapter" href="indexb890.html?post/2009/09/19/Nouvelles-hebdomadaires-de-PostgreSQL-13-septembre-2009" title="Nouvelles hebdomadaires de PostgreSQL - 13 septembre 2009" />
+          
+    <link rel="chapter" href="index79ee.html?post/2009/09/09/Nouvelles-hebdomadaires-de-PostgreSQL-6-septembre-2009" title="Nouvelles hebdomadaires de PostgreSQL - 6 septembre 2009" />
+          
+    <link rel="chapter" href="index9be8.html?post/2009/09/05/Nouvelles-hebdomadaires-de-PostgreSQL-30-ao%C3%BBt-2009" title="Nouvelles hebdomadaires de PostgreSQL - 30 août 2009" />
+          
+    <link rel="chapter" href="indexca5f.html?post/2009/08/27/Nouvelles-hebdomadaires-de-PostgreSQL-23-ao%C3%BBt-2009" title="Nouvelles hebdomadaires de PostgreSQL - 23 août 2009" />
+          
+    <link rel="chapter" href="index44a1.html?post/2009/08/20/Nouvelles-hebdomadaires-de-PostgreSQL-16-ao%C3%BBt-2009" title="Nouvelles hebdomadaires de PostgreSQL - 16 août 2009" />
+          
+    <link rel="chapter" href="indexf1ac.html?post/2009/08/13/Nouvelles-hebdomadaires-de-PostgreSQL-9-ao%C3%BBt-2009" title="Nouvelles hebdomadaires de PostgreSQL - 9 août 2009" />
+          
+    <link rel="chapter" href="index04a6.html?post/2009/08/06/Nouvelles-hebdomadaires-de-PostgreSQL-2-aoucirc%3Bt-2009" title="Nouvelles hebdomadaires de PostgreSQL - 2 août 2009" />
+          
+    <link rel="chapter" href="indexdf7d.html?post/2009/07/29/Nouvelles-hebdomadaires-de-PostgreSQL-26-juillet-2009" title="Nouvelles hebdomadaires de PostgreSQL - 26 juillet 2009" />
+          
+    <link rel="chapter" href="indexf6db.html?post/2009/07/24/Nouvelles-hebdomadaires-de-PostgreSQL-19-juillet-2009" title="Nouvelles hebdomadaires de PostgreSQL - 19 juillet 2009" />
+          
+    <link rel="chapter" href="index90f3.html?post/2009/07/17/Nouvelles-hebdomadaires-de-PostgreSQL-12-juillet-2009" title="Nouvelles hebdomadaires de PostgreSQL - 12 juillet 2009" />
+          
+    <link rel="chapter" href="indexb468.html?post/2009/07/10/Nouvelles-hebdomadaires-de-PostgreSQL-5-juillet-2009" title="Nouvelles hebdomadaires de PostgreSQL - 5 juillet 2009" />
+          
+    <link rel="chapter" href="index947b.html?post/2009/06/30/Nouvelles-hebdomadaires-de-PostgreSQL-28-juin-2009" title="Nouvelles hebdomadaires de PostgreSQL - 28 juin 2009" />
+          
+    <link rel="chapter" href="indexa999.html?post/2009/06/27/Nouvelles-hebdomadaires-de-PostgreSQL-21-juin-2009" title="Nouvelles hebdomadaires de PostgreSQL - 21 juin 2009" />
+          
+    <link rel="chapter" href="index12f1.html?post/2009/06/18/Nouvelles-hebdomadaires-de-PostgreSQL-14-juin-2009" title="Nouvelles hebdomadaires de PostgreSQL - 14 juin 2009" />
+    
+  <link rel="alternate" type="application/atom+xml" title="Atom 1.0" href="indexa21f.php?feed/category/PostgreSQL-Weekly-News/atom" />
+  
+  <style type="text/css" media="screen">
+@import url(themes/postgresql/style.css);
+</style>
+<style type="text/css" media="print">
+@import url(themes/default/print.css);
+</style>
+
+<script type="text/javascript" src="themes/default/js/jquery.js"></script>
+<script type="text/javascript" src="themes/default/js/jquery.cookie.js"></script>
+
+</head>
+
+<body class="dc-category">
+<div id="page">
+<div id="top">
+  <div id="pgHeader">
+    <span id="pgHeaderLogoLeft">
+      <a href="index.html" title="PostgreSQL"><img src="https://blog.postgresql.fr/themes/postgresql/img/hdr_left.png" width="230" height="80" alt="PostgreSQL" /></a>
+    </span>
+    <span id="pgHeaderLogoRight">
+      <a href="index.html" title="La base de donnees la plus sophistiquee au monde."><img src="https://blog.postgresql.fr/themes/postgresql/img/hdr_right.png" width="210" height="80" alt="La base de donnees la plus sophistiquee au monde." /></a>
+    </span>
+  </div>
+
+  </div>
+
+<div class="pgTopNav">
+  <div class="pgTopNavLeft"> 
+    <img src="https://blog.postgresql.fr/themes/postgresql/img/nav_lft.png" width="7" height="23" alt="" />
+  </div>
+  <div class="pgTopNavRight">
+    <img src="https://blog.postgresql.fr/themes/postgresql/img/nav_rgt.png" width="7" height="23" alt="" />
+  </div>
+  <ul class="pgTopNavList">
+    <li><a href="https://www.postgresql.fr/" title="Accueil">Accueil</a></li>
+    <li><a href="https://blog.postgresql.fr/" title="Lire les actualités">Actualités</a></li>
+    <li><a href="https://docs.postgresql.fr/" title="Lire la documentation officielle">Documentation</a></li>
+    <li><a href="https://forums.postgresql.fr/" title="Pour poser des questions">Forums</a></li>
+    <li><a href="https://www.postgresql.fr/asso/" title="La vie de l'association">Association</a></li>
+    <li><a href="https://www.postgresql.fr/devel:accueil" title="Informations pour les développeurs/traducteurs">Développeurs</a></li>
+    <li><a href="https://planete.postgresql.fr/" title="La planète francophone sur PostgreSQL">Planète</a></li>
+    <li><a href="https://www.postgresql.fr/support/" title="Support sur PostgreSQL">Support</a></li>
+  </ul>
+</div>
+
+<div id="wrapper">
+
+<div id="pgContent">
+
+  <div id="pgSideWrap">
+  <div id="pgSideNav">
+    <div id="blognav">
+      <div id="search"><h2><label for="q">Rechercher</label></h2><form action="http://blog2.postgresql.fr/index.php?" method="get"><fieldset><p><input type="text" size="10" maxlength="255" id="q" name="q" value="" /> <input class="submit" type="submit" value="ok" /></p></fieldset></form></div><div class="categories"><h2>Catégories</h2><ul><li><a href="index199b.html?category/Articles">Articles</a></li><li><a href="indexb4c6.html?category/Dans-les-bacs">Dans les bacs</a></li><li><a href="index025a.html?category/Evenements">Événements</a></li><li class="category-current"><a href="index8c6d.html?category/PostgreSQL-Weekly-News">PostgreSQL Weekly News</a></li><li><a href="index1835.html?category/Securite">Sécurité</a></li><li><a href="index2251.html?category/Vie-de-l-association">Vie de l'association</a></li><li><a href="index91de.html?category/Vie-du-site">Vie du site</a></li></ul></div><div class="text"><h2>Licence</h2>Tous les articles de ce blog sont disponibles sous la <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/">license Creative Commons BY-NC-SA 3.0</a>.</div>    </div> <!-- End #blognav -->
+  
+    <div id="blogextra">
+      <div class="syndicate"><h2>S'abonner</h2><ul><li><a type="application/atom+xml" href="index4ca3.php?feed/atom" title="Fil Atom des billets de ce blog" class="feed">Fil des billets</a></li></ul></div>    </div> <!-- End #blogextra -->
+  </div>
+  </div>
+
+  <div id="pgContentWrap">
+  <div id="pgDownloadsWrap">
+  <div id="content">
+
+  <div id="content-info">
+    <h2>PostgreSQL Weekly News</h2>
+      
+    <p><a type="application/atom+xml" href="indexa21f.php?feed/category/PostgreSQL-Weekly-News/atom"
+    title="Fil Atom des billets de cette catégorie" class="feed">Fil des billets</a>
+    
+        </p>
+  </div>
+  
+      <div class="post odd first" lang="fr" xml:lang="fr">
+
+    <p class="day-date">jeudi 29 octobre 2009</p>    
+    <h2 id="p511" class="post-title"><a
+    href="index9ebb.html?post/2009/10/29/Nouvelles-hebdomadaires-de-PostgreSQL-25-octobre-2009">Nouvelles hebdomadaires de PostgreSQL - 25 octobre 2009</a></h2>
+    
+    <p class="post-info">Par chl    le jeudi 29 octobre 2009, 23:05</p>
+    
+    
+    
+          <div class="post-content"><p>[ndt] Gr&acirc;ce &agrave; la g&eacute;n&eacute;rosit&eacute; des sponsors, la date butoir pour les inscriptions au PGday.eu est repouss&eacute;e au 31 octobre. Pass&eacute;e cette date, ce sera le tarif "guichet"&nbsp;: <a href="http://2009.pgday.eu/fr:register" target="_blank">http://2009.pgday.eu/fr:register</a></p>
+<p><strong>Les nouveaut&eacute;s des produits d&eacute;riv&eacute;s</strong></p>
+<ul>
+<li>once:fabrik, un progiciel de gestion int&eacute;gr&eacute;e bas&eacute; sur PostgreSQL est disponible en essai gratuit jusqu'au 31 octobre 2009&nbsp;: 
+<a target="_blank" href="http://www.oncetechnologies.com/">http://www.oncetechnologies.com/</a></li>
+</ul>
+<p>(<a target="_blank" href="http://www.postgresql.org/community/weeklynews/pwn20091025">lien vers l'article original</a>)</p></div>
+      <p class="read-it"><a href="index9ebb.html?post/2009/10/29/Nouvelles-hebdomadaires-de-PostgreSQL-25-octobre-2009"
+      title="Lire la suite Nouvelles hebdomadaires de PostgreSQL - 25 octobre 2009">Lire la suite</a>...</p>
+    
+    
+    
+                        </div>
+    
+          <div class="post  " lang="fr" xml:lang="fr">
+
+    <p class="day-date">jeudi 22 octobre 2009</p>    
+    <h2 id="p510" class="post-title"><a
+    href="indexccf7.html?post/2009/10/22/Nouvelles-hebdomadaires-de-PostgreSQL-18-octobre-2009">Nouvelles hebdomadaires de PostgreSQL - 18 octobre 2009</a></h2>
+    
+    <p class="post-info">Par chl    le jeudi 22 octobre 2009, 01:47</p>
+    
+    
+    
+          <div class="post-content"><p>La Commitfest 2009-09 est maintenant termin&eacute;e. Vous pouvez d&egrave;s &agrave; pr&eacute;sent recommencer &agrave; travailler sur vos propres patchs&nbsp;:)</p>
+<p>La "PostgreSQL Conference (JDCon) West" s'est conclue aujourd'hui. Merci &agrave; toutes les merveilleuses personnes de Seattle pour en avoir fait un succ&egrave;s.</p>
+<p>[ndt] Fin des inscriptions au PGDay.EU 2009 vendredi 23 au soir. Apr&egrave;s cette date, ce sera sur place avec une majoration.</p>
+<p>[ndt] En bordure du PGDay.EU, David Fetter fera une conf&eacute;rence chez Parinux le 10 novembre. Plus d'infos&nbsp;: 
+<a target="_blank" href="http://www.parinux.org/content/conference-postgresql-le-mardi-11-novembre-2009">http://www.parinux.org/content/conference-postgresql-le-mardi-11-novembre-2009</a></p>
+<p><strong>Les nouveaut&eacute;s des produits d&eacute;riv&eacute;s</strong></p>
+<ul>
+<li>PWN Translator 3.0, un script d'aide &agrave; la traduction des Nouvelles Hebdomadaires de PostgreSQL&nbsp;: 
+<a target="_blank" href="http://pgfoundry.org/projects/pwn-translation/">http://pgfoundry.org/projects/pwn-translation/</a></li>
+<li>Benetl 3.2, un outil d'ETL pour fichiers&nbsp;: 
+<a target="_blank" href="http://www.benetl.net/">http://www.benetl.net</a></li>
+<li>Bucardo 4.3.0, un syst&egrave;me de r&eacute;plication capable de g&eacute;rer deux instances "ma&icirc;tres"&nbsp;: 
+<a target="_blank" href="http://bucardo.org/wiki/Bucardo">http://bucardo.org/wiki/Bucardo</a></li>
+</ul>
+<p>(<a target="_blank" href="http://www.postgresql.org/community/weeklynews/pwn20091018">lien vers l'article original</a>)</p></div>
+      <p class="read-it"><a href="indexccf7.html?post/2009/10/22/Nouvelles-hebdomadaires-de-PostgreSQL-18-octobre-2009"
+      title="Lire la suite Nouvelles hebdomadaires de PostgreSQL - 18 octobre 2009">Lire la suite</a>...</p>
+    
+    
+    
+                        </div>
+    
+          <div class="post odd " lang="fr" xml:lang="fr">
+
+    <p class="day-date">mercredi 14 octobre 2009</p>    
+    <h2 id="p509" class="post-title"><a
+    href="index5f30.html?post/2009/10/14/Nouvelles-hebdomadaires-de-PostgreSQL-11-octobre-2009">Nouvelles hebdomadaires de PostgreSQL - 11 octobre 2009</a></h2>
+    
+    <p class="post-info">Par chl    le mercredi 14 octobre 2009, 22:50</p>
+    
+    
+    
+          <div class="post-content"><p>La commitfest en cours se terminera cette semaine, et la version alpha 2 devrait appara&icirc;tre peu apr&egrave;s. Soyez pr&ecirc;ts &agrave; tester&nbsp;!</p>
+<p>Josh Berkus pr&eacute;sente&nbsp;: "The Mighty GUCS" au SFPUG (San Francisco) le 13 octobre &agrave; 19h (heure du Pacifique). D&eacute;tails sur le webcast et autres ci-dessous&nbsp;: 
+<a target="_blank" href="http://postgresql.meetup.com/1/calendar/11052731/">http://postgresql.meetup.com/1/calendar/11052731/</a></p>
+<p>Federico Campoli fera une pr&eacute;sentation PostgreSQL lors de la journ&eacute;es Linux de Pise organis&eacute;e par le GULP, le 24 octobre 2009. Informations en italien ci-dessous&nbsp;: 
+<a target="_blank" href="http://linuxday2009.gulp.linux.it/">http://linuxday2009.gulp.linux.it/</a></p>
+<p><strong>Les nouveaut&eacute;s des produits d&eacute;riv&eacute;s</strong></p>
+<ul>
+<li>PGLogAnalysis 0.5, un analyseur de log pour PostgreSQL&nbsp;: 
+<a target="_blank" href="http://code.google.com/p/pgloganalysis/">http://code.google.com/p/pgloganalysis/</a></li>
+<li>Oleg Bartunov a cr&eacute;&eacute; un nouveau module "contrib" pour PostgreSQL&nbsp;: Plantuner 
+<a target="_blank" href="http://www.sai.msu.su/~megera/wiki/plantuner">http://www.sai.msu.su/~megera/wiki/plantuner</a></li>
+<li>PostgreDAC ver. 2.5.3, un "builder Delphi/C++" pour PostgreSQL&nbsp;: 
+<a target="_blank" href="http://microolap.com/products/connectivity/postgresdac/download/">http://microolap.com/products/connectivity/postgresdac/download/</a></li>
+<li>Prefix 1.0.0, un module pour des recherches rapides sur les pr&eacute;fixes&nbsp;: 
+<a target="_blank" href="http://pgfoundry.org/projects/prefix/">http://pgfoundry.org/projects/prefix/</a></li>
+<li>Mark Kirkwood a corrig&eacute; un bogue majeur concernant les performances de PDO_pgsql, un module PHP pour se connecter &agrave; une base PostgreSQL&nbsp;: 
+<a target="_blank" href="http://bugs.php.net/bug.php?id=48764">http://bugs.php.net/bug.php?id=48764</a></li>
+</ul>
+<p>(<a target="_blank" href="http://www.postgresql.org/community/weeklynews/pwn20091011">lien vers l'article original</a>)</p></div>
+      <p class="read-it"><a href="index5f30.html?post/2009/10/14/Nouvelles-hebdomadaires-de-PostgreSQL-11-octobre-2009"
+      title="Lire la suite Nouvelles hebdomadaires de PostgreSQL - 11 octobre 2009">Lire la suite</a>...</p>
+    
+    
+    
+                        </div>
+    
+          <div class="post  " lang="fr" xml:lang="fr">
+
+    <p class="day-date">jeudi  8 octobre 2009</p>    
+    <h2 id="p508" class="post-title"><a
+    href="indexbfe3.html?post/2009/10/08/Nouvelles-hebdomadaires-de-PostgreSQL-4-octobre-2009">Nouvelles hebdomadaires de PostgreSQL - 4 octobre 2009</a></h2>
+    
+    <p class="post-info">Par chl    le jeudi  8 octobre 2009, 23:16</p>
+    
+    
+    
+          <div class="post-content"><p><strong>Les nouveaut&eacute;s des produits d&eacute;riv&eacute;s</strong></p>
+<ul>
+<li>Bucardo 4.2.1, un syst&egrave;me de r&eacute;plication capable de g&eacute;rer deux instances "ma&icirc;tres"&nbsp;: 
+<a target="_blank" href="http://bucardo.org/wiki/Bucardo">http://bucardo.org/wiki/Bucardo</a></li>
+<li>pgpool-II 2.2.5, un gestionnaire de connexions et bien d'avantage&nbsp;: 
+<a target="_blank" href="http://pgfoundry.org/projects/pgpool/">http://pgfoundry.org/projects/pgpool/</a></li>
+<li>Marc Balmer a mis en place un wiki (en allemand)&nbsp;: 
+<a target="_blank" href="http://www.postgres-support.com/">http://www.postgres-support.com/</a></li>
+<li>Un plugin Wordpress rend ce dernier compatible avec PostgreSQL&nbsp;: 
+<a target="_blank" href="http://wordpress.org/extend/plugins/postgresql-for-wordpress/">http://wordpress.org/extend/plugins/postgresql-for-wordpress/</a></li>
+</ul>
+<p>(<a target="_blank" href="http://www.postgresql.org/community/weeklynews/pwn20091004">lien vers l'article original</a>)</p></div>
+      <p class="read-it"><a href="indexbfe3.html?post/2009/10/08/Nouvelles-hebdomadaires-de-PostgreSQL-4-octobre-2009"
+      title="Lire la suite Nouvelles hebdomadaires de PostgreSQL - 4 octobre 2009">Lire la suite</a>...</p>
+    
+    
+    
+                        </div>
+    
+          <div class="post odd " lang="fr" xml:lang="fr">
+
+    <p class="day-date">mercredi 30 septembre 2009</p>    
+    <h2 id="p507" class="post-title"><a
+    href="indexb4de.html?post/2009/09/30/Nouvelles-hebdomadaires-de-PostgreSQL-27-septembre-2009">Nouvelles hebdomadaires de PostgreSQL - 27 septembre 2009</a></h2>
+    
+    <p class="post-info">Par chl    le mercredi 30 septembre 2009, 21:32</p>
+    
+    
+    
+          <div class="post-content"><p>La <em>commitfest</em> continue, avec une publication alpha 2 sous peu.</p>
+<p>[ndt] Le programme du PGDay.EU est disponible, inscrivez-vous au plus t&ocirc;t&nbsp;! 
+<a target="_blank" href="http://2009.pgday.eu/fr:schedule">http://2009.pgday.eu/fr:schedule</a> <a target="_blank" href="http://2009.pgday.eu/fr:register">http://2009.pgday.eu/fr:register</a></p>
+<p><strong>Les nouveaut&eacute;s des produits d&eacute;riv&eacute;s</strong></p>
+<ul>
+<li>Benetl 3.1, un ETL pour fichiers&nbsp;: 
+<a target="_blank" href="http://www.benetl.net/">http://www.benetl.net</a></li>
+</ul>
+<p>(<a target="_blank" href="http://www.postgresql.org/community/weeklynews/pwn20090927">lien vers l'article original</a>)</p></div>
+      <p class="read-it"><a href="indexb4de.html?post/2009/09/30/Nouvelles-hebdomadaires-de-PostgreSQL-27-septembre-2009"
+      title="Lire la suite Nouvelles hebdomadaires de PostgreSQL - 27 septembre 2009">Lire la suite</a>...</p>
+    
+    
+    
+                        </div>
+    
+          <div class="post  " lang="fr" xml:lang="fr">
+
+    <p class="day-date">mercredi 23 septembre 2009</p>    
+    <h2 id="p506" class="post-title"><a
+    href="indexf32a.html?post/2009/09/23/Nouvelles-hebdomadaires-de-PostgreSQL-20-septembre-2009">Nouvelles hebdomadaires de PostgreSQL - 20 septembre 2009</a></h2>
+    
+    <p class="post-info">Par chl    le mercredi 23 septembre 2009, 13:05</p>
+    
+    
+    
+          <div class="post-content"><p>Les inscriptions pour la PGCon Brazil 2009 sont ouvertes&nbsp;: 
+<a target="_blank" href="http://pgcon.postgresql.org.br/">http://pgcon.postgresql.org.br</a></p>
+<p>(<a target="_blank" href="http://www.postgresql.org/community/weeklynews/pwn20090920">lien vers l'article original</a>)</p></div>
+      <p class="read-it"><a href="indexf32a.html?post/2009/09/23/Nouvelles-hebdomadaires-de-PostgreSQL-20-septembre-2009"
+      title="Lire la suite Nouvelles hebdomadaires de PostgreSQL - 20 septembre 2009">Lire la suite</a>...</p>
+    
+    
+    
+                        </div>
+    
+          <div class="post odd " lang="fr" xml:lang="fr">
+
+    <p class="day-date">samedi 19 septembre 2009</p>    
+    <h2 id="p505" class="post-title"><a
+    href="indexb890.html?post/2009/09/19/Nouvelles-hebdomadaires-de-PostgreSQL-13-septembre-2009">Nouvelles hebdomadaires de PostgreSQL - 13 septembre 2009</a></h2>
+    
+    <p class="post-info">Par chl    le samedi 19 septembre 2009, 13:07</p>
+    
+    
+    
+          <div class="post-content"><p>Les mises &agrave; jour de s&eacute;curit&eacute; 8.4.1, 8.3.8, 8.2.14, 8.1.18, 8.0.22 et 7.4.26 sont disponibles. Mettez &agrave; jour d&egrave;s que possible&nbsp;!</p>
+<p>[ndt] Guillaume Lelarge fera une conf&eacute;rence sur les solutions de r&eacute;plication avec PostgreSQL le 16 octobre lors des JDLL 2009 au CPE de Lyon (Villeurbanne)&nbsp;: 
+<a target="_blank" href="http://jdll.org/edition-2009">http://jdll.org/edition-2009</a></p>
+<p><strong>Les nouveaut&eacute;s des produits d&eacute;riv&eacute;s</strong></p>
+<ul>
+<li>Bucardo 4.0.1, un syst&egrave;me de r&eacute;plication capable de g&eacute;rer deux instances "ma&icirc;tres"&nbsp;: 
+<a target="_blank" href="http://bucardo.org/wiki/Bucardo">http://bucardo.org/wiki/Bucardo</a></li>
+</ul>
+<p>(<a target="_blank" href="http://www.postgresql.org/community/weeklynews/pwn20090913">lien vers l'article original</a>)</p></div>
+      <p class="read-it"><a href="indexb890.html?post/2009/09/19/Nouvelles-hebdomadaires-de-PostgreSQL-13-septembre-2009"
+      title="Lire la suite Nouvelles hebdomadaires de PostgreSQL - 13 septembre 2009">Lire la suite</a>...</p>
+    
+    
+    
+                        </div>
+    
+          <div class="post  " lang="fr" xml:lang="fr">
+
+    <p class="day-date">mercredi  9 septembre 2009</p>    
+    <h2 id="p503" class="post-title"><a
+    href="index79ee.html?post/2009/09/09/Nouvelles-hebdomadaires-de-PostgreSQL-6-septembre-2009">Nouvelles hebdomadaires de PostgreSQL - 6 septembre 2009</a></h2>
+    
+    <p class="post-info">Par chl    le mercredi  9 septembre 2009, 01:23</p>
+    
+    
+    
+          <div class="post-content"><p>Nouveau sondage&nbsp;: quelle fonctionnalit&eacute; de la 8.5 alpha1 trouvez-vous la plus int&eacute;ressante&nbsp;? 
+<a target="_blank" href="http://www.postgresql.org/community">http://www.postgresql.org/community</a></p>
+<p>Les inscriptions pour la "PostgreSQL Conference West" sont ouvertes&nbsp;: 
+<a target="_blank" href="http://www.postgresql.us/purchase">http://www.postgresql.us/purchase</a></p>
+<p>Le projet "PostgreSQL Live CD" a ouvert une mailing-list pour construire ce CD suivant les commentaires de la communaut&eacute;&nbsp;: 
+<a target="_blank" href="http://www.pglivecd.org/community.php">http://www.pglivecd.org/community.php</a></p>
+<p><strong>Les nouveaut&eacute;s des produits d&eacute;riv&eacute;s</strong></p>
+<ul>
+<li>GTpB portalBase, une plateforme web bas&eacute;e sur PostgreSQL, est maintenant disponible en GPL&nbsp;: 
+<a target="_blank" href="http://www.gtportalbase.com/">http://www.gtportalbase.com/</a></li>
+<li>Le "PostgreSQL RPM Building Project" publie une nouvelle version du "PostgreSQL Live CD", cette fois-ci bas&eacute; sur PostgreSQL 8.4.0 et CentOS 5.3&nbsp;: 
+<a target="_blank" href="http://yum.pgsqlrpms.org/livecd.php">http://yum.pgsqlrpms.org/livecd.php</a></li>
+<li>AnySQL Maestro 9.8, une interface graphique pour l'administration et le d&eacute;veloppement sous Windows&nbsp;: 
+<a target="_blank" href="http://www.sqlmaestro.com/products/anysql/maestro/">http://www.sqlmaestro.com/products/anysql/maestro/</a></li>
+<li>pg51g, une bo&icirc;te &agrave; outils de comparaison de donn&eacute;es ("data diff") pour PostgreSQL&nbsp;: 
+<a target="_blank" href="http://pgdba.net/pg51g/">http://pgdba.net/pg51g/</a></li>
+<li>pgDesigner 1.2.11, un utilitaire graphique de sch&eacute;matisation BDD pour PostgreSQL&nbsp;: 
+<a target="_blank" href="http://pgdesigner.sourceforge.net/en/index.html">http://pgdesigner.sourceforge.net/en/index.html</a></li>
+</ul>
+<p>(<a target="_blank" href="http://www.postgresql.org/community/weeklynews/pwn20090906">lien vers l'article original</a>)</p></div>
+      <p class="read-it"><a href="index79ee.html?post/2009/09/09/Nouvelles-hebdomadaires-de-PostgreSQL-6-septembre-2009"
+      title="Lire la suite Nouvelles hebdomadaires de PostgreSQL - 6 septembre 2009">Lire la suite</a>...</p>
+    
+    
+    
+                        </div>
+    
+          <div class="post odd " lang="fr" xml:lang="fr">
+
+    <p class="day-date">samedi  5 septembre 2009</p>    
+    <h2 id="p502" class="post-title"><a
+    href="index9be8.html?post/2009/09/05/Nouvelles-hebdomadaires-de-PostgreSQL-30-ao%C3%BBt-2009">Nouvelles hebdomadaires de PostgreSQL - 30 août 2009</a></h2>
+    
+    <p class="post-info">Par chl    le samedi  5 septembre 2009, 23:23</p>
+    
+    
+    
+          <div class="post-content"><p>La 8.5alpha1, la toute premi&egrave;re version alpha de PostgreSQL, est disponible au t&eacute;l&eacute;chargement. Les notes de publication, les informations g&eacute;n&eacute;rales li&eacute;es &agrave; l'"alpha" et le t&eacute;l&eacute;chargement sont &agrave; ces adresses&nbsp;: 
+<a target="_blank" href="http://developer.postgresql.org/pgdocs/postgres/release-8.5.html">http://developer.postgresql.org/pgdocs/postgres/release-8.5.html</a> <a target="_blank" href="http://www.postgresql.org/developer/alpha">http://www.postgresql.org/developer/alpha</a> <a target="_blank" href="http://www.postgresql.org/ftp/source/8.5alpha1/">http://www.postgresql.org/ftp/source/8.5alpha1/</a></p>
+<p>Le livre d'Andreas (ads) Scherbaum &laquo;&nbsp;PostgreSQL. Datenbankpraxis f&uuml;r Anwender, Administratoren und Entwickler&nbsp;&raquo; [ndt: PostgreSQL. Manuel de BDD &agrave; l'usage des utilisateurs, administrateurs et d&eacute;veloppeurs] a &eacute;t&eacute; publi&eacute;&nbsp;: 
+<a target="_blank" href="http://www.amazon.de/PostgreSQL-Datenbankpraxis-Anwender-Administratoren-Entwickler/dp/3937514694/">http://www.amazon.de/PostgreSQL-Datenbankpraxis-Anwender-Administratoren-Entwickler/dp/3937514694/</a></p>
+<p>Les versions de correction de bug 8.4.1, 8.3.8, 8.2.13, 8.1.17, 8.0.21 et 7.4.25 seront bient&ocirc;t disponibles. Pr&eacute;parez-vous &agrave; mettre &agrave; jour&nbsp;!</p>
+<p>La date limite pour les conf&eacute;rences du JDCon a &eacute;t&eacute; report&eacute;e au 5 septembre. Proposez-vous&nbsp;! 
+<a target="_blank" href="http://www.postgresqlconference.org/">http://www.postgresqlconference.org/</a></p>
+<p><strong>Les nouveaut&eacute;s des produits d&eacute;riv&eacute;s</strong></p>
+<ul>
+<li>once:radix version 1.5, un syst&egrave;me de d&eacute;veloppement rapide d'applications bas&eacute; sur PostgreSQL 8.4&nbsp;: 
+<a target="_blank" href="http://www.oncetechnologies.com/">http://www.oncetechnologies.com/</a></li>
+<li>Benetl 3.0, un ETL pour fichiers utilisant PostgreSQL&nbsp;: 
+<a target="_blank" href="http://www.benetl.net/">http://www.benetl.net</a></li>
+<li>PostgreSQL Replicator 8.3.1-1.8, anciennement Mammoth Replicator&nbsp;: 
+<a target="_blank" href="http://projects.commandprompt.com/public/replicator">http://projects.commandprompt.com/public/replicator</a></li>
+<li>pgpool-II 2.2.4, un gestionnaire de connexions et bien d'avantage&nbsp;: 
+<a target="_blank" href="http://pgfoundry.org/projects/pgpool/">http://pgfoundry.org/projects/pgpool/</a></li>
+</ul>
+<p>(<a target="_blank" href="http://www.postgresql.org/community/weeklynews/pwn20090830">lien vers l'article original</a>)</p></div>
+      <p class="read-it"><a href="index9be8.html?post/2009/09/05/Nouvelles-hebdomadaires-de-PostgreSQL-30-ao%C3%BBt-2009"
+      title="Lire la suite Nouvelles hebdomadaires de PostgreSQL - 30 août 2009">Lire la suite</a>...</p>
+    
+    
+    
+                        </div>
+    
+          <div class="post  " lang="fr" xml:lang="fr">
+
+    <p class="day-date">jeudi 27 août 2009</p>    
+    <h2 id="p501" class="post-title"><a
+    href="indexca5f.html?post/2009/08/27/Nouvelles-hebdomadaires-de-PostgreSQL-23-ao%C3%BBt-2009">Nouvelles hebdomadaires de PostgreSQL - 23 août 2009</a></h2>
+    
+    <p class="post-info">Par chl    le jeudi 27 août 2009, 22:19</p>
+    
+    
+    
+          <div class="post-content"><p>La première <em>commitfest</em> est maintenant terminée, avec 35 patchs inclus. Félicitations à Robert Haas, "maman" de la <em>commitfest</em>, et à tous les candidats et relecteurs.</p>
+<p>Nouveau sondage&nbsp;: laquelle de ces erreurs de DBA vous a coûté le plus long "hors service"&nbsp;?
+<a target="_blank" href="http://www.postgresql.org/community">http://www.postgresql.org/community</a></p>
+<p><strong>Les nouveautés des produits dérivés</strong></p>
+<ul>
+<li>check_postgres 2.11.0, un module Nagios pour la surveillance de PostgreSQL&nbsp;:
+<a target="_blank" href="http://bucardo.org/check_postgres/">http://bucardo.org/check_postgres/</a></li>
+</ul>
+<p>(<a target="_blank" href="http://www.postgresql.org/community/weeklynews/pwn20090823">lien vers l'article original</a>)</p></div>
+      <p class="read-it"><a href="indexca5f.html?post/2009/08/27/Nouvelles-hebdomadaires-de-PostgreSQL-23-ao%C3%BBt-2009"
+      title="Lire la suite Nouvelles hebdomadaires de PostgreSQL - 23 août 2009">Lire la suite</a>...</p>
+    
+    
+    
+                        </div>
+    
+          <div class="post odd " lang="fr" xml:lang="fr">
+
+    <p class="day-date">jeudi 20 août 2009</p>    
+    <h2 id="p500" class="post-title"><a
+    href="index44a1.html?post/2009/08/20/Nouvelles-hebdomadaires-de-PostgreSQL-16-ao%C3%BBt-2009">Nouvelles hebdomadaires de PostgreSQL - 16 août 2009</a></h2>
+    
+    <p class="post-info">Par chl    le jeudi 20 août 2009, 00:44</p>
+    
+    
+    
+          <div class="post-content"><p>La premi&egrave;re <em>commitfest</em> du cycle de la 8.5 se conclut. Avec presque 40 patchs appliqu&eacute;s et seulement 5 rejets sans appel, le d&eacute;veloppement de cette nouvelle version se fait encore plus paisiblement et plus efficacement que ne se fit celui de la 8.4.</p>
+<p><strong>Les nouveaut&eacute;s des produits d&eacute;riv&eacute;s</strong></p>
+<ul>
+<li>pgfincore 0.3, un outil pour d&eacute;terminer quels fichiers ou parties de PG sont dans le cache de l'OS&nbsp;: 
+<a target="_blank" href="http://pgfoundry.org/projects/pgfincore/">http://pgfoundry.org/projects/pgfincore/</a></li>
+<li>pgpool-II 2.2.3, un gestionnaire de connexions et bien d'avantage&nbsp;: 
+<a target="_blank" href="http://pgfoundry.org/projects/pgpool/">http://pgfoundry.org/projects/pgpool/</a></li>
+</ul>
+<p>(<a target="_blank" href="http://www.postgresql.org/community/weeklynews/pwn20090816">lien vers l'article original</a>)</p></div>
+      <p class="read-it"><a href="index44a1.html?post/2009/08/20/Nouvelles-hebdomadaires-de-PostgreSQL-16-ao%C3%BBt-2009"
+      title="Lire la suite Nouvelles hebdomadaires de PostgreSQL - 16 août 2009">Lire la suite</a>...</p>
+    
+    
+    
+                        </div>
+    
+          <div class="post  " lang="fr" xml:lang="fr">
+
+    <p class="day-date">jeudi 13 août 2009</p>    
+    <h2 id="p499" class="post-title"><a
+    href="indexf1ac.html?post/2009/08/13/Nouvelles-hebdomadaires-de-PostgreSQL-9-ao%C3%BBt-2009">Nouvelles hebdomadaires de PostgreSQL - 9 août 2009</a></h2>
+    
+    <p class="post-info">Par chl    le jeudi 13 août 2009, 01:02</p>
+    
+    
+    
+          <div class="post-content"><p>La date de fin de l'appel &agrave; conf&eacute;rence pour le PGDay.EU 2009 est fix&eacute;e au 15 ao&ucirc;t. Ce samedi est donc votre derni&egrave;re chance de faire partie de l'aventure&nbsp;; soumettez au plus t&ocirc;t&nbsp;! 
+<a target="_blank" href="http://www.pgday.eu/">http://www.pgday.eu/</a></p>
+<p>Nouveau sondage&nbsp;: par quel biais avez-vous d&eacute;couvert PostgreSQL&nbsp;? 
+<a target="_blank" href="http://www.postgresql.org/community">http://www.postgresql.org/community</a></p>
+<p><strong>Les nouveaut&eacute;s des produits d&eacute;riv&eacute;s</strong></p>
+<ul>
+<li>DBD::Pg 2.15.0, un connecteur Perl pour PostgreSQL&nbsp;: 
+<a target="_blank" href="http://search.cpan.org/dist/DBD-Pg/">http://search.cpan.org/dist/DBD-Pg/</a></li>
+</ul>
+<p>(<a target="_blank" href="http://www.postgresql.org/community/weeklynews/pwn20090809">lien vers l'article original</a>)</p></div>
+      <p class="read-it"><a href="indexf1ac.html?post/2009/08/13/Nouvelles-hebdomadaires-de-PostgreSQL-9-ao%C3%BBt-2009"
+      title="Lire la suite Nouvelles hebdomadaires de PostgreSQL - 9 août 2009">Lire la suite</a>...</p>
+    
+    
+    
+                        </div>
+    
+          <div class="post odd " lang="fr" xml:lang="fr">
+
+    <p class="day-date">jeudi  6 août 2009</p>    
+    <h2 id="p498" class="post-title"><a
+    href="index04a6.html?post/2009/08/06/Nouvelles-hebdomadaires-de-PostgreSQL-2-aoucirc%3Bt-2009">Nouvelles hebdomadaires de PostgreSQL - 2 août 2009</a></h2>
+    
+    <p class="post-info">Par chl    le jeudi  6 août 2009, 22:56</p>
+    
+    
+    
+          <div class="post-content"><p>Le FOSDEM 2010 aura lieu à Bruxelles les 6 &amp; 7 février 2010&nbsp;:
+<a target="_blank" href="http://www.fosdem.org/">http://www.fosdem.org/</a></p>
+<p>La première réunion du PUG de la Silicon Valley a eu lieu la semaine dernière. Inscrivez-vous sur leur "meetup" pour être averti des prochaines réunions&nbsp;:
+<a target="_blank" href="http://www.meetup.com/svpgsql/">http://www.meetup.com/svpgsql/</a></p>
+<p>L'OpenSQL Camp de Portland est à la recherche de sponsors. Pensez à votre voyage dès maintenant&nbsp;!&nbsp;:)
+<a target="_blank" href="http://www.chesnok.com/daily/2009/07/29/opensql-camp-comes-to-portland-november-14-15-2009/">http://www.chesnok.com/daily/2009/07/29/opensql-camp-comes-to-portland-november-14-15-2009/</a></p>
+<p>Christophe Pettus a publié une vidéo tournée lors du PGDay de San Jose&nbsp;:
+<a target="_blank" href="http://media.postgresql.org/pgday-sjc-09/">http://media.postgresql.org/pgday-sjc-09/</a></p>
+<p><strong>Les nouveautés des produits dérivés</strong></p>
+<ul>
+<li>DBD::Pg 2.14.1, un connecteur Perl pour PostgreSQL&nbsp;:
+<a target="_blank" href="http://search.cpan.org/dist/DBD-Pg/">http://search.cpan.org/dist/DBD-Pg/</a></li>
+<li>PostgreSQL + Replication 8.3-1.8, anciennement Mammoth Replicator&nbsp;:
+<a target="_blank" href="https://projects.commandprompt.com/public/replicator/wiki/getting_replicator">https://projects.commandprompt.com/public/replicator/wiki/getting_replicator</a></li>
+</ul>
+<p>(<a target="_blank" href="http://www.postgresql.org/community/weeklynews/pwn20090802">lien vers l'article original</a>)</p></div>
+      <p class="read-it"><a href="index04a6.html?post/2009/08/06/Nouvelles-hebdomadaires-de-PostgreSQL-2-aoucirc%3Bt-2009"
+      title="Lire la suite Nouvelles hebdomadaires de PostgreSQL - 2 août 2009">Lire la suite</a>...</p>
+    
+    
+    
+                        </div>
+    
+          <div class="post  " lang="fr" xml:lang="fr">
+
+    <p class="day-date">mercredi 29 juillet 2009</p>    
+    <h2 id="p496" class="post-title"><a
+    href="indexdf7d.html?post/2009/07/29/Nouvelles-hebdomadaires-de-PostgreSQL-26-juillet-2009">Nouvelles hebdomadaires de PostgreSQL - 26 juillet 2009</a></h2>
+    
+    <p class="post-info">Par chl    le mercredi 29 juillet 2009, 23:55</p>
+    
+    
+    
+          <div class="post-content"><p>Si vous utilisez une plateforme Win32, merci de nous aider dans les tests du patch corrigeant l'inf&acirc;me <em>&ldquo;failed to re-attach to shared memory&rdquo;&nbsp;</em>: <a href="http://blog.hagander.net/archives/149-Help-us-test-a-patch-for-the-Win32-shared-memory-issue.html">http://blog.hagander.net/archives/149-Help-us-test-a-patch-for-the-Win32-shared-memory-issue.html</a></p>
+<p><strong>Les nouveaut&eacute;s des produits d&eacute;riv&eacute;s</strong></p>
+<ul>
+<li>psqlODBC 08.04.0100&nbsp;: 
+<a target="_blank" href="http://psqlodbc.projects.postgresql.org/release.html">http://psqlodbc.projects.postgresql.org/release.html</a></li>
+<li>Lancement de l'&ldquo;Open Source Database Magazine&rdquo; avec un article de Robert Treat&nbsp;: 
+<a target="_blank" href="http://www.osdbzine.net/">http://www.osdbzine.net</a></li>
+<li>Lancement &eacute;galement de l'&ldquo;Open Source Database Podcast&rdquo;&nbsp;: 
+<a target="_blank" href="http://www.osdbzine.net/podcast/osdbpodcast.xml">http://www.osdbzine.net/podcast/osdbpodcast.xml</a></li>
+<li>PostGIS 1.4.0, un syst&egrave;me g&eacute;ospatial pour PostgreSQL&nbsp;: 
+<a target="_blank" href="http://postgis.refractions.net/">http://postgis.refractions.net/</a></li>
+</ul>
+<p>(<a target="_blank" href="http://www.postgresql.org/community/weeklynews/pwn20090726">lien vers l'article original</a>)</p></div>
+      <p class="read-it"><a href="indexdf7d.html?post/2009/07/29/Nouvelles-hebdomadaires-de-PostgreSQL-26-juillet-2009"
+      title="Lire la suite Nouvelles hebdomadaires de PostgreSQL - 26 juillet 2009">Lire la suite</a>...</p>
+    
+    
+    
+                        </div>
+    
+          <div class="post odd " lang="fr" xml:lang="fr">
+
+    <p class="day-date">vendredi 24 juillet 2009</p>    
+    <h2 id="p495" class="post-title"><a
+    href="indexf6db.html?post/2009/07/24/Nouvelles-hebdomadaires-de-PostgreSQL-19-juillet-2009">Nouvelles hebdomadaires de PostgreSQL - 19 juillet 2009</a></h2>
+    
+    <p class="post-info">Par chl    le vendredi 24 juillet 2009, 00:55</p>
+    
+    
+    
+          <div class="post-content"><p>La premi&egrave;re Commitfest du cycle de d&eacute;veloppement de la 8.5 est ouverte&nbsp;! 
+<a target="_blank" href="http://commitfest.postgresql.org/">http://commitfest.postgresql.org/</a></p>
+<p>Le PUG italien a rejoint le "PostgreSQL Translation Project". Un groupe de travail de 9 personnes a entrepris de rendre plus verte la section italienne de <a href="http://babel.postgresql.org/">babel.postgresql.org</a>. Plus d'informations en italien&nbsp;: 
+<a target="_blank" href="http://traduzioni.itpug.org/">http://traduzioni.itpug.org/</a></p>
+<p><strong>Les nouveaut&eacute;s des produits d&eacute;riv&eacute;s</strong></p>
+<ul>
+<li>Archiveopteryx 3.1.2, un gestionnaire d'email bas&eacute; sur PostgreSQL&nbsp;: 
+<a target="_blank" href="http://www.archiveopteryx.org/3.1.2">http://www.archiveopteryx.org/3.1.2</a></li>
+<li>Benetl 2.9, un ETL pour fichiers utilisant PostgreSQL&nbsp;: 
+<a target="_blank" href="http://www.benetl.net/">http://www.benetl.net</a></li>
+<li>Npgsql2 2.0.6, un gestionnaire .NET de donn&eacute;es pour PostgreSQL&nbsp;: 
+<a target="_blank" href="http://www.npgsql.org/">http://www.npgsql.org</a></li>
+<li>PostgreDAC ver. 2.5.2&nbsp;: 
+<a target="_blank" href="http://microolap.com/products/connectivity/postgresdac/download/">http://microolap.com/products/connectivity/postgresdac/download/</a></li>
+</ul>
+<p>(<a target="_blank" href="http://www.postgresql.org/community/weeklynews/pwn20090719">lien vers l'article original</a>)</p></div>
+      <p class="read-it"><a href="indexf6db.html?post/2009/07/24/Nouvelles-hebdomadaires-de-PostgreSQL-19-juillet-2009"
+      title="Lire la suite Nouvelles hebdomadaires de PostgreSQL - 19 juillet 2009">Lire la suite</a>...</p>
+    
+    
+    
+                        </div>
+    
+          <div class="post  " lang="fr" xml:lang="fr">
+
+    <p class="day-date">vendredi 17 juillet 2009</p>    
+    <h2 id="p494" class="post-title"><a
+    href="index90f3.html?post/2009/07/17/Nouvelles-hebdomadaires-de-PostgreSQL-12-juillet-2009">Nouvelles hebdomadaires de PostgreSQL - 12 juillet 2009</a></h2>
+    
+    <p class="post-info">Par chl    le vendredi 17 juillet 2009, 01:28</p>
+    
+    
+    
+          <div class="post-content"><p>Des places sont toujours disponibles pour le PgDay de San Jose, dimanche 19 juillet. Inscrivez-vous rapidement&nbsp;! 
+<a target="_blank" href="http://wiki.postgresql.org/wiki/PgDaySanJose2009">http://wiki.postgresql.org/wiki/PgDaySanJose2009</a></p>
+<p>Un nouvel outil fait son apparition pour les Commitfests. Merci &agrave; Robert Haas, Brendan Jurd et de nombreux autres&nbsp;: 
+<a target="_blank" href="http://commitfest.postgresql.org/">http://commitfest.postgresql.org/</a></p>
+<p><strong>Les nouveaut&eacute;s des produits d&eacute;riv&eacute;s</strong></p>
+<ul>
+<li>check_postgres 2.9.2, un plugin de Nagios pour surveiller PostgreSQL&nbsp;: 
+<a target="_blank" href="http://bucardo.org/check_postgres/">http://bucardo.org/check_postgres/</a></li>
+<li>Le "PostgreSQL RPM Building Project" a publi&eacute; le "PostgreSQL 8.4 Live CD"&nbsp;: 
+<a target="_blank" href="http://www.pglivecd.org/">http://www.pglivecd.org</a></li>
+<li>pgbouncer 1.3.1, un gestionnaire de connexion &agrave; PostgreSQL&nbsp;: 
+<a target="_blank" href="http://pgfoundry.org/projects/pgbouncer/">http://pgfoundry.org/projects/pgbouncer/</a></li>
+</ul>
+<p>(<a target="_blank" href="http://www.postgresql.org/community/weeklynews/pwn20090712">lien vers l'article original</a>)</p></div>
+      <p class="read-it"><a href="index90f3.html?post/2009/07/17/Nouvelles-hebdomadaires-de-PostgreSQL-12-juillet-2009"
+      title="Lire la suite Nouvelles hebdomadaires de PostgreSQL - 12 juillet 2009">Lire la suite</a>...</p>
+    
+    
+    
+                        </div>
+    
+          <div class="post odd " lang="fr" xml:lang="fr">
+
+    <p class="day-date">vendredi 10 juillet 2009</p>    
+    <h2 id="p493" class="post-title"><a
+    href="indexb468.html?post/2009/07/10/Nouvelles-hebdomadaires-de-PostgreSQL-5-juillet-2009">Nouvelles hebdomadaires de PostgreSQL - 5 juillet 2009</a></h2>
+    
+    <p class="post-info">Par chl    le vendredi 10 juillet 2009, 00:40</p>
+    
+    
+    
+          <div class="post-content"><p>Publication de PostgreSQL 8.4.0&nbsp;: 
+<a target="_blank" href="http://www.postgresql.org/about/press/features84.html">http://www.postgresql.org/about/press/features84.html</a></p>
+<p>Relecteurs de patchs demand&eacute;s de toute urgence&nbsp;! Mail &agrave; robertmhaas (chez) gmail [point] com pour se porter volontaire&nbsp;: 
+<a target="_blank" href="http://wiki.postgresql.org/wiki/Reviewing_a_Patch">http://wiki.postgresql.org/wiki/Reviewing_a_Patch</a></p>
+<p><strong>Les nouveaut&eacute;s des produits d&eacute;riv&eacute;s</strong></p>
+<ul>
+<li>PostgreSQL + Replication 8.3-1.8 Beta 6, anciennement Mammoth Replicator&nbsp;: 
+<a target="_blank" href="https://projects.commandprompt.com/public/replicator">https://projects.commandprompt.com/public/replicator</a></li>
+<li>pgAdmin 1.10, une interface de gestion pour PostgreSQL&nbsp;: 
+<a target="_blank" href="http://www.pgadmin.org/">http://www.pgadmin.org/</a></li>
+<li>pgloader 2.3.2, un chargeur de donn&eacute;es en masse pour PostgreSQL&nbsp;: 
+<a target="_blank" href="http://pgfoundry.org/projects/pgloader/">http://pgfoundry.org/projects/pgloader/</a></li>
+<li>pgSphere 1.1.0, un module permettant de travailler en coordonn&eacute;es sph&eacute;riques&nbsp;: 
+<a target="_blank" href="http://pgfoundry.org/projects/pgsphere/">http://pgfoundry.org/projects/pgsphere/</a></li>
+</ul>
+<p>(<a target="_blank" href="http://www.postgresql.org/community/weeklynews/pwn20090705">lien vers l'article original</a>)</p></div>
+      <p class="read-it"><a href="indexb468.html?post/2009/07/10/Nouvelles-hebdomadaires-de-PostgreSQL-5-juillet-2009"
+      title="Lire la suite Nouvelles hebdomadaires de PostgreSQL - 5 juillet 2009">Lire la suite</a>...</p>
+    
+    
+    
+                        </div>
+    
+          <div class="post  " lang="fr" xml:lang="fr">
+
+    <p class="day-date">mardi 30 juin 2009</p>    
+    <h2 id="p490" class="post-title"><a
+    href="index947b.html?post/2009/06/30/Nouvelles-hebdomadaires-de-PostgreSQL-28-juin-2009">Nouvelles hebdomadaires de PostgreSQL - 28 juin 2009</a></h2>
+    
+    <p class="post-info">Par chl    le mardi 30 juin 2009, 23:59</p>
+    
+    
+    
+          <div class="post-content"><p>La 8.4.0 sera bient&ocirc;t publi&eacute;e. En attendant, poursuivez les tests&nbsp;! 
+<a target="_blank" href="http://www.postgresql.org/developer/beta">http://www.postgresql.org/developer/beta</a></p>
+<p>Il y aura une conf&eacute;rence &agrave; Athens (Georgie, &Eacute;tats-Unis) le 19 septembre 2009. L'appel aux conf&eacute;rences est ouvert&nbsp;: 
+<a target="_blank" href="http://www.postgresqlconference.org/2009/pgday/athens">http://www.postgresqlconference.org/2009/pgday/athens</a></p>
+<p>La rencontre PostgreSQL lors du FISL &agrave; Porto Alegre (Br&eacute;sil) fut vive. Quelques photos&nbsp;: 
+<a target="_blank" href="http://picasaweb.google.com/diogob/FISL2009?feat=directlink">http://picasaweb.google.com/diogob/FISL2009?feat=directlink</a></p>
+<p>Le PUG allemand a obtenu un emplacement d&eacute;veloppeur au FrOSCon le dimanche 23 ao&ucirc;t 2009. L'appel &agrave; conf&eacute;rences est ouvert&nbsp;: 
+<a target="_blank" href="http://andreas.scherbaum.la/blog/archives/573-Call-for-Papers-fuer-den-PostgreSQL-Devroom-auf-der-FrOSCon-2009.html">http://andreas.scherbaum.la/blog/archives/573-Call-for-Papers-fuer-den-PostgreSQL-Devroom-auf-der-FrOSCon-2009.html</a></p>
+<p>Une suite de conf&eacute;rences est organis&eacute;e &agrave; Seattle (&Eacute;tat de Washington, &Eacute;tats-Unis) du 16 au 18 octobre 2009. L'appel &agrave; conf&eacute;rences est ouvert&nbsp;: 
+<a target="_blank" href="http://www.postgresqlconference.org/2009/west">http://www.postgresqlconference.org/2009/west</a></p>
+<p><strong>Les nouveaut&eacute;s des produits d&eacute;riv&eacute;s</strong></p>
+<ul>
+<li>Andreas (ads) Scherbaum enseignera au centre pour adultes de Magdeburg (All.) du 7 au 11 septembre 2009 sur le sujet "PostgreSQL for Corporate Use". D&eacute;tails ci-dessous&nbsp;: 
+<a target="_blank" href="http://andreas.scherbaum.la/blog/archives/574-PostgreSQL-als-Bildungsurlaub.html">http://andreas.scherbaum.la/blog/archives/574-PostgreSQL-als-Bildungsurlaub.html</a></li>
+<li>MyJSQLView 3.03, une interface graphique en Java pour l'&eacute;dition de donn&eacute;es&nbsp;: 
+<a target="_blank" href="http://myjsqlview.org/projects/MyJSQLView/index.html">http://myjsqlview.org/projects/MyJSQLView/index.html</a></li>
+<li>py-postgresql 0.9.0 et 0.8.2, un pilote Python pour PostgreSQL et un kit g&eacute;n&eacute;raliste pour les travaux PG sous Python&nbsp;: 
+<a target="_blank" href="http://python.projects.postgresql.org/?utm_source=release&amp;utm_medium=email&amp;utm_campaign=py-postgresql-0.9.0">http://python.projects.postgresql.org/?utm_source=release&amp;utm_medium=email&amp;utm_campaign=py-postgresql-0.9.0</a></li>
+</ul>
+<p><strong>L'astuce de la semaine</strong></p>
+<p>Besoin d'envoyer des donn&eacute;es &agrave; MS Excel&reg;&nbsp;? "COPY ... WITH CSV HEADERS"</p>
+<p>(<a target="_blank" href="http://www.postgresql.org/community/weeklynews/pwn20090628">lien vers l'article original</a>)</p></div>
+      <p class="read-it"><a href="index947b.html?post/2009/06/30/Nouvelles-hebdomadaires-de-PostgreSQL-28-juin-2009"
+      title="Lire la suite Nouvelles hebdomadaires de PostgreSQL - 28 juin 2009">Lire la suite</a>...</p>
+    
+    
+    
+                        </div>
+    
+          <div class="post odd " lang="fr" xml:lang="fr">
+
+    <p class="day-date">samedi 27 juin 2009</p>    
+    <h2 id="p489" class="post-title"><a
+    href="indexa999.html?post/2009/06/27/Nouvelles-hebdomadaires-de-PostgreSQL-21-juin-2009">Nouvelles hebdomadaires de PostgreSQL - 21 juin 2009</a></h2>
+    
+    <p class="post-info">Par chl    le samedi 27 juin 2009, 13:30</p>
+    
+    
+    
+          <div class="post-content"><p>L'appel &agrave; conf&eacute;rences pour le PGDay.eu est lanc&eacute;&nbsp;: 
+<a target="_blank" href="http://2009.pgday.eu/">http://2009.pgday.eu/</a></p>
+<p>&Agrave; partir du 1<sup>er</sup> octobre, 2ndQuadrant va offrir, pendant 15 mois, un support gratuit aux &eacute;tudiants de l'universit&eacute; de L'Aquila (r&eacute;gion des Abruzzes en Italie). Plus d'informations (en italien)&nbsp;: 
+<a target="_blank" href="http://blog.2ndquadrant.it/it/2009/06/2ndquadrant-universita-aquila.html">http://blog.2ndquadrant.it/it/2009/06/2ndquadrant-universita-aquila.html</a></p>
+<p>L'"OpenSQL Camp" aura lieu les 22 &amp; 23 ao&ucirc;t &agrave; S<sup>t</sup> Augustin (All.), pr&egrave;s de Bonn et de Cologne. La date limite pour les propositions de conf&eacute;rences est le 19 juillet 2009&nbsp;: 
+<a target="_blank" href="http://opensqlcamp.org/Events/2009/Call_for_Participation">http://opensqlcamp.org/Events/2009/Call_for_Participation</a></p>
+<p>L'appel &agrave; conf&eacute;rences pour la "PyCon Argentina" est lanc&eacute; jusqu'&agrave; la date du 29 juin 2009, 23h59 ART [ndt: UTC-3 ?]. La conf&eacute;rence elle-m&ecirc;me aura lieu &agrave; Buenos Aires les 4 &amp; 5 septembre 2009&nbsp;: 
+<a target="_blank" href="http://ar.pycon.org/2009/rfp/">http://ar.pycon.org/2009/rfp/</a></p>
+<p><strong>Les nouveaut&eacute;s des produits d&eacute;riv&eacute;s</strong></p>
+<ul>
+<li>Benetl 2.8, un outil d'ETL utilisant PostgreSQL&nbsp;: 
+<a target="_blank" href="http://www.benetl.net/">http://www.benetl.net</a></li>
+<li>MicroOLAP Database Designer 1.2.8 pour PostgreSQL&nbsp;: 
+<a target="_blank" href="http://microolap.com/products/database/postgresql-designer/">http://microolap.com/products/database/postgresql-designer/</a></li>
+<li>PostGIS 1.4.0 beta 1, un syst&egrave;me d'informations g&eacute;ospatiales pour PostgreSQL&nbsp;: 
+<a target="_blank" href="http://postgis.refractions.net/">http://postgis.refractions.net/</a></li>
+<li>rubyrep 1.0.3, un syst&egrave;me de r&eacute;plication asynchrone ma&icirc;tre-ma&icirc;tre&nbsp;: 
+<a target="_blank" href="http://www.rubyrep.org/">http://www.rubyrep.org</a></li>
+</ul>
+<p><strong>La fonctionnalit&eacute; 8.4 de la semaine</strong></p>
+<p>EXPLAIN ANALYZE affiche l'utilisation de la m&eacute;moire par les diff&eacute;rents tris et hachage.</p>
+<p><strong>L'astuce de la semaine</strong></p>
+<p>Les GUC utilisateurs (param&egrave;tres de configuration) comme work_mem et constraint_exclusion peuvent &ecirc;tre sp&eacute;cif&eacute;s comme caract&eacute;ristiques d'un ROLE ou d'une fonction.</p>
+<p>(<a target="_blank" href="http://www.postgresql.org/community/weeklynews/pwn20090621">lien vers l'article original</a>)</p></div>
+      <p class="read-it"><a href="indexa999.html?post/2009/06/27/Nouvelles-hebdomadaires-de-PostgreSQL-21-juin-2009"
+      title="Lire la suite Nouvelles hebdomadaires de PostgreSQL - 21 juin 2009">Lire la suite</a>...</p>
+    
+    
+    
+                        </div>
+    
+          <div class="post  " lang="fr" xml:lang="fr">
+
+    <p class="day-date">jeudi 18 juin 2009</p>    
+    <h2 id="p487" class="post-title"><a
+    href="index12f1.html?post/2009/06/18/Nouvelles-hebdomadaires-de-PostgreSQL-14-juin-2009">Nouvelles hebdomadaires de PostgreSQL - 14 juin 2009</a></h2>
+    
+    <p class="post-info">Par chl    le jeudi 18 juin 2009, 01:08</p>
+    
+    
+    
+          <div class="post-content"><p>PostgreSQL 8.4 RC1 sera bient&ocirc;t disponible. Faites pr&eacute;chauffer les bancs de test&nbsp;! 
+<a target="_blank" href="http://www.postgresql.org/developer/beta">http://www.postgresql.org/developer/beta</a><br>
+[ndt: cf <a href="http://blog.postgresql.fr/index.php?post/2009/06/17/PostgreSQL-8.4-Release-Candidate-1-disponible" target="_blank">http://blog.postgresql.fr/index.php?post/2009/06/17/PostgreSQL-8.4-Release-Candidate-1-disponible</a>]</p>
+<p>Nouveau sondage&nbsp;: quelle est votre plus forte attente concernant le d&eacute;veloppement de PostgreSQL&nbsp;? 
+<a target="_blank" href="http://www.postgresql.org/community">http://www.postgresql.org/community</a></p>
+<p>Le projet TikiWiki a besoin d'une aide postgresqlienne&nbsp;! TikiWiki a besoin d'un mainteneur de compatibilit&eacute; PostgreSQL, sans quoi le support pourrait &ecirc;tre arr&ecirc;t&eacute;. Si vous utilisez TikiWiki et pouvez aider, veuillez contacter marclaporte AT tikiwiki DOT org.</p>
+<p><strong>Les nouveaut&eacute;s des produits d&eacute;riv&eacute;s</strong></p>
+<ul>
+<li>Mogwai ER-DesignerNG 1.7-SNAPSHOT, un outil pour l'ERD, bas&eacute; sur Java&nbsp;: 
+<a target="_blank" href="http://mogwai.sourceforge.net/">http://mogwai.sourceforge.net/</a></li>
+<li>Slony1-ctl 1.1.4, un ensemble de script pour administrer Slony&nbsp;: 
+<a target="_blank" href="http://pgfoundry.org/projects/slony1-ctl/">http://pgfoundry.org/projects/slony1-ctl/</a></li>
+</ul>
+<p><strong>La fonctionnalit&eacute; 8.4 de la semaine</strong></p>
+<p>C'est le module pg_stat_statements (contrib) qui permet d'&eacute;tablir des statistiques d'ex&eacute;cution pour l'ensemble du serveur. Que les devins de la charge serveur se r&eacute;jouissent&nbsp;!<br>
+[ndt: <a href="http://docs.postgresql.fr/8.4/pgstatstatements.html" target="_blank">http://docs.postgresql.fr/8.4/pgstatstatements.html</a>]</p>
+<p><strong>L'astuce de la semaine</strong></p>
+<p>Il est conseill&eacute; d'indexer les champs de clefs &eacute;trang&egrave;res (c&ocirc;t&eacute; r&eacute;f&eacute;ren&ccedil;ant ou "fils"), &agrave; moins que les valeurs r&eacute;f&eacute;renc&eacute;es aient une tr&egrave;s faible cardinalit&eacute;. PostgreSQL ne met pas cela en place automatiquement.</p>
+<p>(<a target="_blank" href="http://www.postgresql.org/community/weeklynews/pwn20090614">lien vers l'article original</a>)</p></div>
+      <p class="read-it"><a href="index12f1.html?post/2009/06/18/Nouvelles-hebdomadaires-de-PostgreSQL-14-juin-2009"
+      title="Lire la suite Nouvelles hebdomadaires de PostgreSQL - 14 juin 2009">Lire la suite</a>...</p>
+    
+    
+    
+                        </div>
+    
+                  <p class="pagination"><a href="index457e.html?category/PostgreSQL-Weekly-News/page/28" class="prev">&#171;
+        billets précédents</a> -         page 27 de 40         - <a href="index839e.html?category/PostgreSQL-Weekly-News/page/26" class="next">billets suivants        &#187;</a></p>
+              </div>
+</div> <!-- End #main -->
+
+</div> <!-- End #wrapper -->
+
+<div id="pgFooter">
+  <p>Propulsé par <a href="http://dotclear.org/">Dotclear</a></p>
+</div>
+
+</div> <!-- End #page -->
+</body>
+
+<!-- Mirrored from blog2.postgresql.fr/index.php?category/PostgreSQL-Weekly-News/page/27 by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 May 2020 21:40:21 GMT -->
+</html>

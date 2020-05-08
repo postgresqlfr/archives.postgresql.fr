@@ -1,0 +1,200 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr">
+
+<!-- Mirrored from blog2.postgresql.fr/index.php?post/drupal/99 by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 May 2020 21:40:20 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="MSSmartTagsPreventParsing" content="TRUE" />
+  <meta name="ROBOTS" content="INDEX, FOLLOW" />
+  
+  <title>== Nouvelles hebdomadaires de PostgreSQL - 12 juin 2005 == - PostgreSQLfr.org</title>
+  <meta name="description" lang="fr" content="== PostgreSQL Weekly News - 12 juin 2005 ==Le 12 juin 2005, David Fetter écrivait : Pavel Stehule a ajouté le support d'une clause INTO pour les commandes PL/PgSQL EXECUTE," />
+  <meta name="copyright" content="" />
+  <meta name="author" content="SAS" />
+  <meta name="date" scheme="ISO8601" content="2005-06-13T10:21:00+00:00" />
+  
+  <link rel="schema.dc" href="http://purl.org/dc/elements/1.1/" />
+  <meta name="dc.title" content="== Nouvelles hebdomadaires de PostgreSQL - 12 juin 2005 ==" />
+  <meta name="dc.description" lang="fr" content="== PostgreSQL Weekly News - 12 juin 2005 ==Le 12 juin 2005, David Fetter écrivait : Pavel Stehule a ajouté le support d'une clause INTO pour les commandes PL/PgSQL EXECUTE," />
+  <meta name="dc.creator" content="SAS" />
+  <meta name="dc.language" content="fr" />
+  <meta name="dc.publisher" content="" />
+  <meta name="dc.rights" content="" />
+  <meta name="dc.date" scheme="ISO8601" content="2005-06-13T10:21:00+00:00" />
+  <meta name="dc.type" content="text" />
+  <meta name="dc.format" content="text/html" />
+  
+  <link rel="top" href="indexd41d.html?" title="Accueil" />
+  <link rel="contents" href="index888d.html?archive" title="Archives" />
+  
+  <link rel="next" href="index7ea0.html?post/drupal/100"
+  title="== Nouvelles Hebdomadaires de PostgreSQL  - 18 Juin  2005 ==" />
+  
+  <link rel="previous" href="indexf7bf.html?post/drupal/3"
+  title="Un comparatif des SGBD OpenSource" />
+  
+  <link rel="alternate" type="application/atom+xml" title="Atom 1.0" href="index4ca3.php?feed/atom" />
+  
+  <style type="text/css" media="screen">
+@import url(themes/postgresql/style.css);
+</style>
+<style type="text/css" media="print">
+@import url(themes/default/print.css);
+</style>
+
+<script type="text/javascript" src="themes/default/js/jquery.js"></script>
+<script type="text/javascript" src="themes/default/js/jquery.cookie.js"></script>
+
+  
+  <script type="text/javascript" src="themes/default/js/post.js"></script>
+  <script type="text/javascript">
+  //<![CDATA[
+  var post_remember_str = 'Se souvenir de moi sur ce blog';
+  //]]>
+  </script>
+</head>
+
+<body class="dc-post">
+<div id="page">
+
+
+<div id="top">
+  <div id="pgHeader">
+    <span id="pgHeaderLogoLeft">
+      <a href="index.html" title="PostgreSQL"><img src="https://blog.postgresql.fr/themes/postgresql/img/hdr_left.png" width="230" height="80" alt="PostgreSQL" /></a>
+    </span>
+    <span id="pgHeaderLogoRight">
+      <a href="index.html" title="La base de donnees la plus sophistiquee au monde."><img src="https://blog.postgresql.fr/themes/postgresql/img/hdr_right.png" width="210" height="80" alt="La base de donnees la plus sophistiquee au monde." /></a>
+    </span>
+  </div>
+
+  </div>
+
+<div class="pgTopNav">
+  <div class="pgTopNavLeft"> 
+    <img src="https://blog.postgresql.fr/themes/postgresql/img/nav_lft.png" width="7" height="23" alt="" />
+  </div>
+  <div class="pgTopNavRight">
+    <img src="https://blog.postgresql.fr/themes/postgresql/img/nav_rgt.png" width="7" height="23" alt="" />
+  </div>
+  <ul class="pgTopNavList">
+    <li><a href="https://www.postgresql.fr/" title="Accueil">Accueil</a></li>
+    <li><a href="https://blog.postgresql.fr/" title="Lire les actualités">Actualités</a></li>
+    <li><a href="https://docs.postgresql.fr/" title="Lire la documentation officielle">Documentation</a></li>
+    <li><a href="https://forums.postgresql.fr/" title="Pour poser des questions">Forums</a></li>
+    <li><a href="https://www.postgresql.fr/asso/" title="La vie de l'association">Association</a></li>
+    <li><a href="https://www.postgresql.fr/devel:accueil" title="Informations pour les développeurs/traducteurs">Développeurs</a></li>
+    <li><a href="https://planete.postgresql.fr/" title="La planète francophone sur PostgreSQL">Planète</a></li>
+    <li><a href="https://www.postgresql.fr/support/" title="Support sur PostgreSQL">Support</a></li>
+  </ul>
+</div>
+
+<div id="wrapper">
+
+<div id="pgContent">
+
+  <div id="pgSideWrap">
+  <div id="pgSideNav">
+    <div id="blognav">
+      <div id="search"><h2><label for="q">Rechercher</label></h2><form action="http://blog2.postgresql.fr/index.php?" method="get"><fieldset><p><input type="text" size="10" maxlength="255" id="q" name="q" value="" /> <input class="submit" type="submit" value="ok" /></p></fieldset></form></div><div class="categories"><h2>Catégories</h2><ul><li><a href="index199b.html?category/Articles">Articles</a></li><li><a href="indexb4c6.html?category/Dans-les-bacs">Dans les bacs</a></li><li><a href="index025a.html?category/Evenements">Événements</a></li><li class="category-current"><a href="index8c6d.html?category/PostgreSQL-Weekly-News">PostgreSQL Weekly News</a></li><li><a href="index1835.html?category/Securite">Sécurité</a></li><li><a href="index2251.html?category/Vie-de-l-association">Vie de l'association</a></li><li><a href="index91de.html?category/Vie-du-site">Vie du site</a></li></ul></div><div class="text"><h2>Licence</h2>Tous les articles de ce blog sont disponibles sous la <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/">license Creative Commons BY-NC-SA 3.0</a>.</div>    </div> <!-- End #blognav -->
+  
+    <div id="blogextra">
+      <div class="syndicate"><h2>S'abonner</h2><ul><li><a type="application/atom+xml" href="index4ca3.php?feed/atom" title="Fil Atom des billets de ce blog" class="feed">Fil des billets</a></li></ul></div>    </div> <!-- End #blogextra -->
+  </div>
+  </div>
+
+  <div id="pgContentWrap">
+  <div id="pgDownloadsWrap">
+  <div id="content">
+
+  <p id="navlinks">
+  <a href="indexf7bf.html?post/drupal/3"
+  title="Un comparatif des SGBD OpenSource" class="prev">&#171; Un comparatif des SGBD OpenSource</a>
+   <span>-</span> <a href="index7ea0.html?post/drupal/100"
+  title="== Nouvelles Hebdomadaires de PostgreSQL  - 18 Juin  2005 ==" class="next">== Nouvelles Hebdomadaires de PostgreSQL  - 18 &#187;</a>
+  </p>
+  
+  <div class="post">
+    <h2 id="p99" class="post-title">== Nouvelles hebdomadaires de PostgreSQL - 12 juin 2005 ==</h2>
+    
+    <p class="post-info">Par SAS    le lundi 13 juin 2005, 10:21        - <a href="index8c6d.html?category/PostgreSQL-Weekly-News">PostgreSQL Weekly News</a>
+        - <a href="index519a.html?post/drupal/99">Lien permanent</a>
+    </p>
+    
+    
+    
+          <div class="post-excerpt">== PostgreSQL Weekly News - 12 juin 2005 ==<br /><br />Le 12 juin 2005, David Fetter écrivait :
+<p>
+Pavel Stehule a ajouté le support d'une clause <tt>INTO</tt> pour les commandes <tt>PL/PgSQL</tt> <tt>EXECUTE</tt>, <tt>SQLSTATE</tt>, <tt>SQLERRM</tt>, <tt>NEXT_DAY</tt> et <tt>LAST_DAY</tt>. Il travaille également sur les fonctions <tt>LEAST()</tt> et <tt>GREATEST()</tt>, similaires à <tt>MAX()</tt> et <tt>MIN()</tt>, à la différence près que ces fonctions opèrent au niveau ligne plutôt que colonne.
+</p></div>
+        
+    <div class="post-content">Alvarro Herrera <em>et al.</em> ont travaillé dur sur le <acronym title="two-phase commit">2PC</acronym>.
+<p>
+Andreas Pflug a réalisé plusieurs correctifs pour la surveillance du serveur.
+</p>
+<p>
+Magnus Hagander a ajouté une fonctionnalité permettant d'utiliser la totalité des fuseaux horaires lors de l'exécution de <tt>"AT TIME ZONE"</tt>.
+</p>
+<p>
+Il y a eu une grande discussion sur le nettoyage des contribs, et notamment la suppression des projets fantômes et du code devenu inutile ou inapproprié. Quelques nouveaux projets ont fait leur apparition, dont <tt>REINDEX</tt>.
+</p>
+<p>
+Les quotas représentent un sujet brûlant : par-utilisateur, par-base, par-tablespace, ... et l'éternel utilisateurs par-base ont resurgi.
+</p>
+<p>
+Il semblerait que Bricolage soit la nouvelle architecture de techdocs. Gevik Babkhani lui a ajouté une navigation sous forme d'arbre.
+</p>
+<p>
+Michael Glaesemann continue à travailler pour que <tt>TIMESTAMP WITH TIME ZONE</tt> tienne compte du <acronym title="Daylight Saving Time">DST</acronym>, en séparant la notion de '24 heures' de celle de 'un jour'.
+</p>
+<p>
+Teodor Sigaev a travaillé sur la restauration du <tt>GiST</tt>.
+</p>
+== PostgreSQL Product News ==
+<p>
+pgEdit 1.1 est sorti
+<a href="http://pgedit.com/products">http://pgedit.com/products</a>
+</p>
+<p>
+Slony-I 1.1 RC1 est maintenant disponible.
+Change log :
+<a href="http://developer.postgresql.org/~wieck/slony1/HISTORY-1.1">href=http://developer.postgresql.org/~wieck/slony1/HISTORY-1.1</a>
+Docs :
+<a href="http://developer.postgresql.org/~wieck/slony1/adminguide-1.1.rc1/">http://developer.postgresql.org/~wieck/slony1/adminguide-1.1.rc1/</a>
+Téléchargement :
+<a href="http://developer.postgresql.org/~wieck/slony1/download/slony1-1.0.0.rc1.tar.gz">http://developer.postgresql.org/~wieck/slony1/download/slony1-1.0.0.rc1.tar.gz</a>
+</p>
+== PostgreSQL in the News ==
+<p>
+Unisys a publié un papier évaluant PostgreSQL sur des systèmes multi-CPU de pointe.
+<a href="http://developer.osdl.org/markw/papers/PostgreSQL Visit Report External 050513.pdf">http://developer.osdl.org/markw/papers/PostgreSQL%20Visit%20Report%20External%20050513.pdf</a>
+</p>
+<p>
+General Bits: <a href="http://www.varlena.com/GeneralBits/">http://www.varlena.com/GeneralBits/</a>
+Slony-I 1.1
+</p></div>
+
+      </div>
+
+  
+
+    
+  
+    
+    
+    </div>
+</div> <!-- End #main -->
+
+</div> <!-- End #wrapper -->
+
+<div id="pgFooter">
+  <p>Propulsé par <a href="http://dotclear.org/">Dotclear</a></p>
+</div>
+
+</div> <!-- End #page -->
+</body>
+
+<!-- Mirrored from blog2.postgresql.fr/index.php?post/drupal/99 by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 May 2020 21:40:20 GMT -->
+</html>

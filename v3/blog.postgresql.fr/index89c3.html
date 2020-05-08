@@ -1,0 +1,339 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr">
+
+<!-- Mirrored from blog2.postgresql.fr/index.php?post/2013/12/09/Nouvelles-hebdomadaires-de-PostgreSQL-17-novembre-2013 by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 May 2020 21:40:20 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="MSSmartTagsPreventParsing" content="TRUE" />
+  <meta name="ROBOTS" content="INDEX, FOLLOW" />
+  
+  <title>Nouvelles hebdomadaires de PostgreSQL - 17 novembre 2013 - PostgreSQLfr.org</title>
+  <meta name="description" lang="fr" content="La troisième CommitFest du cycle de la 9.4 a commencé. Relisez ! https://commitfest.postgresql.org/action/commitfest_view?id=20 FOSDEM PGDay, une conférence d'une journée, tenue" />
+  <meta name="copyright" content="" />
+  <meta name="author" content="chl" />
+  <meta name="date" scheme="ISO8601" content="2013-12-09T01:39:00+01:00" />
+  
+  <link rel="schema.dc" href="http://purl.org/dc/elements/1.1/" />
+  <meta name="dc.title" content="Nouvelles hebdomadaires de PostgreSQL - 17 novembre 2013" />
+  <meta name="dc.description" lang="fr" content="La troisième CommitFest du cycle de la 9.4 a commencé. Relisez ! https://commitfest.postgresql.org/action/commitfest_view?id=20 FOSDEM PGDay, une conférence d'une journée, tenue" />
+  <meta name="dc.creator" content="chl" />
+  <meta name="dc.language" content="fr" />
+  <meta name="dc.publisher" content="" />
+  <meta name="dc.rights" content="" />
+  <meta name="dc.date" scheme="ISO8601" content="2013-12-09T01:39:00+01:00" />
+  <meta name="dc.type" content="text" />
+  <meta name="dc.format" content="text/html" />
+  
+  <link rel="top" href="indexd41d.html?" title="Accueil" />
+  <link rel="contents" href="index888d.html?archive" title="Archives" />
+  
+  <link rel="next" href="index6220.html?post/2013/12/09/Nouvelles-hebdomadaires-de-PostgreSQL-24-novembre-2013"
+  title="Nouvelles hebdomadaires de PostgreSQL - 24 novembre 2013" />
+  
+  <link rel="previous" href="index229a.html?post/2013/11/25/Risque-de-corruption-sur-les-esclaves-en-Hot-Standby"
+  title="Risque de corruption sur les &quot;esclaves&quot; en Hot-Standby" />
+  
+  <link rel="alternate" type="application/atom+xml" title="Atom 1.0" href="index4ca3.php?feed/atom" />
+  
+  <style type="text/css" media="screen">
+@import url(themes/postgresql/style.css);
+</style>
+<style type="text/css" media="print">
+@import url(themes/default/print.css);
+</style>
+
+<script type="text/javascript" src="themes/default/js/jquery.js"></script>
+<script type="text/javascript" src="themes/default/js/jquery.cookie.js"></script>
+
+  
+  <script type="text/javascript" src="themes/default/js/post.js"></script>
+  <script type="text/javascript">
+  //<![CDATA[
+  var post_remember_str = 'Se souvenir de moi sur ce blog';
+  //]]>
+  </script>
+</head>
+
+<body class="dc-post">
+<div id="page">
+
+
+<div id="top">
+  <div id="pgHeader">
+    <span id="pgHeaderLogoLeft">
+      <a href="index.html" title="PostgreSQL"><img src="https://blog.postgresql.fr/themes/postgresql/img/hdr_left.png" width="230" height="80" alt="PostgreSQL" /></a>
+    </span>
+    <span id="pgHeaderLogoRight">
+      <a href="index.html" title="La base de donnees la plus sophistiquee au monde."><img src="https://blog.postgresql.fr/themes/postgresql/img/hdr_right.png" width="210" height="80" alt="La base de donnees la plus sophistiquee au monde." /></a>
+    </span>
+  </div>
+
+  </div>
+
+<div class="pgTopNav">
+  <div class="pgTopNavLeft"> 
+    <img src="https://blog.postgresql.fr/themes/postgresql/img/nav_lft.png" width="7" height="23" alt="" />
+  </div>
+  <div class="pgTopNavRight">
+    <img src="https://blog.postgresql.fr/themes/postgresql/img/nav_rgt.png" width="7" height="23" alt="" />
+  </div>
+  <ul class="pgTopNavList">
+    <li><a href="https://www.postgresql.fr/" title="Accueil">Accueil</a></li>
+    <li><a href="https://blog.postgresql.fr/" title="Lire les actualités">Actualités</a></li>
+    <li><a href="https://docs.postgresql.fr/" title="Lire la documentation officielle">Documentation</a></li>
+    <li><a href="https://forums.postgresql.fr/" title="Pour poser des questions">Forums</a></li>
+    <li><a href="https://www.postgresql.fr/asso/" title="La vie de l'association">Association</a></li>
+    <li><a href="https://www.postgresql.fr/devel:accueil" title="Informations pour les développeurs/traducteurs">Développeurs</a></li>
+    <li><a href="https://planete.postgresql.fr/" title="La planète francophone sur PostgreSQL">Planète</a></li>
+    <li><a href="https://www.postgresql.fr/support/" title="Support sur PostgreSQL">Support</a></li>
+  </ul>
+</div>
+
+<div id="wrapper">
+
+<div id="pgContent">
+
+  <div id="pgSideWrap">
+  <div id="pgSideNav">
+    <div id="blognav">
+      <div id="search"><h2><label for="q">Rechercher</label></h2><form action="http://blog2.postgresql.fr/index.php?" method="get"><fieldset><p><input type="text" size="10" maxlength="255" id="q" name="q" value="" /> <input class="submit" type="submit" value="ok" /></p></fieldset></form></div><div class="categories"><h2>Catégories</h2><ul><li><a href="index199b.html?category/Articles">Articles</a></li><li><a href="indexb4c6.html?category/Dans-les-bacs">Dans les bacs</a></li><li><a href="index025a.html?category/Evenements">Événements</a></li><li class="category-current"><a href="index8c6d.html?category/PostgreSQL-Weekly-News">PostgreSQL Weekly News</a></li><li><a href="index1835.html?category/Securite">Sécurité</a></li><li><a href="index2251.html?category/Vie-de-l-association">Vie de l'association</a></li><li><a href="index91de.html?category/Vie-du-site">Vie du site</a></li></ul></div><div class="text"><h2>Licence</h2>Tous les articles de ce blog sont disponibles sous la <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/">license Creative Commons BY-NC-SA 3.0</a>.</div>    </div> <!-- End #blognav -->
+  
+    <div id="blogextra">
+      <div class="syndicate"><h2>S'abonner</h2><ul><li><a type="application/atom+xml" href="index4ca3.php?feed/atom" title="Fil Atom des billets de ce blog" class="feed">Fil des billets</a></li></ul></div>    </div> <!-- End #blogextra -->
+  </div>
+  </div>
+
+  <div id="pgContentWrap">
+  <div id="pgDownloadsWrap">
+  <div id="content">
+
+  <p id="navlinks">
+  <a href="index229a.html?post/2013/11/25/Risque-de-corruption-sur-les-esclaves-en-Hot-Standby"
+  title="Risque de corruption sur les &quot;esclaves&quot; en Hot-Standby" class="prev">&#171; Risque de corruption sur les &quot;esclaves&quot;</a>
+   <span>-</span> <a href="index6220.html?post/2013/12/09/Nouvelles-hebdomadaires-de-PostgreSQL-24-novembre-2013"
+  title="Nouvelles hebdomadaires de PostgreSQL - 24 novembre 2013" class="next">Nouvelles hebdomadaires de PostgreSQL - 24 &#187;</a>
+  </p>
+  
+  <div class="post">
+    <h2 id="p764" class="post-title">Nouvelles hebdomadaires de PostgreSQL - 17 novembre 2013</h2>
+    
+    <p class="post-info">Par chl    le lundi  9 décembre 2013, 01:39        - <a href="index8c6d.html?category/PostgreSQL-Weekly-News">PostgreSQL Weekly News</a>
+        - <a href="index89c3.html?post/2013/12/09/Nouvelles-hebdomadaires-de-PostgreSQL-17-novembre-2013">Lien permanent</a>
+    </p>
+    
+    
+    
+          <div class="post-excerpt"><p>La troisi&egrave;me <em>CommitFest</em> du cycle de la 9.4 a commenc&eacute;. Relisez&nbsp;! 
+<a target="_blank" href="https://commitfest.postgresql.org/action/commitfest_view?id=20">https://commitfest.postgresql.org/action/commitfest_view?id=20</a></p>
+<p>FOSDEM PGDay, une conf&eacute;rence d'une journ&eacute;e, tenue avant le FOSDEM &agrave; Bruxelles, aura lieu le 31 janvier 2014. D&eacute;tails&nbsp;: 
+<a target="_blank" href="http://fosdem2014.pgconf.eu/">http://fosdem2014.pgconf.eu/</a><br>
+L'appel &agrave; conf&eacute;renciers est lanc&eacute;&nbsp;: 
+<a target="_blank" href="http://fosdem2014.pgconf.eu/callforpapers/">http://fosdem2014.pgconf.eu/callforpapers/</a></p>
+<p>Nouveaux groupes d'utilisateurs PostgreSQL &agrave; Singapour et Toronto. [ndt: et Paris aussi&nbsp;! 
+<a target="_blank" href="http://tapoueh.org/blog/2013/11/22-PostgreSQL-User-Group-Paris.html">http://tapoueh.org/blog/2013/11/22-PostgreSQL-User-Group-Paris.html</a> ]</p>
+<p><strong>Les nouveaut&eacute;s des produits d&eacute;riv&eacute;s</strong></p>
+<ul>
+<li>MJSQLView Version 3.47, un utilitaire graphique en Java compatible PostgreSQL&nbsp;: 
+<a target="_blank" href="http://dandymadeproductions.com/projects/MyJSQLView/">http://dandymadeproductions.com/projects/MyJSQLView/</a></li>
+</ul>
+<p><strong>Offres d'emplois autour de PostgreSQL en novembre</strong></p>
+<ul>
+<li>Internationales&nbsp;: 
+<a target="_blank" href="http://archives.postgresql.org/pgsql-jobs/2013-11/threads.php">http://archives.postgresql.org/pgsql-jobs/2013-11/threads.php</a>;</li>
+<li>Francophones&nbsp;: 
+<a target="_blank" href="http://forums.postgresql.fr/viewforum.php?id=4">http://forums.postgresql.fr/viewforum.php?id=4</a>.</li>
+</ul>
+<p><strong>PostgreSQL Local</strong></p>
+<ul>
+<li>Le PGDay cubain aura lieu les 28 &amp; 29 novembre 2013&nbsp;: 
+<a target="_blank" href="http://postgresql.uci.cu/?page_id=474">http://postgresql.uci.cu/?page_id=474</a></li>
+</ul>
+<p><strong>PostgreSQL dans les m&eacute;dia</strong></p>
+<ul>
+<li>Planet PostgreSQL&nbsp;: 
+<a target="_blank" href="http://planet.postgresql.org/">http://planet.postgresql.org/</a></li>
+<li>Planet PostgreSQLFr&nbsp;: 
+<a target="_blank" href="http://planete.postgresql.fr/">http://planete.postgresql.fr/</a></li>
+</ul>
+<p><i>PostgreSQL Weekly News / les nouvelles hebdomadaires vous sont offertes cette semaine par David Fetter. Traduction par l'&eacute;quipe PostgreSQLFr sous licence CC BY-NC-SA.</i></p>
+<p><i>Proposez vos articles ou annonces avant dimanche 15:00 (heure du Pacifique). Merci de les envoyer en anglais &agrave; david (a) fetter.org, en allemand &agrave; pwn (a) pgug.de, en italien &agrave; pwn (a) itpug.org et en espagnol &agrave; pwn (a) arpug.com.ar.</i></p>
+<p>(<a target="_blank" href="http://www.postgresql.org/message-id/20131118064159.GA10257@fetter.org">lien vers l'article original</a>)</p>
+<p><strong>Correctifs appliqu&eacute;s</strong></p>
+<p>Magnus Hagander a pouss&eacute;&nbsp;:</p>
+<ul>
+<li>Don't abort pg_basebackup when receiving empty WAL block. This is a similar fix as c6ec8793aa59d1842082e14b4b4aae7d4bd883fd 9.2. This should never happen in 9.3 and newer since the special case cannot happen there, but this patch synchronizes up the code so there is no confusion on why they're different. An empty block is as harmless in 9.3 as it was in 9.2, and can safely be ignored. 
+<a target="_blank" href="http://git.postgresql.org/pg/commitdiff/705556a631c5908cd3caa0b973be13d994ff63e7">http://git.postgresql.org/pg/commitdiff/705556a631c5908cd3caa0b973be13d994ff63e7</a></li>
+<li>Fix doc links in README file to work with new website layout. Per report from Colin 't Hart 
+<a target="_blank" href="http://git.postgresql.org/pg/commitdiff/f1d6875916055914920f657ad88011c5b525f220">http://git.postgresql.org/pg/commitdiff/f1d6875916055914920f657ad88011c5b525f220</a></li>
+</ul></div>
+        
+    <div class="post-content"><p>Tom Lane a pouss&eacute;&nbsp;:</p>
+<ul>
+<li>Re-allow duplicate aliases within aliased JOINs. Although the SQL spec forbids duplicate table aliases, historically we've allowed queries like SELECT ... FROM tab1 x CROSS JOIN (tab2 x CROSS JOIN tab3 y) z on the grounds that the aliased join (z) hides the aliases within it, therefore there is no conflict between the two RTEs named "x". The LATERAL patch broke this, on the misguided basis that "x" could be ambiguous if tab3 were a LATERAL subquery. To avoid breaking existing queries, it's better to allow this situation and complain only if tab3 actually does contain an ambiguous reference. We need only remove the check that was throwing an error, because the column lookup code is already prepared to handle ambiguous references. Per bug #8444. 
+<a target="_blank" href="http://git.postgresql.org/pg/commitdiff/648bd05b13b3624e494ae2996c2d2e0241cefe87">http://git.postgresql.org/pg/commitdiff/648bd05b13b3624e494ae2996c2d2e0241cefe87</a></li>
+<li>Fix ruleutils pretty-printing to not generate trailing whitespace. The pretty-printing logic in ruleutils.c operates by inserting a newline and some indentation whitespace into strings that are already valid SQL. This naturally results in leaving some trailing whitespace before the newline in many cases; which can be annoying when processing the output with other tools, as complained of by Joe Abbate. We can fix that in a pretty localized fashion by deleting any trailing whitespace before we append a pretty-printing newline. In addition, we have to modify the code inserted by commit 2f582f76b1945929ff07116cd4639747ce9bb8a1 so that we also delete trailing whitespace when transposing items from temporary buffers into the main result string, when a temporary item starts with a newline. This results in rather voluminous changes to the regression test results, but it's easily verified that they are only removal of trailing whitespace. Back-patch to 9.3, because the aforementioned commit resulted in many more cases of trailing whitespace than had occurred in earlier branches. 
+<a target="_blank" href="http://git.postgresql.org/pg/commitdiff/0b7e660d6c70f45e06f1b52f255116bcb44624eb">http://git.postgresql.org/pg/commitdiff/0b7e660d6c70f45e06f1b52f255116bcb44624eb</a></li>
+<li>Fix failure with whole-row reference to a subquery. Simple oversight in commit 1cb108efb0e60d87e4adec38e7636b6e8efbeb57 --- recursively examining a subquery output column is only sane if the original Var refers to a single output column. Found by Kevin Grittner. 
+<a target="_blank" href="http://git.postgresql.org/pg/commitdiff/ebefbb5fdeba885bb57d2f2e1eb185a46c9d777d">http://git.postgresql.org/pg/commitdiff/ebefbb5fdeba885bb57d2f2e1eb185a46c9d777d</a></li>
+<li>Clarify CREATE FUNCTION documentation about handling of typmods. The previous text was a bit misleading, as well as unnecessarily vague about what information would be discarded. Per gripe from Craig Skinner. 
+<a target="_blank" href="http://git.postgresql.org/pg/commitdiff/5d924f067c0cc0b15709bdf604e6ac5f33158eb6">http://git.postgresql.org/pg/commitdiff/5d924f067c0cc0b15709bdf604e6ac5f33158eb6</a></li>
+<li>Fix incorrect column name in psql \d code. pg_index.indisreplident had at one time in its development been called indisidentity. describe.c got missed when it was renamed. Bug introduced in commit 07cacba983ef79be4a84fcd0e0ca3b5fcb85dd65. Andres Freund 
+<a target="_blank" href="http://git.postgresql.org/pg/commitdiff/e694cf25d787354ed04310a14aa508692874dcad">http://git.postgresql.org/pg/commitdiff/e694cf25d787354ed04310a14aa508692874dcad</a></li>
+<li>Add a regression test case for \d on an index. Previous commit shows the need for this. The coverage isn't really thorough, but it's better than nothing. 
+<a target="_blank" href="http://git.postgresql.org/pg/commitdiff/982b82d6b1fd007b9357ce198d13a55544888534">http://git.postgresql.org/pg/commitdiff/982b82d6b1fd007b9357ce198d13a55544888534</a></li>
+<li>Minor comment corrections for sequence hashtable patch. There were enough typos in the comments to annoy me ... 
+<a target="_blank" href="http://git.postgresql.org/pg/commitdiff/80e3a470ba46bc35fb1ec22d4e97126270f3d2b3">http://git.postgresql.org/pg/commitdiff/80e3a470ba46bc35fb1ec22d4e97126270f3d2b3</a></li>
+<li>Prevent leakage of cached plans and execution trees in plpgsql DO blocks. plpgsql likes to cache query plans and simple-expression execution state trees across calls. This is a considerable win for multiple executions of the same function. However, it's useless for DO blocks, since by definition those are executed only once and discarded. Nonetheless, we were allowing a DO block's expression execution trees to survive until end of transaction, resulting in a significant intra-transaction memory leak, as reported by Yeb Havinga. Worse, if the DO block exited with an error, the compiled form of the block's code was leaked till end of session --- along with subsidiary plancache entries. To fix, make DO blocks keep their expression execution trees in a private EState that's deleted at exit from the block, and add a PG_TRY block to plpgsql_inline_handler to make sure that memory cleanup happens even on error exits. Also add a regression test covering error handling in a DO block, because my first try at this broke that. (The test is not meant to prove that we don't leak memory anymore, though it could be used for that with a much larger loop count.) Ideally we'd back-patch this into all versions supporting DO blocks; but the patch needs to add a field to struct PLpgSQL_execstate, and that would break ABI compatibility for third-party plugins such as the plpgsql debugger. Given the small number of complaints so far, fixing this in HEAD only seems like an acceptable choice. 
+<a target="_blank" href="http://git.postgresql.org/pg/commitdiff/c7b849a89645212121da480091f87d11fac82495">http://git.postgresql.org/pg/commitdiff/c7b849a89645212121da480091f87d11fac82495</a></li>
+<li>Compute correct em_nullable_relids in get_eclass_for_sort_expr(). Bug #8591 from Claudio Freire demonstrates that get_eclass_for_sort_expr must be able to compute valid em_nullable_relids for any new equivalence class members it creates. I'd worried about this in the commit message for db9f0e1d9a4a0842c814a464cdc9758c3f20b96c, but claimed that it wasn't a problem because multi-member ECs should already exist when it runs. That is transparently wrong, though, because this function is also called by initialize_mergeclause_eclasses, which runs during deconstruct_jointree. The example given in the bug report (which the new regression test item is based upon) fails because the COALESCE() expression is first seen by initialize_mergeclause_eclasses rather than process_equivalence. Fixing this requires passing the appropriate nullable_relids set to get_eclass_for_sort_expr, and it requires new code to compute that set for top-level expressions such as ORDER BY, GROUP BY, etc. We store the top-level nullable_relids in a new field in PlannerInfo to avoid computing it many times. In the back branches, I've added the new field at the end of the struct to minimize ABI breakage for planner plugins. There doesn't seem to be a good alternative to changing get_eclass_for_sort_expr's API signature, though. There probably aren't any third-party extensions calling that function directly; moreover, if there are, they probably need to think about what to pass for nullable_relids anyway. Back-patch to 9.2, like the previous patch in this area. 
+<a target="_blank" href="http://git.postgresql.org/pg/commitdiff/f3b3b8d5be00ebcfade3644fca7a80e25fd88a70">http://git.postgresql.org/pg/commitdiff/f3b3b8d5be00ebcfade3644fca7a80e25fd88a70</a></li>
+<li>Clean up password prompting logic in streamutil.c. The previous coding was fairly unreadable and drew double-free warnings from clang. I believe the double free was actually not reachable, because PQconnectionNeedsPassword is coded to not return true if a password was provided, so that the loop can't iterate more than twice. Nonetheless it seems worth rewriting. No back-patch since this is just cosmetic. 
+<a target="_blank" href="http://git.postgresql.org/pg/commitdiff/3172eea062e779db39df9a48fca0ad7448163f98">http://git.postgresql.org/pg/commitdiff/3172eea062e779db39df9a48fca0ad7448163f98</a></li>
+<li>Speed up printing of INSERT statements in pg_dump. In --inserts and especially --column-inserts mode, we can get a useful speedup by generating the common prefix of all a table's INSERT commands just once, and then printing the prebuilt string for each row. This avoids multiple invocations of fmtId() and other minor fooling around. David Rowley 
+<a target="_blank" href="http://git.postgresql.org/pg/commitdiff/97e1ec467099f1e581f491c8a57b7d56d0b9c539">http://git.postgresql.org/pg/commitdiff/97e1ec467099f1e581f491c8a57b7d56d0b9c539</a></li>
+<li>Fix incorrect loop counts in tidbitmap.c. A couple of places that should have been iterating over WORDS_PER_CHUNK words were iterating over WORDS_PER_PAGE words instead. This thinko accidentally failed to fail, because (at least on common architectures with default BLCKSZ) WORDS_PER_CHUNK is a bit less than WORDS_PER_PAGE, and the extra words being looked at were always zero so nothing happened. Still, it's a bug waiting to happen if anybody ever fools with the parameters affecting TIDBitmap sizes, and it's a small waste of cycles too. So back-patch to all active branches. Etsuro Fujita 
+<a target="_blank" href="http://git.postgresql.org/pg/commitdiff/f1f21b2d6fd170faf9824306ef4f4950c32ce49d">http://git.postgresql.org/pg/commitdiff/f1f21b2d6fd170faf9824306ef4f4950c32ce49d</a></li>
+<li>Remove pgbench's hardwired limit on line length in custom script files. pgbench formerly failed on lines longer than BUFSIZ, unexpectedly splitting them into multiple commands. Allow it to work with any length of input line. Sawada Masahiko 
+<a target="_blank" href="http://git.postgresql.org/pg/commitdiff/61a07bae47886b8333b9cce882d73d5fdaaec618">http://git.postgresql.org/pg/commitdiff/61a07bae47886b8333b9cce882d73d5fdaaec618</a></li>
+<li>Allow aggregates to provide estimates of their transition state data size. Formerly the planner had a hard-wired rule of thumb for guessing the amount of space consumed by an aggregate function's transition state data. This estimate is critical to deciding whether it's OK to use hash aggregation, and in many situations the built-in estimate isn't very good. This patch adds a column to pg_aggregate wherein a per-aggregate estimate can be provided, overriding the planner's default, and infrastructure for setting the column via CREATE AGGREGATE. It may be that additional smarts will be required in future, perhaps even a per-aggregate estimation function. But this is already a step forward. This is extracted from a larger patch to improve the performance of numeric and int8 aggregates. I (tgl) thought it was worth reviewing and committing this infrastructure separately. In this commit, all built-in aggregates are given aggtransspace = 0, so no behavior should change. Hadi Moshayedi, reviewed by Pavel Stehule and Tomas Vondra 
+<a target="_blank" href="http://git.postgresql.org/pg/commitdiff/6cb86143e8e1e855255edc706bce71c6ebfd9a6c">http://git.postgresql.org/pg/commitdiff/6cb86143e8e1e855255edc706bce71c6ebfd9a6c</a></li>
+<li>Improve performance of numeric sum(), avg(), stddev(), variance(), etc. This patch improves performance of most built-in aggregates that formerly used a NUMERIC or NUMERIC array as their transition type; this includes not only aggregates on numeric inputs, but some aggregates on integer inputs where overflow of an int8 value is a possibility. The code now uses a special-purpose data structure to avoid array construction and deconstruction overhead, as well as packing and unpacking overhead for numeric values. These aggregates' transition type is now declared as INTERNAL, since it doesn't correspond to any SQL data type. To keep the planner from thinking that that means a lot of storage will be used, we make use of the just-added pg_aggregate.aggtransspace feature. The space estimate is set to 128 bytes, which is at least in the right ballpark. Hadi Moshayedi, reviewed by Pavel Stehule and Tomas Vondra 
+<a target="_blank" href="http://git.postgresql.org/pg/commitdiff/69c8fbac201652282e18b0e2e301d4ada991fbde">http://git.postgresql.org/pg/commitdiff/69c8fbac201652282e18b0e2e301d4ada991fbde</a></li>
+<li>Add make_date() and make_time() functions. Pavel Stehule, reviewed by Jeevan Chalke and Atri Sharma 
+<a target="_blank" href="http://git.postgresql.org/pg/commitdiff/f901bb50e33ad95593bb68f7b3b55eb2e47607dc">http://git.postgresql.org/pg/commitdiff/f901bb50e33ad95593bb68f7b3b55eb2e47607dc</a></li>
+</ul>
+<p>Peter Eisentraut a pouss&eacute;&nbsp;:</p>
+<ul>
+<li>Remove leftovers of IRIX port. This removes the remaining pieces of the IRIX port that was removed by ea91a6be89575095f61ebf36d67c2df98be093db. 
+<a target="_blank" href="http://git.postgresql.org/pg/commitdiff/3626adf26652cdf76a26ae14b2d75cb7801da7a9">http://git.postgresql.org/pg/commitdiff/3626adf26652cdf76a26ae14b2d75cb7801da7a9</a></li>
+<li>gitattributes: Make syntax compatible with older Git versions. Avoid the use of **, which was only introduced in Git version 1.8.2. 
+<a target="_blank" href="http://git.postgresql.org/pg/commitdiff/c0764a542530c7ebf8abd2766d256d49d27e90e8">http://git.postgresql.org/pg/commitdiff/c0764a542530c7ebf8abd2766d256d49d27e90e8</a></li>
+<li>Move variable closer to where it is used. This avoids an unused variable warning on Windows when building without asserts From: David Rowley &lt;dgrowleyml@gmail.com&gt; 
+<a target="_blank" href="http://git.postgresql.org/pg/commitdiff/aa04b323c36931f96159ab1fd6f74f8401ab4c92">http://git.postgresql.org/pg/commitdiff/aa04b323c36931f96159ab1fd6f74f8401ab4c92</a></li>
+<li>Fix whitespace 
+<a target="_blank" href="http://git.postgresql.org/pg/commitdiff/87d8378f60cef2206b0d4a09eb773ed416fa58fc">http://git.postgresql.org/pg/commitdiff/87d8378f60cef2206b0d4a09eb773ed416fa58fc</a></li>
+<li>pg_upgrade: Fix some whitespace oddities 
+<a target="_blank" href="http://git.postgresql.org/pg/commitdiff/55c3d86a2a374f9d8fd88fd947601c1f49a4da08">http://git.postgresql.org/pg/commitdiff/55c3d86a2a374f9d8fd88fd947601c1f49a4da08</a></li>
+</ul>
+<p>Robert Haas a pouss&eacute;&nbsp;:</p>
+<ul>
+<li>doc: Fix typo. Reported by Thom Brown. 
+<a target="_blank" href="http://git.postgresql.org/pg/commitdiff/9cab81b5721b1a64c8e31feebbc0ae5efd6ddf71">http://git.postgresql.org/pg/commitdiff/9cab81b5721b1a64c8e31feebbc0ae5efd6ddf71</a></li>
+<li>Try again to make pg_isolation_regress work its build directory. We can't search for the isolationtester binary until after we've set up the environment, because otherwise when find_other_exec() tries to invoke it with the -V option, it might fail for inability to locate a working libpq. So postpone that step. Andres Freund 
+<a target="_blank" href="http://git.postgresql.org/pg/commitdiff/061b88c732952c59741374806e1e41c1ec845d50">http://git.postgresql.org/pg/commitdiff/061b88c732952c59741374806e1e41c1ec845d50</a></li>
+<li>Fix relfilenodemap.c's handling of cache invalidations. The old code entered a new hash table entry first, then scanned pg_class to determine what value to fill in, and then populated the entry. This fails to work properly if a cache invalidation happens as a result of opening pg_class. Repair. Along the way, get rid of the idea of blowing away the entire hash table as a method of processing invalidations. Instead, just delete all the entries one by one. This is probably not quite as cheap but it's simpler, and shouldn't happen often. Andres Freund 
+<a target="_blank" href="http://git.postgresql.org/pg/commitdiff/c46c803f8ad4ba80472b280703983ecf8021099e">http://git.postgresql.org/pg/commitdiff/c46c803f8ad4ba80472b280703983ecf8021099e</a></li>
+<li>doc: Restore proper alphabetical order. Colin 't Hart 
+<a target="_blank" href="http://git.postgresql.org/pg/commitdiff/71dd54ada9c3d32dfc0eb082ff2023b12abe881a">http://git.postgresql.org/pg/commitdiff/71dd54ada9c3d32dfc0eb082ff2023b12abe881a</a></li>
+</ul>
+<p>Heikki Linnakangas a pouss&eacute;&nbsp;:</p>
+<ul>
+<li>Fix bug in GIN posting tree root creation. The root page is filled with as many items as fit, and the rest are inserted using normal insertions. However, I fumbled the variable names, and the code actually memcpy'd all the items on the page, overflowing the buffer. While at it, rename the variable to make the distinction more clear. Reported by Teodor Sigaev. This bug was introduced by my recent refactorings, so no backpatching required. 
+<a target="_blank" href="http://git.postgresql.org/pg/commitdiff/07fca603b56e39c50478b44070fdfb38313cd51c">http://git.postgresql.org/pg/commitdiff/07fca603b56e39c50478b44070fdfb38313cd51c</a></li>
+<li>Use a hash table to store current sequence values. This speeds up nextval() and currval(), when you touch a lot of different sequences in the same backend. David Rowley 
+<a target="_blank" href="http://git.postgresql.org/pg/commitdiff/21025d4a5322307bcfef1222f497a3aacb2fc79a">http://git.postgresql.org/pg/commitdiff/21025d4a5322307bcfef1222f497a3aacb2fc79a</a></li>
+<li>Fix bogus hash table creation. Andres Freund 
+<a target="_blank" href="http://git.postgresql.org/pg/commitdiff/5cb719beeef2e871c9f0b22e799554bf801ac390">http://git.postgresql.org/pg/commitdiff/5cb719beeef2e871c9f0b22e799554bf801ac390</a></li>
+</ul>
+<p>Kevin Grittner a pouss&eacute;&nbsp;:</p>
+<ul>
+<li>Free ignorelist after each regression test schedule. It's a trivial amount of RAM held until the end of the regression test run; but it's probably worth fixing to silence future warnings from code analyzers. This was the only memory leak pointed out by clang's static code analysis tool. 
+<a target="_blank" href="http://git.postgresql.org/pg/commitdiff/fe67d252337ef2aba3d4ea06a4aa87cdbc75b933">http://git.postgresql.org/pg/commitdiff/fe67d252337ef2aba3d4ea06a4aa87cdbc75b933</a></li>
+<li>Fix buffer overrun in isolation test program. Commit 061b88c732952c59741374806e1e41c1ec845d50 saved argv0 to a global buffer without ensuring that it was zero terminated, allowing references to it to overrun the buffer and access other memory. This probably would not have presented any security risk, but could have resulted in very confusing failures if the path to the executable was very long. Reported by David Rowley 
+<a target="_blank" href="http://git.postgresql.org/pg/commitdiff/7cb964acb794078ef033cbf2e3a0e7670c8992a9">http://git.postgresql.org/pg/commitdiff/7cb964acb794078ef033cbf2e3a0e7670c8992a9</a></li>
+</ul>
+<p>Bruce Momjian a pouss&eacute;&nbsp;:</p>
+<ul>
+<li>docs: clarify MVCC introduction to allow for per-statement snapshots 
+<a target="_blank" href="http://git.postgresql.org/pg/commitdiff/cd8115e0090cb04380292f880adcec9c2fc2e0f3">http://git.postgresql.org/pg/commitdiff/cd8115e0090cb04380292f880adcec9c2fc2e0f3</a></li>
+</ul>
+<p>Andrew Dunstan a pouss&eacute;&nbsp;:</p>
+<ul>
+<li>Fix isolation check for MSVC to handle recent changes. 
+<a target="_blank" href="http://git.postgresql.org/pg/commitdiff/869b1e4a678cc6d78a64ed01682ddf8f8debd781">http://git.postgresql.org/pg/commitdiff/869b1e4a678cc6d78a64ed01682ddf8f8debd781</a></li>
+</ul>
+<p><strong>Correctifs rejet&eacute;s (&agrave; ce jour)</strong></p>
+<ul>
+<li>No one was disappointed this week</li>
+</ul>
+<p><strong>Correctifs en attente</strong></p>
+<ul>
+<li>Zoltan Boszormenyi sent in a patch to implement ECPG fetch readahead.</li>
+<li>Andres Freund sent in another flock of patches for logical changeset generation.</li>
+<li>Haribabu Kommi sent in another revision of a patch to fix an issue where tables can bloat under heavy load despite autovacuum.</li>
+<li>Dimitri Fontaine sent in another revision of a patch to implement EXTENSION TEMPLATEs.</li>
+<li>Pavel Stehule sent in another revision of a patch to implement DROP {TRIGGER|RULE} [IF EXISTS].</li>
+<li>Mark Travis sent in a patch to help operate pgbench to large scales.</li>
+<li>Peter Eisentraut sent in a patch to split off mmfatal() from mmerror() in ECPG.</li>
+<li>Teodor Sigaev sent in a WIP patch to add nesting, types, and arrays to hstore.</li>
+<li>Kyotaro HORIGUCHI sent in another revision of a patch to allow ORDER BY to use unique indexes.</li>
+<li>Peter Eisentraut sent in another revision of a patch to add CREATE TRANSFORM and friends.</li>
+<li>Jaime Casanova sent in two more revisions of a patch to turn recovery.conf into GUCs.</li>
+<li>Kyotaro HORIGUCHI sent in another revision of a patch to enable UNION ALL on partitioned tables to use indexes.</li>
+<li>Colin 't Hart sent in another revision of a patch to clarify the differences between TABLE and SELECT * FROM.</li>
+<li>Heikki Linnakangas sent in a flock of patches to clean up GIN index handling.</li>
+<li>Robert Berry sent in a patch to print out GUC cost parameters in explain text output.</li>
+<li>Peter Eisentraut sent in a patch to report the exit codes from external recovery commands properly.</li>
+<li>Shigeru HANADA sent in another revision of a patch to allow foreign tables to inherit from local ones.</li>
+<li>David Rowley sent in a patch to speed up json out functions by changing a call to cstring_to_text to cstring_to_text_with_len using information already available.</li>
+<li>Mika Eloranta sent in two revisions of a patch to throttle pg_basebackup so it shows progress reports no more than once per second.</li>
+<li>Peter Eisentraut sent in a patch to fix an issue where pg_upgrade incorrectly reports errors in the case "disk full".</li>
+<li>Heikki Linnakangas sent in a patch to fix a race condition in B-tree page deletion.</li>
+<li>Amit Kapila sent in three more revisions of a patch to implement ALTER SYSTEM.</li>
+<li>Amit Kapila sent in another revision of a patch to allow starting a standalone backend with full FE/BE protocol enabled.</li>
+<li>SAKAMOTO Masahiko sent in two revisions of a patch to add a new wal_level 'all' which logs WAL when updating hint bits.</li>
+<li>Kyotaro HORIGUCHI sent in another revision of a patch to allow using indexes for UNION queries.</li>
+<li>Heikki Linnakangas sent in a patch to handle incomplete B-tree splits.</li>
+<li>Andres Freund sent in a patch to add replication node identifiers and crash-safe apply progress for LCRs.</li>
+<li>Marko Kreen sent in a patch to use a better default cypher suite for SSL.</li>
+<li>Mitsumasa KONDO sent in a patch to add min and max statement execution time to pg_stat_statements.</li>
+<li>Nigel Heron sent in another revision of a patch to add stats for network traffic.</li>
+<li>Peter Eisentraut sent in a PoC patch to implement ASSERTIONs in SQL.</li>
+<li>Alexander Korotkov sent in three more revisions of a patch to improve GIN by adding new information to the indexes.</li>
+<li>Simon Riggs sent in another revision of a patch to implement a sequence access method along with some code to exercise same.</li>
+<li>Michael Paquier sent in another revision of a patch to implement REINDEX CONCURRENTLY.</li>
+<li>Alexander Korotkov sent in another revision of a patch to enable fast scans on GIN indexes.</li>
+<li>Peter Geoghegan sent in two revisions of a patch to allow pg_stat_statements to store arbitrarily long query texts, using an external, transparently managed lookaside file.</li>
+<li>Peter Eisentraut sent in another revision of a patch to implement information schema parameter_default.</li>
+<li>Atri Sharma sent in another revision of a patch to implement WITHIN GROUP, some applications of which include MEDIAN and quantiles.</li>
+<li>Mitsumasa KONDO sent in a patch to optimize kernel readahead using buffer access strategy.</li>
+<li>David Rowley sent in two more revisions of a patch to change certain calls to appendPQExpBuffer() into calls to appendPQExpBufferStr() for performance.</li>
+<li>Pavel Stehule sent in another revision of a patch to add assertions to PL/pgsql.</li>
+<li>Haribabu Kommi sent in three more revisions of a patch to add an option to pg_basebackup to specify a different directory for pg_xlog.</li>
+<li>Andres Freund sent in another revision of a patch to add better atomics.</li>
+<li>David Rowley sent in a patch to change some instances of strncpy to memcpy.</li>
+<li>Fabr&iacute;zio de Royes Mello sent in a patch to fix an issue where pg_isready's -d function did not work.</li>
+<li>Andres Freund sent in a flock of patches to implement a wait-free LW shared acquisition.</li>
+<li>Heikki Linnakangas sent in another revision of a patch to use HUGE_TLB where supported.</li>
+<li>Andrew Dunstan sent in two revisions of a patch to implement pre-commit triggers.</li>
+<li>Chris Browne sent in another revision of a patch to enhance createuser by allowing the caller to specify roles the user will have.</li>
+<li>Mikhail Tyurin sent in a patch to fix an issue where freeze couldn't be finished.</li>
+<li>Alexey Klyukin sent in a patch to enhance wildcards in .pgpass.</li>
+<li>Ian Lawrence Barwick sent in another revision of a patch to add more autocomplete to psql's \pset.</li>
+<li>Tom Lane sent in another revision of a patch to implement UNNEST with multiple arguments and TABLE() with multiple functions.</li>
+</ul></div>
+
+      </div>
+
+  
+
+    
+  
+    
+    
+    </div>
+</div> <!-- End #main -->
+
+</div> <!-- End #wrapper -->
+
+<div id="pgFooter">
+  <p>Propulsé par <a href="http://dotclear.org/">Dotclear</a></p>
+</div>
+
+</div> <!-- End #page -->
+</body>
+
+<!-- Mirrored from blog2.postgresql.fr/index.php?post/2013/12/09/Nouvelles-hebdomadaires-de-PostgreSQL-17-novembre-2013 by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 May 2020 21:40:20 GMT -->
+</html>

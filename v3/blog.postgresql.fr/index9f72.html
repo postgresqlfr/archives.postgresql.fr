@@ -1,0 +1,278 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr">
+
+<!-- Mirrored from blog2.postgresql.fr/index.php?post/drupal/112 by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 May 2020 21:40:20 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="MSSmartTagsPreventParsing" content="TRUE" />
+  <meta name="ROBOTS" content="INDEX, FOLLOW" />
+  
+  <title>PGWN - 05 février 2007 - PostgreSQLfr.org</title>
+  <meta name="description" lang="fr" content="PostgreSQL Weekly News - 4 février 2007 Les mises à jour de sécurité 8.2.2, 8.1.7, 8.0.11, 7.4.16 et 7.3.18 seront disponibles le 5 février 2007. Soyez prêts. Les produits dérivés" />
+  <meta name="copyright" content="" />
+  <meta name="author" content="SAS" />
+  <meta name="date" scheme="ISO8601" content="2007-02-05T23:06:00+00:00" />
+  
+  <link rel="schema.dc" href="http://purl.org/dc/elements/1.1/" />
+  <meta name="dc.title" content="PGWN - 05 février 2007" />
+  <meta name="dc.description" lang="fr" content="PostgreSQL Weekly News - 4 février 2007 Les mises à jour de sécurité 8.2.2, 8.1.7, 8.0.11, 7.4.16 et 7.3.18 seront disponibles le 5 février 2007. Soyez prêts. Les produits dérivés" />
+  <meta name="dc.creator" content="SAS" />
+  <meta name="dc.language" content="fr" />
+  <meta name="dc.publisher" content="" />
+  <meta name="dc.rights" content="" />
+  <meta name="dc.date" scheme="ISO8601" content="2007-02-05T23:06:00+00:00" />
+  <meta name="dc.type" content="text" />
+  <meta name="dc.format" content="text/html" />
+  
+  <link rel="top" href="indexd41d.html?" title="Accueil" />
+  <link rel="contents" href="index888d.html?archive" title="Archives" />
+  
+  <link rel="next" href="indexa943.html?post/drupal/236"
+  title="Attention : Révisions des versions 8.1 et 8.2 corrompues" />
+  
+  <link rel="previous" href="index4b15.html?post/drupal/109"
+  title="PGWN - 29 janvier 2006" />
+  
+  <link rel="alternate" type="application/atom+xml" title="Atom 1.0" href="index4ca3.php?feed/atom" />
+  
+  <style type="text/css" media="screen">
+@import url(themes/postgresql/style.css);
+</style>
+<style type="text/css" media="print">
+@import url(themes/default/print.css);
+</style>
+
+<script type="text/javascript" src="themes/default/js/jquery.js"></script>
+<script type="text/javascript" src="themes/default/js/jquery.cookie.js"></script>
+
+  
+  <script type="text/javascript" src="themes/default/js/post.js"></script>
+  <script type="text/javascript">
+  //<![CDATA[
+  var post_remember_str = 'Se souvenir de moi sur ce blog';
+  //]]>
+  </script>
+</head>
+
+<body class="dc-post">
+<div id="page">
+
+
+<div id="top">
+  <div id="pgHeader">
+    <span id="pgHeaderLogoLeft">
+      <a href="index.html" title="PostgreSQL"><img src="https://blog.postgresql.fr/themes/postgresql/img/hdr_left.png" width="230" height="80" alt="PostgreSQL" /></a>
+    </span>
+    <span id="pgHeaderLogoRight">
+      <a href="index.html" title="La base de donnees la plus sophistiquee au monde."><img src="https://blog.postgresql.fr/themes/postgresql/img/hdr_right.png" width="210" height="80" alt="La base de donnees la plus sophistiquee au monde." /></a>
+    </span>
+  </div>
+
+  </div>
+
+<div class="pgTopNav">
+  <div class="pgTopNavLeft"> 
+    <img src="https://blog.postgresql.fr/themes/postgresql/img/nav_lft.png" width="7" height="23" alt="" />
+  </div>
+  <div class="pgTopNavRight">
+    <img src="https://blog.postgresql.fr/themes/postgresql/img/nav_rgt.png" width="7" height="23" alt="" />
+  </div>
+  <ul class="pgTopNavList">
+    <li><a href="https://www.postgresql.fr/" title="Accueil">Accueil</a></li>
+    <li><a href="https://blog.postgresql.fr/" title="Lire les actualités">Actualités</a></li>
+    <li><a href="https://docs.postgresql.fr/" title="Lire la documentation officielle">Documentation</a></li>
+    <li><a href="https://forums.postgresql.fr/" title="Pour poser des questions">Forums</a></li>
+    <li><a href="https://www.postgresql.fr/asso/" title="La vie de l'association">Association</a></li>
+    <li><a href="https://www.postgresql.fr/devel:accueil" title="Informations pour les développeurs/traducteurs">Développeurs</a></li>
+    <li><a href="https://planete.postgresql.fr/" title="La planète francophone sur PostgreSQL">Planète</a></li>
+    <li><a href="https://www.postgresql.fr/support/" title="Support sur PostgreSQL">Support</a></li>
+  </ul>
+</div>
+
+<div id="wrapper">
+
+<div id="pgContent">
+
+  <div id="pgSideWrap">
+  <div id="pgSideNav">
+    <div id="blognav">
+      <div id="search"><h2><label for="q">Rechercher</label></h2><form action="http://blog2.postgresql.fr/index.php?" method="get"><fieldset><p><input type="text" size="10" maxlength="255" id="q" name="q" value="" /> <input class="submit" type="submit" value="ok" /></p></fieldset></form></div><div class="categories"><h2>Catégories</h2><ul><li><a href="index199b.html?category/Articles">Articles</a></li><li><a href="indexb4c6.html?category/Dans-les-bacs">Dans les bacs</a></li><li><a href="index025a.html?category/Evenements">Événements</a></li><li class="category-current"><a href="index8c6d.html?category/PostgreSQL-Weekly-News">PostgreSQL Weekly News</a></li><li><a href="index1835.html?category/Securite">Sécurité</a></li><li><a href="index2251.html?category/Vie-de-l-association">Vie de l'association</a></li><li><a href="index91de.html?category/Vie-du-site">Vie du site</a></li></ul></div><div class="text"><h2>Licence</h2>Tous les articles de ce blog sont disponibles sous la <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/">license Creative Commons BY-NC-SA 3.0</a>.</div>    </div> <!-- End #blognav -->
+  
+    <div id="blogextra">
+      <div class="syndicate"><h2>S'abonner</h2><ul><li><a type="application/atom+xml" href="index4ca3.php?feed/atom" title="Fil Atom des billets de ce blog" class="feed">Fil des billets</a></li></ul></div>    </div> <!-- End #blogextra -->
+  </div>
+  </div>
+
+  <div id="pgContentWrap">
+  <div id="pgDownloadsWrap">
+  <div id="content">
+
+  <p id="navlinks">
+  <a href="index4b15.html?post/drupal/109"
+  title="PGWN - 29 janvier 2006" class="prev">&#171; PGWN - 29 janvier 2006</a>
+   <span>-</span> <a href="indexa943.html?post/drupal/236"
+  title="Attention : Révisions des versions 8.1 et 8.2 corrompues" class="next">Attention : Révisions des versions 8.1 et 8.2 &#187;</a>
+  </p>
+  
+  <div class="post">
+    <h2 id="p112" class="post-title">PGWN - 05 février 2007</h2>
+    
+    <p class="post-info">Par SAS    le lundi  5 février 2007, 23:06        - <a href="index8c6d.html?category/PostgreSQL-Weekly-News">PostgreSQL Weekly News</a>
+        - <a href="index9f72.html?post/drupal/112">Lien permanent</a>
+    </p>
+    
+    
+    
+          <div class="post-excerpt"><p><strong>PostgreSQL Weekly News - 4 février 2007</strong></p>
+<p>Les mises à jour de sécurité 8.2.2, 8.1.7, 8.0.11, 7.4.16 et 7.3.18 seront disponibles le 5 février 2007. Soyez prêts.</p>
+<p><strong>Les produits dérivés</strong></p>
+<p>PGCon, la Conférence PostgreSQL, est à la recherche de mécènes. Tous les détails sur <a href="http://www.pgcon.org/2007/sponsorship.php" target="_blank">http://www.pgcon.org/2007/sponsorship.php</a></p></div>
+        
+    <div class="post-content"><p>Red Hat fournit son pack applicatif avec PostgreSQL&nbsp;:<a href="http://www.redhat.com/solutions/rhappstack/" target="_blank">http://www.redhat.com/solutions/rhappstack/</a></p>
+<p><strong>Les jobs de février</strong></p>
+<p><a href="http://archives.postgresql.org/pgsql-jobs/2007-02/threads.php" target="_blank">http://archives.postgresql.org/pgsql-jobs/2007-02/threads.php</a></p>
+<p><strong>PostgreSQL Local</strong></p>
+<p>Le contributeur majeur Gavin Sherry et le leader de Postgres-R, Markus Schiltknecht, interviendront le 6 février à 7:00pm au meeting SFPUG à San Francisco au siège de Hyperic LLC. RSVP à <a href="http://postgresql.meetup.com/1/calendar/5380885/" target="_blank">http://postgresql.meetup.com/1/calendar/5380885/</a></p>
+<p>Un stand PostgreSQL sera tenu au Scale 5x à Los Angeles les 10 et 11 février au Westin Los Angeles Airport. Pour participer contacter josh AT agliodbs DOT com.
+<a href="http://www.socallinuxexpo.org/scale5x/" target="_blank">http://www.socallinuxexpo.org/scale5x/</a></p>
+<p>Il y aura un stand PostgreSQL au CLT les 3 et 4 mars à Chemnitz, RFA. Plusieurs représentants des communautés germanophones de PostgreSQL y seront. Contacter info@pgug.de pour participer. <a href="http://chemnitzer.linux-tage.de/2007/info/" target="_blank">http://chemnitzer.linux-tage.de/2007/info/</a></p>
+<p>Il y aura un stand PostgreSQL au FOSDEM les 24 et 25 février à Bruxelles, Belgique. La plupart des représentants des communautés européennes de PostgreSQL y seront. Contacter de@postgresql.org pour participer.<a href="http://www.fosdem.org/2007/" target="_blank">http://www.fosdem.org/2007/</a></p>
+<p>La communauté PostgreSQL italienne recherche des mécènes pour la journée PostgreSQL à Prato, Italie cet été. Voir le lien ci-dessous. <a href="http://www.pgday.it/" target="_blank">http://www.pgday.it</a></p>
+<p><strong>PostgreSQL dans la presse</strong></p>
+<p>Planet PostgreSQL&nbsp;:
+<a href="http://www.planetpostgresql.org/" target="_blank">http://www.planetpostgresql.org/</a></p>
+<p>General Bits, Archives and occasional new articles&nbsp;:
+<a href="http://www.varlena.com/GeneralBits/" target="_blank">http://www.varlena.com/GeneralBits/</a></p>
+<p><em>PostgreSQL Weekly News vous est présenté cette semaine par David Fetter et Devrim GUNDUZ.
+Adaptation francophone de Stéphane Schildknecht.</em></p>
+<p>
+Vos propositions d'informations doivent parvenir avant dimanche minuit à david@fetter.org. </p>
+<p><strong>Correctifs appliqués</strong></p>
+<p>Michael Meskes a commité&nbsp;:</p>
+<ul><li>Magnus Hagander's patch which removes some compiler warnings&nbsp;;</li>
+<li>Cleaned up va_list handling in ecpg. This should now work on all archs.</li>
+</ul>
+<p>Neil Conway a commité&nbsp;:</p>
+<ul><li>Magnus Hagander's patch which changes the install script for vcbuild actually to parse the generated solution files for what to install, instead of blindly copying everything as it previously did. For example, in the previous quick-n-dirty version, it would copy old DLLs if you reconfigured in a way that didn't include subprojects like a PL&nbsp;;</li>
+<li>Reword suggestion that libpq.dll be installed in WINNT\SYSTEM32 under Windows. Per Magnus Hagander, this is not recommended.</li>
+<li>Fix two more regression tests whose expected outputs were not updated for the recent may/might cleanup.</li>
+<li>Update some of the "expected" regression test results for Bruce's recent may/might cleanup, in the hopes that this will unbreak the buildfarm. Per report from Stefan Kaltenbrunner&nbsp;;</li>
+<li>Backpatch last night's fix for broken markup to the 8.2 branch&nbsp;;</li>
+<li>Fix broken markup in pgsql/doc/src/sgml/release.sgml</li>
+<li>This patch adds documentation for the long-version parameters --username and --password for pg_dump, pg_dumpall and pg_restore, per complaint by Michael Schmidt. Patch from Magnus Hagander&nbsp;;</li>
+<li>Fix a few typos in comments in GiN&nbsp;;</li>
+<li>Add missing Makefile dependencies for the "bigtest" and "bigcheck" targets, and refactor the tablespace setup code into a separate Makefile target&nbsp;;</li>
+<li>Rewrite uuid input and output routines to avoid dependency on the nonportable "hh" sprintf(3) length modifier. Instead, do the parsing and output by hand. The code to do this isn't ideal, but this is an interim measure anyway: the uuid type should probably use the in-memory struct layout specified by RFC 4122. For now, this patch should hopefully rectify the buildfarm failures for the uuid test. Along the way, re-add pg_cast entries for uuid &lt;-&gt; varchar, which I mistakenly removed earlier, and bump the catversion.</li>
+</ul>
+<p>Teodor Sigaev a commité&nbsp;:</p>
+<ul><li>Revert gincostestimate changes&nbsp;;</li>
+<li>Update FreeBSD DocBook installation notes&nbsp;;</li>
+<li>Allow GIN's extractQuery method to signal that nothing can satisfy the query. In this case extractQuery should returns -1 as nentries. This changes prototype of extractQuery method to use int32* instead of uint32* for nentries argument. Based on that gincostestimate may see two corner cases: nothing will be found or seqscan should be used. Per proposal at <a href="http://archives.postgresql.org/pgsql-hackers/2007-01/msg01581.php" target="_blank">http://archives.postgresql.org/pgsql-hackers/2007-01/msg01581.php</a></li>
+</ul>
+<p>Tom Lane a commité&nbsp;:</p>
+<ul><li>Don't MAXALIGN in the checks to decide whether a tuple is over TOAST's threshold for tuple length. On 4-byte-MAXALIGN machines, the toast code creates tuples that have t_len exactly TOAST_TUPLE_THRESHOLD ... but this number is not itself maxaligned, so if heap_insert maxaligns t_len before comparing to TOAST_TUPLE_THRESHOLD, it'll uselessly recurse back to tuptoaster.c, wasting cycles. (It turns out that this does not happen on 8-byte-MAXALIGN machines, because for them the outer MAXALIGN in the TOAST_MAX_CHUNK_SIZE macro reduces TOAST_MAX_CHUNK_SIZE so that toast tuples will be less than TOAST_TUPLE_THRESHOLD in size. That MAXALIGN is really incorrect, but we can't remove it now, see below.) There isn't any particular value in maxaligning before comparing to the thresholds, so just don't do that, which saves a small number of cycles in itself. These numbers should be rejiggered to minimize wasted space on toast-relation pages, but we can't do that in the back branches because changing TOAST_MAX_CHUNK_SIZE would force an initdb (by changing the contents of toast tables). We can move the toast decision thresholds a bit, though, which is what this patch effectively does. Thanks to Pavan Deolasee for discovering the unintended recursion. Back-patch into 8.2, but not further, pending more testing. (HEAD is about to get a further patch modifying the thresholds, so it won't help much for testing this form of the patch.)</li>
+<li>Use -Wl for linker switches on freebsd --- back-port of an 8.0 change. I think this will make buildfarm member herring go green in this branch&nbsp;;</li>
+<li>Fix typo in pgsql/doc/src/sgml/sources.sgml</li>
+<li>Fix plpgsql so that when a local variable has no initial-value expression, an error will be thrown correctly if the variable is of a NOT NULL domain. Report and almost-correct fix from Sergiy Vyshnevetskiy (bug #2948)&nbsp;;</li>
+<li>Fix initdb to not generate misleading error messages when postgres.bki or other share-directory files are inaccessible for some reason other than not existing. Inspired by trouble report from Simon Kinsella&nbsp;;</li>
+<li>Repair oversights in the mechanism used to store compiled plpgsql functions. The original coding failed (tried to access deallocated memory) if there were two active call sites (fn_extra pointers) for the same function and the function definition was updated. Also, if an update of a recursive function was detected upon nested entry to the function, the existing compiled version was summarily deallocated, resulting in crash upon return to the outer instance. Problem observed while studying a bug report from Sergiy Vyshnevetskiy. Bug does not exist before 8.1 since older versions just leaked the memory of obsoleted compiled functions, rather than trying to reclaim it&nbsp;;</li>
+<li>Add SPI_push/SPI_pop calls so that datatype input and output functions called by plpgsql can themselves use SPI --- possibly indirectly, as in the case of domain_in() invoking plpgsql functions in a domain check constraint. Per bug #2945 from Sergiy Vyshnevetskiy. Somewhat arbitrarily, I've chosen to back-patch this as far as 8.0. Given the lack of prior complaints, it doesn't seem critical for 7.x&nbsp;;</li>
+<li>Add support for cross-type hashing in hash index searches and hash joins. Hashing for aggregation purposes still needs work, so it's not time to mark any cross-type operators as hashable for general use, but these cases work if the operators are so marked by hand in the system catalogs&nbsp;;</li>
+<li>Add comment noting that hashm_procid in a hash index's metapage isn't actually used for anything.</li>
+</ul>
+<p>Bruce Momjian a commité&nbsp;:</p>
+<ul><li>Add to TODO: "Allow custom variable classes that can restrict who can set the values" <a href="http://archives.postgresql.org/pgsql-hackers/2006-11/msg00911.php" target="_blank">http://archives.postgresql.org/pgsql-hackers/2006-11/msg00911.php</a></li>
+<li>Update wording in pgsql/doc/src/sgml/libpq.sgml on how to set an environment variable on Windows&nbsp;;</li>
+<li>Add documentation for Windows on how to set an environment variable. Backpatch to 8.2.X&nbsp;;</li>
+<li>In pgsql/src/backend/commands/vacuumlazy.c, change vacuum lazy "compacting" warning message to: errhint("Consider using VACUUM FULL on this relation or increasing the configuration parameter +\"max_fsm_pages\".")));</li>
+<li>Update URL for the "Allow sequential scans to take advantage of other concurrent sequential scans, also called 'Synchronised Scanning'" TODO&nbsp;;</li>
+<li>Add to TODO: "Add \# to list command history like \s, but with line numbers" <a href="http://archives.postgresql.org/pgsql-hackers/2006-12/msg00255.php" target="_blank">http://archives.postgresql.org/pgsql-hackers/2006-12/msg00255.php</a></li>
+<li>Add URLs to the "Allow sequential scans to take advantage of other concurrent sequential scans, also called 'Synchronised Scanning'" TODO&nbsp;;</li>
+<li>Document that a client-only install using "gmake -C src/bin install" does install a few server-only binaries&nbsp;;</li>
+<li>Add to TODO: "Allow recovery.conf to allow the same syntax as postgresql.conf, including quoting."</li>
+<li>Albe Laurenz's patch which fixes configure detection code when using both --with-ldap and --enable-thread-safety&nbsp;;</li>
+<li>Add -patches URL for the "Reduce checkpoint performance degredation by forcing data to disk more evenly" TODO item&nbsp;;</li>
+<li>Add URL for the "Allow sequential scans to take advantage of other concurrent sequential scans, also called 'Synchronised Scanning'" TODO item&nbsp;;</li>
+<li>Add to TODO: "Reduce checkpoint performance degredation by forcing data to disk more evenly" with associated URLs&nbsp;;</li>
+<li>Add URL for the "Fix RENAME to work on variables other than OLD/NEW" TODO item&nbsp;;</li>
+<li>Add to TODO: "Allow column display reordering by recording a display, storage, and permanent id for every column?"</li>
+<li>In pgsql/doc/src/sgml/sources.sgml, add "May/Can/Might" section to error message style guidlines, and a "can't" -&gt; "cannot" section&nbsp;;</li>
+<li>In pgsql/doc/src/sgml/high-availability.sgml, mention file system replication as a high availability solution in the shared hardware section, and mention DRBD as a popular solution&nbsp;;</li>
+<li>Add URL to the "Add long file support for binary pg_dump output" TODO item&nbsp;;</li>
+<li>Wording cleanup for error messages. Also change can't -&gt; cannot&nbsp;;</li>
+<li>Add 8.2.0 "Incomatibilities" documentation that pg_dump's -n and -t behavior has changed&nbsp;;</li>
+<li>Backpatch FAQs to stable branch&nbsp;;</li>
+<li>Daojing Zhou's update to the Chinese FAQ&nbsp;;</li>
+<li>In TODO, update URL for function permission checks&nbsp;;</li>
+<li>Add to TODO: "Tighten function permission checks."</li>
+<li>Add to TODO: "Tighten trigger permission checks."</li>
+<li>Add to TODO: Fix problem when multiple subtransactions of the same outer transaction hold different types of locks, and one subtransaction aborts&nbsp;;</li>
+<li>Update CREATE SEQUENCE documentation to show the same sequence being created and increments. The old docs created the sequence, then showed a nextval() of 114&nbsp;;</li>
+<li>In TODO, add URL for, "Fix RENAME to work on variables other than OLD/NEW."</li>
+<li>Use colons consistently before '&lt;programlisting&gt;' blocks, where appropriate&nbsp;;</li>
+<li>Revert error message change for may/can/might --- needs discussion&nbsp;;</li>
+<li>Update documentation on may/can/might&nbsp;;</li>
+<li>Add to TODO, in "Fix RENAME to work on variables other than OLD/NEW", add URL&nbsp;;</li>
+<li>Document need for periodic REINDEX in VACUUM FULL cases&nbsp;;</li>
+<li>In pgsql/doc/src/sgml/array.sgml, add missing colon&nbsp;;</li>
+<li>Add to TODO: "Add REINDEX CONCURRENTLY" with caveats&nbsp;;</li>
+<li>Update TODO for VACUUM FULL by adding a mention that index updates can bloat the index&nbsp;;</li>
+<li>Added to TODO: "ARRAY[[1,2],[3,4]])[1] should return the same values as ARRAY[[1,2],[3,4]])[1:1]"</li>
+<li>Add FAQ item about timezones and daylight savings time&nbsp;;</li>
+<li>Update documentation for backslashes to mention escape string syntax more, and standard_conforming_strings less, because in the future non-E strings will not treat backslashes specially. Also use E'' strings where backslashes are used in examples. (The existing examples would have drawn warnings.) Backpatch to 8.2.X&nbsp;;</li>
+<li>Clarify paramater handling for pg_get_serial_sequence()&nbsp;;</li>
+<li>Update documentation for pg_get_serial_sequence() function&nbsp;;</li>
+<li>Update wording for minor release upgrades, per Alvaro Herrera&nbsp;;</li>
+<li>In TODO, mark as done: "Add Globally/Universally Unique Identifier (GUID/UUID)"</li>
+<li>In pgsql/src/port/exec.c, use sizeof() for snprintf() buffer length&nbsp;;</li>
+<li>Update process termination message to display signal number and name from exec.c and postmaster.c.</li>
+</ul>
+<p>Peter Eisentraut a commité&nbsp;:</p>
+<ul><li>Update SQL conformance information about XML features&nbsp;;</li>
+<li>Implement XMLSERIALIZE for real. Analogously, make the xml to text cast observe the xmloption. Reorganize the representation of the XML option in the parse tree and the API to make it easier to manage and understand. Add regression tests for parsing back XML expressions&nbsp;;</li>
+<li>Translation updates&nbsp;;</li>
+<li>Update documentation on XML functions.</li>
+</ul>
+<p><strong>Correctifs rejetés (à ce jour)</strong></p>
+<p>Pas de déception cette semaine :-)</p>
+<p><strong>Correctifs en attente</strong></p>
+<ul>
+<li>Magnus Hagander sent in a patch which adds documentation for the long-version parameters --username and --password for pg_dump,pg_dumpall and pg_restore, per complaint by Michael Schmidt&nbsp;;</li>
+<li>Pavan Deolasee sent in another version of his performance patch&nbsp;;</li>
+<li>Pursuant to Alvaro Herrera's work in progress autovacuum launcher patch, Markus Schiltknecht sent in a patch to find current imessages&nbsp;;</li>
+<li>Korry Douglas sent in a patch to fix the fixes shared_preload_libraries on Windows hosts. It forces each backend to re-load all shared_preload_libraries. Per discussion below:<a href="http://archives.postgresql.org/pgsql-hackers/2007-01/msg01498.php" target="_blank">http://archives.postgresql.org/pgsql-hackers/2007-01/msg01498.php</a></li>
+<li>Heikki Linnakangas sent in another version of his phantom command idspatch&nbsp;;</li>
+<li>Pavan Deolasee sent in a patch which adds the matrix of lock(in) compatibilies to the source code&nbsp;;</li>
+<li>Korry Douglas sent in a patch which lets gprof nab a non-overwritten profile on Linux&nbsp;;</li>
+<li>Koichi Suzuki sent in a patch intended to improve full-page write performance&nbsp;;</li>
+<li>Jeremy Drake sent in a patch which allows regular expression matchesto return an array of matches, along with (optionally) the wholematch, the pre-match, and the post-match. Perl fans, rejoice!</li>
+<li>ITAGAKI Takahiro sent in a new version of his n_dead_tuples patch&nbsp;;</li>
+<li>Markus Schiltknecht sent in a patch which fixes a small "database isready" race condition in StartupXLOG() in xact.c&nbsp;;</li>
+<li>Andrew Dunstan sent in a patch which fixes the "\copy (query) delimiter" syntax error&nbsp;;</li>
+<li>Pavel Stehule sent in a patch which fixes a localization bug in timezone formatting.</li>
+</ul></div>
+
+      </div>
+
+  
+
+    
+  
+    
+    
+    </div>
+</div> <!-- End #main -->
+
+</div> <!-- End #wrapper -->
+
+<div id="pgFooter">
+  <p>Propulsé par <a href="http://dotclear.org/">Dotclear</a></p>
+</div>
+
+</div> <!-- End #page -->
+</body>
+
+<!-- Mirrored from blog2.postgresql.fr/index.php?post/drupal/112 by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 May 2020 21:40:20 GMT -->
+</html>

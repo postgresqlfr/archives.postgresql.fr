@@ -1,0 +1,250 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr">
+
+<!-- Mirrored from blog2.postgresql.fr/index.php?post/2011/02/22/D%C3%A9tecter-les-index-redondants-dans-une-base by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 May 2020 21:40:20 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="MSSmartTagsPreventParsing" content="TRUE" />
+  <meta name="ROBOTS" content="INDEX, FOLLOW" />
+  
+  <title>Détecter les index redondants dans une base - PostgreSQLfr.org</title>
+  <meta name="description" lang="fr" content="Voici un petit cas d'école d'utilisation de Window Function… vu que c'est rare dans le travail de DBA d'en rencontrer qui nous servent à nous. Intro: Pourquoi un si long article" />
+  <meta name="copyright" content="" />
+  <meta name="author" content="mcousin" />
+  <meta name="date" scheme="ISO8601" content="2011-02-22T17:53:00+00:00" />
+  
+  <link rel="schema.dc" href="http://purl.org/dc/elements/1.1/" />
+  <meta name="dc.title" content="Détecter les index redondants dans une base" />
+  <meta name="dc.description" lang="fr" content="Voici un petit cas d'école d'utilisation de Window Function… vu que c'est rare dans le travail de DBA d'en rencontrer qui nous servent à nous. Intro: Pourquoi un si long article" />
+  <meta name="dc.creator" content="mcousin" />
+  <meta name="dc.language" content="fr" />
+  <meta name="dc.publisher" content="" />
+  <meta name="dc.rights" content="" />
+  <meta name="dc.date" scheme="ISO8601" content="2011-02-22T17:53:00+00:00" />
+  <meta name="dc.type" content="text" />
+  <meta name="dc.format" content="text/html" />
+  
+  <link rel="top" href="indexd41d.html?" title="Accueil" />
+  <link rel="contents" href="index888d.html?archive" title="Archives" />
+  
+  <link rel="next" href="indexfe15.html?post/2011/02/28/Nouvelles-hebdomadaires-de-PostgreSQL-20-f%C3%A9vrier-2011"
+  title="Nouvelles hebdomadaires de PostgreSQL - 20 février 2011" />
+  
+  <link rel="previous" href="index13d9.html?post/2011/02/19/Nouvelles-hebdomadaires-de-PostgreSQL-13-f%C3%A9vrier-2011"
+  title="Nouvelles hebdomadaires de PostgreSQL - 13 février 2011" />
+  
+  <link rel="alternate" type="application/atom+xml" title="Atom 1.0" href="index4ca3.php?feed/atom" />
+  
+  <style type="text/css" media="screen">
+@import url(themes/postgresql/style.css);
+</style>
+<style type="text/css" media="print">
+@import url(themes/default/print.css);
+</style>
+
+<script type="text/javascript" src="themes/default/js/jquery.js"></script>
+<script type="text/javascript" src="themes/default/js/jquery.cookie.js"></script>
+
+  
+  <script type="text/javascript" src="themes/default/js/post.js"></script>
+  <script type="text/javascript">
+  //<![CDATA[
+  var post_remember_str = 'Se souvenir de moi sur ce blog';
+  //]]>
+  </script>
+</head>
+
+<body class="dc-post">
+<div id="page">
+
+
+<div id="top">
+  <div id="pgHeader">
+    <span id="pgHeaderLogoLeft">
+      <a href="index.html" title="PostgreSQL"><img src="https://blog.postgresql.fr/themes/postgresql/img/hdr_left.png" width="230" height="80" alt="PostgreSQL" /></a>
+    </span>
+    <span id="pgHeaderLogoRight">
+      <a href="index.html" title="La base de donnees la plus sophistiquee au monde."><img src="https://blog.postgresql.fr/themes/postgresql/img/hdr_right.png" width="210" height="80" alt="La base de donnees la plus sophistiquee au monde." /></a>
+    </span>
+  </div>
+
+  </div>
+
+<div class="pgTopNav">
+  <div class="pgTopNavLeft"> 
+    <img src="https://blog.postgresql.fr/themes/postgresql/img/nav_lft.png" width="7" height="23" alt="" />
+  </div>
+  <div class="pgTopNavRight">
+    <img src="https://blog.postgresql.fr/themes/postgresql/img/nav_rgt.png" width="7" height="23" alt="" />
+  </div>
+  <ul class="pgTopNavList">
+    <li><a href="https://www.postgresql.fr/" title="Accueil">Accueil</a></li>
+    <li><a href="https://blog.postgresql.fr/" title="Lire les actualités">Actualités</a></li>
+    <li><a href="https://docs.postgresql.fr/" title="Lire la documentation officielle">Documentation</a></li>
+    <li><a href="https://forums.postgresql.fr/" title="Pour poser des questions">Forums</a></li>
+    <li><a href="https://www.postgresql.fr/asso/" title="La vie de l'association">Association</a></li>
+    <li><a href="https://www.postgresql.fr/devel:accueil" title="Informations pour les développeurs/traducteurs">Développeurs</a></li>
+    <li><a href="https://planete.postgresql.fr/" title="La planète francophone sur PostgreSQL">Planète</a></li>
+    <li><a href="https://www.postgresql.fr/support/" title="Support sur PostgreSQL">Support</a></li>
+  </ul>
+</div>
+
+<div id="wrapper">
+
+<div id="pgContent">
+
+  <div id="pgSideWrap">
+  <div id="pgSideNav">
+    <div id="blognav">
+      <div id="search"><h2><label for="q">Rechercher</label></h2><form action="http://blog2.postgresql.fr/index.php?" method="get"><fieldset><p><input type="text" size="10" maxlength="255" id="q" name="q" value="" /> <input class="submit" type="submit" value="ok" /></p></fieldset></form></div><div class="categories"><h2>Catégories</h2><ul><li><a href="index199b.html?category/Articles">Articles</a></li><li><a href="indexb4c6.html?category/Dans-les-bacs">Dans les bacs</a></li><li><a href="index025a.html?category/Evenements">Événements</a></li><li><a href="index8c6d.html?category/PostgreSQL-Weekly-News">PostgreSQL Weekly News</a></li><li><a href="index1835.html?category/Securite">Sécurité</a></li><li><a href="index2251.html?category/Vie-de-l-association">Vie de l'association</a></li><li><a href="index91de.html?category/Vie-du-site">Vie du site</a></li></ul></div><div class="text"><h2>Licence</h2>Tous les articles de ce blog sont disponibles sous la <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/">license Creative Commons BY-NC-SA 3.0</a>.</div>    </div> <!-- End #blognav -->
+  
+    <div id="blogextra">
+      <div class="syndicate"><h2>S'abonner</h2><ul><li><a type="application/atom+xml" href="index4ca3.php?feed/atom" title="Fil Atom des billets de ce blog" class="feed">Fil des billets</a></li></ul></div>    </div> <!-- End #blogextra -->
+  </div>
+  </div>
+
+  <div id="pgContentWrap">
+  <div id="pgDownloadsWrap">
+  <div id="content">
+
+  <p id="navlinks">
+  <a href="index13d9.html?post/2011/02/19/Nouvelles-hebdomadaires-de-PostgreSQL-13-f%C3%A9vrier-2011"
+  title="Nouvelles hebdomadaires de PostgreSQL - 13 février 2011" class="prev">&#171; Nouvelles hebdomadaires de PostgreSQL - 13 février</a>
+   <span>-</span> <a href="indexfe15.html?post/2011/02/28/Nouvelles-hebdomadaires-de-PostgreSQL-20-f%C3%A9vrier-2011"
+  title="Nouvelles hebdomadaires de PostgreSQL - 20 février 2011" class="next">Nouvelles hebdomadaires de PostgreSQL - 20 février &#187;</a>
+  </p>
+  
+  <div class="post">
+    <h2 id="p593" class="post-title">Détecter les index redondants dans une base</h2>
+    
+    <p class="post-info">Par mcousin    le mardi 22 février 2011, 17:53        - <a href="index8410.html?post/2011/02/22/D%C3%A9tecter-les-index-redondants-dans-une-base">Lien permanent</a>
+    </p>
+    
+    
+    
+        
+    <div class="post-content"><p>Voici un petit cas d'école d'utilisation de Window Function… vu que c'est rare dans le travail de DBA d'en rencontrer qui nous servent à nous.</p>
+<h1>Intro: Pourquoi un si long article juste pour nous présenter une requête ?</h1>
+<p>Il y a quelques jours, je me suis retrouvé dans un environnement contenant beaucoup d'index inutiles, redondants, etc… Habituellement, pour dégrossir le terrain, on peut aller faire un tour du côte dé pg_stat_user_indexes, et se débarrasser des index non utilisés, s'ils ne servent à rien d'autre (contrainte d'unicité principalement).</p>
+<p>Le problème est qu'il arrive quelquefois que les index soient utilisés tout de même. L'exemple classique est le suivant (pour ceux qui connaissent bien cette problématique, n'hésitez pas à sauter le paragraphe :) ):</p>
+<pre>test=&gt; CREATE TABLE test (a int, b int, c int);
+CREATE TABLE
+test=&gt; CREATE INDEX tst1 on test (b);
+CREATE INDEX
+test=&gt; CREATE INDEX tst2 on test (c);
+CREATE INDEX
+test=&gt; CREATE INDEX tst3 on test (b,c);
+CREATE INDEX
+</pre>
+<p>(On imagine que j'ai mis des données dedans, je suis trop paresseux pour le faire… ).</p>
+<p>Si on fait</p>
+<pre>select * from test where b=1</pre>
+<p>on va passer par tst1.</p>
+<p>De même, si la clause «where» est sur c uniquement, on va passer par tst2, et si on a une requête sur b et c à la fois, on utilisera tst3, puisque le moteur prendra à chaque fois l'index le plus efficace. À chaque fois, c'est le plus efficace, si on considère uniquement la requête en cours.</p>
+<p>Mais l'index tst3 est tout à fait capable de répondre aux requêtes sur b uniquement. Il est même extrêmement proche en performances de tst2 (moins de 1% de perte, le plus souvent). Et si on ne gardait que tst3, on aurait tst2 de moins dans le cache. Donc plus de chance d'avoir tst3 dans le cache. Donc probablement de meilleures performances <ins>globales</ins>, sauf si bien sûr tout tenait déjà dans le cache.</p>
+<p>Donc ce qui serait intéressant, c'est de détecter que tst2 est «compris» dans tst3.</p>
+<h1>Étape 1: la table système</h1>
+<p>Construisons la requête par morceau. Pour commencer, l'oid de ma table «test», c'est 16406. On a des informations sur ses index par la table système pg_index:</p>
+<pre>test=&gt; SELECT indexrelid, indrelid, indkey from pg_index where indrelid=16406;</pre><pre><pre> indexrelid | indrelid | indkey<br />------------+----------+--------<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;16409 |    16406 | 2<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;16410 |    16406 | 3<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;16411 |    16406 | 2 3</pre></pre>
+<p>indkey est un tableau d'entiers (la liste des colonnes…).</p>
+<p>Ce qu'on cherche, c'est, pour un indrelid donné (l'identifiant de la table), trouver les index pour lesquelles le tableau indkey est le début de celui d'un autre index.</p>
+<p>Comme je suis paresseux, et que je préfère comparer des chaînes de caractère, commençons donc par transformer indkey en chaîne, avec array_to_string:</p>
+<pre>SELECT indexrelid,
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;indrelid,
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;array_to_string(indkey,'+')
+FROM pg_index
+WHERE indrelid=16406
+ORDER BY indrelid,
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;array_to_string(indkey,'+') DESC;</pre><pre> indexrelid | indrelid | array_to_string
+------------+----------+-----------------
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;16410 |    16406 | 3
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;16411 |    16406 | 2+3
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;16409 |    16406 | 2
+(4 lignes)
+</pre>
+<p>Tant qu'on y est, on voit qu'on peut trier sur cette chaîne. Si on lit la liste, on trouve très rapidement que 16411 contient 16409, qui est juste après lui.</p>
+<h1>Etape 2: la «Window Function»</h1>
+<p>C'est ici qu'arrive la Window Function&nbsp;: on veut comparer deux enregistrements consécutifs, ce qui n'est pas possible avec des opérateurs relationnels classiques (à moins de créer 2 fois la table, y numéroter les enregistrements, et faire une jointure sur ces numéros, belle galère en perspective) :</p>
+<pre>SELECT indexrelid,
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;indrelid,
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;array_to_string(indkey,'+') AS colindex,
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lag(array_to_string(indkey,'+')) OVER window_recherche AS colindexprecedent,
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lag(indexrelid) OVER window_recherche AS index_precedent
+FROM pg_index
+WHERE indrelid=16406
+WINDOW window_recherche AS (PARTITION BY indrelid
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ORDER BY array_to_string(indkey,'+') DESC);</pre><pre> indexrelid | indrelid | colindex | colindexprecedent | index_precedent
+------------+----------+----------+-------------------+-----------------
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;16410 |    16406 | 3        |                   |
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;16411 |    16406 | 2+3      | 3                 |           16410
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;16409 |    16406 | 2        | 2+3               |           16411
+(4 lignes)
+</pre>
+<p>On définit une fenêtre partitionnée par indrelid, c'est à dire que la fonction «Window» ne travaillera que sur les enregistrements de même indrelid. Elle sera remise à zéro à chaque changement d'indrelid.</p>
+<p>On trie dans cette fenêtre par array_to_string(indkey,'+') DESC, comme précédemment.</p>
+<p>Dans cette fenêtre, avec ce tri, on utilise la fonction lag, qui retourne pour chaque enregistrement de la fenêtre une fonction de l'enregistrement précédent.</p>
+<h1>Etape 3: Utiliser le résultat de la Window Function</h1>
+<p>On peut donc extraire 2 colonnes colindex et colindexprecedent, qu'il suffit de comparer comme deux chaînes pour trouver si les index sont redondants. Ils le sont si colindex est le début de colindexprecedent.</p>
+<p>Pour plus de lisibilité, on place notre requête dans une sous-requête, histoire de pouvoir utiliser colindex et colindexprecedent plutôt que les fonctions lag dans la clause WHERE.</p>
+<pre>SELECT indexrelid,index_precedent FROM
+(
+&nbsp;&nbsp;&nbsp;SELECT indexrelid,
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;indrelid,
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;array_to_string(indkey,'+') AS colindex,
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lag(array_to_string(indkey,'+')) OVER window_recherche AS colindexprecedent,
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lag(indexrelid) OVER window_recherche AS index_precedent
+&nbsp;&nbsp;&nbsp;FROM pg_index
+&nbsp;&nbsp;&nbsp;WHERE indrelid=16406
+&nbsp;&nbsp;&nbsp;WINDOW window_recherche AS (PARTITION BY indrelid
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ORDER BY array_to_string(indkey,'+') DESC)
+) AS tmp
+WHERE colindexprecedent like (colindex || '+%');</pre><pre> indexrelid | index_precedent
+------------+-----------------
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;16409 |           16411
+</pre>
+<h1>Étape 4, où l'on apprend que l'auteur aime les cerises sur les gâteaux</h1>
+<p>Cerise sur le gâteau donc, on va rendre notre résultat utilisable. Et arrêter de filtrer sur notre seule table, on veut que ça travaille sur toute la base…</p>
+<pre>SELECT pg_get_indexdef(indexrelid) as contenu,
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pg_get_indexdef(index_precedent) as contenant
+FROM
+(
+&nbsp;&nbsp;&nbsp;SELECT indexrelid,
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;indrelid,
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;array_to_string(indkey,'+') AS colindex,
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lag(array_to_string(indkey,'+')) OVER window_recherche AS colindexprecedent,
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lag(indexrelid) OVER window_recherche AS index_precedent
+&nbsp;&nbsp;&nbsp;FROM pg_index
+&nbsp;&nbsp;&nbsp;WINDOW window_recherche AS (PARTITION BY indrelid
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ORDER BY array_to_string(indkey,'+') DESC)
+) AS tmp
+WHERE colindexprecedent like (colindex || '+%');</pre><pre>                  contenu                  |                  contenant
+-------------------------------------------+----------------------------------------------
+&nbsp;CREATE INDEX tst1 ON test USING btree (b) | CREATE INDEX tst3 ON test USING btree (b, c)
+(1 ligne)
+</pre><h1>Disclaimer</h1>
+<p>Attention tout de même à une chose: on ne distingue pas ici les index 'normaux' des index liés à des contraintes, comme les clés primaires. Ils vous sont tous présentés, avec la syntaxe CREATE INDEX, même si ils proviennent d'une contrainte. Ça veut donc dire qu'il reste un peu de travail à faire après avoir exécuté cette requête et récupéré son résultat…</p></div>
+
+      </div>
+
+  
+
+    
+  
+    
+    
+    </div>
+</div> <!-- End #main -->
+
+</div> <!-- End #wrapper -->
+
+<div id="pgFooter">
+  <p>Propulsé par <a href="http://dotclear.org/">Dotclear</a></p>
+</div>
+
+</div> <!-- End #page -->
+</body>
+
+<!-- Mirrored from blog2.postgresql.fr/index.php?post/2011/02/22/D%C3%A9tecter-les-index-redondants-dans-une-base by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 May 2020 21:40:20 GMT -->
+</html>

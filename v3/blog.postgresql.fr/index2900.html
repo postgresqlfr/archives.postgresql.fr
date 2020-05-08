@@ -1,0 +1,262 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr">
+
+<!-- Mirrored from blog2.postgresql.fr/index.php?post/2013/02/15/Trouver-r%C3%A9cursivement-les-blocages-entre-sessions. by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 May 2020 21:40:20 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="MSSmartTagsPreventParsing" content="TRUE" />
+  <meta name="ROBOTS" content="INDEX, FOLLOW" />
+  
+  <title>Trouver récursivement les blocages entre sessions. - PostgreSQLfr.org</title>
+  <meta name="description" lang="fr" content="Problématique C'est quelque chose qu'on rencontre régulièrement en production: une session idle in transaction qui a un verrou sur quelque chose, qui bloque une autre sesssion qui" />
+  <meta name="copyright" content="" />
+  <meta name="author" content="mcousin" />
+  <meta name="date" scheme="ISO8601" content="2013-02-15T10:39:00+00:00" />
+  
+  <link rel="schema.dc" href="http://purl.org/dc/elements/1.1/" />
+  <meta name="dc.title" content="Trouver récursivement les blocages entre sessions." />
+  <meta name="dc.description" lang="fr" content="Problématique C'est quelque chose qu'on rencontre régulièrement en production: une session idle in transaction qui a un verrou sur quelque chose, qui bloque une autre sesssion qui" />
+  <meta name="dc.creator" content="mcousin" />
+  <meta name="dc.language" content="fr" />
+  <meta name="dc.publisher" content="" />
+  <meta name="dc.rights" content="" />
+  <meta name="dc.date" scheme="ISO8601" content="2013-02-15T10:39:00+00:00" />
+  <meta name="dc.type" content="text" />
+  <meta name="dc.format" content="text/html" />
+  
+  <link rel="top" href="indexd41d.html?" title="Accueil" />
+  <link rel="contents" href="index888d.html?archive" title="Archives" />
+  
+  <link rel="next" href="index92a0.html?post/2013/02/24/Nouvelles-hebdomadaires-de-PostgreSQL-17-f%C3%A9vrier-2013"
+  title="Nouvelles hebdomadaires de PostgreSQL - 17 février 2013" />
+  
+  <link rel="previous" href="index38f3.html?post/2013/02/13/Nouvelles-hebdomadaires-de-PostgreSQL-10-f%C3%A9vrier-2013"
+  title="Nouvelles hebdomadaires de PostgreSQL - 10 février 2013" />
+  
+  <link rel="alternate" type="application/atom+xml" title="Atom 1.0" href="index4ca3.php?feed/atom" />
+  
+  <style type="text/css" media="screen">
+@import url(themes/postgresql/style.css);
+</style>
+<style type="text/css" media="print">
+@import url(themes/default/print.css);
+</style>
+
+<script type="text/javascript" src="themes/default/js/jquery.js"></script>
+<script type="text/javascript" src="themes/default/js/jquery.cookie.js"></script>
+
+  
+  <script type="text/javascript" src="themes/default/js/post.js"></script>
+  <script type="text/javascript">
+  //<![CDATA[
+  var post_remember_str = 'Se souvenir de moi sur ce blog';
+  //]]>
+  </script>
+</head>
+
+<body class="dc-post">
+<div id="page">
+
+
+<div id="top">
+  <div id="pgHeader">
+    <span id="pgHeaderLogoLeft">
+      <a href="index.html" title="PostgreSQL"><img src="https://blog.postgresql.fr/themes/postgresql/img/hdr_left.png" width="230" height="80" alt="PostgreSQL" /></a>
+    </span>
+    <span id="pgHeaderLogoRight">
+      <a href="index.html" title="La base de donnees la plus sophistiquee au monde."><img src="https://blog.postgresql.fr/themes/postgresql/img/hdr_right.png" width="210" height="80" alt="La base de donnees la plus sophistiquee au monde." /></a>
+    </span>
+  </div>
+
+  </div>
+
+<div class="pgTopNav">
+  <div class="pgTopNavLeft"> 
+    <img src="https://blog.postgresql.fr/themes/postgresql/img/nav_lft.png" width="7" height="23" alt="" />
+  </div>
+  <div class="pgTopNavRight">
+    <img src="https://blog.postgresql.fr/themes/postgresql/img/nav_rgt.png" width="7" height="23" alt="" />
+  </div>
+  <ul class="pgTopNavList">
+    <li><a href="https://www.postgresql.fr/" title="Accueil">Accueil</a></li>
+    <li><a href="https://blog.postgresql.fr/" title="Lire les actualités">Actualités</a></li>
+    <li><a href="https://docs.postgresql.fr/" title="Lire la documentation officielle">Documentation</a></li>
+    <li><a href="https://forums.postgresql.fr/" title="Pour poser des questions">Forums</a></li>
+    <li><a href="https://www.postgresql.fr/asso/" title="La vie de l'association">Association</a></li>
+    <li><a href="https://www.postgresql.fr/devel:accueil" title="Informations pour les développeurs/traducteurs">Développeurs</a></li>
+    <li><a href="https://planete.postgresql.fr/" title="La planète francophone sur PostgreSQL">Planète</a></li>
+    <li><a href="https://www.postgresql.fr/support/" title="Support sur PostgreSQL">Support</a></li>
+  </ul>
+</div>
+
+<div id="wrapper">
+
+<div id="pgContent">
+
+  <div id="pgSideWrap">
+  <div id="pgSideNav">
+    <div id="blognav">
+      <div id="search"><h2><label for="q">Rechercher</label></h2><form action="http://blog2.postgresql.fr/index.php?" method="get"><fieldset><p><input type="text" size="10" maxlength="255" id="q" name="q" value="" /> <input class="submit" type="submit" value="ok" /></p></fieldset></form></div><div class="categories"><h2>Catégories</h2><ul><li><a href="index199b.html?category/Articles">Articles</a></li><li><a href="indexb4c6.html?category/Dans-les-bacs">Dans les bacs</a></li><li><a href="index025a.html?category/Evenements">Événements</a></li><li><a href="index8c6d.html?category/PostgreSQL-Weekly-News">PostgreSQL Weekly News</a></li><li><a href="index1835.html?category/Securite">Sécurité</a></li><li><a href="index2251.html?category/Vie-de-l-association">Vie de l'association</a></li><li><a href="index91de.html?category/Vie-du-site">Vie du site</a></li></ul></div><div class="text"><h2>Licence</h2>Tous les articles de ce blog sont disponibles sous la <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/">license Creative Commons BY-NC-SA 3.0</a>.</div>    </div> <!-- End #blognav -->
+  
+    <div id="blogextra">
+      <div class="syndicate"><h2>S'abonner</h2><ul><li><a type="application/atom+xml" href="index4ca3.php?feed/atom" title="Fil Atom des billets de ce blog" class="feed">Fil des billets</a></li></ul></div>    </div> <!-- End #blogextra -->
+  </div>
+  </div>
+
+  <div id="pgContentWrap">
+  <div id="pgDownloadsWrap">
+  <div id="content">
+
+  <p id="navlinks">
+  <a href="index38f3.html?post/2013/02/13/Nouvelles-hebdomadaires-de-PostgreSQL-10-f%C3%A9vrier-2013"
+  title="Nouvelles hebdomadaires de PostgreSQL - 10 février 2013" class="prev">&#171; Nouvelles hebdomadaires de PostgreSQL - 10 février</a>
+   <span>-</span> <a href="index92a0.html?post/2013/02/24/Nouvelles-hebdomadaires-de-PostgreSQL-17-f%C3%A9vrier-2013"
+  title="Nouvelles hebdomadaires de PostgreSQL - 17 février 2013" class="next">Nouvelles hebdomadaires de PostgreSQL - 17 février &#187;</a>
+  </p>
+  
+  <div class="post">
+    <h2 id="p714" class="post-title">Trouver récursivement les blocages entre sessions.</h2>
+    
+    <p class="post-info">Par mcousin    le vendredi 15 février 2013, 10:39        - <a href="index2900.html?post/2013/02/15/Trouver-r%C3%A9cursivement-les-blocages-entre-sessions.">Lien permanent</a>
+    </p>
+    
+    
+    
+        
+    <div class="post-content"><h2>Problématique</h2>
+
+
+<p>C'est quelque chose qu'on rencontre régulièrement en production: une session idle in transaction qui a un verrou sur quelque chose, qui bloque une autre sesssion qui veut acquérir un verrou dessus. Cette autre session a elle même un verrou sur un autre objet, qui bloque une troisième session, et ainsi de suite.</p>
+
+
+<p>À résoudre à la main, c'est toujours pénible. Pas compliqué, mais ça prend du temps, dans un contexte où on a souvent quelques utilisateurs bloqués qui vous râlent dans les oreilles, voire un chef qui vous souffle dans le cou, pour les plus malchanceux.</p>
+
+
+<h2>Solution</h2>
+
+
+<p>On doit donc pouvoir résoudre ça avec une requête qui, pour chaque session bloquée, remonte les verrous jusqu'à la source du problème. <del>En espérant ne pas m'être trompé, voici une requête qui fait exactement ça (testée sur un cas raisonnablement simple en 9.2):</del> En m'étant bien trompé, voici une version améliorée (j'espère que cette fois-ci c'est bon, j'ai eu un cas réel pour la tester).</p>
+
+<pre>
+with recursive conflicting_locks(lock,conflicts) as
+  (
+    values ('AccessShareLock','{&quot;AccessExclusiveLock&quot;}'::text[]),
+           ('RowShareLock','{&quot;AccessExclusiveLock&quot;,&quot;ExclusiveLock&quot;}'),
+           ('RowExclusiveLock','{&quot;AccessExclusiveLock&quot;,&quot;ExclusiveLock&quot;,&quot;ShareRowExclusiveLock&quot;,&quot;ShareLock&quot;}'),
+           ('ShareUpdateExclusiveLock','{&quot;AccessExclusiveLock&quot;,&quot;ExclusiveLock&quot;,&quot;ShareRowExclusiveLock&quot;,&quot;ShareLock&quot;,&quot;ShareUpdateExclusiveLock&quot;}'),
+           ('ShareLock','{&quot;AccessExclusiveLock&quot;,&quot;ExclusiveLock&quot;,&quot;ShareRowExclusiveLock&quot;,&quot;ShareUpdateExclusiveLock&quot;,&quot;RowExclusiveLock&quot;}'),
+           ('ShareRowExclusiveLock','{&quot;AccessExclusiveLock&quot;,&quot;ExclusiveLock&quot;,&quot;ShareRowExclusiveLock&quot;,&quot;ShareLock&quot;,&quot;ShareUpdateExclusiveLock&quot;,&quot;RowExclusiveLock&quot;}'),
+           ('ExclusiveLock','{&quot;AccessExclusiveLock&quot;,&quot;ExclusiveLock&quot;,&quot;ShareRowExclusiveLock&quot;,&quot;ShareLock&quot;,&quot;ShareUpdateExclusiveLock&quot;,&quot;RowExclusiveLock&quot;,&quot;RowShareLock&quot;}'),
+           ('AccessExclusiveLock','{&quot;AccessExclusiveLock&quot;,&quot;ExclusiveLock&quot;,&quot;ShareRowExclusiveLock&quot;,&quot;ShareLock&quot;,&quot;ShareUpdateExclusiveLock&quot;,&quot;RowExclusiveLock&quot;,&quot;RowShareLock&quot;,&quot;AccessShareLock&quot;}')
+  ),
+    tmplocks(pid,lockingpid,lock,granted) as
+  (
+   select distinct l.pid, rl.pid as lockingpid, coalesce(l.relation::text,l.virtualxid::text,l.transactionid::text) as lock ,rl.granted
+   from pg_locks rl
+   join pg_locks l
+     on (coalesce(rl.relation::text,rl.virtualxid::text,rl.transactionid::text)=coalesce(l.relation::text,l.virtualxid::text,l.transactionid::text)
+         and rl.pid&lt;&gt;l.pid)
+   where l.granted
+   and not rl.granted
+   and l.locktype &lt;&gt; 'tuple' and rl.locktype &lt;&gt; 'tuple'
+   and exists (SELECT 1 FROM conflicting_locks WHERE conflicting_locks.lock=l.mode AND rl.mode=ANY(conflicting_locks.conflicts))
+),
+   locks (pid,lockingpid,tree) as
+  (
+        select pid,lockingpid,'{}'::int[]||pid from tmplocks where not granted
+        UNION ALL
+        select tmplocks.pid,tmplocks.lockingpid,tree || tmplocks.pid from tmplocks join locks on (tmplocks.pid=locks.lockingpid)
+  )
+select tree||lockingpid as wholockswho from locks limit 1000000
+</pre>
+
+
+<p>Pour les curieux, voila comment elle fonctionne:</p>
+
+
+<p>La première CTE, conflicting_locks, définit quel lock est en conflit avec un tableau des autres</p>
+
+
+<p>La deuxième CTE, tmplocks, retourne tous les verrous non accordés (not granted), le pid de celui qui est bloqué, le pid de celui qui possède le verrou, et le verrou. On utilise conflicting_locks pour vérifier que les verrous sont en conflits, et on ignore les verrous de type type (ils sont temporaires, et ne devraient pas engendrer de conflit).</p>
+
+
+<p>La troisième fait la récursion: pour chaque session verrouillée, on détermine qui la verrouille. Si celle qui verrouille est elle même verrouillée, on continue la récursion. On stocke dans «tree» les pid de la récursion.</p>
+
+
+<p>Le select final rajoute à tree le pid final (qui n'a pas été stocké durant la récursion, puisque lui n'est pas bloqué).</p>
+
+
+<p>Voila le résultat que j'obtiens dans mon environnement de test:</p>
+
+<pre>
+  wholockswho  |  treelock  
+---------------+------------
+ {7993,5179}   | {16160479}
+ {23390,4245}  | {16154891}
+ {20285,23384} | {16158008}
+ {32125,23389} | {16161532}
+ {23390,21069} | {16154891}
+ {23390,9236}  | {16154891}
+ {3556,23393}  | {16164983}
+ {17780,7982}  | {16156626}
+ {23386,23372} | {16158053}
+ {7988,21070}  | {16155665}
+ {466,6498}    | {16163682}
+ {23390,21158} | {16154891}
+ {3556,464}    | {16164983}
+ {7993,19567}  | {16160479}
+ {13206,32122} | {16158730}
+ {3556,5170}   | {16164983}
+ {23390,24163} | {16154891}
+ {6499,3121}   | {16165246}
+ {23390,7990}  | {16154891}
+ {21065,20438} | {16153879}
+ {23390,23394} | {16154891}
+ {21065,23385} | {16153879}
+ {23390,24164} | {16154891}
+ {23286,3554}  | {16161392}
+ {23390,32111} | {16154891}
+ {3556,6497}   | {16164983}
+ {23386,7994}  | {16158053}
+ {21065,17795} | {16153879}
+ {20285,5176}  | {16158008}
+ {6499,32127}  | {16165246}
+ {6499,21063}  | {16165246}
+ {23390,20442} | {16154891}
+ {7789,6500}   | {16166302}
+ {12749,465}   | {16159721}
+ {5174,24166}  | {16163923}
+ {23390,5173}  | {16154891}
+ {466,32000}   | {16163682}
+</pre>
+
+
+<p>On voit que le pid 23390 en gène un bon paquet d'autres. C'est un bon candidat à l'extermination (c'est une session IDLE in transaction…)</p>
+
+
+<p>Si vous voyez des cas que j'ai raté, ou une amélioration de cette requête, n'hésitez pas à poster en-dessous…</p></div>
+
+      </div>
+
+  
+
+    
+  
+    
+    
+    </div>
+</div> <!-- End #main -->
+
+</div> <!-- End #wrapper -->
+
+<div id="pgFooter">
+  <p>Propulsé par <a href="http://dotclear.org/">Dotclear</a></p>
+</div>
+
+</div> <!-- End #page -->
+</body>
+
+<!-- Mirrored from blog2.postgresql.fr/index.php?post/2013/02/15/Trouver-r%C3%A9cursivement-les-blocages-entre-sessions. by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 May 2020 21:40:20 GMT -->
+</html>

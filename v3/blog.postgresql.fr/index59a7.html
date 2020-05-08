@@ -1,0 +1,277 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr">
+
+<!-- Mirrored from blog2.postgresql.fr/index.php?post/2017/12/26/Nouvelles-hebdomadaires-de-PostgreSQL-24-d%C3%A9cembre-2017 by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 May 2020 21:40:19 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="MSSmartTagsPreventParsing" content="TRUE" />
+  <meta name="ROBOTS" content="INDEX, FOLLOW" />
+  
+  <title>Nouvelles hebdomadaires de PostgreSQL - 24 décembre 2017 - PostgreSQLfr.org</title>
+  <meta name="description" lang="fr" content="Les nouveautés des produits dérivés pgbouncer 1.8.1, un pooler de connexions à PostgreSQL et bien d'avantage : https://pgbouncer.github.io/2017/12/pgbouncer-1-8-1 Offres d'emplois" />
+  <meta name="copyright" content="" />
+  <meta name="author" content="chl" />
+  <meta name="date" scheme="ISO8601" content="2017-12-26T01:07:00+01:00" />
+  
+  <link rel="schema.dc" href="http://purl.org/dc/elements/1.1/" />
+  <meta name="dc.title" content="Nouvelles hebdomadaires de PostgreSQL - 24 décembre 2017" />
+  <meta name="dc.description" lang="fr" content="Les nouveautés des produits dérivés pgbouncer 1.8.1, un pooler de connexions à PostgreSQL et bien d'avantage : https://pgbouncer.github.io/2017/12/pgbouncer-1-8-1 Offres d'emplois" />
+  <meta name="dc.creator" content="chl" />
+  <meta name="dc.language" content="fr" />
+  <meta name="dc.publisher" content="" />
+  <meta name="dc.rights" content="" />
+  <meta name="dc.date" scheme="ISO8601" content="2017-12-26T01:07:00+01:00" />
+  <meta name="dc.type" content="text" />
+  <meta name="dc.format" content="text/html" />
+  
+  <link rel="top" href="indexd41d.html?" title="Accueil" />
+  <link rel="contents" href="index888d.html?archive" title="Archives" />
+  
+  <link rel="next" href="index51cf.html?post/2018/01/01/Nouvelles-hebdomadaires-de-PostgreSQL-31-d%C3%A9cembre-2017"
+  title="Nouvelles hebdomadaires de PostgreSQL - 31 décembre 2017" />
+  
+  <link rel="previous" href="indexf5dd.html?post/2017/12/20/Nouvelles-hebdomadaires-de-PostgreSQL-17-d%C3%A9cembre-2017"
+  title="Nouvelles hebdomadaires de PostgreSQL - 17 décembre 2017" />
+  
+  <link rel="alternate" type="application/atom+xml" title="Atom 1.0" href="index4ca3.php?feed/atom" />
+  
+  <style type="text/css" media="screen">
+@import url(themes/postgresql/style.css);
+</style>
+<style type="text/css" media="print">
+@import url(themes/default/print.css);
+</style>
+
+<script type="text/javascript" src="themes/default/js/jquery.js"></script>
+<script type="text/javascript" src="themes/default/js/jquery.cookie.js"></script>
+
+  
+  <script type="text/javascript" src="themes/default/js/post.js"></script>
+  <script type="text/javascript">
+  //<![CDATA[
+  var post_remember_str = 'Se souvenir de moi sur ce blog';
+  //]]>
+  </script>
+</head>
+
+<body class="dc-post">
+<div id="page">
+
+
+<div id="top">
+  <div id="pgHeader">
+    <span id="pgHeaderLogoLeft">
+      <a href="index.html" title="PostgreSQL"><img src="https://blog.postgresql.fr/themes/postgresql/img/hdr_left.png" width="230" height="80" alt="PostgreSQL" /></a>
+    </span>
+    <span id="pgHeaderLogoRight">
+      <a href="index.html" title="La base de donnees la plus sophistiquee au monde."><img src="https://blog.postgresql.fr/themes/postgresql/img/hdr_right.png" width="210" height="80" alt="La base de donnees la plus sophistiquee au monde." /></a>
+    </span>
+  </div>
+
+  </div>
+
+<div class="pgTopNav">
+  <div class="pgTopNavLeft"> 
+    <img src="https://blog.postgresql.fr/themes/postgresql/img/nav_lft.png" width="7" height="23" alt="" />
+  </div>
+  <div class="pgTopNavRight">
+    <img src="https://blog.postgresql.fr/themes/postgresql/img/nav_rgt.png" width="7" height="23" alt="" />
+  </div>
+  <ul class="pgTopNavList">
+    <li><a href="https://www.postgresql.fr/" title="Accueil">Accueil</a></li>
+    <li><a href="https://blog.postgresql.fr/" title="Lire les actualités">Actualités</a></li>
+    <li><a href="https://docs.postgresql.fr/" title="Lire la documentation officielle">Documentation</a></li>
+    <li><a href="https://forums.postgresql.fr/" title="Pour poser des questions">Forums</a></li>
+    <li><a href="https://www.postgresql.fr/asso/" title="La vie de l'association">Association</a></li>
+    <li><a href="https://www.postgresql.fr/devel:accueil" title="Informations pour les développeurs/traducteurs">Développeurs</a></li>
+    <li><a href="https://planete.postgresql.fr/" title="La planète francophone sur PostgreSQL">Planète</a></li>
+    <li><a href="https://www.postgresql.fr/support/" title="Support sur PostgreSQL">Support</a></li>
+  </ul>
+</div>
+
+<div id="wrapper">
+
+<div id="pgContent">
+
+  <div id="pgSideWrap">
+  <div id="pgSideNav">
+    <div id="blognav">
+      <div id="search"><h2><label for="q">Rechercher</label></h2><form action="http://blog2.postgresql.fr/index.php?" method="get"><fieldset><p><input type="text" size="10" maxlength="255" id="q" name="q" value="" /> <input class="submit" type="submit" value="ok" /></p></fieldset></form></div><div class="categories"><h2>Catégories</h2><ul><li><a href="index199b.html?category/Articles">Articles</a></li><li><a href="indexb4c6.html?category/Dans-les-bacs">Dans les bacs</a></li><li><a href="index025a.html?category/Evenements">Événements</a></li><li class="category-current"><a href="index8c6d.html?category/PostgreSQL-Weekly-News">PostgreSQL Weekly News</a></li><li><a href="index1835.html?category/Securite">Sécurité</a></li><li><a href="index2251.html?category/Vie-de-l-association">Vie de l'association</a></li><li><a href="index91de.html?category/Vie-du-site">Vie du site</a></li></ul></div><div class="text"><h2>Licence</h2>Tous les articles de ce blog sont disponibles sous la <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/">license Creative Commons BY-NC-SA 3.0</a>.</div>    </div> <!-- End #blognav -->
+  
+    <div id="blogextra">
+      <div class="syndicate"><h2>S'abonner</h2><ul><li><a type="application/atom+xml" href="index4ca3.php?feed/atom" title="Fil Atom des billets de ce blog" class="feed">Fil des billets</a></li></ul></div>    </div> <!-- End #blogextra -->
+  </div>
+  </div>
+
+  <div id="pgContentWrap">
+  <div id="pgDownloadsWrap">
+  <div id="content">
+
+  <p id="navlinks">
+  <a href="indexf5dd.html?post/2017/12/20/Nouvelles-hebdomadaires-de-PostgreSQL-17-d%C3%A9cembre-2017"
+  title="Nouvelles hebdomadaires de PostgreSQL - 17 décembre 2017" class="prev">&#171; Nouvelles hebdomadaires de PostgreSQL - 17</a>
+   <span>-</span> <a href="index51cf.html?post/2018/01/01/Nouvelles-hebdomadaires-de-PostgreSQL-31-d%C3%A9cembre-2017"
+  title="Nouvelles hebdomadaires de PostgreSQL - 31 décembre 2017" class="next">Nouvelles hebdomadaires de PostgreSQL - 31 &#187;</a>
+  </p>
+  
+  <div class="post">
+    <h2 id="p978" class="post-title">Nouvelles hebdomadaires de PostgreSQL - 24 décembre 2017</h2>
+    
+    <p class="post-info">Par chl    le mardi 26 décembre 2017, 01:07        - <a href="index8c6d.html?category/PostgreSQL-Weekly-News">PostgreSQL Weekly News</a>
+        - <a href="index59a7.html?post/2017/12/26/Nouvelles-hebdomadaires-de-PostgreSQL-24-d%C3%A9cembre-2017">Lien permanent</a>
+    </p>
+    
+    
+    
+          <div class="post-excerpt"><h2>Les nouveaut&eacute;s des produits d&eacute;riv&eacute;s</h2>
+<ul>
+<li>pgbouncer 1.8.1, un pooler de connexions &agrave; PostgreSQL et bien d'avantage&nbsp;: <a target="_blank" href="https://pgbouncer.github.io/2017/12/pgbouncer-1-8-1">https://pgbouncer.github.io/2017/12/pgbouncer-1-8-1</a></li>
+</ul>
+<h2>Offres d'emplois autour de PostgreSQL en d&eacute;cembre</h2>
+<ul>
+<li>Internationales : <a target="_blank" href="http://archives.postgresql.org/pgsql-jobs/2017-12/">http://archives.postgresql.org/pgsql-jobs/2017-12/</a></li>
+<li>Francophones : <a target="_blank" href="http://forums.postgresql.fr/viewforum.php?id=4">http://forums.postgresql.fr/viewforum.php?id=4</a></li>
+</ul>
+<h2>PostgreSQL Local</h2>
+<ul>
+<li>[ndt: MeetUp &agrave; Paris le 18 janvier&nbsp;: <a target="_blank" href="https://www.meetup.com/fr-FR/PostgreSQL-User-Group-Paris/">https://www.meetup.com/fr-FR/PostgreSQL-User-Group-Paris/</a>]</li>
+<li>FOSDEM PGDay 2018, une conf&eacute;rence d'une journ&eacute;e tenue avant l'&eacute;v&eacute;nement principal, sera tenue &agrave; Bruxelles (Belgique) le 2 f&eacute;vrier 2018&nbsp;: <a target="_blank" href="https://2018.fosdempgday.org/">https://2018.fosdempgday.org/</a></li>
+<li><em>Prague PostgreSQL Developer Day 2018</em> (P2D2 2018) est une s&eacute;rie de conf&eacute;rences sur deux jours qui aura lieu les 14 & 15 f&eacute;vrier 2018 &agrave; Prague (R&eacute;publique Tch&egrave;que). L'appel &agrave; conf&eacute;renciers est lanc&eacute; jusqu'au 5 janvier 2018 &agrave; l'adresse <a target="_blank" href="https://p2d2.cz/callforpapers">https://p2d2.cz/callforpapers</a> : <a target="_blank" href="http://www.p2d2.cz/">http://www.p2d2.cz/</a></li>
+<li>La <em>PGConf India 2018</em> aura lieu les 22 & 23 f&eacute;vrier 2018 &agrave; Bengalore (&Eacute;tat du Karnataka en Inde)&nbsp;: <a target="_blank" href="http://pgconf.in/">http://pgconf.in/</a></li>
+<li>PostgreSQL@SCaLE est un &eacute;v&eacute;nement de 2 jours &agrave; double programmes qui aura lieu les 8 & 9 mars 2018 au centre de convention de Pasadena, int&eacute;gr&eacute; au SCaLE 16X&nbsp;: <a target="_blank" href="http://www.socallinuxexpo.org/scale/16x/cfp">http://www.socallinuxexpo.org/scale/16x/cfp</a></li>
+<li>Le PGDay nordique 2018 se tiendra &agrave; Oslo (Norv&egrave;ge) &agrave; l'h&ocirc;tel Radisson Blu le 13 mars 2018. L'appel &agrave; conf&eacute;renciers s'&eacute;teint le 31 d&eacute;cembre 2017&nbsp;: <a target="_blank" href="https://2018.nordicpgday.org/cfp/">https://2018.nordicpgday.org/cfp/</a></li>
+<li>Le <em>pgDay Paris 2018</em> aura lieu &agrave; l'espace Saint Martin (Paris, France) le 15 mars 2018. L'appel &agrave; conf&eacute;renciers court jusqu'au 31 d&eacute;cembre 2017&nbsp;: <a target="_blank" href="http://2018.pgday.paris/callforpapers/">http://2018.pgday.paris/callforpapers/</a></li>
+<li>PGConf APAC 2018 se tiendra &agrave; Singapour du 22 au 24 mars 2018&nbsp;: <a target="_blank" href="http://2018.pgconfapac.org/">http://2018.pgconfapac.org/</a></li>
+<li>La conf&eacute;rence germanophone <em>PostgreSQL Conference 2018</em> aura lieu le 13 avril 2018 &agrave; Berlin. L'appel &agrave; conf&eacute;renciers est ouvert &agrave; l'adresse <a target="_blank" href="http://2018.pgconf.de/de/callforpapers.html">http://2018.pgconf.de/de/callforpapers.html</a> jusqu'au 9 janvier 2018, et le site de la conf&eacute;rence est disponible ici&nbsp;: <a target="_blank" href="http://2018.pgconf.de/">http://2018.pgconf.de/</a></li>
+<li>La <em>PGCon 2018</em> se tiendra &agrave; Ottawa du 29 mai au 1er juin 2018. L'appel &agrave; conf&eacute;renciers court jusqu'au 19 janvier 2018 &agrave; l'adresse <a target="_blank" href="https://www.pgcon.org/2018/papers.php">https://www.pgcon.org/2018/papers.php</a> : <a target="_blank" href="https://www.pgcon.org/2018/">https://www.pgcon.org/2018/</a></li>
+<li>La <em>PGConf.Brazil 2018</em> aura lieu &agrave; S&atilde;o Paulo (Br&eacute;sil) les 3 & 4 ao&ucirc;t 2018. L'appel &agrave; conf&eacute;renciers sera lanc&eacute; prochainement&nbsp;: <a target="_blank" href="http://pgconf.com.br/">http://pgconf.com.br</a></li>
+</ul>
+<h2>PostgreSQL dans les m&eacute;dia</h2>
+<ul>
+<li>Planet PostgreSQL : <a target="_blank" href="http://planet.postgresql.org/">http://planet.postgresql.org/</a></li>
+<li>Planet PostgreSQLFr : <a target="_blank" href="http://planete.postgresql.fr/">http://planete.postgresql.fr/</a></li>
+</ul>
+<p>PostgreSQL Weekly News / les nouvelles hebdomadaires vous sont offertes cette semaine par David Fetter. Traduction par l'&eacute;quipe PostgreSQLFr sous licence CC BY-NC-SA. La version originale se trouve &agrave; l'adresse suivante : <a target="_blank" href="http://www.postgresql.org/message-id/20171224210038.GA28780@fetter.org">http://www.postgresql.org/message-id/20171224210038.GA28780@fetter.org</a></p>
+<p>Proposez vos articles ou annonces avant dimanche 15:00 (heure du Pacifique). Merci de les envoyer en anglais &agrave; david (a) fetter.org, en allemand &agrave; pwn (a) pgug.de, en italien &agrave; pwn (a) itpug.org et en espagnol &agrave; pwn (a) arpug.com.ar.</p></div>
+        
+    <div class="post-content"><h2>Correctifs appliqu&eacute;s</h2>
+<p>Magnus Hagander pushed:</p>
+<ul>
+<li>Fix typo on comment. Author: David Rowley <a target="_blank" href="https://git.postgresql.org/pg/commitdiff/7731c32087faf498db0562cc7e40d256ffc1750f">https://git.postgresql.org/pg/commitdiff/7731c32087faf498db0562cc7e40d256ffc1750f</a></li>
+</ul>
+<p>Robert Haas pushed:</p>
+<ul>
+<li>Fix crashes on plans with multiple Gather (Merge) nodes. es_query_dsa turns out to be broken by design, because it supposes that there is only one DSA for the whole query, whereas there is actually one per Gather (Merge) node. For now, work around that problem by setting and clearing the pointer around the sections of code that might need it. It's probably a better idea to get rid of es_query_dsa altogether in favor of having each node keep track individually of which DSA is relevant, but that seems like more than we would want to back-patch. Thomas Munro, reviewed and tested by Andreas Seltenreich, Amit Kapila, and by me. Discussion: <a target="_blank" href="http://postgr.es/m/CAEepm=1U6as=brnVvMNixEV2tpi8NuyQoTmO8Qef0-VV+=7MDA@mail.gmail.com">http://postgr.es/m/CAEepm=1U6as=brnVvMNixEV2tpi8NuyQoTmO8Qef0-VV+=7MDA@mail.gmail.com</a> <a target="_blank" href="https://git.postgresql.org/pg/commitdiff/fd7c0fa732d97a4b4ebb58730e6244ea30d0a618">https://git.postgresql.org/pg/commitdiff/fd7c0fa732d97a4b4ebb58730e6244ea30d0a618</a></li>
+<li>Mark a few parallelism-related variables with PGDLLIMPORT. Discussion: <a target="_blank" href="http://postgr.es/m/CAEepm=2HzxAOKU6eCWTyvMwBy=fhGvbwDPM_fVps759tkyQSYQ@mail.gmail.com">http://postgr.es/m/CAEepm=2HzxAOKU6eCWTyvMwBy=fhGvbwDPM_fVps759tkyQSYQ@mail.gmail.com</a> <a target="_blank" href="https://git.postgresql.org/pg/commitdiff/09a65f5a284491d865f3f2ca5a996e597b9cf696">https://git.postgresql.org/pg/commitdiff/09a65f5a284491d865f3f2ca5a996e597b9cf696</a></li>
+<li>Re-fix wrong costing of Sort under Gather Merge. Commit dc02c7bca4dccf7de278cdc6b3325a829e75b252 changed this call to create_sort_path() to take -1 rather than limit_tuples because, at that time, there was no way for a Sort beneath a Gather Merge to become a top-N sort. Later, commit 3452dc5240da43e833118484e1e9b4894d04431c provided a way for a Sort beneath a Gather Merge to become a top-N sort, but failed to revert the previous commit in the process. Do that. Report and analysis by Jeff Janes; patch by Thomas Munro; review by Amit Kapila and by me. Discussion: <a target="_blank" href="http://postgr.es/m/CAEepm=1BWtC34vUroA0Uqjw02MaqdUrW+d6WD85_k8SLyPiKHQ@mail.gmail.com">http://postgr.es/m/CAEepm=1BWtC34vUroA0Uqjw02MaqdUrW+d6WD85_k8SLyPiKHQ@mail.gmail.com</a> <a target="_blank" href="https://git.postgresql.org/pg/commitdiff/38fc54703ea4203a537c58332f697c546eaa4bcf">https://git.postgresql.org/pg/commitdiff/38fc54703ea4203a537c58332f697c546eaa4bcf</a></li>
+<li>Try again to fix accumulation of parallel worker instrumentation. When a Gather or Gather Merge node is started and stopped multiple times, accumulate instrumentation data only once, at the end, instead of after each execution, to avoid recording inflated totals. Commit 778e78ae9fa51e58f41cbdc72b293291d02d8984, the previous attempt at a fix, instead reset the state after every execution, which worked for the general instrumentation data but had problems for the additional instrumentation specific to Sort and Hash nodes. Report by hubert depesz lubaczewski. Analysis and fix by Amit Kapila, following a design proposal from Thomas Munro, with a comment tweak by me. Discussion: <a target="_blank" href="http://postgr.es/m/20171127175631.GA405@depesz.com">http://postgr.es/m/20171127175631.GA405@depesz.com</a> <a target="_blank" href="https://git.postgresql.org/pg/commitdiff/8526bcb2df76d5171b4f4d6dc7a97560a73a5eff">https://git.postgresql.org/pg/commitdiff/8526bcb2df76d5171b4f4d6dc7a97560a73a5eff</a></li>
+<li>Test instrumentation of Hash nodes with parallel query. Commit 8526bcb2df76d5171b4f4d6dc7a97560a73a5eff fixed bugs related to both Sort and Hash, but only added a test case for Sort. This adds a test case for Hash to match. Thomas Munro Discussion: <a target="_blank" href="http://postgr.es/m/CAEepm=2-LRnfwUBZDqQt+XAcd0af_ykNyyVvP3h1uB1AQ=e-eA@mail.gmail.com">http://postgr.es/m/CAEepm=2-LRnfwUBZDqQt+XAcd0af_ykNyyVvP3h1uB1AQ=e-eA@mail.gmail.com</a> <a target="_blank" href="https://git.postgresql.org/pg/commitdiff/7d3583ad9ae54b44119973a9d6d731c9cc74c86e">https://git.postgresql.org/pg/commitdiff/7d3583ad9ae54b44119973a9d6d731c9cc74c86e</a></li>
+<li>When passing query strings to workers, pass the terminating \0. Otherwise, when the query string is read, we might trailing garbage beyond the end, unless there happens to be a \0 there by good luck. Report and patch by Thomas Munro. Reviewed by Rafia Sabih. Discussion: <a target="_blank" href="http://postgr.es/m/CAEepm=2SJs7X+_vx8QoDu8d1SMEOxtLhxxLNzZun_BvNkuNhrw@mail.gmail.com">http://postgr.es/m/CAEepm=2SJs7X+_vx8QoDu8d1SMEOxtLhxxLNzZun_BvNkuNhrw@mail.gmail.com</a> <a target="_blank" href="https://git.postgresql.org/pg/commitdiff/f94eec490b2671399c102b89c9fa0311aea3a39f">https://git.postgresql.org/pg/commitdiff/f94eec490b2671399c102b89c9fa0311aea3a39f</a></li>
+<li>Cancel CV sleep during subtransaction abort. Generally, error recovery paths that need to do things like LWLockReleaseAll and pgstat_report_wait_end also need to call ConditionVariableCancelSleep, but AbortSubTransaction was missed. Since subtransaction abort might destroy up the DSM segment that contains the ConditionVariable stored in cv_sleep_target, this can result in a crash for anything using condition variables. Reported and diagnosed by Andres Freund. Discussion: <a target="_blank" href="http://postgr.es/m/20171221110048.rxk6464azzl5t2fi@alap3.anarazel.de">http://postgr.es/m/20171221110048.rxk6464azzl5t2fi@alap3.anarazel.de</a> <a target="_blank" href="https://git.postgresql.org/pg/commitdiff/59d1e2b95a826869e2789ffe01e9e552148eefde">https://git.postgresql.org/pg/commitdiff/59d1e2b95a826869e2789ffe01e9e552148eefde</a></li>
+<li>Adjust assertion in GetCurrentCommandId. currentCommandIdUsed is only used to skip redundant increments of the command counter, and CommandCounterIncrement() is categorically denied under parallelism anyway. Therefore, it's OK for GetCurrentCommandId() to mark the counter value used, as long as it happens in the leader, not a worker. Prior to commit e9baa5e9fa147e00a2466ab2c40eb99c8a700824, the slightly incorrect check didn't matter, but now it does. A test case added by commit 1804284042e659e7d16904e7bbb0ad546394b6a3 uncovered the problem by accident; it caused failures with force_parallel_mode=on/regress. Report and review by Andres Freund. Patch by me. Discussion: <a target="_blank" href="http://postgr.es/m/20171221143106.5lhtygohvmazli3x@alap3.anarazel.de">http://postgr.es/m/20171221143106.5lhtygohvmazli3x@alap3.anarazel.de</a> <a target="_blank" href="https://git.postgresql.org/pg/commitdiff/cce1ecfc77385233664de661d6a1b8b3c5d3d3f5">https://git.postgresql.org/pg/commitdiff/cce1ecfc77385233664de661d6a1b8b3c5d3d3f5</a></li>
+</ul>
+<p>Fujii Masao pushed:</p>
+<ul>
+<li>Fix bug in cancellation of non-exclusive backup to avoid assertion failure. Previously an assertion failure occurred when pg_stop_backup() for non-exclusive backup was aborted while it's waiting for WAL files to be archived. This assertion failure happened in do_pg_abort_backup() which was called when a non-exclusive backup was canceled. do_pg_abort_backup() assumes that there is at least one non-exclusive backup running when it's called. But pg_stop_backup() can be canceled even after it marks the end of non-exclusive backup (e.g., during waiting for WAL archiving). This broke the assumption that do_pg_abort_backup() relies on, and which caused an assertion failure. This commit changes do_pg_abort_backup() so that it does nothing when non-exclusive backup has been already marked as completed. That is, the asssumption is also changed, and do_pg_abort_backup() now can handle even the case where it's called when there is no running backup. Backpatch to 9.6 where SQL-callable non-exclusive backup was added. Author: Masahiko Sawada and Michael Paquier Reviewed-By: Robert Haas and Fujii Masao Discussion: <a target="_blank" href="https://www.postgresql.org/message-id/CAD21AoD2L1Fu2c==gnVASMyFAAaq3y-AQ2uEVj-zTCGFFjvmDg@mail.gmail.com">https://www.postgresql.org/message-id/CAD21AoD2L1Fu2c==gnVASMyFAAaq3y-AQ2uEVj-zTCGFFjvmDg@mail.gmail.com</a> <a target="_blank" href="https://git.postgresql.org/pg/commitdiff/56a95ee5118bf6d46e261b8d352f7dafac10587d">https://git.postgresql.org/pg/commitdiff/56a95ee5118bf6d46e261b8d352f7dafac10587d</a></li>
+</ul>
+<p>Peter Eisentraut pushed:</p>
+<ul>
+<li>doc: Fix figures in example description. oversight in 244c8b466a743d1ec18a7d841bf42669699b3b56 Reported-by: Blaz Merela &lt;blaz@merela.org&gt; <a target="_blank" href="https://git.postgresql.org/pg/commitdiff/53cba77b53f98255bfbba9d2612d1a5685feec52">https://git.postgresql.org/pg/commitdiff/53cba77b53f98255bfbba9d2612d1a5685feec52</a></li>
+<li>Move SCRAM-related name definitions to scram-common.h. Mechanism names for SCRAM and channel binding names have been included in scram.h by the libpq frontend code, and this header references a set of routines which are only used by the backend. scram-common.h is on the contrary usable by both the backend and libpq, so getting those names from there seems more reasonable. Author: Michael Paquier &lt;michael.paquier@gmail.com&gt; <a target="_blank" href="https://git.postgresql.org/pg/commitdiff/25d532698d74f4adb34f013f1a287a0029e31fb1">https://git.postgresql.org/pg/commitdiff/25d532698d74f4adb34f013f1a287a0029e31fb1</a></li>
+<li>Add libpq connection parameter "scram_channel_binding". This parameter can be used to enforce the channel binding type used during a SCRAM authentication. This can be useful to check code paths where an invalid channel binding type is used by a client and will be even more useful to allow testing other channel binding types when they are added. The default value is tls-unique, which is what RFC 5802 specifies. Clients can optionally specify an empty value, which has as effect to not use channel binding and use SCRAM-SHA-256 as chosen SASL mechanism. More tests for SCRAM and channel binding are added to the SSL test suite. Author: Author: Michael Paquier &lt;michael.paquier@gmail.com&gt; <a target="_blank" href="https://git.postgresql.org/pg/commitdiff/4bbf110d2fb4f74b9385bd5a521f824dfa5f15ec">https://git.postgresql.org/pg/commitdiff/4bbf110d2fb4f74b9385bd5a521f824dfa5f15ec</a></li>
+</ul>
+<p>Andres Freund pushed:</p>
+<ul>
+<li>Add shared tuplestores. SharedTuplestore allows multiple participants to write into it and then read the tuples back from it in parallel. Each reader receives partial results. For now it always uses disk files, but other buffering policies and other kinds of scans (ie each reader receives complete results) may be useful in future. The upcoming parallel hash join feature will use this facility. Author: Thomas Munro Reviewed-By: Peter Geoghegan, Andres Freund, Robert Haas Discussion: <a target="_blank" href="https://postgr.es/m/CAEepm=2W=cOkiZxcg6qiFQP-dHUe09aqTrEMM7yJDrHMhDv_RA@mail.gmail.com">https://postgr.es/m/CAEepm=2W=cOkiZxcg6qiFQP-dHUe09aqTrEMM7yJDrHMhDv_RA@mail.gmail.com</a> <a target="_blank" href="https://git.postgresql.org/pg/commitdiff/ab9e0e718acb9ded7e4c4b5cedc1d410690ea6ba">https://git.postgresql.org/pg/commitdiff/ab9e0e718acb9ded7e4c4b5cedc1d410690ea6ba</a></li>
+<li>Add parallel-aware hash joins. Introduce parallel-aware hash joins that appear in EXPLAIN plans as Parallel Hash Join with Parallel Hash. While hash joins could already appear in parallel queries, they were previously always parallel-oblivious and had a partial subplan only on the outer side, meaning that the work of the inner subplan was duplicated in every worker. After this commit, the planner will consider using a partial subplan on the inner side too, using the Parallel Hash node to divide the work over the available CPU cores and combine its results in shared memory. If the join needs to be split into multiple batches in order to respect work_mem, then workers process different batches as much as possible and then work together on the remaining batches. The advantages of a parallel-aware hash join over a parallel-oblivious hash join used in a parallel query are that it: * avoids wasting memory on duplicated hash tables * avoids wasting disk space on duplicated batch files * divides the work of building the hash table over the CPUs One disadvantage is that there is some communication between the participating CPUs which might outweigh the benefits of parallelism in the case of small hash tables. This is avoided by the planner's existing reluctance to supply partial plans for small scans, but it may be necessary to estimate synchronization costs in future if that situation changes. Another is that outer batch 0 must be written to disk if multiple batches are required. A potential future advantage of parallel-aware hash joins is that right and full outer joins could be supported, since there is a single set of matched bits for each hashtable, but that is not yet implemented. A new GUC enable_parallel_hash is defined to control the feature, defaulting to on. Author: Thomas Munro Reviewed-By: Andres Freund, Robert Haas Tested-By: Rafia Sabih, Prabhat Sahu Discussion: <a target="_blank" href="https://postgr.es/m/CAEepm=2W=cOkiZxcg6qiFQP-dHUe09aqTrEMM7yJDrHMhDv_RA@mail.gmail.com">https://postgr.es/m/CAEepm=2W=cOkiZxcg6qiFQP-dHUe09aqTrEMM7yJDrHMhDv_RA@mail.gmail.com</a> <a target="_blank" href="https://postgr.es/m/CAEepm=37HKyJ4U6XOLi=JgfSHM3o6B-GaeO-6hkOmneTDkH+Uw@mail.gmail.com">https://postgr.es/m/CAEepm=37HKyJ4U6XOLi=JgfSHM3o6B-GaeO-6hkOmneTDkH+Uw@mail.gmail.com</a> <a target="_blank" href="https://git.postgresql.org/pg/commitdiff/1804284042e659e7d16904e7bbb0ad546394b6a3">https://git.postgresql.org/pg/commitdiff/1804284042e659e7d16904e7bbb0ad546394b6a3</a></li>
+<li>Fix assert with side effects in the new PHJ code. Instead of asserting the assert just set the value to what it was supposed to test... Per coverity. <a target="_blank" href="https://git.postgresql.org/pg/commitdiff/4e2970f8807f1ccfc8029979a70dc80ee102ce48">https://git.postgresql.org/pg/commitdiff/4e2970f8807f1ccfc8029979a70dc80ee102ce48</a></li>
+</ul>
+<p>Tom Lane pushed:</p>
+<ul>
+<li>Avoid putting build-location-dependent strings into generated files. Various Perl scripts we use to generate files were in the habit of printing things like "generated by $0" into their output files. That looks like a fine idea at first glance, but it results in non-reproducible output, because in VPATH builds $0 won't be just the name of the script file, but a full path for it. We'd prefer that you get identical results whether using VPATH or not, so this is a bad thing. Some of these places also printed their input file name(s), causing an additional hazard of the same type. Hence, establish a policy that thou shalt not print $0, nor input file pathnames, into output files (they're still allowed in error messages, though). Instead just write the script name verbatim. While we are at it, we can make these annotations more useful by giving the script's full relative path name within the PG source tree, eg instead of Gen_fmgrtab.pl let's print src/backend/utils/Gen_fmgrtab.pl. Not all of the changes made here actually affect any files shipped in finished tarballs today, but it seems best to apply the policy everyplace so that nobody copies unsafe code into places where it could matter. Christoph Berg and Tom Lane Discussion: <a target="_blank" href="https://postgr.es/m/20171215102223.GB31812@msg.df7cb.de">https://postgr.es/m/20171215102223.GB31812@msg.df7cb.de</a> <a target="_blank" href="https://git.postgresql.org/pg/commitdiff/c98c35cd084a25c6cf9b08c76de8b89facd75fe7">https://git.postgresql.org/pg/commitdiff/c98c35cd084a25c6cf9b08c76de8b89facd75fe7</a></li>
+<li>Rearrange execution of PARAM_EXTERN Params for plpgsql's benefit. This patch does three interrelated things: * Create a new expression execution step type EEOP_PARAM_CALLBACK and add the infrastructure needed for add-on modules to generate that. As discussed, the best control mechanism for that seems to be to add another hook function to ParamListInfo, which will be called by ExecInitExpr if it's supplied and a PARAM_EXTERN Param is found. For stand-alone expressions, we add a new entry point to allow the ParamListInfo to be specified directly, since it can't be retrieved from the parent plan node's EState. * Redesign the API for the ParamListInfo paramFetch hook so that the ParamExternData array can be entirely virtual. This also lets us get rid of ParamListInfo.paramMask, instead leaving it to the paramFetch hook to decide which param IDs should be accessible or not. plpgsql_param_fetch was already doing the identical masking check, so having callers do it too seemed redundant. While I was at it, I added a "speculative" flag to paramFetch that the planner can specify as TRUE to avoid unwanted failures. This solves an ancient problem for plpgsql that it couldn't provide values of non-DTYPE_VAR variables to the planner for fear of triggering premature "record not assigned yet" or "field not found" errors during planning. * Rework plpgsql to get rid of the need for "unshared" parameter lists, by dint of turning the single ParamListInfo per estate into a nearly read-only data structure that doesn't instantiate any per-variable data. Instead, the paramFetch hook controls access to per-variable data and can make the right decisions on the fly, replacing the cases that we used to need multiple ParamListInfos for. This might perhaps have been a performance loss on its own, but by using a paramCompile hook we can bypass plpgsql_param_fetch entirely during normal query execution. (It's now only called when, eg, we copy the ParamListInfo into a cursor portal. copyParamList() or SerializeParamList() effectively instantiate the virtual parameter array as a simple physical array without a paramFetch hook, which is what we want in those cases.) This allows reverting most of commit 6c82d8d1f, though I kept the cosmetic code-consolidation aspects of that (eg the assign_simple_var function). Performance testing shows this to be at worst a break-even change, and it can provide wins ranging up to 20% in test cases involving accesses to fields of "record" variables. The fact that values of such variables can now be exposed to the planner might produce wins in some situations, too, but I've not pursued that angle. In passing, remove the "parent" pointer from the arguments to ExecInitExprRec and related functions, instead storing that pointer in a transient field in ExprState. The ParamListInfo pointer for a stand-alone expression is handled the same way; we'd otherwise have had to add yet another recursively-passed-down argument in expression compilation. Discussion: <a target="_blank" href="https://postgr.es/m/32589.1513706441@sss.pgh.pa.us">https://postgr.es/m/32589.1513706441@sss.pgh.pa.us</a> <a target="_blank" href="https://git.postgresql.org/pg/commitdiff/6719b238e8f0ea83c39d2b1728c7670cdaa34e06">https://git.postgresql.org/pg/commitdiff/6719b238e8f0ea83c39d2b1728c7670cdaa34e06</a></li>
+<li>Fix UNION/INTERSECT/EXCEPT over no columns. Since 9.4, we've allowed the syntax "select union select" and variants of that. However, the planner wasn't expecting a no-column set operation and ended up treating the set operation as if it were UNION ALL. Turns out it's trivial to fix in v10 and later; we just need to be careful about not generating a Sort node with no sort keys. However, since a weird corner case like this is never going to be exercised by developers, we'd better have thorough regression tests if we want to consider it supported. Per report from Victor Yegorov. Discussion: <a target="_blank" href="https://postgr.es/m/CAGnEbojGJrRSOgJwNGM7JSJZpVAf8xXcVPbVrGdhbVEHZ-BUMw@mail.gmail.com">https://postgr.es/m/CAGnEbojGJrRSOgJwNGM7JSJZpVAf8xXcVPbVrGdhbVEHZ-BUMw@mail.gmail.com</a> <a target="_blank" href="https://git.postgresql.org/pg/commitdiff/c4c2885cbb1803f772e58f6db4c8951d8cd672cd">https://git.postgresql.org/pg/commitdiff/c4c2885cbb1803f772e58f6db4c8951d8cd672cd</a></li>
+</ul>
+<p>&#65533;lvaro Herrera pushed:</p>
+<ul>
+<li>Fix typo. <a target="_blank" href="https://git.postgresql.org/pg/commitdiff/9ef6aba1d3513829d9f77a4a91ca52f2e5719aef">https://git.postgresql.org/pg/commitdiff/9ef6aba1d3513829d9f77a4a91ca52f2e5719aef</a></li>
+<li>Get rid of copy_partition_key. That function currently exists to avoid leaking memory in CacheMemoryContext in case of trouble while the partition key is being built, but there's a better way: allocate everything in a memcxt that goes away if the current (sub)transaction fails, and once the partition key is built and no further errors can occur, make the memcxt permanent by making it a child of CacheMemoryContext. Reviewed-by: Tom Lane Discussion: <a target="_blank" href="https://postgr.es/m/20171027172730.eh2domlkpn4ja62m@alvherre.pgsql">https://postgr.es/m/20171027172730.eh2domlkpn4ja62m@alvherre.pgsql</a> <a target="_blank" href="https://git.postgresql.org/pg/commitdiff/8a0596cb656e357c391cccf12854beb2e05f3901">https://git.postgresql.org/pg/commitdiff/8a0596cb656e357c391cccf12854beb2e05f3901</a></li>
+<li>Minor edits to catalog files and scripts. This fixes a few typos and small mistakes; it also cleans a few minor stylistic issues. The biggest functional change is that Gen_fmgrtab.pl no longer knows the OID of language 'internal'. Author: John Naylor Discussion: <a target="_blank" href="https://postgr.es/m/CAJVSVGXAkwbk-A9QHHHf00N905kKisyQbaYwKqaRpze_gPXGfg@mail.gmail.com">https://postgr.es/m/CAJVSVGXAkwbk-A9QHHHf00N905kKisyQbaYwKqaRpze_gPXGfg@mail.gmail.com</a> <a target="_blank" href="https://git.postgresql.org/pg/commitdiff/9373baa0f764392c504df034afd2f6b178c29491">https://git.postgresql.org/pg/commitdiff/9373baa0f764392c504df034afd2f6b178c29491</a></li>
+</ul>
+<p>Teodor Sigaev pushed:</p>
+<ul>
+<li>Add optional compression method to SP-GiST. Patch allows to have different types of column and value stored in leaf tuples of SP-GiST. The main application of feature is to transform complex column type to simple indexed type or for truncating too long value, transformation could be lossy. Simple example: polygons are converted to their bounding boxes, this opclass follows. Authors: me, Heikki Linnakangas, Alexander Korotkov, Nikita Glukhov Reviewed-By: all authors + Darafei Praliaskouski Discussions: <a target="_blank" href="https://www.postgresql.org/message-id/5447B3FF.2080406@sigaev.ru">https://www.postgresql.org/message-id/5447B3FF.2080406@sigaev.ru</a> <a target="_blank" href="https://www.postgresql.org/message-id/flat/54907069.1030506@sigaev.ru#54907069.1030506@sigaev.ru">https://www.postgresql.org/message-id/flat/54907069.1030506@sigaev.ru#54907069.1030506@sigaev.ru</a> <a target="_blank" href="https://git.postgresql.org/pg/commitdiff/854823fa334cb826eed50da751801d0693b10173">https://git.postgresql.org/pg/commitdiff/854823fa334cb826eed50da751801d0693b10173</a></li>
+</ul>
+<h2>Correctifs en attente</h2>
+<p>Peter Eisentraut sent in another revision of a patch to add support for static assertions in C++.</p>
+<p>Anastasia Lubennikova sent in a patch to add a mechanism for tracking page changes. This is infrastructure for, among other things, incremental backups.</p>
+<p>Nathan Bossart sent in another revision of a patch to fix an issue which caused vacuum to crash, adding an optional NOWAIT parameter to VACUUM and ANALYZE in the process.</p>
+<p>Huong Dangminh sent in six more revisions of a patch to fix the slot_store error callback, which had broken logical replication in certain cases where user-defined types existed.</p>
+<p>Amit Langote sent in a patch to delay allocation of per-partition objects until tuple is actually routed to a given partition. This helps with non-bulk inserts and doesn't appear to hurt bulk inserts.</p>
+<p>Andrey Borodin sent in another revision of a patch to delete pages during GiST VACUUM.</p>
+<p>Etsuro Fujita sent in another revision of a patch to add support for tuple routing to foreign partitions.</p>
+<p>Marina Polyakova sent in two more revisions of a patch to deal better with pgbench errors and serialization/deadlock retries.</p>
+<p>Peter Eisentraut sent in a patch to update the portal-related memory context names and API and remove PortalGetQueryDesc(), which is now useless.</p>
+<p>Amit Kapila sent in a patch to make ParallelWorkerNumber available to extensions.</p>
+<p>Robert Haas sent in a PoC patch to add a buffer pin wait to pg_isolation_test_session_is_blocked().</p>
+<p>Aleksandr Parfenov sent in a patch to make full-text search configuration more flexible.</p>
+<p>Magnus Hagander sent in two revisions of a patch to ensure that base backups do not show up as idle.</p>
+<p>Nikhil Sontakke sent in two more revisions of a patch to implement logical decoding of two-phase commits.</p>
+<p>Craig Ringer sent in two revisions of a patch to add pg_diag_backend(pid) to print memory context info for a running backend.</p>
+<p>Beena Emerson and David Rowley traded patches to implement runtime partition pruning.</p>
+<p>Feike Steenbergen sent in two revisions of a patch to add hint about replication slots for wraparound.</p>
+<p>Tomas Vondra sent in another revision of a patch to implement BRIN multi-range indexes.</p>
+<p>Peter Eisentraut sent in another revision of a patch to implement transaction control in procedures.</p>
+<p>Peter Eisentraut sent in another revision of a patch to use stdbool.h.</p>
+<p>David Fetter sent in a patch to schema-qualify function calls in information_schema.</p>
+<p>Peter Eisentraut sent in another revision of a patch to replace GrantObjectType and AclObjectKind with ObjectType.</p>
+<p>Tom Lane sent in a patch to let PL/pgsql use the newly added expression evaluation infrastructure.</p>
+<p>Amit Langote sent in three more revisions of a patch to prune partitions faster.</p>
+<p>Amit Khandekar sent in two more revisions of a patch to enable UPDATEs on partition keys that would have the effect of moving a tuple to another partition.</p>
+<p>&#65533;lvaro Herrera sent in four revisions of a patch to allow unique indexes on partitioned tables.</p>
+<p>Ildar Musin sent in a patch to add some new hashing functions to pgbench.</p>
+<p>Christoph Berg sent in another revision of a patch to make builds reproducible by eliminating usages of $0.</p>
+<p>Konstantin Knizhnik sent in two more revisions of a patch to implement AS OF queries.</p>
+<p>Haribabu Kommi sent in two revisions of a patch to enhance the pg_stat_wal_receiver view to display the connected host.</p>
+<p>Ra&#65533;l Mar&#65533;n Rodr&#65533;guez sent in two more revisions of a patch to add pow() to pgbench.</p>
+<p>Beena Emerson sent in another revision of a patch to implement runtime partition pruning.</p>
+<p>Feike Steenbergen sent in two revisions of a patch to fix the permissions check on pg_stat_get_wal_senders.</p>
+<p>Masahiko Sawada sent in a patch to fix a typo in autoprewarm.c.</p>
+<p>Micha&#65533;l Paquier sent in two more revisions of a patch to implement channel binding tls-server-end-point for SCRAM and refactor channel binding code to fetch cbind_data only when necessary.</p>
+<p>Rajkumar Raghuwanshi sent in another revision of a patch to implement partition-wise join with default partitions.</p>
+<p>Teodor Sigaev sent in another revision of a patch to add more operators and functions to pgbench.</p>
+<p>Thomas Munro sent in a patch to fix a suspicious call of initial_cost_hashjoin().</p>
+<p>Dilip Kumar sent in a patch to remove an assert in rewritequery in order to fix a bug which could cause a server crash once after dropping a RULE.</p>
+<p>Kyotaro HORIGUCHI sent in another revision of a patch to restrict maximum keep segments by repslots.</p>
+<p>Oliver Ford sent in another revision of a patch to add RANGE and GROUPS to window functions.</p>
+<p>Antonin Houska sent in another revision of a patch to implement aggregate pushdown.</p>
+<p>&#65533;lvaro Herrera sent in a patch to protect against hypothetical memory leaks in RelationGetPartitionKey.</p>
+<p>&#65533;lvaro Herrera sent in a patch to allow indexes on partitioned tables to be unique.</p>
+<p>Maksim Milyutin sent in a patch to add a custom signal handler for extensions.</p>
+<p>Robert Haas sent in a patch to build towards a point where parallel append will work with UNION ALL.</p>
+<p>Tomas Vondra sent in two revisions of a patch to define a memory limit for the reorderbuffer (responsible for building the logically decoded transactions), and add the ability to stream large in-progress transactions (exceeding the memory limit).</p></div>
+
+      </div>
+
+  
+
+    
+  
+    
+    
+    </div>
+</div> <!-- End #main -->
+
+</div> <!-- End #wrapper -->
+
+<div id="pgFooter">
+  <p>Propulsé par <a href="http://dotclear.org/">Dotclear</a></p>
+</div>
+
+</div> <!-- End #page -->
+</body>
+
+<!-- Mirrored from blog2.postgresql.fr/index.php?post/2017/12/26/Nouvelles-hebdomadaires-de-PostgreSQL-24-d%C3%A9cembre-2017 by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 May 2020 21:40:19 GMT -->
+</html>

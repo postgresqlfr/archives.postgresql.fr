@@ -1,0 +1,330 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr">
+
+<!-- Mirrored from blog2.postgresql.fr/index.php?post/2009/01/15/Nouvelles-neuves-de-PostgreSQL by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 May 2020 21:40:20 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="MSSmartTagsPreventParsing" content="TRUE" />
+  <meta name="ROBOTS" content="INDEX, FOLLOW" />
+  
+  <title>Nouvelles neuves de PostgreSQL - PostgreSQLfr.org</title>
+  <meta name="description" lang="fr" content="Nouvelles hebdomadaires de PostgreSQL - 11 janvier 2009 Les programmes d'installation pour les instantanés de développement de la 8.4 sont disponibles. N'hésitez pas et faites un" />
+  <meta name="copyright" content="" />
+  <meta name="author" content="chl" />
+  <meta name="date" scheme="ISO8601" content="2009-01-15T23:27:00+01:00" />
+  
+  <link rel="schema.dc" href="http://purl.org/dc/elements/1.1/" />
+  <meta name="dc.title" content="Nouvelles neuves de PostgreSQL" />
+  <meta name="dc.description" lang="fr" content="Nouvelles hebdomadaires de PostgreSQL - 11 janvier 2009 Les programmes d'installation pour les instantanés de développement de la 8.4 sont disponibles. N'hésitez pas et faites un" />
+  <meta name="dc.creator" content="chl" />
+  <meta name="dc.language" content="fr" />
+  <meta name="dc.publisher" content="" />
+  <meta name="dc.rights" content="" />
+  <meta name="dc.date" scheme="ISO8601" content="2009-01-15T23:27:00+01:00" />
+  <meta name="dc.type" content="text" />
+  <meta name="dc.format" content="text/html" />
+  
+  <link rel="top" href="indexd41d.html?" title="Accueil" />
+  <link rel="contents" href="index888d.html?archive" title="Archives" />
+  
+  <link rel="next" href="index82c8.html?post/2009/01/16/Comment-utilisez-vous-PostgreSQL"
+  title="Comment utilisez-vous PostgreSQL ?" />
+  
+  <link rel="previous" href="indexc480.html?post/2009/01/11/Nouvelles-neuves-de-PostgreSQL"
+  title="Nouvelles neuves de PostgreSQL" />
+  
+  <link rel="alternate" type="application/atom+xml" title="Atom 1.0" href="index4ca3.php?feed/atom" />
+  
+  <style type="text/css" media="screen">
+@import url(themes/postgresql/style.css);
+</style>
+<style type="text/css" media="print">
+@import url(themes/default/print.css);
+</style>
+
+<script type="text/javascript" src="themes/default/js/jquery.js"></script>
+<script type="text/javascript" src="themes/default/js/jquery.cookie.js"></script>
+
+  
+  <script type="text/javascript" src="themes/default/js/post.js"></script>
+  <script type="text/javascript">
+  //<![CDATA[
+  var post_remember_str = 'Se souvenir de moi sur ce blog';
+  //]]>
+  </script>
+</head>
+
+<body class="dc-post">
+<div id="page">
+
+
+<div id="top">
+  <div id="pgHeader">
+    <span id="pgHeaderLogoLeft">
+      <a href="index.html" title="PostgreSQL"><img src="https://blog.postgresql.fr/themes/postgresql/img/hdr_left.png" width="230" height="80" alt="PostgreSQL" /></a>
+    </span>
+    <span id="pgHeaderLogoRight">
+      <a href="index.html" title="La base de donnees la plus sophistiquee au monde."><img src="https://blog.postgresql.fr/themes/postgresql/img/hdr_right.png" width="210" height="80" alt="La base de donnees la plus sophistiquee au monde." /></a>
+    </span>
+  </div>
+
+  </div>
+
+<div class="pgTopNav">
+  <div class="pgTopNavLeft"> 
+    <img src="https://blog.postgresql.fr/themes/postgresql/img/nav_lft.png" width="7" height="23" alt="" />
+  </div>
+  <div class="pgTopNavRight">
+    <img src="https://blog.postgresql.fr/themes/postgresql/img/nav_rgt.png" width="7" height="23" alt="" />
+  </div>
+  <ul class="pgTopNavList">
+    <li><a href="https://www.postgresql.fr/" title="Accueil">Accueil</a></li>
+    <li><a href="https://blog.postgresql.fr/" title="Lire les actualités">Actualités</a></li>
+    <li><a href="https://docs.postgresql.fr/" title="Lire la documentation officielle">Documentation</a></li>
+    <li><a href="https://forums.postgresql.fr/" title="Pour poser des questions">Forums</a></li>
+    <li><a href="https://www.postgresql.fr/asso/" title="La vie de l'association">Association</a></li>
+    <li><a href="https://www.postgresql.fr/devel:accueil" title="Informations pour les développeurs/traducteurs">Développeurs</a></li>
+    <li><a href="https://planete.postgresql.fr/" title="La planète francophone sur PostgreSQL">Planète</a></li>
+    <li><a href="https://www.postgresql.fr/support/" title="Support sur PostgreSQL">Support</a></li>
+  </ul>
+</div>
+
+<div id="wrapper">
+
+<div id="pgContent">
+
+  <div id="pgSideWrap">
+  <div id="pgSideNav">
+    <div id="blognav">
+      <div id="search"><h2><label for="q">Rechercher</label></h2><form action="http://blog2.postgresql.fr/index.php?" method="get"><fieldset><p><input type="text" size="10" maxlength="255" id="q" name="q" value="" /> <input class="submit" type="submit" value="ok" /></p></fieldset></form></div><div class="categories"><h2>Catégories</h2><ul><li><a href="index199b.html?category/Articles">Articles</a></li><li><a href="indexb4c6.html?category/Dans-les-bacs">Dans les bacs</a></li><li><a href="index025a.html?category/Evenements">Événements</a></li><li class="category-current"><a href="index8c6d.html?category/PostgreSQL-Weekly-News">PostgreSQL Weekly News</a></li><li><a href="index1835.html?category/Securite">Sécurité</a></li><li><a href="index2251.html?category/Vie-de-l-association">Vie de l'association</a></li><li><a href="index91de.html?category/Vie-du-site">Vie du site</a></li></ul></div><div class="text"><h2>Licence</h2>Tous les articles de ce blog sont disponibles sous la <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/">license Creative Commons BY-NC-SA 3.0</a>.</div>    </div> <!-- End #blognav -->
+  
+    <div id="blogextra">
+      <div class="syndicate"><h2>S'abonner</h2><ul><li><a type="application/atom+xml" href="index4ca3.php?feed/atom" title="Fil Atom des billets de ce blog" class="feed">Fil des billets</a></li></ul></div>    </div> <!-- End #blogextra -->
+  </div>
+  </div>
+
+  <div id="pgContentWrap">
+  <div id="pgDownloadsWrap">
+  <div id="content">
+
+  <p id="navlinks">
+  <a href="indexc480.html?post/2009/01/11/Nouvelles-neuves-de-PostgreSQL"
+  title="Nouvelles neuves de PostgreSQL" class="prev">&#171; Nouvelles neuves de PostgreSQL</a>
+   <span>-</span> <a href="index82c8.html?post/2009/01/16/Comment-utilisez-vous-PostgreSQL"
+  title="Comment utilisez-vous PostgreSQL ?" class="next">Comment utilisez-vous PostgreSQL ? &#187;</a>
+  </p>
+  
+  <div class="post">
+    <h2 id="p455" class="post-title">Nouvelles neuves de PostgreSQL</h2>
+    
+    <p class="post-info">Par chl    le jeudi 15 janvier 2009, 23:27        - <a href="index8c6d.html?category/PostgreSQL-Weekly-News">PostgreSQL Weekly News</a>
+        - <a href="index96b4.html?post/2009/01/15/Nouvelles-neuves-de-PostgreSQL">Lien permanent</a>
+    </p>
+    
+    
+    
+          <div class="post-excerpt"><p><strong>Nouvelles hebdomadaires de PostgreSQL - 11 janvier 2009</strong></p>
+<p>Les programmes d'installation pour les instantan&eacute;s de d&eacute;veloppement de la 8.4 sont disponibles. N'h&eacute;sitez pas et faites un tour &agrave; bord de la future 8.4&nbsp;! 
+<a target="_blank" href="http://www.postgresql.org/download/snapshots">http://www.postgresql.org/download/snapshots</a></p>
+<p>Plus que 2 semaines pour proposer des conf&eacute;rences pour les pgCon&nbsp;! 
+<a target="_blank" href="http://www.pgcon.org/">www.pgcon.org</a></p>
+<p><strong>L'astuce de la semaine</strong></p>
+<p>En ligne de commande dans psql, "\x" vous permet de basculer l'affichage des r&eacute;sultats en mode "&eacute;tendu". C'est tr&egrave;s utile pour les ensembles contenant de longues lignes.</p>
+<p>(<a target="_blank" href="http://www.postgresql.org/community/weeklynews/pwn20090111">lien vers l'article original</a>)</p></div>
+        
+    <div class="post-content"><p><strong>Les nouveaut&eacute;s des produits d&eacute;riv&eacute;s</strong></p>
+<ul>
+<li>MyJSQLView 3.01&nbsp;: 
+<a target="_blank" href="http://myjsqlview.sourceforge.net/">http://myjsqlview.sourceforge.net/</a></li>
+</ul>
+<p><strong>Offres d'emplois autour de PostgreSQL en janvier</strong></p>
+<ul>
+<li><a target="_blank" href="http://archives.postgresql.org/pgsql-jobs/2009-01/threads.php">http://archives.postgresql.org/pgsql-jobs/2009-01/threads.php</a></li>
+</ul>
+<p><strong>PostgreSQL Local</strong></p>
+<ul>
+<li>Jeff Davis tiendra une conf&eacute;rence devant le PUG de San Francisco le mardi 13 janvier au Blurb. RSVP ci-dessous pour les invitations et la nourriture&nbsp;: 
+<a target="_blank" href="http://postgresql.meetup.com/1/calendar/9351228/">http://postgresql.meetup.com/1/calendar/9351228/</a></li>
+<li>Richard Broersma fait le lien entre les volontaires pour la rencontre de SCALE (cf. plus bas). Contact &agrave; richard POINT broersma CHEZ gmail POINT com.</li>
+<li>Les groupes moscovites de PostgreSQL et MySQL tiendront une table ronde commune le 22 janvier. D&eacute;tails et inscriptions ci-dessous&nbsp;: 
+<a target="_blank" href="http://forum.postgresqlrussia.org/viewtopic.php?f=6&amp;t=96">http://forum.postgresqlrussia.org/viewtopic.php?f=6&amp;t=96</a></li>
+<li>Le SYDPUG se r&eacute;unira le 3 f&eacute;vrier 2009 &agrave; 18h30. Suivez le lien pour les d&eacute;tails&nbsp;: 
+<a target="_blank" href="http://archives.postgresql.org/sydpug/">http://archives.postgresql.org/sydpug/</a></li>
+<li>Beaucoup des suspects habituels se retrouveront au FOSDEM les 7 &amp; 8 f&eacute;vrier &agrave; Bruxelles, Belgique&nbsp;: 
+<a target="_blank" href="http://wiki.postgresql.eu/wiki/FOSDEM_2009">http://wiki.postgresql.eu/wiki/FOSDEM_2009</a></li>
+<li>PostgreSQL sera au "SCALE" du 20 au 22 f&eacute;vrier &agrave; Los Angeles&nbsp;: 
+<a target="_blank" href="http://www.socallinuxexpo.org/">http://www.socallinuxexpo.org/</a></li>
+<li>Conf&eacute;rence d'Andreas 'ads' Scherbaum lors du "Perl Workshop 2009" le 25 f&eacute;vrier &agrave; Francfort-sur-le-Main, en Allemagne&nbsp;: 
+<a target="_blank" href="http://www.perl-workshop.de/talks/151/view">http://www.perl-workshop.de/talks/151/view</a></li>
+<li>"PostgreSQL Conference, U.S." organise un PgDay lors de la "LinuxFest Northwest" (25 &amp; 26 avril). L'appel aux conf&eacute;rences est visible &agrave; l'adresse&nbsp;: 
+<a target="_blank" href="http://www.postgresqlconference.org/">http://www.postgresqlconference.org/</a></li>
+<li>La PGCon 2009 se tiendra &agrave; l'Universit&eacute; d'Ottawa les 21 et 22 mai 2009. Elle sera pr&eacute;c&eacute;d&eacute;e de deux jours de tutoriels les 19 &amp; 20 mai&nbsp;: 
+<a target="_blank" href="http://www.pgcon.org/2009/papers.php">http://www.pgcon.org/2009/papers.php</a></li>
+<li>La "PGCon Brazil" prendra place &agrave; l'Unicamp de Campinas (&Eacute;tat de S&atilde;o Paulo) les 23 &amp; 24 octobre 2009.</li>
+</ul>
+<p><strong>PostgreSQL dans les m&eacute;dia</strong></p>
+<ul>
+<li>Planet PostgreSQL&nbsp;: 
+<a target="_blank" href="http://planet.postgresql.org/">http://planet.postgresql.org/</a></li>
+</ul>
+<p><i>PostgreSQL Weekly News / les nouvelles hebdomadaires vous sont offertes cette semaine par David Fetter, Josh Berkus et Dave Page. La traduction en est assur&eacute;e par l'&eacute;quipe PostgreSQLFr.</i></p>
+<p><i>Proposez vos articles ou annonces avant dimanche 15:00 (heure du Pacifique). Merci de les envoyer en anglais &agrave; david (a) fetter.org, en allemand &agrave; pwn (a) pgug.de, en italien &agrave; pwn (a) itpug.org.</i></p>
+<p><strong>Correctifs appliqu&eacute;s</strong></p>
+<p>Peter Eisentraut a commit&eacute;&nbsp;:</p>
+<ul>
+<li>Allow out-of-tree builds on mingw and cygwin. Author: Richard Evans.</li>
+<li>Fix for cross-compilation between mingw32 and something else. The choice of pwd vs. pwd -W is correctly a function of the build system, not the host system.</li>
+<li>When cross-compiling, allow and require an external zic program to be used when --with-system-tzdata is not used. Initial patch by Richard Evans</li>
+<li>Produce a full version string for Sun Studio. From Zdenek Kotala.</li>
+<li>In pgsql/doc/src/sgml/ddl.sgml, add note that not all SQL commands support ONLY in the same way.</li>
+<li>Rewrite update-po target, so that it works less like a shell script and more like a makefile with real dependencies. Instead of overwriting the old po file, write the new one to .po.new. This is less annoying and integrates better with the NLS web site. Also, we can now merge languages that don't have a po file yet, by merging against all other po files of that language, to pick up recurring translations automatically. This previously only worked when a po file already existed.</li>
+<li>In pgsql/src/nls-global.mk, more portable use of "find".</li>
+<li>Change chapter titles thus: "III. Server Administration 15. Installation from Source Code 16. Installation from Source Code on Windows 17. Server Setup and Operation" to give users of binary installations a better idea where to start reading. Suggested by Nikolay Samokhvalov</li>
+<li>Remove fairly useless mixed-case identifier test that causes locale dependencies.</li>
+<li>Make tests pass with or without locale.</li>
+</ul>
+<p>Tom Lane a commit&eacute;&nbsp;:</p>
+<ul>
+<li>In pgsql/src/backend/utils/misc/guc.c, fix define_custom_variable to preserve any sourcefile/sourceline information present in the placeholder. Noted while testing pg_stat_statements.</li>
+<li>Add EmitWarningsOnPlaceholders calls to contrib modules that are likely to get listed in custom_variable_classes.</li>
+<li>Quiet repeated "loaded library" messages from child backends that are just re-loading a library already loaded into the postmaster. ITAGAKI Takahiro</li>
+<li>Add a --role option to pg_dump, pg_dumpall, and pg_restore. This allows performing dumps and restores in accordance with a security policy that forbids logging in directly as superuser, but instead specifies that you should log into an admin account and then SET ROLE to the superuser. In passing, clean up some ugly and mostly-broken code for quoting shell arguments in pg_dumpall. Benedek Laszlo, with some help from Tom Lane</li>
+<li>In pgsql/src/backend/optimizer/util/clauses.c, fix an oversight in the function-default-arguments patch: after adding some default expressions to a function call, eval_const_expressions must recurse on those expressions. Else they don't get simplified, and in particular we fail to insert additional default arguments if any functions needing defaults are in there. Per report from Rushabh Lathia.</li>
+<li>In pgsql/src/backend/commands/functioncmds.c, add some comments about why function parameter default expressions are restricted.</li>
+<li>Doesn't seem like a good idea to be doing AC_CHECK_SIZEOF(void *) so much earlier than all the other sizeof checks, and it certainly fails to follow the order suggested at the file head. Rearrange.</li>
+<li>In pgsql/src/backend/utils/adt/pg_lzcompress.c, revert the default toast compression strategy to the former behavior where there's no limit on the size of datum we'll try to compress. Other 8.4 tweaks to the behavior remain in place. Per discussion.</li>
+<li>Change a couple of ill-advised uses of INFO elog level to WARNINGs; in particular this allows EmitWarningsOnPlaceholders messages to show up in the postmaster log by default. Update elog.h comment to make it clearer what INFO is for, and fix one example in the SGML docs that was misusing it. Per my gripe of yesterday.</li>
+<li>Remove references to pgsql-ports and pgsql-patches mailing lists from various documentation, since those lists are now dead/deprecated. Point to pgsql-bugs and/or pgsql-hackers as appropriate.</li>
+<li>In pgsql/src/backend/commands/analyze.c, clarify a confusing comment about MCVs vs histogram entries. Per Nathan Boley.</li>
+<li>Fix executor/spi.h to follow our usual conventions for include files, ie, not include postgres.h nor anything else it doesn't directly need. Add #includes to calling files as needed to compensate. Per my proposal of yesterday. This should be noted as a source code change in the 8.4 release notes, since it's likely to require changes in add-on modules.</li>
+<li>Insert conditional SPI_push/SPI_pop calls into InputFunctionCall, OutputFunctionCall, and friends. This allows SPI-using functions to invoke datatype I/O without concern for the possibility that a SPI-using function will be called (which could be either the I/O function itself, or a function used in a domain check constraint). It's a tad ugly, but not nearly as ugly as what'd be needed to make this work via retail insertion of push/pop operations in all the PLs. This reverts my patch of 2007-01-30 that inserted some retail SPI_push/pop calls into plpgsql; that approach only fixed plpgsql, and not any other PLs. But the other PLs have the issue too, as illustrated by a recent gripe from Christian Schroeder. Back-patch to 8.2, which is as far back as this solution will work. It's also as far back as we need to worry about the domain-constraint case, since earlier versions did not attempt to check domain constraints within datatype input. I'm not aware of any old I/O functions that use SPI themselves, so this should be sufficient for a back-patch.</li>
+<li>Create a third option named "partition" for constraint_exclusion, and make it the default. This setting enables constraint exclusion checks only for appendrel members (ie, inheritance children and UNION ALL arms), which are the cases in which constraint exclusion is most likely to be useful. Avoiding the overhead for simple queries that are unlikely to benefit should bring the cost down to the point where this is a reasonable default setting. Per today's discussion.</li>
+<li>In pgsql/src/backend/parser/analyze.c, defend against null input in analyze_requires_snapshot(), per report from Rushabh Lathia.</li>
+<li>Arrange for function default arguments to be processed properly in expressions that are set up for execution with ExecPrepareExpr rather than going through the full planner process. By introducing an explicit notion of "expression planning", this patch also lays a bit of groundwork for maybe someday allowing sub-selects in standalone expressions.</li>
+<li>In pgsql/src/interfaces/libpq/fe-protocol3.c, fix libpq so that it reports PGRES_EMPTY_QUERY not PGRES_COMMAND_OK when an empty query string is passed to PQexecParams and related functions. Its handling of the NoData response to Describe messages was subtly incorrect. Per my report of yesterday. Although I consider this a bug, it's a behavioral change that might affect applications, so not back-patched. In passing fix a second issue in the same code: it didn't react well to an out-of-memory failure while trying to make the PGresult object.</li>
+<li>In pgsql/doc/src/sgml/ref/psql-ref.sgml, a further attempt at clarifying the \distv business.</li>
+<li>Revise the TIDBitmap API to support multiple concurrent iterations over a bitmap. This is extracted from Greg Stark's posix_fadvise patch; it seems worth committing separately, since it's potentially useful independently of posix_fadvise.</li>
+<li>Re-enable the old code in xlog.c that tried to use posix_fadvise(), so that we can get some buildfarm feedback about whether that function is still problematic. (Note that the planned async-preread patch will not really prove anything one way or the other in buildfarm testing, since it will be inactive with default GUC settings.)</li>
+<li>Implement prefetching via posix_fadvise() for bitmap index scans. A new GUC variable effective_io_concurrency controls how many concurrent block prefetch requests will be issued. (The best way to handle this for plain index scans is still under debate, so that part is not applied yet --- tgl)</li>
+</ul>
+<p>Bruce Momjian a commit&eacute;&nbsp;:</p>
+<ul>
+<li>Update Japanese FAQ. Jun Kuwamura</li>
+<li>In pgsql/src/timezone/Makefile, fix new timezone cross-compile rule to avoid a bug in gmake 3.78.1; document change.</li>
+<li>In pgsql/src/backend/access/common/reloptions.c, suppress compiler warning.</li>
+<li>Update SELECT version() to show whether it is a 32 or 64-bit backend binary.</li>
+<li>In pgsql/src/backend/access/common/reloptions.c, suppress compiler warning in a different way, per Alvaro Herrera.</li>
+<li>In pgsql/src/bin/pg_dump/pg_restore.c, update pg_restore --help text to match the SGML documentation.</li>
+<li>Make pg_dump and pg_dumpall --clean options match the SGML docs, for consistency.</li>
+<li>In pgsql/doc/src/sgml/installation.sgml, document that Cygwin does not support OpenSSL.</li>
+<li>This makes all the \dX commands (most importantly to most: \df) work like \dt does, in that it requires a \dXS to see system items. Greg Sabino Mullane</li>
+<li>Add documentation for new \d*S* patch, and clean up some of the docs. Fix \do and trigger display for the patch too.</li>
+<li>In pgsql/src/bin/psql/help.c, improve \z psql \? help display.</li>
+<li>In pgsql/src/bin/psql/help.c, add spaces around psql \d* columns, per idea from Joshua Drake.</li>
+<li>In pgsql/src/bin/psql/help.c, remove duplicate \dd psql help mention.</li>
+<li>Update MinGW so it handles fseeko() similar to Unix.</li>
+<li>In pgsql/src/backend/utils/error/elog.c, make the log output of 'vxid' between csvlog and stderr/syslog consistent. Currently, in csvlog, vxid of an auxiliary process isn't displayed. On the other hand, in stderr/syslog, invalid vxid (-1/0) of that is displayed. Fujii Masao</li>
+<li>In pgsql/doc/src/sgml/ref/psql-ref.sgml, break out \distv into four separate lines in the psql documentation, for clarity.</li>
+<li>In pgsql/src/backend/tcop/postgres.c, update comment associated with 'debug_query_string'.</li>
+<li>In pgsql/src/backend/utils/adt/misc.c, add comment that it is difficult to access the more accurate 'query_string' from current_query().</li>
+<li>Have current_query() use ActivePortal-&gt;sourceText rather than debug_query_string; this allows current_query() to be more accurate; docs updated; per idea from Tom Lane.</li>
+<li>In pgsql/src/backend/parser/gram.y, add comment about why BETWEEN uses operator strings and not opclasses, with URL pointing to email discussion.</li>
+<li>Revert current_query() change to use debug_query_string again; add comment.</li>
+<li>In pgsql/doc/src/sgml/func.sgml, document current_query() as being the _client_ query.</li>
+<li>In pgsql/doc/src/sgml/func.sgml, document that txid_visible_in_snapshot() cannot be used with subtransaction ids.</li>
+<li>In pgsql/src/test/regress/pg_regress.c, fix memory leak for file name if expect file name contains a dot, per report from dvice_null AT yahoo DOT com.</li>
+<li>Update release notes for 8.3.5, 8.2.11, and 8.1.15 to mention the need to reindex GiST indexes to read: "If you were running a previous 8.X.X release, REINDEX all GiST indexes after the upgrade."</li>
+<li>In pgsql/doc/src/sgml/catalogs.sgml, remove tabs from SGML docs.</li>
+<li>In pgsql/doc/src/sgml/README.links, add file to explain SGML linking options, for use by SGML document writers.</li>
+<li>In pgsql/doc/src/sgml/README.links, add guidelines section.</li>
+<li>In pgsql/doc/src/sgml/README.links, update link guidelines.</li>
+<li>In pgsql/doc/src/sgml/libpq.sgml, modify libpq environment variable documentation to point to the relevant connection options documentation section, per idea from Magnus.</li>
+</ul>
+<p>Alvaro Herrera a commit&eacute;&nbsp;:</p>
+<ul>
+<li>Change the reloptions machinery to use a table-based parser, and provide a more complete framework for writing custom option processing routines by user-defined access methods. Catalog version bumped due to the general API changes, which are going to affect user-defined "amoptions" routines.</li>
+<li>Fix string reloption handling, per KaiGai Kohei.</li>
+<li>A couple further reloptions improvements, per KaiGai Kohei: add a validation function to the string type and add a couple of macros for string handling. In passing, fix an off-by-one bug of mine.</li>
+</ul>
+<p>Tatsuo Ishii a commit&eacute;&nbsp;:</p>
+<ul>
+<li>Remove outdated Japanese README files per discussion.</li>
+</ul>
+<p>Heikki Linnakangas a commit&eacute;&nbsp;:</p>
+<ul>
+<li>In pgsql/src/backend/commands/vacuumlazy.c, fix logic in lazy vacuum to decide if it's worth trying to truncate the heap. If the table was smaller than REL_TRUNCATE_FRACTION (= 16) pages, we always tried to acquire AccessExclusiveLock on it even if there were no empty pages at the end. Report by Simon Riggs. Back-patch all the way to 7.4.</li>
+</ul>
+<p>Magnus Hagander a commit&eacute;&nbsp;:</p>
+<ul>
+<li>In pgsql/src/backend/utils/adt/pg_locale.c, code review of strftime patch, per comments from Tom Lane. Use correct buffer size MAX_L10N_DATA, and use strlcpy instead of StrNCpy.</li>
+<li>Modified Files: --------------</li>
+<li>In pgsql/src/tools/msvc/Solution.pm, make the MSVC build output "32-bit" at the end of the version string, the same way the unix build now does.</li>
+<li>In pgsql/src/interfaces/libpq/fe-secure.c, don't require pqGetHomeDirectory to succeed if the user has specified hardcoded paths for SSL rootcert/crl/clientcert/key. As noted by Andrew Chernow.</li>
+<li>In pgsql/doc/src/sgml/config.sgml, add appropriate text for SIGHUP parameters instead of just removing it like previous patch did. Per note from Tom Lane.</li>
+<li>Allow krb_realm (krb5, gssapi and sspi) and krb_server_hostname (krb5 only) authentication options to be set in pg_hba.conf on a per-line basis, to override the defaults set in postgresql.conf.</li>
+<li>Add hba parameter include_realm to krb5, gss and sspi authentication, used to pass the full username@realm string to the authentication instead of just the username. This makes it possible to use pg_ident.conf to authenticate users from multiple realms as different database users.</li>
+<li>Make krb_realm and krb_server_hostname be pg_hba options only, and remove their GUCs. In passing, noted that the pg_hba options for krb5 authentication weren't listed at all - so add this.</li>
+<li>In pgsql/src/backend/utils/adt/pg_locale.c, fix strftime usage on Win32 when trying to fetch the locale-aware parts of a time string so it properly handles different encodings. Original patch by Hiroshi Saito, heavily reworked by me and ITAGAKI Takahiro.</li>
+</ul>
+<p>Andrew Dunstan a commit&eacute;&nbsp;:</p>
+<ul>
+<li>In pgsql/src/include/pg_config.h.win32, define HAVE_FSEEKO for MSVC.</li>
+<li>In pgsql/doc/src/sgml/catalogs.sgml, document values for pg_constraint confupdtype, confdeltype and confmatchtype columns.</li>
+</ul>
+<p><strong>Correctifs rejet&eacute;s (&agrave; ce jour)</strong></p>
+<ul>
+<li>Pas de d&eacute;ception cette semaine :-)</li>
+</ul>
+<p><strong>Correctifs en attente</strong></p>
+<ul>
+<li>KaiGai Kohei sent in two more revisions of his SE-PostgreSQL patches.</li>
+<li>Martin Pihlak sent in another revision of his SQL/MED compatible connection manager code including functions which list foreign connection options as a string and as a result set.</li>
+<li>Nathan Boley sent in a fix where in heavy-tailed distributions, it's possible for ANALYZE to duplicate histogram boundaries by limiting mcvs to be twice the statistics target and when it finds values frequently enough, reduces the number of histogram buckets.</li>
+<li>Bryce Cutt sent in another revision of the patch to improve performance of multi-batch hash join for skewed data sets.</li>
+<li>KaiGai Kohei sent in a fix atop Stephen Frost's column-level privileges patch which makes sure only available columns are used in JOINs, etc.</li>
+<li>Robert Haas sent in a cleaned-up version of the patch to improve performance of multi-batch hash join for skewed data sets.</li>
+<li>Heikki Linnakangas sent in a patch to unlock index blocks atop Simon Riggs's hot standby patch.</li>
+<li>Fujii Masao sent in another revision of the signal handling patch which is infrastructure for synchronous replication.</li>
+<li>ITAGAKI Takahiro sent in a patch to fix LC_TIME on Windows in Japanese.</li>
+<li>David Wheeler sent in a patch which adds a mention of CITEXT to the FAQ that discusses case-insensitive comparisons.</li>
+<li>Hitoshi Harada sent in an example of a user-defined windowing function.</li>
+<li>Stephen Frost sent in four more revisions of his column-level permissions patch.</li>
+<li>Heikki Linnakangas sent in a patch to help the hot standby patch by refactoring things so that redo-functions are responsible for calling RestoreBkpBlocks.</li>
+<li>Andrew Dunstan sent in another revision of his parallel restore patch.</li>
+<li>Magnus Hagander sent in two approaches to fixing a kerberos problem, the first, removing support for getting the username, and the second, to suppress the error message until later.</li>
+<li>Hiroshi Inoue sent in another revision of a patch to fix lc_messages on Windows for Japanese language.</li>
+<li>Peter Eisentraut sent in a patch which adds ONLY support to TRUNCATE and LOCK, making the default behavior recursive on inherited tables.</li>
+<li>KaiGai Kohei sent in another revision of his SE-PostgreSQL patches.</li>
+<li>Alvaro Herrera sent in a patch which fixes the reloptions code.</li>
+<li>Jeff Davis sent in an updated version of Kenneth Marshall's patch which updates the hash functions.</li>
+<li>Bernd Helmle sent in two more revisions of his updateable views patch.</li>
+<li>Heikki Linnakangas sent in a patch which removes the slotids from the hot standby patch.</li>
+<li>Fujii Masao sent in another revision of the synchronous replication patch.</li>
+<li>Robert Haas sent in another revision of the POSIX fadvise patch.</li>
+<li>Jeff Davis sent in an updated version of the B-Tree emulation for GIN patch.</li>
+</ul></div>
+
+      </div>
+
+  
+
+    
+  
+    
+    
+    </div>
+</div> <!-- End #main -->
+
+</div> <!-- End #wrapper -->
+
+<div id="pgFooter">
+  <p>Propulsé par <a href="http://dotclear.org/">Dotclear</a></p>
+</div>
+
+</div> <!-- End #page -->
+</body>
+
+<!-- Mirrored from blog2.postgresql.fr/index.php?post/2009/01/15/Nouvelles-neuves-de-PostgreSQL by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 May 2020 21:40:20 GMT -->
+</html>

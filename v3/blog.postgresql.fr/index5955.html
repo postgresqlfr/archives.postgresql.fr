@@ -1,0 +1,325 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr">
+
+<!-- Mirrored from blog2.postgresql.fr/index.php?post/2015/02/18/Nouvelles-hebdomadaires-de-PostgreSQL-8-f%C3%A9vrier-2015 by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 May 2020 21:40:19 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="MSSmartTagsPreventParsing" content="TRUE" />
+  <meta name="ROBOTS" content="INDEX, FOLLOW" />
+  
+  <title>Nouvelles hebdomadaires de PostgreSQL - 8 février 2015 - PostgreSQLfr.org</title>
+  <meta name="description" lang="fr" content="Correctifs de sécurité : 9.4.1, 9.3.6, 9.2.10, 9.1.15 et 9.0.19. Mettez à jour ! http://www.postgresql.org/about/news/1569/ Les nouveautés des produits dérivés Ora2PG 15.1, un" />
+  <meta name="copyright" content="" />
+  <meta name="author" content="chl" />
+  <meta name="date" scheme="ISO8601" content="2015-02-18T01:50:00+01:00" />
+  
+  <link rel="schema.dc" href="http://purl.org/dc/elements/1.1/" />
+  <meta name="dc.title" content="Nouvelles hebdomadaires de PostgreSQL - 8 février 2015" />
+  <meta name="dc.description" lang="fr" content="Correctifs de sécurité : 9.4.1, 9.3.6, 9.2.10, 9.1.15 et 9.0.19. Mettez à jour ! http://www.postgresql.org/about/news/1569/ Les nouveautés des produits dérivés Ora2PG 15.1, un" />
+  <meta name="dc.creator" content="chl" />
+  <meta name="dc.language" content="fr" />
+  <meta name="dc.publisher" content="" />
+  <meta name="dc.rights" content="" />
+  <meta name="dc.date" scheme="ISO8601" content="2015-02-18T01:50:00+01:00" />
+  <meta name="dc.type" content="text" />
+  <meta name="dc.format" content="text/html" />
+  
+  <link rel="top" href="indexd41d.html?" title="Accueil" />
+  <link rel="contents" href="index888d.html?archive" title="Archives" />
+  
+  <link rel="next" href="index20c1.html?post/2015/02/18/Nouvelles-hebdomadaires-de-PostgreSQL-15-f%C3%A9vrier-2015"
+  title="Nouvelles hebdomadaires de PostgreSQL - 15 février 2015" />
+  
+  <link rel="previous" href="index1031.html?post/2015/02/05/Nouvelles-hebdomadaires-de-PostgreSQL-25-janvier-2015"
+  title="Nouvelles hebdomadaires de PostgreSQL - 25 janvier 2015" />
+  
+  <link rel="alternate" type="application/atom+xml" title="Atom 1.0" href="index4ca3.php?feed/atom" />
+  
+  <style type="text/css" media="screen">
+@import url(themes/postgresql/style.css);
+</style>
+<style type="text/css" media="print">
+@import url(themes/default/print.css);
+</style>
+
+<script type="text/javascript" src="themes/default/js/jquery.js"></script>
+<script type="text/javascript" src="themes/default/js/jquery.cookie.js"></script>
+
+  
+  <script type="text/javascript" src="themes/default/js/post.js"></script>
+  <script type="text/javascript">
+  //<![CDATA[
+  var post_remember_str = 'Se souvenir de moi sur ce blog';
+  //]]>
+  </script>
+</head>
+
+<body class="dc-post">
+<div id="page">
+
+
+<div id="top">
+  <div id="pgHeader">
+    <span id="pgHeaderLogoLeft">
+      <a href="index.html" title="PostgreSQL"><img src="https://blog.postgresql.fr/themes/postgresql/img/hdr_left.png" width="230" height="80" alt="PostgreSQL" /></a>
+    </span>
+    <span id="pgHeaderLogoRight">
+      <a href="index.html" title="La base de donnees la plus sophistiquee au monde."><img src="https://blog.postgresql.fr/themes/postgresql/img/hdr_right.png" width="210" height="80" alt="La base de donnees la plus sophistiquee au monde." /></a>
+    </span>
+  </div>
+
+  </div>
+
+<div class="pgTopNav">
+  <div class="pgTopNavLeft"> 
+    <img src="https://blog.postgresql.fr/themes/postgresql/img/nav_lft.png" width="7" height="23" alt="" />
+  </div>
+  <div class="pgTopNavRight">
+    <img src="https://blog.postgresql.fr/themes/postgresql/img/nav_rgt.png" width="7" height="23" alt="" />
+  </div>
+  <ul class="pgTopNavList">
+    <li><a href="https://www.postgresql.fr/" title="Accueil">Accueil</a></li>
+    <li><a href="https://blog.postgresql.fr/" title="Lire les actualités">Actualités</a></li>
+    <li><a href="https://docs.postgresql.fr/" title="Lire la documentation officielle">Documentation</a></li>
+    <li><a href="https://forums.postgresql.fr/" title="Pour poser des questions">Forums</a></li>
+    <li><a href="https://www.postgresql.fr/asso/" title="La vie de l'association">Association</a></li>
+    <li><a href="https://www.postgresql.fr/devel:accueil" title="Informations pour les développeurs/traducteurs">Développeurs</a></li>
+    <li><a href="https://planete.postgresql.fr/" title="La planète francophone sur PostgreSQL">Planète</a></li>
+    <li><a href="https://www.postgresql.fr/support/" title="Support sur PostgreSQL">Support</a></li>
+  </ul>
+</div>
+
+<div id="wrapper">
+
+<div id="pgContent">
+
+  <div id="pgSideWrap">
+  <div id="pgSideNav">
+    <div id="blognav">
+      <div id="search"><h2><label for="q">Rechercher</label></h2><form action="http://blog2.postgresql.fr/index.php?" method="get"><fieldset><p><input type="text" size="10" maxlength="255" id="q" name="q" value="" /> <input class="submit" type="submit" value="ok" /></p></fieldset></form></div><div class="categories"><h2>Catégories</h2><ul><li><a href="index199b.html?category/Articles">Articles</a></li><li><a href="indexb4c6.html?category/Dans-les-bacs">Dans les bacs</a></li><li><a href="index025a.html?category/Evenements">Événements</a></li><li class="category-current"><a href="index8c6d.html?category/PostgreSQL-Weekly-News">PostgreSQL Weekly News</a></li><li><a href="index1835.html?category/Securite">Sécurité</a></li><li><a href="index2251.html?category/Vie-de-l-association">Vie de l'association</a></li><li><a href="index91de.html?category/Vie-du-site">Vie du site</a></li></ul></div><div class="text"><h2>Licence</h2>Tous les articles de ce blog sont disponibles sous la <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/">license Creative Commons BY-NC-SA 3.0</a>.</div>    </div> <!-- End #blognav -->
+  
+    <div id="blogextra">
+      <div class="syndicate"><h2>S'abonner</h2><ul><li><a type="application/atom+xml" href="index4ca3.php?feed/atom" title="Fil Atom des billets de ce blog" class="feed">Fil des billets</a></li></ul></div>    </div> <!-- End #blogextra -->
+  </div>
+  </div>
+
+  <div id="pgContentWrap">
+  <div id="pgDownloadsWrap">
+  <div id="content">
+
+  <p id="navlinks">
+  <a href="index1031.html?post/2015/02/05/Nouvelles-hebdomadaires-de-PostgreSQL-25-janvier-2015"
+  title="Nouvelles hebdomadaires de PostgreSQL - 25 janvier 2015" class="prev">&#171; Nouvelles hebdomadaires de PostgreSQL - 25 janvier</a>
+   <span>-</span> <a href="index20c1.html?post/2015/02/18/Nouvelles-hebdomadaires-de-PostgreSQL-15-f%C3%A9vrier-2015"
+  title="Nouvelles hebdomadaires de PostgreSQL - 15 février 2015" class="next">Nouvelles hebdomadaires de PostgreSQL - 15 février &#187;</a>
+  </p>
+  
+  <div class="post">
+    <h2 id="p835" class="post-title">Nouvelles hebdomadaires de PostgreSQL - 8 février 2015</h2>
+    
+    <p class="post-info">Par chl    le mercredi 18 février 2015, 01:50        - <a href="index8c6d.html?category/PostgreSQL-Weekly-News">PostgreSQL Weekly News</a>
+        - <a href="index5955.html?post/2015/02/18/Nouvelles-hebdomadaires-de-PostgreSQL-8-f%C3%A9vrier-2015">Lien permanent</a>
+    </p>
+    
+    
+    
+          <div class="post-excerpt"><p>Correctifs de s&eacute;curit&eacute;&nbsp;: 9.4.1, 9.3.6, 9.2.10, 9.1.15 et 9.0.19. Mettez &agrave; jour&nbsp;! 
+<a target="_blank" href="http://www.postgresql.org/about/news/1569/">http://www.postgresql.org/about/news/1569/</a></p>
+<p><strong>Les nouveaut&eacute;s des produits d&eacute;riv&eacute;s</strong></p>
+<ul>
+<li>Ora2PG 15.1, un syst&egrave;me de migration depuis Oracle vers PostgreSQL&nbsp;: 
+<a target="_blank" href="http://ora2pg.darold.net/">http://ora2pg.darold.net/</a></li>
+<li>oracle_fdw 1.2.0&nbsp;: 
+<a target="_blank" href="https://github.com/laurenz/oracle_fdw">https://github.com/laurenz/oracle_fdw</a></li>
+<li>pgpool-II versions 3.4.1, 3.3.5, 3.2.10, 3.1.13 et 3.0.17. pgpool-II est un pooler de connexions et un syst&egrave;me de r&eacute;plication pour PostgreSQL&nbsp;: 
+<a target="_blank" href="http://pgpool.net/mediawiki/index.php/Downloads">http://pgpool.net/mediawiki/index.php/Downloads</a></li>
+<li>skit 0.1 alpha, un outil en ligne de commande pour extraire les d&eacute;finitions de sch&eacute;mas, extraire des diffs et g&eacute;n&eacute;rer les DDL&nbsp;: 
+<a target="_blank" href="http://pgfoundry.org/projects/skit/">http://pgfoundry.org/projects/skit/</a></li>
+</ul>
+<p><strong>Offres d'emplois autour de PostgreSQL en f&eacute;vrier</strong></p>
+<ul>
+<li>Internationales&nbsp;: 
+<a target="_blank" href="http://archives.postgresql.org/pgsql-jobs/2015-02/threads.php">http://archives.postgresql.org/pgsql-jobs/2015-02/threads.php</a>;</li>
+<li>Francophones&nbsp;: 
+<a target="_blank" href="http://forums.postgresql.fr/viewforum.php?id=4">http://forums.postgresql.fr/viewforum.php?id=4</a>.</li>
+</ul>
+<p><strong>PostgreSQL Local</strong></p>
+<ul>
+<li>Le <em>Prague PostgreSQL Developer Day</em> (P2D2) 2015 aura lieu &agrave; Prague, R&eacute;publique Tch&egrave;que, les 11 &amp; 12 f&eacute;vrier 2015&nbsp;: 
+<a target="_blank" href="http://www.p2d2.cz/">http://www.p2d2.cz/</a></li>
+<li>Le <em>meetup</em> du 18 f&eacute;vrier 2015 &agrave; Melbourne accueillera Gabriele Bartolini &agrave; propos de PostgreSQL 9.4 pour les devops. D&eacute;tails ci-apr&egrave;s, et RSVP&nbsp;: 
+<a target="_blank" href="http://www.meetup.com/melpug/events/219082475/">http://www.meetup.com/melpug/events/219082475/</a></li>
+<li>pgDaySF 2015 aura lieu le 10 mars 2015 &agrave; Burlingame (Californie)&nbsp;: 
+<a target="_blank" href="http://sfpostgres.org/pgday-sf-2015-call-for-speakers-and-sponsors/">http://sfpostgres.org/pgday-sf-2015-call-for-speakers-and-sponsors/</a></li>
+<li>Les inscriptions pour le <em>Nordic PostgreSQL Day 2015</em>, pr&eacute;vu le 11 mars 2015 &agrave; Copenhague (Danemark), sont ouvertes&nbsp;: 
+<a target="_blank" href="http://2015.nordicpgday.org/registration/">http://2015.nordicpgday.org/registration/</a></li>
+<li>PGConf US 2015 aura lieu du 25 au 27 mars 2015 &agrave; New-York City&nbsp;: 
+<a target="_blank" href="http://nyc.pgconf.us/2015/">http://nyc.pgconf.us/2015/</a></li>
+<li>PGCon 2015 du 16 au 20 juin &agrave; Ottawa, Canada&nbsp;: 
+<a target="_blank" href="http://www.pgcon.org/2015/">http://www.pgcon.org/2015/</a></li>
+</ul>
+<p><strong>PostgreSQL dans les m&eacute;dia</strong></p>
+<ul>
+<li>Planet PostgreSQL&nbsp;: 
+<a target="_blank" href="http://planet.postgresql.org/">http://planet.postgresql.org/</a></li>
+<li>Planet PostgreSQLFr&nbsp;: 
+<a target="_blank" href="http://planete.postgresql.fr/">http://planete.postgresql.fr/</a></li>
+</ul>
+<p><i>PostgreSQL Weekly News / les nouvelles hebdomadaires vous sont offertes cette semaine par David Fetter. Traduction par l'&eacute;quipe PostgreSQLFr sous licence CC BY-NC-SA.</i></p>
+<p><i>Proposez vos articles ou annonces avant dimanche 15:00 (heure du Pacifique). Merci de les envoyer en anglais &agrave; david (a) fetter.org, en allemand &agrave; pwn (a) pgug.de, en italien &agrave; pwn (a) itpug.org et en espagnol &agrave; pwn (a) arpug.com.ar.</i></p>
+<p>(<a target="_blank" href="http://www.postgresql.org/message-id/20150208230413.GA5514@fetter.org">lien vers l'article original</a>)</p></div>
+        
+    <div class="post-content"><p><strong>Correctifs appliqu&eacute;s</strong></p>
+<p>Peter Eisentraut a pouss&eacute;&nbsp;:</p>
+<ul>
+<li>Translation updates Source-Git-URL: git://git.postgresql.org/git/pgtranslation/messages.git Source-Git-Hash: 19c72ea8d856d7b1d4f5d759a766c8206bf9ce53 
+<a target="_blank" href="http://git.postgresql.org/pg/commitdiff/f8948616c9403effb84ed09c244650d9750243a2">http://git.postgresql.org/pg/commitdiff/f8948616c9403effb84ed09c244650d9750243a2</a></li>
+<li>doc: Improve claim about location of pg_service.conf. The previous wording claimed that the file was always in /etc, but of course this varies with the installation layout. Write instead that it can be found via `pg_config --sysconfdir`. Even though this is still somewhat incorrect because it doesn't account of moved installations, it at least conveys that the location depends on the installation. 
+<a target="_blank" href="http://git.postgresql.org/pg/commitdiff/1332bbb30cd1e6beb7b43c26ca5728c715c1a9c8">http://git.postgresql.org/pg/commitdiff/1332bbb30cd1e6beb7b43c26ca5728c715c1a9c8</a></li>
+</ul>
+<p>Tom Lane a pouss&eacute;&nbsp;:</p>
+<ul>
+<li>Doc: fix syntax description for psql's \setenv. The variable name isn't optional --- looks like a copy-and-paste-o from the \set command, where it is. Dilip Kumar 
+<a target="_blank" href="http://git.postgresql.org/pg/commitdiff/f9ee8ea10a432bd5692ef9ff25055717fbf290ce">http://git.postgresql.org/pg/commitdiff/f9ee8ea10a432bd5692ef9ff25055717fbf290ce</a></li>
+<li>Fix breakage in GEODEBUG debug code. LINE doesn't have an "m" field (anymore anyway). Also fix unportable assumption that %x can print the result of pointer subtraction. In passing, improve single_decode() in minor ways: Remove unnecessary leading-whitespace skip (strtod does that already). Make GEODEBUG message more intelligible. Remove entirely-useless test to see if strtod returned a silly pointer. Don't bother computing trailing-whitespace skip unless caller wants an ending pointer. This has been broken since 261c7d4b653bc3e44c31fd456d94f292caa50d8f. Although it's only debug code, might as well fix the 9.4 branch too. 
+<a target="_blank" href="http://git.postgresql.org/pg/commitdiff/778d498c7d9099c784f14199a319ec2a84d91191">http://git.postgresql.org/pg/commitdiff/778d498c7d9099c784f14199a319ec2a84d91191</a></li>
+<li>Remove unused "m" field in LSEG. This field has been unreferenced since 1998, and does not appear in lseg values stored on disk (since sizeof(lseg) is only 32 bytes according to pg_type). There was apparently some idea of maintaining it just in values appearing in memory, but the bookkeeping required to make that work would surely far outweigh the cost of recalculating the line's slope when needed. Remove it to (a) simplify matters and (b) suppress some uninitialized-field whining from Coverity. 
+<a target="_blank" href="http://git.postgresql.org/pg/commitdiff/cec916f35be5531efdaf721a46313feb36e0cd76">http://git.postgresql.org/pg/commitdiff/cec916f35be5531efdaf721a46313feb36e0cd76</a></li>
+</ul>
+<p>Noah Misch a pouss&eacute;&nbsp;:</p>
+<ul>
+<li>Prevent Valgrind Memcheck errors around px_acquire_system_randomness(). This function uses uninitialized stack and heap buffers as supplementary entropy sources. Mark them so Memcheck will not complain. Back-patch to 9.4, where Valgrind Memcheck cooperation first appeared. Marko Tiikkaja 
+<a target="_blank" href="http://git.postgresql.org/pg/commitdiff/59b919822ab060f721e235964d19b55a19c815f0">http://git.postgresql.org/pg/commitdiff/59b919822ab060f721e235964d19b55a19c815f0</a></li>
+<li>Cherry-pick security-relevant fixes from upstream imath library. This covers alterations to buffer sizing and zeroing made between imath 1.3 and imath 1.20. Valgrind Memcheck identified the buffer overruns and reliance on uninitialized data; their exploit potential is unknown. Builds specifying --with-openssl are unaffected, because they use the OpenSSL BIGNUM facility instead of imath. Back-patch to 9.0 (all supported versions). Security: CVE-2015-0243 
+<a target="_blank" href="http://git.postgresql.org/pg/commitdiff/8b59672d8d23ea4203cf2701d126a96edca5bdd6">http://git.postgresql.org/pg/commitdiff/8b59672d8d23ea4203cf2701d126a96edca5bdd6</a></li>
+<li>Fix buffer overrun after incomplete read in pullf_read_max(). Most callers pass a stack buffer. The ensuing stack smash can crash the server, and we have not ruled out the viability of attacks that lead to privilege escalation. Back-patch to 9.0 (all supported versions). Marko Tiikkaja Security: CVE-2015-0243 
+<a target="_blank" href="http://git.postgresql.org/pg/commitdiff/1dc75515868454c645ded22d38054ec693e23ec6">http://git.postgresql.org/pg/commitdiff/1dc75515868454c645ded22d38054ec693e23ec6</a></li>
+<li>Check DCH_MAX_ITEM_SIZ limits with &lt;=, not &lt;. We reserve space for the full amount, not one less. The affected checks deal with localized month and day names. Today's DCH_MAX_ITEM_SIZ value would suffice for a 60-byte day name, while the longest known is the 49-byte mn_CN.utf-8 word for "Saturday." Thus, the upshot of this change is merely to avoid misdirecting future readers of the code; users are not expected to see errors either way. 
+<a target="_blank" href="http://git.postgresql.org/pg/commitdiff/237795a7b4ccf359423bdd99476782d4880eda83">http://git.postgresql.org/pg/commitdiff/237795a7b4ccf359423bdd99476782d4880eda83</a></li>
+<li>Assert(PqCommReadingMsg) in pq_peekbyte(). Interrupting pq_recvbuf() can break protocol sync, so its callers all deserve this assertion. The one pq_peekbyte() caller suffices already. 
+<a target="_blank" href="http://git.postgresql.org/pg/commitdiff/a7a4adcf8d1e5a34a15ad86aee7d6aa0b8c15d43">http://git.postgresql.org/pg/commitdiff/a7a4adcf8d1e5a34a15ad86aee7d6aa0b8c15d43</a></li>
+</ul>
+<p>Robert Haas a pouss&eacute;&nbsp;:</p>
+<ul>
+<li>Add new function BackgroundWorkerInitializeConnectionByOid. Sometimes it's useful for a background worker to be able to initialize its database connection by OID rather than by name, so provide a way to do that. 
+<a target="_blank" href="http://git.postgresql.org/pg/commitdiff/5d2f957f3f9dcd88384780876f535b423151f9bf">http://git.postgresql.org/pg/commitdiff/5d2f957f3f9dcd88384780876f535b423151f9bf</a></li>
+<li>pgcrypto: Code cleanup for decrypt_internal. Remove some unnecessary null-tests, and replace a goto-label construct with an "if" block. Michael Paquier, reviewed by me. 
+<a target="_blank" href="http://git.postgresql.org/pg/commitdiff/370b3a4618c48cb44a1137f47cf1156836cf8a90">http://git.postgresql.org/pg/commitdiff/370b3a4618c48cb44a1137f47cf1156836cf8a90</a></li>
+</ul>
+<p>Heikki Linnakangas a pouss&eacute;&nbsp;:</p>
+<ul>
+<li>Remove dead code. Commit 13629df changed metaphone() function to return an empty string on empty input, but it left the old error message in place. It's now dead code. Michael Paquier, per Coverity warning. 
+<a target="_blank" href="http://git.postgresql.org/pg/commitdiff/4eaafa045362298adfe61fdd83b47b22211c75d1">http://git.postgresql.org/pg/commitdiff/4eaafa045362298adfe61fdd83b47b22211c75d1</a></li>
+<li>Fix typo in comment. Amit Langote 
+<a target="_blank" href="http://git.postgresql.org/pg/commitdiff/efba7a542fd52ed7607f1d8b162d898da0baa22c">http://git.postgresql.org/pg/commitdiff/efba7a542fd52ed7607f1d8b162d898da0baa22c</a></li>
+<li>Rephrase the documentation on pg_receivexlog --synchronous option. The old wording talked about a "sync command", meaining fsync(), but it was not very clear. 
+<a target="_blank" href="http://git.postgresql.org/pg/commitdiff/507627f5b5c009aa95c04254614778c6263a3dc2">http://git.postgresql.org/pg/commitdiff/507627f5b5c009aa95c04254614778c6263a3dc2</a></li>
+<li>Refactor page compactifying code. The logic to compact away removed tuples from page was duplicated with small differences in PageRepairFragmentation, PageIndexMultiDelete, and PageIndexDeleteNoCompact. Put it into a common function. Reviewed by Peter Geoghegan. 
+<a target="_blank" href="http://git.postgresql.org/pg/commitdiff/809d9a260b5d068a6a366273cd724bf9b396b026">http://git.postgresql.org/pg/commitdiff/809d9a260b5d068a6a366273cd724bf9b396b026</a></li>
+<li>Add API functions to libpq to interrogate SSL related stuff. This makes it possible to query for things like the SSL version and cipher used, without depending on OpenSSL functions or macros. That is a good thing if we ever get another SSL implementation. PQgetssl() still works, but it should be considered as deprecated as it only works with OpenSSL. In particular, PQgetSslInUse() should be used to check if a connection uses SSL, because as soon as we have another implementation, PQgetssl() will return NULL even if SSL is in use. 
+<a target="_blank" href="http://git.postgresql.org/pg/commitdiff/91fa7b4719ac583420d9143132ba4ccddefbc5b2">http://git.postgresql.org/pg/commitdiff/91fa7b4719ac583420d9143132ba4ccddefbc5b2</a></li>
+<li>Add dummy PQsslAttributes function for non-SSL builds. All the other new SSL information functions had dummy versions in be-secure.c, but I missed PQsslAttributes(). Oops. Surprisingly, the linker did not complain about the missing function on most platforms represented in the buildfarm, even though it is exported, except for a few Windows systems. 
+<a target="_blank" href="http://git.postgresql.org/pg/commitdiff/302262d52111ce71dececfe18448792cee415a57">http://git.postgresql.org/pg/commitdiff/302262d52111ce71dececfe18448792cee415a57</a></li>
+<li>Fix memory leaks on OOM in ecpg. These are fairly obscure cases, but let's keep Coverity happy. Michael Paquier with some further fixes by me. 
+<a target="_blank" href="http://git.postgresql.org/pg/commitdiff/c31b5d9ddf25d26dac5f5c215b8a5e8b3dfa37e6">http://git.postgresql.org/pg/commitdiff/c31b5d9ddf25d26dac5f5c215b8a5e8b3dfa37e6</a></li>
+<li>Fix reference-after-free when waiting for another xact due to constraint. If an insertion or update had to wait for another transaction to finish, because there was another insertion with conflicting key in progress, we would pass a just-free'd item pointer to XactLockTableWait(). All calls to XactLockTableWait() and MultiXactIdWait() had similar issues. Some passed a pointer to a buffer in the buffer cache, after already releasing the lock. The call in EvalPlanQualFetch had already released the pin too. All but the call in execUtils.c would merely lead to reporting a bogus ctid, however (or an assertion failure, if enabled). All the callers that passed HeapTuple-&gt;t_data-&gt;t_ctid were slightly bogus anyway: if the tuple was updated (again) in the same transaction, its ctid field would point to the next tuple in the chain, not the tuple itself. Backpatch to 9.4, where the 'ctid' argument to XactLockTableWait was added (in commit f88d4cfc) 
+<a target="_blank" href="http://git.postgresql.org/pg/commitdiff/57fe246890ad51e166fb6a8da937e41c35d7a279">http://git.postgresql.org/pg/commitdiff/57fe246890ad51e166fb6a8da937e41c35d7a279</a></li>
+<li>Use a separate memory context for GIN scan keys. It was getting tedious to track and release all the different things that form a scan key. We were leaking at least the queryCategories array, and possibly more, on a rescan. That was visible if a GIN index was used in a nested loop join. This also protects from leaks in extractQuery method. No backpatching, given the lack of complaints from the field. Maybe later, after this has received more field testing. 
+<a target="_blank" href="http://git.postgresql.org/pg/commitdiff/d88976cfa1302e8dccdcbfe55e9e29faee8c0cdf">http://git.postgresql.org/pg/commitdiff/d88976cfa1302e8dccdcbfe55e9e29faee8c0cdf</a></li>
+<li>Report WAL flush, not insert, position in replication IDENTIFY_SYSTEM. When beginning streaming replication, the client usually issues the IDENTIFY_SYSTEM command, which used to return the current WAL insert position. That's not suitable for the intended purpose of that field, however. pg_receivexlog uses it to start replication from the reported point, but if it hasn't been flushed to disk yet, it will fail. Change IDENTIFY_SYSTEM to report the flush position instead. Backpatch to 9.1 and above. 9.0 doesn't report any WAL position. 
+<a target="_blank" href="http://git.postgresql.org/pg/commitdiff/ff16b40f8cac67a740f4edaa9fc2d9c7ba44c73a">http://git.postgresql.org/pg/commitdiff/ff16b40f8cac67a740f4edaa9fc2d9c7ba44c73a</a></li>
+<li>Be more careful to not lose sync in the FE/BE protocol. If any error occurred while we were in the middle of reading a protocol message from the client, we could lose sync, and incorrectly try to interpret a part of another message as a new protocol message. That will usually lead to an "invalid frontend message" error that terminates the connection. However, this is a security issue because an attacker might be able to deliberately cause an error, inject a Query message in what's supposed to be just user data, and have the server execute it. We were quite careful to not have CHECK_FOR_INTERRUPTS() calls or other operations that could ereport(ERROR) in the middle of processing a message, but a query cancel interrupt or statement timeout could nevertheless cause it to happen. Also, the V2 fastpath and COPY handling were not so careful. It's very difficult to recover in the V2 COPY protocol, so we will just terminate the connection on error. In practice, that's what happened previously anyway, as we lost protocol sync. To fix, add a new variable in pqcomm.c, PqCommReadingMsg, that is set whenever we're in the middle of reading a message. When it's set, we cannot safely ERROR out and continue running, because we might've read only part of a message. PqCommReadingMsg acts somewhat similarly to critical sections in that if an error occurs while it's set, the error handler will force the connection to be terminated, as if the error was FATAL. It's not implemented by promoting ERROR to FATAL in elog.c, like ERROR is promoted to PANIC in critical sections, because we want to be able to use PG_TRY/CATCH to recover and regain protocol sync. pq_getmessage() takes advantage of that to prevent an OOM error from terminating the connection. To prevent unnecessary connection terminations, add a holdoff mechanism similar to HOLD/RESUME_INTERRUPTS() that can be used hold off query cancel interrupts, but still allow die interrupts. The rules on which interrupts are processed when are now a bit more complicated, so refactor ProcessInterrupts() and the calls to it in signal handlers so that the signal handlers always call it if ImmediateInterruptOK is set, and ProcessInterrupts() can decide to not do anything if the other conditions are not met. Reported by Emil Lenngren. Patch reviewed by Noah Misch and Andres Freund. Backpatch to all supported versions. Security: CVE-2015-0244 
+<a target="_blank" href="http://git.postgresql.org/pg/commitdiff/2b3a8b20c2da9f39ffecae25ab7c66974fbc0d3b">http://git.postgresql.org/pg/commitdiff/2b3a8b20c2da9f39ffecae25ab7c66974fbc0d3b</a></li>
+</ul>
+<p>Andres Freund a pouss&eacute;&nbsp;:</p>
+<ul>
+<li>Use a nonblocking socket for FE/BE communication and block using latches. This allows to introduce more elaborate handling of interrupts while reading from a socket. Currently some interrupt handlers have to do significant work from inside signal handlers, and it's very hard to correctly write code to do so. Generic signal handler limitations, combined with the fact that we can't safely jump out of a signal handler while reading from the client have prohibited implementation of features like timeouts for idle-in-transaction. Additionally we use the latch code to wait in a couple places where we previously only had waiting code on windows as other platforms just busy looped. This can increase the number of systemcalls happening during FE/BE communication. Benchmarks so far indicate that the impact isn't very high, and there's room for optimization in the latch code. The chance of cleaning up the usage of latches gives us, seem to outweigh the risk of small performance regressions. This commit theoretically can't used without the next patch in the series, as WaitLatchOrSocket is not defined to be fully signal safe. As we already do that in some cases though, it seems better to keep the commits separate, so they're easier to understand. Author: Andres Freund Reviewed-By: Heikki Linnakangas 
+<a target="_blank" href="http://git.postgresql.org/pg/commitdiff/387da18874afa17156ee3af63766f17efb53c4b9">http://git.postgresql.org/pg/commitdiff/387da18874afa17156ee3af63766f17efb53c4b9</a></li>
+<li>Introduce and use infrastructure for interrupt processing during client reads. Up to now large swathes of backend code ran inside signal handlers while reading commands from the client, to allow for speedy reaction to asynchronous events. Most prominently shared invalidation and NOTIFY handling. That means that complex code like the starting/stopping of transactions is run in signal handlers... The required code was fragile and verbose, and is likely to contain bugs. That approach also severely limited what could be done while communicating with the client. As the read might be from within openssl it wasn't safely possible to trigger an error, e.g. to cancel a backend in idle-in-transaction state. We did that in some cases, namely fatal errors, nonetheless. Now that FE/BE communication in the backend employs non-blocking sockets and latches to block, we can quite simply interrupt reads from signal handlers by setting the latch. That allows us to signal an interrupted read, which is supposed to be retried after returning from within the ssl library. As signal handlers now only need to set the latch to guarantee timely interrupt processing, remove a fair amount of complicated &amp; fragile code from async.c and sinval.c. We could now actually start to process some kinds of interrupts, like sinval ones, more often that before, but that seems better done separately. This work will hopefully allow to handle cases like being blocked by sending data, interrupting idle transactions and similar to be implemented without too much effort. In addition to allowing getting rid of ImmediateInterruptOK, that is. Author: Andres Freund Reviewed-By: Heikki Linnakangas 
+<a target="_blank" href="http://git.postgresql.org/pg/commitdiff/4f85fde8eb860f263384fffdca660e16e77c7f76">http://git.postgresql.org/pg/commitdiff/4f85fde8eb860f263384fffdca660e16e77c7f76</a></li>
+<li>Process 'die' interrupts while reading/writing from the client socket. Up to now it was impossible to terminate a backend that was trying to send/recv data to/from the client when the socket's buffer was already full/empty. While the send/recv calls itself might have gotten interrupted by signals on some platforms, we just immediately retried. That could lead to situations where a backend couldn't be terminated , after a client died without the connection being closed, because it was blocked in send/recv. The problem was far more likely to be hit when sending data than when reading. That's because while reading a command from the client, and during authentication, we processed interrupts immediately . That primarily left COPY FROM STDIN as being problematic for recv. Change things so that that we process 'die' events immediately when the appropriate signal arrives. We can't sensibly react to query cancels at that point, because we might loose sync with the client as we could be in the middle of writing a message. We don't interrupt writes if the write buffer isn't full, as indicated by write() returning EWOULDBLOCK, as that would lead to fewer error messages reaching clients. Per discussion with Kyotaro HORIGUCHI and Heikki Linnakangas Discussion: 20140927191243.GD5423@alap3.anarazel.de 
+<a target="_blank" href="http://git.postgresql.org/pg/commitdiff/4fe384bd858671d40d311ca68cc9b80f4c683a3e">http://git.postgresql.org/pg/commitdiff/4fe384bd858671d40d311ca68cc9b80f4c683a3e</a></li>
+<li>Don't allow immediate interrupts during authentication anymore. We used to handle authentication_timeout by setting ImmediateInterruptOK to true during large parts of the authentication phase of a new connection. While that happens to work acceptably in practice, it's not particularly nice and has ugly corner cases. Previous commits converted the FE/BE communication to use latches and implemented support for interrupt handling during both send/recv. Building on top of that work we can get rid of ImmediateInterruptOK during authentication, by immediately treating timeouts during authentication as a reason to die. As die interrupts are handled immediately during client communication that provides a sensibly quick reaction time to authentication timeout. Additionally add a few CHECK_FOR_INTERRUPTS() to some more complex authentication methods. More could be added, but this already should provides a reasonable coverage. While it this overall increases the maximum time till a timeout is reacted to, it greatly reduces complexity and increases reliability. That seems like a overall win. If the increase proves to be noticeable we can deal with those cases by moving to nonblocking network code and add interrupt checking there. Reviewed-By: Heikki Linnakangas 
+<a target="_blank" href="http://git.postgresql.org/pg/commitdiff/6647248e3708843be93c7ca670cd219fe8e61026">http://git.postgresql.org/pg/commitdiff/6647248e3708843be93c7ca670cd219fe8e61026</a></li>
+<li>Move deadlock and other interrupt handling in proc.c out of signal handlers. Deadlock checking was performed inside signal handlers up to now. While it's a remarkable feat to have made this work reliably, it's quite complex to understand why that is the case. Partially it worked due to the assumption that semaphores are signal safe - which is not actually documented to be the case for sysv semaphores. The reason we had to rely on performing this work inside signal handlers is that semaphores aren't guaranteed to be interruptable by signals on all platforms. But now that latches provide a somewhat similar API, which actually has the guarantee of being interruptible, we can avoid doing so. Signalling between ProcSleep, ProcWakeup, ProcWaitForSignal and ProcSendSignal is now done using latches. This increases the likelihood of spurious wakeups. As spurious wakeup already were possible and aren't likely to be frequent enough to be an actual problem, this seems acceptable. This change would allow for further simplification of the deadlock checking, now that it doesn't have to run in a signal handler. But even if I were motivated to do so right now, it would still be better to do that separately. Such a cleanup shouldn't have to be reviewed a the same time as the more fundamental changes in this commit. There is one possible usability regression due to this commit. Namely it is more likely than before that log_lock_waits messages are output more than once. Reviewed-By: Heikki Linnakangas 
+<a target="_blank" href="http://git.postgresql.org/pg/commitdiff/6753333f55e1d9bcb9da4323556b456583624a07">http://git.postgresql.org/pg/commitdiff/6753333f55e1d9bcb9da4323556b456583624a07</a></li>
+<li>Remove the option to service interrupts during PGSemaphoreLock(). The remaining caller (lwlocks) doesn't need that facility, and we plan to remove ImmedidateInterruptOK entirely. That means that interrupts can't be serviced race-free and portably anyway, so there's little reason for keeping the feature. Reviewed-By: Heikki Linnakangas 
+<a target="_blank" href="http://git.postgresql.org/pg/commitdiff/d06995710bc7e347d39866c1793ae282498d65e0">http://git.postgresql.org/pg/commitdiff/d06995710bc7e347d39866c1793ae282498d65e0</a></li>
+<li>Remove remnants of ImmediateInterruptOK handling. Now that nothing sets ImmediateInterruptOK to true anymore, we can remove all the supporting code. Reviewed-By: Heikki Linnakangas 
+<a target="_blank" href="http://git.postgresql.org/pg/commitdiff/2505ce0be0b686c5a0a5141e9d080e7fdc35988a">http://git.postgresql.org/pg/commitdiff/2505ce0be0b686c5a0a5141e9d080e7fdc35988a</a></li>
+<li>Remove ill-conceived Assertion in ProcessClientWriteInterrupt(). It's perfectly fine to have blocked interrupts when ProcessClientWriteInterrupt() is called. In fact it's commonly the case when emitting error reports. And we deal with that correctly. Even if that'd not be the case, it'd be a bad location for such a assertion. Because ProcessClientWriteInterrupt() is only called when the socket is blocked it's hard to hit. Per Heikki and buildfarm animals nightjar and dunlin. 
+<a target="_blank" href="http://git.postgresql.org/pg/commitdiff/3a54f4a4944b849846c5a1494810ea06bd6601b7">http://git.postgresql.org/pg/commitdiff/3a54f4a4944b849846c5a1494810ea06bd6601b7</a></li>
+<li>Add missing float.h include to snprintf.c. On windows _isnan() (which isnan() is redirected to in port/win32.h) is declared in float.h, not math.h. Per buildfarm animal currawong. Backpatch to all supported branches. 
+<a target="_blank" href="http://git.postgresql.org/pg/commitdiff/ff8ca3b04c15eace1de1a7a66e3a05426b07b773">http://git.postgresql.org/pg/commitdiff/ff8ca3b04c15eace1de1a7a66e3a05426b07b773</a></li>
+</ul>
+<p>Fujii Masao a pouss&eacute;&nbsp;:</p>
+<ul>
+<li>doc: Fix markup. Ian Barwick 
+<a target="_blank" href="http://git.postgresql.org/pg/commitdiff/c036edb7b35fda18b93a6eacac5b14fcee4693a4">http://git.postgresql.org/pg/commitdiff/c036edb7b35fda18b93a6eacac5b14fcee4693a4</a></li>
+</ul>
+<p>Michael Meskes a pouss&eacute;&nbsp;:</p>
+<ul>
+<li>This routine was calling ecpg_alloc to allocate to memory but did not actually check the returned pointer allocated, potentially NULL which could be the result of a malloc call. Issue noted by Coverity, fixed by Michael Paquier &lt;michael@otacoo.com&gt; 
+<a target="_blank" href="http://git.postgresql.org/pg/commitdiff/5ee5bc387319b9ac33083bacebd3ab7046666328">http://git.postgresql.org/pg/commitdiff/5ee5bc387319b9ac33083bacebd3ab7046666328</a></li>
+</ul>
+<p>Bruce Momjian a pouss&eacute;&nbsp;:</p>
+<ul>
+<li>to_char(): prevent writing beyond the allocated buffer. Previously very long localized month and weekday strings could overflow the allocated buffers, causing a server crash. Reported and patch reviewed by Noah Misch. Backpatch to all supported versions. Security: CVE-2015-0241 
+<a target="_blank" href="http://git.postgresql.org/pg/commitdiff/9241c84cbcb82174a7d986242f233aa6472c1129">http://git.postgresql.org/pg/commitdiff/9241c84cbcb82174a7d986242f233aa6472c1129</a></li>
+<li>to_char(): prevent accesses beyond the allocated buffer. Previously very long field masks for floats could access memory beyond the existing buffer allocated to hold the result. Reported by Andres Freund and Peter Geoghegan. Backpatch to all supported versions. Security: CVE-2015-0241 
+<a target="_blank" href="http://git.postgresql.org/pg/commitdiff/0150ab567bcf5e5913e2b62a1678f84cc272441f">http://git.postgresql.org/pg/commitdiff/0150ab567bcf5e5913e2b62a1678f84cc272441f</a></li>
+<li>port/snprintf(): fix overflow and do padding. Prevent port/snprintf() from overflowing its local fixed-size buffer and pad to the desired number of digits with zeros, even if the precision is beyond the ability of the native sprintf(). port/snprintf() is only used on systems that lack a native snprintf(). Reported by Bruce Momjian. Patch by Tom Lane. Backpatch to all supported versions. Security: CVE-2015-0242 
+<a target="_blank" href="http://git.postgresql.org/pg/commitdiff/29725b3db67ad3f09da1a7fb6690737d2f8d6c0a">http://git.postgresql.org/pg/commitdiff/29725b3db67ad3f09da1a7fb6690737d2f8d6c0a</a></li>
+</ul>
+<p><strong>Correctifs rejet&eacute;s (&agrave; ce jour)</strong></p>
+<ul>
+<li>No one was disappointed this week</li>
+</ul>
+<p><strong>Correctifs en attente</strong></p>
+<ul>
+<li>Kyotaro HORIGUCHI sent in another revision of a patch to make fetch_size settable per foreign server and foreign table.</li>
+<li>Kyotaro HORIGUCHI sent in a patch to ensure pg_basebackup sends feedback at desired times.</li>
+<li>Andres Freund sent in a WIP patch to cache snapshots in GetSnapshotData().</li>
+<li>Ryan Kelly sent in two revisions of a patch to add LINE: hint when schemaname.typename is a non-existent schema.</li>
+<li>Kyotaro HORIGUCHI sent in a patch to add regnamespace and regrole types.</li>
+<li>Peter Geoghegan sent in a patch to Make UPDATE privileges distinct from INSERT privileges in RTEs.</li>
+<li>Robert Haas sent in two more revisions of a patch to add parallel mode and parallel contexts.</li>
+<li>Noah Misch sent in a patch to allow no-rewrite timestamp&lt;-&gt;timestamptz conversions.</li>
+<li>Michael Paquier sent in two more revisions of a patch to make log_autovacuum_min_duration a relation option.</li>
+<li>Heikki Linnakangas sent in a patch to simplify the waiting logic in reading from / writing to client.</li>
+<li>Ian Lawrence Barwick sent in a patch to ensure that paths are canonicalized in pg_basebackup.</li>
+<li>Fujii Masao, Michael Paquier, and Syed Rahila traded patches to implement compression of full-page writes.</li>
+<li>Michael Paquier sent in three more revisions of a patch to add wal_availability_check_interval.</li>
+<li>Daniel Bausch sent in a PoC patch to prefetch from storage for indexscans.</li>
+<li>Amit Kapila sent in another revision of a patch to allow doing sequential scans in parallel.</li>
+<li>Robert Haas sent in a patch to support parallel heap scans, and another to implement contrib/parallel_count, now using heap_parallel_beginscan.</li>
+<li>Stas Kelvich sent in a patch to add kNN support for the contrib cube extension.</li>
+<li>Jeff Davis sent in a patch sketching out Inclusion Constraints, a generlized form of foreign key.</li>
+<li>Andreas Karlsson sent in another revision of a patch to reduce the lock strength of trigger and foreign key DDL.</li>
+<li>Robert Haas sent in a patch to assess parallel-safety of query plans before attempting to parallelize them.</li>
+</ul></div>
+
+      </div>
+
+  
+
+    
+  
+    
+    
+    </div>
+</div> <!-- End #main -->
+
+</div> <!-- End #wrapper -->
+
+<div id="pgFooter">
+  <p>Propulsé par <a href="http://dotclear.org/">Dotclear</a></p>
+</div>
+
+</div> <!-- End #page -->
+</body>
+
+<!-- Mirrored from blog2.postgresql.fr/index.php?post/2015/02/18/Nouvelles-hebdomadaires-de-PostgreSQL-8-f%C3%A9vrier-2015 by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 May 2020 21:40:19 GMT -->
+</html>

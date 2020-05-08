@@ -1,0 +1,217 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr">
+
+<!-- Mirrored from blog2.postgresql.fr/index.php?post/2012/08/20/Mises-%C3%A0-jour-mineures-de-PostgreSQL-%3A-9.1.5%2C-9.0.9%2C-8.4.13%2C-8.3.20 by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 May 2020 21:40:20 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="MSSmartTagsPreventParsing" content="TRUE" />
+  <meta name="ROBOTS" content="INDEX, FOLLOW" />
+  
+  <title>Mises à jour mineures de PostgreSQL : 9.1.5, 9.0.9, 8.4.13, 8.3.20 - PostgreSQLfr.org</title>
+  <meta name="description" lang="fr" content="Le projet PostgreSQL sort aujourd'hui des mises à jour de sécurité pour toutes les branches actives du SGBD PostgreSQL. Ces mises à jour correspondent aux versions 9.1.5, 9.0.9," />
+  <meta name="copyright" content="" />
+  <meta name="author" content="daamien" />
+  <meta name="date" scheme="ISO8601" content="2012-08-20T13:13:00+01:00" />
+  
+  <link rel="schema.dc" href="http://purl.org/dc/elements/1.1/" />
+  <meta name="dc.title" content="Mises à jour mineures de PostgreSQL : 9.1.5, 9.0.9, 8.4.13, 8.3.20" />
+  <meta name="dc.description" lang="fr" content="Le projet PostgreSQL sort aujourd'hui des mises à jour de sécurité pour toutes les branches actives du SGBD PostgreSQL. Ces mises à jour correspondent aux versions 9.1.5, 9.0.9," />
+  <meta name="dc.creator" content="daamien" />
+  <meta name="dc.language" content="fr" />
+  <meta name="dc.publisher" content="" />
+  <meta name="dc.rights" content="" />
+  <meta name="dc.date" scheme="ISO8601" content="2012-08-20T13:13:00+01:00" />
+  <meta name="dc.type" content="text" />
+  <meta name="dc.format" content="text/html" />
+  
+  <link rel="top" href="indexd41d.html?" title="Accueil" />
+  <link rel="contents" href="index888d.html?archive" title="Archives" />
+  
+  <link rel="next" href="index108e.html?post/2012/08/25/Nouvelles-hebdomadaires-de-PostgreSQL-19-ao%C3%BBt-2012"
+  title="Nouvelles hebdomadaires de PostgreSQL - 19 août 2012" />
+  
+  <link rel="previous" href="index72a9.html?post/2012/08/15/Nouvelles-hebdomadaires-de-PostgreSQL-12-ao%C3%BBt-2012"
+  title="Nouvelles hebdomadaires de PostgreSQL - 12 août 2012" />
+  
+  <link rel="alternate" type="application/atom+xml" title="Atom 1.0" href="index4ca3.php?feed/atom" />
+  
+  <style type="text/css" media="screen">
+@import url(themes/postgresql/style.css);
+</style>
+<style type="text/css" media="print">
+@import url(themes/default/print.css);
+</style>
+
+<script type="text/javascript" src="themes/default/js/jquery.js"></script>
+<script type="text/javascript" src="themes/default/js/jquery.cookie.js"></script>
+
+  
+  <script type="text/javascript" src="themes/default/js/post.js"></script>
+  <script type="text/javascript">
+  //<![CDATA[
+  var post_remember_str = 'Se souvenir de moi sur ce blog';
+  //]]>
+  </script>
+</head>
+
+<body class="dc-post">
+<div id="page">
+
+
+<div id="top">
+  <div id="pgHeader">
+    <span id="pgHeaderLogoLeft">
+      <a href="index.html" title="PostgreSQL"><img src="https://blog.postgresql.fr/themes/postgresql/img/hdr_left.png" width="230" height="80" alt="PostgreSQL" /></a>
+    </span>
+    <span id="pgHeaderLogoRight">
+      <a href="index.html" title="La base de donnees la plus sophistiquee au monde."><img src="https://blog.postgresql.fr/themes/postgresql/img/hdr_right.png" width="210" height="80" alt="La base de donnees la plus sophistiquee au monde." /></a>
+    </span>
+  </div>
+
+  </div>
+
+<div class="pgTopNav">
+  <div class="pgTopNavLeft"> 
+    <img src="https://blog.postgresql.fr/themes/postgresql/img/nav_lft.png" width="7" height="23" alt="" />
+  </div>
+  <div class="pgTopNavRight">
+    <img src="https://blog.postgresql.fr/themes/postgresql/img/nav_rgt.png" width="7" height="23" alt="" />
+  </div>
+  <ul class="pgTopNavList">
+    <li><a href="https://www.postgresql.fr/" title="Accueil">Accueil</a></li>
+    <li><a href="https://blog.postgresql.fr/" title="Lire les actualités">Actualités</a></li>
+    <li><a href="https://docs.postgresql.fr/" title="Lire la documentation officielle">Documentation</a></li>
+    <li><a href="https://forums.postgresql.fr/" title="Pour poser des questions">Forums</a></li>
+    <li><a href="https://www.postgresql.fr/asso/" title="La vie de l'association">Association</a></li>
+    <li><a href="https://www.postgresql.fr/devel:accueil" title="Informations pour les développeurs/traducteurs">Développeurs</a></li>
+    <li><a href="https://planete.postgresql.fr/" title="La planète francophone sur PostgreSQL">Planète</a></li>
+    <li><a href="https://www.postgresql.fr/support/" title="Support sur PostgreSQL">Support</a></li>
+  </ul>
+</div>
+
+<div id="wrapper">
+
+<div id="pgContent">
+
+  <div id="pgSideWrap">
+  <div id="pgSideNav">
+    <div id="blognav">
+      <div id="search"><h2><label for="q">Rechercher</label></h2><form action="http://blog2.postgresql.fr/index.php?" method="get"><fieldset><p><input type="text" size="10" maxlength="255" id="q" name="q" value="" /> <input class="submit" type="submit" value="ok" /></p></fieldset></form></div><div class="categories"><h2>Catégories</h2><ul><li><a href="index199b.html?category/Articles">Articles</a></li><li class="category-current"><a href="indexb4c6.html?category/Dans-les-bacs">Dans les bacs</a></li><li><a href="index025a.html?category/Evenements">Événements</a></li><li><a href="index8c6d.html?category/PostgreSQL-Weekly-News">PostgreSQL Weekly News</a></li><li><a href="index1835.html?category/Securite">Sécurité</a></li><li><a href="index2251.html?category/Vie-de-l-association">Vie de l'association</a></li><li><a href="index91de.html?category/Vie-du-site">Vie du site</a></li></ul></div><div class="text"><h2>Licence</h2>Tous les articles de ce blog sont disponibles sous la <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/">license Creative Commons BY-NC-SA 3.0</a>.</div>    </div> <!-- End #blognav -->
+  
+    <div id="blogextra">
+      <div class="syndicate"><h2>S'abonner</h2><ul><li><a type="application/atom+xml" href="index4ca3.php?feed/atom" title="Fil Atom des billets de ce blog" class="feed">Fil des billets</a></li></ul></div>    </div> <!-- End #blogextra -->
+  </div>
+  </div>
+
+  <div id="pgContentWrap">
+  <div id="pgDownloadsWrap">
+  <div id="content">
+
+  <p id="navlinks">
+  <a href="index72a9.html?post/2012/08/15/Nouvelles-hebdomadaires-de-PostgreSQL-12-ao%C3%BBt-2012"
+  title="Nouvelles hebdomadaires de PostgreSQL - 12 août 2012" class="prev">&#171; Nouvelles hebdomadaires de PostgreSQL - 12 août</a>
+   <span>-</span> <a href="index108e.html?post/2012/08/25/Nouvelles-hebdomadaires-de-PostgreSQL-19-ao%C3%BBt-2012"
+  title="Nouvelles hebdomadaires de PostgreSQL - 19 août 2012" class="next">Nouvelles hebdomadaires de PostgreSQL - 19 août &#187;</a>
+  </p>
+  
+  <div class="post">
+    <h2 id="p687" class="post-title">Mises à jour mineures de PostgreSQL : 9.1.5, 9.0.9, 8.4.13, 8.3.20</h2>
+    
+    <p class="post-info">Par daamien    le lundi 20 août 2012, 13:13        - <a href="indexb4c6.html?category/Dans-les-bacs">Dans les bacs</a>
+        - <a href="index5879.html?post/2012/08/20/Mises-%C3%A0-jour-mineures-de-PostgreSQL-%3A-9.1.5%2C-9.0.9%2C-8.4.13%2C-8.3.20">Lien permanent</a>
+    </p>
+    
+        <ul class="post-tags">    <li><a href="indexc6b8.html?tag/PostgreSQL">PostgreSQL</a></li>
+    </ul>    
+    
+        
+    <div class="post-content"><p>Le projet PostgreSQL sort aujourd'hui des mises à jour de sécurité pour toutes les branches actives du SGBD PostgreSQL. Ces mises à jour correspondent aux versions 9.1.5, 9.0.9, 8.4.13 et 8.3.20.</p>
+
+
+<p>Cette mise à jour corrige des failles de sécurité liées à libxml2 et libxslt, similaires à celles affectant les autres projets open source utilisant ces librairies. Il est conseillé à tous les administrateurs de bases de données PostgreSQL de mettre à jour leur version de PostgreSQL lors de leur prochain arrêt de maintenance. Vous trouverez plus de détails sur les corrections de failles de sécurité ci-dessous.</p>
+
+
+<p>Cette publication de sécurité corrige une vulnérabilité dans les fonctionnalités intégrées XML et XSLT qui sont incluses avec l'extension en option XML2. Ces deux vulnérabilités permettent la lecture de fichiers arbitraires par n'importe quel utilisateur de base de données authentifié, et la vulnérabilité XSLT permet aussi l'écriture de fichiers. Les correctifs posent quelques problèmes de compatibilité ascendante. Cette mise à jour inclut deux correctifs de sécurité pour les failles suivantes&nbsp;:</p>
+
+<ul>
+<li><a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-3488">CVE-2012-3488: PostgreSQL insecure use of libxslt </a></li>
+</ul>
+
+<p>La librairie libxslt offre la possibilité de lire et d'écrire des fichiers et URLs au travers de commandes de feuilles de style, ce qui permet à un utilisateur non privilégié de la base de données de tenter de lire et d'écrire des données avec les privilèges du serveur de base de données. Il convient de désactiver cela au travers des propres options de sécurité de la librairie libxslt.</p>
+
+<ul>
+<li><a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-3489">CVE-2012-3489: PostgreSQL insecure use of libxml2 </a></li>
+</ul>
+
+<p>La fonction xml_parse() pourrait tenter de récupérer des fichiers externes ou des URLs pour résoudre des DTD et des entités de références dans une valeur XML, ce qui permet à un utilisateur non privilégié de la base de données de tenter de ramener des données avec les privilèges du serveur de base de données. Même si les données externes ne sont pas renvoyées directement à l'utilisateur, des portions de ces données peuvent être exposées dans le message d'erreur affiché si les données XML sont détectés comme n'étant pas valides;  et dans tous les cas la possibilité de tester l'existence d'un fichier peut être utile pour un attaquant.</p>
+
+
+<p>Les utilisateurs qui utilisent la fonctionnalité XML interne pour valider des DTD externes auront besoin de développer une solution de contournement car le patch de sécurité désactive cette fonctionnalité. Les utilisateurs qui utilisent xslt_process() pour rapporter des documents ou feuilles de style à partir d'URL externe ne seront plus capable de le faire. Le projet PostgreSQL regrette qu'il ait été nécessaire de désactiver ces deux fonctionnalités pour maintenir le niveau de sécurité habituel. Ces problèmes de sécurités sont relativement similaires aux problèmes corrigés récemment par les projets WebKit (CVE-2011-1774), XMLsec (CVE-2011-1425) et PHP5 (CVE-2012-0057).</p>
+
+
+<p>Cette mise à jour contient également plusieurs correctifs pour la version 9.1 et un petit nombre de correctifs pour les anciennes versions&nbsp;:</p>
+
+<ul>
+<li>Mise à jour et corrections des données de timezone.</li>
+<li>Nombreuses mises à jour et corrections dans la documentation.</li>
+<li>Ajout d'une limite à max_wal_senders.</li>
+<li>Corrections des dépendances générées pendant un ALTER TABLE ADD CONSTRAINT USING INDEX.</li>
+<li>Corrige le comportement des conversions unicode pour PL/Python.</li>
+<li>Correction de WITH attaché à un set d'opérations imbriquées (UNION/INTERSECT/EXCEPT).</li>
+<li>Correction du syslogger pour que log_truncate_on_rotation fonctionne lors de la première rotation.</li>
+<li>Autorise uniquement autovacuum à être automatiquement annulé par un processus directement bloqué.</li>
+<li>Amélioration des opérations des demande de file d'attente par fsync</li>
+<li>Empêche un cas particulier de core dump dans rfree().</li>
+<li>Corrige Walsender pour qu'il réponde correctement aux timeouts et deadlocks.</li>
+<li>Plusieurs corrections dans PL/Perl relatives à des problèmes d'encodage.</li>
+<li>Fait en sorte que les opérateurs de sélectivité utilisent la bonne collation.</li>
+<li>Empêche les esclaves inaptes d'être choisis pour la réplication synchrone.</li>
+<li>Fait en sorte que REASSIGN OWNED marche aussi avec les extensions.</li>
+<li>Corrige un cas non traité dans les comparaisons à base d'ENUM.</li>
+<li>Fait en sorte que NOTIFY prenne mieux en compte les problèmes out-of-disk-space.</li>
+<li>Corrige une fuite mémoire dans les sous-select de requêtes ARRAY.</li>
+<li>Réduction de la perte de données lors du basculement de la réplication.</li>
+<li>Corrige le comportement des sous transactions avec le Hot Standby.</li>
+</ul>
+
+<p>Comme pour les autres versions mineures, il n'est pas nécessaire de sauvegarder et recharger les bases de données. Il n'est pas utile non plus d'utiliser pg_upgrade. Pour appliquer cette mise à jour, il suffit d'arrêter PostgreSQL, de mettre à jour les exécutables et de redémarrer PostgreSQL. Il faut réaliser les étapes post-mise-à-jour une fois le serveur redémarré.</p>
+
+
+<p>Toutes les versions supportées de PostgreSQL sont affectées. Les notes
+de version de chaque branche contiennent une liste complète des
+modifications avec de nombreux détails.</p>
+
+
+<p>Téléchargez les nouvelles versions maintenant sur&nbsp;:</p>
+
+<ul>
+<li>http://www.postgresql.org/download/</li>
+<li>Code source: http://www.postgresql.org/ftp/source/</li>
+<li>Paquets binaires: http://www.postgresql.org/ftp/binary/</li>
+<li>Installeur One-click (dont le paquet Windows): http://www.enterprisedb.com/products-services-training/pgdownload</li>
+</ul></div>
+
+      </div>
+
+  
+
+    
+  
+    
+    
+    </div>
+</div> <!-- End #main -->
+
+</div> <!-- End #wrapper -->
+
+<div id="pgFooter">
+  <p>Propulsé par <a href="http://dotclear.org/">Dotclear</a></p>
+</div>
+
+</div> <!-- End #page -->
+</body>
+
+<!-- Mirrored from blog2.postgresql.fr/index.php?post/2012/08/20/Mises-%C3%A0-jour-mineures-de-PostgreSQL-%3A-9.1.5%2C-9.0.9%2C-8.4.13%2C-8.3.20 by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 May 2020 21:40:20 GMT -->
+</html>

@@ -1,0 +1,203 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr">
+
+<!-- Mirrored from blog2.postgresql.fr/index.php?post/drupal/145 by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 May 2020 21:40:20 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="MSSmartTagsPreventParsing" content="TRUE" />
+  <meta name="ROBOTS" content="INDEX, FOLLOW" />
+  
+  <title>Nouvelles hebdomadaires de PostgreSQL - 5 Décembre 2005 - PostgreSQLfr.org</title>
+  <meta name="description" lang="fr" content="Nouvelles hebdomadaires de PostgreSQL - 5 Décembre 2005 Quelques discussions au sujet de l'implémentation du type NUMERIC sont apparues sur la liste -hackers. La proposition de le" />
+  <meta name="copyright" content="" />
+  <meta name="author" content="jca" />
+  <meta name="date" scheme="ISO8601" content="2005-12-21T08:17:00+00:00" />
+  
+  <link rel="schema.dc" href="http://purl.org/dc/elements/1.1/" />
+  <meta name="dc.title" content="Nouvelles hebdomadaires de PostgreSQL - 5 Décembre 2005" />
+  <meta name="dc.description" lang="fr" content="Nouvelles hebdomadaires de PostgreSQL - 5 Décembre 2005 Quelques discussions au sujet de l'implémentation du type NUMERIC sont apparues sur la liste -hackers. La proposition de le" />
+  <meta name="dc.creator" content="jca" />
+  <meta name="dc.language" content="fr" />
+  <meta name="dc.publisher" content="" />
+  <meta name="dc.rights" content="" />
+  <meta name="dc.date" scheme="ISO8601" content="2005-12-21T08:17:00+00:00" />
+  <meta name="dc.type" content="text" />
+  <meta name="dc.format" content="text/html" />
+  
+  <link rel="top" href="indexd41d.html?" title="Accueil" />
+  <link rel="contents" href="index888d.html?archive" title="Archives" />
+  
+  <link rel="next" href="indexac30.html?post/drupal/144"
+  title="Nouvelles hebdomadaires de PostgreSQL - 11 Décembre 2005" />
+  
+  <link rel="previous" href="indexb82d.html?post/drupal/389"
+  title="Langages de procédure : type OUT et INOUT" />
+  
+  <link rel="alternate" type="application/atom+xml" title="Atom 1.0" href="index4ca3.php?feed/atom" />
+  
+  <style type="text/css" media="screen">
+@import url(themes/postgresql/style.css);
+</style>
+<style type="text/css" media="print">
+@import url(themes/default/print.css);
+</style>
+
+<script type="text/javascript" src="themes/default/js/jquery.js"></script>
+<script type="text/javascript" src="themes/default/js/jquery.cookie.js"></script>
+
+  
+  <script type="text/javascript" src="themes/default/js/post.js"></script>
+  <script type="text/javascript">
+  //<![CDATA[
+  var post_remember_str = 'Se souvenir de moi sur ce blog';
+  //]]>
+  </script>
+</head>
+
+<body class="dc-post">
+<div id="page">
+
+
+<div id="top">
+  <div id="pgHeader">
+    <span id="pgHeaderLogoLeft">
+      <a href="index.html" title="PostgreSQL"><img src="https://blog.postgresql.fr/themes/postgresql/img/hdr_left.png" width="230" height="80" alt="PostgreSQL" /></a>
+    </span>
+    <span id="pgHeaderLogoRight">
+      <a href="index.html" title="La base de donnees la plus sophistiquee au monde."><img src="https://blog.postgresql.fr/themes/postgresql/img/hdr_right.png" width="210" height="80" alt="La base de donnees la plus sophistiquee au monde." /></a>
+    </span>
+  </div>
+
+  </div>
+
+<div class="pgTopNav">
+  <div class="pgTopNavLeft"> 
+    <img src="https://blog.postgresql.fr/themes/postgresql/img/nav_lft.png" width="7" height="23" alt="" />
+  </div>
+  <div class="pgTopNavRight">
+    <img src="https://blog.postgresql.fr/themes/postgresql/img/nav_rgt.png" width="7" height="23" alt="" />
+  </div>
+  <ul class="pgTopNavList">
+    <li><a href="https://www.postgresql.fr/" title="Accueil">Accueil</a></li>
+    <li><a href="https://blog.postgresql.fr/" title="Lire les actualités">Actualités</a></li>
+    <li><a href="https://docs.postgresql.fr/" title="Lire la documentation officielle">Documentation</a></li>
+    <li><a href="https://forums.postgresql.fr/" title="Pour poser des questions">Forums</a></li>
+    <li><a href="https://www.postgresql.fr/asso/" title="La vie de l'association">Association</a></li>
+    <li><a href="https://www.postgresql.fr/devel:accueil" title="Informations pour les développeurs/traducteurs">Développeurs</a></li>
+    <li><a href="https://planete.postgresql.fr/" title="La planète francophone sur PostgreSQL">Planète</a></li>
+    <li><a href="https://www.postgresql.fr/support/" title="Support sur PostgreSQL">Support</a></li>
+  </ul>
+</div>
+
+<div id="wrapper">
+
+<div id="pgContent">
+
+  <div id="pgSideWrap">
+  <div id="pgSideNav">
+    <div id="blognav">
+      <div id="search"><h2><label for="q">Rechercher</label></h2><form action="http://blog2.postgresql.fr/index.php?" method="get"><fieldset><p><input type="text" size="10" maxlength="255" id="q" name="q" value="" /> <input class="submit" type="submit" value="ok" /></p></fieldset></form></div><div class="categories"><h2>Catégories</h2><ul><li><a href="index199b.html?category/Articles">Articles</a></li><li><a href="indexb4c6.html?category/Dans-les-bacs">Dans les bacs</a></li><li><a href="index025a.html?category/Evenements">Événements</a></li><li class="category-current"><a href="index8c6d.html?category/PostgreSQL-Weekly-News">PostgreSQL Weekly News</a></li><li><a href="index1835.html?category/Securite">Sécurité</a></li><li><a href="index2251.html?category/Vie-de-l-association">Vie de l'association</a></li><li><a href="index91de.html?category/Vie-du-site">Vie du site</a></li></ul></div><div class="text"><h2>Licence</h2>Tous les articles de ce blog sont disponibles sous la <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/">license Creative Commons BY-NC-SA 3.0</a>.</div>    </div> <!-- End #blognav -->
+  
+    <div id="blogextra">
+      <div class="syndicate"><h2>S'abonner</h2><ul><li><a type="application/atom+xml" href="index4ca3.php?feed/atom" title="Fil Atom des billets de ce blog" class="feed">Fil des billets</a></li></ul></div>    </div> <!-- End #blogextra -->
+  </div>
+  </div>
+
+  <div id="pgContentWrap">
+  <div id="pgDownloadsWrap">
+  <div id="content">
+
+  <p id="navlinks">
+  <a href="indexb82d.html?post/drupal/389"
+  title="Langages de procédure : type OUT et INOUT" class="prev">&#171; Langages de procédure : type OUT et INOUT</a>
+   <span>-</span> <a href="indexac30.html?post/drupal/144"
+  title="Nouvelles hebdomadaires de PostgreSQL - 11 Décembre 2005" class="next">Nouvelles hebdomadaires de PostgreSQL - 11 &#187;</a>
+  </p>
+  
+  <div class="post">
+    <h2 id="p145" class="post-title">Nouvelles hebdomadaires de PostgreSQL - 5 Décembre 2005</h2>
+    
+    <p class="post-info">Par jca    le mercredi 21 décembre 2005, 08:17        - <a href="index8c6d.html?category/PostgreSQL-Weekly-News">PostgreSQL Weekly News</a>
+        - <a href="indexb19a.html?post/drupal/145">Lien permanent</a>
+    </p>
+    
+    
+    
+          <div class="post-excerpt"><p><strong>Nouvelles hebdomadaires de PostgreSQL - 5 Décembre 2005</strong></p>
+<p>
+Quelques discussions au sujet de l'implémentation du type NUMERIC sont apparues sur la liste -hackers. La proposition de le limiter à 508 signes semble être la voie qui a été choisie.</p>
+<p>
+PostgreSQL 8.1.1 sortira cette semaine.</p></div>
+        
+    <div class="post-content"><strong>Nouvelles des produits autour de PostgreSQL</strong>
+<ul>
+<li>
+MySQL Compatibility Project a lancé sa première version beta :   <a target="_blank" href="http://pgfoundry.org/projects/mysqlcompat/">http://pgfoundry.org/projects/mysqlcompat/</a>
+</li>
+<li>
+PHP 5.1 inclut maintenant plusieurs des nouvelles fonctions de la version 3 du protocole de PostgreSQL :   <a target="_blank" href="http://people.planetpostgresql.org/devrim/index.php?/archives/24-New-PostgreSQL-functions-in-PHP-5.1.html">http://people.planetpostgresql.org/devrim/index.php?/archives/24-New-PostgreSQL-functions-in-PHP-5.1.html</a>
+</li>
+<li>
+Debian dispose maintenant d'un paquetage officiel pour Slony-I :  <a target="_blank" href="http://packages.qa.debian.org/s/slony1.html">http://packages.qa.debian.org/s/slony1.html</a>
+</li>
+<li>
+MicroOLAP met à disposition un nouveau programme en version beta pour sont Database Designer for PostgreSQL  <a target="_blank" href="http://microolap.com/my/beta/">http://microolap.com/my/beta/</a>
+</li>
+<li>
+PgBrowse 1.3 est sorti  <a target="_blank" href="http://homepage.mac.com/levanj/TclTk">http://homepage.mac.com/levanj/TclTk</a>
+</li>
+<li>
+pqa 1.6 est sorti  <a target="_blank" href="http://pgfoundry.org/projects/pqa/">http://pgfoundry.org/projects/pqa/</a>
+</li>
+<li>
+phpPgAdmin 4.0.1 vient de sortir avec de nombreux correctifs de bugs  <a target="_blank" href="http://phppgadmin.sf.net/">http://phppgadmin.sf.net/</a>
+</li>
+<li>
+Greenplum passe en version Beta2 pour  Bizgres MPP  <a target="_blank" href="http://www.greenplum.com/mpp-beta/">http://www.greenplum.com/mpp-beta/</a>
+</li>
+</ul>
+<p><strong>Evènement locaux autour de PostgreSQL </strong></p>
+<p>
+Devrim Gunduz et Volkan Yazycy animeront un séminaire au sujet des nouvelles fonctionnalités de PostgreSQL 8.1 le 11 décembre 2005 à Istambul : <a target="_blank" href="http://www.postgresql.org/about/event.326">http://www.postgresql.org/about/event.326</a>
+</p>
+<p><strong>PostgreSQL dans la presse</strong></p>
+<ul>
+<li>
+FeedLounge est passé de  MySQL à PostgreSQL.  En voici les raisons  <a target="_blank" href="http://feedlounge.com/blog/2005/11/20/switched-to-postgresql/">http://feedlounge.com/blog/2005/11/20/switched-to-postgresql/</a>
+</li>
+<li>
+Chris Campbell du Big Nerd Ranch démontre comment abaisser les priorité des requêtes.  <a target="_blank" href="http://weblog.bignerdranch.com/?p=11">http://weblog.bignerdranch.com/?p=11</a>
+</li>
+<li>Planet PostgreSQL:  <a target="_blank" href="http://www.planetpostgresql.org/">http://www.planetpostgresql.org/</a></li>
+<li>
+General Bits, est publié tous les lundis (PST/PDT):  <a target="_blank" href="http://www.varlena.com/GeneralBits/">http://www.varlena.com/GeneralBits/</a>
+(not-so) Simple Selects and Complex Aggregates </li>
+</ul>
+<p>
+<em>Nouvelles hebdomadaires de PostgreSQL ont été rédigées par David Fetter et Devrim Gunduz </em>
+</p></div>
+
+      </div>
+
+  
+
+    
+  
+    
+    
+    </div>
+</div> <!-- End #main -->
+
+</div> <!-- End #wrapper -->
+
+<div id="pgFooter">
+  <p>Propulsé par <a href="http://dotclear.org/">Dotclear</a></p>
+</div>
+
+</div> <!-- End #page -->
+</body>
+
+<!-- Mirrored from blog2.postgresql.fr/index.php?post/drupal/145 by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 May 2020 21:40:20 GMT -->
+</html>

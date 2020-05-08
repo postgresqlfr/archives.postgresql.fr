@@ -1,0 +1,218 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr">
+
+<!-- Mirrored from blog2.postgresql.fr/index.php?post/2012/03/15/Cr%C3%A9er-des-index-pour-les-cl%C3%A9s-%C3%A9trang%C3%A8res by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 May 2020 21:40:20 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="MSSmartTagsPreventParsing" content="TRUE" />
+  <meta name="ROBOTS" content="INDEX, FOLLOW" />
+  
+  <title>Créer des index pour les clés étrangères - PostgreSQLfr.org</title>
+  <meta name="description" lang="fr" content="Aujourd'hui, un client a découvert que les clés étrangères ne créaient pas d'index sur la table sur laquelle on crée la clé étrangère. La table sur la clé primaire de laquelle la" />
+  <meta name="copyright" content="" />
+  <meta name="author" content="mcousin" />
+  <meta name="date" scheme="ISO8601" content="2012-03-15T13:52:00+00:00" />
+  
+  <link rel="schema.dc" href="http://purl.org/dc/elements/1.1/" />
+  <meta name="dc.title" content="Créer des index pour les clés étrangères" />
+  <meta name="dc.description" lang="fr" content="Aujourd'hui, un client a découvert que les clés étrangères ne créaient pas d'index sur la table sur laquelle on crée la clé étrangère. La table sur la clé primaire de laquelle la" />
+  <meta name="dc.creator" content="mcousin" />
+  <meta name="dc.language" content="fr" />
+  <meta name="dc.publisher" content="" />
+  <meta name="dc.rights" content="" />
+  <meta name="dc.date" scheme="ISO8601" content="2012-03-15T13:52:00+00:00" />
+  <meta name="dc.type" content="text" />
+  <meta name="dc.format" content="text/html" />
+  
+  <link rel="top" href="indexd41d.html?" title="Accueil" />
+  <link rel="contents" href="index888d.html?archive" title="Archives" />
+  
+  <link rel="next" href="index8081.html?post/2012/03/30/Nouvelles-hebdomadaires-de-PostgreSQL-18-mars-2012"
+  title="Nouvelles hebdomadaires de PostgreSQL - 18 mars 2012" />
+  
+  <link rel="previous" href="indexd574.html?post/2012/03/13/Nouvelles-hebdomadaires-de-PostgreSQL-11-mars-2012"
+  title="Nouvelles hebdomadaires de PostgreSQL - 11 mars 2012" />
+  
+  <link rel="alternate" type="application/atom+xml" title="Atom 1.0" href="index4ca3.php?feed/atom" />
+  
+  <style type="text/css" media="screen">
+@import url(themes/postgresql/style.css);
+</style>
+<style type="text/css" media="print">
+@import url(themes/default/print.css);
+</style>
+
+<script type="text/javascript" src="themes/default/js/jquery.js"></script>
+<script type="text/javascript" src="themes/default/js/jquery.cookie.js"></script>
+
+  
+  <script type="text/javascript" src="themes/default/js/post.js"></script>
+  <script type="text/javascript">
+  //<![CDATA[
+  var post_remember_str = 'Se souvenir de moi sur ce blog';
+  //]]>
+  </script>
+</head>
+
+<body class="dc-post">
+<div id="page">
+
+
+<div id="top">
+  <div id="pgHeader">
+    <span id="pgHeaderLogoLeft">
+      <a href="index.html" title="PostgreSQL"><img src="https://blog.postgresql.fr/themes/postgresql/img/hdr_left.png" width="230" height="80" alt="PostgreSQL" /></a>
+    </span>
+    <span id="pgHeaderLogoRight">
+      <a href="index.html" title="La base de donnees la plus sophistiquee au monde."><img src="https://blog.postgresql.fr/themes/postgresql/img/hdr_right.png" width="210" height="80" alt="La base de donnees la plus sophistiquee au monde." /></a>
+    </span>
+  </div>
+
+  </div>
+
+<div class="pgTopNav">
+  <div class="pgTopNavLeft"> 
+    <img src="https://blog.postgresql.fr/themes/postgresql/img/nav_lft.png" width="7" height="23" alt="" />
+  </div>
+  <div class="pgTopNavRight">
+    <img src="https://blog.postgresql.fr/themes/postgresql/img/nav_rgt.png" width="7" height="23" alt="" />
+  </div>
+  <ul class="pgTopNavList">
+    <li><a href="https://www.postgresql.fr/" title="Accueil">Accueil</a></li>
+    <li><a href="https://blog.postgresql.fr/" title="Lire les actualités">Actualités</a></li>
+    <li><a href="https://docs.postgresql.fr/" title="Lire la documentation officielle">Documentation</a></li>
+    <li><a href="https://forums.postgresql.fr/" title="Pour poser des questions">Forums</a></li>
+    <li><a href="https://www.postgresql.fr/asso/" title="La vie de l'association">Association</a></li>
+    <li><a href="https://www.postgresql.fr/devel:accueil" title="Informations pour les développeurs/traducteurs">Développeurs</a></li>
+    <li><a href="https://planete.postgresql.fr/" title="La planète francophone sur PostgreSQL">Planète</a></li>
+    <li><a href="https://www.postgresql.fr/support/" title="Support sur PostgreSQL">Support</a></li>
+  </ul>
+</div>
+
+<div id="wrapper">
+
+<div id="pgContent">
+
+  <div id="pgSideWrap">
+  <div id="pgSideNav">
+    <div id="blognav">
+      <div id="search"><h2><label for="q">Rechercher</label></h2><form action="http://blog2.postgresql.fr/index.php?" method="get"><fieldset><p><input type="text" size="10" maxlength="255" id="q" name="q" value="" /> <input class="submit" type="submit" value="ok" /></p></fieldset></form></div><div class="categories"><h2>Catégories</h2><ul><li><a href="index199b.html?category/Articles">Articles</a></li><li><a href="indexb4c6.html?category/Dans-les-bacs">Dans les bacs</a></li><li><a href="index025a.html?category/Evenements">Événements</a></li><li><a href="index8c6d.html?category/PostgreSQL-Weekly-News">PostgreSQL Weekly News</a></li><li><a href="index1835.html?category/Securite">Sécurité</a></li><li><a href="index2251.html?category/Vie-de-l-association">Vie de l'association</a></li><li><a href="index91de.html?category/Vie-du-site">Vie du site</a></li></ul></div><div class="text"><h2>Licence</h2>Tous les articles de ce blog sont disponibles sous la <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/">license Creative Commons BY-NC-SA 3.0</a>.</div>    </div> <!-- End #blognav -->
+  
+    <div id="blogextra">
+      <div class="syndicate"><h2>S'abonner</h2><ul><li><a type="application/atom+xml" href="index4ca3.php?feed/atom" title="Fil Atom des billets de ce blog" class="feed">Fil des billets</a></li></ul></div>    </div> <!-- End #blogextra -->
+  </div>
+  </div>
+
+  <div id="pgContentWrap">
+  <div id="pgDownloadsWrap">
+  <div id="content">
+
+  <p id="navlinks">
+  <a href="indexd574.html?post/2012/03/13/Nouvelles-hebdomadaires-de-PostgreSQL-11-mars-2012"
+  title="Nouvelles hebdomadaires de PostgreSQL - 11 mars 2012" class="prev">&#171; Nouvelles hebdomadaires de PostgreSQL - 11 mars</a>
+   <span>-</span> <a href="index8081.html?post/2012/03/30/Nouvelles-hebdomadaires-de-PostgreSQL-18-mars-2012"
+  title="Nouvelles hebdomadaires de PostgreSQL - 18 mars 2012" class="next">Nouvelles hebdomadaires de PostgreSQL - 18 mars &#187;</a>
+  </p>
+  
+  <div class="post">
+    <h2 id="p661" class="post-title">Créer des index pour les clés étrangères</h2>
+    
+    <p class="post-info">Par mcousin    le jeudi 15 mars 2012, 13:52        - <a href="index53e3.html?post/2012/03/15/Cr%C3%A9er-des-index-pour-les-cl%C3%A9s-%C3%A9trang%C3%A8res">Lien permanent</a>
+    </p>
+    
+    
+    
+        
+    <div class="post-content"><p>Aujourd'hui, un client a découvert que les clés étrangères ne créaient pas d'index sur la table sur laquelle on crée la clé étrangère. La table sur la clé primaire de laquelle la clé étrangère pointe est bien sûr indexée.</p>
+
+
+<p>La question a donc rapidement été: comment créer tous les index manquants, de façon plus ou moins automatisée.</p>
+
+
+<p>Voici la requête (avec 2 ou 3 explications):</p>
+
+<pre>
+SELECT DISTINCT 'CREATE INDEX CONCURRENTLY ON ' || relname || '(' || array_to_string(dalibo_int_to_colname(pg_class.oid,conkey),',') || ');'
+FROM pg_constraint JOIN pg_class ON pg_constraint.conrelid=pg_class.oid 
+JOIN pg_namespace ON (pg_class.relnamespace=pg_namespace.oid)
+WHERE contype = 'f'
+AND nspname not in ('pg_catalog','information_schema') 
+AND NOT EXISTS (SELECT indrelid,indkey from pg_index WHERE (indrelid,(indkey::int2[])[0:100])=(pg_constraint.conrelid,pg_constraint.conkey));
+</pre>
+
+<ul>
+<li>On ne prend que les foreign keys (contype='f')</li>
+<li>On ne prend que ce qui est dans les schémas utilisateurs ( nspname not in ('pg_catalog','information_schema') )</li>
+<li>On ne prend que les contraintes pour lesquelles il n'y a pas déjà un index:</li>
+</ul>
+<pre>
+NOT EXISTS (SELECT indrelid,indkey from pg_index WHERE (indrelid,(indkey::int2[])[0:100])=(pg_constraint.conrelid,pg_constraint.conkey));
+</pre>
+
+
+<p>Ici, on a la première bizarrerie: indkey est de type int2vector, conkey est de type int2<a href="#"></a>.</p>
+
+
+<p>Les types sont équivalents, à deux points de détails:</p>
+<ul>
+<li>Les vecteurs commencent à 0,</li>
+<li>On peut caster de vector vers tableau, mais pas dans l'autre sens</li>
+</ul>
+
+<p>Donc quand on cast l'indkey vers int2<a href="#"></a>, on récupère un tableau qui commence à 0, alors que le tableau de conkey commence à 1. D'où l'extraction de slice <a href="0_100.html" title="0:100">0:100</a>: on demande à PostgreSQL de nous recréer un tableau à partir du tableau indkey::int2<a href="#"></a>, en prenant les éléments de 0 à 100 (il peut y en avoir 32 par défaut, c'est le paramètre de compilation max_index_keys). On récupère donc un tableau indexé à partir de 1, qu'on peut enfin comparer à conkey. indkey est un int2vector pour des raisons de compatibilité (c'est l'ancien type tableau de PostgreSQL).</p>
+
+
+<p>On a fait le plus pénible: on a la liste des contraintes, sur quelles colonnes de quelles tables elles pointent. Il ne nous reste plus qu'à convertir cette liste de colonne en ordre SQL. Pour cela, il faut passer de l'oid de la table et des identifiants des colonnes à une liste texte des colonnes. Le plus lisible est encore de faire une fonction PL:</p>
+
+<pre>
+CREATE FUNCTION dalibo_int_to_colname(oid_table oid, num_col integer[] )
+ RETURNS text[]
+ LANGUAGE plpgSQL
+ 
+AS $function$
+DECLARE
+  velement int;
+  varray text[];
+  vattname text;
+BEGIN
+  FOR velement IN SELECT unnest(num_col) LOOP
+    SELECT attname INTO vattname FROM pg_attribute WHERE attrelid=oid_table AND attnum=velement;
+    varray:=array_append(varray,vattname);
+  END LOOP;
+  RETURN varray;
+END
+$function$
+;
+
+</pre>
+
+
+<p>Pour finir, il y a un DISTINCT parce que plusieurs FOREIGN KEYS peuvent pointer sur le même groupe de colonne.</p>
+
+
+<p>Une fois que vous avez fini, vérifiez que vous n'avez pas créé des index qui ne servent à rien&nbsp;: <a href="index8410.html?post/2011/02/22/D%C3%A9tecter-les-index-redondants-dans-une-base" hreflang="fr">http://blog.postgresql.fr/index.php?post/2011/02/22/D%C3%A9tecter-les-index-redondants-dans-une-base</a></p></div>
+
+      </div>
+
+  
+
+    
+  
+    
+    
+    </div>
+</div> <!-- End #main -->
+
+</div> <!-- End #wrapper -->
+
+<div id="pgFooter">
+  <p>Propulsé par <a href="http://dotclear.org/">Dotclear</a></p>
+</div>
+
+</div> <!-- End #page -->
+</body>
+
+<!-- Mirrored from blog2.postgresql.fr/index.php?post/2012/03/15/Cr%C3%A9er-des-index-pour-les-cl%C3%A9s-%C3%A9trang%C3%A8res by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 May 2020 21:40:20 GMT -->
+</html>

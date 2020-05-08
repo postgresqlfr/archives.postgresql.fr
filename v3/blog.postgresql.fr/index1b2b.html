@@ -1,0 +1,250 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr">
+
+<!-- Mirrored from blog2.postgresql.fr/index.php?post/drupal/19 by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 May 2020 21:40:21 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="MSSmartTagsPreventParsing" content="TRUE" />
+  <meta name="ROBOTS" content="INDEX, FOLLOW" />
+  
+  <title>Perte d'une table sous PostgreSQL V.7.3.2... et solution! - PostgreSQLfr.org</title>
+  <meta name="description" lang="fr" content="L'histoire initiale Ce matin, en ouvrant ma boite aux lettres, un compte rendu de monitoring m'a alerté qu'une des machines chez un client était surchargée (2.57). Il s'agit d'une" />
+  <meta name="copyright" content="" />
+  <meta name="author" content="jca" />
+  <meta name="date" scheme="ISO8601" content="2004-07-15T15:31:00+00:00" />
+  
+  <link rel="schema.dc" href="http://purl.org/dc/elements/1.1/" />
+  <meta name="dc.title" content="Perte d'une table sous PostgreSQL V.7.3.2... et solution!" />
+  <meta name="dc.description" lang="fr" content="L'histoire initiale Ce matin, en ouvrant ma boite aux lettres, un compte rendu de monitoring m'a alerté qu'une des machines chez un client était surchargée (2.57). Il s'agit d'une" />
+  <meta name="dc.creator" content="jca" />
+  <meta name="dc.language" content="fr" />
+  <meta name="dc.publisher" content="" />
+  <meta name="dc.rights" content="" />
+  <meta name="dc.date" scheme="ISO8601" content="2004-07-15T15:31:00+00:00" />
+  <meta name="dc.type" content="text" />
+  <meta name="dc.format" content="text/html" />
+  
+  <link rel="top" href="indexd41d.html?" title="Accueil" />
+  <link rel="contents" href="index888d.html?archive" title="Archives" />
+  
+  <link rel="next" href="index1696.html?post/drupal/372"
+  title="Comment compiler et installer PostgreSQL ?" />
+  
+  <link rel="previous" href="index6464.html?post/drupal/18"
+  title="== PostgreSQL Weekly News - 12 Juillet 2004 ==" />
+  
+  <link rel="alternate" type="application/atom+xml" title="Atom 1.0" href="index4ca3.php?feed/atom" />
+  
+  <style type="text/css" media="screen">
+@import url(themes/postgresql/style.css);
+</style>
+<style type="text/css" media="print">
+@import url(themes/default/print.css);
+</style>
+
+<script type="text/javascript" src="themes/default/js/jquery.js"></script>
+<script type="text/javascript" src="themes/default/js/jquery.cookie.js"></script>
+
+  
+  <script type="text/javascript" src="themes/default/js/post.js"></script>
+  <script type="text/javascript">
+  //<![CDATA[
+  var post_remember_str = 'Se souvenir de moi sur ce blog';
+  //]]>
+  </script>
+</head>
+
+<body class="dc-post">
+<div id="page">
+
+
+<div id="top">
+  <div id="pgHeader">
+    <span id="pgHeaderLogoLeft">
+      <a href="index.html" title="PostgreSQL"><img src="https://blog.postgresql.fr/themes/postgresql/img/hdr_left.png" width="230" height="80" alt="PostgreSQL" /></a>
+    </span>
+    <span id="pgHeaderLogoRight">
+      <a href="index.html" title="La base de donnees la plus sophistiquee au monde."><img src="https://blog.postgresql.fr/themes/postgresql/img/hdr_right.png" width="210" height="80" alt="La base de donnees la plus sophistiquee au monde." /></a>
+    </span>
+  </div>
+
+  </div>
+
+<div class="pgTopNav">
+  <div class="pgTopNavLeft"> 
+    <img src="https://blog.postgresql.fr/themes/postgresql/img/nav_lft.png" width="7" height="23" alt="" />
+  </div>
+  <div class="pgTopNavRight">
+    <img src="https://blog.postgresql.fr/themes/postgresql/img/nav_rgt.png" width="7" height="23" alt="" />
+  </div>
+  <ul class="pgTopNavList">
+    <li><a href="https://www.postgresql.fr/" title="Accueil">Accueil</a></li>
+    <li><a href="https://blog.postgresql.fr/" title="Lire les actualités">Actualités</a></li>
+    <li><a href="https://docs.postgresql.fr/" title="Lire la documentation officielle">Documentation</a></li>
+    <li><a href="https://forums.postgresql.fr/" title="Pour poser des questions">Forums</a></li>
+    <li><a href="https://www.postgresql.fr/asso/" title="La vie de l'association">Association</a></li>
+    <li><a href="https://www.postgresql.fr/devel:accueil" title="Informations pour les développeurs/traducteurs">Développeurs</a></li>
+    <li><a href="https://planete.postgresql.fr/" title="La planète francophone sur PostgreSQL">Planète</a></li>
+    <li><a href="https://www.postgresql.fr/support/" title="Support sur PostgreSQL">Support</a></li>
+  </ul>
+</div>
+
+<div id="wrapper">
+
+<div id="pgContent">
+
+  <div id="pgSideWrap">
+  <div id="pgSideNav">
+    <div id="blognav">
+      <div id="search"><h2><label for="q">Rechercher</label></h2><form action="http://blog2.postgresql.fr/index.php?" method="get"><fieldset><p><input type="text" size="10" maxlength="255" id="q" name="q" value="" /> <input class="submit" type="submit" value="ok" /></p></fieldset></form></div><div class="categories"><h2>Catégories</h2><ul><li class="category-current"><a href="index199b.html?category/Articles">Articles</a></li><li><a href="indexb4c6.html?category/Dans-les-bacs">Dans les bacs</a></li><li><a href="index025a.html?category/Evenements">Événements</a></li><li><a href="index8c6d.html?category/PostgreSQL-Weekly-News">PostgreSQL Weekly News</a></li><li><a href="index1835.html?category/Securite">Sécurité</a></li><li><a href="index2251.html?category/Vie-de-l-association">Vie de l'association</a></li><li><a href="index91de.html?category/Vie-du-site">Vie du site</a></li></ul></div><div class="text"><h2>Licence</h2>Tous les articles de ce blog sont disponibles sous la <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/">license Creative Commons BY-NC-SA 3.0</a>.</div>    </div> <!-- End #blognav -->
+  
+    <div id="blogextra">
+      <div class="syndicate"><h2>S'abonner</h2><ul><li><a type="application/atom+xml" href="index4ca3.php?feed/atom" title="Fil Atom des billets de ce blog" class="feed">Fil des billets</a></li></ul></div>    </div> <!-- End #blogextra -->
+  </div>
+  </div>
+
+  <div id="pgContentWrap">
+  <div id="pgDownloadsWrap">
+  <div id="content">
+
+  <p id="navlinks">
+  <a href="index6464.html?post/drupal/18"
+  title="== PostgreSQL Weekly News - 12 Juillet 2004 ==" class="prev">&#171; == PostgreSQL Weekly News - 12 Juillet 2004 ==</a>
+   <span>-</span> <a href="index1696.html?post/drupal/372"
+  title="Comment compiler et installer PostgreSQL ?" class="next">Comment compiler et installer PostgreSQL ? &#187;</a>
+  </p>
+  
+  <div class="post">
+    <h2 id="p19" class="post-title">Perte d'une table sous PostgreSQL V.7.3.2... et solution!</h2>
+    
+    <p class="post-info">Par jca    le jeudi 15 juillet 2004, 15:31        - <a href="index199b.html?category/Articles">Articles</a>
+        - <a href="index1b2b.html?post/drupal/19">Lien permanent</a>
+    </p>
+    
+    
+    
+          <div class="post-excerpt"><p></p></div>
+        
+    <div class="post-content"><h3>L'histoire initiale</h3>
+<p>
+Ce matin, en ouvrant ma boite aux lettres, un compte rendu de monitoring m'a alerté qu'une des machines chez un client était surchargée (2.57). Il s'agit d'une base relativement petite mais où l'on fait d'énorme quantité de INSERT, UPDATE et DELETE. Il s'agit d'une base PostgreSQL 7.3.2.</p>
+<p>
+Je me suis immédiatement connecté pour voir de quelle nature était le mal. Ma base avait énormément grossi:
+</p>
+<p>
+<verbatim>
+du -sh /var/lib/pgsql/data/base/<identifiant de="" la="" base="">/*
+</identifiant>
+m'a permi d'avoir l'information sur la taille des objets de la base les plus imposants au niveau table. (La base grossit, pourtant je fais souvent des VACUUM depuis quelques versions de notre logiciel).</verbatim></p>
+<p>
+En lançant un =psql= sur ma base, j'ai lancé les requêtes usuelles sur =pg_class= pour connaitre les tables en question:<br />
+<verbatim>
+mydb# &gt; SELECT relname FROM pg_class WHERE relfilenode IN (liste des nom des fichiers inciminés séparés par une virgule);
+</verbatim>
+</p>
+<p>
+Les vainqueurs à cette course à la taille étaient =pg_attribute_relid_attnam_index= et =pg_attribute=. En faisant une petite recherche sur la doc de postgresql on trouve les pages suivantes:</p>
+<ul>
+<li>http://traduc.postgresqlfr.org/pgsql-fr/catalog-pg-attribute.html pour pg_attribute</li>
+<li>et quelques autres pages traitant du sujet</li>
+</ul>
+<p>
+En fait =pg_attribute= et =pg_attribute_relid_attnam_index= sont respectivement une table système (transversale à toutes les bases de données) et un index sur cette table.</p>
+<p>
+Aprés lecture des divers points sur le sujet, ces tables grossissent si à un moment donné, des vacuum n'ont pas été faits et qu'aucune action correctrice n'a été mise en oeuvre. Il est nécessaire de lancer PostgreSQL en single user et de procéder à une restitution de la place : il faut faire un =VACUUM= sur la table =pg_attribute= et un =REINDEX= de l'index =pg_attribute_relid_attnam_index=. Pour celà il faut:</p>
+<ul>
+<li>Stopper les applis utilisant PostgreSQL</li>
+<li>Stopper Postgresql (le nom du script dépend de votre système et de vous aussi)<br />
+<verbatim>
+# /etc/init.d/pgsql stop
+</verbatim>
+</li>
+<li>Lancer PostgreSQL en mode Single User, en ayant la possibilité de modifier les tables et index système:<br />
+<verbatim>
+# su - postgres
+$ export PGDATA=/path/vers/votre/entrepot/de/données
+$ postgres -D $PGDATA -O -P <votre base="">
+(...)
+backend&gt;
+</votre>
+</verbatim></li>
+</ul>
+<h3>Ce qu'il ne fallait pas faire</h3>
+<p>
+C'est à partir de ce moment qu'on rentre dans ce qu'il ne fallait pas faire (je vous rassure, rien n'est fatal pour vos données). J'ai d'abord lancé une réindexation:<br />
+<verbatim>
+backend&gt; REINDEX DATABASE mydb FORCE;
+</verbatim>
+Ca prend un certain temps. Tous les index de toutes les tables accessibles depuis la base de données sont réindexées (y compris les tables système).</p>
+<p>
+J'ai lancé un =VACUUM= sur la base:<br />
+<verbatim>
+backend&gt; VACUUM FULL ANALYZE mydb ;
+</verbatim>
+Là aussi celà a pris un certain temps. Mais au bout de mes peines, était sensées se trouver performance et taille réduite pour mon serveur.
+Pour sortir du mode single user un =Ctrl-D= suffit.</p>
+<p>
+J'ai relancé mon postmaster :<br />
+<verbatim>
+# /etc/init.d/pgsql start
+</verbatim>
+</p>
+<p>
+Je n'ai eu aucun message particulier dans le log de PostgreSQL. Je lance une ligne de commande sur la base puis une sélection sur une des tables et là, catastrophe :<br />
+<verbatim>
+# psql mydb -U myuser
+Welcome to psql 7.3.2, the PostgreSQL interactive terminal.
+Type:  \copyright for distribution terms
+\h for help with SQL commands
+\? for help on internal slash commands
+\g or terminate with semicolon to execute query
+\q to quit
+mydb=# SELECT * FROM mytable;
+No table "mytable" found
+</verbatim>
+</p>
+<p>
+Je regarde dans la table =pg_class= pour savoir si la table existe toujours ou pas.<br />
+<verbatim>
+SELECT * FROM pg_class WHERE relname='mytable';
+</verbatim>
+ne me renvoie rien alors qu'un<br />
+<verbatim>SELECT * FROM pg_class WHERE relname~'mytable';</verbatim> me retourne bien ma table... </p>
+<p>
+De ce point de vue, il s'averrait que j'avais bien perdu mes données! Au passage, je ne saurais trop vous conseiller de *faire un backup systèmatique lorsque vous faites une opération de maintenance* (voir pg_dump, pour plus d'informations).</p>
+<p>
+J'ai décidé de retourner en mode single-user.
+Un =SELECT * FROM mytable;= me renvoie bien les données! Donc je n'ai rien perdu, mes données sont là, mais inaccessible en mode multi-user! Que s'est-il donc passé?</p>
+<h3>Dénouement</h3>
+<p>
+En fait, aprés avoir stressé le chan #postgresqlfr (merci Jean-Paul d'avoir été à mon écoute sur ce point) et navigué sur les listes de PostgreSQL, il apparaît qu'il soit nécessaire de faire *en premier* le =VACUUM FULL ANALYZE <nom db="">; *puis* =REINDEX DATABASE <nom db=""> FORCE;= en mode single user. Une fois cette opération effectuée et le mode multiuser relancé, les données sont de nouveau accessibles.</nom></nom></p>
+<p>
+Pour plus d'information, je vous recommande la lecture de la documentation de REINDEX et notamment la fin de la page <a href="http://www.postgresql.org/docs/7.3/static/sql-reindex.html">http://www.postgresql.org/docs/7.3/static/sql-reindex.html</a> ou <a href="http://traduc.postgresqlfr.org/pgsql-fr/sql-reindex.html">http://traduc.postgresqlfr.org/pgsql-fr/sql-reindex.html</a>
+</p>
+<p>
+Un point important aussi : je ne pense pas que cela puisse arriver avec PostgreSQL 7.4 et supérieure, les vacuum étant automatiques.</p></div>
+
+      </div>
+
+  
+
+    
+  
+    
+    
+    </div>
+</div> <!-- End #main -->
+
+</div> <!-- End #wrapper -->
+
+<div id="pgFooter">
+  <p>Propulsé par <a href="http://dotclear.org/">Dotclear</a></p>
+</div>
+
+</div> <!-- End #page -->
+</body>
+
+<!-- Mirrored from blog2.postgresql.fr/index.php?post/drupal/19 by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 May 2020 21:40:21 GMT -->
+</html>

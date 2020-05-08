@@ -1,0 +1,178 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr">
+
+<!-- Mirrored from blog2.postgresql.fr/index.php?post/2018/10/26/Nouvelles-hebdomadaires-de-PostgreSQL-21-octobre-2018 by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 May 2020 21:40:19 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="MSSmartTagsPreventParsing" content="TRUE" />
+  <meta name="ROBOTS" content="INDEX, FOLLOW" />
+  
+  <title>Nouvelles hebdomadaires de PostgreSQL - 21 octobre 2018 - PostgreSQLfr.org</title>
+  <meta name="description" lang="fr" content="PostgreSQL 11 est disponible ! https://www.postgresql.org/about/news/1894/ Les nouveautés des produits dérivés sqlite_fdw 1.0.0 : https://github.com/pgspider/sqlite_fdw Offres" />
+  <meta name="copyright" content="" />
+  <meta name="author" content="chl" />
+  <meta name="date" scheme="ISO8601" content="2018-10-26T20:32:00+02:00" />
+  
+  <link rel="schema.dc" href="http://purl.org/dc/elements/1.1/" />
+  <meta name="dc.title" content="Nouvelles hebdomadaires de PostgreSQL - 21 octobre 2018" />
+  <meta name="dc.description" lang="fr" content="PostgreSQL 11 est disponible ! https://www.postgresql.org/about/news/1894/ Les nouveautés des produits dérivés sqlite_fdw 1.0.0 : https://github.com/pgspider/sqlite_fdw Offres" />
+  <meta name="dc.creator" content="chl" />
+  <meta name="dc.language" content="fr" />
+  <meta name="dc.publisher" content="" />
+  <meta name="dc.rights" content="" />
+  <meta name="dc.date" scheme="ISO8601" content="2018-10-26T20:32:00+02:00" />
+  <meta name="dc.type" content="text" />
+  <meta name="dc.format" content="text/html" />
+  
+  <link rel="top" href="indexd41d.html?" title="Accueil" />
+  <link rel="contents" href="index888d.html?archive" title="Archives" />
+  
+  <link rel="next" href="index0f79.html?post/2018/11/08/Nouvelles-hebdomadaires-de-PostgreSQL-28-octobre-2018"
+  title="Nouvelles hebdomadaires de PostgreSQL - 28 octobre 2018" />
+  
+  <link rel="previous" href="index1c4d.html?post/2018/10/18/Nouvelles-hebdomadaires-de-PostgreSQL-14-octobre-2018"
+  title="Nouvelles hebdomadaires de PostgreSQL - 14 octobre 2018" />
+  
+  <link rel="alternate" type="application/atom+xml" title="Atom 1.0" href="index4ca3.php?feed/atom" />
+  
+  <style type="text/css" media="screen">
+@import url(themes/postgresql/style.css);
+</style>
+<style type="text/css" media="print">
+@import url(themes/default/print.css);
+</style>
+
+<script type="text/javascript" src="themes/default/js/jquery.js"></script>
+<script type="text/javascript" src="themes/default/js/jquery.cookie.js"></script>
+
+  
+  <script type="text/javascript" src="themes/default/js/post.js"></script>
+  <script type="text/javascript">
+  //<![CDATA[
+  var post_remember_str = 'Se souvenir de moi sur ce blog';
+  //]]>
+  </script>
+</head>
+
+<body class="dc-post">
+<div id="page">
+
+
+<div id="top">
+  <div id="pgHeader">
+    <span id="pgHeaderLogoLeft">
+      <a href="index.html" title="PostgreSQL"><img src="https://blog.postgresql.fr/themes/postgresql/img/hdr_left.png" width="230" height="80" alt="PostgreSQL" /></a>
+    </span>
+    <span id="pgHeaderLogoRight">
+      <a href="index.html" title="La base de donnees la plus sophistiquee au monde."><img src="https://blog.postgresql.fr/themes/postgresql/img/hdr_right.png" width="210" height="80" alt="La base de donnees la plus sophistiquee au monde." /></a>
+    </span>
+  </div>
+
+  </div>
+
+<div class="pgTopNav">
+  <div class="pgTopNavLeft"> 
+    <img src="https://blog.postgresql.fr/themes/postgresql/img/nav_lft.png" width="7" height="23" alt="" />
+  </div>
+  <div class="pgTopNavRight">
+    <img src="https://blog.postgresql.fr/themes/postgresql/img/nav_rgt.png" width="7" height="23" alt="" />
+  </div>
+  <ul class="pgTopNavList">
+    <li><a href="https://www.postgresql.fr/" title="Accueil">Accueil</a></li>
+    <li><a href="https://blog.postgresql.fr/" title="Lire les actualités">Actualités</a></li>
+    <li><a href="https://docs.postgresql.fr/" title="Lire la documentation officielle">Documentation</a></li>
+    <li><a href="https://forums.postgresql.fr/" title="Pour poser des questions">Forums</a></li>
+    <li><a href="https://www.postgresql.fr/asso/" title="La vie de l'association">Association</a></li>
+    <li><a href="https://www.postgresql.fr/devel:accueil" title="Informations pour les développeurs/traducteurs">Développeurs</a></li>
+    <li><a href="https://planete.postgresql.fr/" title="La planète francophone sur PostgreSQL">Planète</a></li>
+    <li><a href="https://www.postgresql.fr/support/" title="Support sur PostgreSQL">Support</a></li>
+  </ul>
+</div>
+
+<div id="wrapper">
+
+<div id="pgContent">
+
+  <div id="pgSideWrap">
+  <div id="pgSideNav">
+    <div id="blognav">
+      <div id="search"><h2><label for="q">Rechercher</label></h2><form action="http://blog2.postgresql.fr/index.php?" method="get"><fieldset><p><input type="text" size="10" maxlength="255" id="q" name="q" value="" /> <input class="submit" type="submit" value="ok" /></p></fieldset></form></div><div class="categories"><h2>Catégories</h2><ul><li><a href="index199b.html?category/Articles">Articles</a></li><li><a href="indexb4c6.html?category/Dans-les-bacs">Dans les bacs</a></li><li><a href="index025a.html?category/Evenements">Événements</a></li><li class="category-current"><a href="index8c6d.html?category/PostgreSQL-Weekly-News">PostgreSQL Weekly News</a></li><li><a href="index1835.html?category/Securite">Sécurité</a></li><li><a href="index2251.html?category/Vie-de-l-association">Vie de l'association</a></li><li><a href="index91de.html?category/Vie-du-site">Vie du site</a></li></ul></div><div class="text"><h2>Licence</h2>Tous les articles de ce blog sont disponibles sous la <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/">license Creative Commons BY-NC-SA 3.0</a>.</div>    </div> <!-- End #blognav -->
+  
+    <div id="blogextra">
+      <div class="syndicate"><h2>S'abonner</h2><ul><li><a type="application/atom+xml" href="index4ca3.php?feed/atom" title="Fil Atom des billets de ce blog" class="feed">Fil des billets</a></li></ul></div>    </div> <!-- End #blogextra -->
+  </div>
+  </div>
+
+  <div id="pgContentWrap">
+  <div id="pgDownloadsWrap">
+  <div id="content">
+
+  <p id="navlinks">
+  <a href="index1c4d.html?post/2018/10/18/Nouvelles-hebdomadaires-de-PostgreSQL-14-octobre-2018"
+  title="Nouvelles hebdomadaires de PostgreSQL - 14 octobre 2018" class="prev">&#171; Nouvelles hebdomadaires de PostgreSQL - 14 octobre</a>
+   <span>-</span> <a href="index0f79.html?post/2018/11/08/Nouvelles-hebdomadaires-de-PostgreSQL-28-octobre-2018"
+  title="Nouvelles hebdomadaires de PostgreSQL - 28 octobre 2018" class="next">Nouvelles hebdomadaires de PostgreSQL - 28 octobre &#187;</a>
+  </p>
+  
+  <div class="post">
+    <h2 id="p1020" class="post-title">Nouvelles hebdomadaires de PostgreSQL - 21 octobre 2018</h2>
+    
+    <p class="post-info">Par chl    le vendredi 26 octobre 2018, 20:32        - <a href="index8c6d.html?category/PostgreSQL-Weekly-News">PostgreSQL Weekly News</a>
+        - <a href="index41e4.html?post/2018/10/26/Nouvelles-hebdomadaires-de-PostgreSQL-21-octobre-2018">Lien permanent</a>
+    </p>
+    
+    
+    
+          <div class="post-excerpt"><p>PostgreSQL 11 est disponible&nbsp;! <a target="_blank" href="https://www.postgresql.org/about/news/1894/">https://www.postgresql.org/about/news/1894/</a></p>
+<h2>Les nouveaut&eacute;s des produits d&eacute;riv&eacute;s</h2>
+<ul>
+<li>sqlite_fdw 1.0.0&nbsp;: <a target="_blank" href="https://github.com/pgspider/sqlite_fdw">https://github.com/pgspider/sqlite_fdw</a></li>
+</ul></div>
+        
+    <div class="post-content"><h2>Offres d'emplois autour de PostgreSQL en octobre</h2>
+<ul>
+<li>Internationales : <a target="_blank" href="http://archives.postgresql.org/pgsql-jobs/2018-10/">http://archives.postgresql.org/pgsql-jobs/2018-10/</a></li>
+<li>Francophones : <a target="_blank" href="http://forums.postgresql.fr/viewforum.php?id=4">http://forums.postgresql.fr/viewforum.php?id=4</a></li>
+</ul>
+<h2>PostgreSQL Local</h2>
+<ul>
+<li>La <em>PostgreSQL Conference Europe 2018</em> aura lieu du 23 au 26 octobre 2018 au Lisbon Marriott Hotel, &agrave; Lisbonne (Portugal)&nbsp;: <a target="_blank" href="https://2018.pgconf.eu/">https://2018.pgconf.eu/</a></li>
+<li>Le <em>pgday.Seoul 2018</em> aura lieu &agrave; S&eacute;oul (Cor&eacute;e du Sud) le 3 novembre 2018. Plus d'informations en langue cor&eacute;enne&nbsp;: <a target="_blank" href="http://pgday.postgresql.kr/">http://pgday.postgresql.kr/</a></li>
+<li>2Q PGConf aura lieu les 4 et 5 d&eacute;cembre 2018 &agrave; Chicago, Illinois, &Eacute;tats-Unis&nbsp;: <a target="_blank" href="http://www.2qpgconf.com/">http://www.2qpgconf.com/</a></li>
+<li>PGConf.ASIA 2018 aura lieu &agrave; Akihabara (Tokyo, Japon) du 10 au 12 d&eacute;cembre 2017. <a target="_blank" href="http://www.pgconf.asia/EN/2018/">http://www.pgconf.asia/EN/2018/</a></li>
+<li>Le <em>pgDay Paris 2019</em> se tiendra &agrave; Paris le 12 mars au 199bis rue Saint Martin. L'appel &agrave; conf&eacute;renciers court jusqu'au 30 novembre 2018&nbsp;: <a target="_blank" href="http://2019.pgday.paris/callforpapers/">http://2019.pgday.paris/callforpapers/</a></li>
+<li>La <em>PGConf APAC 2019</em> se tiendra &agrave; Singapour du 19 au 21 mars 2019. L'appel &agrave; conf&eacute;renciers est lanc&eacute; via <a target="_blank" href="http://2019.pgconfapac.org/cfp">http://2019.pgconfapac.org/cfp</a> jusqu'au 16 novembre 2018&nbsp;: <a target="_blank" href="http://2019.pgconfapac.org/">http://2019.pgconfapac.org/</a></li>
+<li>Le <em>PGDay.IT 2019</em> aura lieu les 16 et 17 mai &agrave; Bologne en Italie. L'appel &agrave; conf&eacute;renciers est g&eacute;r&eacute; par ici&nbsp;: <a target="_blank" href="https://2019.pgday.it/en/blog/cfp">https://2019.pgday.it/en/blog/cfp</a> tandis que l'appel &agrave; ateliers se fait par l&agrave;&nbsp;: <a target="_blank" href="https://2019.pgday.it/en/blog/cfw">https://2019.pgday.it/en/blog/cfw</a> avec comme date limite commune le 15 janvier 2019&nbsp;: <a target="_blank" href="https://2019.pgday.it/en/">https://2019.pgday.it/en/</a></li>
+</ul>
+<h2>PostgreSQL dans les m&eacute;dia</h2>
+<ul>
+<li>Planet PostgreSQL : <a target="_blank" href="http://planet.postgresql.org/">http://planet.postgresql.org/</a></li>
+<li>Planet PostgreSQLFr : <a target="_blank" href="http://planete.postgresql.fr/">http://planete.postgresql.fr/</a></li>
+</ul>
+<p>PostgreSQL Weekly News / les nouvelles hebdomadaires vous sont offertes cette semaine par David Fetter. Traduction par l'&eacute;quipe PostgreSQLFr sous licence CC BY-NC-SA. La version originale se trouve &agrave; l'adresse suivante : <a target="_blank" href="http://www.postgresql.org/message-id/20181021204242.GA32543@fetter.org">http://www.postgresql.org/message-id/20181021204242.GA32543@fetter.org</a></p>
+<p>Proposez vos articles ou annonces avant dimanche 15:00 (heure du Pacifique) &agrave; david (a) fetter.org.</p></div>
+
+      </div>
+
+  
+
+    
+  
+    
+    
+    </div>
+</div> <!-- End #main -->
+
+</div> <!-- End #wrapper -->
+
+<div id="pgFooter">
+  <p>Propulsé par <a href="http://dotclear.org/">Dotclear</a></p>
+</div>
+
+</div> <!-- End #page -->
+</body>
+
+<!-- Mirrored from blog2.postgresql.fr/index.php?post/2018/10/26/Nouvelles-hebdomadaires-de-PostgreSQL-21-octobre-2018 by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 May 2020 21:40:19 GMT -->
+</html>

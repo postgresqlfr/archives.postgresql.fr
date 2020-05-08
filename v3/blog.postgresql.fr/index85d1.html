@@ -1,0 +1,184 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr">
+
+<!-- Mirrored from blog2.postgresql.fr/index.php?post/drupal/10 by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 May 2020 21:40:21 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="MSSmartTagsPreventParsing" content="TRUE" />
+  <meta name="ROBOTS" content="INDEX, FOLLOW" />
+  
+  <title>Nouvelles du front côté développement de PostgreSQL : le meilleur est à venir! - PostgreSQLfr.org</title>
+  <meta name="description" lang="fr" content="Dans un récent mail envoyé sur la liste des hackers de PostgreSQL, Bruce MOMJIAN (co-responsable du projet...) fait un petit point sur les développements actuels de PostgreSQL et" />
+  <meta name="copyright" content="" />
+  <meta name="author" content="Jean-Paul Argudo" />
+  <meta name="date" scheme="ISO8601" content="2004-04-29T14:02:00+00:00" />
+  
+  <link rel="schema.dc" href="http://purl.org/dc/elements/1.1/" />
+  <meta name="dc.title" content="Nouvelles du front côté développement de PostgreSQL : le meilleur est à venir!" />
+  <meta name="dc.description" lang="fr" content="Dans un récent mail envoyé sur la liste des hackers de PostgreSQL, Bruce MOMJIAN (co-responsable du projet...) fait un petit point sur les développements actuels de PostgreSQL et" />
+  <meta name="dc.creator" content="Jean-Paul Argudo" />
+  <meta name="dc.language" content="fr" />
+  <meta name="dc.publisher" content="" />
+  <meta name="dc.rights" content="" />
+  <meta name="dc.date" scheme="ISO8601" content="2004-04-29T14:02:00+00:00" />
+  <meta name="dc.type" content="text" />
+  <meta name="dc.format" content="text/html" />
+  
+  <link rel="top" href="indexd41d.html?" title="Accueil" />
+  <link rel="contents" href="index888d.html?archive" title="Archives" />
+  
+  <link rel="next" href="index5906.html?post/drupal/363"
+  title="PostgreSQL Weekly News - 3 mai 2004" />
+  
+  <link rel="previous" href="indexe2d9.html?post/drupal/362"
+  title="PostgreSQL Weekly News - 26 avril 2004" />
+  
+  <link rel="alternate" type="application/atom+xml" title="Atom 1.0" href="index4ca3.php?feed/atom" />
+  
+  <style type="text/css" media="screen">
+@import url(themes/postgresql/style.css);
+</style>
+<style type="text/css" media="print">
+@import url(themes/default/print.css);
+</style>
+
+<script type="text/javascript" src="themes/default/js/jquery.js"></script>
+<script type="text/javascript" src="themes/default/js/jquery.cookie.js"></script>
+
+  
+  <script type="text/javascript" src="themes/default/js/post.js"></script>
+  <script type="text/javascript">
+  //<![CDATA[
+  var post_remember_str = 'Se souvenir de moi sur ce blog';
+  //]]>
+  </script>
+</head>
+
+<body class="dc-post">
+<div id="page">
+
+
+<div id="top">
+  <div id="pgHeader">
+    <span id="pgHeaderLogoLeft">
+      <a href="index.html" title="PostgreSQL"><img src="https://blog.postgresql.fr/themes/postgresql/img/hdr_left.png" width="230" height="80" alt="PostgreSQL" /></a>
+    </span>
+    <span id="pgHeaderLogoRight">
+      <a href="index.html" title="La base de donnees la plus sophistiquee au monde."><img src="https://blog.postgresql.fr/themes/postgresql/img/hdr_right.png" width="210" height="80" alt="La base de donnees la plus sophistiquee au monde." /></a>
+    </span>
+  </div>
+
+  </div>
+
+<div class="pgTopNav">
+  <div class="pgTopNavLeft"> 
+    <img src="https://blog.postgresql.fr/themes/postgresql/img/nav_lft.png" width="7" height="23" alt="" />
+  </div>
+  <div class="pgTopNavRight">
+    <img src="https://blog.postgresql.fr/themes/postgresql/img/nav_rgt.png" width="7" height="23" alt="" />
+  </div>
+  <ul class="pgTopNavList">
+    <li><a href="https://www.postgresql.fr/" title="Accueil">Accueil</a></li>
+    <li><a href="https://blog.postgresql.fr/" title="Lire les actualités">Actualités</a></li>
+    <li><a href="https://docs.postgresql.fr/" title="Lire la documentation officielle">Documentation</a></li>
+    <li><a href="https://forums.postgresql.fr/" title="Pour poser des questions">Forums</a></li>
+    <li><a href="https://www.postgresql.fr/asso/" title="La vie de l'association">Association</a></li>
+    <li><a href="https://www.postgresql.fr/devel:accueil" title="Informations pour les développeurs/traducteurs">Développeurs</a></li>
+    <li><a href="https://planete.postgresql.fr/" title="La planète francophone sur PostgreSQL">Planète</a></li>
+    <li><a href="https://www.postgresql.fr/support/" title="Support sur PostgreSQL">Support</a></li>
+  </ul>
+</div>
+
+<div id="wrapper">
+
+<div id="pgContent">
+
+  <div id="pgSideWrap">
+  <div id="pgSideNav">
+    <div id="blognav">
+      <div id="search"><h2><label for="q">Rechercher</label></h2><form action="http://blog2.postgresql.fr/index.php?" method="get"><fieldset><p><input type="text" size="10" maxlength="255" id="q" name="q" value="" /> <input class="submit" type="submit" value="ok" /></p></fieldset></form></div><div class="categories"><h2>Catégories</h2><ul><li class="category-current"><a href="index199b.html?category/Articles">Articles</a></li><li><a href="indexb4c6.html?category/Dans-les-bacs">Dans les bacs</a></li><li><a href="index025a.html?category/Evenements">Événements</a></li><li><a href="index8c6d.html?category/PostgreSQL-Weekly-News">PostgreSQL Weekly News</a></li><li><a href="index1835.html?category/Securite">Sécurité</a></li><li><a href="index2251.html?category/Vie-de-l-association">Vie de l'association</a></li><li><a href="index91de.html?category/Vie-du-site">Vie du site</a></li></ul></div><div class="text"><h2>Licence</h2>Tous les articles de ce blog sont disponibles sous la <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/">license Creative Commons BY-NC-SA 3.0</a>.</div>    </div> <!-- End #blognav -->
+  
+    <div id="blogextra">
+      <div class="syndicate"><h2>S'abonner</h2><ul><li><a type="application/atom+xml" href="index4ca3.php?feed/atom" title="Fil Atom des billets de ce blog" class="feed">Fil des billets</a></li></ul></div>    </div> <!-- End #blogextra -->
+  </div>
+  </div>
+
+  <div id="pgContentWrap">
+  <div id="pgDownloadsWrap">
+  <div id="content">
+
+  <p id="navlinks">
+  <a href="indexe2d9.html?post/drupal/362"
+  title="PostgreSQL Weekly News - 26 avril 2004" class="prev">&#171; PostgreSQL Weekly News - 26 avril 2004</a>
+   <span>-</span> <a href="index5906.html?post/drupal/363"
+  title="PostgreSQL Weekly News - 3 mai 2004" class="next">PostgreSQL Weekly News - 3 mai 2004 &#187;</a>
+  </p>
+  
+  <div class="post">
+    <h2 id="p10" class="post-title">Nouvelles du front côté développement de PostgreSQL : le meilleur est à venir!</h2>
+    
+    <p class="post-info">Par Jean-Paul Argudo    le jeudi 29 avril 2004, 14:02        - <a href="index199b.html?category/Articles">Articles</a>
+        - <a href="index85d1.html?post/drupal/10">Lien permanent</a>
+    </p>
+    
+    
+    
+          <div class="post-excerpt"><p></p></div>
+        
+    <div class="post-content">Dans un récent mail envoyé sur la liste des hackers de PostgreSQL,
+Bruce MOMJIAN (co-responsable du projet...) fait un petit point sur les développements actuels de PostgreSQL et sur ce qui devrait être livré pour la toute prochaine version, la v.7.5:
+(me suis permis de traduire approximativement le courriel, j'ai indicé la liste pour pouvoir commenter en rappel):
+«
+Here are features that are being worked on, hopefully for 7.5:
+voici les fonctionnalités sur lesquelles nous travaillons actuellement et qui devraient être livrées pour la version 7.5 :
+1) tablespaces (Gavin)
+2) nested transactions (Alvaro)
+3) two-phase commit (Heikki Linnakangas)
+4) integrated pg_autovacuum (O'Connor)
+5) PITR (Riggs)
+6) Win32 (Claudio, Magnus)
+Si nous avons la majorité de ces dévellopements livrés pour la 7.5, ce sera une grande version! »
+1) les tablespaces, si vous connaissez un peu Oracle, c'est la même notion, il s'agirait de regrouper des schémas dans des entités logiques, appellés tablespaces. Cela permettrait par exemple de déplacer ces tablespaces d'une base à une autre
+2) transactions imbriquées: imaginez deux transactions SQL imbriquées, celle qui est fille de la première peut être ROLLBACKée sans pour autant annuler la principale, qui elle peut être COMMITée, exemple:
+BEGIN
+...ordres SQL...
+BEGIN
+...ordres SQL...
+ROLLBACK
+...ordres SQL...
+COMMIT
+=&gt; le ROLLBACK au milieu n'annule que les ordres SQL entre le begin le plus proche et lui-même..
+3) le two-phase commit: rentrer dans les détails serait un peu complexe. Ce qu'il faut retenir, c'est que c'est l'étape cruciale vers le cluster Oracle, c'est à dire, une solution de réplication temps réel, multi-maîtres, multi-esclaves... La réplication synchrone temps réel semble manquer cruellement pour certains projets où la réplication assynchrone maitre=&gt;esclaves n'est pas suffisante (cette solution existe déjà, le saviez-vous?)
+4) pg_autovacuum : son intégration à PG est imminente. C'est à dire, que vous n'aurez plus à vous soucier des vacuum, PG le fera pour vous quand il jugera cela nécessaire... Bref, la principale cause de dysfonctionnements de PG ( =&gt; pour ceux qui "oublient" de faire des vacuums! ) sera ainsi balayée...
+5) Point In Time Recovery : Pouvoir Restaurer à un Temps Donné dans le Passé (je traduis comme je peux...)
+Cela vous permettra par exemple de placer votre base de données (ou uniquement votre session!) à un temps précis dans le passé:
+Par exemple, votre collègue a bu un pastis de trop, il a fait un DROP TABLE malheureux à 11h30 et il est 12h40!!!... Au lieu de tout restaurer, vous pouvez placer votre session à 11h29, sauvegarder la table droppée par la suite, vous replacer à 12h40 et re-injecter la table...
+Cette fonctionnalité n'est pas si vieille du côté des SGBDR commerciaux, cherchez bien... vous verez ;-)
+6) WIN32 PORT: Portage de PostgreSQL dans un environnement Windows *NATIF* c'est à dire, fini l'utilisation de CygWin sous Windows... PG utilisera les DLL nativement de Windows, comme le ferait d'autres applications Windows...
+Je pense que cela permettra des « annule et remplace » de SGBDR commerciaux sous Windows... Bref, cela permettra des « migrations douces » aux Logiciels Libres!
+Petite précision (parceque j'ai eu un mail là dessus): Non, PG ne changera pas sa licence. Ça restera un logiciel libre, même sous Windows. Mêmes conditions d'utilisations sous Windows ou OS Libres. Tout pareil. D'autres projets libres ont la même politique: Mozilla par exemple (quoi? Vous êtes toujours sous Internet Explorer?????? Courrez FONCEZ télécharger Mozilla : <a href="http://www.mozilla.org/">Mozilla.org</a> ou, bien mieux, le meme en Français: <a href="http://frenchmozilla.sourceforge.net/">Le site FrenchMozilla sur Sourceforge</a>!</div>
+
+      </div>
+
+  
+
+    
+  
+    
+    
+    </div>
+</div> <!-- End #main -->
+
+</div> <!-- End #wrapper -->
+
+<div id="pgFooter">
+  <p>Propulsé par <a href="http://dotclear.org/">Dotclear</a></p>
+</div>
+
+</div> <!-- End #page -->
+</body>
+
+<!-- Mirrored from blog2.postgresql.fr/index.php?post/drupal/10 by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 May 2020 21:40:21 GMT -->
+</html>

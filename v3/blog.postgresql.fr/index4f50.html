@@ -1,0 +1,201 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr">
+
+<!-- Mirrored from blog2.postgresql.fr/index.php?post/drupal/86 by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 May 2020 21:40:20 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="MSSmartTagsPreventParsing" content="TRUE" />
+  <meta name="ROBOTS" content="INDEX, FOLLOW" />
+  
+  <title>Nouvelles hebdomadaires de PostgreSQL - 19 mars 2005 - PostgreSQLfr.org</title>
+  <meta name="description" lang="fr" content="Le 19 mars 2005, David Fetter écrivait :== PostgreSQL Weekly News - March 19 2005 ==Mark Rae a effectué des tests de montée en charge SMP pour PostgreSQL et estime que le CVS" />
+  <meta name="copyright" content="" />
+  <meta name="author" content="SAS" />
+  <meta name="date" scheme="ISO8601" content="2005-03-21T13:58:00+00:00" />
+  
+  <link rel="schema.dc" href="http://purl.org/dc/elements/1.1/" />
+  <meta name="dc.title" content="Nouvelles hebdomadaires de PostgreSQL - 19 mars 2005" />
+  <meta name="dc.description" lang="fr" content="Le 19 mars 2005, David Fetter écrivait :== PostgreSQL Weekly News - March 19 2005 ==Mark Rae a effectué des tests de montée en charge SMP pour PostgreSQL et estime que le CVS" />
+  <meta name="dc.creator" content="SAS" />
+  <meta name="dc.language" content="fr" />
+  <meta name="dc.publisher" content="" />
+  <meta name="dc.rights" content="" />
+  <meta name="dc.date" scheme="ISO8601" content="2005-03-21T13:58:00+00:00" />
+  <meta name="dc.type" content="text" />
+  <meta name="dc.format" content="text/html" />
+  
+  <link rel="top" href="indexd41d.html?" title="Accueil" />
+  <link rel="contents" href="index888d.html?archive" title="Archives" />
+  
+  <link rel="next" href="index69a1.html?post/drupal/87"
+  title="Nouvelles hebdomadaires de PostgreSQL - 28 mars 2005" />
+  
+  <link rel="previous" href="index0721.html?post/drupal/85"
+  title="PostGIS et Jean David Techer, 01MAP à Montpellier" />
+  
+  <link rel="alternate" type="application/atom+xml" title="Atom 1.0" href="index4ca3.php?feed/atom" />
+  
+  <style type="text/css" media="screen">
+@import url(themes/postgresql/style.css);
+</style>
+<style type="text/css" media="print">
+@import url(themes/default/print.css);
+</style>
+
+<script type="text/javascript" src="themes/default/js/jquery.js"></script>
+<script type="text/javascript" src="themes/default/js/jquery.cookie.js"></script>
+
+  
+  <script type="text/javascript" src="themes/default/js/post.js"></script>
+  <script type="text/javascript">
+  //<![CDATA[
+  var post_remember_str = 'Se souvenir de moi sur ce blog';
+  //]]>
+  </script>
+</head>
+
+<body class="dc-post">
+<div id="page">
+
+
+<div id="top">
+  <div id="pgHeader">
+    <span id="pgHeaderLogoLeft">
+      <a href="index.html" title="PostgreSQL"><img src="https://blog.postgresql.fr/themes/postgresql/img/hdr_left.png" width="230" height="80" alt="PostgreSQL" /></a>
+    </span>
+    <span id="pgHeaderLogoRight">
+      <a href="index.html" title="La base de donnees la plus sophistiquee au monde."><img src="https://blog.postgresql.fr/themes/postgresql/img/hdr_right.png" width="210" height="80" alt="La base de donnees la plus sophistiquee au monde." /></a>
+    </span>
+  </div>
+
+  </div>
+
+<div class="pgTopNav">
+  <div class="pgTopNavLeft"> 
+    <img src="https://blog.postgresql.fr/themes/postgresql/img/nav_lft.png" width="7" height="23" alt="" />
+  </div>
+  <div class="pgTopNavRight">
+    <img src="https://blog.postgresql.fr/themes/postgresql/img/nav_rgt.png" width="7" height="23" alt="" />
+  </div>
+  <ul class="pgTopNavList">
+    <li><a href="https://www.postgresql.fr/" title="Accueil">Accueil</a></li>
+    <li><a href="https://blog.postgresql.fr/" title="Lire les actualités">Actualités</a></li>
+    <li><a href="https://docs.postgresql.fr/" title="Lire la documentation officielle">Documentation</a></li>
+    <li><a href="https://forums.postgresql.fr/" title="Pour poser des questions">Forums</a></li>
+    <li><a href="https://www.postgresql.fr/asso/" title="La vie de l'association">Association</a></li>
+    <li><a href="https://www.postgresql.fr/devel:accueil" title="Informations pour les développeurs/traducteurs">Développeurs</a></li>
+    <li><a href="https://planete.postgresql.fr/" title="La planète francophone sur PostgreSQL">Planète</a></li>
+    <li><a href="https://www.postgresql.fr/support/" title="Support sur PostgreSQL">Support</a></li>
+  </ul>
+</div>
+
+<div id="wrapper">
+
+<div id="pgContent">
+
+  <div id="pgSideWrap">
+  <div id="pgSideNav">
+    <div id="blognav">
+      <div id="search"><h2><label for="q">Rechercher</label></h2><form action="http://blog2.postgresql.fr/index.php?" method="get"><fieldset><p><input type="text" size="10" maxlength="255" id="q" name="q" value="" /> <input class="submit" type="submit" value="ok" /></p></fieldset></form></div><div class="categories"><h2>Catégories</h2><ul><li><a href="index199b.html?category/Articles">Articles</a></li><li><a href="indexb4c6.html?category/Dans-les-bacs">Dans les bacs</a></li><li><a href="index025a.html?category/Evenements">Événements</a></li><li class="category-current"><a href="index8c6d.html?category/PostgreSQL-Weekly-News">PostgreSQL Weekly News</a></li><li><a href="index1835.html?category/Securite">Sécurité</a></li><li><a href="index2251.html?category/Vie-de-l-association">Vie de l'association</a></li><li><a href="index91de.html?category/Vie-du-site">Vie du site</a></li></ul></div><div class="text"><h2>Licence</h2>Tous les articles de ce blog sont disponibles sous la <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/">license Creative Commons BY-NC-SA 3.0</a>.</div>    </div> <!-- End #blognav -->
+  
+    <div id="blogextra">
+      <div class="syndicate"><h2>S'abonner</h2><ul><li><a type="application/atom+xml" href="index4ca3.php?feed/atom" title="Fil Atom des billets de ce blog" class="feed">Fil des billets</a></li></ul></div>    </div> <!-- End #blogextra -->
+  </div>
+  </div>
+
+  <div id="pgContentWrap">
+  <div id="pgDownloadsWrap">
+  <div id="content">
+
+  <p id="navlinks">
+  <a href="index0721.html?post/drupal/85"
+  title="PostGIS et Jean David Techer, 01MAP à Montpellier" class="prev">&#171; PostGIS et Jean David Techer, 01MAP à Montpellier</a>
+   <span>-</span> <a href="index69a1.html?post/drupal/87"
+  title="Nouvelles hebdomadaires de PostgreSQL - 28 mars 2005" class="next">Nouvelles hebdomadaires de PostgreSQL - 28 mars &#187;</a>
+  </p>
+  
+  <div class="post">
+    <h2 id="p86" class="post-title">Nouvelles hebdomadaires de PostgreSQL - 19 mars 2005</h2>
+    
+    <p class="post-info">Par SAS    le lundi 21 mars 2005, 13:58        - <a href="index8c6d.html?category/PostgreSQL-Weekly-News">PostgreSQL Weekly News</a>
+        - <a href="index4f50.html?post/drupal/86">Lien permanent</a>
+    </p>
+    
+    
+    
+          <div class="post-excerpt"><p></p></div>
+        
+    <div class="post-content">Le 19 mars 2005, David Fetter écrivait&nbsp;:<br /><br /><strong>== PostgreSQL Weekly News - March 19 2005 ==</strong><br /><br />Mark Rae a effectué des tests de montée en charge <acronym title="Symetric Multi Processing">SMP</acronym> pour PostgreSQL et estime que le <tt>CVS</tt> contient une amélioration de la version 8.0.1.
+Les détails sont contenus dans ce <em>thread</em> :
+<a href="http://archives.postgresql.org/pgsql-general/2005-03/msg00837.php">http://archives.postgresql.org/pgsql-general/2005-03/msg00837.php</a>
+Christopher Kings-Lynne a développé un ensemble de nouvelles fonctions d'accès <tt>PHP</tt> pour PostgreSQL de manière à supporter notre protocole v3, ce qui devrait améliorer les performances de PostgreSQL-PHP. Il y avait une petite pierre d'achoppement légale avec l'obligation de réécrire certaines parties de la licence de la documentation PostgreSQL pour les conformer à celle de <tt>PHP</tt>, mais c'est maintenant résolu.
+Satoshi Nagayasu est volontaire pour travailler sur la partie «&nbsp;Read-Only Database&nbsp;» de la TODO liste.
+Il y a eu un développement sur la façon d'invalider les plans de requêtes cachés qui ont dépassé leur utilité. Le résultat de ce développement est la proposition de Neil Conway de travailler sur une révision du planificateur de requête qui stockerait son plan d'une manière interférant moins sur notre cache de plans&nbsp;; quoiqu'il en soit l'architecture exacte de tout cela n'est pas encore définie.
+Magnus Hagander a écrit un ajout au site web pour stocker en base la liste des PostgreSQL Consultants (<a href="http://techdocs.postgresql.org/companies.php"> http://techdocs.postgresql.org/companies.php</a>) et l'intégrer au site principal.
+Cela devrait être disponible dans quelques semaines. Si votre compagnie effectue du conseil autour de PostgreSQL, envoyez un mail à <a href="mailto:josh@postgresql.org"> josh at postgresql dot org</a> pour toute mise-à-jour de vos informations sur la page de références.
+Le développement d'un driver <acronym title="Object Link Embedding - DataBase">OLE-DB</acronym> pour PostgreSQL disposant de toutes les fonctionnalités avance à grands pas, grâce à Shachar Shemesh.
+Merlin Moncure à proposé un <em>patch</em> pour masquer dans la table <tt>pg_proc</tt> le code source des fonctions aux utilisateurs dépourvus de privilèges. Tom Lane s'est opposé à ce <em>patch</em> (<em>patch</em> rejeté, en fait) parce qu'il estime la solution incomplète. L'idée est repartie sur les planches à dessin pour une meilleure mise en œuvre.
+Tom Lane a découvert que le <em>patch</em> à <tt>pg_was</tt> qu'il a ajouté à la version 8.0 pour détecter les situation de verrous de fichier morts au démarrage était insuffisant. Ce <em>patch</em> est en cours de réécriture.
+Michael Fuhr a découvert la remarque occulte suivante dans notre code source&nbsp;:
+<pre>    From src/backend/tcop/postgres.c:<br />     /* they only drink coffee at dec */</pre>
+Si vous savez ce que ce commentaire signifie, merci d'envoyer un mail à <a href="mailto:david@fetter.org">david at fetter dot org</a>. Nous publierons vos explications la semaine prochaine.
+Tom Lane a proposé une implémentation d'une fonctionnalité de «&nbsp;Local Buffers&nbsp;» pour permettre l'allocation de <em>buffers</em> par utilisateur pour contenir spécifiquement les tables temporaires.
+La liste de diffusion <tt>pgsql-performance</tt> a été l'objet d'une importante discussion sur le modèle des paramètres du planificateur de requêtes, la façon de lire un plan de requête, et l'estimation des coûts corrélés pour les index multi-colonnes.
+<acronym title="Weekly Windows Port Issue">WWPI</acronym> (NDT&nbsp;: Publication Hebdomadaire du Portage vers Windows)&nbsp;:
+Andrew Dunstan a signalé que <tt>contrib/pg_buffercache</tt> est apparemment cassé sous Windows. Un <em>patch</em> a été posté à cet effet, mais n'a toujours pas été testé/ajouté.
+Adrian Nida a écrit un document sur l'authentification <acronym title="Pluggable Authentication Modules">PAM</acronym> pour PostgreSQL.
+<a href="http://itc.musc.edu/wiki/PostgreSQL">http://itc.musc.edu/wiki/PostgreSQL</a>
+<br /><br /><strong>== PostgreSQL Product News ==</strong><br /><br />Bricolage 1.8.5 est sorti.
+<a href="http://www.bricolage.cc/news/announce/changes/bricolage-1.8.5/"> http://www.bricolage.cc/news/announce/changes/bricolage-1.8.5/</a>
+pgExpress Driver v3.0 realisé.
+<a href="http://www.vitavoom.com/Products/pgExpress_Driver/index.html">http://www.vitavoom.com/Products/pgExpress_Driver/index.html
+</a>
+Le PostgreSQL RPM Building Project a annoncé de nouveaux RPMS pour de nombreuses plateformes. On trouve ainsi les RPMs SuSE sur les sites FTP de PostgreSQL et leurs mirroirs.
+<a href="http://pgblog.gunduz.org/index.php?entry=entry050311-105840">http://pgblog.gunduz.org/index.php?entry=entry050311-105840
+</a>
+DataKiosk 0.6 réalisé.  DataKiosk est une interface JuK-like pour les bases de données SQL génériques.
+<a href="http://www.issociate.de/board/post/188936/dataKiosk_0.6_released.html">http://www.issociate.de/board/post/188936/dataKiosk_0.6_released.html
+</a>
+EMS PostgreSQL Data Pump, DB Comparer et Extract réalisés.
+<a href="http://www.postgresql.org/about/news.296">http://www.postgresql.org/about/news.296
+</a>
+Oryx Mailstore 0.92 est un serveur d'archivage de courriels qui utilise PostgreSQL.
+Voir <a href="http://www.oryx.com/mailstore/0.92.html">http://www.oryx.com/mailstore/0.92.html</a>
+et
+<a href="http://www.oryx.com/mailstore/overview.html">.../overview.html</a>
+Microolap Technologies Ltd est fier d'annoncer la disponibilité de la version 2.0 de "PostgresDAC", composants Delphi et C++ Builder pour l'accès direct à PostgreSQL.
+<a href="http://www.postgresql.org/about/news.295">http://www.postgresql.org/about/news.295</a>
+Big Nerd Ranch propose une formation à PostgreSQL pendant la semaine du 18 au 22 avril. Leur formation exhaustive à PostgreSQL se tient dans un camp près d'Atlanta, GA.
+<a href="http://www.bignerdranch.com/classes/postgresql.shtml">http://www.bignerdranch.com/classes/postgresql.shtml</a><br /><br /><strong>== PostgreSQL in the News ==</strong><br /><br />Josh Berkus, Core member, a donné une interview à Mad Penguin sur l'adoption de PostgreSQL. J'en ai eu vent sur Slashdot.
+<a href="http://madpenguin.org/cms/html/62/3677.html">http://madpenguin.org/cms/html/62/3677.html</a>
+Cette semaine sur General Bits&nbsp;:  L'expérience avec Windows d'un Hacker Unix&nbsp;; Prévenir les mises à jour des clés&nbsp;; Résumé de la classification OpenSource de Josh Berkus.
+<a href="http://www.varlena.com/GeneralBits/">http://www.varlena.com/GeneralBits/</a>
+Cette semaine, sur www.powerpostgreqsl.com&nbsp;: Josh Berkus classe les projets FLOSS.
+<a href="http://www.powerpostgresql.com/5_Types">http://www.powerpostgresql.com/5_types</a>
+Les nouvelles hebdomadaires de PostgreSQL vont ont été fournies cette semaine par Davidid Fetter, Josh
+Berkus et Elein Mustain.</div>
+
+      </div>
+
+  
+
+    
+  
+    
+    
+    </div>
+</div> <!-- End #main -->
+
+</div> <!-- End #wrapper -->
+
+<div id="pgFooter">
+  <p>Propulsé par <a href="http://dotclear.org/">Dotclear</a></p>
+</div>
+
+</div> <!-- End #page -->
+</body>
+
+<!-- Mirrored from blog2.postgresql.fr/index.php?post/drupal/86 by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 May 2020 21:40:20 GMT -->
+</html>

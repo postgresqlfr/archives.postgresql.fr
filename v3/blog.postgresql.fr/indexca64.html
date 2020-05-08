@@ -1,0 +1,284 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr">
+
+<!-- Mirrored from blog2.postgresql.fr/index.php?post/2012/12/24/Nouvelles-hebdomadaires-de-PostgreSQL-16-d%C3%A9cembre-2012 by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 May 2020 21:40:20 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="MSSmartTagsPreventParsing" content="TRUE" />
+  <meta name="ROBOTS" content="INDEX, FOLLOW" />
+  
+  <title>Nouvelles hebdomadaires de PostgreSQL - 16 décembre 2012 - PostgreSQLfr.org</title>
+  <meta name="description" lang="fr" content="Il y aura un PgDay lors de la PyCon du 13 mars 2013, au pôle de conventions de Santa Clara (d'avantage de détails quand les choses commenceront à s'organiser). N'hésitez pas à" />
+  <meta name="copyright" content="" />
+  <meta name="author" content="chl" />
+  <meta name="date" scheme="ISO8601" content="2012-12-24T12:14:00+01:00" />
+  
+  <link rel="schema.dc" href="http://purl.org/dc/elements/1.1/" />
+  <meta name="dc.title" content="Nouvelles hebdomadaires de PostgreSQL - 16 décembre 2012" />
+  <meta name="dc.description" lang="fr" content="Il y aura un PgDay lors de la PyCon du 13 mars 2013, au pôle de conventions de Santa Clara (d'avantage de détails quand les choses commenceront à s'organiser). N'hésitez pas à" />
+  <meta name="dc.creator" content="chl" />
+  <meta name="dc.language" content="fr" />
+  <meta name="dc.publisher" content="" />
+  <meta name="dc.rights" content="" />
+  <meta name="dc.date" scheme="ISO8601" content="2012-12-24T12:14:00+01:00" />
+  <meta name="dc.type" content="text" />
+  <meta name="dc.format" content="text/html" />
+  
+  <link rel="top" href="indexd41d.html?" title="Accueil" />
+  <link rel="contents" href="index888d.html?archive" title="Archives" />
+  
+  <link rel="next" href="index8ee6.html?post/2012/12/24/Nouvelles-hebdomadaires-de-PostgreSQL-23-d%C3%A9cembre-2012"
+  title="Nouvelles hebdomadaires de PostgreSQL - 23 décembre 2012" />
+  
+  <link rel="previous" href="index1941.html?post/2012/12/24/Nouvelles-hebdomadaires-de-PostgreSQL-9-d%C3%A9cembre-2012"
+  title="Nouvelles hebdomadaires de PostgreSQL - 9 décembre 2012" />
+  
+  <link rel="alternate" type="application/atom+xml" title="Atom 1.0" href="index4ca3.php?feed/atom" />
+  
+  <style type="text/css" media="screen">
+@import url(themes/postgresql/style.css);
+</style>
+<style type="text/css" media="print">
+@import url(themes/default/print.css);
+</style>
+
+<script type="text/javascript" src="themes/default/js/jquery.js"></script>
+<script type="text/javascript" src="themes/default/js/jquery.cookie.js"></script>
+
+  
+  <script type="text/javascript" src="themes/default/js/post.js"></script>
+  <script type="text/javascript">
+  //<![CDATA[
+  var post_remember_str = 'Se souvenir de moi sur ce blog';
+  //]]>
+  </script>
+</head>
+
+<body class="dc-post">
+<div id="page">
+
+
+<div id="top">
+  <div id="pgHeader">
+    <span id="pgHeaderLogoLeft">
+      <a href="index.html" title="PostgreSQL"><img src="https://blog.postgresql.fr/themes/postgresql/img/hdr_left.png" width="230" height="80" alt="PostgreSQL" /></a>
+    </span>
+    <span id="pgHeaderLogoRight">
+      <a href="index.html" title="La base de donnees la plus sophistiquee au monde."><img src="https://blog.postgresql.fr/themes/postgresql/img/hdr_right.png" width="210" height="80" alt="La base de donnees la plus sophistiquee au monde." /></a>
+    </span>
+  </div>
+
+  </div>
+
+<div class="pgTopNav">
+  <div class="pgTopNavLeft"> 
+    <img src="https://blog.postgresql.fr/themes/postgresql/img/nav_lft.png" width="7" height="23" alt="" />
+  </div>
+  <div class="pgTopNavRight">
+    <img src="https://blog.postgresql.fr/themes/postgresql/img/nav_rgt.png" width="7" height="23" alt="" />
+  </div>
+  <ul class="pgTopNavList">
+    <li><a href="https://www.postgresql.fr/" title="Accueil">Accueil</a></li>
+    <li><a href="https://blog.postgresql.fr/" title="Lire les actualités">Actualités</a></li>
+    <li><a href="https://docs.postgresql.fr/" title="Lire la documentation officielle">Documentation</a></li>
+    <li><a href="https://forums.postgresql.fr/" title="Pour poser des questions">Forums</a></li>
+    <li><a href="https://www.postgresql.fr/asso/" title="La vie de l'association">Association</a></li>
+    <li><a href="https://www.postgresql.fr/devel:accueil" title="Informations pour les développeurs/traducteurs">Développeurs</a></li>
+    <li><a href="https://planete.postgresql.fr/" title="La planète francophone sur PostgreSQL">Planète</a></li>
+    <li><a href="https://www.postgresql.fr/support/" title="Support sur PostgreSQL">Support</a></li>
+  </ul>
+</div>
+
+<div id="wrapper">
+
+<div id="pgContent">
+
+  <div id="pgSideWrap">
+  <div id="pgSideNav">
+    <div id="blognav">
+      <div id="search"><h2><label for="q">Rechercher</label></h2><form action="http://blog2.postgresql.fr/index.php?" method="get"><fieldset><p><input type="text" size="10" maxlength="255" id="q" name="q" value="" /> <input class="submit" type="submit" value="ok" /></p></fieldset></form></div><div class="categories"><h2>Catégories</h2><ul><li><a href="index199b.html?category/Articles">Articles</a></li><li><a href="indexb4c6.html?category/Dans-les-bacs">Dans les bacs</a></li><li><a href="index025a.html?category/Evenements">Événements</a></li><li class="category-current"><a href="index8c6d.html?category/PostgreSQL-Weekly-News">PostgreSQL Weekly News</a></li><li><a href="index1835.html?category/Securite">Sécurité</a></li><li><a href="index2251.html?category/Vie-de-l-association">Vie de l'association</a></li><li><a href="index91de.html?category/Vie-du-site">Vie du site</a></li></ul></div><div class="text"><h2>Licence</h2>Tous les articles de ce blog sont disponibles sous la <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/">license Creative Commons BY-NC-SA 3.0</a>.</div>    </div> <!-- End #blognav -->
+  
+    <div id="blogextra">
+      <div class="syndicate"><h2>S'abonner</h2><ul><li><a type="application/atom+xml" href="index4ca3.php?feed/atom" title="Fil Atom des billets de ce blog" class="feed">Fil des billets</a></li></ul></div>    </div> <!-- End #blogextra -->
+  </div>
+  </div>
+
+  <div id="pgContentWrap">
+  <div id="pgDownloadsWrap">
+  <div id="content">
+
+  <p id="navlinks">
+  <a href="index1941.html?post/2012/12/24/Nouvelles-hebdomadaires-de-PostgreSQL-9-d%C3%A9cembre-2012"
+  title="Nouvelles hebdomadaires de PostgreSQL - 9 décembre 2012" class="prev">&#171; Nouvelles hebdomadaires de PostgreSQL - 9 décembre</a>
+   <span>-</span> <a href="index8ee6.html?post/2012/12/24/Nouvelles-hebdomadaires-de-PostgreSQL-23-d%C3%A9cembre-2012"
+  title="Nouvelles hebdomadaires de PostgreSQL - 23 décembre 2012" class="next">Nouvelles hebdomadaires de PostgreSQL - 23 &#187;</a>
+  </p>
+  
+  <div class="post">
+    <h2 id="p707" class="post-title">Nouvelles hebdomadaires de PostgreSQL - 16 décembre 2012</h2>
+    
+    <p class="post-info">Par chl    le lundi 24 décembre 2012, 12:14        - <a href="index8c6d.html?category/PostgreSQL-Weekly-News">PostgreSQL Weekly News</a>
+        - <a href="indexca64.html?post/2012/12/24/Nouvelles-hebdomadaires-de-PostgreSQL-16-d%C3%A9cembre-2012">Lien permanent</a>
+    </p>
+    
+    
+    
+          <div class="post-excerpt"><p>Il y aura un PgDay lors de la PyCon du 13 mars 2013, au p&ocirc;le de conventions de Santa Clara (d'avantage de d&eacute;tails quand les choses commenceront &agrave; s'organiser). N'h&eacute;sitez pas &agrave; r&eacute;server la date.</p>
+<p><strong>Les nouveaut&eacute;s des produits d&eacute;riv&eacute;s</strong></p>
+<ul>
+<li>Barman 1.1.2, un gestionnaire de sauvegarde et restauration pour PostgreSQL&nbsp;: 
+<a target="_blank" href="http://www.pgbarman.org/">http://www.pgbarman.org</a></li>
+<li>psycopg2 2.4.6, un connecteur Python pour PostgreSQL&nbsp;: 
+<a target="_blank" href="http://initd.org/psycopg/articles/2012/12/12/psycopg-246-released/">http://initd.org/psycopg/articles/2012/12/12/psycopg-246-released/</a></li>
+</ul>
+<p><strong>Offres d'emplois autour de PostgreSQL en d&eacute;cembre</strong></p>
+<ul>
+<li>Internationales&nbsp;: 
+<a target="_blank" href="http://archives.postgresql.org/pgsql-jobs/2012-12/threads.php">http://archives.postgresql.org/pgsql-jobs/2012-12/threads.php</a>;</li>
+<li>Francophones&nbsp;: 
+<a target="_blank" href="http://forums.postgresql.fr/viewforum.php?id=4">http://forums.postgresql.fr/viewforum.php?id=4</a>.</li>
+</ul>
+<p><strong>PostgreSQL Local</strong></p>
+<ul>
+<li>La conf&eacute;rence PGDay du FOSDEM sera tenue juste avant l'ouverture du meeting, le 1er f&eacute;vrier &agrave; Bruxelles, Belgique. Les appels &agrave; conf&eacute;renciers, pour cette conf&eacute;rence et pour le cursus PostgreSQL du FOSDEM, sont lanc&eacute;s&nbsp;: 
+<a target="_blank" href="http://fosdem2013.pgconf.eu/callforpapers/">http://fosdem2013.pgconf.eu/callforpapers/</a></li>
+<li>Le PGDay 2013 de New-York City aura lieu le 22 mars. La date limite de candidature des conf&eacute;renciers est fix&eacute;e au 7 janvier 2013, midi (heure de New-York). Envois &agrave; l'adresse papers AT nycpug DOT org&nbsp;: 
+<a target="_blank" href="http://pgday.nycpug.org/speakers">http://pgday.nycpug.org/speakers</a></li>
+<li>La <em>PostgreSQL Session</em> est programm&eacute;e pour le 28 mars 2013 &agrave; Paris. L'appel &agrave; conf&eacute;renciers est lanc&eacute;&nbsp;: 
+<a target="_blank" href="http://www.postgresql-sessions.org/en/5/">http://www.postgresql-sessions.org/en/5/</a></li>
+<li>PGCon 2013 aura lieu les 23 &amp; 24 mai 2013 &agrave; l'Universit&eacute; d'Ottawa. L'appel &agrave; conf&eacute;renciers est lanc&eacute;&nbsp;: 
+<a target="_blank" href="http://www.pgcon.org/2013/">http://www.pgcon.org/2013/</a></li>
+</ul>
+<p><strong>PostgreSQL dans les m&eacute;dia</strong></p>
+<ul>
+<li>Planet PostgreSQL&nbsp;: 
+<a target="_blank" href="http://planet.postgresql.org/">http://planet.postgresql.org/</a></li>
+<li>Planet PostgreSQLFr&nbsp;: 
+<a target="_blank" href="http://planete.postgresql.fr/">http://planete.postgresql.fr/</a></li>
+</ul>
+<p><i>PostgreSQL Weekly News / les nouvelles hebdomadaires vous sont offertes cette semaine par David Fetter. Traduction par l'&eacute;quipe PostgreSQLFr sous licence CC BY-NC-SA.</i></p>
+<p><i>Proposez vos articles ou annonces avant dimanche 15:00 (heure du Pacifique). Merci de les envoyer en anglais &agrave; david (a) fetter.org, en allemand &agrave; pwn (a) pgug.de, en italien &agrave; pwn (a) itpug.org et en espagnol &agrave; pwn (a) arpug.com.ar.</i></p>
+<p>(<a target="_blank" href="http://archives.postgresql.org/pgsql-announce/2012-12/msg00014.php">lien vers l'article original</a>)</p></div>
+        
+    <div class="post-content"><p><strong>Correctifs appliqu&eacute;s</strong></p>
+<p>Heikki Linnakangas a pouss&eacute;&nbsp;:</p>
+<ul>
+<li>Fix the tracking of min recovery point timeline. Forgot to update it at the right place. Also, consider checkpoint record that switches to new timelne to be on the new timeline. This fixes erroneous "requested timeline 2 does not contain minimum recovery point" errors, pointed out by Amit Kapila while testing another patch. 
+<a target="_blank" href="http://git.postgresql.org/pg/commitdiff/6be799664aa89a473c15af7a015f4c2b2794da2e">http://git.postgresql.org/pg/commitdiff/6be799664aa89a473c15af7a015f4c2b2794da2e</a></li>
+<li>Update minimum recovery point on truncation. If a file is truncated, we must update minRecoveryPoint. Once a file is truncated, there's no going back; it would not be safe to stop recovery at a point earlier than that anymore. Per report from Kyotaro HORIGUCHI. Backpatch to 8.4. Before that, minRecoveryPoint was not updated during recovery at all. 
+<a target="_blank" href="http://git.postgresql.org/pg/commitdiff/7bffc9b7bf9e09ddeddc65117e49829f758e500d">http://git.postgresql.org/pg/commitdiff/7bffc9b7bf9e09ddeddc65117e49829f758e500d</a></li>
+<li>Consistency check should compare last record replayed, not last record read. EndRecPtr is the last record that we've read, but not necessarily yet replayed. CheckRecoveryConsistency should compare minRecoveryPoint with the last replayed record instead. This caused recovery to think it's reached consistency too early. Now that we do the check in CheckRecoveryConsistency correctly, we have to move the call of that function to after redoing a record. The current place, after reading a record but before replaying it, is wrong. In particular, if there are no more records after the one ending at minRecoveryPoint, we don't enter hot standby until one extra record is generated and read by the standby, and CheckRecoveryConsistency is called. These two bugs conspired to make the code appear to work correctly, except for the small window between reading the last record that reaches minRecoveryPoint, and replaying it. In the passing, rename recoveryLastRecPtr, which is the last record replayed, to lastReplayedEndRecPtr. This makes it slightly less confusing with replayEndRecPtr, which is the last record read that we're about to replay. Original report from Kyotaro HORIGUCHI, further diagnosis by Fujii Masao. Backpatch to 9.0, where Hot Standby subtly changed the test from "minRecoveryPoint &lt; EndRecPtr" to "minRecoveryPoint &lt;= EndRecPtr". The former works because where the test is performed, we have always read one more record than we've replayed. 
+<a target="_blank" href="http://git.postgresql.org/pg/commitdiff/970fb12de121941939e777764d6e0446c974bba3">http://git.postgresql.org/pg/commitdiff/970fb12de121941939e777764d6e0446c974bba3</a></li>
+<li>In multi-insert, don't go into infinite loop on a huge tuple and fillfactor. If a tuple is larger than page size minus space reserved for fillfactor, heap_multi_insert would never find a page that it fits in and repeatedly ask for a new page from RelationGetBufferForTuple. If a tuple is too large to fit on any page, taking fillfactor into account, RelationGetBufferForTuple will always expand the relation. In a normal insert, heap_insert will accept that and put the tuple on the new page. heap_multi_insert, however, does a fillfactor check of its own, and doesn't accept the newly-extended page RelationGetBufferForTuple returns, even though there is no other choice to make the tuple fit. Fix that by making the logic in heap_multi_insert more like the heap_insert logic. The first tuple is always put on the page RelationGetBufferForTuple gives us, and the fillfactor check is only applied to the subsequent tuples. Report from David Gould, although I didn't use his patch. 
+<a target="_blank" href="http://git.postgresql.org/pg/commitdiff/6264cd3d69b519b6e6f2470e3c23ad1ef1ddff66">http://git.postgresql.org/pg/commitdiff/6264cd3d69b519b6e6f2470e3c23ad1ef1ddff66</a></li>
+<li>Make xlog_internal.h includable in frontend context. This makes unnecessary the ugly hack used to #include postgres.h in pg_basebackup. Based on Alvaro Herrera's patch 
+<a target="_blank" href="http://git.postgresql.org/pg/commitdiff/527668717a660e67c2a6cfd4e85f7a513f99f6f2">http://git.postgresql.org/pg/commitdiff/527668717a660e67c2a6cfd4e85f7a513f99f6f2</a></li>
+<li>Allow a streaming replication standby to follow a timeline switch. Before this patch, streaming replication would refuse to start replicating if the timeline in the primary doesn't exactly match the standby. The situation where it doesn't match is when you have a master, and two standbys, and you promote one of the standbys to become new master. Promoting bumps up the timeline ID, and after that bump, the other standby would refuse to continue. There's significantly more timeline related logic in streaming replication now. First of all, when a standby connects to primary, it will ask the primary for any timeline history files that are missing from the standby. The missing files are sent using a new replication command TIMELINE_HISTORY, and stored in standby's pg_xlog directory. Using the timeline history files, the standby can follow the latest timeline present in the primary (recovery_target_timeline='latest'), just as it can follow new timelines appearing in an archive directory. START_REPLICATION now takes a TIMELINE parameter, to specify exactly which timeline to stream WAL from. This allows the standby to request the primary to send over WAL that precedes the promotion. The replication protocol is changed slightly (in a backwards-compatible way although there's little hope of streaming replication working across major versions anyway), to allow replication to stop when the end of timeline reached, putting the walsender back into accepting a replication command. Many thanks to Amit Kapila for testing and reviewing various versions of this patch. 
+<a target="_blank" href="http://git.postgresql.org/pg/commitdiff/abfd192b1b5ba5216ac4b1f31dcd553106304b19">http://git.postgresql.org/pg/commitdiff/abfd192b1b5ba5216ac4b1f31dcd553106304b19</a></li>
+</ul>
+<p>Peter Eisentraut a pouss&eacute;&nbsp;:</p>
+<ul>
+<li>doc: Remove blastwave.org link. Apparently, this service has been dead since 2008. 
+<a target="_blank" href="http://git.postgresql.org/pg/commitdiff/8e48d77cab8483fb381db9051225b46a0e4c2bc2">http://git.postgresql.org/pg/commitdiff/8e48d77cab8483fb381db9051225b46a0e4c2bc2</a></li>
+<li>doc: Improve search_path mentions in index. Karl O. Pinc 
+<a target="_blank" href="http://git.postgresql.org/pg/commitdiff/a301eb99c9537186f7dd46ba418e84d755227a94">http://git.postgresql.org/pg/commitdiff/a301eb99c9537186f7dd46ba418e84d755227a94</a></li>
+<li>NLS: Use msgmerge --previous option. It provides some additional help to translators. 
+<a target="_blank" href="http://git.postgresql.org/pg/commitdiff/fdb67eb2b69fe035339c7461c6323dc69010db18">http://git.postgresql.org/pg/commitdiff/fdb67eb2b69fe035339c7461c6323dc69010db18</a></li>
+<li>doc: Add pg_stat_reset and related functions to index 
+<a target="_blank" href="http://git.postgresql.org/pg/commitdiff/79a457dca7a8b35709a0faad723ddffa25caed57">http://git.postgresql.org/pg/commitdiff/79a457dca7a8b35709a0faad723ddffa25caed57</a></li>
+<li>doc: Add oid columns to system catalog documentation. Karl O. Pinc and Jeff Davis 
+<a target="_blank" href="http://git.postgresql.org/pg/commitdiff/160701f6a935d5b0440751c3cb3f70bb59cf5eb1">http://git.postgresql.org/pg/commitdiff/160701f6a935d5b0440751c3cb3f70bb59cf5eb1</a></li>
+<li>doc: Remove extra table column. Not all system catalog description tables have the same number of columns, and the patch to add oid columns did one bit too much copy-and-pasting. 
+<a target="_blank" href="http://git.postgresql.org/pg/commitdiff/c2e32d5a6c7c01a1b8e69ca39465a31d2ab0c6e9">http://git.postgresql.org/pg/commitdiff/c2e32d5a6c7c01a1b8e69ca39465a31d2ab0c6e9</a></li>
+</ul>
+<p>Bruce Momjian a pouss&eacute;&nbsp;:</p>
+<ul>
+<li>Fix pg_upgrade -O/-o options. Fix previous commit that added synchronous_commit=off, but broke -O/-o due to missing space in argument passing. Backpatch to 9.2. 
+<a target="_blank" href="http://git.postgresql.org/pg/commitdiff/acdb8c225955bbf582bb050e6217f79493f031eb">http://git.postgresql.org/pg/commitdiff/acdb8c225955bbf582bb050e6217f79493f031eb</a></li>
+<li>Fix pg_upgrade for invalid indexes All versions of pg_upgrade upgraded invalid indexes caused by CREATE INDEX CONCURRENTLY failures and marked them as valid. The patch adds a check to all pg_upgrade versions and throws an error during upgrade or --check. Backpatch to 9.2, 9.1, 9.0. Patch slightly adjusted. 
+<a target="_blank" href="http://git.postgresql.org/pg/commitdiff/e95c4bd1133acf7fc58a52212253129ef2dc9d12">http://git.postgresql.org/pg/commitdiff/e95c4bd1133acf7fc58a52212253129ef2dc9d12</a></li>
+</ul>
+<p>Andrew Dunstan a pouss&eacute;&nbsp;:</p>
+<ul>
+<li>Add mode where contrib installcheck runs each module in a separately named database. Normally each module is tested in a database named contrib_regression, which is dropped and recreated at the beginhning of each pg_regress run. This new mode, enabled by adding USE_MODULE_DB=1 to the make command line, runs most modules in a database with the module name embedded in it. This will make testing pg_upgrade on clusters with the contrib modules a lot easier. Second attempt at this, this time accomodating make versions older than 3.82. Still to be done: adapt to the MSVC build system. Backpatch to 9.0, which is the earliest version it is reasonably possible to test upgrading from. 
+<a target="_blank" href="http://git.postgresql.org/pg/commitdiff/ad69bd052f8ac1edfd579ed0e32da1c33a775f78">http://git.postgresql.org/pg/commitdiff/ad69bd052f8ac1edfd579ed0e32da1c33a775f78</a></li>
+<li>Provide Assert() for frontend code. Per discussion on-hackers. psql is converted to use the new code. Follows a suggestion from Heikki Linnakangas. 
+<a target="_blank" href="http://git.postgresql.org/pg/commitdiff/1c382655ad90b7cd224230452f7056040337facf">http://git.postgresql.org/pg/commitdiff/1c382655ad90b7cd224230452f7056040337facf</a></li>
+<li>Tidy up from frontend Assert change. Quiet compiler warnings noted by Peter Eisentraut. 
+<a target="_blank" href="http://git.postgresql.org/pg/commitdiff/3717f0837b79bc37947896d9068ccff0825e916d">http://git.postgresql.org/pg/commitdiff/3717f0837b79bc37947896d9068ccff0825e916d</a></li>
+</ul>
+<p>Kevin Grittner a pouss&eacute;&nbsp;:</p>
+<ul>
+<li>Fix performance problems with autovacuum truncation in busy workloads. In situations where there are over 8MB of empty pages at the end of a table, the truncation work for trailing empty pages takes longer than deadlock_timeout, and there is frequent access to the table by processes other than autovacuum, there was a problem with the autovacuum worker process being canceled by the deadlock checking code. The truncation work done by autovacuum up that point was lost, and the attempt tried again by a later autovacuum worker. The attempts could continue indefinitely without making progress, consuming resources and blocking other processes for up to deadlock_timeout each time. This patch has the autovacuum worker checking whether it is blocking any other thread at 20ms intervals. If such a condition develops, the autovacuum worker will persist the work it has done so far, release its lock on the table, and sleep in 50ms intervals for up to 5 seconds, hoping to be able to re-acquire the lock and try again. If it is unable to get the lock in that time, it moves on and a worker will try to continue later from the point this one left off. While this patch doesn't change the rules about when and what to truncate, it does cause the truncation to occur sooner, with less blocking, and with the consumption of fewer resources when there is contention for the table's lock. The only user-visible change other than improved performance is that the table size during truncation may change incrementally instead of just once. This problem exists in all supported versions but is infrequently reported, although some reports of performance problems when autovacuum runs might be caused by this. Initial commit is just the master branch, but this should probably be backpatched once the build farm and general developer usage confirm that there are no surprising effects. Jan Wieck 
+<a target="_blank" href="http://git.postgresql.org/pg/commitdiff/b19e4250b45e91c9cbdd18d35ea6391ab5961c8d">http://git.postgresql.org/pg/commitdiff/b19e4250b45e91c9cbdd18d35ea6391ab5961c8d</a></li>
+</ul>
+<p>Tom Lane a pouss&eacute;&nbsp;:</p>
+<ul>
+<li>Disable event triggers in standalone mode. Per discussion, this seems necessary to allow recovery from broken event triggers, or broken indexes on pg_event_trigger. Dimitri Fontaine 
+<a target="_blank" href="http://git.postgresql.org/pg/commitdiff/cd3413ec3683918c9cb9cfb39ae5b2c32f231e8b">http://git.postgresql.org/pg/commitdiff/cd3413ec3683918c9cb9cfb39ae5b2c32f231e8b</a></li>
+<li>Add defenses against integer overflow in dynahash numbuckets calculations. The dynahash code requires the number of buckets in a hash table to fit in an int; but since we calculate the desired hash table size dynamically, there are various scenarios where we might calculate too large a value. The resulting overflow can lead to infinite loops, division-by-zero crashes, etc. I (tgl) had previously installed some defenses against that in commit 299d1716525c659f0e02840e31fbe4dea3, but that covered only one call path. Moreover it worked by limiting the request size to work_mem, but in a 64-bit machine it's possible to set work_mem high enough that the problem appears anyway. So let's fix the problem at the root by installing limits in the dynahash.c functions themselves. Trouble report and patch by Jeff Davis. 
+<a target="_blank" href="http://git.postgresql.org/pg/commitdiff/691c5ebf79bb011648fad0e6b234b94a28177e3c">http://git.postgresql.org/pg/commitdiff/691c5ebf79bb011648fad0e6b234b94a28177e3c</a></li>
+<li>Fix filling of postmaster.pid in bootstrap/standalone mode. We failed to ever fill the sixth line (LISTEN_ADDR), which caused the attempt to fill the seventh line (SHMEM_KEY) to fail, so that the shared memory key never got added to the file in standalone mode. This has been broken since we added more content to our lock files in 9.1. To fix, tweak the logic in CreateLockFile to add an empty LISTEN_ADDR line in standalone mode. This is a tad grotty, but since that function already knows almost everything there is to know about the contents of lock files, it doesn't seem that it's any better to hack it elsewhere. It's not clear how significant this bug really is, since a standalone backend should never have any children and thus it seems not critical to be able to check the nattch count of the shmem segment externally. But I'm going to back-patch the fix anyway. This problem had escaped notice because of an ancient (and in hindsight pretty dubious) decision to suppress LOG-level messages by default in standalone mode; so that the elog(LOG) complaint in AddToDataDirLockFile that should have warned of the problem didn't do anything. Fixing that is material for a separate patch though. 
+<a target="_blank" href="http://git.postgresql.org/pg/commitdiff/c299477229559d4ee7db68720d86d3fb391db761">http://git.postgresql.org/pg/commitdiff/c299477229559d4ee7db68720d86d3fb391db761</a></li>
+</ul>
+<p>Robert Haas a pouss&eacute;&nbsp;:</p>
+<ul>
+<li>Update comment in heapgetpage() regarding PD_ALL_VISIBLE vs. Hot Standby. Pavan Deolasee, slightly modified by me 
+<a target="_blank" href="http://git.postgresql.org/pg/commitdiff/75758a6ff01156e163779f5f7386fa36720fb38f">http://git.postgresql.org/pg/commitdiff/75758a6ff01156e163779f5f7386fa36720fb38f</a></li>
+</ul>
+<p>Magnus Hagander a pouss&eacute;&nbsp;:</p>
+<ul>
+<li>Properly copy fmgroids.h after clean on Win32. Craig Ringer 
+<a target="_blank" href="http://git.postgresql.org/pg/commitdiff/c1f856a17fc52a15cd6169146b66664291b0ca5f">http://git.postgresql.org/pg/commitdiff/c1f856a17fc52a15cd6169146b66664291b0ca5f</a></li>
+</ul>
+<p><strong>Correctifs rejet&eacute;s (&agrave; ce jour)</strong></p>
+<ul>
+<li>Pas de d&eacute;ception cette semaine&nbsp;:-)</li>
+</ul>
+<p><strong>Correctifs en attente</strong></p>
+<ul>
+<li>Peter Geoghegan sent in another revision of a patch to enhance error fields.</li>
+<li>Noah Misch sent in a patch fixing some comments in src/backend/utils/cache/relcache.c</li>
+<li>Amit Kapila sent in another revision of a patch to allow changing values in postgresql.conf via SQL.</li>
+<li>Karl O. Pinc sent in another revision of a patch to elucidate the nature of the permission system.</li>
+<li>Dimitri Fontaine sent in two more revisions of a patch to add information to event triggers.</li>
+<li>Laurenz Albe and KaiGai Kohei traded patch sets to enable writes to foreign tables.</li>
+<li>Josh Kupershmidt and Karl O. Pinc traded patches to allow multiple --tables options for utilities other than pg_dump, where the feature originated.</li>
+<li>Andres Freund and Heikki Linnakangas traded patches to add an XLogReader generic WAL-reading facility.</li>
+<li>Mikko Tiihonen sent in a patch to use gcc built-in atomic inc/dec in lock.c where available.</li>
+<li>KaiGai Kohei sent in another revision of a patch to implement OAT_POST_ALTER object access hooks.</li>
+<li>Alexander Korotkov sent in another revision of a patch to improve statistics and selectivity estimation for ranges.</li>
+<li>Alexander Korotkov sent in another revision of a patch to implement SP-GiST for ranges based on 2d-mapping and quad-tree.</li>
+<li>Alexander Korotkov and Jeff Davis traded patches to de-bloat gistchoose.</li>
+<li>Andres Freund sent in a patch to add GetOldestXminNoLock as a variant (and implementation) of GetOldestXmin, along with a patch to do wal decoding by using GetOldestXminNoLock to compute the initial logical xmin safely.</li>
+<li>Pavan Deolasee sent in another revision of a patch to set a visibility map bit after a HOT prune operation.</li>
+<li>Alexander Korotkov sent in another revision of a patch to help support DFA regex searches with indexes.</li>
+<li>Tomas Vondra sent in another revision of a patch to optimizing dropping multiple tables within a transaction.</li>
+<li>Tomas Vondra sent in another revision of a patch to allow trimming down the amount of log output pgbench generates.</li>
+<li>Michael Paquier sent in another revision of a patch to add REINDEX CONCURRENTLY.</li>
+</ul></div>
+
+      </div>
+
+  
+
+    
+  
+    
+    
+    </div>
+</div> <!-- End #main -->
+
+</div> <!-- End #wrapper -->
+
+<div id="pgFooter">
+  <p>Propulsé par <a href="http://dotclear.org/">Dotclear</a></p>
+</div>
+
+</div> <!-- End #page -->
+</body>
+
+<!-- Mirrored from blog2.postgresql.fr/index.php?post/2012/12/24/Nouvelles-hebdomadaires-de-PostgreSQL-16-d%C3%A9cembre-2012 by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 May 2020 21:40:20 GMT -->
+</html>

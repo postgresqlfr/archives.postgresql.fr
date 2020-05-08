@@ -1,0 +1,278 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr">
+
+<!-- Mirrored from blog2.postgresql.fr/index.php?post/drupal/198 by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 May 2020 21:40:20 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="MSSmartTagsPreventParsing" content="TRUE" />
+  <meta name="ROBOTS" content="INDEX, FOLLOW" />
+  
+  <title>PGWN - 30 juillet 2006 - PostgreSQLfr.org</title>
+  <meta name="description" lang="fr" content="Nouvelles hebdomadaires de PostgreSQL - 30 juillet 2006 Darcy Buskermolen a rejoint Commandprompt. Félicitations à eux deux. Correctifs appliqués Peter Eisentraut a commité : le" />
+  <meta name="copyright" content="" />
+  <meta name="author" content="SAS" />
+  <meta name="date" scheme="ISO8601" content="2006-07-31T14:43:00+00:00" />
+  
+  <link rel="schema.dc" href="http://purl.org/dc/elements/1.1/" />
+  <meta name="dc.title" content="PGWN - 30 juillet 2006" />
+  <meta name="dc.description" lang="fr" content="Nouvelles hebdomadaires de PostgreSQL - 30 juillet 2006 Darcy Buskermolen a rejoint Commandprompt. Félicitations à eux deux. Correctifs appliqués Peter Eisentraut a commité : le" />
+  <meta name="dc.creator" content="SAS" />
+  <meta name="dc.language" content="fr" />
+  <meta name="dc.publisher" content="" />
+  <meta name="dc.rights" content="" />
+  <meta name="dc.date" scheme="ISO8601" content="2006-07-31T14:43:00+00:00" />
+  <meta name="dc.type" content="text" />
+  <meta name="dc.format" content="text/html" />
+  
+  <link rel="top" href="indexd41d.html?" title="Accueil" />
+  <link rel="contents" href="index888d.html?archive" title="Archives" />
+  
+  <link rel="next" href="index156c.html?post/drupal/201"
+  title="PGWN - 6 Août 2006" />
+  
+  <link rel="previous" href="index827f.html?post/drupal/197"
+  title="Nouvelles neuves de PG - 23/07/2006" />
+  
+  <link rel="alternate" type="application/atom+xml" title="Atom 1.0" href="index4ca3.php?feed/atom" />
+  
+  <style type="text/css" media="screen">
+@import url(themes/postgresql/style.css);
+</style>
+<style type="text/css" media="print">
+@import url(themes/default/print.css);
+</style>
+
+<script type="text/javascript" src="themes/default/js/jquery.js"></script>
+<script type="text/javascript" src="themes/default/js/jquery.cookie.js"></script>
+
+  
+  <script type="text/javascript" src="themes/default/js/post.js"></script>
+  <script type="text/javascript">
+  //<![CDATA[
+  var post_remember_str = 'Se souvenir de moi sur ce blog';
+  //]]>
+  </script>
+</head>
+
+<body class="dc-post">
+<div id="page">
+
+
+<div id="top">
+  <div id="pgHeader">
+    <span id="pgHeaderLogoLeft">
+      <a href="index.html" title="PostgreSQL"><img src="https://blog.postgresql.fr/themes/postgresql/img/hdr_left.png" width="230" height="80" alt="PostgreSQL" /></a>
+    </span>
+    <span id="pgHeaderLogoRight">
+      <a href="index.html" title="La base de donnees la plus sophistiquee au monde."><img src="https://blog.postgresql.fr/themes/postgresql/img/hdr_right.png" width="210" height="80" alt="La base de donnees la plus sophistiquee au monde." /></a>
+    </span>
+  </div>
+
+  </div>
+
+<div class="pgTopNav">
+  <div class="pgTopNavLeft"> 
+    <img src="https://blog.postgresql.fr/themes/postgresql/img/nav_lft.png" width="7" height="23" alt="" />
+  </div>
+  <div class="pgTopNavRight">
+    <img src="https://blog.postgresql.fr/themes/postgresql/img/nav_rgt.png" width="7" height="23" alt="" />
+  </div>
+  <ul class="pgTopNavList">
+    <li><a href="https://www.postgresql.fr/" title="Accueil">Accueil</a></li>
+    <li><a href="https://blog.postgresql.fr/" title="Lire les actualités">Actualités</a></li>
+    <li><a href="https://docs.postgresql.fr/" title="Lire la documentation officielle">Documentation</a></li>
+    <li><a href="https://forums.postgresql.fr/" title="Pour poser des questions">Forums</a></li>
+    <li><a href="https://www.postgresql.fr/asso/" title="La vie de l'association">Association</a></li>
+    <li><a href="https://www.postgresql.fr/devel:accueil" title="Informations pour les développeurs/traducteurs">Développeurs</a></li>
+    <li><a href="https://planete.postgresql.fr/" title="La planète francophone sur PostgreSQL">Planète</a></li>
+    <li><a href="https://www.postgresql.fr/support/" title="Support sur PostgreSQL">Support</a></li>
+  </ul>
+</div>
+
+<div id="wrapper">
+
+<div id="pgContent">
+
+  <div id="pgSideWrap">
+  <div id="pgSideNav">
+    <div id="blognav">
+      <div id="search"><h2><label for="q">Rechercher</label></h2><form action="http://blog2.postgresql.fr/index.php?" method="get"><fieldset><p><input type="text" size="10" maxlength="255" id="q" name="q" value="" /> <input class="submit" type="submit" value="ok" /></p></fieldset></form></div><div class="categories"><h2>Catégories</h2><ul><li><a href="index199b.html?category/Articles">Articles</a></li><li><a href="indexb4c6.html?category/Dans-les-bacs">Dans les bacs</a></li><li><a href="index025a.html?category/Evenements">Événements</a></li><li class="category-current"><a href="index8c6d.html?category/PostgreSQL-Weekly-News">PostgreSQL Weekly News</a></li><li><a href="index1835.html?category/Securite">Sécurité</a></li><li><a href="index2251.html?category/Vie-de-l-association">Vie de l'association</a></li><li><a href="index91de.html?category/Vie-du-site">Vie du site</a></li></ul></div><div class="text"><h2>Licence</h2>Tous les articles de ce blog sont disponibles sous la <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/">license Creative Commons BY-NC-SA 3.0</a>.</div>    </div> <!-- End #blognav -->
+  
+    <div id="blogextra">
+      <div class="syndicate"><h2>S'abonner</h2><ul><li><a type="application/atom+xml" href="index4ca3.php?feed/atom" title="Fil Atom des billets de ce blog" class="feed">Fil des billets</a></li></ul></div>    </div> <!-- End #blogextra -->
+  </div>
+  </div>
+
+  <div id="pgContentWrap">
+  <div id="pgDownloadsWrap">
+  <div id="content">
+
+  <p id="navlinks">
+  <a href="index827f.html?post/drupal/197"
+  title="Nouvelles neuves de PG - 23/07/2006" class="prev">&#171; Nouvelles neuves de PG - 23/07/2006</a>
+   <span>-</span> <a href="index156c.html?post/drupal/201"
+  title="PGWN - 6 Août 2006" class="next">PGWN - 6 Août 2006 &#187;</a>
+  </p>
+  
+  <div class="post">
+    <h2 id="p198" class="post-title">PGWN - 30 juillet 2006</h2>
+    
+    <p class="post-info">Par SAS    le lundi 31 juillet 2006, 14:43        - <a href="index8c6d.html?category/PostgreSQL-Weekly-News">PostgreSQL Weekly News</a>
+        - <a href="indexb7f4.html?post/drupal/198">Lien permanent</a>
+    </p>
+    
+    
+    
+          <div class="post-excerpt"><p><strong>Nouvelles hebdomadaires de PostgreSQL - 30 juillet 2006</strong></p>
+<p>
+Darcy Buskermolen a rejoint Commandprompt. Félicitations à eux deux.</p></div>
+        
+    <div class="post-content"><strong>Correctifs appliqués</strong>
+<p>
+Peter Eisentraut a commité&nbsp;:
+</p>
+<ul>
+<li>le correctif de Zdenek Kotala qui annote dans le fichier postgresql.conf d'exemple les variables qui nécessitent un redémarrage du serveur pour être activées&nbsp;;</li>
+<li>le support de Dtrace par Robert Lor, qui contient quelques tests initiaux de dtrace&nbsp;;</li>
+<li>une modification de la taille de effective_cache en integer pour l'intégration avec les fonctionnalités à venir&nbsp;;</li>
+<li>sa modification du serveur pour lui faire retourner une chaîne vide plutôt que "unset" (non positionné) lorsqu'une varibale non positionnée est interrogée avec SHOW...</li>
+</ul>
+<p>
+Tom Lane a commité&nbsp;:
+</p>
+<ul>
+<li>le correctif de Joachim Wieland qui remplace le paramètre de configuration "australian_timezones" par un paramètre plus générique "timezone_abbreviations". Ce dernier utilise une liste d'abbréviations de fuseau horaire modificable par le DBA.</li>
+<li>le correctif de Junji Teramoto qui modifie les btree pour en supprimer les entrées réputées mortes sans avoir à effectuer de VACUUM&nbsp;;</li>
+<li>le projet Summer of Code de Sergey Koposov d'aggrégats d'arguments multiples, compatible avec SQL:2003. Tom n'a commité que la version FLOAT8, la version NUMERIC lui paraissant trop lente.</li>
+<li>une modification qu'il a faite pour ajouter un facteur de floutage à genericcostestimate() pour empêcher le planificateur de penser que des index de tailles différentes soient aussi attractifs&nbsp;;</li>
+<li>une modification qu'il a faite pour réorganiser la fonction PostmasterMain&nbsp;;</li>
+<li>Yet Another Patch From Tom (YAPFT)&nbsp;: modifier les btree pour en supprimer les entrées réputées mortes sans avoir à effectuer de VACUUM. Lorsqu'une page d'index doit être coupée pour faire une insertion, on regarde d'abord si une entrée marquée LP_DELETE existe sur cette page. Le cas échéant, elle est supprimée pour tenter d'obtenir suffisament de plce pour réliser l'insertion. Cela doit réduire l'expansion de l'index pour les tables fortement actualisées, même s'il reste nécessaire d'effectuer de temps à autres un VACUUM pour nettoyer le tas.</li>
+</ul>
+<p>
+Tatsuo Ishii a commité&nbsp;:
+</p>
+<ul>
+<li>de nouvelles fonctionnalités pour pg_bench auxquelles a contribué Tomoaki Sato. Elles comprennent des variables prédéfinies "tps", une option -D pour positionner les variables sur la ligne de commande et un \set étendu pour autoriser les calculs arithmétiques. Elle remplace également l'échelle (0,10000) de delta_value par une plus réaliste, (-5000,5000).</li>
+</ul>
+<p>
+Bruce Momjian a commité&nbsp;:
+</p>
+<ul>
+<li>le correctif de Dhanaraj M qui modifie LIMIT/OFFSET pour utiliser un int8, ce qui autorise des ensembles de plus de 2 milliards de lignes&nbsp;;</li>
+<li>les correctifs de Joshua Reich à contrib/cube qui actualisent les fonctions en accord avec la convention d'appel à V1 et les nouvelles fonctionnalités&nbsp;;</li>
+<li>le correctif d'Albe Laurenz pour permettre les recherches LDAP à partir de pg_service.conf&nbsp;;</li>
+<li>le contournement du bogue dans strxfrm() en Visual C++ 2005 réalisé par William Zhang. Voir à ce propos <a target="_blank" href="http://connect.microsoft.com/VisualStudio/feedback/ViewFeedback.aspx?FeedbackID=99694">http://connect.microsoft.com/VisualStudio/feedback/ViewFeedback.aspx?FeedbackID=99694</a>.</li>
+<li>ses modifications concernant les valeur de retour des macros wait() pour WIN32. Elles les rendent précises, essentiellement parce qu'elles sont utilisées pour tester la valeur de retour de system(). (WIN32 ne surcharge pas le code retour par d'autres conditions d'erreur comme le fait un Unix. Ce ne sont donc que de simples macros).</li>
+<li>Ses correctifs aux tests de régression pour tenir compte des erreurs de diff sur Win32, à l'aide de nouvelles macros.</li>
+</ul>
+<p>
+Andrew Dunstan a commité&nbsp;:
+</p>
+<ul>
+<li>son correctif pour interdire le multiplexage des objets d'évenèment noyau Windows qui sont écoutés sur plusieurs sockets — cela devrait corriger les erreurs des tests de régression sur les stats qui apparaissent.</li>
+</ul>
+<p>
+Alvaro Herrera a comité&nbsp;:
+</p>
+<ul>
+<li>un correctif à l'origine de Hannu Krosing, réécrit par Tom Lane et actualisé par Alvaro soi-même pour modifier la définition des instantanés pour que les vacuum paresseux soient ignorés par les autres vacuums. Cela permet aux petites tables fréquement actualisées d'un pseudo système OLTP avec de grosses tables d'être nettoyées en parallèle au nettoyage des grosses tables.</li>
+</ul>
+<p><strong>Correctifs rejetés (à cette heure)</strong></p>
+<p>
+Pas de déception cette semaine ;-)
+</p>
+<p><strong>Correctifs en attente</strong></p>
+<p>
+Joe Conway a soumis de nouvelles modifications à la fonctionnalité INSERT ... VALUES (...), (...), ...
+</p>
+<p>
+Bernd Helmle a envoyé la dernière version de son correctif permettant la création de VIEW actualisables en accord avec SQL:2003.  Yay!
+</p>
+<p>
+Peter Eisentraut rend possible l'affichage des unités dans postgresql.conf et lors de l'utilisation de SHOW.
+</p>
+<p>
+Joe Conway aposté le correctif de Kai Londerberg permettant l'exécution de requêtes asynchrones avec dblink.
+</p>
+<p>
+Korry Douglas a soumis un correctif ajoutant le support de plugiciels d'instrumentation chargeables pour les langages proceduraux et le support de plugiciels pour le gestionnaire du PL/PgSQL.
+</p>
+<p>
+Chris Mair a envoyé un correctif permettant d'utiliser des curseurs pour les résultats volumineux au sein de psql.
+</p>
+<p>
+Greg Sabino Mullane a envoyé un correctif qui ajoute une nouvelle variable server_version_num à pg_settings, facilement comparable numériquement.
+</p>
+<p>
+Tzahi Fadida a envoyé son correctif Summer of Code complet de l'union pour inclusion dans contrib.
+</p>
+<p>
+Pavel Stehule a envoyé un correctif à un dysfonctionnement des paramètre OUT en général et en PL/Perl en particulier.
+</p>
+<p>
+David Fetter a envoyé un correctif permettant à psql de rapporter une erreur lors de l'utilisation de fichiers passés avec -f dont la taille dépasse 2^32 lignes.
+</p>
+<p>
+ITAGAKI Takahiro a soumis un correctif collectant des statistiques pour l'acquisition de verrous légers.
+</p>
+<p>
+Simon Riggs a posté un brouillon de correctif implantant une fonction SQL qui permet aux DBA de déclencher manuellement une commutation de XLOG.
+</p>
+<p>
+Joachim Wieland a retravaillé une idée de Zdenek Kotala et soumis un correctif implantant un nouveau test de régression pour SET/SET LOCAL à l'intérieur de transactions et sous-transactions.
+</p>
+<p><strong>Les nouveautés des produits dérivés</strong></p>
+<p>
+Devrim Gunduz a introduit postgresql_autodoc, psycopg2, pgpool et phpPgAdmin dans Fedora Core Extras. </p>
+<p>
+MicroOLAP Database Designer for PostgreSQL ver.1.1.1 réalisé.
+<a target="_blank" href="http://www.microolap.com/">http://www.microolap.com/</a>
+</p>
+<p>
+MicroOLAP PostgresDAC 2.3.4 réalisé.
+<a target="_blank" href="http://microolap.com/products/connectivity/postgresdac/">http://microolap.com/products/connectivity/postgresdac/</a>
+</p>
+<p><strong>PostgreSQL Jobs pour juillet</strong></p>
+<p>
+<a target="_blank" href="http://archives.postgresql.org/pgsql-jobs/2006-07/threads.php">http://archives.postgresql.org/pgsql-jobs/2006-07/threads.php</a>
+</p>
+<p><strong>PostgreSQL Local</strong></p>
+<p>
+Que du global cette semaine.
+</p>
+<p><strong>PostgreSQL dans les média</strong></p>
+<p>
+Planet PostgreSQL:  <a target="_blank" href="http://www.planetpostgresql.org/">http://www.planetpostgresql.org/</a>
+</p>
+<p>
+General Bits, Archives and occasional new articles:  <a target="_blank" href="http://www.varlena.com/GeneralBits/">http://www.varlena.com/GeneralBits/</a>
+</p>
+<p>
+<em>PostgreSQL Weekly News vous est présenté cette semaine par David Fetter et Dave Page.
+Adaptation française par Stéphane Schildknecht.</em>
+</p></div>
+
+      </div>
+
+  
+
+    
+  
+    
+    
+    </div>
+</div> <!-- End #main -->
+
+</div> <!-- End #wrapper -->
+
+<div id="pgFooter">
+  <p>Propulsé par <a href="http://dotclear.org/">Dotclear</a></p>
+</div>
+
+</div> <!-- End #page -->
+</body>
+
+<!-- Mirrored from blog2.postgresql.fr/index.php?post/drupal/198 by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 May 2020 21:40:20 GMT -->
+</html>

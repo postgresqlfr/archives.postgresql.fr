@@ -1,0 +1,270 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr">
+
+<!-- Mirrored from blog2.postgresql.fr/index.php?post/2010/01/03/Nouvelles-hebdomadaires-de-PostgreSQL-27-d%C3%A9cembre-2009 by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 May 2020 21:40:20 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="MSSmartTagsPreventParsing" content="TRUE" />
+  <meta name="ROBOTS" content="INDEX, FOLLOW" />
+  
+  <title>Nouvelles hebdomadaires de PostgreSQL - 27 décembre 2009 - PostgreSQLfr.org</title>
+  <meta name="description" lang="fr" content="PostgreSQL 8.5alpha3 est disponible. Parmi les nouveautés se trouvent le &quot;Hot Standby&quot;, les contraintes d'exclusion, l'ORDER BY dans les aggrégats, les ACLs sur les" />
+  <meta name="copyright" content="" />
+  <meta name="author" content="chl" />
+  <meta name="date" scheme="ISO8601" content="2010-01-03T19:19:00+01:00" />
+  
+  <link rel="schema.dc" href="http://purl.org/dc/elements/1.1/" />
+  <meta name="dc.title" content="Nouvelles hebdomadaires de PostgreSQL - 27 décembre 2009" />
+  <meta name="dc.description" lang="fr" content="PostgreSQL 8.5alpha3 est disponible. Parmi les nouveautés se trouvent le &quot;Hot Standby&quot;, les contraintes d'exclusion, l'ORDER BY dans les aggrégats, les ACLs sur les" />
+  <meta name="dc.creator" content="chl" />
+  <meta name="dc.language" content="fr" />
+  <meta name="dc.publisher" content="" />
+  <meta name="dc.rights" content="" />
+  <meta name="dc.date" scheme="ISO8601" content="2010-01-03T19:19:00+01:00" />
+  <meta name="dc.type" content="text" />
+  <meta name="dc.format" content="text/html" />
+  
+  <link rel="top" href="indexd41d.html?" title="Accueil" />
+  <link rel="contents" href="index888d.html?archive" title="Archives" />
+  
+  <link rel="next" href="index8fa1.html?post/2010/01/06/Nouvelles-hebdomadaires-de-PostgreSQL-3-janvier-2010"
+  title="Nouvelles hebdomadaires de PostgreSQL - 3 janvier 2010" />
+  
+  <link rel="previous" href="index0856.html?post/2009/12/24/Nouvelles-hebdomadaires-de-PostgreSQL-20-d%C3%A9cembre-2009"
+  title="Nouvelles hebdomadaires de PostgreSQL - 20 décembre 2009" />
+  
+  <link rel="alternate" type="application/atom+xml" title="Atom 1.0" href="index4ca3.php?feed/atom" />
+  
+  <style type="text/css" media="screen">
+@import url(themes/postgresql/style.css);
+</style>
+<style type="text/css" media="print">
+@import url(themes/default/print.css);
+</style>
+
+<script type="text/javascript" src="themes/default/js/jquery.js"></script>
+<script type="text/javascript" src="themes/default/js/jquery.cookie.js"></script>
+
+  
+  <script type="text/javascript" src="themes/default/js/post.js"></script>
+  <script type="text/javascript">
+  //<![CDATA[
+  var post_remember_str = 'Se souvenir de moi sur ce blog';
+  //]]>
+  </script>
+</head>
+
+<body class="dc-post">
+<div id="page">
+
+
+<div id="top">
+  <div id="pgHeader">
+    <span id="pgHeaderLogoLeft">
+      <a href="index.html" title="PostgreSQL"><img src="https://blog.postgresql.fr/themes/postgresql/img/hdr_left.png" width="230" height="80" alt="PostgreSQL" /></a>
+    </span>
+    <span id="pgHeaderLogoRight">
+      <a href="index.html" title="La base de donnees la plus sophistiquee au monde."><img src="https://blog.postgresql.fr/themes/postgresql/img/hdr_right.png" width="210" height="80" alt="La base de donnees la plus sophistiquee au monde." /></a>
+    </span>
+  </div>
+
+  </div>
+
+<div class="pgTopNav">
+  <div class="pgTopNavLeft"> 
+    <img src="https://blog.postgresql.fr/themes/postgresql/img/nav_lft.png" width="7" height="23" alt="" />
+  </div>
+  <div class="pgTopNavRight">
+    <img src="https://blog.postgresql.fr/themes/postgresql/img/nav_rgt.png" width="7" height="23" alt="" />
+  </div>
+  <ul class="pgTopNavList">
+    <li><a href="https://www.postgresql.fr/" title="Accueil">Accueil</a></li>
+    <li><a href="https://blog.postgresql.fr/" title="Lire les actualités">Actualités</a></li>
+    <li><a href="https://docs.postgresql.fr/" title="Lire la documentation officielle">Documentation</a></li>
+    <li><a href="https://forums.postgresql.fr/" title="Pour poser des questions">Forums</a></li>
+    <li><a href="https://www.postgresql.fr/asso/" title="La vie de l'association">Association</a></li>
+    <li><a href="https://www.postgresql.fr/devel:accueil" title="Informations pour les développeurs/traducteurs">Développeurs</a></li>
+    <li><a href="https://planete.postgresql.fr/" title="La planète francophone sur PostgreSQL">Planète</a></li>
+    <li><a href="https://www.postgresql.fr/support/" title="Support sur PostgreSQL">Support</a></li>
+  </ul>
+</div>
+
+<div id="wrapper">
+
+<div id="pgContent">
+
+  <div id="pgSideWrap">
+  <div id="pgSideNav">
+    <div id="blognav">
+      <div id="search"><h2><label for="q">Rechercher</label></h2><form action="http://blog2.postgresql.fr/index.php?" method="get"><fieldset><p><input type="text" size="10" maxlength="255" id="q" name="q" value="" /> <input class="submit" type="submit" value="ok" /></p></fieldset></form></div><div class="categories"><h2>Catégories</h2><ul><li><a href="index199b.html?category/Articles">Articles</a></li><li><a href="indexb4c6.html?category/Dans-les-bacs">Dans les bacs</a></li><li><a href="index025a.html?category/Evenements">Événements</a></li><li class="category-current"><a href="index8c6d.html?category/PostgreSQL-Weekly-News">PostgreSQL Weekly News</a></li><li><a href="index1835.html?category/Securite">Sécurité</a></li><li><a href="index2251.html?category/Vie-de-l-association">Vie de l'association</a></li><li><a href="index91de.html?category/Vie-du-site">Vie du site</a></li></ul></div><div class="text"><h2>Licence</h2>Tous les articles de ce blog sont disponibles sous la <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/">license Creative Commons BY-NC-SA 3.0</a>.</div>    </div> <!-- End #blognav -->
+  
+    <div id="blogextra">
+      <div class="syndicate"><h2>S'abonner</h2><ul><li><a type="application/atom+xml" href="index4ca3.php?feed/atom" title="Fil Atom des billets de ce blog" class="feed">Fil des billets</a></li></ul></div>    </div> <!-- End #blogextra -->
+  </div>
+  </div>
+
+  <div id="pgContentWrap">
+  <div id="pgDownloadsWrap">
+  <div id="content">
+
+  <p id="navlinks">
+  <a href="index0856.html?post/2009/12/24/Nouvelles-hebdomadaires-de-PostgreSQL-20-d%C3%A9cembre-2009"
+  title="Nouvelles hebdomadaires de PostgreSQL - 20 décembre 2009" class="prev">&#171; Nouvelles hebdomadaires de PostgreSQL - 20</a>
+   <span>-</span> <a href="index8fa1.html?post/2010/01/06/Nouvelles-hebdomadaires-de-PostgreSQL-3-janvier-2010"
+  title="Nouvelles hebdomadaires de PostgreSQL - 3 janvier 2010" class="next">Nouvelles hebdomadaires de PostgreSQL - 3 janvier &#187;</a>
+  </p>
+  
+  <div class="post">
+    <h2 id="p521" class="post-title">Nouvelles hebdomadaires de PostgreSQL - 27 décembre 2009</h2>
+    
+    <p class="post-info">Par chl    le dimanche  3 janvier 2010, 19:19        - <a href="index8c6d.html?category/PostgreSQL-Weekly-News">PostgreSQL Weekly News</a>
+        - <a href="index437d.html?post/2010/01/03/Nouvelles-hebdomadaires-de-PostgreSQL-27-d%C3%A9cembre-2009">Lien permanent</a>
+    </p>
+    
+    
+    
+          <div class="post-excerpt"><p>PostgreSQL 8.5alpha3 est disponible. Parmi les nouveautés se trouvent le "Hot Standby", les contraintes d'exclusion, l'ORDER BY dans les aggrégats, les ACLs sur les blobs, une amélioration des expressions régulières, PL/pgsql par défaut et diverses améliorations dans PL/pgsql, PL/Perl et PL/Python. À vos tests&nbsp;!
+<a target="_blank" href="http://www.postgresql.org/developer/alpha">http://www.postgresql.org/developer/alpha</a></p>
+<p>Le PUG allemand aura un stand dans "l'Open Source Park" au Cebit 2010 du 2 au 6 mars 2010 à Hanovre&nbsp;:
+<a target="_blank" href="http://www.cebit.de/">http://www.cebit.de/</a></p>
+<p>L'appel aux propositions est lancé pour l'OSCON, qui aura lieu à Portland (Oregon) du 19 au 23 juillet 2010&nbsp;:
+<a target="_blank" href="http://post.oreilly.com/f2f/9z1zqmm5lhkab0uogt3avlvc4u59bro6f917re423d8">http://post.oreilly.com/f2f/9z1zqmm5lhkab0uogt3avlvc4u59bro6f917re423d8</a></p>
+<p>Un enregistrement vidéo de la réunion du SFPUG du 8 décembre 2009 "Operator Exclusion Constraints" [ndt: contraintes d'exclusion via opérateur&nbsp;?] est à présent disponible&nbsp;:
+<a target="_blank" href="http://thebuild.com/blog/2009/12/23/sfpug-operator-exclusion-constraints/">http://thebuild.com/blog/2009/12/23/sfpug-operator-exclusion-constraints/</a></p>
+<p><strong>Les nouveautés des produits dérivés</strong></p>
+<ul>
+<li>MicroOLAP Database Designer 1.2.9 pour PostgreSQL&nbsp;:
+<a target="_blank" href="http://microolap.com/products/database/postgresql-designer/">http://microolap.com/products/database/postgresql-designer/</a></li>
+<li>PostgreSQL PHP Generator 9.12, une interface graphique pour générer du PHP sur des objets PostgreSQL&nbsp;:
+<a target="_blank" href="http://www.sqlmaestro.com/products/postgresql/phpgenerator/">http://www.sqlmaestro.com/products/postgresql/phpgenerator/</a></li>
+<li>PostERP 2.6, un progiciel de gestion intégré (aka. PGI/ERP) utilisant PostgreSQL&nbsp;:
+<a target="_blank" href="http://www.sitig.com/">http://www.sitig.com</a></li>
+<li>PostgreDAC 2.5.4, un "builder Delphi/C++" pour PostgreSQL&nbsp;:
+<a target="_blank" href="http://microolap.com/products/connectivity/postgresdac/download/">http://microolap.com/products/connectivity/postgresdac/download/</a></li>
+</ul>
+<p><strong>La fonctionnalité 8.5 de la semaine</strong></p>
+<p>Hot Standby. Après 1,5 année de développement, vous pouvez enfin lancer des requêtes en lecture-seule sur les esclaves PITR. Remerciements à Simon Riggs, Heikki Linnakangas et de nombreux autres pour leurs efforts ininterrompus. Apprenez-en d'avantage sur le "Hot Standby" sur :
+<a target="_blank" href="http://wiki.postgresql.org/wiki/Hot_Standby">http://wiki.postgresql.org/wiki/Hot_Standby</a> et essayez vite la 8.5Alpha3.</p>
+<p><strong>Offres d'emplois autour de PostgreSQL en décembre</strong></p>
+<ul>
+<li><a target="_blank" href="http://archives.postgresql.org/pgsql-jobs/2009-12/threads.php">http://archives.postgresql.org/pgsql-jobs/2009-12/threads.php</a></li>
+</ul>
+<p><strong>PostgreSQL Local</strong></p>
+<ul>
+<li>La première réunion du "New York Capital District PUG" aura lieu le 7 janvier 2010&nbsp;:
+<a target="_blank" href="http://nycdpug.x10hosting.com/">http://nycdpug.x10hosting.com/</a></li>
+<li>Stefan Keller, de l'université des sciences appliquées de Rapperswil (HSR), animera un séminaire intitulé "Introduction à PostGIS/PostgreSQL" le 14 janvier 2010 à Zurich (Suisse)&nbsp;:
+<a target="_blank" href="http://www.gis.hsr.ch/wiki/Agenda">http://www.gis.hsr.ch/wiki/Agenda</a></li>
+<li>À la recherche de volontaires pour la rencontre de la "Open Day Linux Conf AU" à Wellington, Nouvelle Zélande, le 23 janvier 2010 entre 11 et 14h. Contactez selena -at- postgresql.org.</li>
+<li>L'appel à conférencier pour "East" est lancé avec, comme date limite, le 30 janvier 2010. Détails sur&nbsp;:
+<a target="_blank" href="http://www.postgresqlconference.org/">http://www.postgresqlconference.org/</a></li>
+<li>Le PGDay-Cuba 2010 sera tenu du 4 au 6 février 2010 à l'Université des Sciences Informatiques, à La Havane. Sont invités les participants de Cuba, de la République Dominicaine et du Venezuela.</li>
+<li>Le FOSDEM 2010 aura lieu à Bruxelles les 6 &amp; 7 février 2010&nbsp;:
+<a target="_blank" href="http://www.fosdem.org/">http://www.fosdem.org/</a></li>
+<li>Le "Chemnitzer Linuxtage" aura lieu à Chemnitz (All.) les 13 &amp; 14 mars 2010&nbsp;:
+<a target="_blank" href="http://chemnitzer.linux-tage.de/">http://chemnitzer.linux-tage.de/</a></li>
+<li>La PgCon 2010 aura lieu les 20 &amp; 21 mai 2010 à Ottawa avec des tutoriels les 18 et 19. L'appel à conférenciers est lancé&nbsp;!
+<a target="_blank" href="http://www.pgcon.org/2010/papers.php">http://www.pgcon.org/2010/papers.php</a></li>
+</ul>
+<p><strong>PostgreSQL dans les média</strong></p>
+<ul>
+<li>Planet PostgreSQL&nbsp;:
+<a target="_blank" href="http://planet.postgresql.org/">http://planet.postgresql.org/</a></li>
+<li>Planet PostgreSQLFr&nbsp;:
+<a target="_blank" href="http://planete.postgresql.fr/">http://planete.postgresql.fr/</a></li>
+</ul>
+<p><em>PostgreSQL Weekly News / les nouvelles hebdomadaires vous sont offertes cette semaine par David Fetter. Traduction par l'équipe PostgreSQLFr sous licence CC BY-NC-SA.</em></p>
+<p><em>Proposez vos articles ou annonces avant dimanche 15:00 (heure du Pacifique). Merci de les envoyer en anglais à david (a) fetter.org, en allemand à pwn (a) pgug.de, en italien à pwn (a) itpug.org.</em></p>
+<p>(<a target="_blank" href="http://www.postgresql.org/community/weeklynews/pwn20091227">lien vers l'article original</a>)</p></div>
+        
+    <div class="post-content"><p><strong>Correctifs appliqués</strong></p>
+<p>Peter Eisentraut a commité&nbsp;:</p>
+<ul>
+<li>In pgsql/src/bin/pg_dump/pg_dump.ck, in CREATE SEQUENCE dump, put MINVALUE before MAXVALUE so it reads better.</li>
+<li>In pgsql/Makefile, replace target list by a wildcard, so that this workaround makefile also works transparently for lesser used targets.</li>
+<li>In pgsql/Makefile,revert brainfart: Of course the wildcard only works in GNU make itself. Instead, add a few targets that were missing.</li>
+</ul>
+<p>Tom Lane a commité&nbsp;:</p>
+<ul>
+<li>Disallow comments on columns of relation types other than tables, views, and composite types, which are the only relkinds for which pg_dump support exists for dumping column comments. There is no obvious usefulness for comments on columns of sequences or toast tables; and while comments on index columns might have some value, it's not worth the risk of compatibility problems due to possible changes in the algorithm for assigning names to index columns. Per discussion. In consequence, remove now-dead code for copying such comments in CREATE TABLE LIKE.</li>
+<li>Adjust naming of indexes and their columns per recent discussion. Index expression columns are now named after the FigureColname result for their expressions, rather than always being "pg_expression_N". Digits are appended to this name if needed to make the column name unique within the index. (That happens for regular columns too, thus fixing the old problem that CREATE INDEX fooi ON foo (f1, f1) fails. Before exclusion indexes there was no real reason to do such a thing, but now maybe there is.) Default names for indexes and associated constraints now include the column names of all their columns, not only the first one as in previous practice. (Of course, this will be truncated as needed to fit in NAMEDATALEN. Also, pkey indexes retain the historical behavior of not naming specific columns at all.)</li>
+<li>In pgsql/src/backend/commands/tablecmds.c, remove code that attempted to rename index columns to keep them in sync with their underlying table columns. That code was not bright enough to cope with collision situations (ie, new name conflicts with some other column of the index). Since there is no functional reason to do this at all, trying to upgrade the logic to be bulletproof doesn't seem worth the trouble. This change means that both the index name and the column names of an index are set when it's created, and won't be automatically changed when the underlying table columns are renamed. Neatnik DBAs are still free to rename them manually, of course.</li>
+<li>Allow the index name to be omitted in CREATE INDEX, causing the system to choose an index name the same as it would do for an unnamed index constraint. (My recent changes to the index naming logic have helped to ensure that this will be a reasonable choice.) Per a suggestion from Peter. A necessary side-effect is to promote CONCURRENTLY to type_func_name_keyword status, ie, it can't be a table/column/index name anymore unless quoted. This is not all bad, since we have heard more than once of people typing CREATE INDEX CONCURRENTLY ON foo (...) and getting a normal index build of an index named "concurrently", which was not what they wanted. Now this syntax will result in a concurrent build of an index with system-chosen name; which they can rename afterwards if they want something else.</li>
+<li>In pgsql/src/backend/access/gist/gistxlog.c, fix wrong WAL info value generated when gistContinueInsert() performs an index page split. This would result in index corruption, or even more likely an error during WAL replay, if we were unlucky enough to crash during end-of-recovery cleanup after having completed an incomplete GIST insertion. Yoichi Hirai.</li>
+<li>In pgsql/doc/src/sgml/ref/psql-ref.sgml, try to improve the clarity of the psql documentation for the \d family of commands, as per recent discussion. Includes suggestions from Adrian Klaver and Filip Rembialkowski.</li>
+<li>In pgsql/src/backend/optimizer/path/joinpath.c, fix brain fade in join-removal patch: a pushed-down clause in the outer join's restrict list is not just something to ignore, it's actually grounds to abandon the optimization entirely. Per bug #5255 from Matteo Beccati.</li>
+<li>Remove a couple of unnecessary calls of CreateCacheMemoryContext. These probably got there via blind copy-and-paste from one of the legitimate callers, so rearrange and comment that code a bit to make it clearer that this isn't a necessary prerequisite to hash_create. Per observation from Robert Haas.</li>
+<li>In pgsql/src/backend/postmaster/pgstat.c, avoid memory leak if pgstat_vacuum_stat is interrupted partway through. The temporary hash tables made by pgstat_collect_oids should be allocated in a short-term memory context, which is not the default behavior of hash_create. Noted while looking through hash_create calls in connection with Robert Haas' recent complaint. This is a pre-existing bug, but it doesn't seem important enough to back-patch. The hash table is not so large that it would matter unless this happened many times within a session, which seems quite unlikely.</li>
+</ul>
+<p>Bruce Momjian a commité&nbsp;:</p>
+<ul>
+<li>In pgsql/src/bin/pg_dump/pg_dump.c, rename pg_dump.c TypeInfo variable tinfo to tyinfo, for clarity.</li>
+<li>Binary upgrade: Modify pg_dump --binary-upgrade and add backend support routines to support the preservation of pg_type oids when doing a binary upgrade. This allows user-defined composite types and arrays to be binary upgraded.</li>
+<li>In pgsql/src/backend/catalog/pg_enum.c, rename EnumValuesCreate() single-letter variable names to useful variable names.</li>
+<li>Zero-label enums: Allow enums to be created with zero labels, for use during binary upgrade.</li>
+<li>Add backend and pg_dump code to allow preservation of pg_enum oids, for use in binary upgrades. Bump catalog version for detection by pg_migrator of new backend API.</li>
+</ul>
+<p>Heikki Linnakangas a commité&nbsp;:</p>
+<ul>
+<li>Always pass catalog id to the options validator function specified in CREATE FOREIGN DATA WRAPPER. Arguably it wasn't a bug because the documentation said that it's passed the catalog ID or zero, but surely we should provide it when it's known. And there isn't currently any scenario where it's not known, and I can't imagine having one in the future either, so better remove the "or zero" escape hatch and always pass a valid catalog ID. Backpatch to 8.4. Martin Pihlak.</li>
+</ul>
+<p>Magnus Hagander a commité&nbsp;:</p>
+<ul>
+<li>Add basic build support for Visual Studio 2008, without resorting to generating the build files for 2005 and then converting them.</li>
+<li>In pgsql/src/port/win32env.c, if the MSVCRT module is not found in the current binary, proceed to update system and local environments anyway, instead of aborting. (This will happen in a MSVC build with no or very few external libraries linked in)</li>
+<li>In pgsql/src/port/win32env.c, remove now unreferenced variable.</li>
+</ul>
+<p>Andrew Dunstan a commité&nbsp;:</p>
+<ul>
+<li>In pgsql/src/pl/plperl/ppport.h, upgrade to latest ppport.h. Patch from Tim Bunce.</li>
+</ul>
+<p>Robert Haas a commité&nbsp;:</p>
+<ul>
+<li>In pgsql/doc/src/sgml/config.sgml, add missing &lt;indexterm&gt;&lt;primary&gt;...&lt;/primary&gt;...&lt;/indexterm&gt; tags for a couple of HS-related parameters. Fujii Masao.</li>
+</ul>
+<p><strong>Correctifs rejetés (à ce jour)</strong></p>
+<ul>
+<li>Pas de déception cette semaine&nbsp;:-)</li>
+</ul>
+<p><strong>Correctifs en attente</strong></p>
+<ul>
+<li>Tim Bunce sent in another revision of the patch to refactor PL/Perl.</li>
+<li>Tim Bunce sent in a patch to update ppport.h in PL/Perl in preparation for further patches.</li>
+<li>Tim Bunce sent in a patch atop the ppport.h patch, adding new GUCs plperl.on_perl_init, plperl.on_trusted_init, plperl.on_untrusted_init.</li>
+<li>Fujii Masao sent in a doc patch for Hot Standby.</li>
+<li>KaiGai Kohei sent in another revision of the patch to add ACLs to large objects (lo).</li>
+<li>ITAGAKI Takahiro sent in a patch to add usage columns to pg_stat_statements.</li>
+<li>Martin Pihlak sent in a patch to fix the foreign data wrapper code, which is part of SQL/MED.</li>
+<li>Heikki Linnakangas sent in a patch to make tuplestores store the context in which they are created.</li>
+<li>Magnus Hagander sent in a patch to fix a Windows issue where a non-essential library, msvcrt.dll, is sometimes not detected, which caused incorrect behavior at runtime.</li>
+<li>Robert Haas sent in a WIP patch atop the automatic index name creation patch which tries to keep CONCURRENTLY a non-reserved word.</li>
+<li>Fujii Masao sent in a patch to support streaming replication.</li>
+<li>Joachim Wieland sent in a WIP patch which exposes "&lt;IDLE&gt; in transaction" connections to SIGINT.</li>
+<li>Pavel Stehule sent in a WIP patch to create a listagg() aggregate.</li>
+<li>Andreas Freund sent in a patch to kill sessions connected to a dropped database for hot standby.</li>
+</ul></div>
+
+      </div>
+
+  
+
+    
+  
+    
+    
+    </div>
+</div> <!-- End #main -->
+
+</div> <!-- End #wrapper -->
+
+<div id="pgFooter">
+  <p>Propulsé par <a href="http://dotclear.org/">Dotclear</a></p>
+</div>
+
+</div> <!-- End #page -->
+</body>
+
+<!-- Mirrored from blog2.postgresql.fr/index.php?post/2010/01/03/Nouvelles-hebdomadaires-de-PostgreSQL-27-d%C3%A9cembre-2009 by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 May 2020 21:40:20 GMT -->
+</html>

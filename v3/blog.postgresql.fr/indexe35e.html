@@ -1,0 +1,217 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr">
+
+<!-- Mirrored from blog2.postgresql.fr/index.php?post/2009/01/04/Nouvelles-neuves-de-PostgreSQL by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 May 2020 21:40:20 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="MSSmartTagsPreventParsing" content="TRUE" />
+  <meta name="ROBOTS" content="INDEX, FOLLOW" />
+  
+  <title>Nouvelles neuves de PostgreSQL - PostgreSQLfr.org</title>
+  <meta name="description" lang="fr" content="Nouvelles hebdomadaires de PostgreSQL - 28 décembre 2008 Hitoshi Harada et plusieurs autres développeurs ont ajouté des fonctionnalités &quot;OLAP&quot; à PostgreSQL. Félicitations" />
+  <meta name="copyright" content="" />
+  <meta name="author" content="chl" />
+  <meta name="date" scheme="ISO8601" content="2009-01-04T23:23:00+01:00" />
+  
+  <link rel="schema.dc" href="http://purl.org/dc/elements/1.1/" />
+  <meta name="dc.title" content="Nouvelles neuves de PostgreSQL" />
+  <meta name="dc.description" lang="fr" content="Nouvelles hebdomadaires de PostgreSQL - 28 décembre 2008 Hitoshi Harada et plusieurs autres développeurs ont ajouté des fonctionnalités &quot;OLAP&quot; à PostgreSQL. Félicitations" />
+  <meta name="dc.creator" content="chl" />
+  <meta name="dc.language" content="fr" />
+  <meta name="dc.publisher" content="" />
+  <meta name="dc.rights" content="" />
+  <meta name="dc.date" scheme="ISO8601" content="2009-01-04T23:23:00+01:00" />
+  <meta name="dc.type" content="text" />
+  <meta name="dc.format" content="text/html" />
+  
+  <link rel="top" href="indexd41d.html?" title="Accueil" />
+  <link rel="contents" href="index888d.html?archive" title="Archives" />
+  
+  <link rel="next" href="indexc480.html?post/2009/01/11/Nouvelles-neuves-de-PostgreSQL"
+  title="Nouvelles neuves de PostgreSQL" />
+  
+  <link rel="previous" href="indexfc57.html?post/2008/12/29/Nouvelles-neuves-de-PostgreSQL"
+  title="Nouvelles neuves de PostgreSQL" />
+  
+  <link rel="alternate" type="application/atom+xml" title="Atom 1.0" href="index4ca3.php?feed/atom" />
+  
+  <style type="text/css" media="screen">
+@import url(themes/postgresql/style.css);
+</style>
+<style type="text/css" media="print">
+@import url(themes/default/print.css);
+</style>
+
+<script type="text/javascript" src="themes/default/js/jquery.js"></script>
+<script type="text/javascript" src="themes/default/js/jquery.cookie.js"></script>
+
+  
+  <script type="text/javascript" src="themes/default/js/post.js"></script>
+  <script type="text/javascript">
+  //<![CDATA[
+  var post_remember_str = 'Se souvenir de moi sur ce blog';
+  //]]>
+  </script>
+</head>
+
+<body class="dc-post">
+<div id="page">
+
+
+<div id="top">
+  <div id="pgHeader">
+    <span id="pgHeaderLogoLeft">
+      <a href="index.html" title="PostgreSQL"><img src="https://blog.postgresql.fr/themes/postgresql/img/hdr_left.png" width="230" height="80" alt="PostgreSQL" /></a>
+    </span>
+    <span id="pgHeaderLogoRight">
+      <a href="index.html" title="La base de donnees la plus sophistiquee au monde."><img src="https://blog.postgresql.fr/themes/postgresql/img/hdr_right.png" width="210" height="80" alt="La base de donnees la plus sophistiquee au monde." /></a>
+    </span>
+  </div>
+
+  </div>
+
+<div class="pgTopNav">
+  <div class="pgTopNavLeft"> 
+    <img src="https://blog.postgresql.fr/themes/postgresql/img/nav_lft.png" width="7" height="23" alt="" />
+  </div>
+  <div class="pgTopNavRight">
+    <img src="https://blog.postgresql.fr/themes/postgresql/img/nav_rgt.png" width="7" height="23" alt="" />
+  </div>
+  <ul class="pgTopNavList">
+    <li><a href="https://www.postgresql.fr/" title="Accueil">Accueil</a></li>
+    <li><a href="https://blog.postgresql.fr/" title="Lire les actualités">Actualités</a></li>
+    <li><a href="https://docs.postgresql.fr/" title="Lire la documentation officielle">Documentation</a></li>
+    <li><a href="https://forums.postgresql.fr/" title="Pour poser des questions">Forums</a></li>
+    <li><a href="https://www.postgresql.fr/asso/" title="La vie de l'association">Association</a></li>
+    <li><a href="https://www.postgresql.fr/devel:accueil" title="Informations pour les développeurs/traducteurs">Développeurs</a></li>
+    <li><a href="https://planete.postgresql.fr/" title="La planète francophone sur PostgreSQL">Planète</a></li>
+    <li><a href="https://www.postgresql.fr/support/" title="Support sur PostgreSQL">Support</a></li>
+  </ul>
+</div>
+
+<div id="wrapper">
+
+<div id="pgContent">
+
+  <div id="pgSideWrap">
+  <div id="pgSideNav">
+    <div id="blognav">
+      <div id="search"><h2><label for="q">Rechercher</label></h2><form action="http://blog2.postgresql.fr/index.php?" method="get"><fieldset><p><input type="text" size="10" maxlength="255" id="q" name="q" value="" /> <input class="submit" type="submit" value="ok" /></p></fieldset></form></div><div class="categories"><h2>Catégories</h2><ul><li><a href="index199b.html?category/Articles">Articles</a></li><li><a href="indexb4c6.html?category/Dans-les-bacs">Dans les bacs</a></li><li><a href="index025a.html?category/Evenements">Événements</a></li><li class="category-current"><a href="index8c6d.html?category/PostgreSQL-Weekly-News">PostgreSQL Weekly News</a></li><li><a href="index1835.html?category/Securite">Sécurité</a></li><li><a href="index2251.html?category/Vie-de-l-association">Vie de l'association</a></li><li><a href="index91de.html?category/Vie-du-site">Vie du site</a></li></ul></div><div class="text"><h2>Licence</h2>Tous les articles de ce blog sont disponibles sous la <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/">license Creative Commons BY-NC-SA 3.0</a>.</div>    </div> <!-- End #blognav -->
+  
+    <div id="blogextra">
+      <div class="syndicate"><h2>S'abonner</h2><ul><li><a type="application/atom+xml" href="index4ca3.php?feed/atom" title="Fil Atom des billets de ce blog" class="feed">Fil des billets</a></li></ul></div>    </div> <!-- End #blogextra -->
+  </div>
+  </div>
+
+  <div id="pgContentWrap">
+  <div id="pgDownloadsWrap">
+  <div id="content">
+
+  <p id="navlinks">
+  <a href="indexfc57.html?post/2008/12/29/Nouvelles-neuves-de-PostgreSQL"
+  title="Nouvelles neuves de PostgreSQL" class="prev">&#171; Nouvelles neuves de PostgreSQL</a>
+   <span>-</span> <a href="indexc480.html?post/2009/01/11/Nouvelles-neuves-de-PostgreSQL"
+  title="Nouvelles neuves de PostgreSQL" class="next">Nouvelles neuves de PostgreSQL &#187;</a>
+  </p>
+  
+  <div class="post">
+    <h2 id="p453" class="post-title">Nouvelles neuves de PostgreSQL</h2>
+    
+    <p class="post-info">Par chl    le dimanche  4 janvier 2009, 23:23        - <a href="index8c6d.html?category/PostgreSQL-Weekly-News">PostgreSQL Weekly News</a>
+        - <a href="indexe35e.html?post/2009/01/04/Nouvelles-neuves-de-PostgreSQL">Lien permanent</a>
+    </p>
+    
+    
+    
+          <div class="post-excerpt"><p><strong>Nouvelles hebdomadaires de PostgreSQL - 28 d&eacute;cembre 2008</strong></p>
+<p>Hitoshi Harada et plusieurs autres d&eacute;veloppeurs ont ajout&eacute; des fonctionnalit&eacute;s "OLAP" &agrave; PostgreSQL. F&eacute;licitations &agrave; tous&nbsp;!</p>
+<p>Stefan Kaltenbrunner et Susanne Ebrecht feront une pr&eacute;sentation lors du 25<sup>&egrave;me</sup> "Chaos Communication Congress" &agrave; Berlin (27-30 d&eacute;cembre 2008)&nbsp;: 
+<a target="_blank" href="http://events.ccc.de/congress/2008/">http://events.ccc.de/congress/2008/</a></p>
+<p>(<a target="_blank" href="http://www.postgresql.org/community/weeklynews/pwn20081228">lien vers l'article original</a>)</p></div>
+        
+    <div class="post-content"><p><strong>Les nouveaut&eacute;s des produits d&eacute;riv&eacute;s</strong></p>
+<ul>
+<li>GNUmed 0.3.8&nbsp;: 
+<a target="_blank" href="http://wiki.gnumed.de/bin/view/Gnumed">http://wiki.gnumed.de/bin/view/Gnumed</a></li>
+</ul>
+<p><strong>Offres d'emplois autour de PostgreSQL en d&eacute;cembre</strong></p>
+<ul>
+<li><a target="_blank" href="http://archives.postgresql.org/pgsql-jobs/2008-12/threads.php">http://archives.postgresql.org/pgsql-jobs/2008-12/threads.php</a></li>
+</ul>
+<p><strong>PostgreSQL Local</strong></p>
+<ul>
+<li>La premi&egrave;re r&eacute;union de l'ArPug est programm&eacute;e le 30 d&eacute;cembre 2008 &agrave; 19:00 au "Globant Costa Salguero Office" et sur irc://irc.freenode.net/arpug&nbsp;: 
+<a target="_blank" href="http://www.arpug.com.ar/trac/wiki/Reunion1">http://www.arpug.com.ar/trac/wiki/Reunion1</a></li>
+<li>"L'appel aux conf&eacute;renciers" est lanc&eacute; pour le FOSDEM 2009 [ndt: 7-8 f&eacute;vrier 2009, Bruxelles]. Il y aura une rencontre PostgreSQL et nous y partagerons une salle "d&eacute;veloppeurs" avec les groupes BSD. Proposez vos expos&eacute;s &agrave; l'adresse _fosdem (a) postgresql (point) eu_ avant le 2 janvier 2009.</li>
+<li>Le SYDPUG se r&eacute;unira le 3 f&eacute;vrier 2009 &agrave; 18h30. Suivez le lien pour les d&eacute;tails&nbsp;: 
+<a target="_blank" href="http://archives.postgresql.org/sydpug/">http://archives.postgresql.org/sydpug/</a></li>
+<li>Conf&eacute;rence d'Andreas 'ads' Scherbaum lors du "Perl Workshop 2009" le 25 f&eacute;vrier &agrave; Francfort-sur-le-Main, en Allemagne&nbsp;: 
+<a target="_blank" href="http://www.perl-workshop.de/talks/151/view">http://www.perl-workshop.de/talks/151/view</a></li>
+<li>La PGCon 2009 se tiendra &agrave; l'Universit&eacute; d'Ottawa les 21 et 22 mai 2009. Elle sera pr&eacute;c&eacute;d&eacute;e de deux jours de tutoriels les 19 &amp; 20 mai&nbsp;: 
+<a target="_blank" href="http://www.pgcon.org/2009/papers.php">http://www.pgcon.org/2009/papers.php</a></li>
+<li>La "PGCon Brazil" prendra place &agrave; l'Unicamp de Campinas (&Eacute;tat de S&atilde;o Paulo) les 23 &amp; 24 octobre 2009.</li>
+</ul>
+<p><strong>PostgreSQL dans les m&eacute;dia</strong></p>
+<ul>
+<li>Planet PostgreSQL&nbsp;: 
+<a target="_blank" href="http://planet.postgresql.org/">http://planet.postgresql.org/</a></li>
+</ul>
+<p><i>PostgreSQL Weekly News / les nouvelles hebdomadaires vous sont offertes cette semaine par David Fetter. La traduction en est assur&eacute;e par l'&eacute;quipe PostgreSQLFr.</i></p>
+<p><i>Proposez vos articles ou annonces avant dimanche 15:00 (heure du Pacifique). Merci de les envoyer en anglais &agrave; david (a) fetter.org, en allemand &agrave; pwn (a) pgug.de, en italien &agrave; pwn (a) itpug.org.</i></p>
+<p><strong>Correctifs appliqu&eacute;s</strong></p>
+<p>Bruce Momjian a commit&eacute;&nbsp;:</p>
+<ul>
+<li>Change the name of dtrace wal tracepoints to TRACE_POSTGRESQL_WAL_BUFFER_WRITE_DIRTY. Robert Lor.</li>
+</ul>
+<p>Tom Lane a commit&eacute;&nbsp;:</p>
+<ul>
+<li>Remove unused include file pgsql/src/include/storage itempos.h, per ITAGAKI Takahiro. AFAICT this has been dead code since Postgres95.</li>
+<li>Make a couple of small changes to the tuplestore API, for the benefit of the upcoming window-functions patch. First, tuplestore_trim is now an exported function that must be explicitly invoked by callers at appropriate times, rather than something that tuplestore tries to do behind the scenes. Second, a read pointer that is marked as allowing backward scan no longer prevents truncation. This means that a read pointer marked as having BACKWARD but not REWIND capability can only safely read backwards as far as the oldest other read pointer. (The expected use pattern for this involves having another read pointer that serves as the truncation fencepost.)</li>
+<li>Support window functions a la SQL:2008. Hitoshi Harada, with some kibitzing from Heikki and Tom.</li>
+<li>Tighten up a couple of regression test cases that can have platform-dependent results due to underspecified ordering. Per report from buildfarm member pika.</li>
+</ul>
+<p><strong>Correctifs rejet&eacute;s (&agrave; ce jour)</strong></p>
+<ul>
+<li>No one was disappointed this week :-)</li>
+</ul>
+<p><strong>Correctifs en attente</strong></p>
+<ul>
+<li>Alvaro Herrera sent in another revision of his patch to improve reloption handling.</li>
+<li>Robert Lor sent in a patch atop his DTrace probes patch to change some names.</li>
+<li>Bernd Helmle sent in another revision of his writable views patch.</li>
+<li>Heikki Linnakangas sent in a patch to fix some issues around the new visibility map and VACUUM.</li>
+<li>Kenneth Marshall sent in another revision of his internal hash function patch.</li>
+<li>Heikki Linnakangas sent in another revision of his infrastructure patch for recovery.</li>
+<li>Fujii Masao sent in three revisions of a patch to skip checkpoint at pg_start_backup.</li>
+<li>KaiGai Kohei sent in another revision of his SE-PostgreSQL patches.</li>
+<li>Fujii Masao sent in a patch to support archive control for synchronous replication.</li>
+<li>ITAGAKI Takahiro sent in another revision of his pg_stat_statements patch.</li>
+<li>Hiroshi Inoue sent in a patch intended to fix bug 4186 (set lc_messages does not work).</li>
+<li>Koichi Suzuki sent in another revision of his patch to improve PITR performance.</li>
+<li>Erik Rijkers sent in a patch which clarifies the --help message for the -c option in pg_restore.</li>
+</ul></div>
+
+      </div>
+
+  
+
+    
+  
+    
+    
+    </div>
+</div> <!-- End #main -->
+
+</div> <!-- End #wrapper -->
+
+<div id="pgFooter">
+  <p>Propulsé par <a href="http://dotclear.org/">Dotclear</a></p>
+</div>
+
+</div> <!-- End #page -->
+</body>
+
+<!-- Mirrored from blog2.postgresql.fr/index.php?post/2009/01/04/Nouvelles-neuves-de-PostgreSQL by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 May 2020 21:40:20 GMT -->
+</html>

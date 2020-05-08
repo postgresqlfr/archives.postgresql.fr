@@ -1,0 +1,293 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr">
+
+<!-- Mirrored from blog2.postgresql.fr/index.php?post/2018/03/01/Nouvelles-hebdomadaires-de-PostgreSQL-18-f%C3%A9vrier-2018 by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 May 2020 21:40:19 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="MSSmartTagsPreventParsing" content="TRUE" />
+  <meta name="ROBOTS" content="INDEX, FOLLOW" />
+  
+  <title>Nouvelles hebdomadaires de PostgreSQL - 18 février 2018 - PostgreSQLfr.org</title>
+  <meta name="description" lang="fr" content="Les nouveautés des produits dérivés pgpool-II versions 3.7.2, 4.6.9, 3.5.13, 3.4.16 et 3.3.20 publiées. http://www.pgpool.net/docs/latest/en/html/release.html OmniDB 2.5, un outil" />
+  <meta name="copyright" content="" />
+  <meta name="author" content="chl" />
+  <meta name="date" scheme="ISO8601" content="2018-03-01T00:29:00+01:00" />
+  
+  <link rel="schema.dc" href="http://purl.org/dc/elements/1.1/" />
+  <meta name="dc.title" content="Nouvelles hebdomadaires de PostgreSQL - 18 février 2018" />
+  <meta name="dc.description" lang="fr" content="Les nouveautés des produits dérivés pgpool-II versions 3.7.2, 4.6.9, 3.5.13, 3.4.16 et 3.3.20 publiées. http://www.pgpool.net/docs/latest/en/html/release.html OmniDB 2.5, un outil" />
+  <meta name="dc.creator" content="chl" />
+  <meta name="dc.language" content="fr" />
+  <meta name="dc.publisher" content="" />
+  <meta name="dc.rights" content="" />
+  <meta name="dc.date" scheme="ISO8601" content="2018-03-01T00:29:00+01:00" />
+  <meta name="dc.type" content="text" />
+  <meta name="dc.format" content="text/html" />
+  
+  <link rel="top" href="indexd41d.html?" title="Accueil" />
+  <link rel="contents" href="index888d.html?archive" title="Archives" />
+  
+  <link rel="next" href="index56a7.html?post/2018/03/01/Nouvelles-hebdomadaires-de-PostgreSQL-25-f%C3%A9vrier-2018"
+  title="Nouvelles hebdomadaires de PostgreSQL - 25 février 2018" />
+  
+  <link rel="previous" href="indexc081.html?post/2018/02/13/Nouvelles-hebdomadaires-de-PostgreSQL-11-f%C3%A9vrier-2018"
+  title="Nouvelles hebdomadaires de PostgreSQL - 11 février 2018" />
+  
+  <link rel="alternate" type="application/atom+xml" title="Atom 1.0" href="index4ca3.php?feed/atom" />
+  
+  <style type="text/css" media="screen">
+@import url(themes/postgresql/style.css);
+</style>
+<style type="text/css" media="print">
+@import url(themes/default/print.css);
+</style>
+
+<script type="text/javascript" src="themes/default/js/jquery.js"></script>
+<script type="text/javascript" src="themes/default/js/jquery.cookie.js"></script>
+
+  
+  <script type="text/javascript" src="themes/default/js/post.js"></script>
+  <script type="text/javascript">
+  //<![CDATA[
+  var post_remember_str = 'Se souvenir de moi sur ce blog';
+  //]]>
+  </script>
+</head>
+
+<body class="dc-post">
+<div id="page">
+
+
+<div id="top">
+  <div id="pgHeader">
+    <span id="pgHeaderLogoLeft">
+      <a href="index.html" title="PostgreSQL"><img src="https://blog.postgresql.fr/themes/postgresql/img/hdr_left.png" width="230" height="80" alt="PostgreSQL" /></a>
+    </span>
+    <span id="pgHeaderLogoRight">
+      <a href="index.html" title="La base de donnees la plus sophistiquee au monde."><img src="https://blog.postgresql.fr/themes/postgresql/img/hdr_right.png" width="210" height="80" alt="La base de donnees la plus sophistiquee au monde." /></a>
+    </span>
+  </div>
+
+  </div>
+
+<div class="pgTopNav">
+  <div class="pgTopNavLeft"> 
+    <img src="https://blog.postgresql.fr/themes/postgresql/img/nav_lft.png" width="7" height="23" alt="" />
+  </div>
+  <div class="pgTopNavRight">
+    <img src="https://blog.postgresql.fr/themes/postgresql/img/nav_rgt.png" width="7" height="23" alt="" />
+  </div>
+  <ul class="pgTopNavList">
+    <li><a href="https://www.postgresql.fr/" title="Accueil">Accueil</a></li>
+    <li><a href="https://blog.postgresql.fr/" title="Lire les actualités">Actualités</a></li>
+    <li><a href="https://docs.postgresql.fr/" title="Lire la documentation officielle">Documentation</a></li>
+    <li><a href="https://forums.postgresql.fr/" title="Pour poser des questions">Forums</a></li>
+    <li><a href="https://www.postgresql.fr/asso/" title="La vie de l'association">Association</a></li>
+    <li><a href="https://www.postgresql.fr/devel:accueil" title="Informations pour les développeurs/traducteurs">Développeurs</a></li>
+    <li><a href="https://planete.postgresql.fr/" title="La planète francophone sur PostgreSQL">Planète</a></li>
+    <li><a href="https://www.postgresql.fr/support/" title="Support sur PostgreSQL">Support</a></li>
+  </ul>
+</div>
+
+<div id="wrapper">
+
+<div id="pgContent">
+
+  <div id="pgSideWrap">
+  <div id="pgSideNav">
+    <div id="blognav">
+      <div id="search"><h2><label for="q">Rechercher</label></h2><form action="http://blog2.postgresql.fr/index.php?" method="get"><fieldset><p><input type="text" size="10" maxlength="255" id="q" name="q" value="" /> <input class="submit" type="submit" value="ok" /></p></fieldset></form></div><div class="categories"><h2>Catégories</h2><ul><li><a href="index199b.html?category/Articles">Articles</a></li><li><a href="indexb4c6.html?category/Dans-les-bacs">Dans les bacs</a></li><li><a href="index025a.html?category/Evenements">Événements</a></li><li class="category-current"><a href="index8c6d.html?category/PostgreSQL-Weekly-News">PostgreSQL Weekly News</a></li><li><a href="index1835.html?category/Securite">Sécurité</a></li><li><a href="index2251.html?category/Vie-de-l-association">Vie de l'association</a></li><li><a href="index91de.html?category/Vie-du-site">Vie du site</a></li></ul></div><div class="text"><h2>Licence</h2>Tous les articles de ce blog sont disponibles sous la <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/">license Creative Commons BY-NC-SA 3.0</a>.</div>    </div> <!-- End #blognav -->
+  
+    <div id="blogextra">
+      <div class="syndicate"><h2>S'abonner</h2><ul><li><a type="application/atom+xml" href="index4ca3.php?feed/atom" title="Fil Atom des billets de ce blog" class="feed">Fil des billets</a></li></ul></div>    </div> <!-- End #blogextra -->
+  </div>
+  </div>
+
+  <div id="pgContentWrap">
+  <div id="pgDownloadsWrap">
+  <div id="content">
+
+  <p id="navlinks">
+  <a href="indexc081.html?post/2018/02/13/Nouvelles-hebdomadaires-de-PostgreSQL-11-f%C3%A9vrier-2018"
+  title="Nouvelles hebdomadaires de PostgreSQL - 11 février 2018" class="prev">&#171; Nouvelles hebdomadaires de PostgreSQL - 11 février</a>
+   <span>-</span> <a href="index56a7.html?post/2018/03/01/Nouvelles-hebdomadaires-de-PostgreSQL-25-f%C3%A9vrier-2018"
+  title="Nouvelles hebdomadaires de PostgreSQL - 25 février 2018" class="next">Nouvelles hebdomadaires de PostgreSQL - 25 février &#187;</a>
+  </p>
+  
+  <div class="post">
+    <h2 id="p986" class="post-title">Nouvelles hebdomadaires de PostgreSQL - 18 février 2018</h2>
+    
+    <p class="post-info">Par chl    le jeudi  1 mars 2018, 00:29        - <a href="index8c6d.html?category/PostgreSQL-Weekly-News">PostgreSQL Weekly News</a>
+        - <a href="index9c53.html?post/2018/03/01/Nouvelles-hebdomadaires-de-PostgreSQL-18-f%C3%A9vrier-2018">Lien permanent</a>
+    </p>
+    
+    
+    
+          <div class="post-excerpt"><h2>Les nouveaut&eacute;s des produits d&eacute;riv&eacute;s</h2>
+<ul>
+<li>pgpool-II versions 3.7.2, 4.6.9, 3.5.13, 3.4.16 et 3.3.20 publi&eacute;es. <a target="_blank" href="http://www.pgpool.net/docs/latest/en/html/release.html">http://www.pgpool.net/docs/latest/en/html/release.html</a></li>
+<li>OmniDB 2.5, un outil de gestion de BDD via navigateur web&nbsp;: <a target="_blank" href="https://www.2ndquadrant.com/en/resources/omnidb/">https://www.2ndquadrant.com/en/resources/omnidb/</a></li>
+<li>DBD::Pg 3.7.4, a Perl driver for PostgreSQL, released. <a target="_blank" href="http://search.cpan.org/dist/DBD-Pg/">http://search.cpan.org/dist/DBD-Pg/</a></li>
+</ul>
+<h2>Offres d'emplois autour de PostgreSQL en f&eacute;vrier</h2>
+<ul>
+<li>Internationales : <a target="_blank" href="http://archives.postgresql.org/pgsql-jobs/2018-02/">http://archives.postgresql.org/pgsql-jobs/2018-02/</a></li>
+<li>Francophones : <a target="_blank" href="http://forums.postgresql.fr/viewforum.php?id=4">http://forums.postgresql.fr/viewforum.php?id=4</a></li>
+</ul>
+<h2>PostgreSQL Local</h2>
+<ul>
+<li>La <em>PGConf India 2018</em> aura lieu les 22 & 23 f&eacute;vrier 2018 &agrave; Bengalore (&Eacute;tat du Karnataka en Inde)&nbsp;: <a target="_blank" href="http://pgconf.in/">http://pgconf.in/</a></li>
+<li>PostgreSQL@SCaLE est un &eacute;v&eacute;nement de 2 jours &agrave; double programmes qui aura lieu les 8 & 9 mars 2018 au centre de convention de Pasadena, int&eacute;gr&eacute; au SCaLE 16X&nbsp;: <a target="_blank" href="http://www.socallinuxexpo.org/scale/16x/cfp">http://www.socallinuxexpo.org/scale/16x/cfp</a></li>
+<li>Le PGDay nordique 2018 se tiendra &agrave; Oslo (Norv&egrave;ge) &agrave; l'h&ocirc;tel Radisson Blu le 13 mars 2018. Les inscriptions sont ouvertes et le programme a &eacute;t&eacute; publi&eacute;&nbsp;: <a target="_blank" href="https://2018.nordicpgday.org/">https://2018.nordicpgday.org/</a></li>
+<li>Le <em>pgDay Paris 2018</em> aura lieu &agrave; l'espace Saint Martin (Paris, France) le 15 mars 2018. Les inscriptions sont ouvertes&nbsp;: <a target="_blank" href="http://2018.pgday.paris/callforpapers/">http://2018.pgday.paris/callforpapers/</a></li>
+<li>PGConf APAC 2018 se tiendra &agrave; Singapour du 22 au 24 mars 2018&nbsp;: <a target="_blank" href="http://2018.pgconfapac.org/">http://2018.pgconfapac.org/</a></li>
+<li>La conf&eacute;rence germanophone <em>PostgreSQL Conference 2018</em> aura lieu le 13 avril 2018 &agrave; Berlin&nbsp;: <a target="_blank" href="http://2018.pgconf.de/">http://2018.pgconf.de/</a></li>
+<li>La <em>PGConfNepal 2018</em> se tiendra les 4 & 5 mai 2018 &agrave; l'universit&eacute; de Katmandou, Dulikhel, N&eacute;pal&nbsp;: <a target="_blank" href="https://postgresconf.org/conferences/Nepal2018/program/proposals">https://postgresconf.org/conferences/Nepal2018/program/proposals</a> <a target="_blank" href="https://postgresconf.org/conferences/Nepal2018">https://postgresconf.org/conferences/Nepal2018</a></li>
+<li>La <em>PGCon 2018</em> se tiendra &agrave; Ottawa du 29 mai au 1er juin 2018&nbsp;: <a target="_blank" href="https://www.pgcon.org/2018/">https://www.pgcon.org/2018/</a></li>
+<li>Le PGDay suisse 2018 aura lieu &agrave; Rapperswil-Jona (pr&egrave;s de Zurich) le 29 juin 2018. L'appel &agrave; conf&eacute;renciers court du 6 f&eacute;vrier au 14 avril 2018, et les inscriptions sont ouvertes du 6 f&eacute;vrier au 28 juin 2018&nbsp;: <a target="_blank" href="http://www.pgday.ch/2018/">http://www.pgday.ch/2018/</a></li>
+<li>La <em>PGConf.Brazil 2018</em> aura lieu &agrave; S&atilde;o Paulo (Br&eacute;sil) les 3 & 4 ao&ucirc;t 2018. L'appel &agrave; conf&eacute;renciers court jusqu'au 28 f&eacute;vrier 2018&nbsp;: <a target="_blank" href="http://pgconf.com.br/">http://pgconf.com.br</a></li>
+</ul>
+<h2>PostgreSQL dans les m&eacute;dia</h2>
+<ul>
+<li>Planet PostgreSQL : <a target="_blank" href="http://planet.postgresql.org/">http://planet.postgresql.org/</a></li>
+<li>Planet PostgreSQLFr : <a target="_blank" href="http://planete.postgresql.fr/">http://planete.postgresql.fr/</a></li>
+</ul>
+<p>PostgreSQL Weekly News / les nouvelles hebdomadaires vous sont offertes cette semaine par David Fetter. Traduction par l'&eacute;quipe PostgreSQLFr sous licence CC BY-NC-SA. La version originale se trouve &agrave; l'adresse suivante : <a target="_blank" href="http://www.postgresql.org/message-id/20180220212416.GA29131@fetter.org">http://www.postgresql.org/message-id/20180220212416.GA29131@fetter.org</a></p>
+<p>Proposez vos articles ou annonces avant dimanche 15:00 (heure du Pacifique). Merci de les envoyer en anglais &agrave; david (a) fetter.org, en allemand &agrave; pwn (a) pgug.de, en italien &agrave; pwn (a) itpug.org et en espagnol &agrave; pwn (a) arpug.com.ar.</p></div>
+        
+    <div class="post-content"><h2>Correctifs appliqu&eacute;s</h2>
+<p>Bruce Momjian pushed:</p>
+<ul>
+<li>psql: give ^D hint for \q in place where \q is ignored. Also add comment on why exit/quit are not documented. Discussion: <a target="_blank" href="https://postgr.es/m/20180202053928.GA13472@momjian.us">https://postgr.es/m/20180202053928.GA13472@momjian.us</a> <a target="_blank" href="https://git.postgresql.org/pg/commitdiff/91389228a1007fa3845e29e17568e52ab1726d5d">https://git.postgresql.org/pg/commitdiff/91389228a1007fa3845e29e17568e52ab1726d5d</a></li>
+</ul>
+<p>&#65533;lvaro Herrera pushed:</p>
+<ul>
+<li>Add missing article. Noticed while reviewing nearby text <a target="_blank" href="https://git.postgresql.org/pg/commitdiff/80f021ef139affdb219ccef71fff283e8f91f112">https://git.postgresql.org/pg/commitdiff/80f021ef139affdb219ccef71fff283e8f91f112</a></li>
+<li>get_relid_attribute_name is dead, long live get_attname. The modern way is to use a missing_ok argument instead of two separate almost-identical routines, so do that. Author: Micha&#65533;l Paquier Reviewed-by: &#65533;lvaro Herrera Discussion: <a target="_blank" href="https://postgr.es/m/20180201063212.GE6398@paquier.xyz">https://postgr.es/m/20180201063212.GE6398@paquier.xyz</a> <a target="_blank" href="https://git.postgresql.org/pg/commitdiff/8237f27b504ff1d1e2da7ae4c81a7f72ea0e0e3e">https://git.postgresql.org/pg/commitdiff/8237f27b504ff1d1e2da7ae4c81a7f72ea0e0e3e</a></li>
+<li>Mention trigger name in trigger test. This makes it more explicit exactly what is going on, for further proposed behavior changes. Discussion: <a target="_blank" href="https://postgr.es/m/20180214212624.hm7of76flesodamf@alvherre.pgsql">https://postgr.es/m/20180214212624.hm7of76flesodamf@alvherre.pgsql</a> <a target="_blank" href="https://git.postgresql.org/pg/commitdiff/cef60043dd27c47a1a4a220158836ccff20be07a">https://git.postgresql.org/pg/commitdiff/cef60043dd27c47a1a4a220158836ccff20be07a</a></li>
+<li>Refactor format_type APIs to be more modular. Introduce a new format_type_extended, with a flags bitmask argument that can modify the default behavior. A few compatibility and readability wrappers remain: format_type_be format_type_be_qualified format_type_with_typemod while format_type_with_typemod_qualified, which had a single caller, is removed. Author: Michael Paquier, some revisions by me Discussion: 20180213035107.GA2915@paquier.xyz <a target="_blank" href="https://git.postgresql.org/pg/commitdiff/a26116c6cbf4117e8efaa7cfc5bacc887f01517f">https://git.postgresql.org/pg/commitdiff/a26116c6cbf4117e8efaa7cfc5bacc887f01517f</a></li>
+</ul>
+<p>Robert Haas pushed:</p>
+<ul>
+<li>Fix parallel index builds for dynamic_shared_memory_type=none. The previous code failed to realize that this setting effectively disables parallelism, and would crash if it decided to attempt parallelism anyway. Instead, treat it as a disabling condition. Kyotaro Horiguchi, who also reported the issue. Reviewed by Michael Paquier and Peter Geoghegan. Discussion: <a target="_blank" href="http://postgr.es/m/20180209.170635.256350357.horiguchi.kyotaro@lab.ntt.co.jp">http://postgr.es/m/20180209.170635.256350357.horiguchi.kyotaro@lab.ntt.co.jp</a> <a target="_blank" href="https://git.postgresql.org/pg/commitdiff/88ef48c1ccee6a2200e01318180cf521413b3012">https://git.postgresql.org/pg/commitdiff/88ef48c1ccee6a2200e01318180cf521413b3012</a></li>
+</ul>
+<p>Peter Eisentraut pushed:</p>
+<ul>
+<li>Fix typo. Author: Masahiko Sawada &lt;sawada.mshk@gmail.com&gt; <a target="_blank" href="https://git.postgresql.org/pg/commitdiff/ebdb42a0d6a61b93a5bb9f4204408edf5959332c">https://git.postgresql.org/pg/commitdiff/ebdb42a0d6a61b93a5bb9f4204408edf5959332c</a></li>
+<li>In LDAP test, restart after pg_hba.conf changes. Instead of issuing a reload after pg_hba.conf changes between test cases, run a full restart. With a reload, an error in the new pg_hba.conf is ignored and the tests will continue to run with the old settings, invalidating the subsequent test cases. With a restart, a faulty pg_hba.conf will lead to the test being aborted, which is what we'd rather want. <a target="_blank" href="https://git.postgresql.org/pg/commitdiff/b4e2ada347bd8ae941171bd0761462e5b11b765d">https://git.postgresql.org/pg/commitdiff/b4e2ada347bd8ae941171bd0761462e5b11b765d</a></li>
+<li>Fix typo. <a target="_blank" href="https://git.postgresql.org/pg/commitdiff/a7b8f0661d9ca9656ba58546ed871b36dbf8504d">https://git.postgresql.org/pg/commitdiff/a7b8f0661d9ca9656ba58546ed871b36dbf8504d</a></li>
+<li>doc: pg_function_is_visible also applies to aggregates and procedures. <a target="_blank" href="https://git.postgresql.org/pg/commitdiff/2ac3e6acc228e4b99022019379c6d5c4b61b231c">https://git.postgresql.org/pg/commitdiff/2ac3e6acc228e4b99022019379c6d5c4b61b231c</a></li>
+<li>Add tests for pg_get_functiondef. <a target="_blank" href="https://git.postgresql.org/pg/commitdiff/7cd56f218d0f8953999b944bc558cd6684b15cdc">https://git.postgresql.org/pg/commitdiff/7cd56f218d0f8953999b944bc558cd6684b15cdc</a></li>
+<li>Add procedure support to pg_get_functiondef. This also makes procedures work in psql's \ef and \sf commands. Reported-by: Pavel Stehule &lt;pavel.stehule@gmail.com&gt; <a target="_blank" href="https://git.postgresql.org/pg/commitdiff/7a32ac8a66903de8c352735f2a26f610f5e47090">https://git.postgresql.org/pg/commitdiff/7a32ac8a66903de8c352735f2a26f610f5e47090</a></li>
+<li>Rename enable_partition_wise_join to enable_partitionwise_join. Discussion: <a target="_blank" href="https://www.postgresql.org/message-id/flat/ad24e4f4-6481-066e-e3fb-6ef4a3121882%402ndquadrant.com">https://www.postgresql.org/message-id/flat/ad24e4f4-6481-066e-e3fb-6ef4a3121882%402ndquadrant.com</a> <a target="_blank" href="https://git.postgresql.org/pg/commitdiff/2fb1abaeb016aeb45b9e6d0b81b7a7e92bb251b9">https://git.postgresql.org/pg/commitdiff/2fb1abaeb016aeb45b9e6d0b81b7a7e92bb251b9</a></li>
+<li>Fix crash when canceling parallel query. elog(FATAL) would end up calling PortalCleanup(), which would call executor shutdown code, which could fail and crash, especially under parallel query. This was introduced by 8561e4840c81f7e345be2df170839846814fa004, which did not want to mark an active portal as failed by a normal transaction abort anymore. But we do need to do that for an elog(FATAL) exit. Introduce a variable shmem_exit_inprogress similar to the existing proc_exit_inprogress, so we can tell whether we are in the FATAL exit scenario. Reported-by: Andres Freund &lt;andres@anarazel.de&gt; <a target="_blank" href="https://git.postgresql.org/pg/commitdiff/ad9a274778d2d88c46b90309212b92ee7fdf9afe">https://git.postgresql.org/pg/commitdiff/ad9a274778d2d88c46b90309212b92ee7fdf9afe</a></li>
+<li>Move function comment to the right place. <a target="_blank" href="https://git.postgresql.org/pg/commitdiff/1a1adb215c69bbf64fd8e01cc1706812dc8ba15b">https://git.postgresql.org/pg/commitdiff/1a1adb215c69bbf64fd8e01cc1706812dc8ba15b</a></li>
+<li>Minor comment fix. <a target="_blank" href="https://git.postgresql.org/pg/commitdiff/7923118c16aa3408a994f297d8bdd68292f45324">https://git.postgresql.org/pg/commitdiff/7923118c16aa3408a994f297d8bdd68292f45324</a></li>
+</ul>
+<p>Tom Lane pushed:</p>
+<ul>
+<li>Make plpgsql use its DTYPE_REC code paths for composite-type variables. Formerly, DTYPE_REC was used only for variables declared as "record"; variables of named composite types used DTYPE_ROW, which is faster for some purposes but much less flexible. In particular, the ROW code paths are entirely incapable of dealing with DDL-caused changes to the number or data types of the columns of a row variable, once a particular plpgsql function has been parsed for the first time in a session. And, since the stored representation of a ROW isn't a tuple, there wasn't any easy way to deal with variables of domain-over-composite types, since the domain constraint checking code would expect the value to be checked to be a tuple. A lesser, but still real, annoyance is that ROW format cannot represent a true NULL composite value, only a row of per-field NULL values, which is not exactly the same thing. Hence, switch to using DTYPE_REC for all composite-typed variables, whether "record", named composite type, or domain over named composite type. DTYPE_ROW remains but is used only for its native purpose, to represent a fixed-at-compile-time list of variables, for instance the targets of an INTO clause. To accomplish this without taking significant performance losses, introduce infrastructure that allows storing composite-type variables as "expanded objects", similar to the "expanded array" infrastructure introduced in commit 1dc5ebc90. A composite variable's value is thereby kept (most of the time) in the form of separate Datums, so that field accesses and updates are not much more expensive than they were in the ROW format. This holds the line, more or less, on performance of variables of named composite types in field-access-intensive microbenchmarks, and makes variables declared "record" perform much better than before in similar tests. In addition, the logic involved with enforcing composite-domain constraints against updates of individual fields is in the expanded record infrastructure not plpgsql proper, so that it might be reusable for other purposes. In further support of this, introduce a typcache feature for assigning a unique-within-process identifier to each distinct tuple descriptor of interest; in particular, DDL alterations on composite types result in a new identifier for that type. This allows very cheap detection of the need to refresh tupdesc-dependent data. This improves on the "tupDescSeqNo" idea I had in commit 687f096ea: that assigned identifying sequence numbers to successive versions of individual composite types, but the numbers were not unique across different types, nor was there support for assigning numbers to registered record types. In passing, allow plpgsql functions to accept as well as return type "record". There was no good reason for the old restriction, and it was out of step with most of the other PLs. Tom Lane, reviewed by Pavel Stehule Discussion: <a target="_blank" href="https://postgr.es/m/8962.1514399547@sss.pgh.pa.us">https://postgr.es/m/8962.1514399547@sss.pgh.pa.us</a> <a target="_blank" href="https://git.postgresql.org/pg/commitdiff/4b93f57999a2ca9b9c9e573ea32ab1aeaa8bf496">https://git.postgresql.org/pg/commitdiff/4b93f57999a2ca9b9c9e573ea32ab1aeaa8bf496</a></li>
+<li>Speed up plpgsql function startup by doing fewer pallocs. Previously, copy_plpgsql_datum did a separate palloc for each variable needing instance-local storage. In simple benchmarks this made for a noticeable fraction of the total runtime. Improve it by precalculating the space needed for all of a function's variables and doing just one palloc for all of them. In passing, remove PLPGSQL_DTYPE_EXPR from the list of plpgsql "datum" types, since in fact it has nothing in common with the others, and there is noplace that needs to discriminate on the basis of dtype between an expression and any type of datum. And add comments clarifying which datum struct fields are generic and which aren't. Tom Lane, reviewed by Pavel Stehule Discussion: <a target="_blank" href="https://postgr.es/m/11986.1514407114@sss.pgh.pa.us">https://postgr.es/m/11986.1514407114@sss.pgh.pa.us</a> <a target="_blank" href="https://git.postgresql.org/pg/commitdiff/40301c1c8bcbe92a9ba9bf017da03e83476ae0e5">https://git.postgresql.org/pg/commitdiff/40301c1c8bcbe92a9ba9bf017da03e83476ae0e5</a></li>
+<li>Speed up plpgsql trigger startup by introducing "promises". Over the years we've accreted quite a few special variables that are predefined in plpgsql trigger functions. The cost of initializing these variables to their defined values turns out to be a significant part of the runtime of simple triggers; but, undoubtedly, most real-world triggers never examine the values of most of these variables. To improve matters, invent the notion of a variable that has a "promise" attached to it, specifying which of the predetermined values should be assigned to the variable if anything ever reads it. This eliminates all the unneeded startup overhead, in return for a small penalty on accesses to these variables. Tom Lane, reviewed by Pavel Stehule Discussion: <a target="_blank" href="https://postgr.es/m/11986.1514407114@sss.pgh.pa.us">https://postgr.es/m/11986.1514407114@sss.pgh.pa.us</a> <a target="_blank" href="https://git.postgresql.org/pg/commitdiff/fd333bc763ea104f2a2c10c6b0061c996d4a2f5a">https://git.postgresql.org/pg/commitdiff/fd333bc763ea104f2a2c10c6b0061c996d4a2f5a</a></li>
+<li>Support CONSTANT/NOT NULL/initial value for plpgsql composite variables. These features were never implemented previously for composite or record variables ... not that the documentation admitted it, so there's no doc updates here. This also fixes some issues concerning enforcing DOMAIN NOT NULL constraints against plpgsql variables, although I'm not sure that that topic is completely dealt with. I created a new plpgsql test file for these features, and moved the one relevant existing test case into that file. Tom Lane, reviewed by Daniel Gustafsson Discussion: <a target="_blank" href="https://postgr.es/m/18362.1514605650@sss.pgh.pa.us">https://postgr.es/m/18362.1514605650@sss.pgh.pa.us</a> <a target="_blank" href="https://git.postgresql.org/pg/commitdiff/f9263006d871d127794a402a7bef713fdd882156">https://git.postgresql.org/pg/commitdiff/f9263006d871d127794a402a7bef713fdd882156</a></li>
+<li>Fix broken logic for reporting PL/Python function names in errcontext. plpython_error_callback() reported the name of the function associated with the topmost PL/Python execution context. This was not merely wrong if there were nested PL/Python contexts, but it risked a core dump if the topmost one is an inline code block rather than a named function. That will have proname = NULL, and so we were passing a NULL pointer to snprintf("%s"). It seems that none of the PL/Python-testing machines in the buildfarm will dump core for that, but some platforms do, as reported by Marina Polyakova. Investigation finds that there actually is an existing regression test that used to prove that the behavior was wrong, though apparently no one had noticed that it was printing the wrong function name. It stopped showing the problem in 9.6 when we adjusted psql to not print CONTEXT by default for NOTICE messages. The problem is masked (if your platform avoids the core dump) in error cases, because PL/Python will throw away the originally generated error info in favor of a new traceback produced at the outer level. Repair by using ErrorContextCallback.arg to pass the correct context to the error callback. Add a regression test illustrating correct behavior. Back-patch to all supported branches, since they're all broken this way. Discussion: <a target="_blank" href="https://postgr.es/m/156b989dbc6fe7c4d3223cf51da61195@postgrespro.ru">https://postgr.es/m/156b989dbc6fe7c4d3223cf51da61195@postgrespro.ru</a> <a target="_blank" href="https://git.postgresql.org/pg/commitdiff/e748e902def40ee52d1ef0b770fd24aa0835e304">https://git.postgresql.org/pg/commitdiff/e748e902def40ee52d1ef0b770fd24aa0835e304</a></li>
+<li>Add an assertion that we don't pass NULL to snprintf("%s"). Per commit e748e902d, we appear to have little or no coverage in the buildfarm of machines that will dump core when asked to printf a null string pointer. Let's try to improve that situation by adding an assertion that will make src/port/snprintf.c behave that way. Since it's just an assertion, it won't break anything in production builds, but it will help developers find this type of oversight. Note that while our buildfarm coverage of machines that use that snprintf implementation is pretty thin on the Unix side (apparently amounting only to gaur/pademelon), all of the MSVC critters use it. Discussion: <a target="_blank" href="https://postgr.es/m/156b989dbc6fe7c4d3223cf51da61195@postgrespro.ru">https://postgr.es/m/156b989dbc6fe7c4d3223cf51da61195@postgrespro.ru</a> <a target="_blank" href="https://git.postgresql.org/pg/commitdiff/0c62356cc8777961221a643fa77f62e1c7361085">https://git.postgresql.org/pg/commitdiff/0c62356cc8777961221a643fa77f62e1c7361085</a></li>
+<li>Silence assorted "variable may be used uninitialized" warnings. All of these are false positives, but in each case a fair amount of analysis is needed to see that, and it's not too surprising that not all compilers are smart enough. (In particular, in the logtape.c case, a compiler lacking the knowledge provided by the Assert would almost surely complain, so that this warning will be seen in any non-assert build.) Some of these are of long standing while others are pretty recent, but it only seems worth fixing them in HEAD. Jaime Casanova, tweaked a bit by me Discussion: <a target="_blank" href="https://postgr.es/m/CAJGNTeMcYAMJdPAom52dppLMtF-UnEZi0dooj==75OEv1EoBZA@mail.gmail.com">https://postgr.es/m/CAJGNTeMcYAMJdPAom52dppLMtF-UnEZi0dooj==75OEv1EoBZA@mail.gmail.com</a> <a target="_blank" href="https://git.postgresql.org/pg/commitdiff/9a725f7b5cb7e8c8894ef121b49eff9c265245c8">https://git.postgresql.org/pg/commitdiff/9a725f7b5cb7e8c8894ef121b49eff9c265245c8</a></li>
+<li>Stabilize new plpgsql_record regression tests. The buildfarm's CLOBBER_CACHE_ALWAYS animals aren't happy with some of the test cases added in commit 4b93f5799. There are two different problems: * In two places, a different CONTEXT stack is shown because the error is detected in a different place, due to recompiling an expression from scratch rather than re-using a previously cached plan for it. I fixed these via the expedient of hiding the CONTEXT stack altogether. * In one place, a test expected to fail (because a cached plan hadn't been updated) actually succeeds (because the forced recompile makes it good). I couldn't think of a simple workaround for this, so I've just commented out that test step altogether. I have hopes of improving things enough that both of these kluges can be reverted eventually. The first one is the same kind of problem previously discussed at <a target="_blank" href="https://postgr.es/m/31545.1512924904@sss.pgh.pa.us">https://postgr.es/m/31545.1512924904@sss.pgh.pa.us</a> but there was insufficient agreement about how to fix it, so we just hacked around the output instability (commit 9edc97b71). The second issue should be fixed by allowing the plan to be rebuilt when a type conflict is detected. But for today, let's just make the buildfarm green again. <a target="_blank" href="https://git.postgresql.org/pg/commitdiff/feb1cc5593a5188796c2f52241f407500209fff2">https://git.postgresql.org/pg/commitdiff/feb1cc5593a5188796c2f52241f407500209fff2</a></li>
+<li>Revert "Stabilize output of new regression test case". This effectively reverts commit 9edc97b71 (although the test is now in a different place and has different contents). We don't need that hack anymore, because since commit 4b93f5799, this test case no longer throws an error and so there's no displayed CONTEXT that could vary depending on CLOBBER_CACHE_ALWAYS. The underlying unstable-output problem isn't really gone, of course, but it no longer manifests here. <a target="_blank" href="https://git.postgresql.org/pg/commitdiff/cbadba8dd632fc0d4162f7d686fec631bce7dfd0">https://git.postgresql.org/pg/commitdiff/cbadba8dd632fc0d4162f7d686fec631bce7dfd0</a></li>
+<li>Move the extern declaration for ExceptionalCondition into c.h. This is the logical conclusion of our decision to support Assert() in both frontend and backend code: it should be possible to use that after including just c.h. But as things were arranged before, if you wanted to use Assert() in code that might be compiled for either environment, you had to include postgres.h for the backend case. Let's simplify that. Per buildfarm, some of whose members started throwing warnings after commit 0c62356cc added an Assert in src/port/snprintf.c. It's possible that some other src/port files that use the stanza #ifndef FRONTEND #include "postgres.h" #else #include "postgres_fe.h" #endif could now be simplified to just say '#include "c.h"'. I have not tested for that, though, and it'd be unlikely to apply for more than a small number of them. <a target="_blank" href="https://git.postgresql.org/pg/commitdiff/03c5a00ea3867f5736da6cedce73b1eea88a98af">https://git.postgresql.org/pg/commitdiff/03c5a00ea3867f5736da6cedce73b1eea88a98af</a></li>
+<li>Cast to void in StaticAssertExpr, not its callers. Seems a bit silly that many (in fact all, as of today) uses of StaticAssertExpr would need to cast it to void to avoid warnings from pickier compilers. Let's just do the cast right in the macro, instead. In passing, change StaticAssertExpr to StaticAssertStmt in one place where that seems more apropos. Discussion: <a target="_blank" href="https://postgr.es/m/16161.1518715186@sss.pgh.pa.us">https://postgr.es/m/16161.1518715186@sss.pgh.pa.us</a> <a target="_blank" href="https://git.postgresql.org/pg/commitdiff/51940f97607b7cb4d03bdd99e43abb1a1c6a0c47">https://git.postgresql.org/pg/commitdiff/51940f97607b7cb4d03bdd99e43abb1a1c6a0c47</a></li>
+<li>Doc: fix minor bug in CREATE TABLE example. One example in create_table.sgml claimed to be showing table constraint syntax, but it was really column constraint syntax due to the omission of a comma. This is both wrong and confusing, so fix it in all supported branches. Per report from neil@postgrescompare.com. Discussion: <a target="_blank" href="https://postgr.es/m/151871659877.1393.2431103178451978795@wrigleys.postgresql.org">https://postgr.es/m/151871659877.1393.2431103178451978795@wrigleys.postgresql.org</a> <a target="_blank" href="https://git.postgresql.org/pg/commitdiff/439c7bc1a070d746fab69d8696fca78673e64ba9">https://git.postgresql.org/pg/commitdiff/439c7bc1a070d746fab69d8696fca78673e64ba9</a></li>
+<li>Fix plpgsql to enforce domain checks when returning a NULL domain value. If a plpgsql function is declared to return a domain type, and the domain's constraints forbid a null value, it was nonetheless possible to return NULL, because we didn't bother to check the constraints for a null result. I'd noticed this while fooling with domains-over-composite, but had not gotten around to fixing it immediately. Add a regression test script exercising this and various other domain cases, largely borrowed from the plpython_types test. Although this is clearly a bug fix, I'm not sure whether anyone would thank us for changing the behavior in stable branches, so I'm inclined not to back-patch. <a target="_blank" href="https://git.postgresql.org/pg/commitdiff/51db0d18fbf58b0c2e5ebc2b5b2c48daf45c8d93">https://git.postgresql.org/pg/commitdiff/51db0d18fbf58b0c2e5ebc2b5b2c48daf45c8d93</a></li>
+<li>Remove some inappropriate #includes. Other header files should never #include postgres.h (nor postgres_fe.h, nor c.h), per project policy. Also, there's no need for any backend .c file to explicitly include elog.h or palloc.h, because postgres.h pulls those in already. Extracted from a larger patch by Kyotaro Horiguchi. The rest of the removals he suggests require more study, but these are no-brainers. Discussion: <a target="_blank" href="https://postgr.es/m/20180215.200447.209320006.horiguchi.kyotaro@lab.ntt.co.jp">https://postgr.es/m/20180215.200447.209320006.horiguchi.kyotaro@lab.ntt.co.jp</a> <a target="_blank" href="https://git.postgresql.org/pg/commitdiff/49bff412edd9eb226e146f6e4db7b5a8e843bd1f">https://git.postgresql.org/pg/commitdiff/49bff412edd9eb226e146f6e4db7b5a8e843bd1f</a></li>
+</ul>
+<p>Andres Freund pushed:</p>
+<ul>
+<li>Return implementation defined value if pg_$op_s$bit_overflow overflows. Some older compilers otherwise sometimes complain about undefined values, even though the return value should not be used in the overflow case. We assume that any decent compiler will optimize away the unnecessary assignment in performance critical cases. We do not want to restrain the returned value to a specific value, e.g. 0 or the wrapped-around value, because some fast ways to implement overflow detecting math do not easily allow for that (e.g. msvc intrinsics). As the function documentation already documents the returned value in case of intrinsics to be implementation defined, no documentation has to be updated. Per complaint from Tom Lane and his buildfarm member prairiedog. Author: Andres Freund Discussion: <a target="_blank" href="https://postgr.es/m/18169.1513958454@sss.pgh.pa.us">https://postgr.es/m/18169.1513958454@sss.pgh.pa.us</a> <a target="_blank" href="https://git.postgresql.org/pg/commitdiff/6d7dc5350042697bbb141a7362649db7fa67bd55">https://git.postgresql.org/pg/commitdiff/6d7dc5350042697bbb141a7362649db7fa67bd55</a></li>
+<li>Revert "Do execGrouping.c via expression eval machinery.". This reverts commit 773aec7aa98abd38d6d9435913bb8e14e392c274. There's an unresolved issue in the reverted commit: It only creates one comparator function, but in for the nodeSubplan.c case we need more (c.f. FindTupleHashEntry vs LookupTupleHashEntry calls in nodeSubplan.c). This isn't too difficult to fix, but it's not entirely trivial either. The fact that the issue only causes breakage on 32bit systems shows that the current test coverage isn't that great. To avoid turning half the buildfarm red till those two issues are addressed, revert. <a target="_blank" href="https://git.postgresql.org/pg/commitdiff/2a41507dab0f293ff241fe8ae326065998668af8">https://git.postgresql.org/pg/commitdiff/2a41507dab0f293ff241fe8ae326065998668af8</a></li>
+<li>Do execGrouping.c via expression eval machinery. This has a performance benefit on own, although not hugely so. The primary benefit is that it will allow for to JIT tuple deforming and comparator invocations. Author: Andres Freund Discussion: <a target="_blank" href="https://postgr.es/m/20171129080934.amqqkke2zjtekd4t@alap3.anarazel.de">https://postgr.es/m/20171129080934.amqqkke2zjtekd4t@alap3.anarazel.de</a> <a target="_blank" href="https://git.postgresql.org/pg/commitdiff/773aec7aa98abd38d6d9435913bb8e14e392c274">https://git.postgresql.org/pg/commitdiff/773aec7aa98abd38d6d9435913bb8e14e392c274</a></li>
+<li>Do execGrouping.c via expression eval machinery, take two. This has a performance benefit on own, although not hugely so. The primary benefit is that it will allow for to JIT tuple deforming and comparator invocations. Large parts of this were previously committed (773aec7aa), but the commit contained an omission around cross-type comparisons and was thus reverted. Author: Andres Freund Discussion: <a target="_blank" href="https://postgr.es/m/20171129080934.amqqkke2zjtekd4t@alap3.anarazel.de">https://postgr.es/m/20171129080934.amqqkke2zjtekd4t@alap3.anarazel.de</a> <a target="_blank" href="https://git.postgresql.org/pg/commitdiff/bf6c614a2f2c58312b3be34a47e7fb7362e07bcb">https://git.postgresql.org/pg/commitdiff/bf6c614a2f2c58312b3be34a47e7fb7362e07bcb</a></li>
+<li>Allow tupleslots to have a fixed tupledesc, use in executor nodes. The reason for doing so is that it will allow expression evaluation to optimize based on the underlying tupledesc. In particular it will allow to JIT tuple deforming together with the expression itself. For that expression initialization needs to be moved after the relevant slots are initialized - mostly unproblematic, except in the case of nodeWorktablescan.c. After doing so there's no need for ExecAssignResultType() and ExecAssignResultTypeFromTL() anymore, as all former callers have been converted to create a slot with a fixed descriptor. When creating a slot with a fixed descriptor, tts_values/isnull can be allocated together with the main slot, reducing allocation overhead and increasing cache density a bit. Author: Andres Freund Discussion: <a target="_blank" href="https://postgr.es/m/20171206093717.vqdxe5icqttpxs3p@alap3.anarazel.de">https://postgr.es/m/20171206093717.vqdxe5icqttpxs3p@alap3.anarazel.de</a> <a target="_blank" href="https://git.postgresql.org/pg/commitdiff/ad7dbee368a7cd9e595d2a957be784326b08c943">https://git.postgresql.org/pg/commitdiff/ad7dbee368a7cd9e595d2a957be784326b08c943</a></li>
+</ul>
+<p>Magnus Hagander pushed:</p>
+<ul>
+<li>Fix typo in comment. <a target="_blank" href="https://git.postgresql.org/pg/commitdiff/f8437c819acc37b43bd2d5b19a6b7609b4ea1292">https://git.postgresql.org/pg/commitdiff/f8437c819acc37b43bd2d5b19a6b7609b4ea1292</a></li>
+</ul>
+<h2>Correctifs en attente</h2>
+<p>Thomas Munro sent in a patch to minor clean-up in dshash.{c,h}.</p>
+<p>Thomas Munro sent in a WIP patch to use explicit memory barriers when manipulating MyProc-&gt;subxids and nxids.</p>
+<p>Artur Zakirov sent in another revision of a patch to implement a more flexible configuration for full-text search.</p>
+<p>Thomas Munro sent in a patch to remove volatile qualifiers from shm_mq.c.</p>
+<p>&#65533;lvaro Herrera sent in another revision of a patch to allow unique indexes on partitioned tables. Peter Eisentraut sent a follow-on patch to clarify the documentation.</p>
+<p>Rajkumar Raghuwanshi sent in a patch to fix an error which manifested as expression errors with "FOR UPDATE" and postgres_fdw with partition wise join enabled.</p>
+<p>Artur Zakirov sent in two more revisions of a patch to fix a bug in to_timestamp().</p>
+<p>Amit Langote sent in a patch to update the docs to reflect the new capability to index partitioned tables.</p>
+<p>Amit Kapila sent in a patch to fix a failure condition in tuple version locking.</p>
+<p>Etsuro Fujita sent in a patch to fix a regression test failure in the PostgreSQL FDW.</p>
+<p>Michail Nikolaev sent in another revision of a patch to get index scan offsets faster by using the visibility map.</p>
+<p>Amit Kapila sent in another revision of a patch to restrict concurrent update/delete with UPDATE of partition key.</p>
+<p>Rafia Sabih sent in another revision of a patch to implement partition-wise aggregation/grouping.</p>
+<p>Marina Polyakova sent in a patch to fix a PL/PythonU breakage on Solaris.</p>
+<p>Peter Eisentraut sent in a patch to support Python 3.7 when it arrives.</p>
+<p>Anthony Bykov sent in two more revisions of a patch to make TRANSFORMs for JSONB in PL/Perl.</p>
+<p>Amit Langote and Etsuro Fujita traded patches to initialize per-partition objects during tuple routing.</p>
+<p>Micha&#65533;l Paquier sent in a patch to fix some cache lookup errors with functions manipulation object addresses.</p>
+<p>Amit Langote sent in three more revisions of a patch to speed up partition pruning.</p>
+<p>Andrew Dunstan sent in two more revisions of a patch to speed up ALTER TABLE ... ADD COLUMN with a non-NULL DEFAULT.</p>
+<p>Nikita Glukhov sent in another revision of a patch to implement SQL/JSON functions.</p>
+<p>Nikita Glukhov sent in another revision of a patch to implement SQL/JSON's JSON_TABLE.</p>
+<p>Kyotaro HORIGUCHI sent in a patch to fix the fact that the comment on formdesc in relcache.c's LookupOpclassInfo() omits pg_subscription.</p>
+<p>Nikita Glukhov sent in another revision of a patch to implement SQL/JSON's jsonpath.</p>
+<p>Peter Eisentraut sent in a patch to implement a Kerberos test suite.</p>
+<p>Nikolay Shaplov sent in another revision of a patch to add an enum reloption type.</p>
+<p>Pierre Ducroquet sent in another revision of a patch atop the existing JIT patch to enable JIT compiling with LLVM v10.1.</p>
+<p>Takayuki Tsunakawa sent in a patch to fix an issue where a cascaded standby fails to start after a clean shutdown by zero-filling WAL blocks on standbys.</p>
+<p>Amit Langote sent in four more revisions of a patch to reorganize the partitioning code.</p>
+<p>&#65533;lvaro Herrera sent in another revision of a patch to implement FOR EACH ROW triggers on partitioned tables.</p>
+<p>Amit Kapila sent in another revision of a patch to ensure that parallel paths include tlist cost.</p>
+<p>Kyotaro HORIGUCHI sent in a patch to ensure that extra shared memory isn't requested when HAVE_SPINLOCKS is enabled.</p>
+<p>Ashutosh Bapat sent in a patch to change baserel to foreignrel in some postgresql_fdw functions.</p>
+<p>Claudio Freire sent in another revision of a patch to vacuum to update the FSM more frequently.</p>
+<p>Kyotaro HORIGUCHI sent in a patch to ensure that spin.c includes pg_sema.h only when necessary.</p>
+<p>Kyotaro HORIGUCHI sent in a patch to remove DSM_INPL_NONE.</p>
+<p>Konstantin Knizhnik sent in a patch to change the transaction lock behavior from long chains to pairs, which eliminates a quadratic behavior.</p>
+<p>Pavan Deolasee sent in another revision of a patch to implement MERGE.</p>
+<p>Ashutosh Bapat sent in another revision of a patch to improve the partition matching algorithm for partition-wise joins.</p>
+<p>Takayuki Tsunakawa sent in a patch to produce a crash dump before main() on Windows.</p>
+<p>Amul Sul sent in a patch to fix a server crash in the pg_replication_slot_advance function.</p>
+<p>Julian Markwort sent in a patch to add a new auth option to pg_hba.conf: clientcert=verify-full.</p>
+<p>Anna Akenteva sent in a patch to fix an issue where larger strings can be loaded into a table than selected from it.</p>
+<p>Tom Lane and Marina Polyakova traded patches to stabilize some regression test outputs.</p>
+<p>Joe Conway sent in two revisions of a patch to ensure that all catalog tables that need them have appropriate TOAST tables.</p>
+<p>Arseny Sher sent in a patch to start decoding from a restart_lsn which definitely exists.</p>
+<p>Oleg Ivanov sent in another revision of a patch to implement generic WAL compression.</p>
+<p>David Rowley sent in another revision of a patch to improve runtime partition pruning.</p>
+<p>Micha&#65533;l Paquier sent in another revision of a patch to prevent SSL and LDAP tests from running without support in build and add PROVE_EXTRA_ALLOWED to control optional test suites.</p>
+<p>Micha&#65533;l Paquier sent in a patch to documenting PROVE_TESTS in section of TAP tests.</p>
+<p>Fabien COELHO sent in two revisions of a patch to pgbench to enable specifying scale as a size.</p>
+<p>David Rowley sent in two revisions of a patch to make PartitionClauseInfo a nonnode type.</p></div>
+
+      </div>
+
+  
+
+    
+  
+    
+    
+    </div>
+</div> <!-- End #main -->
+
+</div> <!-- End #wrapper -->
+
+<div id="pgFooter">
+  <p>Propulsé par <a href="http://dotclear.org/">Dotclear</a></p>
+</div>
+
+</div> <!-- End #page -->
+</body>
+
+<!-- Mirrored from blog2.postgresql.fr/index.php?post/2018/03/01/Nouvelles-hebdomadaires-de-PostgreSQL-18-f%C3%A9vrier-2018 by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 May 2020 21:40:19 GMT -->
+</html>

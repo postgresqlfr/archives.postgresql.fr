@@ -1,0 +1,602 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr">
+
+<!-- Mirrored from blog2.postgresql.fr/index.php?category/PostgreSQL-Weekly-News/page/33 by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 May 2020 21:40:21 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="MSSmartTagsPreventParsing" content="TRUE" />
+  <meta name="ROBOTS" content="NOINDEX, FOLLOW" />
+  
+  <title>PostgreSQL Weekly News - PostgreSQLfr.org - page 33</title>
+  <meta name="description" lang="fr" content="" />
+  <meta name="copyright" content="" />
+  <meta name="author" content="" />
+  <meta name="date" scheme="ISO8601" content="2020-04-26T22:23:31+01:00" />
+  
+  <link rel="schema.dc" href="http://purl.org/dc/elements/1.1/" />
+  <meta name="dc.title" lang="fr" content="PostgreSQL Weekly News - PostgreSQLfr.org - page 33" />
+  <meta name="dc.description" lang="fr" content="" />
+  <meta name="dc.language" content="fr" />
+  <meta name="dc.publisher" content="" />
+  <meta name="dc.rights" content="" />
+  <meta name="dc.date" scheme="ISO8601" content="2020-04-26T22:23:31+01:00" />
+  <meta name="dc.type" content="text" />
+  <meta name="dc.format" content="text/html" />
+  
+  <link rel="top" href="indexd41d.html?" title="Accueil" />
+  <link rel="contents" href="index888d.html?archive" title="Archives" />
+  
+                            <link rel="previous" title="billets précédents" href="indexdab4.html?category/PostgreSQL-Weekly-News/page/34" />
+                
+                <link rel="next" title="billets suivants" href="index17c4.html?category/PostgreSQL-Weekly-News/page/32" />
+                      
+    <link rel="chapter" href="index29b1.html?post/drupal/249" title="Nouvelles neuves de PG" />
+          
+    <link rel="chapter" href="index6c0a.html?post/drupal/173" title="Nouvelles neuves de PG" />
+          
+    <link rel="chapter" href="index3bcd.html?post/drupal/255" title="Nouvelles neuves de PG" />
+          
+    <link rel="chapter" href="indexee98.html?post/drupal/254" title="Nouvelles neuves de PG" />
+          
+    <link rel="chapter" href="indexb587.html?post/drupal/170" title="Nouvelles neuves de PG" />
+          
+    <link rel="chapter" href="index7ba7.html?post/drupal/123" title="Nouvelles neuves de PG" />
+          
+    <link rel="chapter" href="index3412.html?post/drupal/220" title="Nouvelles neuves de PG" />
+          
+    <link rel="chapter" href="indexb0ba.html?post/drupal/251" title="Nouvelles neuves de PG" />
+          
+    <link rel="chapter" href="indexb1c7.html?post/drupal/250" title="Nouvelles neuves de PG" />
+          
+    <link rel="chapter" href="index8b93.html?post/drupal/248" title="Nouvelles neuves de PG" />
+          
+    <link rel="chapter" href="index8a6f.html?post/drupal/247" title="Nouvelles neuves de PG (en cours)" />
+          
+    <link rel="chapter" href="index3289.html?post/drupal/171" title="Nouvelles neuves de PG" />
+          
+    <link rel="chapter" href="index7517.html?post/drupal/245" title="Nouvelles neuves de PG" />
+          
+    <link rel="chapter" href="index95eb.html?post/drupal/244" title="Nouvelles neuves de PG (Mis à jour)" />
+          
+    <link rel="chapter" href="index2d06.html?post/drupal/243" title="Nouvelles neuves de PG" />
+          
+    <link rel="chapter" href="index3b8e.html?post/drupal/168" title="Nouvelles neuves de PG" />
+          
+    <link rel="chapter" href="indexd485.html?post/drupal/242" title="PGWN - 4 mars 2007" />
+          
+    <link rel="chapter" href="index0a6c.html?post/drupal/240" title="Nouvelles neuves de PG" />
+          
+    <link rel="chapter" href="indexd4a8.html?post/drupal/238" title="Nouvelles neuves de PG" />
+          
+    <link rel="chapter" href="index75bd.html?post/drupal/189" title="Nouvelles neuves de PG" />
+    
+  <link rel="alternate" type="application/atom+xml" title="Atom 1.0" href="indexa21f.php?feed/category/PostgreSQL-Weekly-News/atom" />
+  
+  <style type="text/css" media="screen">
+@import url(themes/postgresql/style.css);
+</style>
+<style type="text/css" media="print">
+@import url(themes/default/print.css);
+</style>
+
+<script type="text/javascript" src="themes/default/js/jquery.js"></script>
+<script type="text/javascript" src="themes/default/js/jquery.cookie.js"></script>
+
+</head>
+
+<body class="dc-category">
+<div id="page">
+<div id="top">
+  <div id="pgHeader">
+    <span id="pgHeaderLogoLeft">
+      <a href="index.html" title="PostgreSQL"><img src="https://blog.postgresql.fr/themes/postgresql/img/hdr_left.png" width="230" height="80" alt="PostgreSQL" /></a>
+    </span>
+    <span id="pgHeaderLogoRight">
+      <a href="index.html" title="La base de donnees la plus sophistiquee au monde."><img src="https://blog.postgresql.fr/themes/postgresql/img/hdr_right.png" width="210" height="80" alt="La base de donnees la plus sophistiquee au monde." /></a>
+    </span>
+  </div>
+
+  </div>
+
+<div class="pgTopNav">
+  <div class="pgTopNavLeft"> 
+    <img src="https://blog.postgresql.fr/themes/postgresql/img/nav_lft.png" width="7" height="23" alt="" />
+  </div>
+  <div class="pgTopNavRight">
+    <img src="https://blog.postgresql.fr/themes/postgresql/img/nav_rgt.png" width="7" height="23" alt="" />
+  </div>
+  <ul class="pgTopNavList">
+    <li><a href="https://www.postgresql.fr/" title="Accueil">Accueil</a></li>
+    <li><a href="https://blog.postgresql.fr/" title="Lire les actualités">Actualités</a></li>
+    <li><a href="https://docs.postgresql.fr/" title="Lire la documentation officielle">Documentation</a></li>
+    <li><a href="https://forums.postgresql.fr/" title="Pour poser des questions">Forums</a></li>
+    <li><a href="https://www.postgresql.fr/asso/" title="La vie de l'association">Association</a></li>
+    <li><a href="https://www.postgresql.fr/devel:accueil" title="Informations pour les développeurs/traducteurs">Développeurs</a></li>
+    <li><a href="https://planete.postgresql.fr/" title="La planète francophone sur PostgreSQL">Planète</a></li>
+    <li><a href="https://www.postgresql.fr/support/" title="Support sur PostgreSQL">Support</a></li>
+  </ul>
+</div>
+
+<div id="wrapper">
+
+<div id="pgContent">
+
+  <div id="pgSideWrap">
+  <div id="pgSideNav">
+    <div id="blognav">
+      <div id="search"><h2><label for="q">Rechercher</label></h2><form action="http://blog2.postgresql.fr/index.php?" method="get"><fieldset><p><input type="text" size="10" maxlength="255" id="q" name="q" value="" /> <input class="submit" type="submit" value="ok" /></p></fieldset></form></div><div class="categories"><h2>Catégories</h2><ul><li><a href="index199b.html?category/Articles">Articles</a></li><li><a href="indexb4c6.html?category/Dans-les-bacs">Dans les bacs</a></li><li><a href="index025a.html?category/Evenements">Événements</a></li><li class="category-current"><a href="index8c6d.html?category/PostgreSQL-Weekly-News">PostgreSQL Weekly News</a></li><li><a href="index1835.html?category/Securite">Sécurité</a></li><li><a href="index2251.html?category/Vie-de-l-association">Vie de l'association</a></li><li><a href="index91de.html?category/Vie-du-site">Vie du site</a></li></ul></div><div class="text"><h2>Licence</h2>Tous les articles de ce blog sont disponibles sous la <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/">license Creative Commons BY-NC-SA 3.0</a>.</div>    </div> <!-- End #blognav -->
+  
+    <div id="blogextra">
+      <div class="syndicate"><h2>S'abonner</h2><ul><li><a type="application/atom+xml" href="index4ca3.php?feed/atom" title="Fil Atom des billets de ce blog" class="feed">Fil des billets</a></li></ul></div>    </div> <!-- End #blogextra -->
+  </div>
+  </div>
+
+  <div id="pgContentWrap">
+  <div id="pgDownloadsWrap">
+  <div id="content">
+
+  <div id="content-info">
+    <h2>PostgreSQL Weekly News</h2>
+      
+    <p><a type="application/atom+xml" href="indexa21f.php?feed/category/PostgreSQL-Weekly-News/atom"
+    title="Fil Atom des billets de cette catégorie" class="feed">Fil des billets</a>
+    
+        </p>
+  </div>
+  
+      <div class="post odd first" lang="fr" xml:lang="fr">
+
+    <p class="day-date">mercredi 27 juin 2007</p>    
+    <h2 id="p249" class="post-title"><a
+    href="index29b1.html?post/drupal/249">Nouvelles neuves de PG</a></h2>
+    
+    <p class="post-info">Par SAS    le mercredi 27 juin 2007, 11:56</p>
+    
+    
+    
+          <div class="post-content"><p><strong>Nouvelles hebdomadaires de PostgreSQL - 24 Juin 2007</strong></p>
+<ul>
+<li>Il y a eu un bref échange à propos de la meilleure manière d'intégrer tsearch2 dans le cœur,</li>
+<li>Une plus longue discussion sur la sémantique des commit à retardement continue à l'heure où ces lignes sont écrites,</li>
+<li>Chris Browne a démarré bruyamment un débat sur l'usage des "queues de messages" dans PostgreSQL,</li>
+<li>Le patch de Simon Riggs visant à réduire la taille d'un NUMERIC dans la version 8.3 a lancé une discussion intéressante sur la façon la plus efficace de les stocker,</li>
+<li>Une foule de gens a discuté de la syntaxe des unités de temps dans les GUC (pour Global User Configuration variables, en général définies dans postgresql.conf).</li>
+</ul></div>
+      <p class="read-it"><a href="index29b1.html?post/drupal/249"
+      title="Lire la suite Nouvelles neuves de PG">Lire la suite</a>...</p>
+    
+    
+    
+                        </div>
+    
+          <div class="post  " lang="fr" xml:lang="fr">
+
+    <p class="day-date">lundi 25 juin 2007</p>    
+    <h2 id="p173" class="post-title"><a
+    href="index6c0a.html?post/drupal/173">Nouvelles neuves de PG</a></h2>
+    
+    <p class="post-info">Par SAS    le lundi 25 juin 2007, 08:59</p>
+    
+    
+    
+          <div class="post-content"><p><strong>Nouvelles hebdomadaires de PostgreSQL - 17 Juin 2007</strong></p>
+<p>postgresql_autodoc, postgresql-pgpoolAdmin et postgresql-table_log font maintenant partie de Fedora. Vous pouvez les installer avec Yum.</p>
+<p>Si vous désirez des RPM de programmes en lien avec PostgreSQL, veuillez envoyer un email à devrim <em>abizarre</em> commandprompt <em>point</em> com.</p></div>
+      <p class="read-it"><a href="index6c0a.html?post/drupal/173"
+      title="Lire la suite Nouvelles neuves de PG">Lire la suite</a>...</p>
+    
+    
+    
+                        </div>
+    
+          <div class="post odd " lang="fr" xml:lang="fr">
+
+    <p class="day-date">mercredi 13 juin 2007</p>    
+    <h2 id="p255" class="post-title"><a
+    href="index3bcd.html?post/drupal/255">Nouvelles neuves de PG</a></h2>
+    
+    <p class="post-info">Par SAS    le mercredi 13 juin 2007, 16:33</p>
+    
+    
+    
+          <div class="post-content"><p><strong>Nouvelles hebdomadaires de PostgreSQL - 10 Juin 2007</strong></p>
+<p>Michael Glaesemann a mis en ligne ses photos des PGCon 2007&nbsp;:
+<a target="_blank" href="http://flickr.com/photos/grzm/sets/72157600270827416/.">http://flickr.com/photos/grzm/sets/72157600270827416/.</a><br />
+Elles sont marquées "pgcon" et "pgcon2007". Si vous aussi, vous avez uploadé des photos des conférences, vous êtes encouragé à faire de même pour qu'elles soient facilement retrouvables. En cas d'erreurs dans les descriptions, n'hésitez pas à en informer Michael à l'adresse grzm [at] seespotcode [dot] net. Profitez&nbsp;!</p></div>
+      <p class="read-it"><a href="index3bcd.html?post/drupal/255"
+      title="Lire la suite Nouvelles neuves de PG">Lire la suite</a>...</p>
+    
+    
+    
+                        </div>
+    
+          <div class="post  " lang="fr" xml:lang="fr">
+
+    <p class="day-date">jeudi  7 juin 2007</p>    
+    <h2 id="p254" class="post-title"><a
+    href="indexee98.html?post/drupal/254">Nouvelles neuves de PG</a></h2>
+    
+    <p class="post-info">Par SAS    le jeudi  7 juin 2007, 10:22</p>
+    
+    
+    
+          <div class="post-content"><p><strong>Nouvelles hebdomadaires de PostgreSQL - 3 juin 2007</strong></p>
+<p>Les discussions se poursuivent avec vigueur à propos des nombreuses nouveautés à incorporer dans la 8.3.</p></div>
+      <p class="read-it"><a href="indexee98.html?post/drupal/254"
+      title="Lire la suite Nouvelles neuves de PG">Lire la suite</a>...</p>
+    
+    
+    
+                        </div>
+    
+          <div class="post odd " lang="fr" xml:lang="fr">
+
+    <p class="day-date">jeudi 31 mai 2007</p>    
+    <h2 id="p170" class="post-title"><a
+    href="indexb587.html?post/drupal/170">Nouvelles neuves de PG</a></h2>
+    
+    <p class="post-info">Par SAS    le jeudi 31 mai 2007, 11:15</p>
+    
+    
+    
+          <div class="post-content"><p><strong>Nouvelles hebdomadaires de PostgreSQL - 28 Mai 2007</strong></p>
+<p>La semaine passée, les <em>PgCon</em> furent un brillant succès.</p>
+<br /></div>
+      <p class="read-it"><a href="indexb587.html?post/drupal/170"
+      title="Lire la suite Nouvelles neuves de PG">Lire la suite</a>...</p>
+    
+    
+    
+                        </div>
+    
+          <div class="post  " lang="fr" xml:lang="fr">
+
+    <p class="day-date">jeudi 24 mai 2007</p>    
+    <h2 id="p123" class="post-title"><a
+    href="index7ba7.html?post/drupal/123">Nouvelles neuves de PG</a></h2>
+    
+    <p class="post-info">Par SAS    le jeudi 24 mai 2007, 21:17</p>
+    
+    
+    
+          <div class="post-content"><p><strong>Nouvelles hebdomadaires de PostgreSQL - 20 mai 2007</strong></p>
+<p>Les <a target="_blank" href="http://www.pgcon.org/2007/">PgCon</a> ont lieu cette semaine à Ottawa.</p></div>
+      <p class="read-it"><a href="index7ba7.html?post/drupal/123"
+      title="Lire la suite Nouvelles neuves de PG">Lire la suite</a>...</p>
+    
+    
+    
+                        </div>
+    
+          <div class="post odd " lang="fr" xml:lang="fr">
+
+    <p class="day-date">mardi 15 mai 2007</p>    
+    <h2 id="p220" class="post-title"><a
+    href="index3412.html?post/drupal/220">Nouvelles neuves de PG</a></h2>
+    
+    <p class="post-info">Par SAS    le mardi 15 mai 2007, 14:51</p>
+    
+    
+    
+          <div class="post-content"><p><strong>Nouvelles hebdomadaires de PostgreSQL - 13 Mai 2007</strong></p>
+<p>Il y a quelques discussions animées sur la
+<a target="_blank" href="http://archives.postgresql.org/pgsql-patches/2007-05/threads.php">mailing list -patches.</a></p></div>
+      <p class="read-it"><a href="index3412.html?post/drupal/220"
+      title="Lire la suite Nouvelles neuves de PG">Lire la suite</a>...</p>
+    
+    
+    
+                        </div>
+    
+          <div class="post  " lang="fr" xml:lang="fr">
+
+    <p class="day-date">mardi  8 mai 2007</p>    
+    <h2 id="p251" class="post-title"><a
+    href="indexb0ba.html?post/drupal/251">Nouvelles neuves de PG</a></h2>
+    
+    <p class="post-info">Par SAS    le mardi  8 mai 2007, 10:38</p>
+    
+    
+    
+          <div class="post-content"><p><strong>Nouvelles hebdomadaires de PostgreSQL - 6 mai 2007</strong></p>
+<p>La première des conférences road2pgday a eu lieu cette semaine. La page suivante (en italien) présente quelques slides&nbsp;:
+<a target="_blank" href="http://www.pghost.eu/node/9">http://www.pghost.eu/node/9</a><br />
+Suivez le lien pour une vidéo :
+<a target="_blank" href="http://www.youtube.com/profile?user=neothezion">http://www.youtube.com/profile?user=neothezion</a></p></div>
+      <p class="read-it"><a href="indexb0ba.html?post/drupal/251"
+      title="Lire la suite Nouvelles neuves de PG">Lire la suite</a>...</p>
+    
+    
+    
+                        </div>
+    
+          <div class="post odd " lang="fr" xml:lang="fr">
+
+    <p class="day-date">mercredi  2 mai 2007</p>    
+    <h2 id="p250" class="post-title"><a
+    href="indexb1c7.html?post/drupal/250">Nouvelles neuves de PG</a></h2>
+    
+    <p class="post-info">Par SAS    le mercredi  2 mai 2007, 11:15</p>
+    
+    
+    
+          <div class="post-content"><p><strong>Nouvelles hebdomadaires de PostgreSQL - 29 Avril 2007</strong></p>
+<p>Les versions corrigées 8.2.4, 8.1.9, 8.0.13, 7.4.17 et 7.3.19 sont sorties (détails <a href="http://www.postgresql.org/about/news.791">ici (en)</a>). A vos mises à jour...</p></div>
+      <p class="read-it"><a href="indexb1c7.html?post/drupal/250"
+      title="Lire la suite Nouvelles neuves de PG">Lire la suite</a>...</p>
+    
+    
+    
+                        </div>
+    
+          <div class="post  " lang="fr" xml:lang="fr">
+
+    <p class="day-date">mercredi 25 avril 2007</p>    
+    <h2 id="p248" class="post-title"><a
+    href="index8b93.html?post/drupal/248">Nouvelles neuves de PG</a></h2>
+    
+    <p class="post-info">Par SAS    le mercredi 25 avril 2007, 11:56</p>
+    
+    
+    
+          <div class="post-content"><p><strong>Nouvelles hebdomadaires de PostgreSQL - 22 Avril 2007</strong></p>
+<p>Les versions corrigées 8.2.4, 8.1.9, 8.0.13, 7.4.17 et
+7.3.19 sont sorties (détails <a href="http://www.postgresql.org/about/news.791">ici (en)</a>). A vos
+mises à jour...</p></div>
+      <p class="read-it"><a href="index8b93.html?post/drupal/248"
+      title="Lire la suite Nouvelles neuves de PG">Lire la suite</a>...</p>
+    
+    
+    
+                        </div>
+    
+          <div class="post odd " lang="fr" xml:lang="fr">
+
+    <p class="day-date">lundi 16 avril 2007</p>    
+    <h2 id="p247" class="post-title"><a
+    href="index8a6f.html?post/drupal/247">Nouvelles neuves de PG (en cours)</a></h2>
+    
+    <p class="post-info">Par SAS    le lundi 16 avril 2007, 13:54</p>
+    
+    
+    
+          <div class="post-content"><p><strong>Nouvelles hebdomadaires de PostgreSQL - 15 avril 2007</strong></p>
+<p>
+De nombreuses discussions pendant la courte (nous l'espérons) préiode d'après gel des fonctionnalités. </p></div>
+      <p class="read-it"><a href="index8a6f.html?post/drupal/247"
+      title="Lire la suite Nouvelles neuves de PG (en cours)">Lire la suite</a>...</p>
+    
+    
+    
+                        </div>
+    
+          <div class="post  " lang="fr" xml:lang="fr">
+
+    <p class="day-date">mercredi 11 avril 2007</p>    
+    <h2 id="p171" class="post-title"><a
+    href="index3289.html?post/drupal/171">Nouvelles neuves de PG</a></h2>
+    
+    <p class="post-info">Par SAS    le mercredi 11 avril 2007, 11:28</p>
+    
+    
+    
+          <div class="post-content"><p><strong>Nouvelles hebdomadaires de PostgreSQL - 8 avril 2007</strong></p>
+<p>
+Maintenant que les fonctionnalités sont gelées, les révisions sont débattues.
+</p>
+<p>
+Félicitations à Tom Dunstan pour le nouveau type enum.</p></div>
+      <p class="read-it"><a href="index3289.html?post/drupal/171"
+      title="Lire la suite Nouvelles neuves de PG">Lire la suite</a>...</p>
+    
+    
+    
+                        </div>
+    
+          <div class="post odd " lang="fr" xml:lang="fr">
+
+    <p class="day-date">mercredi  4 avril 2007</p>    
+    <h2 id="p245" class="post-title"><a
+    href="index7517.html?post/drupal/245">Nouvelles neuves de PG</a></h2>
+    
+    <p class="post-info">Par SAS    le mercredi  4 avril 2007, 18:13</p>
+    
+    
+    
+          <div class="post-content"><p><strong>Nouvelles hebdomadaires de PostgreSQL - 31 mars 2007</strong></p>
+<p>
+Comme toujours avant de figer les fonctionnalités, le flot de correctifs et de discussions les accompagnant se poursuit.</p></div>
+      <p class="read-it"><a href="index7517.html?post/drupal/245"
+      title="Lire la suite Nouvelles neuves de PG">Lire la suite</a>...</p>
+    
+    
+    
+                        </div>
+    
+          <div class="post  " lang="fr" xml:lang="fr">
+
+    <p class="day-date">mercredi 28 mars 2007</p>    
+    <h2 id="p244" class="post-title"><a
+    href="index95eb.html?post/drupal/244">Nouvelles neuves de PG (Mis à jour)</a></h2>
+    
+    <p class="post-info">Par SAS    le mercredi 28 mars 2007, 19:18</p>
+    
+    
+    
+          <div class="post-content"><p><strong>Nouvelles hebdomadaires de PostgreSQL - 25 mars 2007</strong></p>
+<p>
+La date limite de soumission de projets pour le &amp;laquote;&nbsp;Summer of Code&nbsp;» a été repoussée au lundi 26 mars. Elles pouvaient être déposées là&nbsp;:
+<a target="_blank" href="http://www.postgresql.org/developer/summerofcode">http://www.postgresql.org/developer/summerofcode</a>
+</p>
+<p>
+Pavel Stehule a publié son matériel pédagogique en tchèque&nbsp;:
+<a target="_blank" href="http://www.pgsql.cz/index.php/Jednodenní_školení_PostgreSQL">http://www.pgsql.cz/index.php/Jednodenn%C3%AD_%C5%A1kolen%C3%AD_PostgreSQL</a>
+</p></div>
+      <p class="read-it"><a href="index95eb.html?post/drupal/244"
+      title="Lire la suite Nouvelles neuves de PG (Mis à jour)">Lire la suite</a>...</p>
+    
+    
+    
+                        </div>
+    
+          <div class="post odd " lang="fr" xml:lang="fr">
+
+    <p class="day-date">vendredi 23 mars 2007</p>    
+    <h2 id="p243" class="post-title"><a
+    href="index2d06.html?post/drupal/243">Nouvelles neuves de PG</a></h2>
+    
+    <p class="post-info">Par SAS    le vendredi 23 mars 2007, 11:20</p>
+    
+    
+    
+          <div class="post-content"><p><strong>Nouvelles hebdomadaires de PostgreSQL - 18 mars 2007</strong></p>
+<p>
+Les inscriptions étudiantes au Google Summer Of Code sont officiellement ouvertes&nbsp;:
+<a target="_blank" href="http://code.google.com/soc/">http://code.google.com/soc/</a>
+</p>
+<p>
+N'hésitez pas à contacter Robert Treat à xzilla@users.sourceforge.net si vous souhaitez effectuer un talk au PgCon.</p></div>
+      <p class="read-it"><a href="index2d06.html?post/drupal/243"
+      title="Lire la suite Nouvelles neuves de PG">Lire la suite</a>...</p>
+    
+    
+    
+                        </div>
+    
+          <div class="post  " lang="fr" xml:lang="fr">
+
+    <p class="day-date">mardi 13 mars 2007</p>    
+    <h2 id="p168" class="post-title"><a
+    href="index3b8e.html?post/drupal/168">Nouvelles neuves de PG</a></h2>
+    
+    <p class="post-info">Par SAS    le mardi 13 mars 2007, 10:57</p>
+    
+    
+    
+          <div class="post-content"><p><strong>Nouvelles hebdomadaires de PostgreSQL - 11 mars 2007</strong></p>
+<p>
+Une discussion est en cours sur -hackers au sujet de la création automatique de partitions.</p></div>
+      <p class="read-it"><a href="index3b8e.html?post/drupal/168"
+      title="Lire la suite Nouvelles neuves de PG">Lire la suite</a>...</p>
+    
+    
+    
+                        </div>
+    
+          <div class="post odd " lang="fr" xml:lang="fr">
+
+    <p class="day-date">mardi  6 mars 2007</p>    
+    <h2 id="p242" class="post-title"><a
+    href="indexd485.html?post/drupal/242">PGWN - 4 mars 2007</a></h2>
+    
+    <p class="post-info">Par SAS    le mardi  6 mars 2007, 09:50</p>
+    
+    
+    
+          <div class="post-content"><p><strong>Nouvelles hebdomadaires de PostgreSQL - 4 mars 2007</strong></p>
+<p>
+Un groupe PostgreSQL de niveau européen est formation. Surveillez les petits éléphants bleus en peluche !</p></div>
+      <p class="read-it"><a href="indexd485.html?post/drupal/242"
+      title="Lire la suite PGWN - 4 mars 2007">Lire la suite</a>...</p>
+    
+    
+    
+                        </div>
+    
+          <div class="post  " lang="fr" xml:lang="fr">
+
+    <p class="day-date">mardi 27 février 2007</p>    
+    <h2 id="p240" class="post-title"><a
+    href="index0a6c.html?post/drupal/240">Nouvelles neuves de PG</a></h2>
+    
+    <p class="post-info">Par SAS    le mardi 27 février 2007, 09:54</p>
+    
+    
+    
+          <div class="post-content"><p><strong>Nouvelles hebdomadaires de PostgreSQL - 25 février 2007</strong></p>
+<p>
+Le fonds PostgreSQL du SPI a financé ce mois-ci le déplacement de David Fetter à Consili, Brésil, où il a donné une conférence.
+Le fonds finance également Neil Conway pour les deux prochains mois qu'il passera à vérifier les correctifs de la version 8.3.
+</p>
+<p>
+Une discussion animée (Lively Discussion(TM)) se poursuit sur -hackers au sujet de la gestion du code source.
+</p></div>
+      <p class="read-it"><a href="index0a6c.html?post/drupal/240"
+      title="Lire la suite Nouvelles neuves de PG">Lire la suite</a>...</p>
+    
+    
+    
+                        </div>
+    
+          <div class="post odd " lang="fr" xml:lang="fr">
+
+    <p class="day-date">lundi 19 février 2007</p>    
+    <h2 id="p238" class="post-title"><a
+    href="indexd4a8.html?post/drupal/238">Nouvelles neuves de PG</a></h2>
+    
+    <p class="post-info">Par SAS    le lundi 19 février 2007, 23:03</p>
+    
+    
+    
+          <div class="post-content"><p><strong>Nouvelles hebdomadaires de PostgreSQL - 18 février 2007</strong></p>
+<p>
+PostgreSQL offre une meilleure extensibilité à la version 3.4 du programme australien open source de comptabilité SYMBOL&nbsp;:
+<a target="_blank" href="http://www.pcworld.idg.com.au/index.php/id;1504289875">http://www.pcworld.idg.com.au/index.php/id;1504289875</a>
+</p>
+<p>
+L'IGN, Institut Géographique National, a choisi PostgreSQL et PostGIS pour son extensibilité, sa vitesse et son intégrité transactionnelle.
+<a target="_blank" href="http://postgis.refractions.net/documentation/casestudies/ign/">http://postgis.refractions.net/documentation/casestudies/ign/</a>
+</p></div>
+      <p class="read-it"><a href="indexd4a8.html?post/drupal/238"
+      title="Lire la suite Nouvelles neuves de PG">Lire la suite</a>...</p>
+    
+    
+    
+                        </div>
+    
+          <div class="post  " lang="fr" xml:lang="fr">
+
+    <p class="day-date">lundi 12 février 2007</p>    
+    <h2 id="p189" class="post-title"><a
+    href="index75bd.html?post/drupal/189">Nouvelles neuves de PG</a></h2>
+    
+    <p class="post-info">Par SAS    le lundi 12 février 2007, 22:02</p>
+    
+    
+    
+          <div class="post-content"><p><strong>Nouvelles hebdomadaires de PostgreSQL - 11 février 2007</strong></p>
+<p>
+Magnus Hagander et Joachim Wieland ont mis en place un site doxygen pour le code de PostgreSQL.
+<a target="_blank" href="http://doxygen.postgresql.org/">http://doxygen.postgresql.org/</a>
+</p>
+<p>
+Magnus Hagander est désormais committer. Félicitations&nbsp;!
+</p>
+<p>
+Simon Riggs a démarré une nouvelle discussion concernant les «&nbsp;HOT tables&nbsp;» --tables optimisées pour les actualisations très fréquentes-- à partir de sa proposition simplifiée de conception et d'implantation.
+</p></div>
+      <p class="read-it"><a href="index75bd.html?post/drupal/189"
+      title="Lire la suite Nouvelles neuves de PG">Lire la suite</a>...</p>
+    
+    
+    
+                        </div>
+    
+                  <p class="pagination"><a href="indexdab4.html?category/PostgreSQL-Weekly-News/page/34" class="prev">&#171;
+        billets précédents</a> -         page 33 de 40         - <a href="index17c4.html?category/PostgreSQL-Weekly-News/page/32" class="next">billets suivants        &#187;</a></p>
+              </div>
+</div> <!-- End #main -->
+
+</div> <!-- End #wrapper -->
+
+<div id="pgFooter">
+  <p>Propulsé par <a href="http://dotclear.org/">Dotclear</a></p>
+</div>
+
+</div> <!-- End #page -->
+</body>
+
+<!-- Mirrored from blog2.postgresql.fr/index.php?category/PostgreSQL-Weekly-News/page/33 by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 May 2020 21:40:21 GMT -->
+</html>

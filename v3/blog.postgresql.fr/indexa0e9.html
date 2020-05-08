@@ -1,0 +1,308 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr">
+
+<!-- Mirrored from blog2.postgresql.fr/index.php?post/2010/09/29/Nouvelles-hebdomadaires-de-PostgreSQL-26-septembre-2010 by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 May 2020 21:40:20 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="MSSmartTagsPreventParsing" content="TRUE" />
+  <meta name="ROBOTS" content="INDEX, FOLLOW" />
+  
+  <title>Nouvelles hebdomadaires de PostgreSQL - 26 septembre 2010 - PostgreSQLfr.org</title>
+  <meta name="description" lang="fr" content="Nouveau sondage : Quand passerez-vous en production sur la 9.0 ? http://www.postgresql.org/community Les nouveautés des produits dérivés MyJSQLView 3.23, une interface graphique" />
+  <meta name="copyright" content="" />
+  <meta name="author" content="chl" />
+  <meta name="date" scheme="ISO8601" content="2010-09-29T02:07:00+02:00" />
+  
+  <link rel="schema.dc" href="http://purl.org/dc/elements/1.1/" />
+  <meta name="dc.title" content="Nouvelles hebdomadaires de PostgreSQL - 26 septembre 2010" />
+  <meta name="dc.description" lang="fr" content="Nouveau sondage : Quand passerez-vous en production sur la 9.0 ? http://www.postgresql.org/community Les nouveautés des produits dérivés MyJSQLView 3.23, une interface graphique" />
+  <meta name="dc.creator" content="chl" />
+  <meta name="dc.language" content="fr" />
+  <meta name="dc.publisher" content="" />
+  <meta name="dc.rights" content="" />
+  <meta name="dc.date" scheme="ISO8601" content="2010-09-29T02:07:00+02:00" />
+  <meta name="dc.type" content="text" />
+  <meta name="dc.format" content="text/html" />
+  
+  <link rel="top" href="indexd41d.html?" title="Accueil" />
+  <link rel="contents" href="index888d.html?archive" title="Archives" />
+  
+  <link rel="next" href="indexdf28.html?post/2010/10/01/Sortie-de-phpPgAdmin-5.0-b%C3%A9ta-2"
+  title="Sortie de phpPgAdmin 5.0 béta 2" />
+  
+  <link rel="previous" href="index25aa.html?post/2010/09/26/Nouvelles-hebdomadaires-de-PostgreSQL-19-septembre-2010"
+  title="Nouvelles hebdomadaires de PostgreSQL - 19 septembre 2010" />
+  
+  <link rel="alternate" type="application/atom+xml" title="Atom 1.0" href="index4ca3.php?feed/atom" />
+  
+  <style type="text/css" media="screen">
+@import url(themes/postgresql/style.css);
+</style>
+<style type="text/css" media="print">
+@import url(themes/default/print.css);
+</style>
+
+<script type="text/javascript" src="themes/default/js/jquery.js"></script>
+<script type="text/javascript" src="themes/default/js/jquery.cookie.js"></script>
+
+  
+  <script type="text/javascript" src="themes/default/js/post.js"></script>
+  <script type="text/javascript">
+  //<![CDATA[
+  var post_remember_str = 'Se souvenir de moi sur ce blog';
+  //]]>
+  </script>
+</head>
+
+<body class="dc-post">
+<div id="page">
+
+
+<div id="top">
+  <div id="pgHeader">
+    <span id="pgHeaderLogoLeft">
+      <a href="index.html" title="PostgreSQL"><img src="https://blog.postgresql.fr/themes/postgresql/img/hdr_left.png" width="230" height="80" alt="PostgreSQL" /></a>
+    </span>
+    <span id="pgHeaderLogoRight">
+      <a href="index.html" title="La base de donnees la plus sophistiquee au monde."><img src="https://blog.postgresql.fr/themes/postgresql/img/hdr_right.png" width="210" height="80" alt="La base de donnees la plus sophistiquee au monde." /></a>
+    </span>
+  </div>
+
+  </div>
+
+<div class="pgTopNav">
+  <div class="pgTopNavLeft"> 
+    <img src="https://blog.postgresql.fr/themes/postgresql/img/nav_lft.png" width="7" height="23" alt="" />
+  </div>
+  <div class="pgTopNavRight">
+    <img src="https://blog.postgresql.fr/themes/postgresql/img/nav_rgt.png" width="7" height="23" alt="" />
+  </div>
+  <ul class="pgTopNavList">
+    <li><a href="https://www.postgresql.fr/" title="Accueil">Accueil</a></li>
+    <li><a href="https://blog.postgresql.fr/" title="Lire les actualités">Actualités</a></li>
+    <li><a href="https://docs.postgresql.fr/" title="Lire la documentation officielle">Documentation</a></li>
+    <li><a href="https://forums.postgresql.fr/" title="Pour poser des questions">Forums</a></li>
+    <li><a href="https://www.postgresql.fr/asso/" title="La vie de l'association">Association</a></li>
+    <li><a href="https://www.postgresql.fr/devel:accueil" title="Informations pour les développeurs/traducteurs">Développeurs</a></li>
+    <li><a href="https://planete.postgresql.fr/" title="La planète francophone sur PostgreSQL">Planète</a></li>
+    <li><a href="https://www.postgresql.fr/support/" title="Support sur PostgreSQL">Support</a></li>
+  </ul>
+</div>
+
+<div id="wrapper">
+
+<div id="pgContent">
+
+  <div id="pgSideWrap">
+  <div id="pgSideNav">
+    <div id="blognav">
+      <div id="search"><h2><label for="q">Rechercher</label></h2><form action="http://blog2.postgresql.fr/index.php?" method="get"><fieldset><p><input type="text" size="10" maxlength="255" id="q" name="q" value="" /> <input class="submit" type="submit" value="ok" /></p></fieldset></form></div><div class="categories"><h2>Catégories</h2><ul><li><a href="index199b.html?category/Articles">Articles</a></li><li><a href="indexb4c6.html?category/Dans-les-bacs">Dans les bacs</a></li><li><a href="index025a.html?category/Evenements">Événements</a></li><li class="category-current"><a href="index8c6d.html?category/PostgreSQL-Weekly-News">PostgreSQL Weekly News</a></li><li><a href="index1835.html?category/Securite">Sécurité</a></li><li><a href="index2251.html?category/Vie-de-l-association">Vie de l'association</a></li><li><a href="index91de.html?category/Vie-du-site">Vie du site</a></li></ul></div><div class="text"><h2>Licence</h2>Tous les articles de ce blog sont disponibles sous la <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/">license Creative Commons BY-NC-SA 3.0</a>.</div>    </div> <!-- End #blognav -->
+  
+    <div id="blogextra">
+      <div class="syndicate"><h2>S'abonner</h2><ul><li><a type="application/atom+xml" href="index4ca3.php?feed/atom" title="Fil Atom des billets de ce blog" class="feed">Fil des billets</a></li></ul></div>    </div> <!-- End #blogextra -->
+  </div>
+  </div>
+
+  <div id="pgContentWrap">
+  <div id="pgDownloadsWrap">
+  <div id="content">
+
+  <p id="navlinks">
+  <a href="index25aa.html?post/2010/09/26/Nouvelles-hebdomadaires-de-PostgreSQL-19-septembre-2010"
+  title="Nouvelles hebdomadaires de PostgreSQL - 19 septembre 2010" class="prev">&#171; Nouvelles hebdomadaires de PostgreSQL - 19</a>
+   <span>-</span> <a href="indexdf28.html?post/2010/10/01/Sortie-de-phpPgAdmin-5.0-b%C3%A9ta-2"
+  title="Sortie de phpPgAdmin 5.0 béta 2" class="next">Sortie de phpPgAdmin 5.0 béta 2 &#187;</a>
+  </p>
+  
+  <div class="post">
+    <h2 id="p569" class="post-title">Nouvelles hebdomadaires de PostgreSQL - 26 septembre 2010</h2>
+    
+    <p class="post-info">Par chl    le mercredi 29 septembre 2010, 02:07        - <a href="index8c6d.html?category/PostgreSQL-Weekly-News">PostgreSQL Weekly News</a>
+        - <a href="indexa0e9.html?post/2010/09/29/Nouvelles-hebdomadaires-de-PostgreSQL-26-septembre-2010">Lien permanent</a>
+    </p>
+    
+    
+    
+          <div class="post-excerpt"><p>Nouveau sondage&nbsp;: Quand passerez-vous en production sur la 9.0&nbsp;?
+<a target="_blank" href="http://www.postgresql.org/community">http://www.postgresql.org/community</a></p>
+<p><strong>Les nouveautés des produits dérivés</strong></p>
+<ul>
+<li>MyJSQLView 3.23, une interface graphique qui peut être utilisée avec PostgreSQL&nbsp;:
+<a target="_blank" href="http://dandymadeproductions.com/projects/MyJSQLView/index.html">http://dandymadeproductions.com/projects/MyJSQLView/index.html</a></li>
+<li>pgAdmin III 1.12.0, une interface graphique de gestion pour PostgreSQL&nbsp;:
+<a target="_blank" href="http://www.pgadmin.org/download/">http://www.pgadmin.org/download/</a></li>
+</ul>
+<p><strong>Offres d'emplois autour de PostgreSQL en septembre</strong></p>
+<ul>
+<li>Internationales&nbsp;:
+<a target="_blank" href="http://archives.postgresql.org/pgsql-jobs/2010-09/threads.php">http://archives.postgresql.org/pgsql-jobs/2010-09/threads.php</a>;</li>
+<li>Francophones&nbsp;:
+<a target="_blank" href="http://forums.postgresql.fr/viewforum.php?id=4">http://forums.postgresql.fr/viewforum.php?id=4</a>.</li>
+</ul>
+<p><strong>PostgreSQL Local</strong></p>
+<ul>
+<li>Surge 2010, le salon sur l'évolutivité et la performance, aura lieu à Baltimore (Maryland, États-Unis) du 30 septembre au 1<sup>er</sup> octobre 2010&nbsp;:
+<a target="_blank" href="http://omniti.com/surge/2010">http://omniti.com/surge/2010</a></li>
+<li>Les inscriptions spéciales "lève-tôt" pour la JDCon West 2010 [ndt: 2-4 nov.] sont ouvertes&nbsp;:
+<a target="_blank" href="https://www.postgresqlconference.org/content/pgwest-2010-registration">https://www.postgresqlconference.org/content/pgwest-2010-registration</a></li>
+<li>L'appel à conférenciers pour le PGDay.EU 2010, tenu du 6 au 8 décembre à Stuttgart (All.), est lancé&nbsp;:
+<a target="_blank" href="http://2010.pgday.eu/callforpapers">http://2010.pgday.eu/callforpapers</a></li>
+</ul>
+<p><strong>PostgreSQL dans les média</strong></p>
+<ul>
+<li>Planet PostgreSQL&nbsp;:
+<a target="_blank" href="http://planet.postgresql.org/">http://planet.postgresql.org/</a></li>
+<li>Planet PostgreSQLFr&nbsp;:
+<a target="_blank" href="http://planete.postgresql.fr/">http://planete.postgresql.fr/</a></li>
+</ul>
+<p><em>PostgreSQL Weekly News / les nouvelles hebdomadaires vous sont offertes cette semaine par David Fetter. Traduction par l'équipe PostgreSQLFr sous licence CC BY-NC-SA.</em></p>
+<p><em>Proposez vos articles ou annonces avant dimanche 15:00 (heure du Pacifique). Merci de les envoyer en anglais à david (a) fetter.org, en allemand à pwn (a) pgug.de, en italien à pwn (a) itpug.org et en espagnol à pwn (a) arpug.com.ar.</em></p>
+<p>(<a target="_blank" href="http://www.postgresql.org/community/weeklynews/pwn20100926">lien vers l'article original</a>)</p></div>
+        
+    <div class="post-content"><p><strong>Revues</strong></p>
+<p>Hitoshi Harada reviewed Pavel Stehule's WIP patches to add MEDIAN and PERCENTILE.</p>
+<p>ITAGAKI Takahiro reviewed SAKAMOTO Masahiko's patch to implement the foreign data wrapper parts of the SQL/MED specification.</p>
+<p>Marko (johto) Tiikkaja reviewed Boxuan Zhai's MERGE patch.</p>
+<p><strong>Correctifs appliqués</strong></p>
+<p>Magnus Hagander a poussé&nbsp;:</p>
+<ul>
+<li>Rename README.CVS to README.git and change references in it.
+<a target="_blank" href="http://git.postgresql.org/gitweb?p=postgresql.git;a=commitdiff;h=397761827aa3a3ac95b8a60dd21900f7bae88f05">http://git.postgresql.org/gitweb?p=postgresql.git;a=commitdiff;h=397761827aa3a3ac95b8a60dd21900f7bae88f05</a></li>
+<li>Convert cvsignore to gitignore, and add .gitignore for build targets.
+<a target="_blank" href="http://git.postgresql.org/gitweb?p=postgresql.git;a=commitdiff;h=fe9b36fd59a771a98c0d33dd97039e6fc45d0f43">http://git.postgresql.org/gitweb?p=postgresql.git;a=commitdiff;h=fe9b36fd59a771a98c0d33dd97039e6fc45d0f43</a></li>
+<li>Remove anonymous cvs instructions, and replace them with instructions for git. Change other references from cvs to git as well.
+<a target="_blank" href="http://git.postgresql.org/gitweb?p=postgresql.git;a=commitdiff;h=726f9ddcd1b98b1c702e54b6dc40e57982c15036">http://git.postgresql.org/gitweb?p=postgresql.git;a=commitdiff;h=726f9ddcd1b98b1c702e54b6dc40e57982c15036</a></li>
+<li>Add gitignore files for ecpg regression tests. Backpatch to 8.2 as that's how far the structure looks the same.
+<a target="_blank" href="http://git.postgresql.org/gitweb?p=postgresql.git;a=commitdiff;h=6c137da018ad3ec52c872e0bb88c5968830e58d0">http://git.postgresql.org/gitweb?p=postgresql.git;a=commitdiff;h=6c137da018ad3ec52c872e0bb88c5968830e58d0</a></li>
+</ul>
+<p>Robert Haas a poussé&nbsp;:</p>
+<ul>
+<li>git_topo_order script, to match up commits across branches. This script is intended to substitute for cvs2cl in generating release notes and scrutinizing what got back-patched to which branches. Script by me. Support for --since by Alex Hunsaker.
+<a target="_blank" href="http://git.postgresql.org/gitweb?p=postgresql.git;a=commitdiff;h=1b984d43e54a969da26277d913a41ffd5ccfc1e8">http://git.postgresql.org/gitweb?p=postgresql.git;a=commitdiff;h=1b984d43e54a969da26277d913a41ffd5ccfc1e8</a></li>
+<li>Remove various mentions of CVS from src/tools/RELEASE_CHANGES.
+<a target="_blank" href="http://git.postgresql.org/gitweb?p=postgresql.git;a=commitdiff;h=8f00f73dc240a034668023f6d1ab18695bb1be32">http://git.postgresql.org/gitweb?p=postgresql.git;a=commitdiff;h=8f00f73dc240a034668023f6d1ab18695bb1be32</a></li>
+<li>In src/backend/commands/copy.c, typo fix. "CVS" is not the same thing as "CSV".
+<a target="_blank" href="http://git.postgresql.org/gitweb?p=postgresql.git;a=commitdiff;h=01003ec3bcd78a261e9b017837c961a96024abd4">http://git.postgresql.org/gitweb?p=postgresql.git;a=commitdiff;h=01003ec3bcd78a261e9b017837c961a96024abd4</a></li>
+<li>Fix inconsistent capitalization of "PL/pgSQL". Josh Kupershmidt.</li>
+<li>In contrib/xml2/.gitignore, add contrib/xml2/pgxml.sql to .gitignore. Kevin Grittner.
+<a target="_blank" href="http://git.postgresql.org/gitweb?p=postgresql.git;a=commitdiff;h=0a8ed2cdb4f7a34f65976a87a2b08a39df17939a">http://git.postgresql.org/gitweb?p=postgresql.git;a=commitdiff;h=0a8ed2cdb4f7a34f65976a87a2b08a39df17939a</a></li>
+<li>In contrib/fuzzystrmatch/fuzzystrmatch.c, in levenshtein_internal(), describe algorithm a bit more clearly.
+<a target="_blank" href="http://git.postgresql.org/gitweb?p=postgresql.git;a=commitdiff;h=12679b8bc908f941710bed185aa142ad5de539c6">http://git.postgresql.org/gitweb?p=postgresql.git;a=commitdiff;h=12679b8bc908f941710bed185aa142ad5de539c6</a></li>
+</ul>
+<p>Tom Lane a poussé&nbsp;:</p>
+<ul>
+<li>In README.git, trivial typo fix.
+<a target="_blank" href="http://git.postgresql.org/gitweb?p=postgresql.git;a=commitdiff;h=eacc4a3b9a7ea8a2608cb95981646f947efed625">http://git.postgresql.org/gitweb?p=postgresql.git;a=commitdiff;h=eacc4a3b9a7ea8a2608cb95981646f947efed625</a></li>
+<li>Back-patch replacement of README.CVS with README.git. In older branches, also git-ify the "make distdir" rule.
+<a target="_blank" href="http://git.postgresql.org/gitweb?p=postgresql.git;a=commitdiff;h=829f5b3571241cae2cc1a02923439cd0725d683c">http://git.postgresql.org/gitweb?p=postgresql.git;a=commitdiff;h=829f5b3571241cae2cc1a02923439cd0725d683c</a></li>
+<li>In doc/src/sgml/maintenance.sgml, fix a missed explanation of auto-analyze threshold, per Joe Miller.
+<a target="_blank" href="http://git.postgresql.org/gitweb?p=postgresql.git;a=commitdiff;h=2cdf6c155110cd068933e3be71f2af747e648fb0">http://git.postgresql.org/gitweb?p=postgresql.git;a=commitdiff;h=2cdf6c155110cd068933e3be71f2af747e648fb0</a></li>
+<li>In src/backend/Makefile, the port/pg_latch.c symlink ought to be removed by make distclean. Not sure why these symlinks are removed here and not in the port/ Makefile, but I won't second-guess that choice right now.
+<a target="_blank" href="http://git.postgresql.org/gitweb?p=postgresql.git;a=commitdiff;h=a6d4089d49a151496f6c26bf3537053aacd7f949">http://git.postgresql.org/gitweb?p=postgresql.git;a=commitdiff;h=a6d4089d49a151496f6c26bf3537053aacd7f949</a></li>
+<li>In src/backend/optimizer/plan/README, some more cleanup of CVS keyword noise. Poking around for remaining occurrences of CVS keyword strings, I came across one that apparently reflects the use of a $Revision: ...$ string in the original input data. Dunno why anybody would be using that in an MTA's Received: lines, but there it is. Put it back to the way that it was originally, according to inspection of the CVS repo.
+<a target="_blank" href="http://git.postgresql.org/gitweb?p=postgresql.git;a=commitdiff;h=538d685a1a266e2149587bf895d1b494afd37bd3">http://git.postgresql.org/gitweb?p=postgresql.git;a=commitdiff;h=538d685a1a266e2149587bf895d1b494afd37bd3</a></li>
+<li>add_cvs_markers isn't useful anymore. Removed.</li>
+<li>pgcvslog isn't useful anymore, either. See git_topo_order instead.</li>
+<li>Some more gitignore cleanups: cover contrib and PL regression test outputs. Also do some further work in the back branches, where quite a bit wasn't covered by Magnus' original back-patch.
+<a target="_blank" href="http://git.postgresql.org/gitweb?p=postgresql.git;a=commitdiff;h=cc2c8152e624e4985660e7042960bf300bb78a39">http://git.postgresql.org/gitweb?p=postgresql.git;a=commitdiff;h=cc2c8152e624e4985660e7042960bf300bb78a39</a></li>
+<li>Another gitignore straggler.
+<a target="_blank" href="http://git.postgresql.org/gitweb?p=postgresql.git;a=commitdiff;h=b49092d9d081a3dff3b8a82a5e45d0164824d2b5">http://git.postgresql.org/gitweb?p=postgresql.git;a=commitdiff;h=b49092d9d081a3dff3b8a82a5e45d0164824d2b5</a></li>
+<li>In doc/src/sgml/.gitignore, add assorted other documentation build targets to documentation gitignore.
+<a target="_blank" href="http://git.postgresql.org/gitweb?p=postgresql.git;a=commitdiff;h=cb71efe164aea6d37a938fae9d9109dbd7d7dd64">http://git.postgresql.org/gitweb?p=postgresql.git;a=commitdiff;h=cb71efe164aea6d37a938fae9d9109dbd7d7dd64</a></li>
+<li>Fix remaining stray references to CVS. These are just cosmetic and don't seem worth back-patching far. I put them into 9.0 just because it was trivial to do so.
+<a target="_blank" href="http://git.postgresql.org/gitweb?p=postgresql.git;a=commitdiff;h=651377933e031526379cae97034d1c50cdaad28c">http://git.postgresql.org/gitweb?p=postgresql.git;a=commitdiff;h=651377933e031526379cae97034d1c50cdaad28c</a></li>
+<li>In doc/src/sgml/sourcerepo.sgml, do some copy-editing on the Git usage docs.
+<a target="_blank" href="http://git.postgresql.org/gitweb?p=postgresql.git;a=commitdiff;h=8687fbbe42a11d6fd4db5a89c15e5c967bd65757">http://git.postgresql.org/gitweb?p=postgresql.git;a=commitdiff;h=8687fbbe42a11d6fd4db5a89c15e5c967bd65757</a></li>
+<li>In src/interfaces/libpq/.gitignore, more fixes for libpq's .gitignore file. The previous patches failed to cover a lot of symlinks that are only added in platform-specific cases. Make the lists match what's in the Makefile for each branch.
+<a target="_blank" href="http://git.postgresql.org/gitweb?p=postgresql.git;a=commitdiff;h=804b27613ba90bf67f903f114353d608e1d752d0">http://git.postgresql.org/gitweb?p=postgresql.git;a=commitdiff;h=804b27613ba90bf67f903f114353d608e1d752d0</a></li>
+<li>Re-allow input of Julian dates prior to 0001-01-01 Andrew Dunstan. This was unintentionally broken in 8.4 while tightening up checking of ordinary non-Julian date inputs to forbid references to "year zero". Per bug #5672 from Benjamin Gigot.
+<a target="_blank" href="http://git.postgresql.org/gitweb?p=postgresql.git;a=commitdiff;h=9aae81527f3174b9b6fd6366f04435310903dab2">http://git.postgresql.org/gitweb?p=postgresql.git;a=commitdiff;h=9aae81527f3174b9b6fd6366f04435310903dab2</a></li>
+<li>Another missing .gitignore entry ...</li>
+<li>In src/backend/nodes/outfuncs.c, make _outPathInfo print the relid set of the path's parent rel. We can't actually print the parent RelOptInfo in toto, because that would lead to infinite recursion. But it's safe enough to reach into the parent and print its identifying relids, and that makes it a whole lot easier to figure out what a Path represents. Should have done this years ago.
+<a target="_blank" href="http://git.postgresql.org/gitweb?p=postgresql.git;a=commitdiff;h=003788e81e7f72bc545b509e1517a672d891273b">http://git.postgresql.org/gitweb?p=postgresql.git;a=commitdiff;h=003788e81e7f72bc545b509e1517a672d891273b</a></li>
+<li>In src/backend/optimizer/path/allpaths.c, avoid sharing subpath list structure when flattening nested AppendRels. In some situations the original coding led to corrupting the child AppendRel's subpaths list, effectively adding other members of the parent's list to it. This was usually masked because we never made any further use of the child's list, but given the right combination of circumstances, we could do so. The visible symptom would be a relation getting scanned twice, as in bug #5673 from David Schmitt. Backpatch to 8.2, which is as far back as the risky coding appears. The example submitted by David only fails in 8.4 and later, but I'm not convinced that there aren't any even-more-obscure cases where 8.2 and 8.3 would fail.
+<a target="_blank" href="http://git.postgresql.org/gitweb?p=postgresql.git;a=commitdiff;h=ee63981c1fe26299162b9c7f1218d7e3ef802409">http://git.postgresql.org/gitweb?p=postgresql.git;a=commitdiff;h=ee63981c1fe26299162b9c7f1218d7e3ef802409</a></li>
+<li>In src/backend/commands/variable.c, prevent show_session_authorization from crashing when session_authorization hasn't been set. The only known case where this can happen is when show_session_authorization is invoked in an autovacuum process, which is possible if an index function calls it, as for example in bug #5669 from Andrew Geery. We could perhaps try to return a sensible value, such as the name of the cluster-owning superuser; but that seems like much more trouble than the case is worth, and in any case it could create new possible failure modes. Simply returning an empty string seems like the most appropriate fix. Back-patch to all supported versions, even those before autovacuum, just in case there's another way to provoke this crash.
+<a target="_blank" href="http://git.postgresql.org/gitweb?p=postgresql.git;a=commitdiff;h=660fbec560335292db9e05e4ad5d46437bb806bc">http://git.postgresql.org/gitweb?p=postgresql.git;a=commitdiff;h=660fbec560335292db9e05e4ad5d46437bb806bc</a></li>
+<li>In src/backend/commands/async.c, processIncomingNotify *must* reset notifyInterruptOccurred when called. This was broken in 9.0 by careless addition of an early-exit path. Bug report and diagnosis by Jeff Davis.
+<a target="_blank" href="http://git.postgresql.org/gitweb?p=postgresql.git;a=commitdiff;h=a959c67cb73cf7cfe8b368632062c625c0e01858">http://git.postgresql.org/gitweb?p=postgresql.git;a=commitdiff;h=a959c67cb73cf7cfe8b368632062c625c0e01858</a></li>
+<li>Replace doc references to install-win32 with install-windows. Windows is not necessarily 32-bit, any more. As suggested by Mike Toews.
+<a target="_blank" href="http://git.postgresql.org/gitweb?p=postgresql.git;a=commitdiff;h=3186560f46b5076feb8776ae5e600b7ea0f31852">http://git.postgresql.org/gitweb?p=postgresql.git;a=commitdiff;h=3186560f46b5076feb8776ae5e600b7ea0f31852</a></li>
+<li>Still more .gitignore cleanup. Fix overly-enthusiastic ignores, as identified by git ls-files -i --exclude-standard
+<a target="_blank" href="http://git.postgresql.org/gitweb?p=postgresql.git;a=commitdiff;h=54c88dee46ae63d1f183ed864b624881ed05d370">http://git.postgresql.org/gitweb?p=postgresql.git;a=commitdiff;h=54c88dee46ae63d1f183ed864b624881ed05d370</a></li>
+<li>Further fixes to the pg_get_expr() security fix in back branches. It now emerges that the JDBC driver expects to be able to use pg_get_expr() on an output of a sub-SELECT. So extend the check logic to be able to recurse into a sub-SELECT to see if the argument is ultimately coming from an appropriate column. Per report from Thomas Kellerer.
+<a target="_blank" href="http://git.postgresql.org/gitweb?p=postgresql.git;a=commitdiff;h=3613d0893f526619471026b6b04bda70e31fe9e2">http://git.postgresql.org/gitweb?p=postgresql.git;a=commitdiff;h=3613d0893f526619471026b6b04bda70e31fe9e2</a></li>
+<li>Fix another join removal bug: the check on PlaceHolderVars was wrong. The previous coding would decide that join removal was unsafe upon finding a PlaceHolderVar that needed to be evaluated at the inner rel and then used above the join. However, this fails to cover the case of PlaceHolderVars that refer to both the inner rel and some other rels. Per bug report from Andrus.
+<a target="_blank" href="http://git.postgresql.org/gitweb?p=postgresql.git;a=commitdiff;h=c8c03d72e10cab3cc47975b2689c8efbb4eade94">http://git.postgresql.org/gitweb?p=postgresql.git;a=commitdiff;h=c8c03d72e10cab3cc47975b2689c8efbb4eade94</a></li>
+<li>Rename git_topo_order -&gt; git_changelog, per discussion.
+<a target="_blank" href="http://git.postgresql.org/gitweb?p=postgresql.git;a=commitdiff;h=ce1dcd468f8a728398424296165a8d87eb36f0d8">http://git.postgresql.org/gitweb?p=postgresql.git;a=commitdiff;h=ce1dcd468f8a728398424296165a8d87eb36f0d8</a></li>
+<li>Minor improvements to git_changelog. Avoid depending on Date::Calc, which isn't in a basic Perl installation, when we can equally well use Time::Local which is. Also fix the parsing of timestamps to take heed of the timezone. (It looks like cvs2git emitted all commit timestamps with zone GMT, so this refinement might've looked unnecessary when looking at converted data; but it's needed now.) Fix parsing of message bodies so that blank lines that may or may not get emitted by "git log" aren't confused with real data. This avoids strange formatting of the oldest commit on a branch. Check child-process exit status, so that we actually notice if "git log" fails, and so that we don't accumulate zombie children.
+<a target="_blank" href="http://git.postgresql.org/gitweb?p=postgresql.git;a=commitdiff;h=901a5a786fa3cf107ceb11d2622cf8bb99221f3a">http://git.postgresql.org/gitweb?p=postgresql.git;a=commitdiff;h=901a5a786fa3cf107ceb11d2622cf8bb99221f3a</a></li>
+<li>Fix some more bugs in git_changelog. 1. Don't forget the last (oldest) commit on the oldest branch. 2. When considering which commit to print next, if two alternatives have the same "distortion" score (which is actually the normal case, since generally the "distortion" is 0), then choose the later timestamp to print first. I don't know where Robert Haas got the idea to ignore timestamps and sort by branch age, but it wasn't a good idea: the resulting ordering of commits was just plain bizarre anywhere that some branches had many fewer commits than others, which is the typical situation for us.
+<a target="_blank" href="http://git.postgresql.org/gitweb?p=postgresql.git;a=commitdiff;h=30d2e1005838c7ece353ef2ac269cfdc37e937be">http://git.postgresql.org/gitweb?p=postgresql.git;a=commitdiff;h=30d2e1005838c7ece353ef2ac269cfdc37e937be</a></li>
+<li>Still more tweaking of git_changelog. 1. Don't assume there's only one candidate match; check them all and use the one with the closest timestamp. Avoids funny output when someone makes several successive commits with the same log message, as certain people have been known to do. 2. When the same commit (with the same SHA1) is reachable from multiple branch tips, don't report it for all the branches; instead report it only for the first such branch. Given our development practices, this case arises only for commits that occurred before a given branch split off from master. The original coding blamed old commits on *all* the branches, which isn't terribly useful; the new coding blames such a commit only on master.
+<a target="_blank" href="http://git.postgresql.org/gitweb?p=postgresql.git;a=commitdiff;h=899beb78941aa955aac2e19cb82458c6f4c7dd52">http://git.postgresql.org/gitweb?p=postgresql.git;a=commitdiff;h=899beb78941aa955aac2e19cb82458c6f4c7dd52</a></li>
+<li>Improve git_changelog as per discussion with Robert Haas. 1. Resurrect the behavior where old commits on master will have Branch: labels for branches sprouted after the commit was made. I'm still dubious about this mode, but if you want it, say --post-date or -p. 2. Annotate the Branch: labels with the release or branch in which the commit was publicly released. For example, on a release branch you could see Branch: REL8_3_STABLE Release: REL8_3_2 [92c3a8004] 2008-03-29 00:15:37 +0000 showing that the fix was released in 8.3.2. Commits on master will usually instead have notes like Branch: master Release: REL8_4_BR [6fc9d4272] 2008-03-29 00:15:28 +0000 showing that this commit is ancestral to release branches 8.4 and later. If no Release: marker appears, the commit hasn't yet made it into any release. 3. Add support for release branches older than 7.4. 4. The implementation is improved by running git log on each branch only back to where the branch sprouts from master. This saves a good deal of time (about 50% of the runtime when generating the complete history). We generate the post-date-mode tags via a direct understanding that they should be applied to master commits made before the branch sprouted, rather than backing into them via matching (which isn't any too reliable when people used identical log messages for successive commits).
+<a target="_blank" href="http://git.postgresql.org/gitweb?p=postgresql.git;a=commitdiff;h=bf429cebd059764198580ca576608921e2022992">http://git.postgresql.org/gitweb?p=postgresql.git;a=commitdiff;h=bf429cebd059764198580ca576608921e2022992</a></li>
+</ul>
+<p>Heikki Linnakangas a poussé&nbsp;:</p>
+<ul>
+<li>In src/bin/pg_dump/pg_dump.c, initialize tableoid field correctly when dumping foreign data wrappers and servers. AFAICT it's harmless at the moment because nothing can depend on either, but as soon as we introduce an object type with such dependencies, tableoid needs to be set or pg_dump will fail to interpret the dependencies correctly. In theory, I guess the uninitialized garbage in tableoid could cause the object to be mistaken for some other object with same OID as well.
+<a target="_blank" href="http://git.postgresql.org/gitweb?p=postgresql.git;a=commitdiff;h=7e8c25c66e9837d5dafeb2b3a0786611226af269">http://git.postgresql.org/gitweb?p=postgresql.git;a=commitdiff;h=7e8c25c66e9837d5dafeb2b3a0786611226af269</a></li>
+</ul>
+<p>Alvaro Herrera a poussé&nbsp;:</p>
+<ul>
+<li>In config/prep_buildtree, prevent doc/src/sgml subdirs from being created, instead of deleting them after the fact. This is a more elegant fix for bug #5595.
+<a target="_blank" href="http://git.postgresql.org/gitweb?p=postgresql.git;a=commitdiff;h=fde5ce4fe2286d3c66cd77db0b7116566ac7b66b">http://git.postgresql.org/gitweb?p=postgresql.git;a=commitdiff;h=fde5ce4fe2286d3c66cd77db0b7116566ac7b66b</a></li>
+</ul>
+<p>Peter Eisentraut a poussé&nbsp;:</p>
+<ul>
+<li>Fix man page markup for &lt;cmdsynopsis&gt; with multiple variants. Command synopses using &lt;cmdsynopsis&gt; with multiple variants previously used &lt;sbr&gt; to break lines between variants. The new man page toolchain introduced in 9.0 makes a mess out of that, and that markup was probably wrong all along, because &lt;sbr&gt; is supposed to break lines within a synopsis, not between them. So fix that by using multiple &lt;cmdsynopsis&gt; elements inside &lt;refsynopsisdiv&gt;. Backpatched to 9.0
+<a target="_blank" href="http://git.postgresql.org/gitweb?p=postgresql.git;a=commitdiff;h=635de8365f0299cfa2db24c56abcfccb65d020f0">http://git.postgresql.org/gitweb?p=postgresql.git;a=commitdiff;h=635de8365f0299cfa2db24c56abcfccb65d020f0</a></li>
+<li>Add ALTER TYPE ... ADD/DROP/ALTER/RENAME ATTRIBUTE. Like with tables, this also requires allowing the existence of composite types with zero attributes. Reviewed by KaiGai Kohei
+<a target="_blank" href="http://git.postgresql.org/gitweb?p=postgresql.git;a=commitdiff;h=e440e12c562432a2a695b8054964fb34e3bd823e">http://git.postgresql.org/gitweb?p=postgresql.git;a=commitdiff;h=e440e12c562432a2a695b8054964fb34e3bd823e</a></li>
+</ul>
+<p><strong>Correctifs rejetés (à ce jour)</strong></p>
+<ul>
+<li>Pas de déception cette semaine&nbsp;:-)</li>
+</ul>
+<p><strong>Correctifs en attente</strong></p>
+<ul>
+<li>Jesper Krogh sent in a patch to allow the text search parser not to treat _ as a separation character.</li>
+<li>Jesper Krogh sent in a patch to allow tuning, on a per-table basis, the number of tuples per page before the tupletoaster acts.</li>
+<li>Pavel Stehule sent in five WIP patches to implement MEDIAN and PERCENTILE aggregates.</li>
+<li>Peter Eisentraut sent in a patch to trim trailing white space from psql output.</li>
+<li>Kevin Grittner sent in a patch to create a SHMList, a structure to be used later for, among other things, helping with the performance of truly serializable transctions.</li>
+<li>ITAGAKI Takahiro sent in another revision of the patch to add JSON support.</li>
+<li>Robert Haas and KaiGai Kohei traded versions of the security label patch.</li>
+<li>Ganesh Venkitachalam sent in two proof-of-concept patches to make the latch implementation more efficient.</li>
+<li>Kevin Grittner sent in another revision of the patch to add truly serializable snapshot isolation.</li>
+<li>Boxuan Zhai sent in two more revisions of the patch to add MERGE.</li>
+<li>Robert Haas sent in a patch to remove some faulty intelligence from the planner.</li>
+<li>Gurjeet Singh sent in a patch to speed up the prep_buildtree script, which is used in VPATH builds.</li>
+</ul></div>
+
+      </div>
+
+  
+
+    
+  
+    
+    
+    </div>
+</div> <!-- End #main -->
+
+</div> <!-- End #wrapper -->
+
+<div id="pgFooter">
+  <p>Propulsé par <a href="http://dotclear.org/">Dotclear</a></p>
+</div>
+
+</div> <!-- End #page -->
+</body>
+
+<!-- Mirrored from blog2.postgresql.fr/index.php?post/2010/09/29/Nouvelles-hebdomadaires-de-PostgreSQL-26-septembre-2010 by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 May 2020 21:40:20 GMT -->
+</html>

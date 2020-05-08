@@ -1,0 +1,265 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr">
+
+<!-- Mirrored from blog2.postgresql.fr/index.php?post/drupal/114 by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 May 2020 21:40:20 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="MSSmartTagsPreventParsing" content="TRUE" />
+  <meta name="ROBOTS" content="INDEX, FOLLOW" />
+  
+  <title>Nouvelles neuves de Postgres - PostgreSQLfr.org</title>
+  <meta name="description" lang="fr" content="Nouvelles hebdomadaires de Postgres - 22 octobre 2007 Attendez-vous à une prochaine bêta 2 de la 8.3 et grand merci à tous les testeurs :) La PostgreSQL Fall Conference fut un" />
+  <meta name="copyright" content="" />
+  <meta name="author" content="chl" />
+  <meta name="date" scheme="ISO8601" content="2007-10-25T02:03:00+00:00" />
+  
+  <link rel="schema.dc" href="http://purl.org/dc/elements/1.1/" />
+  <meta name="dc.title" content="Nouvelles neuves de Postgres" />
+  <meta name="dc.description" lang="fr" content="Nouvelles hebdomadaires de Postgres - 22 octobre 2007 Attendez-vous à une prochaine bêta 2 de la 8.3 et grand merci à tous les testeurs :) La PostgreSQL Fall Conference fut un" />
+  <meta name="dc.creator" content="chl" />
+  <meta name="dc.language" content="fr" />
+  <meta name="dc.publisher" content="" />
+  <meta name="dc.rights" content="" />
+  <meta name="dc.date" scheme="ISO8601" content="2007-10-25T02:03:00+00:00" />
+  <meta name="dc.type" content="text" />
+  <meta name="dc.format" content="text/html" />
+  
+  <link rel="top" href="indexd41d.html?" title="Accueil" />
+  <link rel="contents" href="index888d.html?archive" title="Archives" />
+  
+  <link rel="next" href="indexc08e.html?post/drupal/412"
+  title="Nouvelles neuves de Postgres" />
+  
+  <link rel="previous" href="index645f.html?post/drupal/216"
+  title="Pourquoi préférer PostgreSQL à MySQL" />
+  
+  <link rel="alternate" type="application/atom+xml" title="Atom 1.0" href="index4ca3.php?feed/atom" />
+  
+  <style type="text/css" media="screen">
+@import url(themes/postgresql/style.css);
+</style>
+<style type="text/css" media="print">
+@import url(themes/default/print.css);
+</style>
+
+<script type="text/javascript" src="themes/default/js/jquery.js"></script>
+<script type="text/javascript" src="themes/default/js/jquery.cookie.js"></script>
+
+  
+  <script type="text/javascript" src="themes/default/js/post.js"></script>
+  <script type="text/javascript">
+  //<![CDATA[
+  var post_remember_str = 'Se souvenir de moi sur ce blog';
+  //]]>
+  </script>
+</head>
+
+<body class="dc-post">
+<div id="page">
+
+
+<div id="top">
+  <div id="pgHeader">
+    <span id="pgHeaderLogoLeft">
+      <a href="index.html" title="PostgreSQL"><img src="https://blog.postgresql.fr/themes/postgresql/img/hdr_left.png" width="230" height="80" alt="PostgreSQL" /></a>
+    </span>
+    <span id="pgHeaderLogoRight">
+      <a href="index.html" title="La base de donnees la plus sophistiquee au monde."><img src="https://blog.postgresql.fr/themes/postgresql/img/hdr_right.png" width="210" height="80" alt="La base de donnees la plus sophistiquee au monde." /></a>
+    </span>
+  </div>
+
+  </div>
+
+<div class="pgTopNav">
+  <div class="pgTopNavLeft"> 
+    <img src="https://blog.postgresql.fr/themes/postgresql/img/nav_lft.png" width="7" height="23" alt="" />
+  </div>
+  <div class="pgTopNavRight">
+    <img src="https://blog.postgresql.fr/themes/postgresql/img/nav_rgt.png" width="7" height="23" alt="" />
+  </div>
+  <ul class="pgTopNavList">
+    <li><a href="https://www.postgresql.fr/" title="Accueil">Accueil</a></li>
+    <li><a href="https://blog.postgresql.fr/" title="Lire les actualités">Actualités</a></li>
+    <li><a href="https://docs.postgresql.fr/" title="Lire la documentation officielle">Documentation</a></li>
+    <li><a href="https://forums.postgresql.fr/" title="Pour poser des questions">Forums</a></li>
+    <li><a href="https://www.postgresql.fr/asso/" title="La vie de l'association">Association</a></li>
+    <li><a href="https://www.postgresql.fr/devel:accueil" title="Informations pour les développeurs/traducteurs">Développeurs</a></li>
+    <li><a href="https://planete.postgresql.fr/" title="La planète francophone sur PostgreSQL">Planète</a></li>
+    <li><a href="https://www.postgresql.fr/support/" title="Support sur PostgreSQL">Support</a></li>
+  </ul>
+</div>
+
+<div id="wrapper">
+
+<div id="pgContent">
+
+  <div id="pgSideWrap">
+  <div id="pgSideNav">
+    <div id="blognav">
+      <div id="search"><h2><label for="q">Rechercher</label></h2><form action="http://blog2.postgresql.fr/index.php?" method="get"><fieldset><p><input type="text" size="10" maxlength="255" id="q" name="q" value="" /> <input class="submit" type="submit" value="ok" /></p></fieldset></form></div><div class="categories"><h2>Catégories</h2><ul><li><a href="index199b.html?category/Articles">Articles</a></li><li><a href="indexb4c6.html?category/Dans-les-bacs">Dans les bacs</a></li><li><a href="index025a.html?category/Evenements">Événements</a></li><li class="category-current"><a href="index8c6d.html?category/PostgreSQL-Weekly-News">PostgreSQL Weekly News</a></li><li><a href="index1835.html?category/Securite">Sécurité</a></li><li><a href="index2251.html?category/Vie-de-l-association">Vie de l'association</a></li><li><a href="index91de.html?category/Vie-du-site">Vie du site</a></li></ul></div><div class="text"><h2>Licence</h2>Tous les articles de ce blog sont disponibles sous la <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/">license Creative Commons BY-NC-SA 3.0</a>.</div>    </div> <!-- End #blognav -->
+  
+    <div id="blogextra">
+      <div class="syndicate"><h2>S'abonner</h2><ul><li><a type="application/atom+xml" href="index4ca3.php?feed/atom" title="Fil Atom des billets de ce blog" class="feed">Fil des billets</a></li></ul></div>    </div> <!-- End #blogextra -->
+  </div>
+  </div>
+
+  <div id="pgContentWrap">
+  <div id="pgDownloadsWrap">
+  <div id="content">
+
+  <p id="navlinks">
+  <a href="index645f.html?post/drupal/216"
+  title="Pourquoi préférer PostgreSQL à MySQL" class="prev">&#171; Pourquoi préférer PostgreSQL à MySQL</a>
+   <span>-</span> <a href="indexc08e.html?post/drupal/412"
+  title="Nouvelles neuves de Postgres" class="next">Nouvelles neuves de Postgres &#187;</a>
+  </p>
+  
+  <div class="post">
+    <h2 id="p114" class="post-title">Nouvelles neuves de Postgres</h2>
+    
+    <p class="post-info">Par chl    le jeudi 25 octobre 2007, 02:03        - <a href="index8c6d.html?category/PostgreSQL-Weekly-News">PostgreSQL Weekly News</a>
+        - <a href="indexfbaf.html?post/drupal/114">Lien permanent</a>
+    </p>
+    
+    
+    
+          <div class="post-excerpt"><p><strong>Nouvelles hebdomadaires de Postgres - 22 octobre 2007</strong></p>
+<ul>
+<li>Attendez-vous à une prochaine bêta 2 de la 8.3 et grand merci à tous les testeurs :)</li>
+<li>La PostgreSQL Fall Conference fut un grand succès. Quelques souvenirs...
+<a target="_blank" href="http://db.endpoint.com/pgcon07/">http://db.endpoint.com/pgcon07/</a></li>
+</ul><ul><!-- Apparemment le </ul>
+est heureusement rajoute par Drupal dans la version coupee -->
+</ul></div>
+        
+    <div class="post-content"><strong>Les nouveautés des produits dérivés</strong>
+<ul>
+<li>explain-analyze.info est maintenant en ligne&nbsp;!
+<a target="_blank" href="http://explain-analyze.info/">http://explain-analyze.info</a></li>
+<!-- Apparemment le </ul>
+est heureusement rajoute par Drupal dans la version coupee -->
+<!--break-->
+<li>pgAdmin3 1.8.0 est sorti&nbsp;:
+<a target="_blank" href="http://www.pgadmin.org/news.php">http://www.pgadmin.org/news.php</a></li>
+<li>PL/php 1.3.5 beta 1 est disponible&nbsp;:
+<a target="_blank" href="http://projects.commandprompt.com/public/plphp">http://projects.commandprompt.com/public/plphp</a></li>
+</ul>
+<p><strong>Offres d'emplois autour de Postgres en octobre</strong></p>
+<p><a target="_blank" href="http://archives.postgresql.org/pgsql-jobs/2007-10/threads.php">http://archives.postgresql.org/pgsql-jobs/2007-10/threads.php</a></p>
+<p><strong>Postgres Local</strong></p>
+<ul>
+<li>La première réunion du PUG néo-zélandais aura lieu à Wellington, le 6 novembre 2007. Plus de détails à l'adresse&nbsp;:
+<a target="_blank" href="http://pgug.org.nz/">http://pgug.org.nz</a></li>
+<li>Jetez un œil sur le nouveau forum Postgres concernant les emplois germanophones&nbsp;:
+<a target="_blank" href="http://www.pg-forum.de/jobboerse-marktplatz/">http://www.pg-forum.de/jobboerse-marktplatz/</a></li>
+</ul>
+<p><strong>Postgres dans les média</strong></p>
+<ul>
+<li>Planet PostgreSQL:
+<a target="_blank" href="http://www.planetpostgresql.org/">http://www.planetpostgresql.org/</a></li>
+<li>General Bits, Archives et ses manchettes occasionnelles&nbsp;:
+<a target="_blank" href="http://www.varlena.com/GeneralBits/">http://www.varlena.com/GeneralBits/</a></li>
+</ul>
+<p><em>Postgres Weekly News / les nouvelles hebdomadaires vous sont offertes cette semaine par David Fetter. La traduction française est effectuée par l'équipe PostgreSQLFr.</em></p>
+<p><em>Proposez vos articles ou annonces avant dimanche 15:00 (heure du Pacifique). Merci de les envoyer en anglais à david (a) fetter.org ou en allemand à pwn (a) pgug.de.</em></p>
+<p><strong>Correctifs appliqués</strong></p>
+<p>Neil Conway a commité&nbsp;:</p>
+<ul>
+<li>Minor fixes for the release notes.</li>
+</ul>
+<p>Magnus Hagander a commité&nbsp;:</p>
+<ul>
+<li>Re-allow UTF8 encodings on win32. Since UTF8 is converted to UTF16 before being used, all (valid) locales will work for this.</li>
+<li>Hiroshi Saito's patch which updates URLs to a couple of external projects in pgsql/doc/src/sgml/external-projects.sgml.</li>
+<li>In pgsql/doc/src/sgml/external-projects.sgml, fix the URL properly per Robert Treat.</li>
+<li>In pgsql/contrib/pgbench/pgbench.c, increase FD_SETSIZE on Win32 to allow for more than 54 clients. Per Greg Stark &amp; Dave Page</li>
+</ul>
+<p>Peter Eisentraut a commité&nbsp;:</p>
+<ul>
+<li>In pgsql/src/bin/initdb/initdb.c, remove quotes around locale names in some places for consistency.</li>
+</ul>
+<p>Bruce Momjian a commité&nbsp;:</p>
+<ul>
+<li>Add mention of Slony for in-place upgrades to pgsql/doc/src/sgml/backup.sgml.</li>
+<li>Mention that Slony switch is only seconds of downtime.</li>
+<li>In pgsql/doc/src/sgml/backup.sgml, add doc clarifications for warm standby.</li>
+<li>In pgsql/doc/src/sgml/backup.sgml, mention Slony as just an example.</li>
+<li>Re-add FAQ item, 'Why do I get "relation with OID ##### does not exist" errors when accessing temporary tables in PL/PgSQL functions?'</li>
+<li>First pass over release documentation. I trimmed down some of the entries and removed a few.</li>
+<li>Small changes to release note descriptions.</li>
+<li>Move a few items into migration from the main changes section. Indent 8.3 consistently.</li>
+<li>More indenting cleanup, tag additions.</li>
+<li>More release wording adjustments.</li>
+<li>Consistently indent release notes for prior releases.</li>
+<li>More indenting cleanup for release notes.</li>
+<li>Update German FAQ. Ian Barwick</li>
+<li>In pgsql/doc/src/sgml/release.sgml, more release note wording improvements.</li>
+<li>In pgsql/doc/src/sgml/release.sgml, fix release tag spelling typo.</li>
+<li>More release note word-smithing in pgsql/doc/src/sgml/release.sgml</li>
+<li>Update Japanese FAQ. Jun Kuwamura</li>
+</ul>
+<p>Tom Lane a commité&nbsp;:</p>
+<ul>
+<li>Include NOLOGIN roles in the 'flat' password file. In the original coding this was seen as useless, but the problem with not including them is that the error message will often be something about authentication failure, rather than the more helpful one about 'role is not permitted to log in'. Per discussion.</li>
+<li>Back-patch some plpython patches previously made only in HEAD: changes of 3-Apr and 4-Apr to declare interface functions properly and eliminate casts, thereby fixing potential problems on 64-bit machines; and changes of 13-Jul to volatile-qualify some variables to suppress compiler warnings. Per discussion, we're only worrying about Python 2.5 in PG 8.2 and up, so no need to patch further back.</li>
+<li>Add sample text search dictionary templates and parsers, to replace the hard-to-maintain textual examples currently in the SGML docs. From Sergey Karpov.</li>
+<li>In pgsql/doc/src/sgml/textsearch.sgml, remove obsolete examples of add-on parsers and dictionary templates; these are more easily and usefully maintained as contrib modules. Various other wordsmithing, markup improvement, etc.</li>
+<li>Fix pg_wchar_table[] to match revised ordering of the encoding ID enum. Add some comments so hopefully the next poor sod doesn't fall into the same trap. (Wrong comments are worse than none at all...)</li>
+<li>Teach pgxs.mk and Install.pm how to install files from a contrib module into SHAREDIR/tsearch_data. Use this instead of ad-hoc coding in dict_xsyn/Makefile. Should fix current ContribCheck failures on MSVC.</li>
+<li>Tweak toast-related logic in pgsql/src/backend/access/heap/heapam.c so that the toaster is only invoked when relkind = RELKIND_RELATION. This syncs these tests with the Asserts in tuptoaster.c, and ensures that we won't ever try to, for example, compress a sequence's tuple. Problem found by Greg Stark while stress-testing with much-smaller-than-normal page sizes.</li>
+<li>In pgsql/src/bin/psql/describe.c, use 'token' not 'lexeme' to describe the output of a parser.</li>
+<li>Another round of editorialization on the text search documentation. Notably, standardize on using "token" for the strings output by a parser, while "lexeme" is reserved for the normalized strings produced by a dictionary.</li>
+<li>In pgsql/src/port/chklocale.c, add missing entry for PG_WIN1250 encoding, per gripe from Pavel Stehule. Also enable translation of PG_WIN874, which certainly seems to have an obvious translation now, though maybe it did not at the time this table's ancestor was created.</li>
+<li>ts_rewrite() does not return a set, only one row; fix mislabeling in pg_proc.h. Catversion bumped.</li>
+<li>Found another small glitch in tsearch API: the two versions of ts_lexize() are really redundant, since we invented a regdictionary alias type. We can have just one function, declared as taking regdictionary, and it will handle both behaviors. Noted while working on documentation.</li>
+<li>In pgsql/doc/src/sgml/config.sgml, add a note pointing out that you can't log to syslog without tweaking the syslog configuration file (at least not on most known Unixen). I dunno why we hadn't had that info in the docs all along ...</li>
+<li>In pgsql/src/backend/utils/adt/tsginidx.c, adjust error message to agree with documentation. The tsearch documentation uniformly calls these things weights, not classes.</li>
+<li>Editorial overhaul for text search documentation. Organize the info more clearly, improve a lot of unclear descriptions, add some missing material. We still need a migration guide though.</li>
+<li>Fix shared tsvector/tsquery input code so that we don't say "syntax error in tsvector" when we are really parsing a tsquery. Report the bogus input, too. Make styles of some related error messages more consistent.</li>
+<li>In pgsql/src/backend/regex/regc_lex.c, add a useless return statement to suppress a warning seen with some versions of gcc (I'm seeing it with Apple's gcc 4.0.1). I think the reason we did not see this before was that the assert() macros in the regex code were all no-ops till recently.</li>
+<li>In pgsql/doc/src/sgml/textsearch.sgml, create a quick-and-dirty list of known migration issues for pre-8.3 users of tsearch. This isn't meant to be permanent documentation, but to call out the areas that need either fixing or real documentation.</li>
+<li>In pgsql/src/backend/optimizer/prep/prepunion.c, remove an Assert that's been obsoleted by recent changes in the parsetree representation of DECLARE CURSOR. Report and fix by Heikki.</li>
+<li>In pgsql/contrib/pgstattuple/pgstattuple.c, be careful to get share lock on each page before computing its free space. ITAGAKI Takahiro</li>
+</ul>
+<p><strong>Correctifs rejetés (à ce jour)</strong></p>
+<ul>
+<li>Pas de déception cette semaine :-)</li>
+</ul>
+<p><strong>Correctifs en attente</strong></p>
+<ul>
+<li>Brendan Jurd sent in another revision of his quote_null patch.</li>
+<li>Neil Conway sent in a patch to avoid a needless copy in nodeMaterial in src/backend/executor/nodeMaterial.c.</li>
+<li>Marko Kreen sent in two versions of new documentation for the txid feature.</li>
+<li>ITAGAKI Takahiro sent in a patch for testing query modes on pgbench per discussion
+<a target="_blank" href="http://archives.postgresql.org/pgsql-hackers/2007-10/msg00755.php">http://archives.postgresql.org/pgsql-hackers/2007-10/msg00755.php</a></li>
+<li>Volkan YAZICI sent in a patch which implements configurable penalty costs for the Levenshtein distance metric in the fuzzystrmatch contrib module.</li>
+<li>Hiroshi Saito sent in a patch to adjust test_fsync.c</li>
+<li>Greg Sabino Mullane sent in a patch which improves psql's tab completion for schemas and tables.</li>
+<li>Tom Raney sent in another revision of his hash index build patch.</li>
+<li>Albert Cervera i Areny sent in a patch to include contrib docs in the docbook SGML.</li>
+</ul></div>
+
+      </div>
+
+  
+
+    
+  
+    
+    
+    </div>
+</div> <!-- End #main -->
+
+</div> <!-- End #wrapper -->
+
+<div id="pgFooter">
+  <p>Propulsé par <a href="http://dotclear.org/">Dotclear</a></p>
+</div>
+
+</div> <!-- End #page -->
+</body>
+
+<!-- Mirrored from blog2.postgresql.fr/index.php?post/drupal/114 by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 May 2020 21:40:20 GMT -->
+</html>

@@ -1,0 +1,237 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr">
+
+<!-- Mirrored from blog2.postgresql.fr/index.php?post/drupal/20 by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 May 2020 21:40:21 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="MSSmartTagsPreventParsing" content="TRUE" />
+  <meta name="ROBOTS" content="INDEX, FOLLOW" />
+  
+  <title>PostgreSQL Weekly News - 20 Juillet 2004 - PostgreSQLfr.org</title>
+  <meta name="description" lang="fr" content="== Nouvelles hebdomadaires de PostgreSQL - 20 juillet 2004 == Les développeurs ont continué cette semaine à finaliser les nouvelles fonctionalités afin de parvenir à une beta 1" />
+  <meta name="copyright" content="" />
+  <meta name="author" content="Jean-Paul Argudo" />
+  <meta name="date" scheme="ISO8601" content="2004-07-21T18:55:00+00:00" />
+  
+  <link rel="schema.dc" href="http://purl.org/dc/elements/1.1/" />
+  <meta name="dc.title" content="PostgreSQL Weekly News - 20 Juillet 2004" />
+  <meta name="dc.description" lang="fr" content="== Nouvelles hebdomadaires de PostgreSQL - 20 juillet 2004 == Les développeurs ont continué cette semaine à finaliser les nouvelles fonctionalités afin de parvenir à une beta 1" />
+  <meta name="dc.creator" content="Jean-Paul Argudo" />
+  <meta name="dc.language" content="fr" />
+  <meta name="dc.publisher" content="" />
+  <meta name="dc.rights" content="" />
+  <meta name="dc.date" scheme="ISO8601" content="2004-07-21T18:55:00+00:00" />
+  <meta name="dc.type" content="text" />
+  <meta name="dc.format" content="text/html" />
+  
+  <link rel="top" href="indexd41d.html?" title="Accueil" />
+  <link rel="contents" href="index888d.html?archive" title="Archives" />
+  
+  <link rel="next" href="index6c45.html?post/drupal/373"
+  title="FAQ PostgreSQL" />
+  
+  <link rel="previous" href="index1696.html?post/drupal/372"
+  title="Comment compiler et installer PostgreSQL ?" />
+  
+  <link rel="alternate" type="application/atom+xml" title="Atom 1.0" href="index4ca3.php?feed/atom" />
+  
+  <style type="text/css" media="screen">
+@import url(themes/postgresql/style.css);
+</style>
+<style type="text/css" media="print">
+@import url(themes/default/print.css);
+</style>
+
+<script type="text/javascript" src="themes/default/js/jquery.js"></script>
+<script type="text/javascript" src="themes/default/js/jquery.cookie.js"></script>
+
+  
+  <script type="text/javascript" src="themes/default/js/post.js"></script>
+  <script type="text/javascript">
+  //<![CDATA[
+  var post_remember_str = 'Se souvenir de moi sur ce blog';
+  //]]>
+  </script>
+</head>
+
+<body class="dc-post">
+<div id="page">
+
+
+<div id="top">
+  <div id="pgHeader">
+    <span id="pgHeaderLogoLeft">
+      <a href="index.html" title="PostgreSQL"><img src="https://blog.postgresql.fr/themes/postgresql/img/hdr_left.png" width="230" height="80" alt="PostgreSQL" /></a>
+    </span>
+    <span id="pgHeaderLogoRight">
+      <a href="index.html" title="La base de donnees la plus sophistiquee au monde."><img src="https://blog.postgresql.fr/themes/postgresql/img/hdr_right.png" width="210" height="80" alt="La base de donnees la plus sophistiquee au monde." /></a>
+    </span>
+  </div>
+
+  </div>
+
+<div class="pgTopNav">
+  <div class="pgTopNavLeft"> 
+    <img src="https://blog.postgresql.fr/themes/postgresql/img/nav_lft.png" width="7" height="23" alt="" />
+  </div>
+  <div class="pgTopNavRight">
+    <img src="https://blog.postgresql.fr/themes/postgresql/img/nav_rgt.png" width="7" height="23" alt="" />
+  </div>
+  <ul class="pgTopNavList">
+    <li><a href="https://www.postgresql.fr/" title="Accueil">Accueil</a></li>
+    <li><a href="https://blog.postgresql.fr/" title="Lire les actualités">Actualités</a></li>
+    <li><a href="https://docs.postgresql.fr/" title="Lire la documentation officielle">Documentation</a></li>
+    <li><a href="https://forums.postgresql.fr/" title="Pour poser des questions">Forums</a></li>
+    <li><a href="https://www.postgresql.fr/asso/" title="La vie de l'association">Association</a></li>
+    <li><a href="https://www.postgresql.fr/devel:accueil" title="Informations pour les développeurs/traducteurs">Développeurs</a></li>
+    <li><a href="https://planete.postgresql.fr/" title="La planète francophone sur PostgreSQL">Planète</a></li>
+    <li><a href="https://www.postgresql.fr/support/" title="Support sur PostgreSQL">Support</a></li>
+  </ul>
+</div>
+
+<div id="wrapper">
+
+<div id="pgContent">
+
+  <div id="pgSideWrap">
+  <div id="pgSideNav">
+    <div id="blognav">
+      <div id="search"><h2><label for="q">Rechercher</label></h2><form action="http://blog2.postgresql.fr/index.php?" method="get"><fieldset><p><input type="text" size="10" maxlength="255" id="q" name="q" value="" /> <input class="submit" type="submit" value="ok" /></p></fieldset></form></div><div class="categories"><h2>Catégories</h2><ul><li><a href="index199b.html?category/Articles">Articles</a></li><li><a href="indexb4c6.html?category/Dans-les-bacs">Dans les bacs</a></li><li><a href="index025a.html?category/Evenements">Événements</a></li><li class="category-current"><a href="index8c6d.html?category/PostgreSQL-Weekly-News">PostgreSQL Weekly News</a></li><li><a href="index1835.html?category/Securite">Sécurité</a></li><li><a href="index2251.html?category/Vie-de-l-association">Vie de l'association</a></li><li><a href="index91de.html?category/Vie-du-site">Vie du site</a></li></ul></div><div class="text"><h2>Licence</h2>Tous les articles de ce blog sont disponibles sous la <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/">license Creative Commons BY-NC-SA 3.0</a>.</div>    </div> <!-- End #blognav -->
+  
+    <div id="blogextra">
+      <div class="syndicate"><h2>S'abonner</h2><ul><li><a type="application/atom+xml" href="index4ca3.php?feed/atom" title="Fil Atom des billets de ce blog" class="feed">Fil des billets</a></li></ul></div>    </div> <!-- End #blogextra -->
+  </div>
+  </div>
+
+  <div id="pgContentWrap">
+  <div id="pgDownloadsWrap">
+  <div id="content">
+
+  <p id="navlinks">
+  <a href="index1696.html?post/drupal/372"
+  title="Comment compiler et installer PostgreSQL ?" class="prev">&#171; Comment compiler et installer PostgreSQL ?</a>
+   <span>-</span> <a href="index6c45.html?post/drupal/373"
+  title="FAQ PostgreSQL" class="next">FAQ PostgreSQL &#187;</a>
+  </p>
+  
+  <div class="post">
+    <h2 id="p20" class="post-title">PostgreSQL Weekly News - 20 Juillet 2004</h2>
+    
+    <p class="post-info">Par Jean-Paul Argudo    le mercredi 21 juillet 2004, 18:55        - <a href="index8c6d.html?category/PostgreSQL-Weekly-News">PostgreSQL Weekly News</a>
+        - <a href="index4012.html?post/drupal/20">Lien permanent</a>
+    </p>
+    
+    
+    
+          <div class="post-excerpt"><h3>== Nouvelles hebdomadaires de PostgreSQL - 20 juillet 2004 ==</h3>
+<p>Les développeurs ont continué cette semaine à finaliser les nouvelles
+fonctionalités afin de parvenir à une beta 1 plannifiée pour
+le 1er août. La plupart des correctifs reçus par la communauté ont été
+intégrés et des parties de code concernant <acronym title="Point In Time Recovery">PITR</acronym>
+et les transactions imbriquées (<em>nested transactions</em>) ont été ajoutées
+dans le CVS. Ainsi, cela ne devrait plus être très long à présent.</p>
+<p>Parmi les fonctionalités en cours de finalisation se trouvent des ajouts à
+psql, comme par exemple l'ajout de droits et de description pour les
+schémas et les espaces logiques. initdb a aussi été amélioré pour détecter
+les incohérences entre les locales et l'encodage. Lorsqu'une telle incohérence arrive,
+il peut ainsi sélectionner l'encodage adéquat quand aucun ne lui est spécifié.
+Dans la liste, un correctif permettant à l'implémentation de plperl d'être
+compilé sous win32, a été intégré. Il corrige notament les soucis sur les
+slashs/antislashs et met à jour la configuration de l'éditeur de liens pour mingw.
+</p>
+<p>Christopher Kings-Lyne a énormément travaillé sur pg_dump cette dernière
+semaine, essayant de supprimer tous les soucis pouvant être rencontrés en
+sauvegardant les bases avec de vieilles versions de PostgreSQL. La liste des éléments
+corrigés est fort longue mais on peut citer que pg_dump utilise à présent ALTER
+OWNER à la place de SET SESSION AUTHORIZATION, en déplaçant ainsi toutes les
+commandes GRANT et REVOKE à la fin du dump, sauvegardant les commandes ALTER USER
+depuis le propriétaire du cluster (<acronym title="Note Du Traducteur">NDT</acronym>&nbsp;:
+le cluster au sens de PostgreSQL correspond à l'organisation des fichiers présents dans $PGDATA,
+par exemple, tout ce qui est dans /var/lib/pgsql sous Debian GNU/Linux...). pg_dump prend
+aussi en compte les ALTER OWNER pour le schéma public lorsque c'est nécessaire. Des commentaires
+inadéquats ont été enlevés. Christopher projette de faire des tests de
+non-régression sur toutes les versions 7 de PostgreSQL. Si vous avez encore un
+schéma de données complexes vivant dans une de ces vieilles versions, nous vous
+encourageons à tester ce nouveau pg_dump dès que possible pour vous assurer de
+sa compatibilité.</p>
+<p>Deux notes rapides sur le site web de PostgreSQL. Nous avons ajouté la
+traduction Française de la FAQ, grâce à Guillaume Lelarge, disponible sur
+<a href="http://www.postgresql.org/docs/#faqs">http://www.postgresql.org/docs/#faqs</a>
+(NDT&nbsp;: nice shot Guillaume&nbsp;! Merci encore à toi&nbsp;! (Note de
+Guillaume Lelarge&nbsp;: merci surtout aux trois traducteurs de ce document, à savoir
+Laurent Martelli, Vincent Veyron et Emmanuel Seyman). Nous avons aussi ajouté un lien
+sur le nouveau site communautaire polonais sur PostgreSQL (<a href="http://www.postgresql.org.pl/">http://www.postgresql.org.pl/</a>) qui est
+disponible sur la page principale dans la section «&nbsp;international&nbsp;».</p></div>
+        
+    <div class="post-content"><h3>== Nouvelles des produits PostgreSQL ==</h3>
+<ul>
+<li>Sortie de pgSphere 1.0b1<br />
+<a href="http://gborg.postgresql.org/project/pgsphere/news/newsfull.php?news_id=184">http://gborg.postgresql.org/project/pgsphere/news/newsfull.php?news_id=184</a>
+</li>
+<p>Sortie de BiggerSQL-1.2.5<br />
+<a href="http://archives.postgresql.org/pgsql-general/2004-07/msg00597.php">
+http://archives.postgresql.org/pgsql-general/2004-07/msg00597.php</a>
+</p>
+<li>Sortie de Bricolage 1.8.1<br />
+<a href="http://archives.postgresql.org/pgsql-general/2004-07/msg00316.php">
+http://archives.postgresql.org/pgsql-general/2004-07/msg00316.php</a>
+</li>
+</ul>
+<h3>PostgreSQL dans la presse</h3>
+<ul>
+<li>The downlow on Mono<br />
+<a href="http://os.newsforge.com/os/04/07/13/1620239.shtml?tid=2&amp;tid=51&amp;tid=52&amp;tid=140">
+http://os.newsforge.com/os/04/07/13/1620239.shtml?tid=2&amp;tid=51&amp;tid=52&amp;tid=140</a>
+</li>
+</ul>
+<h3>Evènements à venir</h3>
+<ul>
+<li>OSCon&nbsp;: Portland, OR, USA: du 26 au 30 Juillet<br />
+Il y aura une session dédiée à PostgreSQL, avec plusieurs membres de la
+communauté qui vont y participer<br />
+<a href="http://conferences.oreillynet.com/os2004/">http://conferences.oreillynet.com/os2004/</a>
+</li>
+<li>Linux World Expo&nbsp;: San Francisco, CA, USA: du 3 au 5 Aout<br />
+PostgreSQL y aura un stand et une session avec OSDL<br />
+<a href="http://www.linuxworldexpo.com/live/12/events/12SFO04A">http://www.linuxworldexpo.com/live/12/events/12SFO04A</a>
+</li>
+<li>Linux Expo Shanghai&nbsp;: Shanghai, Chine&nbsp;: du 9 au 10 septembre<br />
+Bruce Momjian y fera un speech<br />
+<a href="http://www.linuxexposhanghai.com/en/index.html">http://www.linuxexposhanghai.com/en/index.html</a>
+</li>
+</ul>
+<h3>Sur le Web</h3>
+<p>
+<a href="http://www.postgresql.org/">
+http://www.postgresql.org</a><br />
+<a href="http://advocacy.postgresql.org/">
+http://advocacy.postgresql.org</a><br />
+N'oubliez pas de lire les pages d'Elein Mustain! Sur:
+<a href="http://www.varlena.com/GeneralBits/">
+http://www.varlena.com/GeneralBits/</a>
+</p></div>
+
+      </div>
+
+  
+
+    
+  
+    
+    
+    </div>
+</div> <!-- End #main -->
+
+</div> <!-- End #wrapper -->
+
+<div id="pgFooter">
+  <p>Propulsé par <a href="http://dotclear.org/">Dotclear</a></p>
+</div>
+
+</div> <!-- End #page -->
+</body>
+
+<!-- Mirrored from blog2.postgresql.fr/index.php?post/drupal/20 by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 May 2020 21:40:21 GMT -->
+</html>

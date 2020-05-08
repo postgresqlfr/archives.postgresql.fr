@@ -1,0 +1,283 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr">
+
+<!-- Mirrored from blog2.postgresql.fr/index.php?post/2012/12/24/Nouvelles-hebdomadaires-de-PostgreSQL-23-d%C3%A9cembre-2012 by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 May 2020 21:40:20 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="MSSmartTagsPreventParsing" content="TRUE" />
+  <meta name="ROBOTS" content="INDEX, FOLLOW" />
+  
+  <title>Nouvelles hebdomadaires de PostgreSQL - 23 décembre 2012 - PostgreSQLfr.org</title>
+  <meta name="description" lang="fr" content="FOSDEM PGDay est une conférence sur une journée qui se tiendra avant l'ouverture du FOSDEM à Bruxelles, le 1er février 2013. Détails ci-après : http://fosdem2013.pgconf.eu/ Le PUG" />
+  <meta name="copyright" content="" />
+  <meta name="author" content="chl" />
+  <meta name="date" scheme="ISO8601" content="2012-12-24T12:45:00+01:00" />
+  
+  <link rel="schema.dc" href="http://purl.org/dc/elements/1.1/" />
+  <meta name="dc.title" content="Nouvelles hebdomadaires de PostgreSQL - 23 décembre 2012" />
+  <meta name="dc.description" lang="fr" content="FOSDEM PGDay est une conférence sur une journée qui se tiendra avant l'ouverture du FOSDEM à Bruxelles, le 1er février 2013. Détails ci-après : http://fosdem2013.pgconf.eu/ Le PUG" />
+  <meta name="dc.creator" content="chl" />
+  <meta name="dc.language" content="fr" />
+  <meta name="dc.publisher" content="" />
+  <meta name="dc.rights" content="" />
+  <meta name="dc.date" scheme="ISO8601" content="2012-12-24T12:45:00+01:00" />
+  <meta name="dc.type" content="text" />
+  <meta name="dc.format" content="text/html" />
+  
+  <link rel="top" href="indexd41d.html?" title="Accueil" />
+  <link rel="contents" href="index888d.html?archive" title="Archives" />
+  
+  <link rel="next" href="index543b.html?post/2013/01/06/Nouvelles-hebdomadaires-de-PostgreSQL-30-d%C3%A9cembre-2012"
+  title="Nouvelles hebdomadaires de PostgreSQL - 30 décembre 2012" />
+  
+  <link rel="previous" href="indexca64.html?post/2012/12/24/Nouvelles-hebdomadaires-de-PostgreSQL-16-d%C3%A9cembre-2012"
+  title="Nouvelles hebdomadaires de PostgreSQL - 16 décembre 2012" />
+  
+  <link rel="alternate" type="application/atom+xml" title="Atom 1.0" href="index4ca3.php?feed/atom" />
+  
+  <style type="text/css" media="screen">
+@import url(themes/postgresql/style.css);
+</style>
+<style type="text/css" media="print">
+@import url(themes/default/print.css);
+</style>
+
+<script type="text/javascript" src="themes/default/js/jquery.js"></script>
+<script type="text/javascript" src="themes/default/js/jquery.cookie.js"></script>
+
+  
+  <script type="text/javascript" src="themes/default/js/post.js"></script>
+  <script type="text/javascript">
+  //<![CDATA[
+  var post_remember_str = 'Se souvenir de moi sur ce blog';
+  //]]>
+  </script>
+</head>
+
+<body class="dc-post">
+<div id="page">
+
+
+<div id="top">
+  <div id="pgHeader">
+    <span id="pgHeaderLogoLeft">
+      <a href="index.html" title="PostgreSQL"><img src="https://blog.postgresql.fr/themes/postgresql/img/hdr_left.png" width="230" height="80" alt="PostgreSQL" /></a>
+    </span>
+    <span id="pgHeaderLogoRight">
+      <a href="index.html" title="La base de donnees la plus sophistiquee au monde."><img src="https://blog.postgresql.fr/themes/postgresql/img/hdr_right.png" width="210" height="80" alt="La base de donnees la plus sophistiquee au monde." /></a>
+    </span>
+  </div>
+
+  </div>
+
+<div class="pgTopNav">
+  <div class="pgTopNavLeft"> 
+    <img src="https://blog.postgresql.fr/themes/postgresql/img/nav_lft.png" width="7" height="23" alt="" />
+  </div>
+  <div class="pgTopNavRight">
+    <img src="https://blog.postgresql.fr/themes/postgresql/img/nav_rgt.png" width="7" height="23" alt="" />
+  </div>
+  <ul class="pgTopNavList">
+    <li><a href="https://www.postgresql.fr/" title="Accueil">Accueil</a></li>
+    <li><a href="https://blog.postgresql.fr/" title="Lire les actualités">Actualités</a></li>
+    <li><a href="https://docs.postgresql.fr/" title="Lire la documentation officielle">Documentation</a></li>
+    <li><a href="https://forums.postgresql.fr/" title="Pour poser des questions">Forums</a></li>
+    <li><a href="https://www.postgresql.fr/asso/" title="La vie de l'association">Association</a></li>
+    <li><a href="https://www.postgresql.fr/devel:accueil" title="Informations pour les développeurs/traducteurs">Développeurs</a></li>
+    <li><a href="https://planete.postgresql.fr/" title="La planète francophone sur PostgreSQL">Planète</a></li>
+    <li><a href="https://www.postgresql.fr/support/" title="Support sur PostgreSQL">Support</a></li>
+  </ul>
+</div>
+
+<div id="wrapper">
+
+<div id="pgContent">
+
+  <div id="pgSideWrap">
+  <div id="pgSideNav">
+    <div id="blognav">
+      <div id="search"><h2><label for="q">Rechercher</label></h2><form action="http://blog2.postgresql.fr/index.php?" method="get"><fieldset><p><input type="text" size="10" maxlength="255" id="q" name="q" value="" /> <input class="submit" type="submit" value="ok" /></p></fieldset></form></div><div class="categories"><h2>Catégories</h2><ul><li><a href="index199b.html?category/Articles">Articles</a></li><li><a href="indexb4c6.html?category/Dans-les-bacs">Dans les bacs</a></li><li><a href="index025a.html?category/Evenements">Événements</a></li><li class="category-current"><a href="index8c6d.html?category/PostgreSQL-Weekly-News">PostgreSQL Weekly News</a></li><li><a href="index1835.html?category/Securite">Sécurité</a></li><li><a href="index2251.html?category/Vie-de-l-association">Vie de l'association</a></li><li><a href="index91de.html?category/Vie-du-site">Vie du site</a></li></ul></div><div class="text"><h2>Licence</h2>Tous les articles de ce blog sont disponibles sous la <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/">license Creative Commons BY-NC-SA 3.0</a>.</div>    </div> <!-- End #blognav -->
+  
+    <div id="blogextra">
+      <div class="syndicate"><h2>S'abonner</h2><ul><li><a type="application/atom+xml" href="index4ca3.php?feed/atom" title="Fil Atom des billets de ce blog" class="feed">Fil des billets</a></li></ul></div>    </div> <!-- End #blogextra -->
+  </div>
+  </div>
+
+  <div id="pgContentWrap">
+  <div id="pgDownloadsWrap">
+  <div id="content">
+
+  <p id="navlinks">
+  <a href="indexca64.html?post/2012/12/24/Nouvelles-hebdomadaires-de-PostgreSQL-16-d%C3%A9cembre-2012"
+  title="Nouvelles hebdomadaires de PostgreSQL - 16 décembre 2012" class="prev">&#171; Nouvelles hebdomadaires de PostgreSQL - 16</a>
+   <span>-</span> <a href="index543b.html?post/2013/01/06/Nouvelles-hebdomadaires-de-PostgreSQL-30-d%C3%A9cembre-2012"
+  title="Nouvelles hebdomadaires de PostgreSQL - 30 décembre 2012" class="next">Nouvelles hebdomadaires de PostgreSQL - 30 &#187;</a>
+  </p>
+  
+  <div class="post">
+    <h2 id="p708" class="post-title">Nouvelles hebdomadaires de PostgreSQL - 23 décembre 2012</h2>
+    
+    <p class="post-info">Par chl    le lundi 24 décembre 2012, 12:45        - <a href="index8c6d.html?category/PostgreSQL-Weekly-News">PostgreSQL Weekly News</a>
+        - <a href="index8ee6.html?post/2012/12/24/Nouvelles-hebdomadaires-de-PostgreSQL-23-d%C3%A9cembre-2012">Lien permanent</a>
+    </p>
+    
+    
+    
+          <div class="post-excerpt"><p>FOSDEM PGDay est une conf&eacute;rence sur une journ&eacute;e qui se tiendra avant l'ouverture du FOSDEM &agrave; Bruxelles, le 1<sup>er</sup> f&eacute;vrier 2013. D&eacute;tails ci-apr&egrave;s&nbsp;: 
+<a target="_blank" href="http://fosdem2013.pgconf.eu/">http://fosdem2013.pgconf.eu/</a></p>
+<p>Le PUG de New-York est heureux d'annoncer que les inscriptions pour le PGDay NYC 2013 du vendredi 22 mars &agrave; l'h&ocirc;tel ACE sont &agrave; pr&eacute;sent ouvertes. Des tickets en pr&eacute;-pr&eacute;-vente sont disponibles jusqu'au 29 d&eacute;cembre ou jusqu'&agrave; &eacute;puisement avant date. Les achats sont possibles depuis la page suivante&nbsp;: 
+<a target="_blank" href="http://pgday.nycpug.org/registration/">http://pgday.nycpug.org/registration/</a></p>
+<p>PyPgDay aura lieu le 13 mars au <em>Santa Clara Convention Center</em>, le premier jour de la <em>PyCon</em>. Informations par l&agrave;&nbsp;: 
+<a target="_blank" href="http://wiki.postgresql.org/wiki/PyPgDay2013">http://wiki.postgresql.org/wiki/PyPgDay2013</a> Vous pouvez soumettre vos propositions sur cette page jusqu'au 20 janvier 2013&nbsp;: <a target="_blank" href="http://tinyurl.com/PyPgDayCfP">http://tinyurl.com/PyPgDayCfP</a></p>
+<p><strong>Les nouveaut&eacute;s des produits d&eacute;riv&eacute;s</strong></p>
+<ul>
+<li>Ora2PG 10&nbsp;: 
+<a target="_blank" href="http://ora2pg.darold.net/">http://ora2pg.darold.net/</a></li>
+<li>pg_activity 0.2.0&nbsp;: 
+<a target="_blank" href="https://github.com/julmon/pg_activity/">https://github.com/julmon/pg_activity/</a></li>
+<li>Skytools 3.1.3, un ensemble d'outils d&eacute;velopp&eacute; par Skype pour la r&eacute;plication et le failover incluant PgQ, un framework g&eacute;n&eacute;rique de mise en queue, et Londiste, un syst&egrave;me de r&eacute;plication ma&icirc;tre-esclave&nbsp;: 
+<a target="_blank" href="https://github.com/markokr/skytools">https://github.com/markokr/skytools</a></li>
+</ul>
+<p><strong>Offres d'emplois autour de PostgreSQL en d&eacute;cembre</strong></p>
+<ul>
+<li>Internationales&nbsp;: 
+<a target="_blank" href="http://archives.postgresql.org/pgsql-jobs/2012-12/threads.php">http://archives.postgresql.org/pgsql-jobs/2012-12/threads.php</a>;</li>
+<li>Francophones&nbsp;: 
+<a target="_blank" href="http://forums.postgresql.fr/viewforum.php?id=4">http://forums.postgresql.fr/viewforum.php?id=4</a>.</li>
+</ul>
+<p><strong>PostgreSQL Local</strong></p>
+<ul>
+<li>La conf&eacute;rence PGDay du FOSDEM sera tenue juste avant l'ouverture du meeting, le 1er f&eacute;vrier &agrave; Bruxelles, Belgique. Les appels &agrave; conf&eacute;renciers, pour cette conf&eacute;rence et pour le cursus PostgreSQL du FOSDEM, sont lanc&eacute;s&nbsp;: 
+<a target="_blank" href="http://fosdem2013.pgconf.eu/callforpapers/">http://fosdem2013.pgconf.eu/callforpapers/</a></li>
+<li>Il y aura un PgDay lors de la PyCon du 13 mars 2013, au p&ocirc;le de conventions de Santa Clara. D'avantage de d&eacute;tails quand les choses commenceront &agrave; s'organiser. N'h&eacute;sitez pas &agrave; r&eacute;server la date.</li>
+<li>Le PGDay 2013 de New-York City aura lieu le 22 mars. La date limite de candidature des conf&eacute;renciers est fix&eacute;e au 7 janvier 2013, midi (heure de New-York). Envois &agrave; l'adresse papers AT nycpug DOT org&nbsp;: 
+<a target="_blank" href="http://pgday.nycpug.org/speakers">http://pgday.nycpug.org/speakers</a></li>
+<li>La <em>PostgreSQL Session</em> est programm&eacute;e pour le 28 mars 2013 &agrave; Paris. L'appel &agrave; conf&eacute;renciers est lanc&eacute;&nbsp;: 
+<a target="_blank" href="http://www.postgresql-sessions.org/en/5/">http://www.postgresql-sessions.org/en/5/</a></li>
+<li>PGCon 2013 aura lieu les 23 &amp; 24 mai 2013 &agrave; l'Universit&eacute; d'Ottawa. L'appel &agrave; conf&eacute;renciers est lanc&eacute;&nbsp;: 
+<a target="_blank" href="http://www.pgcon.org/2013/">http://www.pgcon.org/2013/</a></li>
+</ul>
+<p><strong>PostgreSQL dans les m&eacute;dia</strong></p>
+<ul>
+<li>Planet PostgreSQL&nbsp;: 
+<a target="_blank" href="http://planet.postgresql.org/">http://planet.postgresql.org/</a></li>
+<li>Planet PostgreSQLFr&nbsp;: 
+<a target="_blank" href="http://planete.postgresql.fr/">http://planete.postgresql.fr/</a></li>
+</ul>
+<p><i>PostgreSQL Weekly News / les nouvelles hebdomadaires vous sont offertes cette semaine par David Fetter. Traduction par l'&eacute;quipe PostgreSQLFr sous licence CC BY-NC-SA.</i></p>
+<p><i>Proposez vos articles ou annonces avant dimanche 15:00 (heure du Pacifique). Merci de les envoyer en anglais &agrave; david (a) fetter.org, en allemand &agrave; pwn (a) pgug.de, en italien &agrave; pwn (a) itpug.org et en espagnol &agrave; pwn (a) arpug.com.ar.</i></p>
+<p>(<a target="_blank" href="http://archives.postgresql.org/pgsql-announce/2012-12/msg00023.php">lien vers l'article original</a>)</p></div>
+        
+    <div class="post-content"><p><strong>Correctifs appliqu&eacute;s</strong></p>
+<p>Tom Lane a pouss&eacute;&nbsp;:</p>
+<ul>
+<li>Fix failure to ignore leftover temp tables after a server crash. During crash recovery, we remove disk files belonging to temporary tables, but the system catalog entries for such tables are intentionally not cleaned up right away. Instead, the first backend that uses a temp schema is expected to clean out any leftover objects therein. This approach requires that we be careful to ignore leftover temp tables (since any actual access attempt would fail), *even if their BackendId matches our session*, if we have not yet established use of the session's corresponding temp schema. That worked fine in the past, but was broken by commit debcec7dc31a992703911a9953e299c8d730c778 which incorrectly removed the rd_islocaltemp relcache flag. Put it back, and undo various changes that substituted tests like "rel-&gt;rd_backend == MyBackendId" for use of a state-aware flag. Per trouble report from Heikki Linnakangas. Back-patch to 9.1 where the erroneous change was made. In the back branches, be careful to add rd_islocaltemp in a spot in the struct that was alignment padding before, so as not to break existing add-on code. 
+<a target="_blank" href="http://git.postgresql.org/pg/commitdiff/6919b7e3294702adc39effd16634b2715d04f012">http://git.postgresql.org/pg/commitdiff/6919b7e3294702adc39effd16634b2715d04f012</a></li>
+<li>Ignore libedit/libreadline while probing for standard functions. Some versions of libedit expose bogus definitions of setproctitle(), optreset, and perhaps other symbols that we don't want configure to pick up on. There was a previous report of similar problems with strlcpy(), which we addressed in commit 59cf88da91bc88978b05275ebd94ac2d980c4047, but the problem has evidently grown in scope since then. In hopes of not having to deal with it again in future, rearrange configure's tests for supplied functions so that we ignore libedit/libreadline except when probing specifically for functions we expect them to provide. Per report from Christoph Berg, though this is slightly more aggressive than his proposed patch. 
+<a target="_blank" href="http://git.postgresql.org/pg/commitdiff/2666a6d0b934b19d4a691b93a64c7d3208acad43">http://git.postgresql.org/pg/commitdiff/2666a6d0b934b19d4a691b93a64c7d3208acad43</a></li>
+<li>Fix pg_extension_config_dump() to handle update cases more sanely. If pg_extension_config_dump() is executed again for a table already listed in the extension's extconfig, the code was blindly making a new array entry. This does not seem useful. Fix it to replace the existing array entry instead, so that it's possible for extension update scripts to alter the filter conditions for configuration tables. In addition, teach ALTER EXTENSION DROP TABLE to check for an extconfig entry for the target table, and remove it if present. This is not a 100% solution because it's allowed for an extension update script to just summarily DROP a member table, and that code path doesn't go through ExecAlterExtensionContentsStmt. We could probably make that case clean things up if we had to, but it would involve sticking a very ugly wart somewhere in the guts of dependency.c. Since on the whole it seems quite unlikely that extension updates would want to remove pre-existing configuration tables, making the case possible with an explicit command seems sufficient. Per bug #7756 from Regina Obe. Back-patch to 9.1 where extensions were introduced. 
+<a target="_blank" href="http://git.postgresql.org/pg/commitdiff/343c2a865bc6c0a03358709df854ce1eac52ca45">http://git.postgresql.org/pg/commitdiff/343c2a865bc6c0a03358709df854ce1eac52ca45</a></li>
+<li>Fix documentation typo. "GetForeignTableColumnOptions" should be "GetForeignColumnOptions". Noted by Metin D&ouml;&#351;l&uuml;. 
+<a target="_blank" href="http://git.postgresql.org/pg/commitdiff/eb035068121532ed7db47081e71655746d31cd16">http://git.postgresql.org/pg/commitdiff/eb035068121532ed7db47081e71655746d31cd16</a></li>
+<li>Prevent failure when RowExpr or XmlExpr is parse-analyzed twice. transformExpr() is required to cope with already-transformed expression trees, for various ugly-but-not-quite-worth-cleaning-up reasons. However, some of its newer subroutines hadn't gotten the memo. This accounts for bug #7763 from Norbert Buchmuller: transformRowExpr() was overwriting the previously determined type of a RowExpr during CREATE TABLE LIKE INCLUDING INDEXES. Additional investigation showed that transformXmlExpr had the same kind of problem, but all the other cases seem to be safe. Andres Freund and Tom Lane 
+<a target="_blank" href="http://git.postgresql.org/pg/commitdiff/31bc839724439440b2e94ea616b28ce5be94e19c">http://git.postgresql.org/pg/commitdiff/31bc839724439440b2e94ea616b28ce5be94e19c</a></li>
+</ul>
+<p>Peter Eisentraut a pouss&eacute;&nbsp;:</p>
+<ul>
+<li>doc: Put PL/pgSQL RAISE USING keywords into a list. Karl O. Pinc 
+<a target="_blank" href="http://git.postgresql.org/pg/commitdiff/8d2e9a9dbd56aabb9273fbc30ca6c03d6f24b996">http://git.postgresql.org/pg/commitdiff/8d2e9a9dbd56aabb9273fbc30ca6c03d6f24b996</a></li>
+<li>Remove allow_nonpic_in_shlib This was used in a time when a shared libperl or libpython was difficult to come by. That is obsolete, and the idea behind the flag was never fully portable anyway and will likely fail on more modern CPU architectures. 
+<a target="_blank" href="http://git.postgresql.org/pg/commitdiff/1a5f04dd7eed0ac27cc5da9520ef55e16531bca6">http://git.postgresql.org/pg/commitdiff/1a5f04dd7eed0ac27cc5da9520ef55e16531bca6</a></li>
+<li>pg_basebackup: Small message punctuation improvements 
+<a target="_blank" href="http://git.postgresql.org/pg/commitdiff/6925e38dadca0e64e8528316ccee7591fe88331f">http://git.postgresql.org/pg/commitdiff/6925e38dadca0e64e8528316ccee7591fe88331f</a></li>
+<li>Rename SQL feature S403 to ARRAY_MAX_CARDINALITY. In an earlier version of the standard, this was called just "MAX_CARDINALITY". 
+<a target="_blank" href="http://git.postgresql.org/pg/commitdiff/f2b88080db43fbadaef990a1b240bd634d1d4275">http://git.postgresql.org/pg/commitdiff/f2b88080db43fbadaef990a1b240bd634d1d4275</a></li>
+<li>Fix grammatical mistake in error message 
+<a target="_blank" href="http://git.postgresql.org/pg/commitdiff/a0bfb7b36e0795a1c69c86b4184ee952dbb650d1">http://git.postgresql.org/pg/commitdiff/a0bfb7b36e0795a1c69c86b4184ee952dbb650d1</a></li>
+<li>Make some messages more consistent in style 
+<a target="_blank" href="http://git.postgresql.org/pg/commitdiff/740ee42da5fc07e5b1be5c358673224d99cb2aae">http://git.postgresql.org/pg/commitdiff/740ee42da5fc07e5b1be5c358673224d99cb2aae</a></li>
+</ul>
+<p>Andrew Dunstan a pouss&eacute;&nbsp;:</p>
+<ul>
+<li>Don't include postgres.h in postgres_fe.h for cpluspluscheck. Error exposed by recent Assert changes. Complaint from Peter Eisentraut. 
+<a target="_blank" href="http://git.postgresql.org/pg/commitdiff/9ac749ceb5ad040dc2aa834d9f698a3da2425a96">http://git.postgresql.org/pg/commitdiff/9ac749ceb5ad040dc2aa834d9f698a3da2425a96</a></li>
+</ul>
+<p>Heikki Linnakangas a pouss&eacute;&nbsp;:</p>
+<ul>
+<li>Check if we've reached end-of-backup point also if no redo is required. If you restored from a backup taken from a standby, and the last record in the backup is the checkpoint record, ie. there is no redo required except for the checkpoint record, we would fail to notice that we've reached the end-of-backup point, and the database is consistent. The result was an error "WAL ends before end of online backup". To fix, move the have-we-reached-end-of-backup check into CheckRecoveryConsistency(), which is already responsible for similar checks with minRecoveryPoint, and is called in the right places. Backpatch to 9.2, this check and bug did not exist before that. 
+<a target="_blank" href="http://git.postgresql.org/pg/commitdiff/e43f947bf32f3ea4caa5b895ca7c7659b17192ae">http://git.postgresql.org/pg/commitdiff/e43f947bf32f3ea4caa5b895ca7c7659b17192ae</a></li>
+<li>Don't set ThisTimeLineID in checkpointer &amp; bgwriter during recovery. We used to set it to the current recovery target timeline, but the recovery target timeline can change during recovery, leaving ThisTimeLineID at an old value. That seems worse than always leaving it at zero to begin with. AFAICS there was no good reason to set it in the first place. ThisTimeLineID is not needed in checkpointer or bgwriter process, until it's time to write the end-of-recovery checkpoint, and at that point ThisTimeLineID is updated anyway. 
+<a target="_blank" href="http://git.postgresql.org/pg/commitdiff/1a11d4609efaae39d9b7472fb965bca1c0aeda01">http://git.postgresql.org/pg/commitdiff/1a11d4609efaae39d9b7472fb965bca1c0aeda01</a></li>
+<li>Fix recycling of WAL segments after switching timeline during recovery. This was broken before, we would recycle old WAL segments on wrong timeline after the recovery target timeline had changed, but my recent commit to not initialize ThisTimeLineID at all in a standby's checkpointer process broke this completely. The problem is that when installing a recycled WAL segment as a future one, ThisTimeLineID is used to construct the filename. To fix, always update ThisTimeLineID to the current timeline being recovered, before recycling WAL segments at a restartpoint. This still leaves a small window where we might install WAL segments under wrong timeline ID, if the timeline is changed just as we're about to start recycling. Also, even if we're replaying timeline X at the momnent, there's no guarantee that we'll need as many WAL segments on that timeline as we recycle. We might be just about to reach the point where we switch to next timeline, so might only need one more WAL segment on the current timeline. We'll live with the waste in that situation. Bug pointed out by Fujii Masao. 9.1 and 9.2 had the same issue, when recovery target timeline was changed, but I committed a slightly different version of this patch on those branches. 
+<a target="_blank" href="http://git.postgresql.org/pg/commitdiff/343ee00b730e9c422082160718b9785f0cb7f8f6">http://git.postgresql.org/pg/commitdiff/343ee00b730e9c422082160718b9785f0cb7f8f6</a></li>
+<li>Follow TLI of last replayed record, not recovery target TLI, in walsenders. Most of the time, the last replayed record comes from the recovery target timeline, but there is a corner case where it makes a difference. When the startup process scans for a new timeline, and decides to change recovery target timeline, there is a window where the recovery target TLI has already been bumped, but there are no WAL segments from the new timeline in pg_xlog yet. For example, if we have just replayed up to point 0/30002D8, on timeline 1, there is a WAL file called 000000010000000000000003 in pg_xlog that contains the WAL up to that point. When recovery switches recovery target timeline to 2, a walsender can immediately try to read WAL from 0/30002D8, from timeline 2, so it will try to open WAL file 000000020000000000000003. However, that doesn't exist yet - the startup process hasn't copied that file from the archive yet nor has the walreceiver streamed it yet, so walsender fails with error "requested WAL segment 000000020000000000000003 has already been removed". That's harmless, in that the standby will try to reconnect later and by that time the segment is already created, but error messages that should be ignored are not good. To fix that, have walsender track the TLI of the last replayed record, instead of the recovery target timeline. That way walsender will not try to read anything from timeline 2, until the WAL segment has been created and at least one record has been replayed from it. The recovery target timeline is now xlog.c's internal affair, it doesn't need to be exposed in shared memory anymore. This fixes the error reported by Thom Brown. depesz the same error message, but I'm not sure if this fixes his scenario. 
+<a target="_blank" href="http://git.postgresql.org/pg/commitdiff/af275a12dfeecd621ed9899a9382f26a68310263">http://git.postgresql.org/pg/commitdiff/af275a12dfeecd621ed9899a9382f26a68310263</a></li>
+<li>Forgot to remove extern declaration of GetRecoveryTargetTLI(). Fujii Masao 
+<a target="_blank" href="http://git.postgresql.org/pg/commitdiff/d57a97343ecec89ecb7d932c21c886058ad64e6b">http://git.postgresql.org/pg/commitdiff/d57a97343ecec89ecb7d932c21c886058ad64e6b</a></li>
+<li>Fix race condition if a file is removed while pg_basebackup is running. If a relation file was removed when the server-side counterpart of pg_basebackup was just about to open it to send it to the client, you'd get a "could not open file" error. Fix that. Backpatch to 9.1, this goes back to when pg_basebackup was introduced. 
+<a target="_blank" href="http://git.postgresql.org/pg/commitdiff/36e4456d78b6a27cdaf82280b98998fc3bf3e9c7">http://git.postgresql.org/pg/commitdiff/36e4456d78b6a27cdaf82280b98998fc3bf3e9c7</a></li>
+<li>Fix sloppiness in the timeline switch over streaming replication patch. Here's another attempt at fixing the logic that decides how far the WAL can be streamed, which was still broken if the timeline changed while streaming. You would get an assertion failure. The way the logic is now written is more readable, too. Thom Brown reported the assertion failure. 
+<a target="_blank" href="http://git.postgresql.org/pg/commitdiff/1ff92eea140ccf0503b7399549031976e5c6642e">http://git.postgresql.org/pg/commitdiff/1ff92eea140ccf0503b7399549031976e5c6642e</a></li>
+</ul>
+<p>Bruce Momjian a pouss&eacute;&nbsp;:</p>
+<ul>
+<li>Add pg_upgrade comment about mismatch error. Add comment stating that constraint and index names must match. 
+<a target="_blank" href="http://git.postgresql.org/pg/commitdiff/345fb82f1616b4d44d8a67a6c10e964400d29c09">http://git.postgresql.org/pg/commitdiff/345fb82f1616b4d44d8a67a6c10e964400d29c09</a></li>
+<li>Avoid using NAMEDATALEN in pg_upgrade. Because the client encoding might not match the server encoding, pg_upgrade can't allocate NAMEDATALEN bytes for storage of database, relation, and namespace identifiers. Instead pg_strdup() the memory and free it. Also add C comment in initdb.c about safe NAMEDATALEN usage. 
+<a target="_blank" href="http://git.postgresql.org/pg/commitdiff/dc9896a2457f0d72458f1ff45935362521f0f99c">http://git.postgresql.org/pg/commitdiff/dc9896a2457f0d72458f1ff45935362521f0f99c</a></li>
+</ul>
+<p>Robert Haas a pouss&eacute;&nbsp;:</p>
+<ul>
+<li>Adjust many backend functions to return OID rather than void. Extracted from a larger patch by Dimitri Fontaine. It is hoped that this will provide infrastructure for enriching the new event trigger functionality, but it seems possibly useful for other purposes as well. 
+<a target="_blank" href="http://git.postgresql.org/pg/commitdiff/c504513f83a9ee8dce4a719746ca73102cae9f13">http://git.postgresql.org/pg/commitdiff/c504513f83a9ee8dce4a719746ca73102cae9f13</a></li>
+</ul>
+<p><strong>Correctifs rejet&eacute;s (&agrave; ce jour)</strong></p>
+<ul>
+<li>Pas de d&eacute;ception cette semaine&nbsp;:-)</li>
+</ul>
+<p><strong>Correctifs en attente</strong></p>
+<ul>
+<li>Jeff Davis sent in another revision of a patch to implement SP-GiST for ranges based on 2d-mapping and quad-tree.</li>
+<li>Alexander Korotkov sent in another revision of a patch to implement index support for DFA regexes.</li>
+<li>Andres Freund sent in a patch to rearrange how XLByte* is used.</li>
+<li>Shigeru HANADA and Pavel Stehule traded patches to add \pset to psql.</li>
+<li>Amit Kapila sent in another revision of a patch to add hooks for pre- and post-processor executables for COPY and \copy.</li>
+<li>KaiGai Kohei sent in another revision of a patch to add row-level access control.</li>
+<li>Laurenz Albe sent in a patch to fix a bug in the LDAP documentation.</li>
+<li>Tomas Vondra sent in another revision of a patch to enable reducing the amount of pgbench output.</li>
+<li>Andres Freund sent in a patch to removes some of the cruft from gram.y.</li>
+<li>Gurjeet Singh sent in another revision of a patch to use 64-bit ints in pgbench for performance.</li>
+<li>Peter Eisentraut sent in a patch to improve PL/Python on OS X.</li>
+<li>Peter Geoghegan sent in another revision of a patch to improve memory usage in tuplesort.</li>
+<li>Marko (johto) Tiikkaja sent in a patch to add a STRICT option to PERFORM in PL/pgsql.</li>
+<li>Phil Sorber sent in two more revisions of a patch to create a pg_ping utility.</li>
+<li>Marko Kreen sent in a patch to fix an infelicity in pgcrypto when SSL is on.</li>
+<li>Bruce Momjian sent in a patch to speed up pg_upgrade.</li>
+<li>KaiGai Kohei sent in another revision of a patch to add write support to the FDW interface.</li>
+<li>Tomas Vondra sent in another revision of a patch to optimize droppign multiple tables in a transaction.</li>
+</ul></div>
+
+      </div>
+
+  
+
+    
+  
+    
+    
+    </div>
+</div> <!-- End #main -->
+
+</div> <!-- End #wrapper -->
+
+<div id="pgFooter">
+  <p>Propulsé par <a href="http://dotclear.org/">Dotclear</a></p>
+</div>
+
+</div> <!-- End #page -->
+</body>
+
+<!-- Mirrored from blog2.postgresql.fr/index.php?post/2012/12/24/Nouvelles-hebdomadaires-de-PostgreSQL-23-d%C3%A9cembre-2012 by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 May 2020 21:40:20 GMT -->
+</html>

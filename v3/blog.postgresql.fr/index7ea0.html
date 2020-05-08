@@ -1,0 +1,187 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr">
+
+<!-- Mirrored from blog2.postgresql.fr/index.php?post/drupal/100 by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 May 2020 21:40:20 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="MSSmartTagsPreventParsing" content="TRUE" />
+  <meta name="ROBOTS" content="INDEX, FOLLOW" />
+  
+  <title>== Nouvelles Hebdomadaires de PostgreSQL  - 18 Juin  2005 == - PostgreSQLfr.org</title>
+  <meta name="description" lang="fr" content="== PostgreSQL Weekly News - 18 juin 2005 == Le 18 juin 2005, David Fetter écrivait : Tom Lane a fait des modifications dans 2PC : un patch touchant 62 fichiers. Prière donc de" />
+  <meta name="copyright" content="" />
+  <meta name="author" content="jca" />
+  <meta name="date" scheme="ISO8601" content="2005-06-20T16:55:00+00:00" />
+  
+  <link rel="schema.dc" href="http://purl.org/dc/elements/1.1/" />
+  <meta name="dc.title" content="== Nouvelles Hebdomadaires de PostgreSQL  - 18 Juin  2005 ==" />
+  <meta name="dc.description" lang="fr" content="== PostgreSQL Weekly News - 18 juin 2005 == Le 18 juin 2005, David Fetter écrivait : Tom Lane a fait des modifications dans 2PC : un patch touchant 62 fichiers. Prière donc de" />
+  <meta name="dc.creator" content="jca" />
+  <meta name="dc.language" content="fr" />
+  <meta name="dc.publisher" content="" />
+  <meta name="dc.rights" content="" />
+  <meta name="dc.date" scheme="ISO8601" content="2005-06-20T16:55:00+00:00" />
+  <meta name="dc.type" content="text" />
+  <meta name="dc.format" content="text/html" />
+  
+  <link rel="top" href="indexd41d.html?" title="Accueil" />
+  <link rel="contents" href="index888d.html?archive" title="Archives" />
+  
+  <link rel="next" href="index7644.html?post/drupal/101"
+  title="== Nouvelles hebdomadaires de PostgreSQL - 27 juin 2005 ==" />
+  
+  <link rel="previous" href="index519a.html?post/drupal/99"
+  title="== Nouvelles hebdomadaires de PostgreSQL - 12 juin 2005 ==" />
+  
+  <link rel="alternate" type="application/atom+xml" title="Atom 1.0" href="index4ca3.php?feed/atom" />
+  
+  <style type="text/css" media="screen">
+@import url(themes/postgresql/style.css);
+</style>
+<style type="text/css" media="print">
+@import url(themes/default/print.css);
+</style>
+
+<script type="text/javascript" src="themes/default/js/jquery.js"></script>
+<script type="text/javascript" src="themes/default/js/jquery.cookie.js"></script>
+
+  
+  <script type="text/javascript" src="themes/default/js/post.js"></script>
+  <script type="text/javascript">
+  //<![CDATA[
+  var post_remember_str = 'Se souvenir de moi sur ce blog';
+  //]]>
+  </script>
+</head>
+
+<body class="dc-post">
+<div id="page">
+
+
+<div id="top">
+  <div id="pgHeader">
+    <span id="pgHeaderLogoLeft">
+      <a href="index.html" title="PostgreSQL"><img src="https://blog.postgresql.fr/themes/postgresql/img/hdr_left.png" width="230" height="80" alt="PostgreSQL" /></a>
+    </span>
+    <span id="pgHeaderLogoRight">
+      <a href="index.html" title="La base de donnees la plus sophistiquee au monde."><img src="https://blog.postgresql.fr/themes/postgresql/img/hdr_right.png" width="210" height="80" alt="La base de donnees la plus sophistiquee au monde." /></a>
+    </span>
+  </div>
+
+  </div>
+
+<div class="pgTopNav">
+  <div class="pgTopNavLeft"> 
+    <img src="https://blog.postgresql.fr/themes/postgresql/img/nav_lft.png" width="7" height="23" alt="" />
+  </div>
+  <div class="pgTopNavRight">
+    <img src="https://blog.postgresql.fr/themes/postgresql/img/nav_rgt.png" width="7" height="23" alt="" />
+  </div>
+  <ul class="pgTopNavList">
+    <li><a href="https://www.postgresql.fr/" title="Accueil">Accueil</a></li>
+    <li><a href="https://blog.postgresql.fr/" title="Lire les actualités">Actualités</a></li>
+    <li><a href="https://docs.postgresql.fr/" title="Lire la documentation officielle">Documentation</a></li>
+    <li><a href="https://forums.postgresql.fr/" title="Pour poser des questions">Forums</a></li>
+    <li><a href="https://www.postgresql.fr/asso/" title="La vie de l'association">Association</a></li>
+    <li><a href="https://www.postgresql.fr/devel:accueil" title="Informations pour les développeurs/traducteurs">Développeurs</a></li>
+    <li><a href="https://planete.postgresql.fr/" title="La planète francophone sur PostgreSQL">Planète</a></li>
+    <li><a href="https://www.postgresql.fr/support/" title="Support sur PostgreSQL">Support</a></li>
+  </ul>
+</div>
+
+<div id="wrapper">
+
+<div id="pgContent">
+
+  <div id="pgSideWrap">
+  <div id="pgSideNav">
+    <div id="blognav">
+      <div id="search"><h2><label for="q">Rechercher</label></h2><form action="http://blog2.postgresql.fr/index.php?" method="get"><fieldset><p><input type="text" size="10" maxlength="255" id="q" name="q" value="" /> <input class="submit" type="submit" value="ok" /></p></fieldset></form></div><div class="categories"><h2>Catégories</h2><ul><li><a href="index199b.html?category/Articles">Articles</a></li><li><a href="indexb4c6.html?category/Dans-les-bacs">Dans les bacs</a></li><li><a href="index025a.html?category/Evenements">Événements</a></li><li class="category-current"><a href="index8c6d.html?category/PostgreSQL-Weekly-News">PostgreSQL Weekly News</a></li><li><a href="index1835.html?category/Securite">Sécurité</a></li><li><a href="index2251.html?category/Vie-de-l-association">Vie de l'association</a></li><li><a href="index91de.html?category/Vie-du-site">Vie du site</a></li></ul></div><div class="text"><h2>Licence</h2>Tous les articles de ce blog sont disponibles sous la <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/">license Creative Commons BY-NC-SA 3.0</a>.</div>    </div> <!-- End #blognav -->
+  
+    <div id="blogextra">
+      <div class="syndicate"><h2>S'abonner</h2><ul><li><a type="application/atom+xml" href="index4ca3.php?feed/atom" title="Fil Atom des billets de ce blog" class="feed">Fil des billets</a></li></ul></div>    </div> <!-- End #blogextra -->
+  </div>
+  </div>
+
+  <div id="pgContentWrap">
+  <div id="pgDownloadsWrap">
+  <div id="content">
+
+  <p id="navlinks">
+  <a href="index519a.html?post/drupal/99"
+  title="== Nouvelles hebdomadaires de PostgreSQL - 12 juin 2005 ==" class="prev">&#171; == Nouvelles hebdomadaires de PostgreSQL - 12 juin</a>
+   <span>-</span> <a href="index7644.html?post/drupal/101"
+  title="== Nouvelles hebdomadaires de PostgreSQL - 27 juin 2005 ==" class="next">== Nouvelles hebdomadaires de PostgreSQL - 27 juin &#187;</a>
+  </p>
+  
+  <div class="post">
+    <h2 id="p100" class="post-title">== Nouvelles Hebdomadaires de PostgreSQL  - 18 Juin  2005 ==</h2>
+    
+    <p class="post-info">Par jca    le lundi 20 juin 2005, 16:55        - <a href="index8c6d.html?category/PostgreSQL-Weekly-News">PostgreSQL Weekly News</a>
+        - <a href="index7ea0.html?post/drupal/100">Lien permanent</a>
+    </p>
+    
+    
+    
+          <div class="post-excerpt"><p><strong>== PostgreSQL Weekly News - 18 juin 2005 ==</strong></p>
+<p><em>Le 18 juin 2005, David Fetter écrivait : </em></p>
+<p>Tom Lane a fait des modifications dans 2PC : un patch touchant 62 fichiers. Prière donc de télécharger la version CVS et de tester, tester et retester....</p>
+<p>SHOW ALL inclus maintenant la description des variables</p>
+<p>Pavel Stehule a ajouté BETWEEN SYMMETRIC et a donné la possibilité à PL/PgSQL d'avoir des expressions en guise de paramètre de RAISE (suite à un grand nombre de demandes collégiales et de patch patchant les patches).</p></div>
+        
+    <div class="post-content">Le patch de John Hansen afin de prendre en charge les caractères de 3 et 4 octets pour UTF-8 a été appliqué.
+<p>Teodor Sigaev a déposé des modifications introduisant le WAL pour les opérations GiST.(NdT: opérations pour les systèmes d'informations géographiques).</p>
+<p>Cette semaine aura été la semaine de grandes discussions sur la liste -hackers au sujet de l'échappement E'', de l'intgration de l'autovacuum et des quotas.</p>
+<p>L'échappement E'' se trouve sur <a href="http://candle.pha.pa.us/cgi-bin/pgescape">http://candle.pha.pa.us/cgi-bin/pgescape</a></p>
+<p><strong>== Nouvelles des produits autour de PostgreSQL ==</strong></p>
+<ul>
+<li><strong>pgAdmin III v1.2.2 est sorti</strong> comrenant maintenant le port de Mac OS/X et des corrections de bugs.<a href="http://www.pgadmin.org/">http://www.pgadmin.org/</a></li>
+<li><strong>La version 0.9 de NetEpi Case Manager</strong> est disponible via<a href="http://www.netepi.org/">http://www.netepi.org</a></li>
+<li><strong>libgda/libgnomedb 1.2.2</strong> a été livré : <a href="http://www.gnome-db.org/docs/announce-1.2.2.php">http://www.gnome-db.org/docs/announce-1.2.2.php</a></li>
+<li><strong>SpikeSource</strong> sponsorise Christopher Kings-Lynne afin de rajouter des outils de gestion pour Slony-I à php.pgAdmin : <a href="http://www.phppgadmin.org/">http://www.phppgadmin.org/</a></li>
+<li><strong>Dave Cramer</strong> travaille avec Sun Microsystems, RedHat, ObjectWeb,
+Pervasive et d'autres à faire de PostgreSQL une pile compatible J2EE. Vous pourrez trouver plus d'information au sujet d ecette pile sur : <a href="http://java.sun.com/products/jdbc/jdbctestsuite-1_3_1.html">http://java.sun.com/products/jdbc/jdbctestsuite-1_3_1.html</a></li>
+<li><strong>dataKiosk version 0.7</strong> est sorti : <a href="http://extragear.kde.org/apps/datakiosk/">http://extragear.kde.org/apps/datakiosk/</a></li>
+<li><strong>Microolap Technologies Ltd</strong> annonce PostgresDAC 2.1.0 : <a href="http://www.microolap.com/products/connectivity/postgresdac/">http://www.microolap.com/products/connectivity/postgresdac/</a></li>
+<li><strong>Certification PostgreSQL SRA</strong> : <a href="http://www.sra.co.jp/public/sra/topics/topics2004/050217e.shtml">http://www.sra.co.jp/public/sra/topics/topics2004/050217e.shtml</a></li>
+</ul>
+<p><strong>== PostgreSQL dans la presse ==</strong></p>
+<ul>
+<li>
+SpikeSource dispose maintenant de PostgreSQL dans la pile de leur plate-forme de test et sponsorise Josh Berkus pour écrire un outil de migration et la documentation.
+<a href="http://www.spikesource.com/info/summary.php?c=POSTGRESQL">http://www.spikesource.com/info/summary.php?c=POSTGRESQL</a>
+</li>
+<li>
+IT Manager's Journal interviewe Andy Astor d'EnterpriseDB
+<a href="http://management.itmanagersjournal.com/management/05/06/17/1659206.shtml?tid=115&amp;tid=107&amp;tid=28&amp;tid=85">http://management.itmanagersjournal.com/...</a>
+</li>
+<li>
+General Bits: <a href="http://www.varlena.com/GeneralBits/">http://www.varlena.com/GeneralBits/</a>
+Unicité qualifiée et visibilité sur la ligne précédente.
+</li>
+</ul></div>
+
+      </div>
+
+  
+
+    
+  
+    
+    
+    </div>
+</div> <!-- End #main -->
+
+</div> <!-- End #wrapper -->
+
+<div id="pgFooter">
+  <p>Propulsé par <a href="http://dotclear.org/">Dotclear</a></p>
+</div>
+
+</div> <!-- End #page -->
+</body>
+
+<!-- Mirrored from blog2.postgresql.fr/index.php?post/drupal/100 by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 May 2020 21:40:20 GMT -->
+</html>

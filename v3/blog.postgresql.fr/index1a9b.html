@@ -1,0 +1,266 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr">
+
+<!-- Mirrored from blog2.postgresql.fr/index.php?post/2018/06/05/Nouvelles-hebdomadaires-de-PostgreSQL-27-mai-2018 by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 May 2020 21:40:19 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="MSSmartTagsPreventParsing" content="TRUE" />
+  <meta name="ROBOTS" content="INDEX, FOLLOW" />
+  
+  <title>Nouvelles hebdomadaires de PostgreSQL - 27 mai 2018 - PostgreSQLfr.org</title>
+  <meta name="description" lang="fr" content="PostgreSQL 11 Beta 1 disponible. À vos tests ! https://www.postgresql.org/about/news/1855/ Les nouveautés des produits dérivés Buildfarm 8 software, un système d'intégration" />
+  <meta name="copyright" content="" />
+  <meta name="author" content="chl" />
+  <meta name="date" scheme="ISO8601" content="2018-06-05T17:00:00+02:00" />
+  
+  <link rel="schema.dc" href="http://purl.org/dc/elements/1.1/" />
+  <meta name="dc.title" content="Nouvelles hebdomadaires de PostgreSQL - 27 mai 2018" />
+  <meta name="dc.description" lang="fr" content="PostgreSQL 11 Beta 1 disponible. À vos tests ! https://www.postgresql.org/about/news/1855/ Les nouveautés des produits dérivés Buildfarm 8 software, un système d'intégration" />
+  <meta name="dc.creator" content="chl" />
+  <meta name="dc.language" content="fr" />
+  <meta name="dc.publisher" content="" />
+  <meta name="dc.rights" content="" />
+  <meta name="dc.date" scheme="ISO8601" content="2018-06-05T17:00:00+02:00" />
+  <meta name="dc.type" content="text" />
+  <meta name="dc.format" content="text/html" />
+  
+  <link rel="top" href="indexd41d.html?" title="Accueil" />
+  <link rel="contents" href="index888d.html?archive" title="Archives" />
+  
+  <link rel="next" href="index9c56.html?post/2018/06/05/Nouvelles-hebdomadaires-de-PostgreSQL-4-juin-2018"
+  title="Nouvelles hebdomadaires de PostgreSQL - 4 juin 2018" />
+  
+  <link rel="previous" href="index0c0b.html?post/2018/05/21/Nouvelles-hebdomadaires-de-PostgreSQL-20-mai-2018"
+  title="Nouvelles hebdomadaires de PostgreSQL - 20 mai 2018" />
+  
+  <link rel="alternate" type="application/atom+xml" title="Atom 1.0" href="index4ca3.php?feed/atom" />
+  
+  <style type="text/css" media="screen">
+@import url(themes/postgresql/style.css);
+</style>
+<style type="text/css" media="print">
+@import url(themes/default/print.css);
+</style>
+
+<script type="text/javascript" src="themes/default/js/jquery.js"></script>
+<script type="text/javascript" src="themes/default/js/jquery.cookie.js"></script>
+
+  
+  <script type="text/javascript" src="themes/default/js/post.js"></script>
+  <script type="text/javascript">
+  //<![CDATA[
+  var post_remember_str = 'Se souvenir de moi sur ce blog';
+  //]]>
+  </script>
+</head>
+
+<body class="dc-post">
+<div id="page">
+
+
+<div id="top">
+  <div id="pgHeader">
+    <span id="pgHeaderLogoLeft">
+      <a href="index.html" title="PostgreSQL"><img src="https://blog.postgresql.fr/themes/postgresql/img/hdr_left.png" width="230" height="80" alt="PostgreSQL" /></a>
+    </span>
+    <span id="pgHeaderLogoRight">
+      <a href="index.html" title="La base de donnees la plus sophistiquee au monde."><img src="https://blog.postgresql.fr/themes/postgresql/img/hdr_right.png" width="210" height="80" alt="La base de donnees la plus sophistiquee au monde." /></a>
+    </span>
+  </div>
+
+  </div>
+
+<div class="pgTopNav">
+  <div class="pgTopNavLeft"> 
+    <img src="https://blog.postgresql.fr/themes/postgresql/img/nav_lft.png" width="7" height="23" alt="" />
+  </div>
+  <div class="pgTopNavRight">
+    <img src="https://blog.postgresql.fr/themes/postgresql/img/nav_rgt.png" width="7" height="23" alt="" />
+  </div>
+  <ul class="pgTopNavList">
+    <li><a href="https://www.postgresql.fr/" title="Accueil">Accueil</a></li>
+    <li><a href="https://blog.postgresql.fr/" title="Lire les actualités">Actualités</a></li>
+    <li><a href="https://docs.postgresql.fr/" title="Lire la documentation officielle">Documentation</a></li>
+    <li><a href="https://forums.postgresql.fr/" title="Pour poser des questions">Forums</a></li>
+    <li><a href="https://www.postgresql.fr/asso/" title="La vie de l'association">Association</a></li>
+    <li><a href="https://www.postgresql.fr/devel:accueil" title="Informations pour les développeurs/traducteurs">Développeurs</a></li>
+    <li><a href="https://planete.postgresql.fr/" title="La planète francophone sur PostgreSQL">Planète</a></li>
+    <li><a href="https://www.postgresql.fr/support/" title="Support sur PostgreSQL">Support</a></li>
+  </ul>
+</div>
+
+<div id="wrapper">
+
+<div id="pgContent">
+
+  <div id="pgSideWrap">
+  <div id="pgSideNav">
+    <div id="blognav">
+      <div id="search"><h2><label for="q">Rechercher</label></h2><form action="http://blog2.postgresql.fr/index.php?" method="get"><fieldset><p><input type="text" size="10" maxlength="255" id="q" name="q" value="" /> <input class="submit" type="submit" value="ok" /></p></fieldset></form></div><div class="categories"><h2>Catégories</h2><ul><li><a href="index199b.html?category/Articles">Articles</a></li><li><a href="indexb4c6.html?category/Dans-les-bacs">Dans les bacs</a></li><li><a href="index025a.html?category/Evenements">Événements</a></li><li class="category-current"><a href="index8c6d.html?category/PostgreSQL-Weekly-News">PostgreSQL Weekly News</a></li><li><a href="index1835.html?category/Securite">Sécurité</a></li><li><a href="index2251.html?category/Vie-de-l-association">Vie de l'association</a></li><li><a href="index91de.html?category/Vie-du-site">Vie du site</a></li></ul></div><div class="text"><h2>Licence</h2>Tous les articles de ce blog sont disponibles sous la <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/">license Creative Commons BY-NC-SA 3.0</a>.</div>    </div> <!-- End #blognav -->
+  
+    <div id="blogextra">
+      <div class="syndicate"><h2>S'abonner</h2><ul><li><a type="application/atom+xml" href="index4ca3.php?feed/atom" title="Fil Atom des billets de ce blog" class="feed">Fil des billets</a></li></ul></div>    </div> <!-- End #blogextra -->
+  </div>
+  </div>
+
+  <div id="pgContentWrap">
+  <div id="pgDownloadsWrap">
+  <div id="content">
+
+  <p id="navlinks">
+  <a href="index0c0b.html?post/2018/05/21/Nouvelles-hebdomadaires-de-PostgreSQL-20-mai-2018"
+  title="Nouvelles hebdomadaires de PostgreSQL - 20 mai 2018" class="prev">&#171; Nouvelles hebdomadaires de PostgreSQL - 20 mai</a>
+   <span>-</span> <a href="index9c56.html?post/2018/06/05/Nouvelles-hebdomadaires-de-PostgreSQL-4-juin-2018"
+  title="Nouvelles hebdomadaires de PostgreSQL - 4 juin 2018" class="next">Nouvelles hebdomadaires de PostgreSQL - 4 juin &#187;</a>
+  </p>
+  
+  <div class="post">
+    <h2 id="p999" class="post-title">Nouvelles hebdomadaires de PostgreSQL - 27 mai 2018</h2>
+    
+    <p class="post-info">Par chl    le mardi  5 juin 2018, 17:00        - <a href="index8c6d.html?category/PostgreSQL-Weekly-News">PostgreSQL Weekly News</a>
+        - <a href="index1a9b.html?post/2018/06/05/Nouvelles-hebdomadaires-de-PostgreSQL-27-mai-2018">Lien permanent</a>
+    </p>
+    
+    
+    
+          <div class="post-excerpt"><p>PostgreSQL 11 Beta 1 disponible. &Agrave; vos tests&nbsp;! <a target="_blank" href="https://www.postgresql.org/about/news/1855/">https://www.postgresql.org/about/news/1855/</a></p>
+<h2>Les nouveaut&eacute;s des produits d&eacute;riv&eacute;s</h2>
+<ul>
+<li>Buildfarm 8 software, un syst&egrave;me d'int&eacute;gration continue pour le projet PostgreSQL&nbsp;: <a target="_blank" href="https://buildfarm.postgresql.org/downloads/releases/build-farm-8.tgz">https://buildfarm.postgresql.org/downloads/releases/build-farm-8.tgz</a></li>
+<li>pgmetrics 1.3, un outil en ligne de commande pour extraire et afficher les m&eacute;triques d'un serveur PostgreSQL&nbsp;: <a target="_blank" href="https://pgmetrics.io/">https://pgmetrics.io/</a></li>
+<li>Elephant Shed 1.2, un appareil PostgreSQL&nbsp;: <a target="_blank" href="https://elephant-shed.io/">https://elephant-shed.io/</a></li>
+</ul>
+<h2>Offres d'emplois autour de PostgreSQL en mai</h2>
+<ul>
+<li>Internationales : <a target="_blank" href="http://archives.postgresql.org/pgsql-jobs/2018-05/">http://archives.postgresql.org/pgsql-jobs/2018-05/</a></li>
+<li>Francophones : <a target="_blank" href="http://forums.postgresql.fr/viewforum.php?id=4">http://forums.postgresql.fr/viewforum.php?id=4</a></li>
+</ul>
+<h2>PostgreSQL Local</h2>
+<ul>
+<li>[ndt: PostgreSQL Meetup Nantes #10 le 29 mai&nbsp;: <a href="https://www.meetup.com/fr-FR/PostgreSQL-User-Group-Nantes/" target="_blank">https://www.meetup.com/fr-FR/PostgreSQL-User-Group-Nantes/</a>]</li>
+<li>La <em>PGCon 2018</em> se tiendra &agrave; Ottawa du 29 mai au 1er juin 2018&nbsp;: <a target="_blank" href="https://www.pgcon.org/2018/">https://www.pgcon.org/2018/</a></li>
+<li>[ndt: Rencontre PostgreSQL à Lyon le 8 juin, entre midi et 14h&nbsp;: <a href="https://www.meetup.com/fr-FR/PostgreSQL-Lyon-User-Group/" target="_blank">https://www.meetup.com/fr-FR/PostgreSQL-Lyon-User-Group/</a>]</li>
+<li>Le PGDay suisse 2018 aura lieu &agrave; Rapperswil-Jona (pr&egrave;s de Zurich) le 29 juin 2018. Les inscriptions sont ouvertes jusqu'au 28 juin 2018&nbsp;: <a target="_blank" href="http://www.pgday.ch/2018/">http://www.pgday.ch/2018/</a></li>
+<li>La <em>PGConf.Brazil 2018</em> aura lieu &agrave; S&atilde;o Paulo (Br&eacute;sil) les 3 & 4 ao&ucirc;t 2018&nbsp;: <a target="_blank" href="http://pgconf.com.br/">http://pgconf.com.br</a></li>
+<li><em>PG Day France 2018</em> aura lieu &agrave; Marseille le 26 juin 2018&nbsp;: <a target="_blank" href="http://pgday.fr/">http://pgday.fr/</a></li>
+<li>Le PUG de Portland organise un PGDay le 10 septembre 2018 &agrave; Portland, Oregon. L'appel &agrave; conf&eacute;renciers se passe par l&agrave;&nbsp;: <a target="_blank" href="https://goo.gl/forms/E0CiUQGSZGMYwh922">https://goo.gl/forms/E0CiUQGSZGMYwh922</a> <a target="_blank" href="https://pdx.postgresql.us/pdxpgday2018">https://pdx.postgresql.us/pdxpgday2018</a></li>
+<li>La PgConf Silicon Valley 2018 aura lieu &agrave; San Francisco du 5 au 7 septembre 2018. L'appel &agrave; conf&eacute;renciers court jusqu'au 12 juin, <em>Anywhere on Earth</em> (AoE) (2018-06-12 23:59:59-12:00) <a target="_blank" href="https://2018.postgresopen.org/callforpapers/">https://2018.postgresopen.org/callforpapers/</a></li>
+<li>La conf&eacute;rence PostgreSQL sud-africaine aura lieu &agrave; Johannesburg le 9 octobre 2018. L'appel &agrave; conf&eacute;renciers court jusqu'au 30 juin 2018&nbsp;: <a target="_blank" href="https://postgresconf.org/conferences/SouthAfrica2018">https://postgresconf.org/conferences/SouthAfrica2018</a></li>
+</ul>
+<h2>PostgreSQL dans les m&eacute;dia</h2>
+<ul>
+<li>Planet PostgreSQL : <a target="_blank" href="http://planet.postgresql.org/">http://planet.postgresql.org/</a></li>
+<li>Planet PostgreSQLFr : <a target="_blank" href="http://planete.postgresql.fr/">http://planete.postgresql.fr/</a></li>
+</ul>
+<p>PostgreSQL Weekly News / les nouvelles hebdomadaires vous sont offertes cette semaine par David Fetter. Traduction par l'&eacute;quipe PostgreSQLFr sous licence CC BY-NC-SA. La version originale se trouve &agrave; l'adresse suivante : <a target="_blank" href="http://www.postgresql.org/message-id/20180527190517.GA29473@fetter.org">http://www.postgresql.org/message-id/20180527190517.GA29473@fetter.org</a></p>
+<p>Proposez vos articles ou annonces avant dimanche 15:00 (heure du Pacifique). Merci de les envoyer en anglais &agrave; david (a) fetter.org, en allemand &agrave; pwn (a) pgug.de, en italien &agrave; pwn (a) itpug.org et en espagnol &agrave; pwn (a) arpug.com.ar.</p></div>
+        
+    <div class="post-content"><h2>Correctifs appliqu&eacute;s</h2>
+<p>Tom Lane pushed:</p>
+<ul>
+<li>Fix unportable usage of printf("%m"). While glibc's version of printf accepts %m, most others do not; to be portable, we have to do it the hard way with %strerror(errno). pg_verify_checksums evidently did not get that memo. Noted %while fooling around with NetBSD-current, which generates a compiler warning %for this mistake. %<a target="_blank" href="https://git.postgresql.org/pg/commitdiff/a13b47a59ffce6f3c13c8b777738a3aab1db10d3">https://git.postgresql.org/pg/commitdiff/a13b47a59ffce6f3c13c8b777738a3aab1db10d3</a></li>
+<li>Fix unsafe usage of strerror(errno) within ereport(). This is the converse of the unsafe-usage-of-%m problem: the reason ereport/elog provide that format code is mainly to dodge the hazard of errno getting changed before control reaches functions within the arguments of the macro. I only found one instance of this hazard, but it's been there since 9.4 :-(. <a target="_blank" href="https://git.postgresql.org/pg/commitdiff/81256cd05f0745353c6572362155b57250a0d2a0">https://git.postgresql.org/pg/commitdiff/81256cd05f0745353c6572362155b57250a0d2a0</a></li>
+<li>Doc: fix bogus cross-reference link. An xref to a &lt;para&gt;'s ID isn't very helpful because paras don't have names. This causes a warning while building PDFs, though for some reason not while building HTML. The link arguably went to the wrong place, too. To fix, introduce a sub-section we can reference. <a target="_blank" href="https://git.postgresql.org/pg/commitdiff/3f5e3a98443c7f437465d79e4b99a0a661ae1b9b">https://git.postgresql.org/pg/commitdiff/3f5e3a98443c7f437465d79e4b99a0a661ae1b9b</a></li>
+<li>Improve spelling of new FINALFUNC_MODIFY aggregate attribute. I'd used SHARABLE as a value originally, but Peter Eisentraut points out that dictionaries agree that SHAREABLE is the preferred spelling. Run around and change that before it's too late. Discussion: <a target="_blank" href="https://postgr.es/m/d2e1afd4-659c-50d6-1b20-7cfd3675e909@2ndquadrant.com">https://postgr.es/m/d2e1afd4-659c-50d6-1b20-7cfd3675e909@2ndquadrant.com</a> <a target="_blank" href="https://git.postgresql.org/pg/commitdiff/f755a152d4e3e6f913c6b7b6afe1785b1171c1cb">https://git.postgresql.org/pg/commitdiff/f755a152d4e3e6f913c6b7b6afe1785b1171c1cb</a></li>
+<li>Doc: preliminary list of PG11 major features. This might get bike-shedded a bit later, but it's better than shipping beta1 with no list. Jonathan Katz Discussion: <a target="_blank" href="https://postgr.es/m/D73971C5-8277-44F2-95D9-C0B6E46EB55B@postgresql.org">https://postgr.es/m/D73971C5-8277-44F2-95D9-C0B6E46EB55B@postgresql.org</a> <a target="_blank" href="https://git.postgresql.org/pg/commitdiff/4aad161c9a6de56ceb470277038d9583e4260425">https://git.postgresql.org/pg/commitdiff/4aad161c9a6de56ceb470277038d9583e4260425</a></li>
+<li>Stamp 11beta1. <a target="_blank" href="https://git.postgresql.org/pg/commitdiff/586e4e6df5b85ddd28c9e881d237bd7380ffeb8e">https://git.postgresql.org/pg/commitdiff/586e4e6df5b85ddd28c9e881d237bd7380ffeb8e</a></li>
+<li>Widen COPY FROM's current-line-number counter from 32 to 64 bits. Because the code for the HEADER option skips a line when this counter is zero, a very long COPY FROM WITH HEADER operation would drop a line every 2^32 lines. A lesser but still unfortunate problem is that errors would show a wrong input line number for errors occurring beyond the 2^31'st input line. While such large input streams seemed impractical when this code was first written, they're not any more. Widening the counter (and some associated variables) to uint64 should be enough to prevent problems for the foreseeable future. David Rowley Discussion: <a target="_blank" href="https://postgr.es/m/CAKJS1f88yh-6wwEfO6QLEEvH3BEugOq2QX1TOja0vCauoynmOQ@mail.gmail.com">https://postgr.es/m/CAKJS1f88yh-6wwEfO6QLEEvH3BEugOq2QX1TOja0vCauoynmOQ@mail.gmail.com</a> <a target="_blank" href="https://git.postgresql.org/pg/commitdiff/ecac23511e04d96b94705731873fa3d238c41f8d">https://git.postgresql.org/pg/commitdiff/ecac23511e04d96b94705731873fa3d238c41f8d</a></li>
+<li>Fix incorrect ordering of operations in pg_resetwal and pg_rewind. Commit c37b3d08c dropped its added GetDataDirectoryCreatePerm call into the wrong place in pg_resetwal.c, namely after the chdir to DataDir. That broke invocations using a relative path, as reported by Tushar Ahuja. We could have left it where it was and changed the argument to be ".", but that'd result in a rather confusing error message in event of a failure, so re-ordering seems like a better solution. Similarly reorder operations in pg_rewind.c. The issue there is that it doesn't seem like a good idea to do any actual operations before the not-root check (on Unix) or the restricted token acquisition (on Windows). I don't know that this is an actual bug, but I'm definitely not convinced that it isn't, either. Assorted other code review for c37b3d08c and da9b580d8: fix some misspelled or otherwise badly worded comments, put the #include for &lt;sys/stat.h&gt; where it actually belongs, etc. Discussion: <a target="_blank" href="https://postgr.es/m/aeb9c3a7-3c3f-a57f-1a18-c8d4fcdc2a1f@enterprisedb.com">https://postgr.es/m/aeb9c3a7-3c3f-a57f-1a18-c8d4fcdc2a1f@enterprisedb.com</a> <a target="_blank" href="https://git.postgresql.org/pg/commitdiff/1d96c1b91a4b7da6288ee63671a234b557ff5ccf">https://git.postgresql.org/pg/commitdiff/1d96c1b91a4b7da6288ee63671a234b557ff5ccf</a></li>
+<li>Remove configure's check for nonstandard "long long" printf modifiers. We used to claim to support platforms using 'q' or 'I64' as the printf length modifier for long long int, by dint of replacing snprintf with our own code which uses the C99 standard 'll' modifier. But that is only adequate if we use INT64_MODIFIER only in snprintf-based calls, not directly with the platform's native printf or fprintf. Which hasn't been the case for years. We had not noticed, partially because of inadequate test coverage, and partially because the buildfarm is almost completely bare of machines that won't take 'll'. The last one seems to have been frogmouth, which was adjusted recently so that it will take 'll'. We might as well just give up on the pretense that anything else works, and save ourselves some configure cycles. Discussion: <a target="_blank" href="https://postgr.es/m/13103.1526749980@sss.pgh.pa.us">https://postgr.es/m/13103.1526749980@sss.pgh.pa.us</a> Discussion: <a target="_blank" href="https://postgr.es/m/24769.1526772680@sss.pgh.pa.us">https://postgr.es/m/24769.1526772680@sss.pgh.pa.us</a> <a target="_blank" href="https://git.postgresql.org/pg/commitdiff/b929614f5e867c70721b3db31d3dec6cb35e1eb5">https://git.postgresql.org/pg/commitdiff/b929614f5e867c70721b3db31d3dec6cb35e1eb5</a></li>
+<li>Fix simple_prompt() to disable echo on Windows when stdin != terminal. If echo = false, simple_prompt() is supposed to prevent echoing the input (for password input). However, the Windows implementation applied the mode change to STD_INPUT_HANDLE. That would not have the desired effect if stdin isn't actually the terminal, for instance if the user is piping something into psql. Fix it to apply the mode change to the correct input file, so that passwords do not echo in such cases. In passing, shorten and de-uglify this code by using #elif rather than an #if nest and removing some duplicated code. Back-patch to all supported versions. To simplify that, also back-patch the portions of commit 9daec77e1 that got rid of an unnecessary malloc/free in the same area. Matthew Stickney (cosmetic changes by me) Discussion: <a target="_blank" href="https://postgr.es/m/502a1fff-862b-da52-1031-f68df6ed5a2d@gmail.com">https://postgr.es/m/502a1fff-862b-da52-1031-f68df6ed5a2d@gmail.com</a> <a target="_blank" href="https://git.postgresql.org/pg/commitdiff/50485b3e201dda8498e799b769e624db20e86cff">https://git.postgresql.org/pg/commitdiff/50485b3e201dda8498e799b769e624db20e86cff</a></li>
+<li>Properly schema-qualify additional object types in getObjectDescription(). Collations, conversions, extended statistics objects (in &gt;= v10), and all four types of text search objects have schema-qualified names. getObjectDescription() ignored that and would emit just the base name of the object, potentially producing wrong or at least highly misleading output. Fix it to add the schema name whenever the object is not "visible" in the current search path, as is the rule for other schema-qualifiable object types. Although in common situations the output won't change, this seems to me (tgl) to be a bug worthy of back-patching, hence do so. Kyotaro Horiguchi, per a complaint from me Discussion: <a target="_blank" href="https://postgr.es/m/20180522.182020.114074746.horiguchi.kyotaro@lab.ntt.co.jp">https://postgr.es/m/20180522.182020.114074746.horiguchi.kyotaro@lab.ntt.co.jp</a> <a target="_blank" href="https://git.postgresql.org/pg/commitdiff/056f52d9c3ee2dd85b5f1acdbb4e0497f82725b3">https://git.postgresql.org/pg/commitdiff/056f52d9c3ee2dd85b5f1acdbb4e0497f82725b3</a></li>
+<li>Fix objectaddress.c code for publication relations. getObjectDescription and getObjectIdentity failed to schema-qualify the name of the published table, which is bad in getObjectDescription and unforgivable in getObjectIdentity. Actually, getObjectIdentity failed to emit the table's name at all unless "objname" output is requested, which accidentally works for some (all?) extant callers but is clearly not the intended API. Somebody had also not gotten the memo that the output of getObjectIdentity is not to be translated. To fix getObjectDescription, I made it call getRelationDescription, which required refactoring the translatable string for the case, but is more future-proof in case we ever publish relations that aren't plain tables. While at it, I made the English output look like "publication of table X in publication Y"; the added "of" seems to me to make it read much better. Back-patch to v10 where publications were introduced. Discussion: <a target="_blank" href="https://postgr.es/m/20180522.182020.114074746.horiguchi.kyotaro@lab.ntt.co.jp">https://postgr.es/m/20180522.182020.114074746.horiguchi.kyotaro@lab.ntt.co.jp</a> <a target="_blank" href="https://git.postgresql.org/pg/commitdiff/1a31baf61ed81a13d034bd50db19473ad67acc52">https://git.postgresql.org/pg/commitdiff/1a31baf61ed81a13d034bd50db19473ad67acc52</a></li>
+<li>Improve translatability of some getObjectDescription() messages. Refactor some cases in getObjectDescription so that the translator has more control over phrase order in the translated messages. This doesn't cause any changes in the English results. (I was sorely tempted to reorder "... belonging to role %s in schema %s" into "... in schema %s belonging to role %s", but refrained.) In principle we could back-patch this, but since translators have not complained about these cases previously, it seems better not to thrash the translatable strings in back branches. Kyotaro Horiguchi, tweaked a bit by me Discussion: <a target="_blank" href="https://postgr.es/m/20180522.182020.114074746.horiguchi.kyotaro@lab.ntt.co.jp">https://postgr.es/m/20180522.182020.114074746.horiguchi.kyotaro@lab.ntt.co.jp</a> <a target="_blank" href="https://git.postgresql.org/pg/commitdiff/7c89eb750d0cc4e33c46c62154c461be57883b72">https://git.postgresql.org/pg/commitdiff/7c89eb750d0cc4e33c46c62154c461be57883b72</a></li>
+<li>Improve English wording of some other getObjectDescription() messages. Print columns as "column C of &lt;relation&gt;" rather than "&lt;relation&gt; column C". This seems to read noticeably better in English, as evidenced by the regression test output changes, and the code change also makes it possible for translators to adjust the phrase order in other languages. Also change the output for OCLASS_DEFAULT from "default for %s" to "default value for %s". This seems to read better and is also more consistent with the output of, for instance, getObjectTypeDescription(). Kyotaro Horiguchi, per a complaint from me Discussion: <a target="_blank" href="https://postgr.es/m/20180522.182020.114074746.horiguchi.kyotaro@lab.ntt.co.jp">https://postgr.es/m/20180522.182020.114074746.horiguchi.kyotaro@lab.ntt.co.jp</a> <a target="_blank" href="https://git.postgresql.org/pg/commitdiff/b86b7bfa3e8b3e4255352ca564b3f1270e708274">https://git.postgresql.org/pg/commitdiff/b86b7bfa3e8b3e4255352ca564b3f1270e708274</a></li>
+<li>Update sepgsql regression test output for getObjectDescription() changes. Missed in commit b86b7bfa3. Per buildfarm. <a target="_blank" href="https://git.postgresql.org/pg/commitdiff/f248453b7a1b0590b3c7cf32a958573b70e23b09">https://git.postgresql.org/pg/commitdiff/f248453b7a1b0590b3c7cf32a958573b70e23b09</a></li>
+<li>Update non-default collation tests for getObjectDescription() changes. Sigh, also missed in commit b86b7bfa3. Per buildfarm. <a target="_blank" href="https://git.postgresql.org/pg/commitdiff/2eb809ad7e71737b1a1ef5679d8e4c88e785669e">https://git.postgresql.org/pg/commitdiff/2eb809ad7e71737b1a1ef5679d8e4c88e785669e</a></li>
+<li>Fix misidentification of SQL statement type in plpgsql's exec_stmt_execsql. To distinguish SQL statements that are INSERT/UPDATE/DELETE from other ones, exec_stmt_execsql looked at the post-rewrite form of the statement rather than the original. This is problematic because it did that only during first execution of the statement (in a session), but the correct answer could change later due to addition or removal of DO INSTEAD rules during the session. That could lead to an Assert failure, as reported by Tushar Ahuja and Robert Haas. In non-assert builds, there's a hazard that we would fail to enforce STRICT behavior when we'd be expected to. That would happen if an initially present DO INSTEAD, that replaced the original statement with one of a different type, were removed; after that the statement should act "normally", including strictness enforcement, but it didn't. (The converse case of enforcing strictness when we shouldn't doesn't seem to be a hazard, as addition of a DO INSTEAD that changes the statement type would always lead to acting as though the statement returned zero rows, so that the strictness error could not fire.) To fix, inspect the original form of the statement not the post-rewrite form, making it valid to assume the answer can't change intra-session. This should lead to the same answer in every case except when there is a DO INSTEAD that changes the statement type; we will now set mod_stmt=true anyway, while we would not have done so before. That breaks the Assert in the SPI_OK_REWRITTEN code path, which expected the latter behavior. It might be all right to assert mod_stmt rather than !mod_stmt there, but I'm not entirely convinced that that'd always hold, so just remove the assertion altogether. This has been broken for a long time, so back-patch to all supported branches. Discussion: <a target="_blank" href="https://postgr.es/m/CA+TgmoZUrRN4xvZe_BbBn_Xp0BDwuMEue-0OyF0fJpfvU2Yc7Q@mail.gmail.com">https://postgr.es/m/CA+TgmoZUrRN4xvZe_BbBn_Xp0BDwuMEue-0OyF0fJpfvU2Yc7Q@mail.gmail.com</a> <a target="_blank" href="https://git.postgresql.org/pg/commitdiff/9a8aa25ccc6c285cd4f02afe4718eafd20dc34c5">https://git.postgresql.org/pg/commitdiff/9a8aa25ccc6c285cd4f02afe4718eafd20dc34c5</a></li>
+<li>Update a couple of long-obsolete comments in pg_type.h. <a target="_blank" href="https://git.postgresql.org/pg/commitdiff/71b349aef4c4eb766e556360cfb5f5190c02b9c1">https://git.postgresql.org/pg/commitdiff/71b349aef4c4eb766e556360cfb5f5190c02b9c1</a></li>
+</ul>
+<p>Peter Eisentraut pushed:</p>
+<ul>
+<li>pg_basebackup: Remove short option -k. -k meant --no-verify-checksums, which is the opposite of what initdb uses -k for. After discussion, a short option does not seem necessary, so just keep the long option. Discussion: <a target="_blank" href="https://www.postgresql.org/message-id/flat/d510f8aa-19e1-d06e-7630-ad27f7441d68%402ndquadrant.com">https://www.postgresql.org/message-id/flat/d510f8aa-19e1-d06e-7630-ad27f7441d68%402ndquadrant.com</a> <a target="_blank" href="https://git.postgresql.org/pg/commitdiff/3ce7f72529f5829f73e18240740bafc939b650b5">https://git.postgresql.org/pg/commitdiff/3ce7f72529f5829f73e18240740bafc939b650b5</a></li>
+<li>doc: Fix some whitespace issues. <a target="_blank" href="https://git.postgresql.org/pg/commitdiff/17485552ec3a7f9a19d568e4bb9b4affae4efdfa">https://git.postgresql.org/pg/commitdiff/17485552ec3a7f9a19d568e4bb9b4affae4efdfa</a></li>
+<li>Update key words table for version 11. <a target="_blank" href="https://git.postgresql.org/pg/commitdiff/806d08c0489f72282e0a25629e0d6054176e0c9d">https://git.postgresql.org/pg/commitdiff/806d08c0489f72282e0a25629e0d6054176e0c9d</a></li>
+<li>Translation updates. Source-Git-URL: git://git.postgresql.org/git/pgtranslation/messages.git Source-Git-Hash: 3a5a71cccad5c68e01008e9e3a4f06930197a05e <a target="_blank" href="https://git.postgresql.org/pg/commitdiff/917a68f010eb4c7e91b11ae1abe229cad722f675">https://git.postgresql.org/pg/commitdiff/917a68f010eb4c7e91b11ae1abe229cad722f675</a></li>
+<li>doc: Whitespace fixes in man pages. <a target="_blank" href="https://git.postgresql.org/pg/commitdiff/477d243b0f1fb4dfb3ca9e478824ccb7bcda72db">https://git.postgresql.org/pg/commitdiff/477d243b0f1fb4dfb3ca9e478824ccb7bcda72db</a></li>
+<li>doc: Fix some trailing whitespace. <a target="_blank" href="https://git.postgresql.org/pg/commitdiff/f037de6aeb6a4203d15b2b16dfaa194e952dffea">https://git.postgresql.org/pg/commitdiff/f037de6aeb6a4203d15b2b16dfaa194e952dffea</a></li>
+<li>doc: Use = after long options in documentation. It's good for consistency and makes the examples easier to read. <a target="_blank" href="https://git.postgresql.org/pg/commitdiff/ca797f5c049db4adf27495adef1d91b71f0d481c">https://git.postgresql.org/pg/commitdiff/ca797f5c049db4adf27495adef1d91b71f0d481c</a></li>
+<li>Update SQL features list. <a target="_blank" href="https://git.postgresql.org/pg/commitdiff/4f72ca14de87eccd2bc622fcbc109a3e7bfccb77">https://git.postgresql.org/pg/commitdiff/4f72ca14de87eccd2bc622fcbc109a3e7bfccb77</a></li>
+</ul>
+<p>Andrew Gierth pushed:</p>
+<ul>
+<li>Fix SQL:2008 FETCH FIRST syntax to allow parameters. OFFSET &lt;x&gt; ROWS FETCH FIRST &lt;y&gt; ROWS ONLY syntax is supposed to accept &lt;simple value specification&gt;, which includes parameters as well as literals. When this syntax was added all those years ago, it was done inconsistently, with &lt;x&gt; and &lt;y&gt; being different subsets of the standard syntax. Rectify that by making &lt;x&gt; and &lt;y&gt; accept the same thing, and allowing either a (signed) numeric literal or a c_expr there, which allows for parameters, variables, and parenthesized arbitrary expressions. Per bug #15200 from Lukas Eder. Backpatch all the way, since this has been broken from the start. Discussion: <a target="_blank" href="https://postgr.es/m/877enz476l.fsf@news-spur.riddles.org.uk">https://postgr.es/m/877enz476l.fsf@news-spur.riddles.org.uk</a> Discussion: <a target="_blank" href="http://postgr.es/m/152647780335.27204.16895288237122418685@wrigleys.postgresql.org">http://postgr.es/m/152647780335.27204.16895288237122418685@wrigleys.postgresql.org</a> <a target="_blank" href="https://git.postgresql.org/pg/commitdiff/1da162e1f5a783bd0ce26e6a07c0138dc8a47d44">https://git.postgresql.org/pg/commitdiff/1da162e1f5a783bd0ce26e6a07c0138dc8a47d44</a></li>
+</ul>
+<p>Heikki Linnakangas pushed:</p>
+<ul>
+<li>Fix typo in comment. <a target="_blank" href="https://git.postgresql.org/pg/commitdiff/a0b37684ba1c7ce6380db6ff6817cf9f3a85b94c">https://git.postgresql.org/pg/commitdiff/a0b37684ba1c7ce6380db6ff6817cf9f3a85b94c</a></li>
+<li>Add missing files to src/backend/lib/README. The README lists all the files available in the directory, along with short descriptions of each, but a few newly added ones were missing. While we're at it, reorder the list into alphabetical order. Author: Takeshi Ideriha Discussion: <a target="_blank" href="https://www.postgresql.org/message-id/4E72940DA2BF16479384A86D54D0988A56793487@G01JPEXMBKW04">https://www.postgresql.org/message-id/4E72940DA2BF16479384A86D54D0988A56793487@G01JPEXMBKW04</a> <a target="_blank" href="https://git.postgresql.org/pg/commitdiff/17f188cf000787236b4099242300cda4df0af6c0">https://git.postgresql.org/pg/commitdiff/17f188cf000787236b4099242300cda4df0af6c0</a></li>
+<li>Accept "B" in all memory-unit GUCs, and improve error messages. Commit 6e7baa3227 added support for "B" unit, for specifying config options in bytes. However, it was only accepted in GUC_UNIT_BYTE settings, wal_segment_size and track_activity_query_size, and not e.g. in work_mem. This patch makes it consistent, so that "B" accepted in all the same contexts where "kB", "MB", and so forth are accepted. Add "B" to the list of accepted units in the error hint, along with "kB", "MB", etc. Add an entry in the conversion table for "TB" to "B" conversion. A terabyte is out of range for any GUC_UNIT_BYTE option, so you always get an "out of range" error with that, but without it, you get a confusing error message that claims that "TB" is not an accepted unit, with a hint that nevertheless lists "TB" as an accepted unit. Reviewed-by: Alexander Korotkov, Andres Freund Discussion: <a target="_blank" href="https://www.postgresql.org/message-id/1bfe7f4a-7e22-aa6e-7b37-f4d222ed2d67@iki.fi">https://www.postgresql.org/message-id/1bfe7f4a-7e22-aa6e-7b37-f4d222ed2d67@iki.fi</a> <a target="_blank" href="https://git.postgresql.org/pg/commitdiff/b06d8e58b5ac257c2119312c47c4a0f233c5e0ca">https://git.postgresql.org/pg/commitdiff/b06d8e58b5ac257c2119312c47c4a0f233c5e0ca</a></li>
+</ul>
+<p>Bruce Momjian pushed:</p>
+<ul>
+<li>doc: PG 11 release note fixes: PGhost, typo. <a target="_blank" href="https://git.postgresql.org/pg/commitdiff/9490c2da28662ca2b0f60d09e83d278d00f20501">https://git.postgresql.org/pg/commitdiff/9490c2da28662ca2b0f60d09e83d278d00f20501</a></li>
+<li>doc: PG 11 release notes, add third author. <a target="_blank" href="https://git.postgresql.org/pg/commitdiff/fd287b4669cd728d6b436fac32a9b7ff26608248">https://git.postgresql.org/pg/commitdiff/fd287b4669cd728d6b436fac32a9b7ff26608248</a></li>
+<li>doc: PG 11 release notes fix for pg_dump --create, author. <a target="_blank" href="https://git.postgresql.org/pg/commitdiff/e41c2b057f92c3824ffe0157e83ee43624487035">https://git.postgresql.org/pg/commitdiff/e41c2b057f92c3824ffe0157e83ee43624487035</a></li>
+<li>doc: PG 11 rel notes: add PL/pgSQL composite DDL item. Reported-by: Tom Lane <a target="_blank" href="https://git.postgresql.org/pg/commitdiff/0c7e6b791a316431fb206a9ae2184377c4296995">https://git.postgresql.org/pg/commitdiff/0c7e6b791a316431fb206a9ae2184377c4296995</a></li>
+</ul>
+<p>Andrew Dunstan pushed:</p>
+<ul>
+<li>Preserve information on use of git-external-diff. Now that the Working with git wiki page no longer suggests producing context diffs, we should preserve the information on how to use git-external-diff for those people who want to view context format diffs. The most obvious place is in the script itself, so that's what's done here. <a target="_blank" href="https://git.postgresql.org/pg/commitdiff/4431c94c3606ab54594b15ad89c7e71e46b4fb6a">https://git.postgresql.org/pg/commitdiff/4431c94c3606ab54594b15ad89c7e71e46b4fb6a</a></li>
+<li>Don't force a blank line before comments in perl code. Suggestion from Bruce Momjian Discussion: <a target="_blank" href="https://postgr.es/m/20180525190445.GA2213@momjian.us">https://postgr.es/m/20180525190445.GA2213@momjian.us</a> <a target="_blank" href="https://git.postgresql.org/pg/commitdiff/8a56ff484808e9c05df9656cf4244229e8c7960d">https://git.postgresql.org/pg/commitdiff/8a56ff484808e9c05df9656cf4244229e8c7960d</a></li>
+<li>Don't fall off the end of perl functions. This complies with the perlcritic policy Subroutines::RequireFinalReturn, which is a severity 4 policy. Since we only currently check at severity level 5, the policy is raised to that level until we move to level 4 or lower, so that any new infringements will be caught. A small cosmetic piece of tidying of the pgperlcritic script is included. Mike Blackwell Discussion: <a target="_blank" href="https://postgr.es/m/CAESHdJpfFm_9wQnQ3koY3c91FoRQsO-fh02za9R3OEMndOn84A@mail.gmail.com">https://postgr.es/m/CAESHdJpfFm_9wQnQ3koY3c91FoRQsO-fh02za9R3OEMndOn84A@mail.gmail.com</a> <a target="_blank" href="https://git.postgresql.org/pg/commitdiff/3a7cc727c7c502353dbb730a0db793abec4de44b">https://git.postgresql.org/pg/commitdiff/3a7cc727c7c502353dbb730a0db793abec4de44b</a></li>
+<li>Avoid use of unportable hex constant in convutils.pm. Discussion: <a target="_blank" href="https://postgr.es/m/5a6d6de8-cff8-1ffb-946c-ccf381800ea1@2ndQuadrant.com">https://postgr.es/m/5a6d6de8-cff8-1ffb-946c-ccf381800ea1@2ndQuadrant.com</a> <a target="_blank" href="https://git.postgresql.org/pg/commitdiff/f963f80970641246cbba172e197068193ad65189">https://git.postgresql.org/pg/commitdiff/f963f80970641246cbba172e197068193ad65189</a></li>
+</ul>
+<p>Magnus Hagander pushed:</p>
+<ul>
+<li>Remove incorrect statement about IPC configuration on OpenBSD. kern.ipc.shm_use_phys is not a sysctl on OpenBSD, and SEMMAP is not a kernel configuration option. These were probably copy pasteos from when the documentation had a single paragraph for *BSD. Author: Daniel Gustafsson &lt;daniel@yesql.se&gt; <a target="_blank" href="https://git.postgresql.org/pg/commitdiff/7019c21c1bf51eafb56595b916c216ca860ad499">https://git.postgresql.org/pg/commitdiff/7019c21c1bf51eafb56595b916c216ca860ad499</a></li>
+</ul>
+<h2>Correctifs en attente</h2>
+<p>Marina Polyakova sent in another revision of a patch to fix serialization and deadlock errors in pgbench.</p>
+<p>Carter Thaxton sent in three revisions of a patch to add an --include-table-data-where option to pg_dump, to export only a subset of table data.</p>
+<p>Masahiko Sawada sent in another revision of a patch to move relation extension locks out of heavyweight lock manager.</p>
+<p>Andres Freund sent in two more revisions of a patch to fix some fsync issues.</p>
+<p>Micha&#65533;l Paquier sent in a patch to rework scram_channel_binding to protect from downgrade attacks.</p>
+<p>Heikki Linnakangas sent in a patch to enable caching subquery results.</p>
+<p>Micha&#65533;l Paquier sent in two more revisions of a patch to fix some error handling for read() and errno.</p>
+<p>Masahiko Sawada sent in a patch to fix a possible bug in logical replication by ensuring that the next record found is valid.</p>
+<p>Robbie Harwood sent in three more revisions of a patch to enable GSSAPI encryption.</p>
+<p>Laurenz Albe sent in a patch to ensure that unlogged tables don't get locked.</p>
+<p>Micha&#65533;l Paquier sent in another revision of a patch to prevent PANIC during crash recovery of a recently promoted standby.</p>
+<p>Justin Pryzby sent in two revisions of a patch to improve the documentation on partition pruning.</p>
+<p>Micha&#65533;l Paquier sent in another revision of a patch to simplify final sync in pg_rewind's target folder and add --no-sync.</p>
+<p>Marina Polyakova sent in another revision of a patch to precalculate stable or immutable functions, stable or immutable operators and other nonvolatile expressions.</p>
+<p>Ashwin Agrawal sent in a patch to avert tablespace path collision for primary and standby.</p>
+<p>Kyotaro HORIGUCHI sent in a patch to set debug_query_string in some places where it is not already being set.</p>
+<p>Micha&#65533;l Paquier sent in a patch to make pg_replication_slot_advance return NULL instead of 0/0 when the slot is not advanced.</p>
+<p>Kyotaro HORIGUCHI sent in two revisions of a patch to fix the fact that XLogWrite was uing palloc within a critical section.</p>
+<p>Thomas Munro sent in a patch to implement UNDO logs.</p>
+<p>Vik Fearing sent in a patch to implement the PERIOD type per the SQL standard.</p>
+<p>Andrew Dunstan sent in another revision of a patch to fix some Perl warnings under MSVC.</p>
+<p>Mark Rofail sent in another revision of a patch to implement foreign key arrays.</p></div>
+
+      </div>
+
+  
+
+    
+  
+    
+    
+    </div>
+</div> <!-- End #main -->
+
+</div> <!-- End #wrapper -->
+
+<div id="pgFooter">
+  <p>Propulsé par <a href="http://dotclear.org/">Dotclear</a></p>
+</div>
+
+</div> <!-- End #page -->
+</body>
+
+<!-- Mirrored from blog2.postgresql.fr/index.php?post/2018/06/05/Nouvelles-hebdomadaires-de-PostgreSQL-27-mai-2018 by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 May 2020 21:40:19 GMT -->
+</html>

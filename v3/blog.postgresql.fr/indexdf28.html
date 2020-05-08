@@ -1,0 +1,250 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr">
+
+<!-- Mirrored from blog2.postgresql.fr/index.php?post/2010/10/01/Sortie-de-phpPgAdmin-5.0-b%C3%A9ta-2 by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 May 2020 21:40:20 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="MSSmartTagsPreventParsing" content="TRUE" />
+  <meta name="ROBOTS" content="INDEX, FOLLOW" />
+  
+  <title>Sortie de phpPgAdmin 5.0 béta 2 - PostgreSQLfr.org</title>
+  <meta name="description" lang="fr" content="La seconde version béta de phpPgAdmin 5.0 vient d'être publiée ce 1er octobre 2010. La version 5.0 de PPA supporte les dernières versions de PostgreSQL, ajoute de nouvelles" />
+  <meta name="copyright" content="" />
+  <meta name="author" content="ioguix" />
+  <meta name="date" scheme="ISO8601" content="2010-10-01T23:38:00+02:00" />
+  
+  <link rel="schema.dc" href="http://purl.org/dc/elements/1.1/" />
+  <meta name="dc.title" content="Sortie de phpPgAdmin 5.0 béta 2" />
+  <meta name="dc.description" lang="fr" content="La seconde version béta de phpPgAdmin 5.0 vient d'être publiée ce 1er octobre 2010. La version 5.0 de PPA supporte les dernières versions de PostgreSQL, ajoute de nouvelles" />
+  <meta name="dc.creator" content="ioguix" />
+  <meta name="dc.language" content="fr" />
+  <meta name="dc.publisher" content="" />
+  <meta name="dc.rights" content="" />
+  <meta name="dc.date" scheme="ISO8601" content="2010-10-01T23:38:00+02:00" />
+  <meta name="dc.type" content="text" />
+  <meta name="dc.format" content="text/html" />
+  
+  <link rel="top" href="indexd41d.html?" title="Accueil" />
+  <link rel="contents" href="index888d.html?archive" title="Archives" />
+  
+  <link rel="next" href="index4080.html?post/2010/09/26/Premiers-pas-avec-PostgreSQL-9.0"
+  title="Premiers pas avec PostgreSQL 9.0" />
+  
+  <link rel="previous" href="indexa0e9.html?post/2010/09/29/Nouvelles-hebdomadaires-de-PostgreSQL-26-septembre-2010"
+  title="Nouvelles hebdomadaires de PostgreSQL - 26 septembre 2010" />
+  
+  <link rel="alternate" type="application/atom+xml" title="Atom 1.0" href="index4ca3.php?feed/atom" />
+  
+  <style type="text/css" media="screen">
+@import url(themes/postgresql/style.css);
+</style>
+<style type="text/css" media="print">
+@import url(themes/default/print.css);
+</style>
+
+<script type="text/javascript" src="themes/default/js/jquery.js"></script>
+<script type="text/javascript" src="themes/default/js/jquery.cookie.js"></script>
+
+  
+  <script type="text/javascript" src="themes/default/js/post.js"></script>
+  <script type="text/javascript">
+  //<![CDATA[
+  var post_remember_str = 'Se souvenir de moi sur ce blog';
+  //]]>
+  </script>
+</head>
+
+<body class="dc-post">
+<div id="page">
+
+
+<div id="top">
+  <div id="pgHeader">
+    <span id="pgHeaderLogoLeft">
+      <a href="index.html" title="PostgreSQL"><img src="https://blog.postgresql.fr/themes/postgresql/img/hdr_left.png" width="230" height="80" alt="PostgreSQL" /></a>
+    </span>
+    <span id="pgHeaderLogoRight">
+      <a href="index.html" title="La base de donnees la plus sophistiquee au monde."><img src="https://blog.postgresql.fr/themes/postgresql/img/hdr_right.png" width="210" height="80" alt="La base de donnees la plus sophistiquee au monde." /></a>
+    </span>
+  </div>
+
+  </div>
+
+<div class="pgTopNav">
+  <div class="pgTopNavLeft"> 
+    <img src="https://blog.postgresql.fr/themes/postgresql/img/nav_lft.png" width="7" height="23" alt="" />
+  </div>
+  <div class="pgTopNavRight">
+    <img src="https://blog.postgresql.fr/themes/postgresql/img/nav_rgt.png" width="7" height="23" alt="" />
+  </div>
+  <ul class="pgTopNavList">
+    <li><a href="https://www.postgresql.fr/" title="Accueil">Accueil</a></li>
+    <li><a href="https://blog.postgresql.fr/" title="Lire les actualités">Actualités</a></li>
+    <li><a href="https://docs.postgresql.fr/" title="Lire la documentation officielle">Documentation</a></li>
+    <li><a href="https://forums.postgresql.fr/" title="Pour poser des questions">Forums</a></li>
+    <li><a href="https://www.postgresql.fr/asso/" title="La vie de l'association">Association</a></li>
+    <li><a href="https://www.postgresql.fr/devel:accueil" title="Informations pour les développeurs/traducteurs">Développeurs</a></li>
+    <li><a href="https://planete.postgresql.fr/" title="La planète francophone sur PostgreSQL">Planète</a></li>
+    <li><a href="https://www.postgresql.fr/support/" title="Support sur PostgreSQL">Support</a></li>
+  </ul>
+</div>
+
+<div id="wrapper">
+
+<div id="pgContent">
+
+  <div id="pgSideWrap">
+  <div id="pgSideNav">
+    <div id="blognav">
+      <div id="search"><h2><label for="q">Rechercher</label></h2><form action="http://blog2.postgresql.fr/index.php?" method="get"><fieldset><p><input type="text" size="10" maxlength="255" id="q" name="q" value="" /> <input class="submit" type="submit" value="ok" /></p></fieldset></form></div><div class="categories"><h2>Catégories</h2><ul><li><a href="index199b.html?category/Articles">Articles</a></li><li class="category-current"><a href="indexb4c6.html?category/Dans-les-bacs">Dans les bacs</a></li><li><a href="index025a.html?category/Evenements">Événements</a></li><li><a href="index8c6d.html?category/PostgreSQL-Weekly-News">PostgreSQL Weekly News</a></li><li><a href="index1835.html?category/Securite">Sécurité</a></li><li><a href="index2251.html?category/Vie-de-l-association">Vie de l'association</a></li><li><a href="index91de.html?category/Vie-du-site">Vie du site</a></li></ul></div><div class="text"><h2>Licence</h2>Tous les articles de ce blog sont disponibles sous la <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/">license Creative Commons BY-NC-SA 3.0</a>.</div>    </div> <!-- End #blognav -->
+  
+    <div id="blogextra">
+      <div class="syndicate"><h2>S'abonner</h2><ul><li><a type="application/atom+xml" href="index4ca3.php?feed/atom" title="Fil Atom des billets de ce blog" class="feed">Fil des billets</a></li></ul></div>    </div> <!-- End #blogextra -->
+  </div>
+  </div>
+
+  <div id="pgContentWrap">
+  <div id="pgDownloadsWrap">
+  <div id="content">
+
+  <p id="navlinks">
+  <a href="indexa0e9.html?post/2010/09/29/Nouvelles-hebdomadaires-de-PostgreSQL-26-septembre-2010"
+  title="Nouvelles hebdomadaires de PostgreSQL - 26 septembre 2010" class="prev">&#171; Nouvelles hebdomadaires de PostgreSQL - 26</a>
+   <span>-</span> <a href="index4080.html?post/2010/09/26/Premiers-pas-avec-PostgreSQL-9.0"
+  title="Premiers pas avec PostgreSQL 9.0" class="next">Premiers pas avec PostgreSQL 9.0 &#187;</a>
+  </p>
+  
+  <div class="post">
+    <h2 id="p570" class="post-title">Sortie de phpPgAdmin 5.0 béta 2</h2>
+    
+    <p class="post-info">Par ioguix    le vendredi  1 octobre 2010, 23:38        - <a href="indexb4c6.html?category/Dans-les-bacs">Dans les bacs</a>
+        - <a href="indexdf28.html?post/2010/10/01/Sortie-de-phpPgAdmin-5.0-b%C3%A9ta-2">Lien permanent</a>
+    </p>
+    
+        <ul class="post-tags">    <li><a href="index467c.html?tag/php">php</a></li>
+                <li><a href="index6374.html?tag/phppgadmin">phppgadmin</a></li>
+    </ul>    
+    
+        
+    <div class="post-content"><p>La seconde version béta de phpPgAdmin 5.0 vient d'être publiée ce 1er octobre 2010.</p>
+
+
+<p>La version 5.0 de PPA supporte les dernières versions de PostgreSQL, ajoute de nouvelles fonctionnalités et de nombreuses corrections.</p>
+
+
+<p>Annonce officielle du projet&nbsp;: <a href="http://sourceforge.net/news/?group_id=37132&amp;id=292379" hreflang="en">http://sourceforge.net/news/?group_id=37132&amp;id=292379</a></p>
+
+
+
+<h2>Téléchargement</h2>
+
+
+<p>Rendez vous sur le lien suivant pour télécharger l'archive de phpPgAdmin 5.0-beta2&nbsp;:</p>
+
+
+<p><a href="http://phppgadmin.sourceforge.net/?page=download" hreflang="en">http://phppgadmin.sourceforge.net/?page=download</a></p>
+
+
+
+<h2>Nouvelles fonctionnalités</h2>
+
+<ul>
+<li>Support des versions 8.4 et 9.0 de PostgreSQL</li>
+<li>Support de l'interclassement par base ajouté en 8.4</li>
+<li>Les commentaires sur les fonctions</li>
+<li>La sélection de la base modèle à la création d'une base de donnée</li>
+<li>L'export par schéma</li>
+<li>La modification du propriétaire d'un schéma</li>
+<li>La création d'index en parallèle</li>
+<li>L'arrêt d'un processus</li>
+<li>Améliore le support des domaines</li>
+<li>Améliore le support de la configuration de l'autovacuum par table</li>
+<li>Améliore le support de la recherche plein texte</li>
+<li>Améliore le support de l'auto-complétion lors des insertions et mise à jour de clé étrangère
+<ul>
+<li>Affiche toutes les colonnes de la table référencée par la clé</li>
+<li>Corrige les références inter-schéma</li>
+<li>Supporte les clés étrangères sur plusieurs champs</li>
+<li>Présente toutes les clés possibles répondant au préfixe donné de façon paginée</li>
+</ul></li>
+<li>Facilite l'édition de plusieurs paramètres à la fois pour un rôle</li>
+<li>Ajout d'un onglet d'administration par table</li>
+<li>Permet à l'administrateur de regrouper ses serveurs dans des groupes logiques</li>
+<li>Un nouveau thème et une liste de choix du thème sur la page d'accueil</li>
+<li>Auto-rafraîchissement des pages de verrous et processus (GSoC 2010)</li>
+<li>Navigation à travers les données via les clés étrangères (GSoC 2010)</li>
+<li>Nouvelle suite de tests fonctionnels</li>
+</ul>
+
+
+<h2>Traductions</h2>
+
+
+<p>Liste des traductions à jour:</p>
+
+<ul>
+<li>Tchèque (Marek Cernocky)</li>
+<li>Grecque (Adamantios Diamantidis)</li>
+<li>Brésilien (Fernando Wendt)</li>
+<li>L'espagnole (Miguel Useche)</li>
+<li>Le français (JG 'ioguix' de Rorthais)</li>
+<li>Le Catalan (Bernat Pegueroles)</li>
+</ul>
+
+
+<h2>Correctifs</h2>
+
+
+<p>Principaux correctifs&nbsp;:</p>
+
+<ul>
+<li>Valide les chemins vers pg_dump et pg_dumpall avant l'exportation</li>
+<li>Multiple corrections à propos de l'échappement des noms d'objets avec des caractères spéciaux</li>
+<li>Multiple corrections sur l'arbre de navigation dans les objets</li>
+<li>Multiple corrections sur le formulaire d'exécution SQL et fichiers de scripts SQL</li>
+<li>Multiple corrections à propos des commentaires sur les bases de données</li>
+<li>Correction d'une faille de sécurité (injection de code)</li>
+<li>Empêche d'accéder au formulaire d'insertion si la table ne possède pas de champs</li>
+<li>suppression des fonctions obsolètes en PHP 5.3</li>
+<li>Agrandi la fenêtre d'exécution de requête SQL</li>
+<li>Énormément de nettoyage de code</li>
+</ul>
+
+<p>Et bien d'autres encore moins visibles.</p>
+
+
+<h2>Note de fin</h2>
+
+
+<p>Pensez à tester cette version Béta2&nbsp;! Le projet à besoin de vous&nbsp;!</p>
+
+
+<p>Les rapports d'anomalies peuvent se faire en ligne à cette adresse:</p>
+
+
+<p><a href="https://sourceforge.net/tracker/?func=add&amp;group_id=37132&amp;atid=418980" hreflang="en">https://sourceforge.net/tracker/?func=add&amp;group_id=37132&amp;atid=418980</a></p></div>
+
+      </div>
+
+  
+
+    
+  
+    
+    
+    </div>
+</div> <!-- End #main -->
+
+</div> <!-- End #wrapper -->
+
+<div id="pgFooter">
+  <p>Propulsé par <a href="http://dotclear.org/">Dotclear</a></p>
+</div>
+
+</div> <!-- End #page -->
+</body>
+
+<!-- Mirrored from blog2.postgresql.fr/index.php?post/2010/10/01/Sortie-de-phpPgAdmin-5.0-b%C3%A9ta-2 by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 May 2020 21:40:20 GMT -->
+</html>

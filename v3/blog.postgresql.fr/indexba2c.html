@@ -1,0 +1,792 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr">
+
+<!-- Mirrored from blog2.postgresql.fr/index.php?category/PostgreSQL-Weekly-News/page/35 by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 May 2020 21:40:21 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="MSSmartTagsPreventParsing" content="TRUE" />
+  <meta name="ROBOTS" content="NOINDEX, FOLLOW" />
+  
+  <title>PostgreSQL Weekly News - PostgreSQLfr.org - page 35</title>
+  <meta name="description" lang="fr" content="" />
+  <meta name="copyright" content="" />
+  <meta name="author" content="" />
+  <meta name="date" scheme="ISO8601" content="2020-04-26T22:23:31+01:00" />
+  
+  <link rel="schema.dc" href="http://purl.org/dc/elements/1.1/" />
+  <meta name="dc.title" lang="fr" content="PostgreSQL Weekly News - PostgreSQLfr.org - page 35" />
+  <meta name="dc.description" lang="fr" content="" />
+  <meta name="dc.language" content="fr" />
+  <meta name="dc.publisher" content="" />
+  <meta name="dc.rights" content="" />
+  <meta name="dc.date" scheme="ISO8601" content="2020-04-26T22:23:31+01:00" />
+  <meta name="dc.type" content="text" />
+  <meta name="dc.format" content="text/html" />
+  
+  <link rel="top" href="indexd41d.html?" title="Accueil" />
+  <link rel="contents" href="index888d.html?archive" title="Archives" />
+  
+                            <link rel="previous" title="billets précédents" href="indexccf9.html?category/PostgreSQL-Weekly-News/page/36" />
+                
+                <link rel="next" title="billets suivants" href="indexdab4.html?category/PostgreSQL-Weekly-News/page/34" />
+                      
+    <link rel="chapter" href="indexc55a.html?post/drupal/192" title="26 juin 2006" />
+          
+    <link rel="chapter" href="index274c.html?post/drupal/190" title="PostgreSQL Weekly News - 19 juin 2006" />
+          
+    <link rel="chapter" href="index56eb.html?post/drupal/188" title="PostgreSQL Weekly News - 12 juin 2006" />
+          
+    <link rel="chapter" href="indexd6ab.html?post/drupal/187" title="PostgreSQL Weekly News - 5 juin 2006" />
+          
+    <link rel="chapter" href="index1cf9.html?post/drupal/185" title="== PostgreSQL Weekly News - 28 mai 2006 ==" />
+          
+    <link rel="chapter" href="indexc0e0.html?post/drupal/184" title="== PostgreSQL Weekly News - 21 mai 2006 ==" />
+          
+    <link rel="chapter" href="indexb8e1.html?post/drupal/183" title="PostgreSQL Weekly News - 14 Mai 2006" />
+          
+    <link rel="chapter" href="index78b1.html?post/drupal/182" title="Nouvelles hebdomadaires de PostgreSQL - 7 mai 2006" />
+          
+    <link rel="chapter" href="indexc2f7.html?post/drupal/181" title="Nouvelles hebdomadaires de PostgreSQL - 30 Avril 2006" />
+          
+    <link rel="chapter" href="indexdd31.html?post/drupal/180" title="Nouvelles hebdomadaires de PostgreSQL - 24 Avril 2006" />
+          
+    <link rel="chapter" href="index44c4.html?post/drupal/179" title="Nouvelles Hebdomadaires de PostgreSQL - 16 avril 2006" />
+          
+    <link rel="chapter" href="indexa609.html?post/drupal/177" title="== PostgreSQL Weekly News - 9 avril 2006 ==" />
+          
+    <link rel="chapter" href="indexdda3.html?post/drupal/178" title="Nouvelles Hebdomadaires de PostgreSQL - 2 avril 2006" />
+          
+    <link rel="chapter" href="index5535.html?post/drupal/176" title="Nouvelles Hebdomadaires de PostgreSQL - 26 mars 2006" />
+          
+    <link rel="chapter" href="index5d11.html?post/drupal/175" title="Nouvelles Hebdomadaires de PostgreSQL - 19 mars 2006" />
+          
+    <link rel="chapter" href="index4d48.html?post/drupal/167" title="== PostgreSQL Weekly News - 12 mars 2006 ==" />
+          
+    <link rel="chapter" href="index9f42.html?post/drupal/166" title="== PostgreSQL Weekly News - 5 mars 2006 ==" />
+          
+    <link rel="chapter" href="index91dc.html?post/drupal/165" title="== PostgreSQL Weekly News - 26 février 2006 ==" />
+          
+    <link rel="chapter" href="index49cc.html?post/drupal/162" title="Nouvelles Hebdomadaires de PostgreSQL - 19 février 2006" />
+          
+    <link rel="chapter" href="indexf7c6.html?post/drupal/159" title="Nouvelles hebdomadaires de PostgreSQL - 12 février 2006" />
+    
+  <link rel="alternate" type="application/atom+xml" title="Atom 1.0" href="indexa21f.php?feed/category/PostgreSQL-Weekly-News/atom" />
+  
+  <style type="text/css" media="screen">
+@import url(themes/postgresql/style.css);
+</style>
+<style type="text/css" media="print">
+@import url(themes/default/print.css);
+</style>
+
+<script type="text/javascript" src="themes/default/js/jquery.js"></script>
+<script type="text/javascript" src="themes/default/js/jquery.cookie.js"></script>
+
+</head>
+
+<body class="dc-category">
+<div id="page">
+<div id="top">
+  <div id="pgHeader">
+    <span id="pgHeaderLogoLeft">
+      <a href="index.html" title="PostgreSQL"><img src="https://blog.postgresql.fr/themes/postgresql/img/hdr_left.png" width="230" height="80" alt="PostgreSQL" /></a>
+    </span>
+    <span id="pgHeaderLogoRight">
+      <a href="index.html" title="La base de donnees la plus sophistiquee au monde."><img src="https://blog.postgresql.fr/themes/postgresql/img/hdr_right.png" width="210" height="80" alt="La base de donnees la plus sophistiquee au monde." /></a>
+    </span>
+  </div>
+
+  </div>
+
+<div class="pgTopNav">
+  <div class="pgTopNavLeft"> 
+    <img src="https://blog.postgresql.fr/themes/postgresql/img/nav_lft.png" width="7" height="23" alt="" />
+  </div>
+  <div class="pgTopNavRight">
+    <img src="https://blog.postgresql.fr/themes/postgresql/img/nav_rgt.png" width="7" height="23" alt="" />
+  </div>
+  <ul class="pgTopNavList">
+    <li><a href="https://www.postgresql.fr/" title="Accueil">Accueil</a></li>
+    <li><a href="https://blog.postgresql.fr/" title="Lire les actualités">Actualités</a></li>
+    <li><a href="https://docs.postgresql.fr/" title="Lire la documentation officielle">Documentation</a></li>
+    <li><a href="https://forums.postgresql.fr/" title="Pour poser des questions">Forums</a></li>
+    <li><a href="https://www.postgresql.fr/asso/" title="La vie de l'association">Association</a></li>
+    <li><a href="https://www.postgresql.fr/devel:accueil" title="Informations pour les développeurs/traducteurs">Développeurs</a></li>
+    <li><a href="https://planete.postgresql.fr/" title="La planète francophone sur PostgreSQL">Planète</a></li>
+    <li><a href="https://www.postgresql.fr/support/" title="Support sur PostgreSQL">Support</a></li>
+  </ul>
+</div>
+
+<div id="wrapper">
+
+<div id="pgContent">
+
+  <div id="pgSideWrap">
+  <div id="pgSideNav">
+    <div id="blognav">
+      <div id="search"><h2><label for="q">Rechercher</label></h2><form action="http://blog2.postgresql.fr/index.php?" method="get"><fieldset><p><input type="text" size="10" maxlength="255" id="q" name="q" value="" /> <input class="submit" type="submit" value="ok" /></p></fieldset></form></div><div class="categories"><h2>Catégories</h2><ul><li><a href="index199b.html?category/Articles">Articles</a></li><li><a href="indexb4c6.html?category/Dans-les-bacs">Dans les bacs</a></li><li><a href="index025a.html?category/Evenements">Événements</a></li><li class="category-current"><a href="index8c6d.html?category/PostgreSQL-Weekly-News">PostgreSQL Weekly News</a></li><li><a href="index1835.html?category/Securite">Sécurité</a></li><li><a href="index2251.html?category/Vie-de-l-association">Vie de l'association</a></li><li><a href="index91de.html?category/Vie-du-site">Vie du site</a></li></ul></div><div class="text"><h2>Licence</h2>Tous les articles de ce blog sont disponibles sous la <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/">license Creative Commons BY-NC-SA 3.0</a>.</div>    </div> <!-- End #blognav -->
+  
+    <div id="blogextra">
+      <div class="syndicate"><h2>S'abonner</h2><ul><li><a type="application/atom+xml" href="index4ca3.php?feed/atom" title="Fil Atom des billets de ce blog" class="feed">Fil des billets</a></li></ul></div>    </div> <!-- End #blogextra -->
+  </div>
+  </div>
+
+  <div id="pgContentWrap">
+  <div id="pgDownloadsWrap">
+  <div id="content">
+
+  <div id="content-info">
+    <h2>PostgreSQL Weekly News</h2>
+      
+    <p><a type="application/atom+xml" href="indexa21f.php?feed/category/PostgreSQL-Weekly-News/atom"
+    title="Fil Atom des billets de cette catégorie" class="feed">Fil des billets</a>
+    
+        </p>
+  </div>
+  
+      <div class="post odd first" lang="fr" xml:lang="fr">
+
+    <p class="day-date">mardi 27 juin 2006</p>    
+    <h2 id="p192" class="post-title"><a
+    href="indexc55a.html?post/drupal/192">26 juin 2006</a></h2>
+    
+    <p class="post-info">Par SAS    le mardi 27 juin 2006, 12:02</p>
+    
+    
+    
+          <div class="post-content"><p></p></div>
+      <p class="read-it"><a href="indexc55a.html?post/drupal/192"
+      title="Lire la suite 26 juin 2006">Lire la suite</a>...</p>
+    
+    
+    
+                        </div>
+    
+          <div class="post  " lang="fr" xml:lang="fr">
+
+    <p class="day-date">vendredi 23 juin 2006</p>    
+    <h2 id="p190" class="post-title"><a
+    href="index274c.html?post/drupal/190">PostgreSQL Weekly News - 19 juin 2006</a></h2>
+    
+    <p class="post-info">Par SAS    le vendredi 23 juin 2006, 09:21</p>
+    
+    
+    
+          <div class="post-content"><p>
+De nombreuses discussions ont concerné les processus de communication des statistiques et le module de chargement de bibliothèques partagées, <em>pg_module_magic</em>. De nombreux patches sont proposés à mesure que la date de gel des fonctionnalités approche.
+</p>
+<p>
+Andrew Dunstan a validé du code pour <em>DROP IF EXISTS</em>. Un nettoyage du code doit suivre.
+</p>
+<p>
+Koen Martens a réalisé un nouveau LiveCD.
+<a href="http://pgfoundry.org/projects/livecd/">http://pgfoundry.org/projects/livecd/</a>
+</p></div>
+      <p class="read-it"><a href="index274c.html?post/drupal/190"
+      title="Lire la suite PostgreSQL Weekly News - 19 juin 2006">Lire la suite</a>...</p>
+    
+    
+    
+                        </div>
+    
+          <div class="post odd " lang="fr" xml:lang="fr">
+
+    <p class="day-date">lundi 12 juin 2006</p>    
+    <h2 id="p188" class="post-title"><a
+    href="index56eb.html?post/drupal/188">PostgreSQL Weekly News - 12 juin 2006</a></h2>
+    
+    <p class="post-info">Par SAS    le lundi 12 juin 2006, 11:21</p>
+    
+    
+    
+          <div class="post-content"><p>
+On recherche activement des volontaires pour le stand PostgreSQL de l'OSCON. Vous recevrez un pass gratuit pour l'expo, permettant d'approcher les développeurs de projets libres, et peut-être aussi des cadeaux PostgreSQL (s'il y en a suffisamment). Si vous résidez aux environs de Portland, n'hésitez pas à venir passer un agréable moment avec nous sur le stand. Centre de Convention de Portland, Oregon, du 26 au 27 juillet. Contacter Josh Drake <jd chez="" commandprompt="" point="" com="">.
+</jd>
+</p>
+<p>
+<strong>Recherche Knoppix désespérément&nbsp;:</strong> Le projet PostgreSQL recherche
+des compétences en Knoppix ou tout autre image bootable, pour créer des
+images CD bootables de PostgreSQL pour les conférences de cet été.
+Besoin d'assistance le plus rapidement possible. Merci d'envoyer un
+message sur la liste pgsql-advocacy ou de contacter 'josh chez
+postgresql point org'.
+</p></div>
+      <p class="read-it"><a href="index56eb.html?post/drupal/188"
+      title="Lire la suite PostgreSQL Weekly News - 12 juin 2006">Lire la suite</a>...</p>
+    
+    
+    
+                        </div>
+    
+          <div class="post  " lang="fr" xml:lang="fr">
+
+    <p class="day-date">mardi  6 juin 2006</p>    
+    <h2 id="p187" class="post-title"><a
+    href="indexd6ab.html?post/drupal/187">PostgreSQL Weekly News - 5 juin 2006</a></h2>
+    
+    <p class="post-info">Par Jean-Paul Argudo    le mardi  6 juin 2006, 08:16</p>
+    
+    
+    
+          <div class="post-content"><p>
+Les discussions continuent sur les estimations des coûts du <em>planner</em>.
+</p>
+<p>
+Tom Lane et Bruce Momjian ont ajouté des améliorations à <em>psql</em>.
+</p>
+<p>
+Teodor Sigaev a apporté quelques corrections à <strong>tsearch2</strong>.</p></div>
+      <p class="read-it"><a href="indexd6ab.html?post/drupal/187"
+      title="Lire la suite PostgreSQL Weekly News - 5 juin 2006">Lire la suite</a>...</p>
+    
+    
+    
+                        </div>
+    
+          <div class="post odd " lang="fr" xml:lang="fr">
+
+    <p class="day-date">mardi 30 mai 2006</p>    
+    <h2 id="p185" class="post-title"><a
+    href="index1cf9.html?post/drupal/185">== PostgreSQL Weekly News - 28 mai 2006 ==</a></h2>
+    
+    <p class="post-info">Par Jean-Paul Argudo    le mardi 30 mai 2006, 09:51</p>
+    
+    
+    
+          <div class="post-content"><p>
+Les étudiants du «&nbsp;PostgreSQL's Summer of Code&nbsp;» ont été choisis&nbsp;!
+<a href="http://www.postgresql.org/about/news.565" target="_blank">http://www.postgresql.org/about/news.565</a>
+</p>
+<p>
+Tom Lane a corrigé un problème d'échappement de <em>quotes</em> dans <em>initdb</em>.</p>
+<p>
+Andrew Dunstan a adapté <em>table_schema</em> aux <em>triggers</em> dans PL/Perl et corrigé le <em>path</em> pour changer $TD-&gt;{relname} en $TD-&gt;{table_name}, du coup l'ancienne écriture est désuette. Il a ajouté des fonctionalités similaires à PL/PythonU et PL/Tcl.
+</p>
+<p>
+Andreas Pflug et Tom Lane ont ajouté le support des COPY binaires via
+psql. Le patch améliore aussi la détection d'erreurs d'écriture lors
+des COPY OUT.
+</p></div>
+      <p class="read-it"><a href="index1cf9.html?post/drupal/185"
+      title="Lire la suite == PostgreSQL Weekly News - 28 mai 2006 ==">Lire la suite</a>...</p>
+    
+    
+    
+                        </div>
+    
+          <div class="post  " lang="fr" xml:lang="fr">
+
+    <p class="day-date">lundi 22 mai 2006</p>    
+    <h2 id="p184" class="post-title"><a
+    href="indexc0e0.html?post/drupal/184">== PostgreSQL Weekly News - 21 mai 2006 ==</a></h2>
+    
+    <p class="post-info">Par Jean-Paul Argudo    le lundi 22 mai 2006, 09:31</p>
+    
+    
+    
+          <div class="post-content"><p>
+Les mises à jour de sécurité 8.1.4, 8.0.8, 7.4.13 et 7.3.15 sortiront très bientôt, soyez prêts à mettre à jour dès que possible&nbsp;!</p>
+<p>
+Il y a eu des discussions sur comment améliorer les manipulations de chaînes de caractères, ajouter de la mémoire partagée pour les projets connexes ou bien encore sur comment utiliser la compression pour améliorer les tris sur disque.
+</p>
+<p>
+Alvaro Herrera a commité deux patches à autovacuum. Le premier nous
+permet de voir s'exécuter un autovacuum dans la vue pg_stat_activity, y
+compris la table sur laquelle il est actuellement en train de
+travailler. L'autre, de Larry Rosenman, ajoute quatre colonnes au vues
+pg_stat_*_tables, qui nous permettent de savoir quand les vacuum et
+analyze ont été exécutés pour chacune des tables. On y apprend aussi si
+le vacuum a été exécuté manuellement ou via autovacuum.
+</p></div>
+      <p class="read-it"><a href="indexc0e0.html?post/drupal/184"
+      title="Lire la suite == PostgreSQL Weekly News - 21 mai 2006 ==">Lire la suite</a>...</p>
+    
+    
+    
+                        </div>
+    
+          <div class="post odd " lang="fr" xml:lang="fr">
+
+    <p class="day-date">lundi 15 mai 2006</p>    
+    <h2 id="p183" class="post-title"><a
+    href="indexb8e1.html?post/drupal/183">PostgreSQL Weekly News - 14 Mai 2006</a></h2>
+    
+    <p class="post-info">Par Jean-Paul Argudo    le lundi 15 mai 2006, 09:45</p>
+    
+    
+    
+          <div class="post-content"><p>L'enregistrement pour le <em>PostgreSQL Anniversary</em> est maintenant clos, nous sommes à présent à pleine capacité. (<a href="http://conference.postgresql.org/" target="_blank">Visiter le site</a>).</p>
+<p>Les versions 8.1.4, 8.0.8 et 7.4.13 vont sortir très prochainement. Soyez prêts à mettre à jour.</p></div>
+      <p class="read-it"><a href="indexb8e1.html?post/drupal/183"
+      title="Lire la suite PostgreSQL Weekly News - 14 Mai 2006">Lire la suite</a>...</p>
+    
+    
+    
+                        </div>
+    
+          <div class="post  " lang="fr" xml:lang="fr">
+
+    <p class="day-date">mardi  9 mai 2006</p>    
+    <h2 id="p182" class="post-title"><a
+    href="index78b1.html?post/drupal/182">Nouvelles hebdomadaires de PostgreSQL - 7 mai 2006</a></h2>
+    
+    <p class="post-info">Par jca    le mardi  9 mai 2006, 11:37</p>
+    
+    
+    
+          <div class="post-content"><p><strong>Nouvelles hebdomadaires de PostgreSQL - 7 mai 2006</strong></p>
+<p>
+Heikki Linnakangas et Tom Lane ont réécrit la lecture des index séquentiels btree (arbres binaires) afin de traiter une page à chaque fois quel que soit le cas. En plus de simplifier et (parfois) améliorer les la vitesse du code de parcours de l'index, cette réécriture nous permettra de réimplanter btbulkdelete comme un  une grosse lecture séquentielle à la place d'un parcours transverse comme on le ferait pour un index. Celà permettra de réduire le coût d'un VACUUM. <a target="_blank" href="http://archives.postgresql.org/pgsql-committers/2006-05/msg00050.php">http://archives.postgresql.org/pgsql-committers/2006-05/msg00050.php</a>
+</p>
+<p>
+Bruce Momjian a ajouté le suppore de SSL CRL à la libpq.  <a target="_blank" href="http://archives.postgresql.org/pgsql-committers/2006-05/msg00039.php">http://archives.postgresql.org/pgsql-committers/2006-05/msg00039.php</a>
+<a target="_blank" href="http://archives.postgresql.org/pgsql-committers/2006-05/msg00044.php">http://archives.postgresql.org/pgsql-committers/2006-05/msg00044.php</a>
+</p>
+<p>
+Larry Rosenman de  Pervasive a soumis un patch pour CVS TIP qui ajoute une nouveau champ de type estampille (<em>timestamp</em>)
+à la vue pg_stat_all_tables : last_vacuum, last_autovacuum,
+last_analyze et last_autoanalyze. Cela rendra les choses plus simples
+pour les gens te les outils de suivi des actions de «&nbsp;maintenance sur
+les tables&nbsp;». </p>
+<p>
+Teodor Sigaev a ajouté les Index Inversé Généralisés (<em>Generalized Inverted Indexes (GIN)</em>) au CVS TIP. Celà aidera au développement du futur tsearch3, entre autres choses. </p>
+<p>
+Comment lire des métadonnées : un tutoriel («&nbsp;<em>How to get metadata: a tutorial</em>&nbsp;»).  <a target="_blank" href="http://www.alberton.info/postgresql_meta_info.html">http://www.alberton.info/postgresql_meta_info.html</a>
+</p>
+<p>
+Les inscriptions au «&nbsp;<em>PostgreSQL Anniversary</em>&nbsp;» sont ouvertes  <a target="_blank" href="http://conference.postgresql.org/Registration">http://conference.postgresql.org/Registration</a>
+</p>
+<p>
+Le «&nbsp;<em>PostgreSQL Anniversary Summit</em>&nbsp;» est sponsorisé par Afilias, EnterpriseDB, GreenPlum, Pervasive et Sun Microsystems. </p></div>
+      <p class="read-it"><a href="index78b1.html?post/drupal/182"
+      title="Lire la suite Nouvelles hebdomadaires de PostgreSQL - 7 mai 2006">Lire la suite</a>...</p>
+    
+    
+    
+                        </div>
+    
+          <div class="post odd " lang="fr" xml:lang="fr">
+
+    <p class="day-date">jeudi  4 mai 2006</p>    
+    <h2 id="p181" class="post-title"><a
+    href="indexc2f7.html?post/drupal/181">Nouvelles hebdomadaires de PostgreSQL - 30 Avril 2006</a></h2>
+    
+    <p class="post-info">Par jca    le jeudi  4 mai 2006, 10:48</p>
+    
+    
+    
+          <div class="post-content"><p><strong>Nouvelles hebdomadaires de PostgreSQL - 30 Avril 2006</strong></p>
+<p>
+Une grande partie du travail a été effectuée sur l'indexation inverse généralisée (<em>Generalized Inverted Indexing</em> (GIN)) et servira de base à l'implantation de tseach3 et d'autres. </p>
+<p>
+Nous sommes toujours à la recherche d'étudiants et de mentors qui souhaiteraient travailler sur les projets autour de PostgreSQL pour le prochain <em>Summer Of Code</em> de Google. Un des gagnants de l'an dernier était  <a target="_blank" href="http://pgfoundry.org/projects/qbe/"> Query By Example</a>. Si vous êtes professeur ou un étudiant en lycée ou à l'université et que vous êtes intéressés par un projet orienté base de données du <em>Summer Of Code</em>, et plus particulièrement si vous avez votre propre projet traitant avec PostgreSQL, contactez <a href="mailto:josh%20at%20postgresql%20dot%20org">Josh Berkus</a> le plus rapidement possible. <a target="_blank" href="http://www.postgresql.org/developer/summerofcode">http://www.postgresql.org/developer/summerofcode</a>
+<br />
+Les inscriptions pour le <em>PostgreSQL Anniversary</em> sont ouvertes  <a target="_blank" href="http://conference.postgresql.org/Registration">http://conference.postgresql.org/Registration</a>
+</p>
+<p>
+Le <em>PostgreSQL Anniversary Summit</em> est sponsorisé par  Afilias, EnterpriseDB, GreenPlum, Pervasive et Sun Microsystems. </p></div>
+      <p class="read-it"><a href="indexc2f7.html?post/drupal/181"
+      title="Lire la suite Nouvelles hebdomadaires de PostgreSQL - 30 Avril 2006">Lire la suite</a>...</p>
+    
+    
+    
+                        </div>
+    
+          <div class="post  " lang="fr" xml:lang="fr">
+
+    <p class="day-date">mardi 25 avril 2006</p>    
+    <h2 id="p180" class="post-title"><a
+    href="indexdd31.html?post/drupal/180">Nouvelles hebdomadaires de PostgreSQL - 24 Avril 2006</a></h2>
+    
+    <p class="post-info">Par jca    le mardi 25 avril 2006, 08:43</p>
+    
+    
+    
+          <div class="post-content"><p><strong>Nouvelles hebdomadaires de PostgreSQL - 24 Avril 2006</strong></p>
+<p>
+Nous avons besoin d'étudiants et de mentors qui souhaiteraient travailler sur les projets PostgreSQL pour le prochain « <em>Summer Of Code</em> » de Google. Un des gagnants de l'année dernière était  <a target="_blank" href="http://pgfoundry.org/projects/qbe/"> le projet « <em>Query By Example</em>»</a>. Si vous êtes professeur,  lycéen ou étudiant et que vous êtes intéressé par la partie base de données du projet Summer of Code, et particulièrement si vous avez déjà votre propre projet en relation avec PostgreSQL, prenez contact avec <a href="mailto:josh%20at%20postgresql%20dot%20org">Josh Berkus</a> le plus rapidement possible.  <a target="_blank" href="http://www.postgresql.org/developer/summerofcode">http://www.postgresql.org/developer/summerofcode</a>
+</p>
+<p>
+Un nouveau vote est disponible sur le site principal de PostgreSQL.  <a target="_blank" href="http://www.postgresql.org/community/">http://www.postgresql.org/community/</a>
+</p>
+<p>L'inscription pour le PostgreSQL Anniversary est ouverte :
+<a target="_blank" href="http://conference.postgresql.org/Registration">http://conference.postgresql.org/Registration</a>
+</p>
+<p>
+Le PostgreSQL Anniversary Summit vous est proposé par  Afilias, EnterpriseDB, GreenPlum, Pervasive et Sun Microsystems. </p></div>
+      <p class="read-it"><a href="indexdd31.html?post/drupal/180"
+      title="Lire la suite Nouvelles hebdomadaires de PostgreSQL - 24 Avril 2006">Lire la suite</a>...</p>
+    
+    
+    
+                        </div>
+    
+          <div class="post odd " lang="fr" xml:lang="fr">
+
+    <p class="day-date">lundi 17 avril 2006</p>    
+    <h2 id="p179" class="post-title"><a
+    href="index44c4.html?post/drupal/179">Nouvelles Hebdomadaires de PostgreSQL - 16 avril 2006</a></h2>
+    
+    <p class="post-info">Par Sebastien Lardiere    le lundi 17 avril 2006, 10:36</p>
+    
+    
+    
+          <div class="post-content"><h1>Nouvelles Hebdomadaires de PostgreSQL - 16 avril 2006</h1>
+<p>
+Dan Harris <fbsd at="" drivefaster="" (="" dot="" )="" net=""> a dit : <q>Encore une fois, merci à tous les développeurs pour votre dur travail sur PostgreSQL. C'est de loin la plus agréable expérience de gestion de base de données avec laquelle j'ai pu travailler.</q> : <a href="http://archives.postgresql.org/pgsql-performance/2006-04/msg00247.php">
+http://archives.postgresql.org/pgsql-performance/2006-04/msg00247.php</a></fbsd>
+</p>
+<p>
+Nous avons besoin d'étudiants et de mentors qui souhaitent travailler sur des projets PostgreSQL pour le prochain <q>Summer Of Code</q> de Google. Un des gagnants de l'année dernière a été <a href="http://pgfoundry.org/projects/qbe/">Query By Example</a>.
+Si vous êtes enseignant ou étudiant interressé par un projet orienté
+base de données, et plus spécialement, si vous avez déjà votre propre
+projet en relation avec PostgreSQL, veuillez contacter Josh Berkus
+(josh <at> postgresql.org) dès que possible.
+</at></p>
+<p>
+Tom Lane à réécrit CREATE AGGREGATE, ouvrant la porte à des aggrégats à entrées multiples.
+</p>
+<p>
+Les inscriptions pour l'anniversaire de PostgreSQL sont ouvertes : <a href="http://conference.postgresql.org/Registration">http://conference.postgresql.org/Registration</a>.
+</p>
+<p>
+L'anniversaire de PostgreSQL est sponsorisé par Afilias, EnterpriseDB, GreenPlum, Pervasive et Sun Microsystems.
+</p></div>
+      <p class="read-it"><a href="index44c4.html?post/drupal/179"
+      title="Lire la suite Nouvelles Hebdomadaires de PostgreSQL - 16 avril 2006">Lire la suite</a>...</p>
+    
+    
+    
+                        </div>
+    
+          <div class="post  " lang="fr" xml:lang="fr">
+
+    <p class="day-date">mercredi 12 avril 2006</p>    
+    <h2 id="p177" class="post-title"><a
+    href="indexa609.html?post/drupal/177">== PostgreSQL Weekly News - 9 avril 2006 ==</a></h2>
+    
+    <p class="post-info">Par Jean-Paul Argudo    le mercredi 12 avril 2006, 10:08</p>
+    
+    
+    
+          <div class="post-content"><p>
+<strong>
+<ins>ATTENTION:</ins> ne positionnez pas à OFF le paramètre full_page_writes dans
+une version 8.1.x de PostgreSQL&nbsp;!</strong></p>
+<p>
+Une récente analyse a montré que positionner à OFF le paramètre full_pages_writes n'est sûr en <strong>aucune</strong> circonstance, même si vous possédez une architecture matérielle solide avec un cache disque sauvegardé par des batteries qui pourrait éviter l'écriture de pages partielles. Nous avons lu deux récents rapports de bugs pour lesquels full_page_writes = off a causé des problèmes au redémarrage d'une base après son crash, bien que aucun problème de niveau OS ou matériel ne soit arrivé. Ainsi, si vous utilisez une version comprise entre la 8.1.0 et la 8.1.3, vous devez vous assurer que le paramètre full_page_writes est positionné sur ON.
+</p>
+<p>
+<a href="http://archives.postgresql.org/pgsql-hackers/2006-03/msg01168.php">http://archives.postgresql.org/pgsql-hackers/2006-03/msg01168.php</a>
+</p>
+<p>
+Nous avons besoin d'étudiants et de mentors qui voudraient travailler
+sur des projets PostgreSQL pour le prochain «&nbsp;Summer Of Code&nbsp;» de
+Google. Le projet gagnant de l'été dernier était <a href="http://pgfoundry.org/projects/qbe/">Query By Example</a>.
+Si vous êtes professeur ou un étudiant et êtes intéressé par un projet
+orienté base de données, et si vous avez de plus déjà votre propre
+projet orienté PostgreSQL, merci de contacter Josh Berkus
+(josh@postgresql.org) dès que possible.
+</p>
+<p>Qingqing Zhou a présenté ses plans pour ajouter les scans
+séquentiels parallèles lors de l'exécution de requêtes. En divisant le
+processus de scan séquentiel en deux processus, un lecteur et un
+processeur, il pense obtenir des gains de performances majeurs pour les
+requêtes qui nécessitent des scans séquentiels.
+</p>
+<p>
+Teodor Sigaev et Oleg Bartunov ont présenté un patch pour ajouter une Généralisation des Index Inversés (<em>Generalized Inverted Indexes (GIN)</em>).
+Il s'agit d'une espèce spécialisée d'index qui permet la recherche
+multi-valeurs d'un champs, comme les champs tableaux et les champs
+TSearch. GIN est le premier élément de la prochaine version de TSearch,
+le système de recherche plein texte. (<small><ins>NDT:</ins> cf contrib/tsearch2</small>).
+</p>
+<p>
+Plusieurs développeurs ont discuté des façons de rendre le fichier
+pg_hba.conf modifiable depuis SQL, et même de la possibilité de le
+stocker dans une table.
+</p>
+<p>
+Nous avons eu une fausse alerte sur les tests de non-régression réalisés sur la ferme de compilation de PostgreSQL (<em>pgBuildFarm</em>)
+la semaine dernière. Il s'agissait d'un test qui n'était pas prévu pour
+supporter les changements d'heures d'été/d'hiver. Ce test a été
+corrigé.
+</p>
+<p>Peter Brant a présenté une analyse du pourquoi le collecteur de
+statistiques de PostgreSQL sous Windows est propice au crash. Les
+développeurs de PostgreSQL sous Windows en ont discuté longuement,
+cependant ils n'ont trouvé encore aucune solution.
+</p>
+<p>Tom Lane a codé un patch qui permet de corriger un vieux bug sur
+l'implémentation des domaines dans PostgreSQL. On peut à présent avoir
+des sous-domaines (et des sous-sous domaines, etc.).
+</p>
+<p>
+EntrepriseDB a embauché deux personalités du projet, Bruce Momjian et Simon Riggs. Bonne chance à eux.
+<a href="http://www.enterprisedb.com/news_events/press_releases/04_04_06.do">http://www.enterprisedb.com/news_events/press_releases/04_04_06.do</a>
+</p>
+<p>
+L'inscription pour le «&nbsp;PostgreSQL Anniversary&nbsp;» est ouverte:
+<a href="http://conference.postgresql.org/Registration">http://conference.postgresql.org/Registration</a>
+<br />
+L'évènement «&nbsp;PostgreSQL Anniversary&nbsp;» vous est présenté par Afilias, EnterpriseDB, GreenPlum, Pervasive et Sun Microsystems.
+</p></div>
+      <p class="read-it"><a href="indexa609.html?post/drupal/177"
+      title="Lire la suite == PostgreSQL Weekly News - 9 avril 2006 ==">Lire la suite</a>...</p>
+    
+    
+    
+                        </div>
+    
+          <div class="post odd " lang="fr" xml:lang="fr">
+
+    <p class="day-date">dimanche  2 avril 2006</p>    
+    <h2 id="p178" class="post-title"><a
+    href="indexdda3.html?post/drupal/178">Nouvelles Hebdomadaires de PostgreSQL - 2 avril 2006</a></h2>
+    
+    <p class="post-info">Par Sebastien Lardiere    le dimanche  2 avril 2006, 10:00</p>
+    
+    
+    
+          <div class="post-content"><h1>Nouvelles hebdomadaires de PostgreSQL - 2 avril 2006</h1>
+<p>Les inscriptions pour l'anniversaire de PostgreSQL Anniversary sont ouvertes <a href="http://conference.postgresql.org/Registration">http://conference.postgresql.org/Registration</a>
+</p>
+<p>L'anniversaire de PostgreSQL est sponsorisé par Afilias, EnterpriseDB, GreenPlum, Pervasive et Sun Microsystems.</p></div>
+      <p class="read-it"><a href="indexdda3.html?post/drupal/178"
+      title="Lire la suite Nouvelles Hebdomadaires de PostgreSQL - 2 avril 2006">Lire la suite</a>...</p>
+    
+    
+    
+                        </div>
+    
+          <div class="post  " lang="fr" xml:lang="fr">
+
+    <p class="day-date">dimanche 26 mars 2006</p>    
+    <h2 id="p176" class="post-title"><a
+    href="index5535.html?post/drupal/176">Nouvelles Hebdomadaires de PostgreSQL - 26 mars 2006</a></h2>
+    
+    <p class="post-info">Par Sebastien Lardiere    le dimanche 26 mars 2006, 10:00</p>
+    
+    
+    
+          <div class="post-content"><h1>Nouvelles hebdomadaires de PostgreSQL - 26 mars 2006</h1>
+<p>
+Les inscriptions pour le sommet-anniversaire de PostgreSQL ouvrent lundi 27 mars : <a href="http://conference.postgresql.org/Registration">http://conference.postgresql.org/Registration</a>.
+</p>
+<p>
+La date limite pour les propositions du sommet-anniversaire de PostgreSQL est dans 5 jours : le 31 mars. Envoyez vos propositions le plus vite possible : <a href="http://conference.postgresql.org/Proposals">http://conference.postgresql.org/Proposals</a>.
+, l'installeur multi-platforme que lui et Devrim Gunduz construisent.
+</p>
+<p>
+Les discutions continent autour de l'acces CVSync access dans le CVS de
+PostgreSQL. Kevin Grittner a mis le doigt sur un probleme de décompte
+du temps dans EXPLAIN ANALYZE.
+</p>
+<p>
+L'équipe de PostgreSQL à recu de très gentils remerciements de Guy Flaherty du département IS du Xavier College,
+Australie, comme suit <q>Quite
+simply, nothing else was able to match the overall package that
+PostgreSQL provides to the DBA or developer for doing this in such a
+straightforward and reliable manner.</q></p>
+<p>
+Josh Berkus est en poste chez Sun Microsystems.
+</p></div>
+      <p class="read-it"><a href="index5535.html?post/drupal/176"
+      title="Lire la suite Nouvelles Hebdomadaires de PostgreSQL - 26 mars 2006">Lire la suite</a>...</p>
+    
+    
+    
+                        </div>
+    
+          <div class="post odd " lang="fr" xml:lang="fr">
+
+    <p class="day-date">dimanche 19 mars 2006</p>    
+    <h2 id="p175" class="post-title"><a
+    href="index5d11.html?post/drupal/175">Nouvelles Hebdomadaires de PostgreSQL - 19 mars 2006</a></h2>
+    
+    <p class="post-info">Par Sebastien Lardiere    le dimanche 19 mars 2006, 09:00</p>
+    
+    
+    
+          <div class="post-content"><h1>Nouvelles Hebdomadaires de PostgreSQL - 19 mars 2006</h1>
+<p>GITEX, le <a href="http://www.gitex.com/">Gulf Information Technology Exhibition</a>,
+aura lieu du 18 au 22 novembre 2006 au World Trade Center Building à
+Dubai. Tous ceux qui seraient interressé pour participer à une présence
+de PostgreSQL presence là-bas, devraient contacté Rajesh (Luckys)
+Sharma à l'adresse luckysharma <at> gmail.com. Rajesh est en train de créer un groupe d'utilisateur de PostgreSQL dans cette région.</at></p>
+<p>Les informations sur le sommet-anniversaire de PostgreSQL sont disponibles : <a href="http://conference.postgresql.org/">http://conference.postgresql.org</a>. Le sommet recherche aussi des entreprises sponsors. Consultez pour cela la page Sponsors : <a href="http://conference.postgresql.org/Sponsors/">http://conference.postgresql.org/Sponsors/</a>.</p>
+<p>Fujitsu sponsorise le stand PostgreSQL pour <a href="http://www.linuxworldexpo.com.au/">LinuxWorld Australia 2006</a>,
+qui aura lieu les 28, 29 et 30 mars à Sydney. Le stand est le C21.
+Gavin Sherry et Omar Kilani montreront des cas d'études, des brochures,
+et feront beaucoup de démonstrations. will be handing out
+case studies, brochures and giving lots of demonstrations. Ceux qui
+souhaitent distribuer des brochures, ou juste passer, contactez Gavin
+Sherry à l'adresse <swm><at> alcove.com.au&gt;. Ou venez juste les retrouver !</at></swm></p>
+<p>Commandprompt héberge maintenant : <a href="http://search.postgresql.org/">http://search.postgresql.org/</a></p>
+<p>Des patches pour la version 7.4 venant de la version 8.1 arrivent bientôt.</p></div>
+      <p class="read-it"><a href="index5d11.html?post/drupal/175"
+      title="Lire la suite Nouvelles Hebdomadaires de PostgreSQL - 19 mars 2006">Lire la suite</a>...</p>
+    
+    
+    
+                        </div>
+    
+          <div class="post  " lang="fr" xml:lang="fr">
+
+    <p class="day-date">lundi 13 mars 2006</p>    
+    <h2 id="p167" class="post-title"><a
+    href="index4d48.html?post/drupal/167">== PostgreSQL Weekly News - 12 mars 2006 ==</a></h2>
+    
+    <p class="post-info">Par Jean-Paul Argudo    le lundi 13 mars 2006, 10:26</p>
+    
+    
+    
+          <div class="post-content"><p>
+Les informations sur les dates et lieu du sommet-anniversaire de PostgreSQL (<em>«&nbsp;The PostgreSQL Anniversary Summit&nbsp;»</em>) sont à présent en ligne: <a href="http://conference.postgresql.org/" target="_blank">http://conference.postgresql.org</a>. Nous cherchons des sponsors: merci de lire la page qui y est consacré sur notre site si cela vous intéresse: <a href="http://conference.postgresql.org/Sponsors/" target="_blank">http://conference.postgresql.org/Sponsors/</a>.
+</p>
+<p>
+LinuxWorld à Boston a besoin de volontaires pour s'occuper du stand
+PostgreSQL pour la partie associative (.org) du salon et les
+conférences. Vous pouvez nous aider d'une après-midi à trois jours.
+Aucune connaissance particulière n'est requise. Merci de contacter Josh
+Drake sur <a href="mailto:jd@commandprompt.com">son e.mail</a>.</p>
+<p>
+Jonah Harris a suggéré l'implémentation des synonymes, qui sont comme
+des liens symboliques pour les objets de base de données, dans
+PostgreSQL. Bien que les synonymes ne fassent pas partie du standard
+SQL, ils sont communs dans bien d'autres SGBD. La discussion sur les
+permissions et la syntaxe continue.</p>
+<p>
+De son côté, Bernd Hemle a soumis un premier patch pour les vues
+modifiables conformes SQL92. Vu l'intérêt suscité par ce patch, il
+semble certain qu'il soit intégré à la version 8.2. D'autres
+programmeurs éditent en effet ce patch.</p>
+<p>
+Dans la version CVS TIP, PL/Perl possède à présent les requêtes
+préparées. Grâce à Dmitry Karasic pour le patch et Andrew Dunstan qui
+l'a rendu conforme aux normes de codage de PostgreSQL.</p>
+<p>
+Il y a eu une discussion enflammée sur l'amélioration des performances
+du processus de vacuum et l'utilisation de l'espace libre. Bien qu'il
+s'agisse d'un vieux sujet récurrent sur le listes, les idées ont une
+fois de plus toutes été exposées. Quelques-unes se sont transformées en
+item de la <a href="http://www.postgresql.org/docs/faqs.TODO.html" target="_blank">TODOlist</a>, alors que d'autres sont restées dans l'état "impossible" et/ou "sans intérêt".</p>
+<p>
+La proposition de Tom Lane pour les améliorations sur les fonctionalités de tri et fusion (<em><ins>NDT:</ins>Il s'agit d'un algorithme de tri, de D. E. Knuth (toujours lui!): <a href="http://fr.wikipedia.org/wiki/Tri_fusion" target="_blank">http://fr.wikipedia.org/wiki/Tri_fusion</a></em>), pour un nombre conséquent de "bandes" (<em><ins>NDT:</ins>: voir <a href="http://en.wikipedia.org/wiki/Merge_sort#Merge_sorting_tape_drives" target="_blank">cet article</a> de Wikipédia en anglais pour un aperçu du principe</em>),
+qui utilise pour l'instant une fusion polyphasique standard, a suscitée
+une discussion animée et conséquente. D'autres idées sont venues et ont
+montré les prochaines étapes...</p></div>
+      <p class="read-it"><a href="index4d48.html?post/drupal/167"
+      title="Lire la suite == PostgreSQL Weekly News - 12 mars 2006 ==">Lire la suite</a>...</p>
+    
+    
+    
+                        </div>
+    
+          <div class="post odd " lang="fr" xml:lang="fr">
+
+    <p class="day-date">jeudi  9 mars 2006</p>    
+    <h2 id="p166" class="post-title"><a
+    href="index9f42.html?post/drupal/166">== PostgreSQL Weekly News - 5 mars 2006 ==</a></h2>
+    
+    <p class="post-info">Par Jean-Paul Argudo    le jeudi  9 mars 2006, 08:40</p>
+    
+    
+    
+          <div class="post-content"><p>
+Le sommet organisé à l'occasion des 10 ans de PostgreSQL («&nbsp;PostgreSQL Anniversary Summit&nbsp;») a besoin de vos propositions de conférence&nbsp;! Le sommet se tiendra du 8 au 10 juillet 2006 à Toronto, dans l'Ontario au Canada. Les enregistrements de conférences seront possibles à partir du 1er avril sur le site <a href="http://conference.postgresql.org/" target="_blank">http://conference.postgresql.org/</a>
+</p>
+<p>
+Le groupe allemand des utilisateurs de PostgreSQL sera présent aux <strong>LinuxDays</strong> à Chemnitz:
+<a href="http://chemnitzer.linux-tage.de/2006/live/detail.html?idx=305" target="_blank">http://chemnitzer.linux-tage.de/2006/live/detail.html?idx=305</a>
+</p>
+<p>
+Il y a un nouveau sondage auquel vous devez participer sur <a href="http://www.postgresql.org/community/" target="_blank">http://www.postgresql.org/community/</a>.</p></div>
+      <p class="read-it"><a href="index9f42.html?post/drupal/166"
+      title="Lire la suite == PostgreSQL Weekly News - 5 mars 2006 ==">Lire la suite</a>...</p>
+    
+    
+    
+                        </div>
+    
+          <div class="post  " lang="fr" xml:lang="fr">
+
+        
+    <h2 id="p165" class="post-title"><a
+    href="index91dc.html?post/drupal/165">== PostgreSQL Weekly News - 26 février 2006 ==</a></h2>
+    
+    <p class="post-info">Par Jean-Paul Argudo    le jeudi  9 mars 2006, 08:14</p>
+    
+    
+    
+          <div class="post-content"><p>
+Il y a eu des discussions bien animées à propos du <em>back-end</em> (serveur) cette semaine. Y ont pris part de nouvelles personnes et d'autres de retour après une absence prolongée.</p></div>
+      <p class="read-it"><a href="index91dc.html?post/drupal/165"
+      title="Lire la suite == PostgreSQL Weekly News - 26 février 2006 ==">Lire la suite</a>...</p>
+    
+    
+    
+                        </div>
+    
+          <div class="post odd " lang="fr" xml:lang="fr">
+
+    <p class="day-date">lundi 20 février 2006</p>    
+    <h2 id="p162" class="post-title"><a
+    href="index49cc.html?post/drupal/162">Nouvelles Hebdomadaires de PostgreSQL - 19 février 2006</a></h2>
+    
+    <p class="post-info">Par Sebastien Lardiere    le lundi 20 février 2006, 10:51</p>
+    
+    
+    
+          <div class="post-content"><h2>Nouvelles Hebdomadaires de PostgreSQL - 19 février 2006</h2>
+<p>
+Les mises à jour de sécurité 8.1.3, 8.0.7, 7.4.12 et 7.3.14 sont sorties. Mettez à jour ! Votre systeme de paquetages devrait fournir les paquets, et les paquets RPMs sont disponibles à <a href="http://www.postgresql.org/download/">http://www.postgresql.org/download/</a></p></div>
+      <p class="read-it"><a href="index49cc.html?post/drupal/162"
+      title="Lire la suite Nouvelles Hebdomadaires de PostgreSQL - 19 février 2006">Lire la suite</a>...</p>
+    
+    
+    
+                        </div>
+    
+          <div class="post  " lang="fr" xml:lang="fr">
+
+    <p class="day-date">lundi 13 février 2006</p>    
+    <h2 id="p159" class="post-title"><a
+    href="indexf7c6.html?post/drupal/159">Nouvelles hebdomadaires de PostgreSQL - 12 février 2006</a></h2>
+    
+    <p class="post-info">Par Sebastien Lardiere    le lundi 13 février 2006, 11:11</p>
+    
+    
+    
+          <div class="post-content"><h2>Nouvelles hebdomadaires de PostgreSQL - 12 février 2006</h2>
+<p>
+Les versions de sécurité 8.1.3, 8.0.7, 7.4.12 et 7.3.14 ont été marqué dans le dépot. Soyez prêt à mettre à jour.
+</p>
+<p>
+Une discussion a eu lieu à propos de l'écriture de types de données utilisateurs en Java ou autres langages. Le résultat est qu'il sera possible d'écrire des types de données utilisateurs sans écrire de code C.
+</p></div>
+      <p class="read-it"><a href="indexf7c6.html?post/drupal/159"
+      title="Lire la suite Nouvelles hebdomadaires de PostgreSQL - 12 février 2006">Lire la suite</a>...</p>
+    
+    
+    
+                        </div>
+    
+                  <p class="pagination"><a href="indexccf9.html?category/PostgreSQL-Weekly-News/page/36" class="prev">&#171;
+        billets précédents</a> -         page 35 de 40         - <a href="indexdab4.html?category/PostgreSQL-Weekly-News/page/34" class="next">billets suivants        &#187;</a></p>
+              </div>
+</div> <!-- End #main -->
+
+</div> <!-- End #wrapper -->
+
+<div id="pgFooter">
+  <p>Propulsé par <a href="http://dotclear.org/">Dotclear</a></p>
+</div>
+
+</div> <!-- End #page -->
+</body>
+
+<!-- Mirrored from blog2.postgresql.fr/index.php?category/PostgreSQL-Weekly-News/page/35 by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 May 2020 21:40:21 GMT -->
+</html>

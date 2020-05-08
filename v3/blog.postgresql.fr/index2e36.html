@@ -1,0 +1,160 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr">
+
+<!-- Mirrored from blog2.postgresql.fr/index.php?post/drupal/127 by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 May 2020 21:40:19 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="MSSmartTagsPreventParsing" content="TRUE" />
+  <meta name="ROBOTS" content="INDEX, FOLLOW" />
+  
+  <title>Révisions de sécurité (Mise à jour) - PostgreSQLfr.org</title>
+  <meta name="description" lang="fr" content="Le PostgreSQL Global Development Group a publié aujourd'hui une mise à jour de sécurité pour les versions antérieures de PostgreSQL : les révisions 8.0.11, 7.4.16 et 7.3.18. Ces" />
+  <meta name="copyright" content="" />
+  <meta name="author" content="SAS" />
+  <meta name="date" scheme="ISO8601" content="2007-02-07T21:05:00+00:00" />
+  
+  <link rel="schema.dc" href="http://purl.org/dc/elements/1.1/" />
+  <meta name="dc.title" content="Révisions de sécurité (Mise à jour)" />
+  <meta name="dc.description" lang="fr" content="Le PostgreSQL Global Development Group a publié aujourd'hui une mise à jour de sécurité pour les versions antérieures de PostgreSQL : les révisions 8.0.11, 7.4.16 et 7.3.18. Ces" />
+  <meta name="dc.creator" content="SAS" />
+  <meta name="dc.language" content="fr" />
+  <meta name="dc.publisher" content="" />
+  <meta name="dc.rights" content="" />
+  <meta name="dc.date" scheme="ISO8601" content="2007-02-07T21:05:00+00:00" />
+  <meta name="dc.type" content="text" />
+  <meta name="dc.format" content="text/html" />
+  
+  <link rel="top" href="indexd41d.html?" title="Accueil" />
+  <link rel="contents" href="index888d.html?archive" title="Archives" />
+  
+  <link rel="next" href="indexe1bc.html?post/drupal/235"
+  title="Publication des révisions 8.2.3, 8.1.8 et 8.0.12" />
+  
+  <link rel="previous" href="indexa943.html?post/drupal/236"
+  title="Attention : Révisions des versions 8.1 et 8.2 corrompues" />
+  
+  <link rel="alternate" type="application/atom+xml" title="Atom 1.0" href="index4ca3.php?feed/atom" />
+  
+  <style type="text/css" media="screen">
+@import url(themes/postgresql/style.css);
+</style>
+<style type="text/css" media="print">
+@import url(themes/default/print.css);
+</style>
+
+<script type="text/javascript" src="themes/default/js/jquery.js"></script>
+<script type="text/javascript" src="themes/default/js/jquery.cookie.js"></script>
+
+  
+  <script type="text/javascript" src="themes/default/js/post.js"></script>
+  <script type="text/javascript">
+  //<![CDATA[
+  var post_remember_str = 'Se souvenir de moi sur ce blog';
+  //]]>
+  </script>
+</head>
+
+<body class="dc-post">
+<div id="page">
+
+
+<div id="top">
+  <div id="pgHeader">
+    <span id="pgHeaderLogoLeft">
+      <a href="index.html" title="PostgreSQL"><img src="https://blog.postgresql.fr/themes/postgresql/img/hdr_left.png" width="230" height="80" alt="PostgreSQL" /></a>
+    </span>
+    <span id="pgHeaderLogoRight">
+      <a href="index.html" title="La base de donnees la plus sophistiquee au monde."><img src="https://blog.postgresql.fr/themes/postgresql/img/hdr_right.png" width="210" height="80" alt="La base de donnees la plus sophistiquee au monde." /></a>
+    </span>
+  </div>
+
+  </div>
+
+<div class="pgTopNav">
+  <div class="pgTopNavLeft"> 
+    <img src="https://blog.postgresql.fr/themes/postgresql/img/nav_lft.png" width="7" height="23" alt="" />
+  </div>
+  <div class="pgTopNavRight">
+    <img src="https://blog.postgresql.fr/themes/postgresql/img/nav_rgt.png" width="7" height="23" alt="" />
+  </div>
+  <ul class="pgTopNavList">
+    <li><a href="https://www.postgresql.fr/" title="Accueil">Accueil</a></li>
+    <li><a href="https://blog.postgresql.fr/" title="Lire les actualités">Actualités</a></li>
+    <li><a href="https://docs.postgresql.fr/" title="Lire la documentation officielle">Documentation</a></li>
+    <li><a href="https://forums.postgresql.fr/" title="Pour poser des questions">Forums</a></li>
+    <li><a href="https://www.postgresql.fr/asso/" title="La vie de l'association">Association</a></li>
+    <li><a href="https://www.postgresql.fr/devel:accueil" title="Informations pour les développeurs/traducteurs">Développeurs</a></li>
+    <li><a href="https://planete.postgresql.fr/" title="La planète francophone sur PostgreSQL">Planète</a></li>
+    <li><a href="https://www.postgresql.fr/support/" title="Support sur PostgreSQL">Support</a></li>
+  </ul>
+</div>
+
+<div id="wrapper">
+
+<div id="pgContent">
+
+  <div id="pgSideWrap">
+  <div id="pgSideNav">
+    <div id="blognav">
+      <div id="search"><h2><label for="q">Rechercher</label></h2><form action="http://blog2.postgresql.fr/index.php?" method="get"><fieldset><p><input type="text" size="10" maxlength="255" id="q" name="q" value="" /> <input class="submit" type="submit" value="ok" /></p></fieldset></form></div><div class="categories"><h2>Catégories</h2><ul><li><a href="index199b.html?category/Articles">Articles</a></li><li><a href="indexb4c6.html?category/Dans-les-bacs">Dans les bacs</a></li><li><a href="index025a.html?category/Evenements">Événements</a></li><li><a href="index8c6d.html?category/PostgreSQL-Weekly-News">PostgreSQL Weekly News</a></li><li class="category-current"><a href="index1835.html?category/Securite">Sécurité</a></li><li><a href="index2251.html?category/Vie-de-l-association">Vie de l'association</a></li><li><a href="index91de.html?category/Vie-du-site">Vie du site</a></li></ul></div><div class="text"><h2>Licence</h2>Tous les articles de ce blog sont disponibles sous la <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/">license Creative Commons BY-NC-SA 3.0</a>.</div>    </div> <!-- End #blognav -->
+  
+    <div id="blogextra">
+      <div class="syndicate"><h2>S'abonner</h2><ul><li><a type="application/atom+xml" href="index4ca3.php?feed/atom" title="Fil Atom des billets de ce blog" class="feed">Fil des billets</a></li></ul></div>    </div> <!-- End #blogextra -->
+  </div>
+  </div>
+
+  <div id="pgContentWrap">
+  <div id="pgDownloadsWrap">
+  <div id="content">
+
+  <p id="navlinks">
+  <a href="indexa943.html?post/drupal/236"
+  title="Attention : Révisions des versions 8.1 et 8.2 corrompues" class="prev">&#171; Attention : Révisions des versions 8.1 et 8.2</a>
+   <span>-</span> <a href="indexe1bc.html?post/drupal/235"
+  title="Publication des révisions 8.2.3, 8.1.8 et 8.0.12" class="next">Publication des révisions 8.2.3, 8.1.8 et 8.0.12 &#187;</a>
+  </p>
+  
+  <div class="post">
+    <h2 id="p127" class="post-title">Révisions de sécurité (Mise à jour)</h2>
+    
+    <p class="post-info">Par SAS    le mercredi  7 février 2007, 21:05        - <a href="index1835.html?category/Securite">Sécurité</a>
+        - <a href="index2e36.html?post/drupal/127">Lien permanent</a>
+    </p>
+    
+    
+    
+          <div class="post-excerpt"><p>Le  PostgreSQL Global Development Group a publié aujourd'hui une mise à jour de sécurité pour les versions antérieures de PostgreSQL&nbsp;: les révisions 8.0.11, 7.4.16 et 7.3.18. Ces correctifs concernent des trous de sécurité de risque moyen. Il est donc fortement conseillé d'effectuer une mise à jour rapidement.</p>
+<p> Les révisions pour les versions 8.1 et 8.2 sont toujours en attente. Les sources publiés pour les révisions 8.2.2 et 8.1.7 ont été <strong>retirées</strong> à cause d'un bogue concernant les types de données typemod utilisés avec des contraintes de vérification ou des index d'expression. Les nouvelles révisions devraient être publiées sous 24 à 48 heures.</p></div>
+        
+    <div class="post-content"><p>Cette révision corrige CVE-2007-0555 et CVE-2007-0556. Ces deux failles autorisent un utilisateur authentifié disposant des permissions d'exécuter du code SQL à lancer une attaque de type "déni de service" ou de lire des portions aléatoires de la mémoire. Puisqu'il est nécessaire d'être authentifié, ce risque n'est jugé que moyen. Plus d'informations sur Mitre&nbsp;:
+<br /><a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-0555">http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-0555</a><br /><a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-0556">http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-0556</a>
+</p>
+<p>Conformément à la politique de correction des failles de sécurité du projet, cette mise à jour a été réalisée aussi vite que possible&nbsp;: moins de deux semaines après le premier rapport de bogue, et cinq jours après la publication du correctif. Ces réponses rapides sont inhérentes à la réputation de PostgreSQL d'être une des bases industrielles les plus sûres.</p>
+<p>Ces révisions peuvent être téléchargées depuis notre page de téléchargement&nbsp;:
+<a href="http://www.postgresql.org/download/" target="_blank">http://www.postgresql.org/download/</a>. Aucun besoin d'export/import pour cette mise à jour. Quoiqu'il en soit, n'hésitez pas à consulter les notes de version pour la vôtre&nbsp;:
+<a href="http://www.postgresql.org/docs/8.2/static/release.html" target="_blank">http://www.postgresql.org/docs/8.2/static/release.html</a>.</p></div>
+
+      </div>
+
+  
+
+    
+  
+    
+    
+    </div>
+</div> <!-- End #main -->
+
+</div> <!-- End #wrapper -->
+
+<div id="pgFooter">
+  <p>Propulsé par <a href="http://dotclear.org/">Dotclear</a></p>
+</div>
+
+</div> <!-- End #page -->
+</body>
+
+<!-- Mirrored from blog2.postgresql.fr/index.php?post/drupal/127 by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 08 May 2020 21:40:19 GMT -->
+</html>
