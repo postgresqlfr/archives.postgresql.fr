@@ -1,0 +1,153 @@
+====== Celeste ======
+
+~~NOTOC~~
+
+<note important>
+Si vous effectuez des opérations sur Celeste, merci de vous connectez sur **#postgresqlfr-admin** pour vérifier que personne n'a eu la même idée que vous au même moment ! 
+
+Merci de respecter les [[règles de base]]
+</note>
+
+voir aussi ->  [[Tantor]]
+
+===== Roles =====
+
+Serveur maître postgresql. Serveur apache2, hébergeant tous les sites de la communauté.
+
+===== Log =====
+
+==== mises à jour ====
+
+* 9.3.5 le 19/08/2014 par rjuju
+
+==== ? : install par ? ====
+
+   
+Paquets installés : visudo vim screen    
+   
+config de base :
+
+  * IP : 217.70.189.115  / 2001:4b98:dc0:41:216:3eff:fe99:6191
+  * CPU : 5 coeurs
+  * RAM : 1080Mo    
+  * Datacenter : Paris
+  * distro : debian linux 6 64 bits 
+
+==== Mise à jour en 9.3, le 29/04/2014 par rjuju ====
+
+Configuration de postgres :
+<code>
+postgres@celeste:~$ grep -Ev '^\s*(#.*)?$' /etc/postgresql/9.3/main/postgresql.conf
+
+data_directory = '/var/lib/postgresql/9.3/main'		# use data in another directory
+hba_file = '/etc/postgresql/9.3/main/pg_hba.conf'	# host-based authentication file
+ident_file = '/etc/postgresql/9.3/main/pg_ident.conf'	# ident configuration file
+external_pid_file = '/var/run/postgresql/9.3-main.pid'			# write an extra PID file
+listen_addresses = '*'		# what IP address(es) to listen on;
+port = 5432				# (change requires restart)
+max_connections = 100			# (change requires restart)
+unix_socket_directories = '/var/run/postgresql'	# comma-separated list of directories
+ssl = true				# (change requires restart)
+ssl_cert_file = '/etc/ssl/certs/ssl-cert-snakeoil.pem'		# (change requires restart)
+ssl_key_file = '/etc/ssl/private/ssl-cert-snakeoil.key'		# (change requires restart)
+shared_buffers = 128MB			# min 128kB
+wal_level = hot_standby			# minimal, archive, or hot_standby
+checkpoint_completion_target = 0.9	# checkpoint target duration, 0.0 - 1.0
+archive_mode = on		# allows archiving to be done
+archive_command = 'rsync -a %p postgres@tantor.postgresql.fr:/data/backups/postgresql/xlog/%f'		# command to use to archive a logfile segment
+max_wal_senders = 3		# max number of walsender processes
+log_checkpoints = on
+log_connections = on
+log_disconnections = on
+log_line_prefix = '%t [%p]: [%l-1] db=%d,user=%u '			# special values:
+log_timezone = 'localtime'
+datestyle = 'iso, dmy'
+timezone = 'localtime'
+lc_messages = 'C'			# locale for system error message
+lc_monetary = 'fr_FR.UTF-8'			# locale for monetary formatting
+lc_numeric = 'fr_FR.UTF-8'			# locale for number formatting
+lc_time = 'fr_FR.UTF-8'				# locale for time formatting
+default_text_search_config = 'pg_catalog.french'
+</code>
+
+Crontabs :
+
+<code>
+postgres@celeste:~$ crontab -l
+
+# m h  dom mon dow   command
+
+0 1 * * *   pg_dumpall | gzip -c > /var/backups/postgresql/pgsql.daily.sql.gz
+0 2 * * 1   pg_dumpall | gzip -c > /var/backups/postgresql/pgsql.weekly.sql.gz
+0 3 1 * *   pg_dumpall | gzip -c > /var/backups/postgresql/pgsql.monthly.sql.gz
+0 4 * 1 *   pg_dumpall | gzip -c > /var/backups/postgresql/pgsql.yearly.sql.gz
+0 5 * * *   /var/lib/postgresql/backup_pitr.sh
+# export vers Tantor
+0 6 * * *   rsync -av --delete /var/backups/postgresql/* tantor.postgresql.fr:/var/backups/postgres-celeste/
+
+# purge des backups
+0 7 * * *   /var/lib/postgresql/purge_pitr.sh
+
+</code>
+
+Script de sauvegarde PITR :
+<file bash /var/lib/postgresql/backup_pitr.sh>
+#!/bin/bash
+SRVDEST="tantor.postgresql.fr"
+VERSION="9.3"
+INST="main"
+SNAPNAME="snapshot_$(date '+%Y_%m_%d_%H_%M_%S')"
+PGDIR="/var/lib/postgresql/${VERSION}/${INST}/"
+DESTDIR="/data/backups/postgresql/snapshot/${SNAPNAME}/"
+
+rc=0
+
+psql --cluster ${VERSION}/${INST} -c "SELECT pg_start_backup('${SNAPNAME}')"
+if [ $? -ne 0 ]; then
+    echo "Unable to start backup !"
+    exit 1
+fi
+
+rsync -avp --exclude "pg_xlog/*" ${PGDIR} postgres@${SRVDEST}:${DESTDIR}
+if [ $? -ne 0 ]; then
+    echo "Error during rsync of ${PGDIR} to postgres@${SRVDEST}:${DESTDIR} !"
+    rc=1
+fi
+
+psql --cluster ${VERSION}/${INST} -c "SELECT pg_stop_backup()"
+if [ $? -ne 0 ]; then
+    echo "Unable to stop backup !"
+    rc=1
+fi
+
+exit ${rc}
+</file>
+
+Script de purge PITR:
+<file bash /var/lib/postgresql/purge_pitr.sh>
+#!/bin/bash
+RETENTION=5
+# Suppression des snapshots de plus de $RETENTION jours
+find /data/backups/postgresql/snapshot/ -maxdepth 1 -type d -name "snapshot_*" -mtime +${RETENTION} -print -exec rm -rf {} \;
+
+# Suppression des WAL de plus de $RETENTION jours
+find /data/backups/postgresql/xlog/ -type f -mtime +${RETENTION} -print -delete
+</file>
+
+template recovery.conf :
+<file conf /var/lib/postgresql/recovery.conf>
+standby_mode = on
+primary_conninfo = 'host=tantor.postgresql.fr port=5432 user=repli'
+restore_command = 'cp /data/backups/postgresql/xlog/%f %p'
+# pas de cleanup comme on a une sauvegarde pitr, ils seront purgés par le cron PITR
+# pas de trigger file
+
+</file>
+
+Liens symboliques :
+
+  * /data -> /srv/data_celeste
+  * /var/lib/postgresql -> /srv/data_celeste/var/lib/postgresql/
+  * /var/log -> /srv/data_celeste/var/log/
+  * /var/www -> /srv/data_celeste/var/www/
+

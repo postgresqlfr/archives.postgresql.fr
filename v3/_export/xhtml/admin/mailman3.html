@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+<head>
+  <meta charset="utf-8" />
+  <title>admin:mailman3</title>
+<meta name="generator" content="DokuWiki"/>
+<meta name="robots" content="index,follow"/>
+<meta name="keywords" content="admin,mailman3"/>
+<link rel="search" type="application/opensearchdescription+xml" href="../../../lib/exe/opensearch.php" title="Communauté francophone de PostgreSQL"/>
+<link rel="start" href="../../../index.html"/>
+<link rel="contents" href="https://www.postgresql.fr/admin/mailman3?do=index" title="Plan du site"/>
+<link rel="manifest" href="../../../lib/exe/manifest.php" crossorigin="use-credentials"/>
+<link rel="alternate" type="application/rss+xml" title="Derniers changements" href="../../../feed.php"/>
+<link rel="alternate" type="text/html" title="HTML brut" href="mailman3.html"/>
+<link rel="alternate" type="text/plain" title="Wiki balise" href="../../raw/admin/mailman3"/>
+<link rel="canonical" href="../../../admin/mailman3.html"/>
+<link rel="stylesheet" href="../../../lib/exe/css.php%3Ft=tortoise&amp;tseed=ad76b451e9e42d817acb1920a91f4def.css"/>
+<link type="text/css" rel="stylesheet" href="../../../lib/plugins/icons/assets/font-awesome/css/font-awesome.min.css"/>
+<link type="text/css" rel="stylesheet" href="../../../lib/plugins/icons/assets/material-design-icons/css/materialdesignicons.min.css"/>
+<script >var NS='admin';var JSINFO = {"ga":{"trackingId":"UA-3921927-1","gtagId":"","anonymizeIp":true,"action":"export_xhtml","trackOutboundLinks":true,"options":[],"pageview":"\/admin\/mailman3","debug":false},"id":"admin:mailman3","namespace":"admin","ACT":"export_xhtml","useHeadingNavigation":0,"useHeadingContent":0};(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement);</script>
+<script src="../../../lib/exe/jquery.php%3Ftseed=8faf3dc90234d51a499f4f428a0eae43"></script>
+<script src="../../../lib/exe/js.php%3Ft=tortoise&amp;tseed=ad76b451e9e42d817acb1920a91f4def"></script>
+</head>
+<body>
+<div class="dokuwiki export">
+
+<h1 class="sectionedit1" id="mailman_3">Mailman 3</h1>
+<div class="level1">
+
+</div>
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;Mailman 3&quot;,&quot;hid&quot;:&quot;mailman_3&quot;,&quot;codeblockOffset&quot;:0,&quot;secid&quot;:1,&quot;range&quot;:&quot;3-28&quot;} -->
+<h2 class="sectionedit2" id="install">Install</h2>
+<div class="level2">
+
+<p>
+procédure suivie -» <a href="http://docs.mailman3.org/en/latest/prodsetup.html" class="urlextern" title="http://docs.mailman3.org/en/latest/prodsetup.html" rel="ugc nofollow">http://docs.mailman3.org/en/latest/prodsetup.html</a>
+</p>
+
+</div>
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;Install&quot;,&quot;hid&quot;:&quot;install&quot;,&quot;codeblockOffset&quot;:0,&quot;secid&quot;:2,&quot;range&quot;:&quot;29-123&quot;} -->
+<h2 class="sectionedit3" id="preparation">Préparation</h2>
+<div class="level2">
+<pre class="code bash"><span class="kw2">sudo</span> apt <span class="kw2">install</span> python-pip python3-pip python-setuptools python3-setuptools build-essential python-dev python3-dev
+<span class="kw2">sudo</span> pip <span class="kw2">install</span> <span class="re5">--upgrade</span> pip
+<span class="kw2">sudo</span> apt <span class="kw2">install</span> ruby-sass 
+<span class="kw2">sudo</span> pip2 <span class="kw2">install</span> whoosh</pre>
+
+</div>
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;Pr\u00e9paration&quot;,&quot;hid&quot;:&quot;preparation&quot;,&quot;codeblockOffset&quot;:0,&quot;secid&quot;:3,&quot;range&quot;:&quot;124-372&quot;} -->
+<h2 class="sectionedit4" id="mailman_core">mailman core</h2>
+<div class="level2">
+<pre class="code">sudo pip3 install mailman</pre>
+
+<p>
+checkup :
+</p>
+<pre class="code">mailman info
+GNU Mailman 3.1.0 (Between The Wheels)
+Python 3.5.2 (default, Nov 17 2016, 17:05:23) 
+[GCC 5.4.0 20160609]
+config file: None
+db url: sqlite:////home/damien/var/data/mailman.db
+devmode: DISABLED
+REST root url: http://localhost:8001/3.1/
+REST credentials: restadmin:restpass</pre>
+
+</div>
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;mailman core&quot;,&quot;hid&quot;:&quot;mailman_core&quot;,&quot;codeblockOffset&quot;:1,&quot;secid&quot;:4,&quot;range&quot;:&quot;373-752&quot;} -->
+<h2 class="sectionedit5" id="interfaces">Interfaces</h2>
+<div class="level2">
+<pre class="code">sudo pip2 install postorious
+
+sudo pip2 install hyperkitty
+
+sudo pip3 install uwsgi</pre>
+
+</div>
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;Interfaces&quot;,&quot;hid&quot;:&quot;interfaces&quot;,&quot;codeblockOffset&quot;:3,&quot;secid&quot;:5,&quot;range&quot;:&quot;753-&quot;} --></div>
+</body>
+</html>

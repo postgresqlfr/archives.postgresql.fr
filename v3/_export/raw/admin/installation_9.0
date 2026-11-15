@@ -1,0 +1,230 @@
+
+====== Installation de Postgres 9.0 ======
+
+<note>
+Cette doc est succinte ! 
+Pour plus de détails, voir les articles de Guillaume, notamment : [[http://www.dalibo.org/hs44_installation_de_postgresql|L'installation de PostgreSQL]] et [[http://www.dalibo.org/hs44_la_replication_par_les_journaux_de_transactions|La réplication par les journaux applicatifs]] 
+</note>
+
+
+===== Préambule =====
+
+On met ici en place une réplication "Hot Standby en Streaming" entre les deux serveurs de la plate-forme postgresql.fr 
+
+  * Babar : serveur principal : ip = 212.85.154.68 port = 5433
+  * Dumbo : serveur secondaire (en mode standby) : ip = 212.85.154.69 port = 5433
+
+===== Compilation =====
+
+Même procédure sur Babar et Dumbo
+
+<code sh>
+sudo aptitude install make libreadline-dev
+cd /home/damien/
+wget http://wwwmaster.postgresql.org/redir/357/f/source/v9.0beta3/postgresql-9.0beta3.tar.gz
+tar xzvf postgresql-9.0beta3.tar.gz 
+cd postgresql-9.0beta3/
+./configure 
+make
+sudo make install
+sudo su - postgres
+cd /var/lib/postgresql/
+mkdir 9.0
+/usr/local/pgsql/bin/initdb -D /var/lib/postgresql/9.0/
+</code>
+
+Avant de démarrer le serveur, on modifie port sur 5433 dans postgresql.conf
+<file>
+port 5433
+</file>
+
+Puis on met en place le script de démarrage. Ne pas oublier de modifier la paramètre PGDATA !
+<code sh>
+sudo cp /home/damien/postgresql-9.0beta3/contrib/start-script/linux /etc/init.d/postgresql-9.0
+sudo vi /etc/init.d/postgresql-9.0
+sudo chmod a+x /etc/init.d/postgresql-9.0
+sudo update-rc.d postgresql-9.0 defaults
+</code>
+
+===== Smoke test =====
+
+<code sh>
+sudo /etc/init.d/postgresql-9.0 start
+sudo su - postgres
+/usr/local/pgsql/bin/psql -h 127.0.0.1 -p 5433
+</code>
+
+===== Configuration du Hot Standby =====
+
+sur Dumbo :
+
+<code sh>
+sudo passwd postgres
+sudo su - postgres
+mkdir -p /var/lib/postgresql/babar_wals
+</code>
+
+Au passage le shmmax de dumbo est trop bas pour la 9.0, on corrige :
+
+<code sh>
+sudo su -
+echo "kernel.shmmax=134217728" > /etc/sysctl.conf
+echo "kernel.shmall=2097152" > /etc/sysctl.conf
+sudo sysctl -p
+</code>
+
+sur Babar, on ouvre une liaison ssh pour exporter les wals :
+
+<code sh>
+sudo su - postgres
+ssh-keygen
+ssh-copy-id postgres@dumbo.postgresql.fr
+touch /tmp/tst
+scp /tmp/tst postgres@dumbo.postgresql.fr:/var/lib/postgresql/babar_wals
+</code>
+
+Modification dans le postgresql.conf de Babar 
+
+<file>
+wal_level = hot_standby
+archive_mode = on
+archive_command = 'scp %p postgres@dumbo.postgresql.fr:/var/lib/postgresql/babar_wals/%f'
+</file>
+
+puis redémarrage du serveur PG sur Babar
+
+<code sh>
+sudo /etc/init.d/postgresql-9.0 restart
+</code>
+
+On fait un snapshot de la base sur Babar
+
+<code sh>
+sudo su - postgres
+/usr/local/pgsql/bin/psql -h 127.0.0.1 -p 5433 -c "select pg_start_backup('init dumbo')"
+cp -pr /var/lib/postgresql/9.0 /var/lib/postgresql/9.0-dumbo
+/usr/local/pgsql/bin/psql -h 127.0.0.1 -p 5433 -c "select pg_stop_backup()"
+</code>
+
+Préparation et export du snapshot sur Babar
+<code sh>
+sudo su - postgres
+cd /var/lib/postgresql/9.0-dumbo
+rm postmaster.pid
+rm pg_xlog/*
+echo 'hot_standby = on' >> postgresql.conf
+echo "standby_mode = 'on'" >> recovery.conf
+echo "restore_command = 'cp -i /var/lib/postgresql/babar_wals/%f %p'" >> recovery.conf
+scp -pr /var/lib/postgresql/9.0-dumbo dumbo.postgresql.fr:/var/lib/postgresql/
+</code>
+
+Sur dumbo, on charge le snapshot et on démarre en mode recovery/standby
+
+<code sh>
+sudo /etc/init.d/postgresql-9.0 stop
+sudo mv /var/lib/postgresql/9.0 /var/lib/postgresql/9.0-orig
+sudo mv /var/lib/postgresql/9.0-dumbo/ /var/lib/postgresql/9.0
+sudo /etc/init.d/postgresql-9.0 start
+</code>
+
+
+
+Il ne reste plus qu'à tester sur Dumbo :
+
+<code sh>
+/usr/local/pgsql/bin/psql  -h 127.0.0.1 -p 5433 -c "SELECT pg_is_in_recovery();";
+ pg_is_in_recovery 
+-------------------
+ t
+(1 row)
+
+</code>
+
+===== Streaming Réplication =====
+
+Sur Babar, ouverture d'un accès vers la pseudo-base "replication" en provenance de Dumbo
+
+Dans postgresql.conf :
+<file>
+listen_addresses = '*'
+</file>
+
+et dans pg_hba.conf :
+<note warning>
+Note pour le lecteur : Ceci est une installation de test, le serveur n'a pas vocation a détenir des données sensibles et la sécurité n'est pas un enjeu crucial. Si vous souhaitez utiliser le mode streaming en production, vous devez élever le niveau d'authenitification ( évitez trust ! ) et utiliser 
+des adresses IP issues d'un réseau privé.
+</note>
+
+<file>
+host  replication  postgres  212.85.154.69/32  trust
+</file>
+
+... puis redémarrage du serveur sur Babar
+
+
+Attention ! Il faut également vérifier la conf [[iptables]] !
+
+Sur Dumbo, on teste avec l'option replication=1
+
+<code>
+/usr/local/pgsql/bin/psql -h babar.postgresql.fr -p 5433 -U postgres replication=1
+</code>
+
+Sur Babar, on configure le streaming des wals :
+<file>
+max_wal_senders = 5
+wal_keep_segments = 32
+</file>
+
+... et on redémarre le serveur
+
+
+
+Sur Dumbo, on complète le recovery.conf pour récupérer les transactions commitées en se connectant à Babar :
+<file>
+primary_conninfo      = 'host=212.85.154.68 port=5433 user=postgres'
+trigger_file = '/var/lib/postgresql/9.0/failover.trigger'
+</file>
+
+... et on redémarre le serveur
+
+Il ne reste plus qu'à tester :-)
+
+sur babar :
+
+<code>
+$ /usr/local/pgsql/bin/psql -h 127.0.0.1 -p 5433 -c "SELECT pg_current_xlog_location()"
+ pg_current_xlog_location 
+--------------------------
+ 0/12000BB8
+(1 row)
+</code>
+
+puis sur dumbo
+
+<code>
+$ /usr/local/pgsql/bin/psql -h 127.0.0.1 -p 5433 -U postgres -c "SELECT pg_last_xlog_receive_location ()"
+ pg_last_xlog_receive_location 
+--------------------------
+ 0/12000BB8
+(1 row)
+</code>
+
+
+Pour transformer Dumbo en maitre en cas de crash de babar, taper la commande suivante sur dumbo:
+
+<code>
+sudo su - postgres
+touch /var/lib/postgresql/9.0/failover.trigger
+</code>
+
+
+===== Migration 8.3 -> 9.0 =====
+
+Exemple pour la base drupal6
+
+<code sh>
+/usr/local/pgsql/bin/dropdb -h 127.0.0.1 -p 5433 drupal6
+/usr/local/pgsql/bin/createdb -h 127.0.0.1 -p 5433 drupal6
+pg_dump drupal6 | /usr/local/pgsql/bin/psql -h 127.0.0.1 -p 5433 drupal6
+</code>

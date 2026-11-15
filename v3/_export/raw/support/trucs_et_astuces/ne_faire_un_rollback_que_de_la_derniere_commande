@@ -1,0 +1,22 @@
+Souvent vous devez des manipulations avec psql, probablement qu'en tant que personne prudente vous utilisiez cette commande
+<code>
+\set AUTOCOMMIT OFF
+</code>
+
+Le problème est que si vous tapez mal une commande, tout ce qui précédait sera perdu 
+
+exemple
+<code>
+ UPDATE TOTO set col1='Nouvelle valeur' where pk_toto=1;
+ UPDATE TOTO set col1='Nouvelle valeur' where pk_toto=2;
+insert into TOTO (pk_toto,col1) value (5,'Nouvelle ligne');
+</code>
+Si la dernière commande est incorrecte (et ici c'est le cas) les 2 commandes updates précédentes vont être annulées.
+
+Pour évitez cela, faites en début de session(ou mettez-le dans votre psqlrc)
+<code>
+\set ON_ERROR_ROLLBACK ON
+\set AUTOCOMMIT OFF
+</code>
+
+Ainsi seul la commande INSERT est annulé et les 2 commandes updates ne seront pas annulées, n'oubliez pas que les UPDATES ici ne seront sauvegardé que quand vous ferez un COMMIT

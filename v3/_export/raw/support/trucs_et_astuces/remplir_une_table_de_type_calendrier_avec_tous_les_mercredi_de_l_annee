@@ -1,0 +1,22 @@
+====== Remplir une table de type calendrier avec tous les mercredi de l'année ======
+
+Ici, on cherche à pré-remplir une table de type "calendrier" avec toutes les dates correspondant à un mercredi, et pour une année entière.
+
+<code>
+insert into 
+calendrier  (..., ..., date_jour,...)
+select ..., ..., jours.jour, ...
+from 
+(select jour from (select ('2012-01-01'::date + (d||' day')::interval)::date as jour 
+ from generate_series(0,365) d) j 
+ where extract(dow from jour)=3) jours;
+</code>
+
+L'idée c'est de construire une première requête qui contient tous les jours de l'année (par ajout de 1 jour successivement, grâce au generate_series), et dans cette table, de ne sélectionner que les mercredi (dow=Day Of Week=3).
+
+On se sert ensuite de celle-ci dans l'insert plus haut.
+
+Dans le cas présent, cela permet de préremplir la table "calendrier" avec toutes les dates de l'année 2012 correspondant à des mercredi.
+
+-- \\
+jpa

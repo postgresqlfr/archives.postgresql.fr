@@ -1,0 +1,38 @@
+====== Diviser un texte en plusieurs lignes ======
+
+Que faire si vous avez une chaîne, que vous voulez la séparer en plusieurs morceaux suivant un pattern et que vous voulez récupérer chaque morceau sur une ligne ?
+
+Commencer par créer la fonction suivante :
+
+<code sql>CREATE OR REPLACE FUNCTION split_to_rows(TEXT,TEXT) RETURNS SETOF TEXT
+
+AS $$
+
+    SELECT (string_to_array($1, $2))[s.i]
+
+    FROM generate_series(
+
+        1,
+
+        array_upper(string_to_array($1, $2), 1)
+
+    ) AS s(i);
+
+$$ language sql strict;
+</code>
+
+Pour l'utiliser, rien de plus simple :
+
+<code>dev=# select split_to_rows('aa--bb--cc','--');
+
+split_to_rows
+---------------
+aa
+bb
+cc
+(3 rows)</code>
+
+Cette fonction a été écrite par David Fetter (voir son [[http://archives.postgresql.org/pgsql-general/2005-12/msg00080.php|message sur pgsql-general]]).
+
+-- \\
+Guillaume Lelarge le 13/10/2006

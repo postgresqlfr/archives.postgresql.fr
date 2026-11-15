@@ -1,0 +1,46 @@
+====== Trouver le 1er élément disponible dans une liste de numériques ======
+
+On veut parfois trouver le 1<sup>er</sup> élément disponible dans une liste. C'est souvent le cas quand la clé primaire d'une table est un nombre mais qu'il n'est pas soumis à une séquence.. Ou alors qu'on a des trous dans la séquence et qu'on veut les combler.
+
+Soit la table ''nombres (a integer, [...])'', la requête suivante retourne le 1<sup>er</sup> élément disponible :
+<code sql>
+explain
+SELECT (x.a+1) AS id_disponible
+FROM nombres x
+     LEFT JOIN nombres y
+     ON ((x.a + 1) = y.a)
+WHERE y.a IS NULL
+ORDER BY x.a LIMIT 1;
+
+QUERY PLAN
+-----------------------------------------------------------------------------------
+Limit (cost=0.00..1.58 rows=1 width=4)
+ -> Nested Loop Left Join (cost=0.00..22.09 rows=14 width=4)
+    Join Filter: (("outer".a + 1) = "inner".a)
+    Filter: ("inner".a IS NULL)
+    -> Index Scan using id_a on nombres x (cost=0.00..3.15 rows=14 width=4
+    -> Seq Scan on nombres y (cost=0.00..1.14 rows=14 width=4)
+(6 lignes)
+
+test2=> SELECT (x.a+1) AS id_disponible 
+  FROM nombres x 
+    LEFT JOIN nombres y ON ((x.a + 1) = y.a) WHERE y.a IS NULL ORDER BY x.a LIMIT 1;
+
+id_disponible
+---------------
+4
+(1 ligne) 
+</code>
+
+Si vous constatez des lenteurs, il vous faudra créer un index sur a (si ce n'est pas déjà fait, ce dont je doute):
+
+<code sql>create unique index id_a on nombres(a);</code>
+
+Et un index fonctionnel comme suit:
+
+<code sql>create index id_a_suivant on nombres ((a+1));</code>
+
+Merci à John Hansen (appeljack) pour cette idée. 
+
+-- \\
+Jean-Paul Argudo le 16/09/2006

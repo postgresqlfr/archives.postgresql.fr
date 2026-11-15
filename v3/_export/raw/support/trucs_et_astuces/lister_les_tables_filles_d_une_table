@@ -1,0 +1,16 @@
+====== Lister les tables filles d'une table ======
+
+On remplacera "element" par la table père, on pourra bien sûr récupérer les informations de la table ''pg_class ( c )'' ou ''pg_inherits (i)'' en fonction des besoins...
+
+<code sql>
+SELECT relname
+
+FROM pg_catalog.pg_class c,
+
+     pg_catalog.pg_inherits i
+
+WHERE i.inhparent=(select oid from pg_class where relname='element');
+</code>
+
+-- \\
+Jean-Paul Argudo le 15/01/2007

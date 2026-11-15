@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+<head>
+  <meta charset="utf-8" />
+  <title>temoignages:meteo_france</title>
+<meta name="generator" content="DokuWiki"/>
+<meta name="robots" content="index,follow"/>
+<meta name="keywords" content="temoignages,meteo_france"/>
+<link rel="search" type="application/opensearchdescription+xml" href="../../../lib/exe/opensearch.php" title="Communauté francophone de PostgreSQL"/>
+<link rel="start" href="../../../index.html"/>
+<link rel="contents" href="https://www.postgresql.fr/temoignages/meteo_france?do=index" title="Plan du site"/>
+<link rel="manifest" href="../../../lib/exe/manifest.php" crossorigin="use-credentials"/>
+<link rel="alternate" type="application/rss+xml" title="Derniers changements" href="../../../feed.php"/>
+<link rel="alternate" type="text/html" title="HTML brut" href="meteo_france.html"/>
+<link rel="alternate" type="text/plain" title="Wiki balise" href="../../raw/temoignages/meteo_france"/>
+<link rel="canonical" href="../../../temoignages/meteo_france.html"/>
+<link rel="stylesheet" href="../../../lib/exe/css.php%3Ft=tortoise&amp;tseed=ad76b451e9e42d817acb1920a91f4def.css"/>
+<link type="text/css" rel="stylesheet" href="../../../lib/plugins/icons/assets/font-awesome/css/font-awesome.min.css"/>
+<link type="text/css" rel="stylesheet" href="../../../lib/plugins/icons/assets/material-design-icons/css/materialdesignicons.min.css"/>
+<script >var NS='temoignages';var JSINFO = {"ga":{"trackingId":"UA-3921927-1","gtagId":"","anonymizeIp":true,"action":"export_xhtml","trackOutboundLinks":true,"options":[],"pageview":"\/temoignages\/meteo_france","debug":false},"id":"temoignages:meteo_france","namespace":"temoignages","ACT":"export_xhtml","useHeadingNavigation":0,"useHeadingContent":0};(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement);</script>
+<script src="../../../lib/exe/jquery.php%3Ftseed=8faf3dc90234d51a499f4f428a0eae43"></script>
+<script src="../../../lib/exe/js.php%3Ft=tortoise&amp;tseed=ad76b451e9e42d817acb1920a91f4def"></script>
+</head>
+<body>
+<div class="dokuwiki export">
+
+<h1 class="sectionedit1" id="temoignage_de_david_peyrieres_ingenieur_dba_meteo_france">Témoignage de David PEYRIERES, Ingénieur DBA, Météo France</h1>
+<div class="level1">
+
+<p>
+<strong>Êtes-vous d&#039;accord pour que vos nom, prénom, courriel, organisation et fonction dans celle-ci soit connus du public ?</strong>
+</p>
+
+<p>
+Oui!
+</p>
+<ul>
+<li class="level1"><div class="li"> Organisation: Météo-France</div>
+</li>
+<li class="level1"><div class="li"> Site web: <a href="http://www.meteo.fr/" class="urlextern" title="http://www.meteo.fr/" rel="ugc nofollow">http://www.meteo.fr/</a></div>
+</li>
+<li class="level1"><div class="li"> Prénom: David </div>
+</li>
+<li class="level1"><div class="li"> Nom: <a href="mailto:&#100;&#97;&#118;&#105;&#100;&#46;&#112;&#101;&#121;&#114;&#105;&#101;&#114;&#101;&#115;&#64;&#109;&#101;&#116;&#101;&#111;&#46;&#102;&#114;" class="mail" title="&#100;&#97;&#118;&#105;&#100;&#46;&#112;&#101;&#121;&#114;&#105;&#101;&#114;&#101;&#115;&#64;&#109;&#101;&#116;&#101;&#111;&#46;&#102;&#114;">PEYRIERES</a></div>
+</li>
+<li class="level1"><div class="li"> Fonction: Ingénieur - DBA </div>
+</li>
+</ul>
+
+<p>
+<strong>Travaillez-vous pour une organisation à but lucratif, associatif ou gouvernemental ?</strong>
+</p>
+
+<p>
+Service public, Météo-France.
+</p>
+
+<p>
+<strong>Quelle est la taille de votre organisation en nombre de collaborateurs ?</strong>
+</p>
+
+<p>
+3000 personnes réparties sur tout le territoire français (métropole et outre-mer).
+</p>
+
+<p>
+<strong>À quoi sert(vent) la(les) base(s) de données utilisée(s) dans votre organisation ?</strong>
+</p>
+
+<p>
+La plupart des applications centrales de Météo-France s&#039;appuient sur des SGBDR pour :
+</p>
+<ul>
+<li class="level1"><div class="li"> héberger des données scientifiques (mesures de données, données de prévisions numériques, images satellites ou images radars,…). La disponibilité et la consistance des données y sont critiques notamment pour la sécurité civile </div>
+</li>
+</ul>
+<ul>
+<li class="level1"><div class="li"> héberger des données de serveur web, d&#039;applications diverses ou pour les besoins liés à la gestion commerciale et aux ressources humaines.</div>
+</li>
+</ul>
+
+<p>
+Toutes ces données sont stockées dans des bases de données relationnelles. Leur rôle dans le système d&#039;informations est donc prépondérant.
+</p>
+
+<p>
+<strong>Les bases de données gérées sont-elles critiques pour votre organisation ?</strong>
+</p>
+
+<p>
+OUI. La plupart sont très critiques car elles jouent un rôle majeur dans le système de production qui sert à remplir les missions de sécurité civile (cartes de vigilance, prévisions aéronautiques, prévisions marines, etc) confiées par l&#039;Etat à Météo France. Elles sont d&#039;ailleurs pour la plupart redondées (alimentation en parallèle ou réplication niveau SGBDR).
+</p>
+
+<p>
+<strong>Quel est le nombre de bases de données qui fonctionnent sous PostgreSQL par rapport au nombre total de bases de données (tous SGBD confondus) de votre organisation ?</strong>
+</p>
+
+<p>
+En dehors de bases de données utilisées par les RH, nos bases de données opérationnelles, ou non, fonctionnent à 95% sous PostgreSQL (MySQL historique pour les derniers %).
+Une exigence interne a été validée en 2016 pour imposer PostgreSQL comme SGBD pour tout nouveau projet de l&#039;Etablissement.
+</p>
+
+<p>
+<strong>Quelle est la taille minimum/max/moyenne des bases gérées ?</strong>
+</p>
+
+<p>
+La base la plus volumineuse (répliquée sur un standby) pèse environ 30 Tera-octets mais son volume transactionnel quotidien est en proportion relativement faible : de l&#039;ordre de 100Go/jour.
+La base qui héberge les données de prévision numérique, dont la plupart sont générées par notre super-calculateur, héberge quant à elle et à ce jour une volumétrie de 16To avec un volume quotidien de 3To (base tampon avec une rétention de quelques jours). Les volumes de cette dernière ont tendance à croître régulièrement en fonction de l&#039;évolution des modèles de prévision dont la résolution temporelle et géographique ne font qu&#039;augmenter.
+</p>
+
+<p>
+<strong>PostgreSQL est-il utilisé dans un contexte transactionnel ou datamining/datawarehouse ?</strong>
+</p>
+
+<p>
+Les deux.
+</p>
+
+<p>
+<strong>Quelle est la version utilisée ?</strong>
+</p>
+
+<p>
+De 9.5 pour la plus ancienne à 11 pour les plus récentes.
+</p>
+
+<p>
+<strong>Quel est le type du serveur sur lequel est installé PostgreSQL ?</strong>
+</p>
+
+<p>
+La plupart des bases sont sur des serveurs linux CentOS (6/7).
+</p>
+
+<p>
+<strong>Quelle est la part des logiciels libres dans votre organisation ? Au niveau des serveurs ? Et au niveau des postes clients ?</strong>
+</p>
+
+<p>
+La part est de plus en plus importante pour des raisons d&#039;économie. 
+</p>
+
+<p>
+<strong>Quel est le “nombre de serveurs en technologies libres (globalement)” ? et le nombre de serveurs au total, dans votre organisation ?</strong>
+</p>
+
+<p>
+Le nombre total de serveurs dans l&#039;organisation est de l&#039;ordre du millier. La majeure partie sous Linux.
+</p>
+
+<p>
+<strong>Depuis combien de temps PostgreSQL est-il utilisé dans l&#039;organisation et/ou depuis quelle version ?</strong>
+</p>
+
+<p>
+Des tests ont débuté en 2003/2004 avec la version 7. En production: depuis 2005 avec la version 8.0.
+</p>
+
+<p>
+<strong>PostgreSQL est-il venu en remplacement d&#039;une technologie propriétaire (ou plusieurs), si oui, laquelle (lesquelles) ?</strong>
+</p>
+
+<p>
+Certaines applications ont démarré sur PostgreSQL, pour d&#039;autres il s&#039;agit d&#039;une migration depuis Oracle et MySQL.
+</p>
+
+<p>
+<strong>Si vous avez remplacé une technologie propriétaire par PostgreSQL: pourquoi ?</strong>
+</p>
+
+<p>
+L&#039;absence de coût de licence est l&#039;argument majeur. D&#039;autres arguments comme la robustesse, la facilité d&#039;installation, l&#039;écosystème, la réactivité de la communauté, ont plaidé pour PostgreSQL.
+</p>
+
+<p>
+<strong>Si vous avez remplacé une technologie propriétaire par PostgreSQL, avez vous testé d&#039;autres SGBD Libres ? Si oui, lesquels ?</strong>
+</p>
+
+<p>
+Non pas vraiment.
+</p>
+
+<p>
+<strong>Si vous avez testé d&#039;autres SGBD/R libres: Pourquoi avoir choisi PostgreSQL au final ?</strong>
+</p>
+
+<p>
+Voir point précédent.
+</p>
+
+<p>
+<strong>À présent, donnez des notes de 1 à 5 et commentez 1 = mauvais, 2 = passable, 3 = moyen, 4 = bon, 5 = très bon</strong>
+</p>
+
+<p>
+<strong>Quel est votre ressenti sur PostgreSQL en termes de fiabilité ?</strong>
+</p>
+
+<p>
+5
+</p>
+
+<p>
+<strong>…de robustesse ?</strong>
+</p>
+
+<p>
+5
+</p>
+
+<p>
+<strong>…d&#039;administration ?</strong>
+</p>
+
+<p>
+4
+</p>
+
+<p>
+<strong>…de facilité d&#039;utilisation ?</strong>
+</p>
+
+<p>
+5
+</p>
+
+<p>
+<strong>…de performances ?</strong>
+</p>
+
+<p>
+5
+</p>
+
+<p>
+<strong>…de « scalabilité » ?</strong>
+</p>
+
+<p>
+4 (Cf réplication en hot_standby et réplication logique)
+</p>
+
+<p>
+<strong>Le support de la communauté PostgreSQL vous paraît-il efficace ?</strong>
+</p>
+
+<p>
+Oui, très réactif et efficace.   
+</p>
+
+<p>
+Mis à jour Le 23/01/2020
+</p>
+
+</div>
+</div>
+</body>
+</html>

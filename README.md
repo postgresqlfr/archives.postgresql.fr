@@ -12,6 +12,9 @@
 * basée sur drupal
 * http://archives.postgresql.fr/v2/
 
-## Version 3 (2009-2020)
+## Version 3 (2009-2026)
 
 * basée sur dokuwiki + Dotclear + fluxbb + planet
+* https://archives.postgresql.fr/v3/
+* https://archives.postgresql.fr/v3/blog.postgresql.fr
+

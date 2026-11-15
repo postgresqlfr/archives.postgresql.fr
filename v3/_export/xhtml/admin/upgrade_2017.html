@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+<head>
+  <meta charset="utf-8" />
+  <title>admin:upgrade_2017</title>
+<meta name="generator" content="DokuWiki"/>
+<meta name="robots" content="index,follow"/>
+<meta name="keywords" content="admin,upgrade_2017"/>
+<link rel="search" type="application/opensearchdescription+xml" href="../../../lib/exe/opensearch.php" title="Communauté francophone de PostgreSQL"/>
+<link rel="start" href="../../../index.html"/>
+<link rel="contents" href="https://www.postgresql.fr/admin/upgrade_2017?do=index" title="Plan du site"/>
+<link rel="manifest" href="../../../lib/exe/manifest.php" crossorigin="use-credentials"/>
+<link rel="alternate" type="application/rss+xml" title="Derniers changements" href="../../../feed.php"/>
+<link rel="alternate" type="text/html" title="HTML brut" href="upgrade_2017.html"/>
+<link rel="alternate" type="text/plain" title="Wiki balise" href="../../raw/admin/upgrade_2017"/>
+<link rel="canonical" href="../../../admin/upgrade_2017.html"/>
+<link rel="stylesheet" href="../../../lib/exe/css.php%3Ft=tortoise&amp;tseed=ad76b451e9e42d817acb1920a91f4def.css"/>
+<link type="text/css" rel="stylesheet" href="../../../lib/plugins/icons/assets/font-awesome/css/font-awesome.min.css"/>
+<link type="text/css" rel="stylesheet" href="../../../lib/plugins/icons/assets/material-design-icons/css/materialdesignicons.min.css"/>
+<script >var NS='admin';var JSINFO = {"ga":{"trackingId":"UA-3921927-1","gtagId":"","anonymizeIp":true,"action":"export_xhtml","trackOutboundLinks":true,"options":[],"pageview":"\/admin\/upgrade_2017","debug":false},"id":"admin:upgrade_2017","namespace":"admin","ACT":"export_xhtml","useHeadingNavigation":0,"useHeadingContent":0};(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement);</script>
+<script src="../../../lib/exe/jquery.php%3Ftseed=8faf3dc90234d51a499f4f428a0eae43"></script>
+<script src="../../../lib/exe/js.php%3Ft=tortoise&amp;tseed=ad76b451e9e42d817acb1920a91f4def"></script>
+</head>
+<body>
+<div class="dokuwiki export">
+
+<h1 class="sectionedit1" id="upgrade_2017">Upgrade 2017</h1>
+<div class="level1">
+
+</div>
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;Upgrade 2017&quot;,&quot;hid&quot;:&quot;upgrade_2017&quot;,&quot;codeblockOffset&quot;:0,&quot;secid&quot;:1,&quot;range&quot;:&quot;1-29&quot;} -->
+<h2 class="sectionedit2" id="principes_de_base">Principes de base</h2>
+<div class="level2">
+<ol>
+<li class="level1"><div class="li"> <del>Installer un serveur celeste2 et le brancher sur celeste en Hot Standby</del></div>
+</li>
+<li class="level1"><div class="li"> <del>Installer un serveur tantor2 et le brancher sur celeste2 en Hot Stanby</del></div>
+</li>
+<li class="level1"><div class="li"> <del>Migrer <a href="../../../admin/planet.html" class="wikilink1" title="admin:planet" data-wiki-id="admin:planet">Planet</a></del></div>
+</li>
+<li class="level1"><div class="li"> <del>Désactiver tantor</del></div>
+</li>
+<li class="level1"><div class="li"> <del>Switch Over de PostgreSQL depuis celeste vers celeste2</del></div>
+</li>
+<li class="level1"><div class="li"> <del>Désactiver Postgres sur celeste</del> </div>
+</li>
+<li class="level1"><div class="li"> <del>Migrer la doc</del></div>
+</li>
+<li class="level1"><div class="li"> Migrer <a href="../../../admin/mailman.html" class="wikilink1" title="admin:mailman" data-wiki-id="admin:mailman">mailman</a></div>
+</li>
+<li class="level1"><div class="li"> <del>Migrer <a href="../../../admin/dokuwiki.html" class="wikilink1" title="admin:dokuwiki" data-wiki-id="admin:dokuwiki">dokuwiki</a></del></div>
+</li>
+<li class="level1"><div class="li"> <del>Migrer <a href="../../../admin/fluxbb.html" class="wikilink1" title="admin:fluxbb" data-wiki-id="admin:fluxbb">fluxbb</a></del></div>
+</li>
+<li class="level1"><div class="li"> <del>Migrer <a href="../../../admin/dotclear.html" class="wikilink2" title="admin:dotclear" rel="nofollow" data-wiki-id="admin:dotclear">dotclear</a> (migration vers jekyll/github ?)</del></div>
+</li>
+<li class="level1"><div class="li"> <del>Migrer <a href="../../../admin/dolibarr.html" class="wikilink1" title="admin:dolibarr" data-wiki-id="admin:dolibarr">dolibarr</a></del></div>
+</li>
+<li class="level1"><div class="li"> Désactiver Celeste</div>
+</li>
+</ol>
+
+</div>
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;Principes de base&quot;,&quot;hid&quot;:&quot;principes_de_base&quot;,&quot;codeblockOffset&quot;:0,&quot;secid&quot;:2,&quot;range&quot;:&quot;30-670&quot;} -->
+<h2 class="sectionedit3" id="remarques">Remarques</h2>
+<div class="level2">
+<ul>
+<li class="level1"><div class="li"> est-ce que quelqu&#039;un utilise munin ?</div>
+</li>
+<li class="level1"><div class="li"> dotclear me casse les pieds, j&#039;en profiterai bien pour le remplacer par jekyll </div>
+</li>
+<li class="level1"><div class="li"> Pour ne pas compliquer la procédure on upgrade pas PG (on reste en 9.3)</div>
+</li>
+<li class="level1"><div class="li"> Ne pas upgrader dolibarr !</div>
+</li>
+<li class="level1"><div class="li"> Attention au SSO entre dokuwiki et fluxbb</div>
+</li>
+<li class="level1"><div class="li"> Attention aux applis PHP en général :)</div>
+</li>
+<li class="level1"><div class="li"> Remplacer les vieux sites pgday.fr sous dokuwiki par des copies <abbr title="HyperText Markup Language">HTML</abbr> statiques</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;Remarques&quot;,&quot;hid&quot;:&quot;remarques&quot;,&quot;codeblockOffset&quot;:0,&quot;secid&quot;:3,&quot;range&quot;:&quot;671-&quot;} --></div>
+</body>
+</html>

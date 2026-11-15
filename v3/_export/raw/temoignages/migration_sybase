@@ -1,0 +1,95 @@
+====== Pierre-Louis Malatray, développeur indépendant ======
+
+===== Contexte =====
+
+Je suis développeur indépendant et je travaille avec PG dans de petites
+entreprises
+qui recherchent le moindre coût et le maximum de fiabilité.
+
+La fiabilité, c'est aussi pour moi, parce que je ne veux pas courrir
+remettre en route
+les serveurs chez mes clients !
+Il faut que ça tourne tout seul.
+
+===== Premier exemple =====
+
+J'ai développé un logiciel spécifique pour gérer des créances dans une
+société de recouvrement.
+Il fonctionne en client/serveur avec 5 postes clients sous Windows 98
+par ODBC, 6 jours sur 7.
+
+Initialement, le moteur de base de données (Sybase SQL Anywhere)
+tournait sur un des postes client.
+Solution techniquement loin d'être idéale mais économique. La base
+comptait 200 Mo lorsque les
+utilisateurs ont commencé à se plaindre de la lenteur du système,
+c'était en 1999.
+
+Il a donc fallu trouver une solution fiable et économique pour mettre en
+place un serveur dédié.
+J'ai choisi GNU/Linux et PostgreSQL après quelques essais sur différents
+moteurs.
+Les performances étaient équivalentes avec la base que j'utilisais.
+A l'époque, les moteurs SQL libres n'étaient pas légion.
+PostgreSQL était purement en license GPL, ce qui a finalement emporté
+mon choix pour des
+raisons de perrennité et de transparence.
+J'ai été impressionné, en lisant les mails qui circulaient sur la liste
+de PG, de voir avec quelle
+célérité les problèmes des administrateurs de bases de données étaient
+résolus !
+
+Finalement, le logiciel tourne avec PostgreSQL version 6.4, une base de
+400 Mo, aujourd'hui,
+avec 19 tables appuyé sur une RedHat 6.0.
+Ce serveur tourne depuis 1999 en 24/24 avec un VACUUM (régénération des
+index et purge du soft delete)
+hebdomadaire et un reboot mensuel, tout ceci depuis la cron donc en
+automatique.
+
+Quelque remarques :
+Ce serveur a subi, au fil du temps, quelques avaries, mort de la carte
+mère, onduleur HS, court circuit
+sur le câble réseau par écrasement de celui-ci.
+Des resets répétés des utilisateurs qui trouvaient que le serveur ne
+démarrait pas assez vite
+après une coupure de courant prolongée.
+PostgreSQL = 0 défaut. Pas une ombre au tableau :-)
+
+Lorsque je codais les requêtes SQL pour migrer sous PG, j'avais quelques
+inquiétudes au sujet de la syntaxe
+notamment pour la conversion des entiers. Tout ceci s'est dissipé à
+partir de la version 7.0 :)
+
+===== Deuxième exemple =====
+
+J'utilise PG sur un logiciel personnel qui me sert à faire mes comptes.
+PostgreSQL version 7.2, une base de 50 Mo avec 8 tables.
+Cette appli me sert essentiellement 'd'éclaireur' pour les essais divers
+et variés
+de moteurs SQL, d'outils de développement etc...
+Le serveur tourne sous ma propre distribution (noyau 2.4.21) et je ne
+m'en occupe jamais
+sauf pour installer une distribution plus récente.
+PG fonctionne parfaitement.
+
+===== Conclusion =====
+
+PostgreSQL est aujourd'hui un moteur SQL qui n'a pas à rougir devant ses
+concurrents commerciaux.
+Les connectivités ODBC, JDBC sont implémentées et fiables.
+Il supporte toute la puissance du langage SQL ANSI92.
+La mise en route et la sécurisation sont simples et logiques.
+
+La documentation est très bien faite.
+Le volume des bases que j'utilise est faible, j'aimerais tester des
+volumes plus importants (plusieurs Go)
+mais je n'ai réussi à convaincre personne pour l'instant :-(
+
+Voici mon humble témoignage, espérant qu'il amènera sa pierre à
+l'édifice :-)
+
+Pierre-Louis Malatray 
+
+-- \\
+Jean-Paul Argudo le 11/09/2004

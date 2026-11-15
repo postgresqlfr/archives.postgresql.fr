@@ -1,0 +1,85 @@
+====== Nombre de semaines entre deux dates quelconques ======
+
+Cette fois-ci il s'agit donc de trouver le nombre de semaines entre deux dates quelconques. Ce qui rend la solution un poil compliquée, c'est que toutes les années n'ont pas le même nombre de semaines (52*7 ça donne que 364 jours).
+
+On va donc faire ça en deux temps, d'abord trouver le nombre de semaines de chaque année faisant partie de l'intervalle, ensuite c'est facile.
+
+Déjà, trouver les années comprises entre deux dates, ainsi que le premier janvier de l'année suivante :
+
+<code sql>
+dim=> select year, to_date(year+1, 'YYYY-01-01') as d
+ from generate_series(extract(year from (current_date - interval '4 years')::date)::int,
+          extract(year from current_date)::int) as year;
+ year | d
+------+------------
+ 2003 | 01-01-2004
+ 2004 | 01-01-2005
+ 2005 | 01-01-2006
+ 2006 | 01-01-2007
+ 2007 | 01-01-2008
+(5 lignes) 
+</code>
+
+
+Maintenant, première ruse : si le premier janvier de l'année suivante est semaine 1, alors l'année donnée contient 52 semaines, sinon elle contient le nombre de semaine correspondant au numéro de semaine du premier janvier de l'année suivante :
+
+<code sql>
+dim=> select extract(year from d) - 1 as year,
+       case when extract(week from d) = 1
+        then extract(week from d - interval '1 week')
+        else extract(week from d)
+       end as nb_weeks
+      from (
+       select year, to_date(year+1, 'YYYY-01-01') as d
+       from generate_series(extract(year from (current_date - interval '4 years')::date)::int,
+      extract(year from current_date)::int) as year) as x;
+ year | nb_weeks
+------+----------
+ 2003 | 52
+ 2004 | 53
+ 2005 | 52
+ 2006 | 52
+ 2007 | 52
+(5 lignes) 
+</code>
+
+
+Il reste à additionner toutes les semaines des années intermédiaires et à ajouter le numéro de semaine de l'année courante pour avoir le nombre de semaines depuis le premier janvier de l'année de la date de début. On enlèvera donc de cette somme le numéro de semaine de la date de début pour avoir notre résultat :
+
+<code sql>
+create or replace function weeks(timestamp, timestamp) returns int language sql
+as $$
+  select extract(week from $2)::int
+  +
+  coalesce(
+   sum( case when extract(week from d) = 1
+    then extract(week from d - interval '1 week')
+    else extract(week from d) end ),
+   0)::int
+   -
+   extract(week from $1)::int
+  from (
+   select year, to_date(year+1, 'YYYY-01-01') as d
+   from generate_series(extract(year from $1)::int,
+    extract(year from $2)::int - 1) as year
+   ) as x;
+$$;
+ 
+dim=> select weeks(current_date - interval '18 months', current_date);
+ weeks
+-------
+   79
+(1 ligne)
+ 
+dim=> select weeks(current_date - interval '4 years', current_date);
+ weeks
+-------
+   209
+(1 ligne) </code>
+
+Et voilà :)
+
+Note : on utilise ''COALESCE()'' sur le ''SUM()'' afin de savoir compter le nombre de semaines entre deux dates de la même année aussi !
+
+-- \\
+Par dim le 28/11/2007

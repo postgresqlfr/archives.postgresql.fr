@@ -1,0 +1,93 @@
+~~NOTOC~~
+
+====== Suivi des Adhésions ======
+
+
+===== Personnes Physiques =====
+
+La procédure est semi-automatisée.
+
+==== Nouvelle Adhésion ====
+
+__Déclencheur:__  Le bureau reçoit un message intitulé « Avis de réception d'un paiement» de paypal
+
+  * Créer un utilisateur
+  * Ajouter l'utilisateur dans le groupe "membre"
+  * Chercher la fiche adhérent correspondante, elle doit déjà exister en état brouillon
+  * Valider la fiche adhérent
+  * Attacher l'utilisateur à la fiche adhérent
+  * Ensuite suivre la procédure de renouvelement....
+
+==== Renouvellement ====
+
+__Déclencheur:__  Le bureau reçoit un message intitulé « Avis de réception d'un paiement» de paypal ou stripe
+
+  - Envoyer un mail à l'adhérent pour le remercier
+
+===== Entreprises =====
+
+La procédure n'est pas automatisée
+
+==== Nouvelle Adhésion ====
+
+__Déclencheur:__  Le bureau reçoit une demande d'adhésion de la part d'une société 
+
+  - Envoyer le formulaire d'adhésion entreprise
+  - Après réception du formulaire complété, ajouter la société dans l'ERP et créer la facture d'adhésion
+  - Ajouter l'entreprise parmi les adhérents : 
+    * https://erp.postgresql.fr/adherents/card.php?leftmenu=members&action=create
+    * Identifier le représentant de la société
+    * uploader le logo de l'entreprise
+  - Valider l'adhérent (bouton "valider")
+  - Créer la fiche entreprise (bouton "Créer un Tiers")
+  - Cliquer sur le lien "Tiers Tiers Dolibarr" pour aller sur la fiche entreprise
+  - Cliquer sur modifier et compléter la fiche
+  - Sur la fiche entreprise, onglet "Client", créer une facture avec le service "ADH_ENT" (400€)
+  - Envoyer la facture à l'entreprise
+  - Attendre le paiement de la facture et relancer si nécessaire
+
+**Une fois la facture réglée :**
+
+  - Saisir le règlement de la facture
+  - Valider l'adhésion sur la fiche adhérent de l'entreprise
+  - Déclarer la cotisation : onlget "cotisation" puis bouton "créer cotisation"
+     * la date adhésion est la date de paiement (1er janvier de l'année en cours)
+     * la date de fin est la date de paiement + 1 an (31 janvier de l'année suivante)
+     * mettre l'année dans le libellé
+     * Action complémentaire : "Aucun"
+     * Cocher l'option "Envoie AR par Email" 
+  - Sur la fiche adhérent, cliquer "Créer un Utilisateur"
+    * le login doit être le nom de l'organisme adhérent
+  - Sur la fiche utilisateur, cliquer sur "Regénérer et Envoyer le mot de passe"
+  - Envoyer un mail de remerciement
+
+==== Renouvellement ====
+
+__Déclencheur__ : En fin d'année, envoyer un mail général à toutes les personnes morales membres de l'association pour annoncer le lancement de la campagne de renouvellement des adhésions. 
+
+  - Sur la fiche entreprise, dans l'onglet 'Client', cliquer sur 'Créer Commande'
+  - Remplir la commande en ajoutant un service 'ADH_ENT' 
+  - Valider la commande et l'envoyer par mail au représentant de l'entité.
+
+**Après la réception du bon de commande signé :**
+
+  - Retourner sur la page de la commande
+  - Cliquer sur "Valider"
+  - Cliquer ensuite sur "Créer Facture"
+  - Dans l'onglet "Notes", inscrire le **numéro de commande** et les infos du bon de commande
+  - Valider la facture et l'envoyer par mail à l'adresse indiquée sur le bon de commande
+
+
+**Une fois la facture réglée :** 
+
+  * Retourner sur la page de la facture, 
+  * Saisir le réglement 
+  * Retrouner sur la page de la commande, cliquer sur "Classer Livré"
+  * Retourner sur la fiche adhérent de la société
+  * Déclarer la cotisation : onlget “cotisation” puis bouton “créer cotisation”
+     * la date adhésion est la date de paiement (1er janvier de l'année en cours)
+     * la date de fin est la date de paiement + 1 an (31 janvier de l'année en cours)
+     * mettre l'année dans le libellé
+     * Action complémentaire : “Aucun”
+     * Cocher l'option “Envoie AR par Email”
+  * Envoyer un mail de remerciement

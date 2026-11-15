@@ -1,0 +1,37 @@
+====== Filtrer des tuples à intervalle temporel régulier ======
+
+===== Conditions préalables =====
+
+Imaginons une table contenant plusieurs colonnes dont une est une estampille. Par exemple la table mesures :
+
+<code sql>
+CREATE TABLE mesures (
+     estampille TIMESTAMP WITH TIMEZONE PRIMARY KEY,
+     valeur DOUBLE PRECISION);
+</code>
+
+Nous pouvons imaginer que les données sont temporellement réparties uniformément dans le temps (une donnée toutes les minutes par exemple).
+
+===== Cas d'utilisation =====
+
+On souhaite avoir les mesures entre deux dates en échantillonnant les données présentes dans la table mesures avec un intervalle régulier supérieur à la répartition initiale de la mesure (par exemple toutes les 5 minutes).
+
+===== Requête =====
+
+Nous allons utiliser la fonction EXTRACT avec comme argument EPOCH pour extraire le nombre de secondes écoulées depuis le 1er Janvier 1970 à minuit GMT sur l'estampille de chaque ligne. Nous pourrons ensuite utiliser la fonction modulo (%) pour fixer déterminer si la ligne est sélectionnable ou non. 
+
+<code sql>
+SELECT 
+ * 
+FROM 
+ mesures
+WHERE
+ estampille BETWEEN CURRENT_TIMESTAMP - '1 day'::INTERVAL AND CURRENT_TIMESTAMP
+AND
+ ( (EXTRACT(EPOCH FROM estampille)::INTEGER ) % (5 * 60) ) = 0;
+</code>
+
+Ainsi chaque fois que la date EPOCH sera un multiple de 5*60 secondes (5 minutes) le modulo sera égal à 0 et notre ligne sera sélectionnée.
+
+-- \\
+Jean-Christophe Arnu le 15/09/2006

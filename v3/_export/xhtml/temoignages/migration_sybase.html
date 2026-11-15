@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+<head>
+  <meta charset="utf-8" />
+  <title>temoignages:migration_sybase</title>
+<meta name="generator" content="DokuWiki"/>
+<meta name="robots" content="index,follow"/>
+<meta name="keywords" content="temoignages,migration_sybase"/>
+<link rel="search" type="application/opensearchdescription+xml" href="../../../lib/exe/opensearch.php" title="Communauté francophone de PostgreSQL"/>
+<link rel="start" href="../../../index.html"/>
+<link rel="contents" href="https://www.postgresql.fr/temoignages/migration_sybase?do=index" title="Plan du site"/>
+<link rel="manifest" href="../../../lib/exe/manifest.php" crossorigin="use-credentials"/>
+<link rel="alternate" type="application/rss+xml" title="Derniers changements" href="../../../feed.php"/>
+<link rel="alternate" type="text/html" title="HTML brut" href="migration_sybase.html"/>
+<link rel="alternate" type="text/plain" title="Wiki balise" href="../../raw/temoignages/migration_sybase"/>
+<link rel="canonical" href="../../../temoignages/migration_sybase.html"/>
+<link rel="stylesheet" href="../../../lib/exe/css.php%3Ft=tortoise&amp;tseed=ad76b451e9e42d817acb1920a91f4def.css"/>
+<link type="text/css" rel="stylesheet" href="../../../lib/plugins/icons/assets/font-awesome/css/font-awesome.min.css"/>
+<link type="text/css" rel="stylesheet" href="../../../lib/plugins/icons/assets/material-design-icons/css/materialdesignicons.min.css"/>
+<script >var NS='temoignages';var JSINFO = {"ga":{"trackingId":"UA-3921927-1","gtagId":"","anonymizeIp":true,"action":"export_xhtml","trackOutboundLinks":true,"options":[],"pageview":"\/temoignages\/migration_sybase","debug":false},"id":"temoignages:migration_sybase","namespace":"temoignages","ACT":"export_xhtml","useHeadingNavigation":0,"useHeadingContent":0};(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement);</script>
+<script src="../../../lib/exe/jquery.php%3Ftseed=8faf3dc90234d51a499f4f428a0eae43"></script>
+<script src="../../../lib/exe/js.php%3Ft=tortoise&amp;tseed=ad76b451e9e42d817acb1920a91f4def"></script>
+</head>
+<body>
+<div class="dokuwiki export">
+
+<h1 class="sectionedit1" id="pierre-louis_malatray_developpeur_independant">Pierre-Louis Malatray, développeur indépendant</h1>
+<div class="level1">
+
+</div>
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;Pierre-Louis Malatray, d\u00e9veloppeur ind\u00e9pendant&quot;,&quot;hid&quot;:&quot;pierre-louis_malatray_developpeur_independant&quot;,&quot;codeblockOffset&quot;:0,&quot;secid&quot;:1,&quot;range&quot;:&quot;1-64&quot;} -->
+<h2 class="sectionedit2" id="contexte">Contexte</h2>
+<div class="level2">
+
+<p>
+Je suis développeur indépendant et je travaille avec PG dans de petites
+entreprises
+qui recherchent le moindre coût et le maximum de fiabilité.
+</p>
+
+<p>
+La fiabilité, c&#039;est aussi pour moi, parce que je ne veux pas courrir
+remettre en route
+les serveurs chez mes clients !
+Il faut que ça tourne tout seul.
+</p>
+
+</div>
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;Contexte&quot;,&quot;hid&quot;:&quot;contexte&quot;,&quot;codeblockOffset&quot;:0,&quot;secid&quot;:2,&quot;range&quot;:&quot;65-390&quot;} -->
+<h2 class="sectionedit3" id="premier_exemple">Premier exemple</h2>
+<div class="level2">
+
+<p>
+J&#039;ai développé un logiciel spécifique pour gérer des créances dans une
+société de recouvrement.
+Il fonctionne en client/serveur avec 5 postes clients sous Windows 98
+par ODBC, 6 jours sur 7.
+</p>
+
+<p>
+Initialement, le moteur de base de données (Sybase SQL Anywhere)
+tournait sur un des postes client.
+Solution techniquement loin d&#039;être idéale mais économique. La base
+comptait 200 Mo lorsque les
+utilisateurs ont commencé à se plaindre de la lenteur du système,
+c&#039;était en 1999.
+</p>
+
+<p>
+Il a donc fallu trouver une solution fiable et économique pour mettre en
+place un serveur dédié.
+J&#039;ai choisi GNU/Linux et PostgreSQL après quelques essais sur différents
+moteurs.
+Les performances étaient équivalentes avec la base que j&#039;utilisais.
+A l&#039;époque, les moteurs SQL libres n&#039;étaient pas légion.
+PostgreSQL était purement en license <abbr title="GNU General Public License">GPL</abbr>, ce qui a finalement emporté
+mon choix pour des
+raisons de perrennité et de transparence.
+J&#039;ai été impressionné, en lisant les mails qui circulaient sur la liste
+de PG, de voir avec quelle
+célérité les problèmes des administrateurs de bases de données étaient
+résolus !
+</p>
+
+<p>
+Finalement, le logiciel tourne avec PostgreSQL version 6.4, une base de
+400 Mo, aujourd&#039;hui,
+avec 19 tables appuyé sur une RedHat 6.0.
+Ce serveur tourne depuis 1999 en 24/24 avec un VACUUM (régénération des
+index et purge du soft delete)
+hebdomadaire et un reboot mensuel, tout ceci depuis la cron donc en
+automatique.
+</p>
+
+<p>
+Quelque remarques :
+Ce serveur a subi, au fil du temps, quelques avaries, mort de la carte
+mère, onduleur HS, court circuit
+sur le câble réseau par écrasement de celui-ci.
+Des resets répétés des utilisateurs qui trouvaient que le serveur ne
+démarrait pas assez vite
+après une coupure de courant prolongée.
+PostgreSQL = 0 défaut. Pas une ombre au tableau <img src="../../../lib/images/smileys/smile.svg" class="icon smiley" alt=":-)" />
+</p>
+
+<p>
+Lorsque je codais les requêtes SQL pour migrer sous PG, j&#039;avais quelques
+inquiétudes au sujet de la syntaxe
+notamment pour la conversion des entiers. Tout ceci s&#039;est dissipé à
+partir de la version 7.0 :)
+</p>
+
+</div>
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;Premier exemple&quot;,&quot;hid&quot;:&quot;premier_exemple&quot;,&quot;codeblockOffset&quot;:0,&quot;secid&quot;:3,&quot;range&quot;:&quot;391-2447&quot;} -->
+<h2 class="sectionedit4" id="deuxieme_exemple">Deuxième exemple</h2>
+<div class="level2">
+
+<p>
+J&#039;utilise PG sur un logiciel personnel qui me sert à faire mes comptes.
+PostgreSQL version 7.2, une base de 50 Mo avec 8 tables.
+Cette appli me sert essentiellement &#039;d&#039;éclaireur&#039; pour les essais divers
+et variés
+de moteurs SQL, d&#039;outils de développement etc…
+Le serveur tourne sous ma propre distribution (noyau 2.4.21) et je ne
+m&#039;en occupe jamais
+sauf pour installer une distribution plus récente.
+PG fonctionne parfaitement.
+</p>
+
+</div>
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;Deuxi\u00e8me exemple&quot;,&quot;hid&quot;:&quot;deuxieme_exemple&quot;,&quot;codeblockOffset&quot;:0,&quot;secid&quot;:4,&quot;range&quot;:&quot;2448-2913&quot;} -->
+<h2 class="sectionedit5" id="conclusion">Conclusion</h2>
+<div class="level2">
+
+<p>
+PostgreSQL est aujourd&#039;hui un moteur SQL qui n&#039;a pas à rougir devant ses
+concurrents commerciaux.
+Les connectivités ODBC, JDBC sont implémentées et fiables.
+Il supporte toute la puissance du langage SQL ANSI92.
+La mise en route et la sécurisation sont simples et logiques.
+</p>
+
+<p>
+La documentation est très bien faite.
+Le volume des bases que j&#039;utilise est faible, j&#039;aimerais tester des
+volumes plus importants (plusieurs Go)
+mais je n&#039;ai réussi à convaincre personne pour l&#039;instant <img src="../../../lib/images/smileys/sad.svg" class="icon smiley" alt=":-(" />
+</p>
+
+<p>
+Voici mon humble témoignage, espérant qu&#039;il amènera sa pierre à
+l&#039;édifice <img src="../../../lib/images/smileys/smile.svg" class="icon smiley" alt=":-)" />
+</p>
+
+<p>
+Pierre-Louis Malatray 
+</p>
+
+<p>
+– <br/>
+
+Jean-Paul Argudo le 11/09/2004
+</p>
+
+</div>
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;Conclusion&quot;,&quot;hid&quot;:&quot;conclusion&quot;,&quot;codeblockOffset&quot;:0,&quot;secid&quot;:5,&quot;range&quot;:&quot;2914-&quot;} --></div>
+</body>
+</html>

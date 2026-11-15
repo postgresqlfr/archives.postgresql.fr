@@ -1,0 +1,46 @@
+====== Récupérer le résultat d'une requête exécutée dans une procédure stockée ======
+
+En php on peut utiliser directement une requête pour obtenir un recordset.
+
+Cependant si l'on veux récupérer un recordset via une procédure stockée -- pour appliquer des traitements sur des paramètres avant d'exécuter la requête par exemple -- on peut créer une fonction équivalent à celle qui suit.
+
+L'exemple renvoie un setof de la variable out nommée myset et qui est definie du type du champs convoité dans la table. (On utilise %TYPE pour recupérer le type du champs) :
+
+<code sql>CREATE OR REPLACE FUNCTION ma_fonction(out myset ma_table.mon_champ_pk%TYPE)
+
+    RETURNS setof integer AS
+
+$BODY$
+
+    DECLARE
+
+    -- On crée une variable de type record , on peut aussi suivant le besoin créer une variable de type %ROWTYPE
+
+     myrecord record;
+
+BEGIN
+
+FOR myrecord in SELECT mon_pk FROM ma_table loop
+myset:= myrecord.mon_pk;
+RETURN NEXT;
+END LOOP;
+RETURN;
+END;
+$BODY$
+LANGUAGE 'plpgsql' VOLATILE;
+
+ALTER FUNCTION ma_fonction(out myset demande.demande_pk%TYPE) OWNER TO mon_user;</code>
+
+Pour récupérer l'ensemble des résultats on sélectionne la procédure ainsi :
+
+<code sql>SELECT * FROM  ma_fonction();</code>
+
+Les mots importants sont :
+  * setof
+  * record
+  * %TYPE et %ROWTYPE
+  * for...loop
+  * return next
+
+-- \\
+loquace le 07/06/2007

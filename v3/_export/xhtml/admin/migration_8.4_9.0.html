@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+<head>
+  <meta charset="utf-8" />
+  <title>admin:migration_8.4_9.0</title>
+<meta name="generator" content="DokuWiki"/>
+<meta name="robots" content="index,follow"/>
+<meta name="keywords" content="admin,migration_8.4_9.0"/>
+<link rel="search" type="application/opensearchdescription+xml" href="../../../lib/exe/opensearch.php" title="Communauté francophone de PostgreSQL"/>
+<link rel="start" href="../../../index.html"/>
+<link rel="contents" href="https://www.postgresql.fr/admin/migration_8.4_9.0?do=index" title="Plan du site"/>
+<link rel="manifest" href="../../../lib/exe/manifest.php" crossorigin="use-credentials"/>
+<link rel="alternate" type="application/rss+xml" title="Derniers changements" href="../../../feed.php"/>
+<link rel="alternate" type="text/html" title="HTML brut" href="migration_8.4_9.0.html"/>
+<link rel="alternate" type="text/plain" title="Wiki balise" href="../../raw/admin/migration_8.4_9.0"/>
+<link rel="canonical" href="../../../admin/migration_8.4_9.0.html"/>
+<link rel="stylesheet" href="../../../lib/exe/css.php%3Ft=tortoise&amp;tseed=ad76b451e9e42d817acb1920a91f4def.css"/>
+<link type="text/css" rel="stylesheet" href="../../../lib/plugins/icons/assets/font-awesome/css/font-awesome.min.css"/>
+<link type="text/css" rel="stylesheet" href="../../../lib/plugins/icons/assets/material-design-icons/css/materialdesignicons.min.css"/>
+<script >var NS='admin';var JSINFO = {"ga":{"trackingId":"UA-3921927-1","gtagId":"","anonymizeIp":true,"action":"export_xhtml","trackOutboundLinks":true,"options":[],"pageview":"\/admin\/migration_8.4_9.0","debug":false},"id":"admin:migration_8.4_9.0","namespace":"admin","ACT":"export_xhtml","useHeadingNavigation":0,"useHeadingContent":0};(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement);</script>
+<script src="../../../lib/exe/jquery.php%3Ftseed=8faf3dc90234d51a499f4f428a0eae43"></script>
+<script src="../../../lib/exe/js.php%3Ft=tortoise&amp;tseed=ad76b451e9e42d817acb1920a91f4def"></script>
+</head>
+<body>
+<div class="dokuwiki export">
+
+<h1 class="sectionedit1" id="section8490">8.4 =&gt; 9.0</h1>
+<div class="level1">
+
+</div>
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;8.4 =&gt; 9.0&quot;,&quot;hid&quot;:&quot;section8490&quot;,&quot;codeblockOffset&quot;:0,&quot;secid&quot;:1,&quot;range&quot;:&quot;1-27&quot;} -->
+<h2 class="sectionedit2" id="etape_0les_bases_obsoletes">Etape 0 : les bases obsolètes</h2>
+<div class="level2">
+
+<p>
+drupal6 et pgfr sont juste des vestiges du passé :)
+</p>
+<pre class="code">/usr/local/pgsql/bin/dropdb -h 127.0.0.1 -p 5433 drupal6
+/usr/local/pgsql/bin/createdb -h 127.0.0.1 -p 5433 drupal6
+pg_dump drupal6 | /usr/local/pgsql/bin/psql -h 127.0.0.1 -p 5433 drupal6</pre>
+<pre class="code">/usr/local/pgsql/bin/dropdb -h 127.0.0.1 -p 5433 pgfr
+/usr/local/pgsql/bin/createdb -h 127.0.0.1 -p 5433 pgfr
+pg_dump pgfr | /usr/local/pgsql/bin/psql -h 127.0.0.1 -p 5433 pgfr</pre>
+
+</div>
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;Etape 0 : les bases obsol\u00e8tes&quot;,&quot;hid&quot;:&quot;etape_0les_bases_obsoletes&quot;,&quot;codeblockOffset&quot;:0,&quot;secid&quot;:2,&quot;range&quot;:&quot;28-523&quot;} -->
+<h2 class="sectionedit3" id="etape_1limesurvey">Etape 1 : limesurvey</h2>
+<div class="level2">
+<pre class="code">/usr/local/pgsql/bin/createuser -h 127.0.0.1 -p 5433 limesurvey -SPRDl
+/usr/local/pgsql/bin/createdb -h 127.0.0.1 -p 5433 limesurvey --owner limesurvey
+pg_dump limesurvey | /usr/local/pgsql/bin/psql -h 127.0.0.1 -p 5433 limesurvey -U limesurvey </pre>
+
+</div>
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;Etape 1 : limesurvey&quot;,&quot;hid&quot;:&quot;etape_1limesurvey&quot;,&quot;codeblockOffset&quot;:2,&quot;secid&quot;:3,&quot;range&quot;:&quot;524-819&quot;} -->
+<h2 class="sectionedit4" id="etape_1aroundcube_postfix_postfixadmin">Etape 1a : roundcube + postfix + postfixadmin</h2>
+<div class="level2">
+<pre class="code">/usr/local/pgsql/bin/createuser -h 127.0.0.1 -p 5433 roundcube -SPRDl
+/usr/local/pgsql/bin/createdb -h 127.0.0.1 -p 5433 roundcube --owner roundcube
+pg_dump roundcube | /usr/local/pgsql/bin/psql -h 127.0.0.1 -p 5433 roundcube -U roundcube</pre>
+
+<p>
++ Modification du fichier :
+</p>
+
+<p>
+/data/www/fr/postgresql.fr/webmail$/config/db.inc.php
+</p>
+
+</div>
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;Etape 1a : roundcube + postfix + postfixadmin&quot;,&quot;hid&quot;:&quot;etape_1aroundcube_postfix_postfixadmin&quot;,&quot;codeblockOffset&quot;:3,&quot;secid&quot;:4,&quot;range&quot;:&quot;820-1220&quot;} -->
+<h2 class="sectionedit5" id="etape_1bcourier_postfix_postfixadmin">Etape 1b : courier + postfix + postfixadmin</h2>
+<div class="level2">
+<pre class="code">/usr/local/pgsql/bin/createuser -h 127.0.0.1 -p 5433 postfix -SPRDl
+/usr/local/pgsql/bin/createdb -h 127.0.0.1 -p 5433 postfix --owner postfix
+pg_dump postfix | /usr/local/pgsql/bin/psql -h 127.0.0.1 -p 5433 postfix -U postfix</pre>
+
+<p>
+fichier à modifier :
+</p>
+<ul>
+<li class="level1"><div class="li"> /usr/share/postfixadmin/config.inc.php</div>
+</li>
+<li class="level1"><div class="li"> /etc/courier/authpgsqlrc</div>
+</li>
+<li class="level1"><div class="li"> /etc/postfix/pgsql</div>
+</li>
+</ul>
+<div class="plugin_note noteimportant"> ROLLBACK ! Postfix et postfixadmin supportent mal le port 5433 <img src="../../../lib/images/smileys/doubt.svg" class="icon smiley" alt=":-/" />
+</div>
+</div>
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;Etape 1b : courier + postfix + postfixadmin&quot;,&quot;hid&quot;:&quot;etape_1bcourier_postfix_postfixadmin&quot;,&quot;codeblockOffset&quot;:4,&quot;secid&quot;:5,&quot;range&quot;:&quot;1221-&quot;} --></div>
+</body>
+</html>

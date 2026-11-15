@@ -1,0 +1,24 @@
+====== SSO entre flux et doku ======
+
+damien dit : "ça marche bien mais il faut bidouiller un peu..." 
+
+===== A LIRE : =====
+
+
+  *  http://www.dokuwiki.org/auth:punbb
+  *  http://www.dokuwiki.org/fr:auth:punbb
+
+
+===== Autres astuces =====
+ 
+  * Le plugin d'authentification est conçu pour mysql . j'ai fais le portage pour PG
+
+  * la gestion des groupes ne fonctionne pas directement il faut ajouter dans local.protected.php : 
+
+<code>
+$conf['superuser'] = '@Administrators';
+$conf['defaultgroup']= 'user, Members';
+</code>
+
+
+ * rediriger la page d'authentification dokuwiki vers la page d'auth du forum, avec http://www.dokuwiki.org/plugin:login_redirector

@@ -1,0 +1,148 @@
+====== Dolibarr ======
+
+===== Reconstruction de l'environnement de test ===== 
+
+Il y a une environement https://testerp.postgresql.fr/ qui permet de valider les upgrade en amont.
+
+Des playbooks ansible sont disponibles pour maintenir cet environement à jour :
+
+https://gitlab.com/postgresqlfr/pgfr_toolbox
+
+1. Re-Synchroniser l'environement de test :
+
+<code sh>
+make dolibarr_sync_test_env 
+</code>
+
+2. Tester la montée de version
+
+<code sh>
+make dolibarr_upgrade_test_env 
+</code>
+
+Le playbook extrait les logs de l'installation dolibarr dans le dossier `/tmp` :
+
+<code sh>
+less /tmp/ansible-dolibarr-upgrade-6.0-7.0/postgresql-9.3-main.log.diff                                                                      
+</code>
+
+Les scripts d'upgrade dolibarr produisent généralement beaucoup d'erreurs SQL, il faut être vigilant sur ce point.
+
+===== Upgrade 6.0 vers 7.0 =====
+
+
+<code>
+sudo cp -pr /var/www/erp.postgresql.fr backup_dolibarr_20181007
+sudo -u postgres pg_dump dolibarr > /tmp/dolibarr.dumpall.sql
+</code>
+
+<code>
+git clone https://github.com/Dolibarr/dolibarr.git
+cd dolibarr
+git checkout 7.0
+sudo cp -pr htdocs/* /var/www/erp.postgresql.fr/
+sudo rm /var/www/erp.postgresql.fr/documents/install.lock 
+</code>
+
+-> http://erp.postgresql.fr/install/
+
+
+<code>
+sudo touch /var/www/erp.postgresql.fr/documents/install.lock
+sudo mv /var/www/erp.postgresql.fr/install /var/www/erp.postgresql.fr/install-7.0
+</code>
+
+
+===== Upgrade 5.0 vers 6.0 =====
+
+
+<code>
+cd
+mkdir backup_dolibarr_20150118
+cd backup_dolibarr_20150118
+sudo cp -pr /var/www/erp.postgresql.fr .
+sudo su postgres
+pg_dump dolibarr > /tmp/dolibarr.dumpall.sql
+exit
+cp /tmp/dolibarr.dumpall.sql .
+</code>
+
+==== Install ====
+
+
+<code>
+cd 
+git clone https://github.com/Dolibarr/dolibarr.git
+cd dolibarr
+git checkout 3.5
+sudo cp -pr htdocs/* /var/www/erp.postgresql.fr/
+sudo rm /var/www/erp.postgresql.fr/documents/install.lock 
+</code>
+
+-> http://erp.postgresql.fr/install/
+
+
+<code>
+sudo touch /var/www/erp.postgresql.fr/documents/install.lock
+sudo mv /var/www/erp.postgresql.fr/install /var/www/erp.postgresql.fr/install-3.5
+</code>
+
+==== FIX ====
+
+<code>
+\i /var/www/testerp.postgresql.fr/install/pgsql/functions/functions.sql 
+</code>
+
+===== Upgrade 3.4 vers 3.5 =====
+
+==== Sauvegarde ====
+ 
+
+<code>
+cd
+mkdir backup_dolibarr_20150118
+cd backup_dolibarr_20150118
+sudo cp -pr /var/www/erp.postgresql.fr .
+sudo su postgres
+pg_dump dolibarr > /tmp/dolibarr.dumpall.sql
+exit
+cp /tmp/dolibarr.dumpall.sql .
+</code>
+
+==== Install ====
+
+
+<code>
+cd
+git clone https://github.com/Dolibarr/dolibarr.git
+cd dolibarr
+git checkout 3.5
+sudo cp -pr htdocs/* /var/www/erp.postgresql.fr/
+sudo rm /var/www/erp.postgresql.fr/documents/install.lock 
+</code>
+
+-> http://erp.postgresql.fr/install/
+
+
+<code>
+sudo touch /var/www/erp.postgresql.fr/documents/install.lock
+sudo mv /var/www/erp.postgresql.fr/install /var/www/erp.postgresql.fr/install-3.5
+</code>
+
+===== Installation version 3.1.x =====
+
+<code>
+cd /tmp
+wget  http://www.dolibarr.fr/files/lastbuild/standard/dolibarr-3.1.0-rc.tgz
+tar xzvf dolibarr-3.1.0-rc.tgz
+sudo mv dolibarr-3.1.0-rc/htdocs/ /data/www/fr/postgresql.fr/erp/
+</code>
+
+Puis :
+
+  * création du vhost apache2
+  * création du couple user/base dolibarr/dolibarr dans postgres
+  * création du domaine erp.postgresql.fr
+
+Fin de l'installation sur http://erp.postgresql.fr
+

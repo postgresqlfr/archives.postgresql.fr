@@ -1,0 +1,29 @@
+====== OSEM ======
+
+
+===== Install =====
+
+Installation via [docker] sur [celeste3]
+
+<code>
+sudo mkdir /var/www/pgday.fr                                                                                                                               
+sudo -u www-data git clone https://github.com/openSUSE/osem.git /var/www/pgday.fr                                                                          
+sudo chown -R www-data: /var/www/pgday.fr                                                                                                         
+sudo -u www-data git clone https://github.com/openSUSE/osem.git /var/www/pgday.fr                                                                 
+cd /var/www/pgday.fr/
+</code>
+
+https://github.com/openSUSE/osem/blob/master/INSTALL.md#deploy-via-dockerdocker-compose
+
+
+<code>
+sudo cp dotenv.example .env.production
+# modifier le paramètre SECRET_KEY
+sudo vim .env.production
+</code>
+
+<code>
+sudo docker compose -f docker-compose.yml.production-example build
+sudo docker compose -f docker-compose.yml.production-example run --rm production_web bundle exec rake db:bootstrap
+        
+</code>               

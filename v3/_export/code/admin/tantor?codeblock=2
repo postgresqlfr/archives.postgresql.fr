@@ -1,0 +1,29 @@
+#!/bin/bash
+SRVDEST="celeste.postgresql.fr"
+VERSION="9.3"
+INST="main"
+SNAPNAME="snapshot_$(date '+%Y_%m_%d_%H_%M_%S')"
+PGDIR="/var/lib/postgresql/${VERSION}/${INST}/"
+DESTDIR="/data/backups/postgresql/snapshot/${SNAPNAME}/"
+
+rc=0
+
+psql --cluster ${VERSION}/${INST} -c "SELECT pg_start_backup('${SNAPNAME}')"
+if [ $? -ne 0 ]; then
+    echo "Unable to start backup !"
+    exit 1
+fi
+
+rsync -avp --exclude "pg_xlog/*" ${PGDIR} postgres@${SRVDEST}:${DESTDIR}
+if [ $? -ne 0 ]; then
+    echo "Error during rsync of ${PGDIR} to postgres@${SRVDEST}:${DESTDIR} !"
+    rc=1
+fi
+
+psql --cluster ${VERSION}/${INST} -c "SELECT pg_stop_backup()"
+if [ $? -ne 0 ]; then
+    echo "Unable to stop backup !"
+    rc=1
+fi
+
+exit ${rc}

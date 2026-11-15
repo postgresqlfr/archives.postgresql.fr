@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+<head>
+  <meta charset="utf-8" />
+  <title>admin:babar</title>
+<meta name="generator" content="DokuWiki"/>
+<meta name="robots" content="index,follow"/>
+<meta name="keywords" content="admin,babar"/>
+<link rel="search" type="application/opensearchdescription+xml" href="../../../lib/exe/opensearch.php" title="Communauté francophone de PostgreSQL"/>
+<link rel="start" href="../../../index.html"/>
+<link rel="contents" href="https://www.postgresql.fr/admin/babar?do=index" title="Plan du site"/>
+<link rel="manifest" href="../../../lib/exe/manifest.php" crossorigin="use-credentials"/>
+<link rel="alternate" type="application/rss+xml" title="Derniers changements" href="../../../feed.php"/>
+<link rel="alternate" type="text/html" title="HTML brut" href="babar.html"/>
+<link rel="alternate" type="text/plain" title="Wiki balise" href="../../raw/admin/babar"/>
+<link rel="canonical" href="../../../admin/babar.html"/>
+<link rel="stylesheet" href="../../../lib/exe/css.php%3Ft=tortoise&amp;tseed=ad76b451e9e42d817acb1920a91f4def.css"/>
+<link type="text/css" rel="stylesheet" href="../../../lib/plugins/icons/assets/font-awesome/css/font-awesome.min.css"/>
+<link type="text/css" rel="stylesheet" href="../../../lib/plugins/icons/assets/material-design-icons/css/materialdesignicons.min.css"/>
+<script >var NS='admin';var JSINFO = {"ga":{"trackingId":"UA-3921927-1","gtagId":"","anonymizeIp":true,"action":"export_xhtml","trackOutboundLinks":true,"options":[],"pageview":"\/admin\/babar","debug":false},"id":"admin:babar","namespace":"admin","ACT":"export_xhtml","useHeadingNavigation":0,"useHeadingContent":0};(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement);</script>
+<script src="../../../lib/exe/jquery.php%3Ftseed=8faf3dc90234d51a499f4f428a0eae43"></script>
+<script src="../../../lib/exe/js.php%3Ft=tortoise&amp;tseed=ad76b451e9e42d817acb1920a91f4def"></script>
+</head>
+<body>
+<div class="dokuwiki export">
+
+<h1 class="sectionedit1" id="babar">Babar</h1>
+<div class="level1">
+
+
+<div class="plugin_note noteimportant">Si vous effectuez des opérations sur Babar, merci de vous connectez sur <strong>#postgresqlfr-babar</strong> pour vérifier que personne n&#039;a eu la même idée que vous au même moment ! 
+<p>
+Merci de respecter les <a href="../../../admin/regles_de_base.html" class="wikilink1" title="admin:regles_de_base" data-wiki-id="admin:regles_de_base">règles de base</a>
+</p>
+
+</div>
+<p>
+voir aussi → <a href="../../../admin/dumbo.html" class="wikilink1" title="admin:dumbo" data-wiki-id="admin:dumbo">Dumbo</a>
+</p>
+
+</div>
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;Babar&quot;,&quot;hid&quot;:&quot;babar&quot;,&quot;codeblockOffset&quot;:0,&quot;secid&quot;:1,&quot;range&quot;:&quot;1-302&quot;} -->
+<h2 class="sectionedit2" id="profil">Profil</h2>
+<div class="level2">
+<ul>
+<li class="level1"><div class="li"> Role : Webservice</div>
+</li>
+<li class="level1"><div class="li"> Système : debian etch</div>
+</li>
+<li class="level1"><div class="li"> Matos :</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;Profil&quot;,&quot;hid&quot;:&quot;profil&quot;,&quot;codeblockOffset&quot;:0,&quot;secid&quot;:2,&quot;range&quot;:&quot;303-385&quot;} -->
+<h2 class="sectionedit3" id="log">Log</h2>
+<div class="level2">
+
+</div>
+
+<h4 id="septembre_2012redemarrage_suite_crash_electrique_chez_lost-oasis_par_jpa">11 septembre 2012 : redémarrage suite crash électrique chez Lost-Oasis par jpa</h4>
+<div class="level4">
+
+<p>
+Il va falloir qu&#039;on revoie certaines choses, car suite au crash électrique chez Lost-Oasis ce jour, notre service n&#039;a pas redémarré correctement:
+</p>
+
+<p>
+17:46 &lt;@perenoel&gt; jpa: l&#039;une des deux ne doit pas avoir de timeout dans sa conf grub, donc elle attend indéfiniment; l&#039;autre semble avoir freezé avant grub, je l&#039;ai boutonnée et c&#039;est parti
+</p>
+
+<p>
+Suite à ça les machines sont reparties correctement, par contre, sur babar, sur <a href="../../../index.html" class="urlextern" title="http://www.postgresql.fr" rel="ugc nofollow">www.postgresql.fr</a>, on avait carrément une erreur de fluxbb “could not connect to PostgreSQL server”.
+</p>
+
+<p>
+J&#039;ai tenté un /etc/init.d/postgresql-8.3 start:
+</p>
+<pre class="code"># sudo /etc/init.d/postgresql-9.0 status
+pg_ctl: server is running (PID: 4015)
+/usr/local/pgsql/bin/postgres &quot;-D&quot; &quot;/var/lib/postgresql/9.0&quot;
+babar:/var/log/postgresql# sudo /etc/init.d/postgresql-8.3 start
+Starting PostgreSQL 8.3 database server: main^[[B^[[B^[[B^[[B^[[B^[[B^[[B^[[B^[[B/usr/lib/postgresql/8.3/bin/pg_ctl /usr/lib/postgresql/8.3/bin/pg_ctl start -D /data/postgresql/ -l /var/log/postgresql/postgresql-8.3-main.log -s -o -c config_file=&quot;/etc/postgresql/8.3/main/postgresql.conf&quot; The PostgreSQL server failed to start. Please check the log output: Error: Could not open log file /var/log/postgresql/postgresql-8.3-main.log failed!
+ failed!</pre>
+
+<p>
+Suis allé voir:
+</p>
+<pre class="code">babar:/var/log/postgresql# ll
+total 84912
+-rw-r--r-- 1 postgres postgres        0 jui 25  2010 crash_20100720.log
+-rw-r--r-- 1 postgres postgres  3454635 jui 25  2010 crash_20100720.log.1
+-rw-r--r-- 1 postgres postgres     1251 jui 28  2010 dir.txt
+-rw-r----- 1 root     adm      16657578 sep 11 15:30 postgresql-8.3-main.log
+-rw-r----- 1 root     adm      46447055 sep 11 06:38 postgresql-8.3-main.log.0
+-rw-r----- 1 root     adm          3495 aoû 12 06:46 postgresql-8.3-main.log.10.gz
+-rw-r----- 1 root     adm       3035831 sep 10 06:58 postgresql-8.3-main.log.1.gz
+-rw-r----- 1 root     adm       2645366 sep  9 06:47 postgresql-8.3-main.log.2.gz
+-rw-r----- 1 root     adm         58397 sep  9 06:52 postgresql-8.3-main.log.3
+-rw-r----- 1 root     adm       3199850 sep  8 06:49 postgresql-8.3-main.log.4.gz
+-rw-r----- 1 root     adm       2986295 sep  7 06:53 postgresql-8.3-main.log.5.gz
+-rw-r----- 1 root     adm       3345467 sep  6 06:50 postgresql-8.3-main.log.6.gz
+-rw-r----- 1 root     adm       2352271 sep  2 06:47 postgresql-8.3-main.log.7.gz
+-rw-r----- 1 root     adm       2624660 aoû 26 06:46 postgresql-8.3-main.log.8.gz</pre>
+
+<p>
+Ma correction pour que ça reparte:
+</p>
+<pre class="code">babar:/var/log/postgresql# chown postgres.adm postgres*8.3*</pre>
+
+<p>
+Et tout repart:
+</p>
+<pre class="code">babar:/var/log/postgresql# /etc/init.d/postgresql-8.3 start
+Starting PostgreSQL 8.3 database server: main.</pre>
+
+<p>
+Le site est à nouveau up &amp; running à 18h10.
+</p>
+
+<p>
+PS: pas eu le temps de m&#039;en charger avant, ni aucun admin de pg.fr on dirait :(
+</p>
+
+</div>
+
+<h4 id="juillet_2010reconfig_syslog_par_jpa">28 juillet 2010 : reconfig syslog par jpa</h4>
+<div class="level4">
+
+<p>
+J&#039;ai corrigé une  petite erreur dans le /etc/syslog.conf, j&#039;avais oublié de mettre le service local1 en “none”
+pour le fichier /var/log/messages
+</p>
+
+<p>
+Ainsi le fichier /var/log/messages récupérait aussi les logs de PostgreSQL.
+</p>
+
+<p>
+Après correction, j&#039;ai redémarré sysklogd et vérifié que c&#039;était corrigé. Ce qui est le cas.
+</p>
+
+</div>
+
+<h4 id="juillet_2010reconfig_pg_syslog_par_jpa">20 juillet 2010 : reconfig PG + syslog par jpa</h4>
+<div class="level4">
+
+<p>
+suite au crash de ce matin, j&#039;ai voulu faire un coup de pgfouine sur les logs PostgreSQL. Cependant, je me suis aperçu que c&#039;était du stderr et pas du syslog. Et puis, que plusieurs paramètres de configuration étaient par défaut.
+</p>
+
+<p>
+J&#039;ai donc modifié le postgresql.conf comme suit, dans /etc/postgresql/8.3/main
+</p>
+
+<p>
+#checkpoint_segments = 3  (conf par défaut!)
+checkpoint_segments = 20
+</p>
+
+<p>
+#checkpoint_completion_target = 0.5 (conf par défaut!)
+checkpoint_completion_target = 0.9
+</p>
+
+<p>
+effective_cache_size = 128MB
+effective_cache_size = 256MB (mieux adapté à mon goût)
+</p>
+
+<p>
+geqo = on  (laissé à on)
+#geqo_threshold = 12
+geqo_threshold = 20 (pour qu&#039;il se déclenche plus tard)
+</p>
+
+<p>
+#default_statistics_target = 10
+default_statistics_target = 40 (plus adapté àmha)
+</p>
+
+<p>
+Config SYSLOG:
+</p>
+
+<p>
+#log_destination = &#039;stderr&#039;
+log_destination = &#039;syslog&#039;       
+</p>
+
+<p>
+#syslog_facility = &#039;LOCAL0&#039;
+syslog_facility = &#039;LOCAL1&#039;  (pour éviter tout problème avec LOCAL0)
+</p>
+
+<p>
+#silent_mode = off
+silent_mode = on  
+</p>
+
+<p>
+Pour /etc/syslog.conf j&#039;ai modifié:
+</p>
+
+<p>
+*.*;auth,authpriv.none              -/var/log/syslog
+</p>
+
+<p>
+devenu:
+</p>
+
+<p>
+*.*;auth,authpriv.none;local1.none              -/var/log/syslog
+</p>
+
+<p>
+rajouté à la fin du fichier:
+</p>
+
+<p>
+local1.*      /var/log/postgresql/postgresql-8.3-main.log
+</p>
+
+<p>
+restart de syslog puis de pg.
+</p>
+
+<p>
+déplacé le contenu du vieux postgresql.log dans le postgresql.log.1 (avec cat » ..)
+</p>
+
+<p>
+vidé le postgresql.log avec &gt;postgresql.log
+</p>
+
+<p>
+testé pgFouine dessus le nouveau .log (sur ma machine perso): RAS, c&#039;est bon
+</p>
+
+</div>
+
+<h4 id="juillet_2010installation_de_pg_90_par_damien">17 juillet 2010 : installation de PG 9.0 par damien</h4>
+<div class="level4">
+
+<p>
+» <a href="../../../admin/installation_9.0.html" class="wikilink1" title="admin:installation_9.0" data-wiki-id="admin:installation_9.0">installation_9.0</a>
+</p>
+
+</div>
+
+<h4 id="mars_2010reparation_typo_dans_la_conf_postfix_par_damien">28 mars 2010 : réparation typo dans la conf postfix par damien</h4>
+<div class="level4">
+
+</div>
+
+<h4 id="mars_2010mise_a_jour_de_fluxbb_par_gleu">27 mars 2010 : mise à jour de fluxbb par gleu</h4>
+<div class="level4">
+
+</div>
+
+<h4 id="mars_2010mise_a_jour_de_dotclear_par_gleu">26 mars 2010 : mise à jour de Dotclear par gleu</h4>
+<div class="level4">
+
+</div>
+
+<h4 id="mars_2010mise_a_jour_de_dokuwiki_par_gleu">25 mars 2010 : mise à jour de dokuwiki par gleu</h4>
+<div class="level4">
+
+</div>
+
+<h4 id="octobrenouveau_vhost_https_pour_svn_par_jca">9 Octobre : nouveau vhost https pour svn par jca</h4>
+<div class="level4">
+
+<p>
+→ <a href="https://svn.postgresqlfr.org" class="urlextern" title="https://svn.postgresqlfr.org" rel="ugc nofollow">https://svn.postgresqlfr.org</a> 
+</p>
+
+<p>
+Afin de permettre le checkout de svn pgfr à partir de machines derrières des firewall capricieux.
+</p>
+
+<p>
+Certificats et clés dans <code>/etc/ssl/{private,certs}/postgresql.fr.{key,cert}</code>
+</p>
+
+</div>
+
+<h4 id="er_juilletnouveau_vhost_apache_pgdayfr_par_damien">1er juillet : nouveau vhost apache (pgday.fr) par damien</h4>
+<div class="level4">
+
+<p>
+→ <a href="http://www.pgday.fr" class="urlextern" title="http://www.pgday.fr" rel="ugc nofollow">http://www.pgday.fr</a>
+</p>
+
+</div>
+
+<h4 id="maimigration_serveur_mail_par_cedric">21 Mai : migration serveur Mail par cedric</h4>
+<div class="level4">
+
+<p>
+Mise en place du combo <a href="../../../admin/postfix.html" class="wikilink1" title="admin:postfix" data-wiki-id="admin:postfix">Postfix</a> - Postfix-pgsql - <a href="../../../admin/postfixadmin.html" class="wikilink1" title="admin:postfixadmin" data-wiki-id="admin:postfixadmin">Postfixadmin</a> - <a href="../../../admin/courier.html" class="wikilink1" title="admin:courier" data-wiki-id="admin:courier">Courier</a>. Et migration du mx de Priam à Babar.
+Supression du MX secondaire.
+</p>
+
+</div>
+
+<h4 id="mainouvelle_liste_de_diffusion">12 Mai : Nouvelle liste de diffusion</h4>
+<div class="level4">
+
+<p>
+Ajout d&#039;une nouvelle liste de diffusion pour la traduction PostgreSQL et Slony
+</p>
+
+</div>
+
+<h4 id="avrildist-upgrade_par_damien">29 avril : dist-upgrade par damien</h4>
+<div class="level4">
+
+<p>
+RAS
+</p>
+
+</div>
+
+<h4 id="avrilinstallation_de_roundcube_pas_damien">20 avril : installation de roundcube pas damien</h4>
+<div class="level4">
+
+<p>
+→ <a href="../../../admin/webmail.html" class="wikilink1" title="admin:webmail" data-wiki-id="admin:webmail">webmail</a>
+</p>
+
+</div>
+
+<h4 id="avrildist-upgrade_par_damien1">20 avril : dist-upgrade par damien</h4>
+<div class="level4">
+
+<p>
+RAS
+</p>
+
+</div>
+
+<h4 id="avrilinstallation_de_planet_par_damien">3 avril : installation de planet par damien</h4>
+<div class="level4">
+
+<p>
+→ <a href="../../../admin/planet.html" class="wikilink1" title="admin:planet" data-wiki-id="admin:planet">planet</a>
+</p>
+
+</div>
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;Log&quot;,&quot;hid&quot;:&quot;log&quot;,&quot;codeblockOffset&quot;:0,&quot;secid&quot;:3,&quot;range&quot;:&quot;386-&quot;} --></div>
+</body>
+</html>

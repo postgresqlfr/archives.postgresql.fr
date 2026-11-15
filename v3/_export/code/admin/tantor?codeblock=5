@@ -1,0 +1,5 @@
+standby_mode = on
+primary_conninfo = 'host=celeste.postgresql.fr port=5432 user=repli'
+restore_command = 'cp /data/backups/postgresql/xlog/%f %p'
+# pas de cleanup comme on a une sauvegarde pitr, ils seront purgés par le cron PITR
+# pas de trigger file

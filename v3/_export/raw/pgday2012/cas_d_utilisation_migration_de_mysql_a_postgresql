@@ -1,0 +1,21 @@
+====== Cas d'utilisation : Migration de mysql à PostgreSQL ======
+
+__Nom__ : Dimitri Fontaine 
+
+__Employeur__ : 2nd Quadrant
+
+__Titre__ : Cas d'utilisation : Migration de mysql à PostgreSQL
+
+
+__Description__ :
+
+L'un des sujets concerne une migration récente de MySQL à PostgreSQL, où
+l'on passe de 37 bases de données sur 28 machines à 256 bases sur 16
+machines avec plproxy, pour 6TB de données et 32 millions
+d'utilisateurs, 1 milliard de photos et 10 milliards de commentaires.
+
+L'architecture technique du nouveau site est intéressante, nous
+utilisons PostgreSQL 9.1, plproxy, pgbouncer, PGQ et WAl-E (et des
+extensions packagées debian bien sûr), et sommes hébergés chez AWS (EC2,
+EBS etc).  La migration elle-même est intéressante également, nous avons
+même utilisé pljava :)

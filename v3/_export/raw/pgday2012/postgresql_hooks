@@ -1,0 +1,33 @@
+====== PostgreSQL Hooks ======
+
+__Nom__ : Cédric Villemain 
+
+__Employeur__ : 2nd Quadrant
+
+__Titre__ : PostgreSQL Hooks
+
+
+__Description__ :
+
+PostgreSQL fournit de nombreuses solutions pour optimiser le serveur, il
+propose aussi des «crochets» dans le code source pour manipuler le
+serveur dans divers domaines: planification, exécution, statistiques,
+droit d'accès,...
+
+Cette conférence fait le point sur les Hooks existant, leur intérêt et
+illustre tout cela avec des exemples concrets.
+
+-----
+
+
+Le code C de PostgreSQL peut être crocheté par des plugins, eux-aussi
+écrit en C. Cela autorise l'échange de structure complète entre le
+serveur et le plugin, permettant ainsi de complètement changer et
+retravailler ce qui aurait du se produire.
+
+Il s'agit donc d'un moyen simple pour pouvoir ajouter des
+fonctionnalités au serveur PostgreSQL sans altérer son code: aucun patch
+requis. C'est également très pratique pour tester de nouveaux
+algorithmes ou de nouvelles idées: aucun contrôle par le serveur n'est
+fait, vous pouvez tout faire planter ou réaliser des assistants pour DBA
+comme auto-explain ou améliorer le serveur avec le support de SELinux.

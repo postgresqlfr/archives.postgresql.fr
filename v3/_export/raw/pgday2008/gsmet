@@ -1,0 +1,119 @@
+====== 4 ans de PostgreSQL chez Cityvox ======
+
+===== Introduction =====
+
+  * *Très* rapide présentation de ma personne, d'OW et de PostgreSQL chez OW
+  * Présentation de Cityvox et panorama de la galaxie des sites Cityvox
+
+===== Génèse du projet =====
+
+  * Il s'agit d'une migration complète de Apache/Vignette/Oracle vers PHP/PostgreSQL
+  * Pourquoi cette migration ? Quels enjeux ?
+  * Pourquoi PostgreSQL ?
+
+===== Sortir du monde Oracle =====
+
+  * Migration de la base pénible car peu d'outils
+  * Migration du schéma
+  * Migration des données, extraction des photos de la base
+  * Problèmes rencontrés
+  * Quels composants aujourd'hui pour faciliter ces migrations ?
+
+===== La transition vers PostgreSQL =====
+
+  * Réécriture des requêtes
+  * Prise en main par le client
+  * Ce qui a marqué le client lors de sa prise en main
+
+===== L'architecture complète =====
+
+  * Avant / Après
+  * Ensemble des composants Open Source mis en oeuvre
+ 
+===== La mise en production =====
+
+  * Janvier 2005
+  * Un succès total
+
+===== Les premiers soucis =====
+
+  * Problème de scalabilité de la version 7.4 sur les architectures quadri Xeon : très difficile à quantifier jusqu'à la mise en orbite du site pour la St Valentin 2006.
+  * Explosion du site suite à la lenteur de certaines requêtes : manque de visibilité sur ce qu'il se passe sur la base : quelles requêtes posent problèmes ? Comment diagnostiquer ?
+  * Le cache du site était sous forme de fichiers / serveur : problème de scalabilité. On éteignait des serveurs pour mieux tenir la charge...
+  * SPOF sur la base de données - on se repose sur les sauvegardes
+
+===== Et des solutions =====
+
+  * Migration vers la version 8.1 : une seconde jeunesse
+  * Quelques rapports PQA, Thomas Favier d'Accelance MSP contribue à permettre l'usage de PQA sur des sites à forte charge. Réécriture complète de PQA sous la forme de pgFouine afin d'en régler les problèmes structurelles : industrialisation de la génération des statistiques
+  * Mise en place de Memcached pour avoir du cache distribué (avec quelques ratés)
+  * Mise en place d'un serveur PostgreSQL en standby
+
+===== Jusqu'à un autre souci =====
+
+  * On commence à voir apparaître de grosses lenteurs sur le site sans croissance du nombre de visiteurs (mesure estat)
+  * Aucun problème de lenteur spécifique
+  * Difficulté à analyser les logs de par leur taille et la diversité des URLs (AWStats et Webalizer ont du mal) -> peu de visibilité
+  * Après quelques temps, on se rend compte que c'est Google qui génère un trafic énorme
+  * Décision de mettre en place un serveur web et un réplicat quotidien de la base de données dédiés à Google
+  * Dommage qu'on ne puisse accéder en lecture au serveur en standby...
+
+===== Quelques lenteurs chroniques sur des requêtes =====
+
+  * Requêtes géographiques : on met en place cube et earthdistance : mieux mais pas totalement satisfaisant car répartition très inégale et statistiques constantes
+  * Recherche plein texte dans le backoffice : quelques essais sont faits avec tsearch2 mais complexe à maintenir (les joies des migrations de contrib/) et toujours en dessous de Lucene
+
+===== Après 3 ans, on atteint les limites =====
+
+  * de garantie...
+  * de performances principalement au niveau de la base de données
+  * de flexibilité et de capacité à maintenir une plate-forme qui a beaucoup évolué en 3 ans (principalement au niveau des applications périphériques)
+  * bon timing pour le passage en 8.3 qui promet beaucoup
+
+===== Refonte totale =====
+
+  * on a beaucoup appris en 3 ans, on en profite pour régler tous les problèmes structurels :
+  
+  - utilisation des delay_pools de Squid 2.6 pour canaliser les robots d'indexation : plus de serveur dédié et de base dédiée (manque de test lors des mises en production de nouveaux sites,  *..)
+  - recentralisation de tous les sites sur les serveurs frontaux principaux : plus de fiabilité mais aussi plus de connexions parallèles 
+  - utilisation de vservers pour contenir toutes les applications périphériques
+  - mise en place de toutes les bonnes pratiques PostgreSQL du moment 
+
+====== Les bonnes pratiques PostgreSQL ======
+
+  * en 3 ans, PostgreSQL s'est très industrialisée
+  * mise en place de l'autovacuum
+  * mise en place de phpPgAdmin
+  * mise en place de pgBouncer (merci Skype) pour limiter le nombre de
+connexions à la base
+  * mise en place de walmgr (Skytools, merci Skype) pour gérer le warm standby
+  * mise en place de PostGIS pour les requêtes géographiques
+   - l'ensemble en packaging RPM
+
+===== La validation de la montée de version PostgreSQL =====
+
+  * étalée sur plusieurs mois en amont de décembre (date de sortie prévue)
+  * détection de régressions au cours du cycle de test, régressions très
+vite corrigées (je donnerai le détail)
+  * le retard de la sortie de la 8.3 ne nous arrange pas...
+  * mise en production le jour de la sortie de la 8.3, sécurisée par toute
+la phase de test amont
+    - importance de cette démarche de test au cours de la phase de
+développement
+
+===== Les dernières réalisations =====
+
+  * mise en place de Solr (serveur de recherche basé sur Lucene interrogeable en HTTP) pour adresser le besoin fonctionnel de recherche full text et proposer des moyens de navigation différents différents
+  * forcément moins intégré à la BDD que tsearch2 mais état de l'art en ce qui concerne les fonctionnalités de recherche (faceting, recherche approximative...)
+
+===== Mise en production de la nouvelle plate-forme =====
+
+  * grande réussite en terme de performances, fiabilité, administrabilité de la plate-forme
+  * PostgreSQL 8.3 est une grande release !
+
+====== Conclusion globale ======
+
+  * PostgreSQL a été le bon choix : tout au long de ces années, les nouvelles versions ont permis d'absorber la croissance du trafic
+  * La confiance du client a été un des facteurs clés de réussite (choix initiaux, confiance dans la mise en production de la 8.3...)
+  * La communauté PostgreSQL est une richesse : implication, disponibilité, qualité des échanges...
+  * Elle a produit en 3 ans énormément d'outils de qualité permettant de régler des problèmes concrets.

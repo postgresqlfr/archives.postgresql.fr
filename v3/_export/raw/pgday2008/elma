@@ -1,0 +1,44 @@
+====== Cas d'utilisation de PostgreSql ======
+
+=====  Cas simple =====
+==== petite base de données (5Go) et application Web ====
+
+Présentation simple et description des limites
+===== Cas avec Volume =====
+==== base plus importante (150Go) et application Web ====
+
+Présentation, conquêtes des limites, architecture applicative pour la
+monté en charge, architecture hardware
+===== Cas concurrentiel =====
+==== base, application web et script métier ====
+
+La puissance du moteur transactionnel, les niveaux de verrouillage
+
+====== La performance ======
+
+===== Choix du hardware =====
+
+raid10 vs raid5, la ram, problème des redémarrages (cache disque
+vide)...
+===== Analyse de l'activité =====
+
+Point à mesurer: accès aux tables, nombre de transaction, nombre de
+req/s, plan de requête, requête en cours...
+=====  L'impact du système référentiel sur les performances =====
+
+Explication, opportunité d'utilisation, limites
+
+====== Les outils autour de PostgreSQL ======
+
+===== Réplication: Slony =====
+
+===== Sauvegarde: pg_dump et archive command =====
+
+===== Supervision: nagios =====
+
+===== diagnostique =====
+table de statistiques de PostgreSQL, pgspy, strace, dstat, iostat
+
+====== conclusion/questions ======
+
+{{pgday2008:pres_elma.odp|Le draft de présentation}}

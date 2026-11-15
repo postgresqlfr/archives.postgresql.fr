@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+<head>
+  <meta charset="utf-8" />
+  <title>support:trucs_et_astuces:supprimer_les_fonctions_a_l_interieur_d_un_schema</title>
+<meta name="generator" content="DokuWiki"/>
+<meta name="robots" content="index,follow"/>
+<meta name="keywords" content="support,trucs_et_astuces,supprimer_les_fonctions_a_l_interieur_d_un_schema"/>
+<link rel="search" type="application/opensearchdescription+xml" href="../../../../lib/exe/opensearch.php" title="Communauté francophone de PostgreSQL"/>
+<link rel="start" href="../../../../index.html"/>
+<link rel="contents" href="https://www.postgresql.fr/support/trucs_et_astuces/supprimer_les_fonctions_a_l_interieur_d_un_schema?do=index" title="Plan du site"/>
+<link rel="manifest" href="../../../../lib/exe/manifest.php" crossorigin="use-credentials"/>
+<link rel="alternate" type="application/rss+xml" title="Derniers changements" href="../../../../feed.php"/>
+<link rel="alternate" type="text/html" title="HTML brut" href="supprimer_les_fonctions_a_l_interieur_d_un_schema.html"/>
+<link rel="alternate" type="text/plain" title="Wiki balise" href="../../../raw/support/trucs_et_astuces/supprimer_les_fonctions_a_l_interieur_d_un_schema"/>
+<link rel="canonical" href="../../../../support/trucs_et_astuces/supprimer_les_fonctions_a_l_interieur_d_un_schema.html"/>
+<link rel="stylesheet" href="../../../../lib/exe/css.php%3Ft=tortoise&amp;tseed=ad76b451e9e42d817acb1920a91f4def.css"/>
+<link type="text/css" rel="stylesheet" href="../../../../lib/plugins/icons/assets/font-awesome/css/font-awesome.min.css"/>
+<link type="text/css" rel="stylesheet" href="../../../../lib/plugins/icons/assets/material-design-icons/css/materialdesignicons.min.css"/>
+<script >var NS='support:trucs_et_astuces';var JSINFO = {"ga":{"trackingId":"UA-3921927-1","gtagId":"","anonymizeIp":true,"action":"export_xhtml","trackOutboundLinks":true,"options":[],"pageview":"\/support\/trucs_et_astuces\/supprimer_les_fonctions_a_l_interieur_d_un_schema","debug":false},"id":"support:trucs_et_astuces:supprimer_les_fonctions_a_l_interieur_d_un_schema","namespace":"support:trucs_et_astuces","ACT":"export_xhtml","useHeadingNavigation":0,"useHeadingContent":0};(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement);</script>
+<script src="../../../../lib/exe/jquery.php%3Ftseed=8faf3dc90234d51a499f4f428a0eae43"></script>
+<script src="../../../../lib/exe/js.php%3Ft=tortoise&amp;tseed=ad76b451e9e42d817acb1920a91f4def"></script>
+</head>
+<body>
+<div class="dokuwiki export">
+
+<h1 class="sectionedit1" id="supprimer_les_fonctions_a_l_interieur_d_un_schema">Supprimer les fonctions à l&#039;intérieur d&#039;un schéma</h1>
+<div class="level1">
+
+<p>
+Trouvé sur un des <a href="http://drupal.postgresql.fr/?q=node/1192" class="urlextern" title="http://drupal.postgresql.fr/?q=node/1192" rel="ugc nofollow">forums</a>, cette astuce qui mérite de figurer dans le cookbook.
+</p>
+
+<p>
+Pour supprimer toutes les fonctions d&#039;un schéma, on peut utiliser la commande suivante, en shell :
+</p>
+<pre class="code bash">psql <span class="re5">-U</span> MON_USER MA_BASE <span class="re5">-t</span> <span class="re5">-P</span> <span class="re2">format</span>=unaligned <span class="re5">-c</span> <span class="st0">&quot;\df MON_SCHEMA.*&quot;</span><span class="sy0">|</span><span class="kw2">awk</span> <span class="re5">-F</span> <span class="st_h">'|'</span> <span class="st_h">'{if (NF &gt; 0 ) print &quot;drop function &quot;$2&quot;(&quot;$4&quot;) cascade;&quot;;}'</span> <span class="sy0">|</span> psql <span class="re5">-U</span> MON_USER MA_BASE</pre>
+
+<p>
+Le cascade permet de gérer la présence d&#039;une fonction d&#039;agrégation.
+</p>
+
+<p>
+Il est utile pour le bon fonctionnement de la commande de mettre le mot de passe de l&#039;utilisateur dans la variable d&#039;environnement <code>PGPASSWORD</code>.
+</p>
+
+<p>
+Merci à jxemo pour cette astuce et à Sparky pour la piste.
+</p>
+
+<p>
+– <br/>
+
+SAS le 22/05/2007
+</p>
+
+<p>
+Finalement, j&#039;ai une autre façon de faire, que je préfère
+</p>
+<pre class="code">psql -U mon_user DATABASE -t -c &quot;select &#039;drop function &#039;||nspname||&#039;.&#039;||proname||&#039;;&#039; 
+  from pg_proc join pg_namespace as m on 
+  (pronamespace=m.oid) where nspname = lower(&#039;MONSCHEMA&#039;)&quot; &gt; a.sql
+
+psql -U mon_user DATABASE -e -f a.sql</pre>
+
+<p>
+–<br/>
+
+Sparky le 20/04/2010
+</p>
+
+</div>
+</div>
+</body>
+</html>

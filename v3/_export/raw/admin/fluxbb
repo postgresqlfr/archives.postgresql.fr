@@ -1,0 +1,17 @@
+====== Forum: fluxbb ======
+
+===== Modifications effectuées =====
+
+Ajout de l'attribut « nofollow » sur tous les liens utilisateurs dans le but d'éviter les nombreux messages de spam/bot :
+
+Fichier **/var/www/forum.postgresql.fr/include/parser.php**, ligne **683**.
+
+Avant :
+<code bash>
+return '<a href="'.$full_url.'">'.$link.'</a>';
+</code>
+
+Après :
+<code bash>
+return '<a href="'.$full_url.'" rel="nofollow">'.$link.'</a>';
+</code>

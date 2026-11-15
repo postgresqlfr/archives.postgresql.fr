@@ -1,0 +1,123 @@
+====== Témoignage de David PEYRIERES, Ingénieur DBA, Météo France ======
+
+**Êtes-vous d'accord pour que vos nom, prénom, courriel, organisation et fonction dans celle-ci soit connus du public ?**
+
+ Oui!
+
+    * Organisation: Météo-France
+    * Site web: http://www.meteo.fr/
+    * Prénom: David 
+    * Nom: [[david.peyrieres@meteo.fr|PEYRIERES]]
+    * Fonction: Ingénieur - DBA 
+
+**Travaillez-vous pour une organisation à but lucratif, associatif ou gouvernemental ?**
+
+Service public, Météo-France.
+
+**Quelle est la taille de votre organisation en nombre de collaborateurs ?**
+
+3000 personnes réparties sur tout le territoire français (métropole et outre-mer).
+
+**À quoi sert(vent) la(les) base(s) de données utilisée(s) dans votre organisation ?**
+
+La plupart des applications centrales de Météo-France s'appuient sur des SGBDR pour :
+
+    * héberger des données scientifiques (mesures de données, données de prévisions numériques, images satellites ou images radars,...). La disponibilité et la consistance des données y sont critiques notamment pour la sécurité civile 
+
+    * héberger des données de serveur web, d'applications diverses ou pour les besoins liés à la gestion commerciale et aux ressources humaines.
+
+Toutes ces données sont stockées dans des bases de données relationnelles. Leur rôle dans le système d'informations est donc prépondérant.
+
+**Les bases de données gérées sont-elles critiques pour votre organisation ?**
+
+OUI. La plupart sont très critiques car elles jouent un rôle majeur dans le système de production qui sert à remplir les missions de sécurité civile (cartes de vigilance, prévisions aéronautiques, prévisions marines, etc) confiées par l'Etat à Météo France. Elles sont d'ailleurs pour la plupart redondées (alimentation en parallèle ou réplication niveau SGBDR).
+
+**Quel est le nombre de bases de données qui fonctionnent sous PostgreSQL par rapport au nombre total de bases de données (tous SGBD confondus) de votre organisation ?**
+
+En dehors de bases de données utilisées par les RH, nos bases de données opérationnelles, ou non, fonctionnent à 95% sous PostgreSQL (MySQL historique pour les derniers %).
+Une exigence interne a été validée en 2016 pour imposer PostgreSQL comme SGBD pour tout nouveau projet de l'Etablissement.
+
+
+**Quelle est la taille minimum/max/moyenne des bases gérées ?**
+
+La base la plus volumineuse (répliquée sur un standby) pèse environ 30 Tera-octets mais son volume transactionnel quotidien est en proportion relativement faible : de l'ordre de 100Go/jour.
+La base qui héberge les données de prévision numérique, dont la plupart sont générées par notre super-calculateur, héberge quant à elle et à ce jour une volumétrie de 16To avec un volume quotidien de 3To (base tampon avec une rétention de quelques jours). Les volumes de cette dernière ont tendance à croître régulièrement en fonction de l'évolution des modèles de prévision dont la résolution temporelle et géographique ne font qu'augmenter.
+
+**PostgreSQL est-il utilisé dans un contexte transactionnel ou datamining/datawarehouse ?**
+
+Les deux.
+
+**Quelle est la version utilisée ?**
+
+De 9.5 pour la plus ancienne à 11 pour les plus récentes.
+
+**Quel est le type du serveur sur lequel est installé PostgreSQL ?**
+
+La plupart des bases sont sur des serveurs linux CentOS (6/7).
+
+**Quelle est la part des logiciels libres dans votre organisation ? Au niveau des serveurs ? Et au niveau des postes clients ?**
+
+La part est de plus en plus importante pour des raisons d'économie. 
+
+**Quel est le "nombre de serveurs en technologies libres (globalement)" ? et le nombre de serveurs au total, dans votre organisation ?**
+
+Le nombre total de serveurs dans l'organisation est de l'ordre du millier. La majeure partie sous Linux.
+
+**Depuis combien de temps PostgreSQL est-il utilisé dans l'organisation et/ou depuis quelle version ?**
+
+Des tests ont débuté en 2003/2004 avec la version 7. En production: depuis 2005 avec la version 8.0.
+
+**PostgreSQL est-il venu en remplacement d'une technologie propriétaire (ou plusieurs), si oui, laquelle (lesquelles) ?**
+
+Certaines applications ont démarré sur PostgreSQL, pour d'autres il s'agit d'une migration depuis Oracle et MySQL.
+
+**Si vous avez remplacé une technologie propriétaire par PostgreSQL: pourquoi ?**
+
+L'absence de coût de licence est l'argument majeur. D'autres arguments comme la robustesse, la facilité d'installation, l'écosystème, la réactivité de la communauté, ont plaidé pour PostgreSQL.
+
+**Si vous avez remplacé une technologie propriétaire par PostgreSQL, avez vous testé d'autres SGBD Libres ? Si oui, lesquels ?**
+
+Non pas vraiment.
+
+**Si vous avez testé d'autres SGBD/R libres: Pourquoi avoir choisi PostgreSQL au final ?**
+
+Voir point précédent.
+
+**À présent, donnez des notes de 1 à 5 et commentez 1 = mauvais, 2 = passable, 3 = moyen, 4 = bon, 5 = très bon**
+
+**Quel est votre ressenti sur PostgreSQL en termes de fiabilité ?**
+
+5
+
+**...de robustesse ?**
+
+5
+
+**...d'administration ?**
+
+4
+
+**...de facilité d'utilisation ?**
+
+5
+
+**...de performances ?**
+
+5
+
+
+**...de « scalabilité » ?**
+
+4 (Cf réplication en hot_standby et réplication logique)
+
+
+
+**Le support de la communauté PostgreSQL vous paraît-il efficace ?**
+
+Oui, très réactif et efficace.   
+
+
+
+
+Mis à jour Le 23/01/2020
+

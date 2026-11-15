@@ -1,0 +1,301 @@
+====== Mise à jour de l'infra postgresql avril 2014 ======
+
+===== Remarques et todo =====
+
+  * tantor a 2 ip :
+    * 95.142.160.131
+    * 95.142.169.64
+
+Une raison particulière à ça ? Le dns pointe sur 95.142.160.131
+
+  * Installation d'etckeeper ?
+  * durée de rétention des sauvegardes ? (5 jours pour le moment)
+  * <del>passer le listen_addresses à '*' sur les 2 machines pour simplifier la conf ?</del> oui (rjuju)
+  * envoi de mails depuis les crons ? si oui à quelle adresse ?
+  * <del>utilisation des liens symboliques **/data** plutôt que des vrais chemins **/srv/data_(celeste|tantor)** pour simplifier et unifier au maximum les scripts ?</del> oui (rjuju)
+    * les seuls scripts différents sur les 2 machines sont
+      * le ''postgresql.conf'' (archive_command + éventuellement le listen_addresses)
+      * le ''recovery.conf'' (primary_conninfo)
+      * les crontabs: le script de sauvegarde PITR (rsync vers le serveur)
+
+===== Actions =====
+
+  * Suppression de l'instance 8.4 sur [[tantor]]
+  * <del>Création du lien symbolique **/var/lib.postgresql** pointant vers **/srv/data_tantor/var/lib/postgresql**</del> rjuju
+  * Migration de [[celeste]] vers postgresql 9.3.4
+    * temps estimé : TODO
+  * <del>Mise en réplication entre [[celeste]] et [[tantor]]</del> rjuju
+    * <del>log shipping</del>
+    * <del>streaming replication</del>
+    * <del>pas de hot standby</del>
+  * <del>Mise en place d'une sauvegarde PITR de [[celeste]] (en plus du pg_dumpall déjà en place)</del> rjuju
+  * Déplacement des sauvegardes pg_dumpall + rsync de celles-ci sur le FS /data/srv_(celeste_tantor) (actuellement sur le FS / )
+  * <del>Installation de sysstat sur [[celeste]] et [[tantor]]</del> rjuju
+  * Mise en place de rapports pgBadger et pgCluu quotidiens
+
+===== Détails =====
+
+==== Suppression instance 8.4 sur tantor ====
+
+A priori instance non utilisée, pas de précaution à prendre.
+
+<note>
+Sauf avis contraire ?
+</note>
+
+==== Migration en 9.3 ====
+
+Mise à jour via pg_dumpall.
+
+<note important>
+Temps de l'opération à définir. \\
+La sauvegarde pg_dumpall|gz prend actuellement moins d'une minute et occupe un peu moins de 30 Mo.
+</note>
+
+<note>
+tests des applicatifs en 9.3 ?
+</note>
+
+  * <del>Installation de la 9.3</del> rjuju
+    * <del>Configuration du dépôts apt.postgresql.org sur [[tantor]] :</del>
+      * <del>fichier /etc/apt/sources.list.d/postgresql.list</del>
+
+  deb http://apt.postgresql.org/pub/repos/apt/ squeeze-pgdg main
+
+    * <del>+ autres étapes, voir http://wiki.postgresql.org/wiki/Apt</del>
+    * <del>sudo apt-get install postgresql-9.3 postgresql-client-9.3 postgresql-contrib-9.3</del>
+      * <del>sur [[celeste]] et [[tantor]]</del>
+
+<note important>
+Positionner **manual** dans le fichier **/etc/postgresql/9.2/main/start.conf** sur [[celeste]] le temps de l'opération pour ne pas que l'instance 9.2 ne redémarre automatiquement.
+</note>
+
+
+==== Mise en réplication ====
+
+  * <del>Ajout de la clé publique de postgres@tantor sur postgres@celeste</del> (fait par rjuju le 7/04/2014)
+  * <del>Création des répertoires d'archivages de WAL et des snapshots sur [[celeste]] et [[tantor]]</del> rjuju
+    * <del>on utilise les liens symboliques **/data** point sur **/srv/data_(celeste|tantor)**</del>
+    * <del>**/data/backups/postgresql/xlog/**</del>
+    * <del>**/data/backups/postgresql/snapshot/**</del>
+  * <del>Ajout d'un utilisateur de réplication</del>
+    * <del>CREATE ROLE repli REPLICATION ;</del>
+<note>
+<del>création d'un mot de passe et mise en place d'un fichier .pgpass ou du trust ?</del>
+Mot de passe et .pgpass (rjuju)
+</note>
+
+  * <del>Modification de la configuration postgres sur celeste :</del> rjuju
+
+<file>
+archive_mode = on
+archive_command = 'rsync -a %p postgres@tantor.postgresql.fr:/data/backups/postgresql/xlog/%f'
+wal_level = hot_standby # au cas où on veuille passer en hot_standby
+checkpoint_completion_target = 0.9
+ssl = true
+log_checkpoints = on
+log_disconnections = on
+log_connections = on
+log_line_prefix = '%t [%p]: [%l-1] db=%d,user=%u '
+shared_buffers = 128MB
+wal_buffers = -1
+max_wal_senders = 3
+port = 5432
+max_connections = 100
+listen_addresses = 'localhost,217.70.189.115' # ip de celeste
+lc_messages = 'C'
+default_text_search_config = 'pg_catalog.french'
+</file>
+
+  * <del>Modification de la configuration postgres sur tantor :</del> rjuju
+
+<file>
+archive_mode = on
+archive_command = 'rsync -a %p postgres@celeste.postgresql.fr:/data/backups/postgresql/xlog/%f'
+wal_level = hot_standby # au cas où on veuille passer en hot_standby
+checkpoint_completion_target = 0.9
+ssl = true
+log_checkpoints = on
+log_disconnections = on
+log_connections = on
+log_line_prefix = '%t [%p]: [%l-1] db=%d,user=%u '
+shared_buffers = 128MB
+wal_buffers = -1
+max_wal_senders = 3
+port = 5432
+max_connections = 100
+listen_addresses = 'localhost,95.142.160.131' # ip de tantor
+lc_messages = 'C'
+default_text_search_config = 'pg_catalog.french'
+</file>
+
+  * <del>Modification du pg_hba.conf sur celeste et tantor :</del> rjuju
+<file>
+#connexions locales
+local       all             all                                     peer
+host        all             all             127.0.0.1/32            md5
+host        all             all             ::1/128                 md5
+
+# pas de connexion sans ssl
+hostnossl   all             all             0.0.0.0/0               reject
+
+# on autorise celese et tantor
+hostssl     all             postgres        217.70.189.115/32       md5
+hostssl     all             postgres        95.142.160.131/32       md5
+
+# on autorise celeste et tantor à se connecter pour la réplication
+hostssl     replication     repli           217.70.189.115/32       md5
+hostssl     replication     repli           95.142.160.131/32       md5
+
+# on rejette tout le reste
+hostssl   all all 0.0.0.0/0 reject
+</file>
+
+  * <del>Création du recovery.conf sur tantor :</del> rjuju
+
+<file>
+standby_mode = on
+primary_conninfo = 'host=celeste.postgresql.fr port=5432 user=repli'
+restore_command = 'cp /data/backups/postgresql/xlog/%f %p'
+# pas de cleanup comme on a une sauvegarde pitr, ils seront purgés par le cron PITR
+# pas de trigger file
+</file>
+
+==== Mise à jour des scripts de dump ====
+
+  * Création du nouveau répertoire, en tant que postgres, sur celeste :
+
+  mkdir -p /data/backups/postgresql
+  mkdir -p /data/backups/postgresql-tantor
+
+  * Création du nouveau répertoire, en tant que postgres, sur tantor :
+
+  mkdir -p /data/backups/postgresql
+  mkdir -p /data/backups/postgresql-celeste
+
+  * Déplacement des anciennes sauvegardes, sur celeste en tant que postgres:
+
+  mv /var/backups/postgresql/* /data/backups/postgresql
+  rmdir /var/backups/postgresql
+
+  * Déplacement des anciennes sauvegardes, sur tantor en tant que postgres:
+
+  mv /var/backups/postgresql-celeste/* /data/backups/postgresql-celeste
+  rmdir /var/backups/postgresql-celeste
+
+  * Sur celeste, crontab ''postgres'':
+<code>
+0 1 * * *   pg_dumpall | gzip -c > /data/backups/postgresql/pgsql.daily.sql.gz
+0 2 * * 1   pg_dumpall | gzip -c > /data/backups/postgresql/pgsql.weekly.sql.gz
+0 3 1 * *   pg_dumpall | gzip -c > /data/backups/postgresql/pgsql.monthly.sql.gz
+0 4 * 1 *   pg_dumpall | gzip -c > /data/backups/postgresql/pgsql.yearly.sql.gz
+
+# export vers Tantor
+0 6 * * *   rsync -av --delete /data/backups/postgresql/* tantor.postgresql.fr:/data/backups/postgres-celeste/
+
+</code>
+
+  * Sur tantor, crontab ''postgres'':
+<code>
+#0 1 * * *   pg_dumpall | gzip -c > /data/backups/postgresql/pgsql.daily.sql.gz
+#0 2 * * 1   pg_dumpall | gzip -c > /data/backups/postgresql/pgsql.weekly.sql.gz
+#0 3 1 * *   pg_dumpall | gzip -c > /data/backups/postgresql/pgsql.monthly.sql.gz
+#0 4 * 1 *   pg_dumpall | gzip -c > /data/backups/postgresql/pgsql.yearly.sql.gz
+
+# export vers Celeste
+#0 6 * * *   rsync -av --delete /data/backups/postgresql/* celeste.postgresql.fr:/data/backups/postgres-tantor/
+
+</code>
+
+==== Mise en place de la sauvegarde PITR ====
+
+  * <del>Script de sauvegarde PITR sur celeste:</del> rjuju
+
+<code bash>
+#!/bin/bash
+SRVDEST="tantor.postgresql.fr"
+VERSION="9.3"
+INST="main"
+SNAPNAME="snapshot_$(date '+%Y_%m_%d_%H_%M_%S')"
+PGDIR="/var/lib/postgresql/${VERSION}/${INST}/"
+DESTDIR="/data/backups/postgresql/snapshot/${SNAPNAME}/"
+
+rc=0
+
+psql --cluster ${VERSION}/${INST} -c "SELECT pg_start_backup('${SNAPNAME}')"
+if [ $? -ne 0 ]; then
+    echo "Unable to start backup !"
+    exit 1
+fi
+
+rsync -avp --exclude "pg_xlog/*" ${PGDIR} postgres@${SRVDEST}:${DESTDIR}
+if [ $? -ne 0 ]; then
+    echo "Error during rsync of ${PGDIR} to postgres@${SRVDEST}:${DESTDIR} !"
+    rc=1
+fi
+
+psql --cluster ${VERSION}/${INST} -c "SELECT pg_stop_backup()"
+if [ $? -ne 0 ]; then
+    echo "Unable to stop backup !"
+    rc=1
+fi
+
+exit ${rc}
+
+</code>
+
+  * <del>Script de sauvegarde PITR sur tantor (en cas de switchover) :</del> rjuju
+
+<code bash>
+#!/bin/bash
+SRVDEST="celeste.postgresql.fr"
+INST="main"
+SNAPNAME="snapshot_$(date '+%Y_%m_%d_%H_%M_%S')"
+PGDIR="/var/lib/postgresql/${VERSION}/${INST}/"
+DESTDIR="/data/backups/postgresql/snapshot/${SNAPNAME}/"
+
+rc=0
+
+psql --cluster ${VERSION}/${INST} -c "SELECT pg_start_backup('${SNAPNAME}')"
+if [ $? -ne 0 ]; then
+    echo "Unable to start backup !"
+    exit 1
+fi
+
+rsync -avp --exclude "pg_xlog/*" ${PGDIR} postgres@${SRVDEST}:${DESTDIR}
+if [ $? -ne 0 ]; then
+    echo "Error during rsync of ${PGDIR} to postgres@${SRVDEST}:${DESTDIR} !"
+    rc=1
+fi
+
+psql --cluster ${VERSION}/${INST} -c "SELECT pg_stop_backup()"
+if [ $? -ne 0 ]; then
+    echo "Unable to stop backup !"
+    rc=1
+fi
+
+exit ${rc}
+</code>
+
+  * <del>Script de purge PITR (snapshot + WAL) sur celeste (en cas de switchover) et tantor :</del> rjuju
+
+<code bash>
+#!/bin/bash
+RETENTION=5
+# Suppression des snapshots de plus de $RETENTION jours
+find /data/backups/postgresql/snapshot/ -maxdepth 1 -type d -name "snapshot_*" -mtime +${RETENTION} -print -exec rm -rf {} \;
+
+# Suppression des WAL de plus de $RETENTION jours
+find /data/backups/postgresql/xlog -type f -mtime +${RETENTION} -print -delete
+</code>
+
+
+==== pgBadger + pgCluu ====
+
+  * <del>Installation de sysstat</del>
+
+  sudo apt-get install sysstat
+
+<note>
+TODO
+</note>

@@ -1,0 +1,131 @@
+====== Sébastien DINOT, Ingénieur en développement, NEWTECH MULTIMEDIA ======
+
+**Êtes vous d'accord pour que votre nom, prénom, courriel, nom d'organisation et
+votre fonction dans celle-ci soit connue du public ?**
+
+Sébastien DINOT, Ingénieur en développement, NEWTECH MULTIMEDIA
+
+Organisation :\\
+
+NEWTECH MULTIMEDIA\\
+3 chemin du pigeonnier de la Cépière\\
+F – 31 100 TOULOUSE\\
+http://www.newtech.fr/\\
+
+Contact :
+
+Sébastien DINOT\\
+s.dinot@newtech.fr\\
++33 (0)5 61 43 14 85\\
+
+Date : 11 février 2004
+
+**Quelle est la finalité de la base de données PostgreSQL ?
+Par exemple, est-elle à but scientifique, technique, de gestion, de comptabilité ?
+Quel est son contexte métier (médical, social, association, etc...) ?**
+
+Nous utilisons PostgreSQL pour collecter et analyser en temps réel des données techniques en provenance de divers services.
+
+**Ces bases de données sont-elles critiques pour l'organisation (les données stockées sont-elles crutiales ou non) ?**
+
+Oui, la disponibilité et la consistance de ces données est critique.
+
+**Quel est le nombre de bases de données distinctes sous PostgreSQL ?
+Quelle fraction cela représente-t'il par rapport au nombre total de bases de données de l'organisation ?**
+
+Nous utilisons actuellement quatre bases de données en production sur quatre serveurs différents.
+Ces bases sont pour l'instant minoritaires en regard des dizaines de bases de données que nous utilisons par ailleurs (MySQL et SQLServer).
+Mais il est aujourd'hui certain que les serveurs PostgreSQL remplaceront à terme tous les serveurs SQLServer.
+
+**Quelle est la volumétrie de ces bases (nombre de tables et d'enregistrements par table, occupation disque) ?**
+
+Une seule base PostgreSQL contient environ
+trente tables et jusqu'à trois millions d'enregistrements par
+table, l'ensemble représentant plus de deux giga-octets de
+données.
+
+**PostgreSQL est-il utilisé dans un contexte transactionnel (beaucoup de requêtes rapides et unitaires comme c'est le cas pour un site de vente en ligne)
+ou plutôt de type datamining/datawarehouse (par exemple, études statistiques sur quelques millions ou milliards de tuples comme c'est le cas pour un système de pilotage basé sur des faisceaux de capteurs ou l'étude du génome humain ou l'analyse statistique des tickets de caisses d'un supermarché, etc..) ?**
+
+Nous utilisons PostgreSQL dans les deux contextes. L'alimentation de la base est continue et s'effectue par de fréquentes et nombreuses requêtes.
+L'analyse des données porte par contre sur l'intégralité des enregistrements et nécessite des traitements lourds.
+
+**Quelle est la version de PostgreSQL utilisée ?**
+
+Nous utilisons les versions 7.2 à 7.3 de PostgreSQL.
+
+**Depuis combien de temps PostgreSQL est-il utilisé dans l'organisation et/ou depuis quelle version ?**
+
+Nous utilisons PostgreSQL depuis plus de deux ans maintenant.
+
+**PostgreSQL a-t-il remplacé un outil propriétaire ?
+Si oui, lequel et pourquoi ?**
+
+Oui, PostgreSQL remplace avantageusement SQLServer.
+
+En premier lieu, lorsque nos besoins ont évolué au point de nécessiter le changement de SGBD, une étude interne a montré que seuls PostgreSQL et Oracle satisfaisaient nos attentes en terme de performances et de fonctionnalités.
+Oracle a été éliminé à cause du coût.
+
+Par ailleurs, PostgreSQL fonctionne sous GNU/Linux. L'adopter nous a donc permis de nous affranchir des serveurs MS-Windows NT (nécessaires pour SQLServer) dont nous étions mécontents.
+
+Au final, opter pour PostgreSQL nous a permis d'acheter pour le même budget un serveur solide et performant.
+
+**Avez vous testé d'autres SGBD libres ? Si oui, lesquels ?
+Si oui, pourquoi avez-vous choisi PostgreSQL ?**
+
+Oui, notamment MySQL que nous utilisons largement par ailleurs. Mais nous avons retenu pour ces projets PostgreSQL à cause de sa richesse fonctionnelle, sa fiabilité et ses performances dans l'exploitation de bases volumineuses et complexes.
+
+[Pour les questions suivantes, donnez une note de 1 (mauvais) à 5 (excellent) et commentez si possible]
+
+**Quel est votre ressenti sur PostgreSQL en termes de fiabilité ?**
+
+5, nous n'avons jamais rencontré le moindre problème de fiabilité en deux ans d'exploitation.
+
+**Quel est votre ressenti sur PostgreSQL en termes de robustesse (reprise en cas de crash, résistance aux bogues et aux mauvaises utilisations du SQL, ...) ?**
+
+5, nous avons volontairement malmené la base, coupé la connexion réseau durant des transactions lourdes, arrêté brutalement la machine hôte.
+L'intégrité des données n'a jamais été mise en défaut sur un serveur utilisant un système de fichiers journalisé.
+
+**Quel est votre ressenti sur PostgreSQL en termes d'administration ?
+La base de données demande-t-elle beaucoup d'heures d'administration ou presque pas, voire pas du tout ?**
+
+4, une base de données PostgreSQL s'administre sans mal. Nous aurions cependant apprécié de trouver un document synthétisant les bonnes pratiques à adopter dans l'utilisation quotidienne de PostgreSQL. Par exemple, seuls nos essais progressifs nous ont permis de comprendre la raison d'être du VACUUM et la pertinence d'utiliser une option plus que l'autre.
+
+**Quel est votre ressenti sur PostgreSQL en termes de facilité d'utilisation ?
+Rencontrez-vous des difficultés particulières dans l'utilisation de PostgreSQL ?
+Retrouvez-vous vos marques par rapport à votre acquis en environnement propriétaire par exemple ?**
+
+5, PostgreSQL est facile et agréable à
+utiliser, aussi bien à travers la console psql (un modèle
+du genre) qu'à travers l'interface web phpPgAdmin.
+
+**Quel est votre ressenti sur PostgreSQL en termes de performances ?**
+
+5, nous sommes pleinement satisfait des performances de PostgreSQL qui sont même allées au delà de nos attentes.
+
+**Quel est votre ressenti sur PostgreSQL en termes d'extensibilité (par exemple la création de types de données qui ne sont pas des composites de types de données existants..) ?**
+
+Pas testé.
+
+**Quel est votre ressenti sur PostgreSQL en termes de mise à l'échelle ?
+PostgreSQL s'adapte-t'il facilement à des machines plus puissantes, des infrastructures plus complexes ?**
+
+Pas testé.
+
+**Quel est votre ressenti sur PostgreSQL en termes de « tuning » (optimisation fine des paramètres de fonctionnement) ?
+Les possibilités d'optimisation sont-elles simples et suffisamment fines ?**
+
+3, nous avons eu des difficultés pour trouver les informations dont nous avions besoin. Une fois ces informations en main, l'optimisation s'effectue sans difficulté particulière.
+
+**Quel est votre ressenti sur PostgreSQL en termes d'outils annexes (console en ligne de commande, interface web, etc) ?**
+
+5, nous avons trouvé tous les outils dont nous avions besoin et ces derniers répondent pleinement à nos attentes.
+
+**Quel est votre ressenti sur PostgreSQL en termes de support de la communauté ?
+Savez-vous où poser vos questions ?
+Obtenez vous rapidement et facilement des réponses adéquates ?**
+
+Peu testé. Dommage qu'il n'y ait pas de portail d'information francophone sur PostgreSQL.
+
+-- \\
+Jean-Paul Argudo le 11/09/2004

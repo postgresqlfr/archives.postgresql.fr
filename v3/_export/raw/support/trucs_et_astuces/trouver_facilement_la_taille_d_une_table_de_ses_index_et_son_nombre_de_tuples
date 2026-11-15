@@ -1,0 +1,101 @@
+====== Trouver facilement la taille d'une table, de ses index et son nombre de tuples ======
+
+On a besoin parfois d'avoir rapidement la taille sur disque d'une table et le nombre d'enregistrements qu'elle contient. Pour cela, on peut utiliser la fonction ''pg_total_relation_size('nom de table')'' qui permet de rapatrier la taille **totale** de la table sur disque, index inclus. Si on ne veut pas connaître la taille prise par les index, il suffit d'utiliser la fonction ''pg_relation_size('nom de table')''. La soustraction des deux permet de connaître la taille des index!
+
+Tout cela nous permet de réaliser une vue fort sympathique pour l'administrateur de base de données. Attention à **lancer un ANALYZE avant tout requêtage de cette vue** :
+
+<code sql>drop view vue_stats;
+
+create view vue_stats as
+SELECT
+c.relname as nom,
+c.reltuples::bigint as tuples,
+pg_total_relation_size(c.relname) as volume_total,
+pg_relation_size(c.relname) as volume_donnees,
+pg_total_relation_size(c.relname)-pg_relation_size(c.relname) as volume_index
+FROM pg_catalog.pg_class c
+JOIN pg_catalog.pg_roles r ON r.oid = c.relowner
+LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+WHERE c.relkind = 'r'
+AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+AND pg_catalog.pg_table_is_visible(c.oid)
+ORDER BY 1,2;</code>
+
+Merci à klando (Cédric) pour cet ajout, fort sympathique: il permet d'avoir les tailles des objets lisibles sous la forme //humaine// :
+
+<code sql>drop view vue_stats_pretty ;
+
+create view vue_stats_pretty as
+SELECT
+nom,
+tuples,
+pg_size_pretty(volume_total) as volume_total,
+pg_size_pretty(volume_donnees) as volume_donnees,
+pg_size_pretty(volume_index) as volume_index
+FROM vue_stats;</code>
+
+Enjoy!
+
+-- \\
+Jean-Paul ARGUDO\\
+http://dalibo.com | http://dalibo.org 
+
+Merci pour cette vue.\\
+Apres migration en postgres 8.4 j'ai du la modifier pour qu'elle fonctionne.\\
+En esperant que cela soit utile.
+<code sql>drop view vue_stats;
+
+create view vue_stats as
+SELECT
+c.relname as nom,
+c.reltuples::bigint as tuples,
+pg_total_relation_size(CAST(c.relname AS TEXT)) as volume_total,
+pg_relation_size(CAST(c.relname AS TEXT)) as volume_donnees,
+pg_total_relation_size(CAST(c.relname AS TEXT))-pg_relation_size(CAST(c.relname AS TEXT)) as volume_index
+FROM pg_catalog.pg_class c
+JOIN pg_catalog.pg_roles r ON r.oid = c.relowner
+LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+WHERE c.relkind = 'r'
+AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+AND pg_catalog.pg_table_is_visible(c.oid)
+ORDER BY 1,2;</code>
+-- \\
+Jean-Philippe FARCY\\
+http://www.sigma.fr
+
+
+Les fonctions ci dessus ne tiennent pas compte des tables toast dans leur calculs.
+Voici des fonctions qui en tiennent compte:
+<code sql>
+CREATE OR REPLACE VIEW view_relations_size AS 
+SELECT
+    c.relname AS name,
+    c.reltuples::bigint AS tuples,
+    pg_relation_size(c.oid) AS table_size,
+    pg_total_relation_size(c.oid)-pg_relation_size(c.oid) - (CASE WHEN c.reltoastrelid <> 0 THEN pg_relation_size(c.reltoastrelid) ELSE 0 END) AS index_size,
+    CASE WHEN c.reltoastrelid <> 0 THEN pg_relation_size(c.reltoastrelid) ELSE 0 END AS toast_size,
+    pg_total_relation_size(c.oid) AS total_size
+FROM 
+    pg_catalog.pg_class c
+JOIN 
+    pg_catalog.pg_roles r ON r.oid = c.relowner
+LEFT JOIN 
+    pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+WHERE 
+    c.relkind = 'r'
+AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+AND pg_catalog.pg_table_is_visible(c.oid)
+ORDER BY total_size DESC;
+
+CREATE VIEW view_relations_size_pretty AS
+SELECT
+    name,
+    tuples,
+    pg_size_pretty(table_size) AS table_size,
+    pg_size_pretty(index_size) AS index_size,
+    pg_size_pretty(toast_size) AS toast_size,
+    pg_size_pretty(total_size) AS total_size
+FROM view_relations_size;
+</code>
+-- \\
+Laurent Coustet

@@ -1,0 +1,32 @@
+[[:admin|« admin]]
+====== Trac ======
+
+===== Authentification =====
+
+Les comptes utilisateur sont dans ** /data/trac/.htusers**
+
+Pour ajouter un utilisateur :
+
+<code sh>
+sudo htpasswd  /data/trac/.htusers pgfruser
+</code>
+
+  
+
+===== Mise à jour =====
+
+Trac a été installé avec par paquet Debian en utilisant un dépot de backports 
+etch. Donc Trac est mis à jour automatiquement via les apt-get upgrade. 
+L'installation du paquet dégage les modifs que j'ai faites et la charte 
+graphique intitale réapparait.
+
+Du coup, après chaque mise à jour il faut taper : 
+
+<code sh>
+cd /usr/share/trac/templates
+sudo mv header.cs header.cs.orig
+sudo ln -s header.cs.pgfr header.cs
+</code>
+
+La charte graphique pgfr sera de retour.
+

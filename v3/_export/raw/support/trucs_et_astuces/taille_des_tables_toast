@@ -1,0 +1,21 @@
+====== Taille des tables TOAST ======
+
+La requête suivante permet d'afficher la taille des tables de TOAST de votre système, pour celles dont la taille est supérieure à 0 octets. On utilise une sous-requête dans la clause FROM (cf. [[http://www.postgresql.org/docs/current/static/queries-table-expressions.html|queries-table-expressions]]) afin de récupérer les informations brutes voulues, puis on les met en forme dans le SELECT en utilisant entre autres ''pg_size_pretty''.
+
+<code sql>SELECT a, n, pg_relation_size(t), pg_size_pretty(pg_relation_size(t))
+FROM   (SELECT c.relname, c.reltoastrelid, d.relname
+        FROM   pg_class c JOIN pg_class d ON c.reltoastrelid = d.oid
+       ) as x(a, t, n)
+WHERE  t > 0 and pg_relation_size(t) > 0
+ORDER BY 3 DESC;</code>
+
+Et voici un exemple d'utilisation :
+
+<code>psql amarok < /home/dim/PostgreSQL/cookbook/size.toast.sql
+     a      |       n       | pg_relation_size | pg_size_pretty
+------------+---------------+------------------+----------------
+ pg_rewrite | pg_toast_2618 |           139264 | 136 kB
+(1 ligne)</code>
+
+-- \\
+dim le 30/05/2007

@@ -1,0 +1,55 @@
+====== Lime Survey ======
+
+
+^URL | http://enquetes.postgresql.fr |
+^Version| 1.80|
+^site officiel    | http://www.limesurvey.org/ |
+^Dernière MAJ| novembre 2008|
+
+===== Installation =====
+
+La doc est là -> http://docs.limesurvey.org/tiki-index.php?page=Installation+en+Francais
+
+<code sh>
+cd
+wget http://mesh.dl.sourceforge.net/sourceforge/limesurvey/limesurvey180RC1_build5885_20081026.tar.gz
+sudo su postgres -c "createuser limesurvey -P"
+sudo su postgres -c "createdb limesurvey --owner limesurvey"
+sudo vi limesurvey/config.php 
+sudo cp -r limesurvey/ /data/www/fr/postgresql.fr/enquetes
+sudo chown -R www-data.www-data /data/www/fr/postgresql.fr/enquetes
+cd /data/www/fr/postgresql.fr/enquetes
+cd /etc/apache2/sites-available/
+sudo vi enquetes.postgresql.fr.conf
+sudo mkdir -p /var/log/apache2/fr/postgresql.fr/enquetes/
+sudo ln -s ../sites-available/fr/postgresql.fr/enquetes.postgresql.fr.conf 
+sudo apache2ctl restart
+</code>
+
+
+puis -> http://enquetes.postgresql.fr/admin/admin.php
+
+===== Upgrade =====
+
+migration 1.80 => 1.90 le 17 janvier 2011
+
+<code sh>
+cd
+wget http://downloads.sourceforge.net/project/limesurvey/1._LimeSurvey_stable/limesurvey190plus-build9642-20101214.tar.gz
+tar xzvf limesurvey190.tgz
+cd limesurvey
+mv config.php config.php.orig
+mv upload upload.orig
+mv templates templates.orig
+sudo cp /data/www/fr/postgresql.fr/enquetes/config.php .
+sudo cp -r /data/www/fr/postgresql.fr/enquetes/upload/ .
+sudo cp -r /data/www/fr/postgresql.fr/enquetes/templates/ .
+sudo chown -R www-data.www-data -R .
+sudo mv /data/www/fr/postgresql.fr/enquetes/  /data/www/fr/postgresql.fr/enquetes-off
+cd /data/www/fr/postgresql.fr/
+sudo mv /home/damien/limesurvey /data/www/fr/postgresql.fr/enquetes
+cd enquetes
+sudo mv admin/install/ admin/install-off
+</code>
+
+puis -> http://enquetes.postgresql.fr/admin/admin.php

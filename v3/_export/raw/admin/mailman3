@@ -1,0 +1,50 @@
+
+
+====== Mailman 3 ======
+
+
+===== Install =====
+
+procédure suivie -» http://docs.mailman3.org/en/latest/prodsetup.html
+
+
+===== Préparation =====
+
+<code bash>
+sudo apt install python-pip python3-pip python-setuptools python3-setuptools build-essential python-dev python3-dev
+sudo pip install --upgrade pip
+sudo apt install ruby-sass 
+sudo pip2 install whoosh
+</code>
+
+
+
+===== mailman core ====
+
+<code>
+sudo pip3 install mailman
+</code>
+
+checkup :
+
+<code>
+mailman info
+GNU Mailman 3.1.0 (Between The Wheels)
+Python 3.5.2 (default, Nov 17 2016, 17:05:23) 
+[GCC 5.4.0 20160609]
+config file: None
+db url: sqlite:////home/damien/var/data/mailman.db
+devmode: DISABLED
+REST root url: http://localhost:8001/3.1/
+REST credentials: restadmin:restpass
+</code>
+
+===== Interfaces =====
+
+<code>
+sudo pip2 install postorious
+
+sudo pip2 install hyperkitty
+
+sudo pip3 install uwsgi
+</code>

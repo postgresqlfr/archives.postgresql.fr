@@ -1,0 +1,60 @@
+====== Celeste2 ======
+
+  * Installation : avril 2017
+  * Mise en Prod : juillet 2017
+===== Installation de base  =====
+
+Les dépots debian de Gandi sont tout pourris alors on met les dépots officiels dans le `source.list`
+
+<code>
+deb http://fr.archive.ubuntu.com/ubuntu/ xenial main restricted universe multiverse
+deb http://security.ubuntu.com/ubuntu xenial-security main restricted universe multiverse
+deb http://fr.archive.ubuntu.com/ubuntu/ xenial-updates main restricted universe multiverse
+</code>
+
+On met en_US.UTF8 par défaut
+
+<code>
+sudo dpkg-reconfigure locales 
+</code>
+
+Quelques paquets utiles
+
+<code>
+sudo apt update
+sudo apt install make cron vim screen rsync git software-properties-common unattended-upgrades language-pack-fr
+sudo apt install fail2ban mailman postfix postgrey
+</code>
+
+===== PostgreSQL 9.3  =====
+
+On se branche sur les dépot pgdg : /etc/apt/sources.list.d/pgdg.list  
+
+<code> 
+deb http://apt.postgresql.org/pub/repos/apt/ xenial-pgdg main
+</code>
+
+et c'est parti !
+
+<code>   
+wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
+sudo apt update 
+sudo apt install postgresql-client-9.3 postgresql-9.3 libpq-dev postgresql-server-dev-9.3 postgresql-contrib-9.3
+</code>
+
+Mise en place du Hot Standby:
+
+https://cloud.google.com/community/tutorials/setting-up-postgres-hot-standby
+
+===== apache =====
+
+<code>
+sudo apt update 
+sudo apt install apache2 php php-pgsql libapache2-mod-php php7.0-mbstring php-xml
+sudo a2enmode rewrite cgi
+</code>
+
+Gotchas : 
+
+  * docs > https://stackoverflow.com/questions/12579448/php-short-open-tag-on-not-working
+  * docs > https://stackoverflow.com/questions/39469264/fatal-error-uncaught-error-call-to-undefined-function-ereg-replace-php-7

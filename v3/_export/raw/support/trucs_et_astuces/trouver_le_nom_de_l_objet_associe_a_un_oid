@@ -1,0 +1,18 @@
+====== Trouver le nom de l'objet associé à un OID ======
+
+Il est possible de trouver le nom de l'objet associé à un OID en passant par la conversion regclass. Par exemple, pour connaître le nom de l'objet dont l'OID est 2613 :
+
+<code sql>guillaume=> select 2613::regclass;
+
+    regclass
+
+----------------
+
+ pg_largeobject
+
+(1 ligne)</code>
+
+L'OID 2613 correspond donc à la table système pg_largeobject.
+
+-- \\
+Guillaume Lelarge le 11/09/2006

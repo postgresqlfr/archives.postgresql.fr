@@ -1,0 +1,78 @@
+[[:admin|« admin]]
+
+====== Plan de Sauvegarde ======
+
+
+===== Sites webs =====
+
+
+==== sauvegarde sur 4 fréquences ====
+
+dans la crontab de root sur celeste2 et tantor2
+
+<code>
+42 1 * * *   tar -zcf /var/backups/www/www.daily.tgz /var/www 
+42 2 * * 1   tar -zcf /var/backups/www/www.weekly.tgz /var/www
+42 3 1 * *   tar -zcf /var/backups/www/www.monthly.tgz /var/www
+42 4 * 1 *   tar -zcf /var/backups/www/www.yearly.tgz /var/www
+</code>
+
+==== synchro celeste2 -> tantor2 ====
+
+Le contenu du répertoire **/var/www/** est sauvegardé chaque nuit par l'utilisateur **root**. Seule la dernière sauvegarde est présente (pas d'historique).
+
+Dans la crontab de root sur tantor2 :
+
+<code>
+30 0 * * * rsync -a --delete celeste2.postgresql.fr:/var/www /var
+</code>
+
+==== Synchronisation manuelle de la conf ====
+
+<code>
+rsync -a --delete celeste2.postgresql.fr:/etc/apache2 /etc/
+rsync -a --delete celeste2.postgresql.fr:/etc/letsencrypt /etc/
+</code>
+
+Désactiver la redirection HTTPS vers HTTP
+
+<code>
+sudo sed -i 's/^RewriteRule .*//'  /etc/apache2/sites-enabled/*.postgresql.fr.conf 
+</code>
+===== Mailman =====
+
+FIXME 
+
+===== PostgreSQL =====
+
+L'instance PostgreSQL est sauvegardée via pg_dumpall,  et PITR. 
+
+
+==== pg_dumpall =====
+
+
+Voir la crontab de l'utilisateur **postgres** sur [[admin:celeste2]] et [[admin:tantor2]]
+
+<code>
+9 * * * *   pg_dumpall | gzip -c > /var/backups/postgresql/pgsql.hourly.sql.gz
+0 1 * * *   pg_dumpall | gzip -c > /var/backups/postgresql/pgsql.daily.sql.gz
+0 2 * * 1   pg_dumpall | gzip -c > /var/backups/postgresql/pgsql.weekly.sql.gz
+0 3 1 * *   pg_dumpall | gzip -c > /var/backups/postgresql/pgsql.monthly.sql.gz
+0 4 * 1 *   pg_dumpall | gzip -c > /var/backups/postgresql/pgsql.yearly.sql.gz
+</code>
+
+
+
+
+==== PITR =====
+
+Reconstruire le noeud secondaire avec pg_basebackup sur tantor2 :
+
+<code>
+sudo service postgresql stop
+sudo mv /var/lib/postgresql/9.3/main /var/lib/postgresql/9.3/main_old 
+sudo -u postgres pg_basebackup -h celeste2.postgresql.fr -D /var/lib/postgresql/9.3/main -U repli -v -P --xlog-method=stream --checkpoint=fast
+sudo mv /var/lib/postgresql/recovery.tantor2.conf /var/lib/postgresql/9.3/main/recovery.conf
+sudo rm -r /var/lib/postgresql/9.3/main_old 
+sudo service postgresql start
+</code>

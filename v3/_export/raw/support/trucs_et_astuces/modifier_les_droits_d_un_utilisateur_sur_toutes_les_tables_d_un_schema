@@ -1,0 +1,17 @@
+====== Modifier les droits d'un utilisateur sur toutes les tables d'un schéma ======
+
+Ci-dessous une requête qui permet de composer un script permettant d'affecter les droits **SELECT** sur toutes les tables du schéma **public** :
+
+<code sql>
+select 'GRANT SELECT ON '||table_schema||'.'||table_name||' TO mon_user;'
+from   information_schema.tables
+where  table_type='BASE TABLE'
+and    table_schema='public';
+</code>
+
+Enregistrer le contenu de cette requête dans un fichier et rejouer le script.
+
+Cette requête peut être modifiée pour le faire sur plusieurs schémas ou bien ajouter des droits supplémentaires. 
+
+-- \\
+Christophe Chauvet le 10/05/2007

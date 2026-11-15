@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+<head>
+  <meta charset="utf-8" />
+  <title>support:trucs_et_astuces:recuperer_le_resultat_d_une_requete_executee_dans_une_procedure_stockee</title>
+<meta name="generator" content="DokuWiki"/>
+<meta name="robots" content="index,follow"/>
+<meta name="keywords" content="support,trucs_et_astuces,recuperer_le_resultat_d_une_requete_executee_dans_une_procedure_stockee"/>
+<link rel="search" type="application/opensearchdescription+xml" href="../../../../lib/exe/opensearch.php" title="Communauté francophone de PostgreSQL"/>
+<link rel="start" href="../../../../index.html"/>
+<link rel="contents" href="https://www.postgresql.fr/support/trucs_et_astuces/recuperer_le_resultat_d_une_requete_executee_dans_une_procedure_stockee?do=index" title="Plan du site"/>
+<link rel="manifest" href="../../../../lib/exe/manifest.php" crossorigin="use-credentials"/>
+<link rel="alternate" type="application/rss+xml" title="Derniers changements" href="../../../../feed.php"/>
+<link rel="alternate" type="text/html" title="HTML brut" href="recuperer_le_resultat_d_une_requete_executee_dans_une_procedure_stockee.html"/>
+<link rel="alternate" type="text/plain" title="Wiki balise" href="../../../raw/support/trucs_et_astuces/recuperer_le_resultat_d_une_requete_executee_dans_une_procedure_stockee"/>
+<link rel="canonical" href="../../../../support/trucs_et_astuces/recuperer_le_resultat_d_une_requete_executee_dans_une_procedure_stockee.html"/>
+<link rel="stylesheet" href="../../../../lib/exe/css.php%3Ft=tortoise&amp;tseed=ad76b451e9e42d817acb1920a91f4def.css"/>
+<link type="text/css" rel="stylesheet" href="../../../../lib/plugins/icons/assets/font-awesome/css/font-awesome.min.css"/>
+<link type="text/css" rel="stylesheet" href="../../../../lib/plugins/icons/assets/material-design-icons/css/materialdesignicons.min.css"/>
+<script >var NS='support:trucs_et_astuces';var JSINFO = {"ga":{"trackingId":"UA-3921927-1","gtagId":"","anonymizeIp":true,"action":"export_xhtml","trackOutboundLinks":true,"options":[],"pageview":"\/support\/trucs_et_astuces\/recuperer_le_resultat_d_une_requete_executee_dans_une_procedure_stockee","debug":false},"id":"support:trucs_et_astuces:recuperer_le_resultat_d_une_requete_executee_dans_une_procedure_stockee","namespace":"support:trucs_et_astuces","ACT":"export_xhtml","useHeadingNavigation":0,"useHeadingContent":0};(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement);</script>
+<script src="../../../../lib/exe/jquery.php%3Ftseed=8faf3dc90234d51a499f4f428a0eae43"></script>
+<script src="../../../../lib/exe/js.php%3Ft=tortoise&amp;tseed=ad76b451e9e42d817acb1920a91f4def"></script>
+</head>
+<body>
+<div class="dokuwiki export">
+
+<h1 class="sectionedit1" id="recuperer_le_resultat_d_une_requete_executee_dans_une_procedure_stockee">Récupérer le résultat d&#039;une requête exécutée dans une procédure stockée</h1>
+<div class="level1">
+
+<p>
+En php on peut utiliser directement une requête pour obtenir un recordset.
+</p>
+
+<p>
+Cependant si l&#039;on veux récupérer un recordset via une procédure stockée – pour appliquer des traitements sur des paramètres avant d&#039;exécuter la requête par exemple – on peut créer une fonction équivalent à celle qui suit.
+</p>
+
+<p>
+L&#039;exemple renvoie un setof de la variable out nommée myset et qui est definie du type du champs convoité dans la table. (On utilise %TYPE pour recupérer le type du champs) :
+</p>
+<pre class="code sql"><span class="kw1">CREATE</span> <span class="kw1">OR</span> <span class="kw1">REPLACE</span> <span class="kw1">FUNCTION</span> ma_fonction<span class="br0">&#40;</span><span class="kw1">OUT</span> myset ma_table<span class="sy0">.</span>mon_champ_pk%<span class="kw1">TYPE</span><span class="br0">&#41;</span>
+&nbsp;
+    <span class="kw1">RETURNS</span> setof <span class="kw1">INTEGER</span> <span class="kw1">AS</span>
+&nbsp;
+$BODY$
+&nbsp;
+    <span class="kw1">DECLARE</span>
+&nbsp;
+    <span class="co1">-- On crée une variable de type record , on peut aussi suivant le besoin créer une variable de type %ROWTYPE</span>
+&nbsp;
+     myrecord record;
+&nbsp;
+<span class="kw1">BEGIN</span>
+&nbsp;
+<span class="kw1">FOR</span> myrecord <span class="kw1">IN</span> <span class="kw1">SELECT</span> mon_pk <span class="kw1">FROM</span> ma_table loop
+myset:<span class="sy0">=</span> myrecord<span class="sy0">.</span>mon_pk;
+<span class="kw1">RETURN</span> <span class="kw1">NEXT</span>;
+<span class="kw1">END</span> LOOP;
+<span class="kw1">RETURN</span>;
+<span class="kw1">END</span>;
+$BODY$
+<span class="kw1">LANGUAGE</span> <span class="st0">'plpgsql'</span> VOLATILE;
+&nbsp;
+<span class="kw1">ALTER</span> <span class="kw1">FUNCTION</span> ma_fonction<span class="br0">&#40;</span><span class="kw1">OUT</span> myset demande<span class="sy0">.</span>demande_pk%<span class="kw1">TYPE</span><span class="br0">&#41;</span> OWNER <span class="kw1">TO</span> mon_user;</pre>
+
+<p>
+Pour récupérer l&#039;ensemble des résultats on sélectionne la procédure ainsi :
+</p>
+<pre class="code sql"><span class="kw1">SELECT</span> <span class="sy0">*</span> <span class="kw1">FROM</span>  ma_fonction<span class="br0">&#40;</span><span class="br0">&#41;</span>;</pre>
+
+<p>
+Les mots importants sont :
+</p>
+<ul>
+<li class="level1"><div class="li"> setof</div>
+</li>
+<li class="level1"><div class="li"> record</div>
+</li>
+<li class="level1"><div class="li"> %TYPE et %ROWTYPE</div>
+</li>
+<li class="level1"><div class="li"> for…loop</div>
+</li>
+<li class="level1"><div class="li"> return next</div>
+</li>
+</ul>
+
+<p>
+– <br/>
+
+loquace le 07/06/2007
+</p>
+
+</div>
+</div>
+</body>
+</html>

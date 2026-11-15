@@ -1,0 +1,24 @@
+====== timestamp PostgreSQL et timestamp Unix ======
+
+Pour convertir d'un timestamp PostgreSQL vers un timestamp Unix :
+<code sql>
+select extract(epoch from now())::bigint;
+
+date_part
+------------
+1162822549
+(1 ligne)
+</code>
+
+Pour convertir d'un timestamp Unix vers un timestamp PostgreSQL :
+
+<code sql>select to_timestamp(1162822549);
+
+to_timestamp
+------------------------
+2006-11-06 15:15:49+01
+(1 ligne)
+</code>
+
+-- \\
+Jean-Paul Argudo le 06/11/2006

@@ -1,0 +1,24 @@
+
+====== PostgreSQL-f ======
+
+__Nom__ : Grégory SMITS 
+
+__Employeur__ : Université de Rennes 1 IRISA/PILGRIM 
+
+__Titre__ : PostgreSQL-f
+
+
+__Description__ : 
+
+Nous proposons une présentation d'une extension PGXS de PostgreSQL 9.1.2 nommée
+PostgreSQL-f* visant à traiter des requêtes floues : 
+
+SELECT * FROM etudiant 
+WHERE age ~= `jeune' AND moyenne ~= `basse' ;
+
+Les requêtes floues constituent une des approches permettant la prise en compte des
+préférences utilisateurs lors de l’interrogation de bases de données. Les relations retournées par ces requêtes sont floues, i.e., chaque tuple résultat est associé à un degré compris entre 0 et 1 qui reflète le degré de satisfaction des valeurs du tuple vis-à-vis des préférences de la requête. L'extension PGXS nommée PostgreSQL-f* étend l'expressivité du langage SQL avec les éléments suivants :
+  * conjonctions et disjonctions de prédicats flous,
+  * seuils qualitatifs et quantitatifs,
+  * quantificateurs,
+  * opérateurs graduels notamment pour des requêtes imbriquées.

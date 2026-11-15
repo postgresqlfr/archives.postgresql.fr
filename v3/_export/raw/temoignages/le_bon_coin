@@ -1,0 +1,107 @@
+====== Cas d'utilisation de PostgreSQL : site "Le bon coin" ======
+
+Paris, le 6 mars 2012,
+
+Aujourd'hui, Christophe Legendre, directeur technique, témoigne de l'utilisation de PostgreSQL pour le site « leboncoin.fr ».
+
+===== leboncoin.fr =====
+
+Pour qui ne connaîtrait pas encore le site LeBonCoin.fr, il s'agit du site de petites annonces, pour particuliers et professionnels le plus visité en France, selon l'agence Alexa (voir le palmarès complet sur http://www.alexa.com/topsites/countries/FR).
+
+===== Historique =====
+
+Le site existe depuis Avril 2006 et sa forme originale provient d'un groupe Suédois, qui a initié le projet, avec le site ''blocket.se''.
+
+leboncoin.fr fonctionnait au départ sous MySQL, origines suédoises oblige. La migration vers PostgreSQL a été envisagée lorsque sont apparus des soucis de montée en charge et de performances imputables à la version de MySQL de l'époque.
+
+Christophe Legendre est arrivé dans la société en 2008, la version de PostgreSQL en production était alors la version 8.1, hébergée sur un petit serveur HP (G5) qui contenait à peine 8 disques, pour environ 800.000 annonces.
+
+Depuis, la croissance du site a été supportée par une montée en puissance du matériel, que les mises à jour de PostgreSQL ont accompagné.
+En l'espace de 4 ans, tout a été multiplié par plus 10 ! Tant au niveau du matériel que des annonces. Aujourd'hui À ce jour il n'y a pas moins de 17.6 Millions d'annonces en ligne.
+
+Le site est désormais animé par une machine ''HP ProLiant DL980'', avec une baie ''HP 3PAR V800''. Une seule machine, mais quelle machine ! Jugez-en par vous-même :
+
+  * DL980
+    * 160 cœurs
+    * 1 Téraoctet de RAM
+  * 3PAR V800
+    * 192 disques (dont 32 ssd et 160 fiber-channel)
+    * 400 Gigaoctets de cache
+
+
+Il existe une fonction de « //tiering// » automatique, qui permet à la baie de déplacer automatiquement les données en fonction de la fréquence de leur utilisation sur les parties rapides de la baie (disques SSD). 
+
+Cette baie permet ainsi d'atteindre régulièrement les 80.000 I/O par secondes. C'est déjà énorme, mais celle-ci est donnée pour 200.000 I/O par seconde. Autant dire que cette infrastructure en a encore sous le pied.
+
+Les caractéristiques de la base principale ne sont pas démesurées pour autant, celle-ci a en tout une volumétrie de 2.8 To. C'est certes une taille respectable, mais on est encore loin des records que la communauté PostgreSQL à mis au jour ces dernières années.
+
+Cependant, la base est soumise à de fortes contraintes. Une caractéristique semble déroutante à la première lecture : le taux d'écritures sur la base est de 70%, contre 30% de lectures. On s'attendait à l'inverse pour un site de petites annonces. Ce ratio est dû au fait que le site leboncoin.fr utilise de manière massive des caches web (''varnish''), afin de solliciter le moins possible la base de données.
+
+Les écritures sont dues aux quelques 500.000 nouvelles annonces publiées chaque jour, et aux plusieurs milliers d'autres qui sont modifiées par jour.
+
+Au sujet de l'infrastructure, inutile de préciser que c'est du 100% Open-Source : CentOS, Apache, Varnish, PostgreSQL.. et Slony !
+
+===== Pourquoi Slony ? =====
+
+Slony est un outil de réplication très connu de la communauté PostgreSQL. Il permet de construire des //clusters// PostgreSQL du type maître-esclave(s), plus précisément, il s'agit d'une réplication asynchrone et asymétrique. Slony a cette capacité depuis bien longtemps, avant même que la réplication ne soit intégrée à PostgreSQL 9. L'une de ses caractéristiques est qu'il permet de faire des réplications entre des serveurs PostgreSQL de différentes versions, ce que même la réplication intégrée à PostgreSQL ne permet pas de faire.
+
+C'est précisément pour cette caractéristique qu'il est utilisé chez leboncoin.fr, il a permis en effet d'effectuer les montées de version de PostgreSQL sans jamais arrêter le service.
+
+Pour mettre à jour le maître, on bascule la production sur l'esclave, qui devient le maître. On déconnecte l'ancien maître, on met la version de PostgreSQL à jour, puis on rebascule la production dessus, une fois qu'il a récupéré toutes les données du maître temporaire. Puis on fait la même chose sur l'esclave et les esclaves de celui-ci.
+ 
+Car c'est une autre particularité de Slony : il permet la réplication dite « en cascade », où un esclave pourra à son tour fournir les données pour d'autres esclaves. Cette réplication en cascade devrait arriver dans la version 9.2 de PostgreSQL.
+
+Bien sûr, avec les avancées de PostgreSQL, Christophe Legendre n'exclue pas de mettre de côté Slony un jour, mais ce n'est pas un projet prioritaire pour le moment. Il faudrait déjà que PostgreSQL 9.2 sorte avec la réplication en cascade, puis faire des tests pour s'assurer que tout cela est jouable. Ça le sera très certainement, ce n'est qu'une question de temps.
+
+Ainsi, grâce à Slony, leboncoin.fr utilise aujourd'hui la toute dernière version mineure de PostgreSQL 8.4.
+
+De même, le site est redondé sur deux datacenters différents, le premier esclave Slony faisant office de « //failover// », si jamais le maître avait la moindre avarie. C'est d'ailleurs l'ensemble de l'infrastructure qui est ainsi redondée sur deux sites distants.
+
+Ces deux sites sont reliés par deux fibres 10 Gb. Le transit internet est assuré lui aussi par deux fibres 10Gb. Ce qui est largement suffisant pour supporter les 3 Gb de bande passante qui sont utilisés à ce jour.
+
+===== Configuration de PostgreSQL =====
+
+La configuration de PostgreSQL sur le maître donne aussi le tournis, pour peu que vous ayez jamais modifié un postgresql.conf. Voici quelques chiffres-clé de la configuration:
+  * ''max_connections = 600''
+  * ''shared_buffers = 130 Gb''
+  * ''effective_cache_size = 750 Gb''
+  * ''work_mem = 24 Mb''
+  * ''random_page_cost = 2''
+  * environ 160 Wals en rotation
+
+À n'en pas douter, peu d'utilisateurs de PostgreSQL peuvent se vanter d'avoir 750 Gigaoctets de cache effectif pour PostgreSQL ou 130 Gigaoctets de ''shared_buffers'' !
+
+Au sujet de la facilité de configuration de PostgreSQL, Christophe Legendre est radical: « Je mets quiconque au défi de faire plus simple que le ''postgresql.conf'' ! ».
+
+===== Des problèmes avec PostgreSQL ? =====
+
+Sur cette question, Christophe Legendre a été très clair. Oui il y a eu, une fois, un problème d'alimentation sur le site principal. Lorsque le courant fut rétabli, PostgreSQL est reparti en « //crash recovery// » et a retrouvé un état stable, sans pertes de données apparente.
+
+Christophe Legendre assure qu'« après ce genre d’événement, on voue une confiance sans limite à PostgreSQL !».
+
+Il voit cependant deux inconvénients majeurs dans l'utilisation de PostgreSQL.
+
+==== La création des index ====
+
+Bien que PostgreSQL permette de créer des index sans blocages (voir ''CREATE INDEX […] CONCURRENTLY […]''), la création de l'index est toujours trop lente ! Fort heureusement, on ne crée pas d'index tous les jours.
+
+==== Le partitionnement ====
+
+La plus grosse table contient près de 1.7 milliards d'enregistrements.
+
+Bien sûr, la question du partitionnement s'est posée, mais à la lecture de la documentation PostgreSQL, Christophe Legendre a fait le même constat que beaucoup de personnes: c'est bien trop compliqué à mettre en œuvre, et la maintenance est alors accrue. Par exemple, PostgreSQL ne créée pas automatiquement des sous-tables.
+
+Au final, cette table n'a pas été partitionnée, mais ça ne pose pas de problème au quotidien, vu qu'elle représente 180 Gigaoctets de données pour 350 Gigaoctets d'index, la plate-forme actuelle a largement de quoi l'encaisser.
+
+Là aussi, c'est un « //work in progress// » dans la communauté des développeurs de PostgreSQL : on sait que le partitionnement doit-être repensé. À ce jour, les discussions portent sur la syntaxe.
+
+===== Conclusion =====
+
+Christophe Legendre est revenu sur la facilité d'utilisation de PostgreSQL et le fait qu'il a pu en devenir un utilisateur chevronné tout seul. C'est un avantage indéniable de PostgreSQL à ses yeux : c'est un moteur de données simple, avec un seul fichier de configuration, et une documentation détaillée, traduite en français. Il utilise les vues et tables systèmes (''pg_stat*'') pour obtenir facilement toutes les statistiques dont il a besoin au quotidien.
+
+En plus de la documentation, il lit le code source C, ce qui lui permet de savoir exactement ce qui se passe quand il se pose des questions sur PostgreSQL. 
+
+À n'en pas douter, PostgreSQL est une pièce maîtresse de l'infrastructure du site leboincoin.fr, et le temps a montré que c'était un excellent choix.
+
+La fréquentation du site le démontre tout aussi bien, avec ses 200 millions de pages lues et ses 4 millions de visiteurs uniques **par jour**.
+Peu d'infrastructures peuvent se targuer de supporter un tel trafic. 

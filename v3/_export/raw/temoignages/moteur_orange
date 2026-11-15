@@ -1,0 +1,51 @@
+====== Cas d'utilisation de PostgreSQL : "Le moteur" de France Télécom ======
+
+Aujourd'hui, Séverine AUBRY et Robin POUGET témoignent de l'utilisation de PostgreSQL pour un outil de France Télécom.
+
+Il s'agit du moteur de recherche "Le moteur": http://www.lemoteur.fr/. Plus exactement, il s'agit du "back office" de ce site: c'est à dire, toute la machinerie nécessaire pour stocker les mots-clés contenus par des sites webs (URLs), les analyser, les indexer, etc.
+
+La criticité de cette application est haute car elle conditionne la qualité des documents indexés dans le moteur de recherche. 
+
+Ce "back office" a une contrainte de rafraichissement en 24/7, mais 6 jours sur 7 uniquement. En d'autres termes, on peut tolérer une non-mise à jour une fois par semaine.
+
+La partie "back office" de ce moteur de recherche a été réalisée entre 2001 et 2002, exclusivement avec PostgreSQL. À cette époque, le projet a débuté avec la version 7. Aujourd'hui, le projet est basé sur PostgreSQL 8.2. Le "back office" a, au fil des années, bien sûr connu quelques améliorations et corrections.
+
+Dans le détail, le moteur est composé d'un "crawler", dont la charge est de parcourir internet grâce à une liste d'URL-clés et plusieurs milliers de sites de référence. Celui-ci suit les liens de manière automatique.
+
+La charge du "crawler" est donc de récupérer des URLs et un contenu associé.
+
+Ces données sont ensuite traitées via plusieurs scripts, écrits en TCL.
+
+Les données sont stockées dans un schéma comportant quelques milliers de tables. Le partitionnement repose sur une technologie développée en interne, basée sur des clés de type hash.
+
+Les idées-force du projet, sont depuis le début, d'avoir une solution:
+  * stable
+  * robuste 
+  * très maintenable
+  * scalable, propre à encaisser une volumétrie galopante et donc,
+  * affranchie des problèmes d'espace disque, ou du nombre de serveurs PostgreSQL nécessaires
+
+Quelques chiffres:
+  * 5 milliards de tuples sont ainsi répartis sur
+  * 160 machines qui abritent 800 serveurs PostgreSQL, tous sous Linux,
+  * pour une volumétrie totale de 24 téra-octets
+  * à noter qu'il n'y a pas que PostgreSQL qui fonctionne sur ces machines, on y trouve aussi des applications
+
+Les machines sont réparties sur 3 sites géographiques, grâce à un découpage logique, dit de "blocs logiciels".
+
+Il existe des exports de données de cet ensemble vers d'autres serveurs de données, pour des utilisations diverses.
+
+Il en résulte une extrême souplesse de l'ensemble applicatif: si un serveur vient à tomber, il n'y a aucune coupure de service, car les données qu'il contient sont redondées. Il n'y a de plus aucune dépendance entre les éléments.
+
+Il y a eu dans l'histoire du projet quelques soucis mineurs qui ont été corrigés par la communauté, dont le support est jugé "efficace":
+
+  * des problèmes de fragmentation de données, liés à des UPDATE massifs. Cela a été corrigé grâce aux nouvelles fonctionalités de PostgreSQL au fil des ans (pour rappel le projet a plus de 10 ans avec PostgreSQL!);
+
+  * la version 8 a permis de corriger des soucis au niveau de la gestion de la mémoire;
+
+  * les VACUUM FULL sont presque de l'histoire ancienne. On est passé dans ce projet de 3 à 4 VACUUM FULL par an à 1 seul.
+
+
+En guise de conclusion, PostgreSQL donne ici entière satisfaction depuis plus de 10 ans. Les quelques soucis rencontrés ont tous été traités avec la plus grande efficacité de la communauté. Les nouvelles versions de PostgreSQL ont de plus apporté, soit des solutions à ces problèmes, soit des améliorations, voire des simplifications.
+
+[Propos recueillis par Jean-Paul Argudo, de mars à juin 2011]

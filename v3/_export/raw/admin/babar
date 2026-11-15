@@ -1,0 +1,183 @@
+====== Babar ======
+
+~~NOTOC~~
+
+<note important>
+Si vous effectuez des opérations sur Babar, merci de vous connectez sur **#postgresqlfr-babar** pour vérifier que personne n'a eu la même idée que vous au même moment ! 
+
+Merci de respecter les [[règles de base]]
+</note>
+
+voir aussi -> [[Dumbo]]
+
+===== Profil =====
+
+  * Role : Webservice
+  * Système : debian etch
+  * Matos :
+
+
+===== Log =====
+
+=== 11 septembre 2012 : redémarrage suite crash électrique chez Lost-Oasis par jpa ===
+
+Il va falloir qu'on revoie certaines choses, car suite au crash électrique chez Lost-Oasis ce jour, notre service n'a pas redémarré correctement:
+
+17:46 <@perenoel> jpa: l'une des deux ne doit pas avoir de timeout dans sa conf grub, donc elle attend indéfiniment; l'autre semble avoir freezé avant grub, je l'ai boutonnée et c'est parti
+
+Suite à ça les machines sont reparties correctement, par contre, sur babar, sur www.postgresql.fr, on avait carrément une erreur de fluxbb "could not connect to PostgreSQL server".
+
+J'ai tenté un /etc/init.d/postgresql-8.3 start:
+<code>
+# sudo /etc/init.d/postgresql-9.0 status
+pg_ctl: server is running (PID: 4015)
+/usr/local/pgsql/bin/postgres "-D" "/var/lib/postgresql/9.0"
+babar:/var/log/postgresql# sudo /etc/init.d/postgresql-8.3 start
+Starting PostgreSQL 8.3 database server: main^[[B^[[B^[[B^[[B^[[B^[[B^[[B^[[B^[[B/usr/lib/postgresql/8.3/bin/pg_ctl /usr/lib/postgresql/8.3/bin/pg_ctl start -D /data/postgresql/ -l /var/log/postgresql/postgresql-8.3-main.log -s -o -c config_file="/etc/postgresql/8.3/main/postgresql.conf" The PostgreSQL server failed to start. Please check the log output: Error: Could not open log file /var/log/postgresql/postgresql-8.3-main.log failed!
+ failed!
+</code>
+
+Suis allé voir:
+
+<code>
+babar:/var/log/postgresql# ll
+total 84912
+-rw-r--r-- 1 postgres postgres        0 jui 25  2010 crash_20100720.log
+-rw-r--r-- 1 postgres postgres  3454635 jui 25  2010 crash_20100720.log.1
+-rw-r--r-- 1 postgres postgres     1251 jui 28  2010 dir.txt
+-rw-r----- 1 root     adm      16657578 sep 11 15:30 postgresql-8.3-main.log
+-rw-r----- 1 root     adm      46447055 sep 11 06:38 postgresql-8.3-main.log.0
+-rw-r----- 1 root     adm          3495 aoû 12 06:46 postgresql-8.3-main.log.10.gz
+-rw-r----- 1 root     adm       3035831 sep 10 06:58 postgresql-8.3-main.log.1.gz
+-rw-r----- 1 root     adm       2645366 sep  9 06:47 postgresql-8.3-main.log.2.gz
+-rw-r----- 1 root     adm         58397 sep  9 06:52 postgresql-8.3-main.log.3
+-rw-r----- 1 root     adm       3199850 sep  8 06:49 postgresql-8.3-main.log.4.gz
+-rw-r----- 1 root     adm       2986295 sep  7 06:53 postgresql-8.3-main.log.5.gz
+-rw-r----- 1 root     adm       3345467 sep  6 06:50 postgresql-8.3-main.log.6.gz
+-rw-r----- 1 root     adm       2352271 sep  2 06:47 postgresql-8.3-main.log.7.gz
+-rw-r----- 1 root     adm       2624660 aoû 26 06:46 postgresql-8.3-main.log.8.gz
+</code>
+
+Ma correction pour que ça reparte:
+<code>
+babar:/var/log/postgresql# chown postgres.adm postgres*8.3*
+</code>
+
+Et tout repart:
+
+<code>
+babar:/var/log/postgresql# /etc/init.d/postgresql-8.3 start
+Starting PostgreSQL 8.3 database server: main.
+</code>
+
+Le site est à nouveau up & running à 18h10.
+
+PS: pas eu le temps de m'en charger avant, ni aucun admin de pg.fr on dirait :(
+
+=== 28 juillet 2010 : reconfig syslog par jpa ===
+
+J'ai corrigé une  petite erreur dans le /etc/syslog.conf, j'avais oublié de mettre le service local1 en "none"
+pour le fichier /var/log/messages
+
+Ainsi le fichier /var/log/messages récupérait aussi les logs de PostgreSQL.
+
+Après correction, j'ai redémarré sysklogd et vérifié que c'était corrigé. Ce qui est le cas.
+
+
+=== 20 juillet 2010 : reconfig PG + syslog par jpa ===
+
+suite au crash de ce matin, j'ai voulu faire un coup de pgfouine sur les logs PostgreSQL. Cependant, je me suis aperçu que c'était du stderr et pas du syslog. Et puis, que plusieurs paramètres de configuration étaient par défaut.
+
+J'ai donc modifié le postgresql.conf comme suit, dans /etc/postgresql/8.3/main
+
+#checkpoint_segments = 3  (conf par défaut!)
+checkpoint_segments = 20
+
+#checkpoint_completion_target = 0.5 (conf par défaut!)
+checkpoint_completion_target = 0.9
+
+effective_cache_size = 128MB
+effective_cache_size = 256MB (mieux adapté à mon goût)
+
+geqo = on  (laissé à on)
+#geqo_threshold = 12 
+geqo_threshold = 20 (pour qu'il se déclenche plus tard)
+
+#default_statistics_target = 10
+default_statistics_target = 40 (plus adapté àmha)
+
+Config SYSLOG:
+
+#log_destination = 'stderr'      
+log_destination = 'syslog'       
+
+#syslog_facility = 'LOCAL0'
+syslog_facility = 'LOCAL1'  (pour éviter tout problème avec LOCAL0)
+
+#silent_mode = off
+silent_mode = on  
+
+
+Pour /etc/syslog.conf j'ai modifié:
+
+*.*;auth,authpriv.none              -/var/log/syslog
+
+devenu:
+
+*.*;auth,authpriv.none;local1.none              -/var/log/syslog
+
+rajouté à la fin du fichier:
+
+local1.*      /var/log/postgresql/postgresql-8.3-main.log
+
+
+restart de syslog puis de pg.
+
+déplacé le contenu du vieux postgresql.log dans le postgresql.log.1 (avec cat >> ..)
+
+vidé le postgresql.log avec >postgresql.log
+
+testé pgFouine dessus le nouveau .log (sur ma machine perso): RAS, c'est bon
+
+=== 17 juillet 2010 : installation de PG 9.0 par damien ===
+
+» [[installation_9.0]]
+
+=== 28 mars 2010 : réparation typo dans la conf postfix par damien ===
+
+=== 27 mars 2010 : mise à jour de fluxbb par gleu ===
+
+=== 26 mars 2010 : mise à jour de Dotclear par gleu ===
+
+=== 25 mars 2010 : mise à jour de dokuwiki par gleu ===
+
+=== 9 Octobre : nouveau vhost https pour svn par jca ===
+
+-> https://svn.postgresqlfr.org 
+
+Afin de permettre le checkout de svn pgfr à partir de machines derrières des firewall capricieux.
+
+Certificats et clés dans ''/etc/ssl/{private,certs}/postgresql.fr.{key,cert}''
+
+=== 1er juillet : nouveau vhost apache (pgday.fr) par damien===
+
+-> http://www.pgday.fr
+
+=== 21 Mai : migration serveur Mail par cedric ===
+Mise en place du combo [[Postfix]] - Postfix-pgsql - [[Postfixadmin]] - [[Courier]]. Et migration du mx de Priam à Babar.
+Supression du MX secondaire.
+
+=== 12 Mai : Nouvelle liste de diffusion ===
+Ajout d'une nouvelle liste de diffusion pour la traduction PostgreSQL et Slony
+
+=== 29 avril : dist-upgrade par damien ===
+RAS
+
+=== 20 avril : installation de roundcube pas damien ===
+-> [[webmail]]
+
+=== 20 avril : dist-upgrade par damien ===
+RAS
+
+=== 3 avril : installation de planet par damien ===
+-> [[planet]]

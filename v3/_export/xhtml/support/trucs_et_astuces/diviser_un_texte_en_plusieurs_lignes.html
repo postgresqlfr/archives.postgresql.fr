@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+<head>
+  <meta charset="utf-8" />
+  <title>support:trucs_et_astuces:diviser_un_texte_en_plusieurs_lignes</title>
+<meta name="generator" content="DokuWiki"/>
+<meta name="robots" content="index,follow"/>
+<meta name="keywords" content="support,trucs_et_astuces,diviser_un_texte_en_plusieurs_lignes"/>
+<link rel="search" type="application/opensearchdescription+xml" href="../../../../lib/exe/opensearch.php" title="Communauté francophone de PostgreSQL"/>
+<link rel="start" href="../../../../index.html"/>
+<link rel="contents" href="https://www.postgresql.fr/support/trucs_et_astuces/diviser_un_texte_en_plusieurs_lignes?do=index" title="Plan du site"/>
+<link rel="manifest" href="../../../../lib/exe/manifest.php" crossorigin="use-credentials"/>
+<link rel="alternate" type="application/rss+xml" title="Derniers changements" href="../../../../feed.php"/>
+<link rel="alternate" type="text/html" title="HTML brut" href="diviser_un_texte_en_plusieurs_lignes.html"/>
+<link rel="alternate" type="text/plain" title="Wiki balise" href="../../../raw/support/trucs_et_astuces/diviser_un_texte_en_plusieurs_lignes"/>
+<link rel="canonical" href="../../../../support/trucs_et_astuces/diviser_un_texte_en_plusieurs_lignes.html"/>
+<link rel="stylesheet" href="../../../../lib/exe/css.php%3Ft=tortoise&amp;tseed=ad76b451e9e42d817acb1920a91f4def.css"/>
+<link type="text/css" rel="stylesheet" href="../../../../lib/plugins/icons/assets/font-awesome/css/font-awesome.min.css"/>
+<link type="text/css" rel="stylesheet" href="../../../../lib/plugins/icons/assets/material-design-icons/css/materialdesignicons.min.css"/>
+<script >var NS='support:trucs_et_astuces';var JSINFO = {"ga":{"trackingId":"UA-3921927-1","gtagId":"","anonymizeIp":true,"action":"export_xhtml","trackOutboundLinks":true,"options":[],"pageview":"\/support\/trucs_et_astuces\/diviser_un_texte_en_plusieurs_lignes","debug":false},"id":"support:trucs_et_astuces:diviser_un_texte_en_plusieurs_lignes","namespace":"support:trucs_et_astuces","ACT":"export_xhtml","useHeadingNavigation":0,"useHeadingContent":0};(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement);</script>
+<script src="../../../../lib/exe/jquery.php%3Ftseed=8faf3dc90234d51a499f4f428a0eae43"></script>
+<script src="../../../../lib/exe/js.php%3Ft=tortoise&amp;tseed=ad76b451e9e42d817acb1920a91f4def"></script>
+</head>
+<body>
+<div class="dokuwiki export">
+
+<h1 class="sectionedit1" id="diviser_un_texte_en_plusieurs_lignes">Diviser un texte en plusieurs lignes</h1>
+<div class="level1">
+
+<p>
+Que faire si vous avez une chaîne, que vous voulez la séparer en plusieurs morceaux suivant un pattern et que vous voulez récupérer chaque morceau sur une ligne ?
+</p>
+
+<p>
+Commencer par créer la fonction suivante :
+</p>
+<pre class="code sql"><span class="kw1">CREATE</span> <span class="kw1">OR</span> <span class="kw1">REPLACE</span> <span class="kw1">FUNCTION</span> split_to_rows<span class="br0">&#40;</span>TEXT<span class="sy0">,</span>TEXT<span class="br0">&#41;</span> <span class="kw1">RETURNS</span> SETOF TEXT
+&nbsp;
+<span class="kw1">AS</span> $$
+&nbsp;
+    <span class="kw1">SELECT</span> <span class="br0">&#40;</span>string_to_array<span class="br0">&#40;</span>$1<span class="sy0">,</span> $2<span class="br0">&#41;</span><span class="br0">&#41;</span><span class="br0">&#91;</span>s<span class="sy0">.</span>i<span class="br0">&#93;</span>
+&nbsp;
+    <span class="kw1">FROM</span> generate_series<span class="br0">&#40;</span>
+&nbsp;
+        <span class="nu0">1</span><span class="sy0">,</span>
+&nbsp;
+        array_upper<span class="br0">&#40;</span>string_to_array<span class="br0">&#40;</span>$1<span class="sy0">,</span> $2<span class="br0">&#41;</span><span class="sy0">,</span> <span class="nu0">1</span><span class="br0">&#41;</span>
+&nbsp;
+    <span class="br0">&#41;</span> <span class="kw1">AS</span> s<span class="br0">&#40;</span>i<span class="br0">&#41;</span>;
+&nbsp;
+$$ <span class="kw1">LANGUAGE</span> <span class="kw1">SQL</span> strict;</pre>
+
+<p>
+Pour l&#039;utiliser, rien de plus simple :
+</p>
+<pre class="code">dev=# select split_to_rows(&#039;aa--bb--cc&#039;,&#039;--&#039;);
+
+split_to_rows
+---------------
+aa
+bb
+cc
+(3 rows)</pre>
+
+<p>
+Cette fonction a été écrite par David Fetter (voir son <a href="http://archives.postgresql.org/pgsql-general/2005-12/msg00080.php" class="urlextern" title="http://archives.postgresql.org/pgsql-general/2005-12/msg00080.php" rel="ugc nofollow">message sur pgsql-general</a>).
+</p>
+
+<p>
+– <br/>
+
+Guillaume Lelarge le 13/10/2006
+</p>
+
+</div>
+</div>
+</body>
+</html>

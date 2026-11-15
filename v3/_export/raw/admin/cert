@@ -1,0 +1,57 @@
+
+https://certbot.eff.org/#ubuntuxenial-apache
+
+====== Prepare ======
+
+<code>
+sudo apt-get update
+sudo apt-get install software-properties-common
+sudo add-apt-repository ppa:certbot/certbot
+sudo apt-get update
+sudo apt-get install python-certbot-apache 
+</code>
+
+====== Ajouter un certificat ======
+
+<code>
+sudo certbot --apache
+</code>
+
+... laissez vous guider
+
+====== Renouveller les certificats ======
+
+Par défaut les certifs SSL letsencrypt ont une durée de vie assez courte (genre 1 mois), il faut donc les renouveller automatiquement avec un crobjob :
+
+TEST : 
+
+<code>
+sudo certbot renew --dry-run
+</code>
+
+RUN : 
+
+<code>
+$ cat /etc/cron.daily/letsencrypt 
+#!/bin/sh
+
+certbot renew
+</code>
+
+
+Attention certains domaines il faut arrêter apache et lancer certbot en mode standalone 
+
+<code>*
+apache2ctl stop
+certbot renew --standalone
+apache2ctl start
+====== Vérifier ======
+
+  * https://www.ssllabs.com/ssltest/analyze.html?d=www.postgresql.fr
+  * https://www.ssllabs.com/ssltest/analyze.html?d=blog.postgresql.fr
+  * https://www.ssllabs.com/ssltest/analyze.html?d=forum.postgresql.fr
+  * https://www.ssllabs.com/ssltest/analyze.html?d=erp.postgresql.fr
+  * https://www.ssllabs.com/ssltest/analyze.html?d=planet.postgresql.fr
+  * https://www.ssllabs.com/ssltest/analyze.html?d=listes.postgresql.fr
+
+etc.

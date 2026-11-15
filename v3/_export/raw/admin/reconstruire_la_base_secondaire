@@ -1,0 +1,42 @@
+====== Reconstruire la base secondaire ======
+
+On fait un snapshot de la base sur Babar
+
+<code>
+/usr/local/pgsql/bin/psql -U postgres -h 127.0.0.1 -p 5433 -c "select pg_start_backup('init dumbo')"
+sudo cp -pr /data/postgresql-9.0 /data/postgresql-9.0-export-dumbo
+/usr/local/pgsql/bin/psql -U postgres -h 127.0.0.1 -p 5433 -c "select pg_stop_backup()"
+</code>
+
+Préparation et export du snapshot sur Babar
+
+<code>
+sudo su - postgres
+cd /data/postgresql-9.0-export-dumbo
+rm postmaster.pid
+rm pg_xlog/*
+echo 'hot_standby = on' >> postgresql.conf
+echo "standby_mode = 'on'" >> recovery.conf
+echo "restore_command = 'cp -i /var/lib/postgresql/babar_wals/%f %p'" >> recovery.conf
+echo "primary_conninfo      = 'host=212.85.154.68 port=5433 user=postgres'" >> recovery.conf
+echo "trigger_file = '/var/lib/postgresql/9.0/failover.trigger'" >> recovery.conf
+scp -pr /data/postgresql-9.0-export-dumbo/* dumbo.postgresql.fr:/data/postgresql-9.0-export-dumbo/
+</code>
+
+Sur dumbo, on charge le snapshot et on démarre en mode recovery/standby
+<code>
+sudo /etc/init.d/postgresql-9.0 stop
+sudo mv /data/postgresql-9.0 /data/postgresql-9.0-orig
+sudo mv /data/postgresql-9.0-export-dumbo /data/postgresql-9.0
+sudo chmod 700 -R /data/postgresql-9.0
+sudo /etc/init.d/postgresql-9.0 start
+</code>
+
+Il ne reste plus qu'à tester sur Dumbo :
+<code>
+/usr/local/pgsql/bin/psql  -h 127.0.0.1 -p 5433 -c "SELECT pg_is_in_recovery();";
+ pg_is_in_recovery 
+-------------------
+ t
+(1 row)
+</code>

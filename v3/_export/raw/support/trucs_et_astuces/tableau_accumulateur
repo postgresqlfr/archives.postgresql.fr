@@ -1,0 +1,63 @@
+====== Tableau Accumulateur ======
+
+Plutôt que de faire une somme, on peut avoir besoin de cumuler l'ensemble des valeurs différentes d'un ''GROUP BY'' dans un tableau. On peut à cet effet utiliser l'agrégat suivant :
+
+<code sql>
+CREATE AGGREGATE array_acc (
+BASETYPE = anyelement,
+SFUNC = array_append,
+STYPE = anyarray,
+INITCOND = '{}'
+); 
+</code>
+
+Il s'utilise tout simplement comme suit :
+
+<code>
+pgloader=# begin;
+BEGIN
+pgloader=# create table foo (a int, b text);
+CREATE TABLE
+pgloader=# insert into foo values(1, 'foo'), (1, 'bar'), (2, 'baz'), (1, 'zoinx');
+INSERT 0 4
+pgloader=# CREATE AGGREGATE array_acc (
+pgloader(# BASETYPE = anyelement,
+pgloader(# SFUNC = array_append,
+pgloader(# STYPE = anyarray,
+pgloader(# INITCOND = '{}'
+pgloader(# );
+CREATE AGGREGATE
+pgloader=# select a, array_acc(b) from foo group by a;
+a | array_acc
+---+-----------------
+2 | {baz}
+1 | {foo,bar,zoinx}
+(2 lignes)
+pgloader=# rollback;
+ROLLBACK
+pgloader=# begin;
+BEGIN
+pgloader=# create table foo (a int, b text);
+CREATE TABLE
+pgloader=# insert into foo values(1, 'foo'), (1, 'bar'), (2, 'baz'), (1, 'zoinx');
+INSERT 0 4
+pgloader=# CREATE AGGREGATE array_acc (
+pgloader(# BASETYPE = anyelement,
+pgloader(# SFUNC = array_append,
+pgloader(# STYPE = anyarray,
+pgloader(# INITCOND = '{}'
+pgloader(# );
+CREATE AGGREGATE
+pgloader=# select a, array_acc(b) from foo group by a;
+a | array_acc
+---+-----------------
+2 | {baz}
+1 | {foo,bar,zoinx}
+(2 lignes)
+
+pgloader=# rollback;
+ROLLBACK 
+</code>
+
+-- \\
+Par dim le 05/06/2007

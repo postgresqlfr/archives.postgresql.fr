@@ -1,0 +1,16 @@
+====== Sommes intermédiaires ======
+
+Un exemple qui nous viens tout droit du site http://www.udel.edu/evelyn/SQL-Class3/SQL3_Stat.html .
+
+Il s'agit de calculer pour chaque ligne de résultat la somme des éléments déjà affichés jusque là, sans pour autant modifier la requête d'une quelconque autre façon.
+
+L'idée est d'utiliser une jointure sur la même table, et de limiter cette jointure aux tuples déjà pris en compte jusque-là. Vous aurez donc à adapter le code suivant à vos données, bien sûr, mais aussi à votre façon de limiter la somme intermédiaire :
+
+<code sql>SELECT a.OrderID, a.OrderDate, Sum(b.OrderTotal) AS RunningTotal
+FROM RATTC_ForRunSum AS a, RATTC_ForRunSum AS b
+WHERE b.OrderDate <= a.OrderDate
+GROUP BY a.OrderID, a.OrderDate;
+</code>
+
+-- \\
+dim le 21/09/2006

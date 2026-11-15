@@ -1,0 +1,9 @@
+Pour déplacer toutes fonctions d'un schema (SOURCE) vers un autre (DEST) en une fois. En imaginant, que vous avez créé d'abord le schema DEST 
+
+<code>
+psql -U mon_user DATABASE -t -c "select 'alter function '||nspname||'.'||proname||' set schema DEST;' 
+  from pg_proc join pg_namespace as m on 
+  (pronamespace=m.oid) where nspname = lower('SOURCE')" > move_them.sql
+
+psql -U mon_user DATABASE -e -f a.sql
+</code>

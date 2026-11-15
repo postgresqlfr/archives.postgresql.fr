@@ -1,0 +1,74 @@
+====== Plan de la présentation de la cartouche spatiale PostGIS ======
+PGDay, Toulouse, le 4 octobre 2008
+Nicolas Ribot – Olivier Courtin
+
+===== Résumé =====
+
+PostGIS est une extension a PostgreSQL permettant de stocker et de manipuler des
+données geographiques. S'appuyant sur les normes OGC SFSQL
+(www.opengeospatial.org) et ISO SQL/MM, offrant de nombreuses fonctionnalités
+d'import, de traitement et d'export dans de multiples formats. PostGIS est aujourd'hui la
+solution de SGBD spatial Open Source la plus aboutie.
+Sa mise en place permet d'ajouter une composante spatiale a une base PostgreSQL et
+ainsi de créer une Infrastructure de Données Spatiales.
+Nous ferons une présentation rapide des nouveaux types géographiques apportés par la
+cartouche, puis aborderons la puissance des traitements géographiques offerts par
+PostGIS (fonctions et opérateurs spatiaux).
+Enfin, nous verrons comment utiliser ces données spatiales dans des applications: formats
+d'export (GML, SVG, KML), application SIG OpenSource (Grass, gvSig, uDig, Jump,
+GAS), intégration dans des environnements existants (serveurs d'application par
+exemple).
+
+===== Mots-clés =====
+PostGIS, Système d'information géographique, SIG, SGBD, OGC SFSQL, traitement
+spatiaux, IDS, KML, SVG.
+
+===== Plan =====
+
+Introduction:
+
+  - Historique de PostGIS
+  - Rappel sur les normes et standards
+    - GC SFSQL, ISO SQL/MM:
+      - Historique
+      - Niveau de support
+  - Principaux SGBD spatiaux
+  - Objets géographiques supportés
+    - Hiérarchie d'objets géographique
+    - Définition mathématiques
+    - Représentation interne, binaire et textuelles des objets
+  - Index spatiaux
+    - Intérêt des index
+    - Mode de fonctionnement
+    - Mise en oeuvre, utilisation dans des requêtes
+    - Limitations
+  - Fonctions et opérateurs spatiaux
+    - Présentation de GEOS, bibliothèques géographique
+    - Différence entre fonctions et opérateurs
+    - Principales fonctions spatiales
+    - Utilisation des fonctions et opérateurs pour des traitements complexes
+      - Agrégation, fusion
+      - Analyses spatiales
+      - Fonction Relate
+      - Fonctions géodétiques
+      - Fonctions de référencement linéaire
+  - Formats d 'export géographiques
+    - GML
+    - KML
+    - SVG
+    - GeoJson
+    - Utilitaire d'import/export de shapefiles: shp2pgsql, pgsql2shp
+  - Outil SIG OpenSource
+    - Bureautique
+      - uDig
+      - Grass
+      - Jump/OpenJump
+      - Talend OpenStudio / SDI
+      - gvSig
+    - Serveur d'application
+      - MapServer
+      - GeoServer
+  - Futur de PostGIS
+    - Roadmap court terme
+    - Roadmap long terme
+  - Conclusion

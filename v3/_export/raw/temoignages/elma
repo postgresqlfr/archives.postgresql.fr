@@ -1,0 +1,212 @@
+====== Elma Ingénierie Informatique ======
+
+**Êtes vous d'accord pour que votre nom, prénom, courriel, nom d'organisation et
+votre fonction dans celle-ci soit connue du public ?**
+
+Sans aucun soucis.
+
+    * Nom : Piedvache;
+    * Prénom : Hervé;
+    * Société : Elma Ingénierie Informatique;
+    * Date de création : 1998;
+    * Activité : SSII - Développement d'applications sur mesure de préférence en environnement OpenSource;
+    * Situation : Paris - France;
+    * Fonction : Directeur Général;
+    * Chiffre d'affaire 2003 : 650 000 M€ environ;
+    * Effectif : 6 (5 ingénieurs dont moi et un commercial);
+    * Site web : http://www.elma.fr;
+    * Filiale du groupe Maximiles/Dateos;
+    * Start-up dont les actionnaires sont la SNCF, Innovacom (France-Télécom), Sofinnova, CIC, SPEF (Banques Populaires);
+    * Effectif de 30 personnes;
+    * CA 2003 environ 4 M€;
+    * Leader en France de la fidélisation par Internet;
+    * Site public : http://www.maximiles.co;
+    * Site B2B : http://www.dateos.com;
+\\
+Nous développons principalement pour le compte de notre filiale Maximiles des
+applications de fidélisation, d'incentive, ou de gestion pure de base de
+données.
+
+Les clients représentent des entreprises nationales et internationales, les
+principales références sont :
+
+    * Le programme Maximiles.com multi-enseignes, il regroupe des partenaires comme Voyages-sncf.com, American Express, Aquarelle.com, Mistergooddeal, Marcopoly.com, Ticketnet, Avis, Promod.com, etc. Cela représente 700 000 membres inscrits à fin 2003;
+    * Banque CIC (France) : Gestion complète du programme Parcours J regroupant plus de 300 000 clients;
+    * BRED : Gestion des programmes d¹animation et avantage à destination des clientèles professionnelles Métropole et Outremer et clientèle particuliers Outremer;
+    * Banque Populaire : Gestion complète du programme jeune axé autour du cinéma (Cinepop.fr);
+    * Banque Monte Dei Paschi Di Sienna (Italie) : Programme on-line puis off-line, destiné à accueillir des centaines de partenaires;
+    * Coca-Cola (France) : Programme de génération de leads destiné à l¹ensemble des employés;
+    * IBM (France et Belgique) : Conception, Gestion, Animation du programme de stimulation de l'ensemble des employés du groupe IBM France (Système intégré à l'intranet des employés);
+    * SNCM (France) : Programme d'incentive à destination des réseaux de distribution;
+    * Cegetel (France) : Programme destiné au réseau RSS des professionnels de la santé;
+    * Solly Azar (France) : Programme d'incentive destiné à l¹animation du réseau de distribution (courtiers);
+    * Gestion de la Base de données : Carte UGC Illimitée (France et Belgique), Orange Thaïlande (base de qualification du réseau GSM)
+\\
+**À quoi sert la(les) bases de données que vous utilisez dans votre
+organisation ?**
+
+PostgreSQL est la seule base de données utilisée pour tous nos développements.
+Toutes nos applications nécessitant une base de données reposent sur
+PostgreSQL.
+
+Dans le cadre de nos applications de fidélisation, PostgreSQL, sert donc à
+l'inscription des membres, la gestion de tous les gains de points, tous les
+programmes d'avantages avec paiement sécurisé), etc.
+
+Nous avons choisi PostgreSQL après avoir exploité plusieurs mois sous Oracle.
+Lorsque nous avons ouvert nos filiales en Belgique et en Espagne, le coûts
+des licences Oracle nous a fait réfléchir à la nécessité de trouver une
+alternative économique. Nous avons donc opéré des tests sur les principales
+solutions du marché. PostgreSQL s'avérait correspondre le mieux, tant en
+terme de taux de charge supporté, que des fonctionnalités à la fois proche
+d'Oracle (procédures internes, triggers, respect du langage SQL, système de
+transaction). Qui plus est la communauté a toujours été très réactive quant
+aux problèmes que nous avons pu rencontrer. Depuis 4 ans que nous utilisons
+PostgreSQL nous n'avons jamais buté sur un bug ou un dysfonctionnement plus
+de 2 jours ... ce que nous n'avions jamais vécu au préalable avec Oracle par
+exemple.
+
+**La(les) bases de données gérées sont critiques pour votre l'organisation ?**
+
+C'est le coeur même de l'activité de notre filiale. Nous exploitons, et
+hébergeons nous même les applications de nos clients. Des taux de qualité de
+service proche de 99,9% nous sont demandées ... Les bases de données sont
+donc très critiques.
+
+**Quel est le nombre de bases de données distinctes par rapport au nombre total
+de bases de données de votre organisation ?**
+
+1 base de données, sous PostgreSQL.
+
+**Quel est le nombre minimum/maximum/moyen de tables par base de données ?**
+
+    * Minimum : 43 tables;
+    * Maximum : 190 tables;
+    * Moyen : 150 tables;
+
+**Quelle est la taille minimum/max/moyenne des bases gérées (en méga octets) ?**
+
+    * Minimum : 1.2 Go;
+    * Maximum : 46 Go;
+    * Moyen : 8 Go;
+
+**PostgreSQL est utilisée dans un contexte transactionnel ou plutôt de type
+datamining/datawarehouse ?**
+
+Les deux.
+
+**Quelle est la version utilisée ?**
+
+90% du parc est en v7.4.1, 10% du parc est en v7.3.5.
+
+**Le serveur sur lequel est installé PostgreSQL est de quel type ?**
+
+Le parc de serveurs (30 environs) est entièrement sous Debian Woody.
+En revanche la version de PostgreSQL utilisée est à chaque fois compilée par
+nos soins.
+
+Les machines sont à 99% à base de Pentium, et 1% sous SUN.
+Les configurations sont toujours à base de bi-processeurs, et oscille du
+Pentium Xeon 600 Mhz à du Pentium Xeon 1,8 Go.
+Les configurations mémoire sont entre 1 et 2 Go.
+Les systèmes sont en général en RAID 1 pour l'OS, et en RAID 5 pour les
+données de la base. Elles oscillent de 36 Go à 150 Go.
+
+**Quelle est la part des logiciels libres dans votre organisation ?**
+
+    * 100% des serveurs sont en opensource. (apache, php, postgresql, postfix);
+    * 90% des postes clients en opensource (openoffice, Gimp, kdevelop);
+    * 5% sous Windows (office2000, photoshop, illustrator, Borland C++/Delphi);
+    * 5% sous MacOS (office98, photoshop, illustrator, codewarrior);
+
+**Quel est le "nombre de serveurs en technologies libres (globalement)" ?**
+
+30 serveurs environs en technologie libre.
+
+**Depuis combien de temps PostgreSQL est utilisé dans l'organisation et/ou depuis
+quelle version ?**
+
+4 ans, depuis la version 7.0.4 de mémoire.
+
+**PostgreSQL est-il venu en remplacement d'une technologie propriétaire (ou plusieurs),
+si oui, laquelle (lesquelles) ?**
+
+Oui - Oracle - 1 fois et définitive. Nous avons remplacé toutes nos applications, et
+migré tous nos clients vers PostgreSQL, nous ne proposons plus que cette base de données.
+
+**Si vous avez remplacé une technologie propriétaire par PostgreSQL :
+Pourquoi ?**
+
+Expliqué plus haut... :o)
+
+**Si vous avez remplacé une technologie propriétaire par PostgreSQL : Avez vous
+testé d'autres SGBD Libres ? Si oui, lesquels ?**
+
+MySQL, Interbase.
+
+**Si vous avez testé d'autres SGBD/R libres : Pourquoi avoir choisi PostgreSQL au
+final ?**
+
+PostgreSQL était en particulier celui qui tenait le mieux la charge sur des pics d'accès
+simultanés, alors que MySQL s'écroulait, et qu'Interbase avait déjà perdu les pédales
+depuis longtemps.
+
+**Quel est votre ressenti sur PostgreSQL en termes de fiabilité ?**
+
+Note 5 sur 5 :100% satisfait de la fiabilité !
+
+**de robustesse ?**
+
+Note 5 sur 5 :Nous avons eu des expériences de crash machine, et toujours nous sommes repartis bon pied
+bon oeil ;o) Le concept technologique employé nous a toujours énormément satisfait.
+
+**d'administration ?**
+
+Note 4 sur 5 :Un vrai régal en comparaison à Oracle. On regrettera une documentation parfois
+confuse pour certaines options.
+
+**de facilité d'utilisation ?**
+
+Note 5 sur 5 :De nombreux outils à disposition pour attaquer la base, de nombreux moyens et langages supportés...
+que demander de plus ?
+
+**de performances ?**
+
+Note 5 sur 5 :Jusqu'à aujourd'hui nous en avons toujours été satisfaits.
+
+**d'extensibilité ?**
+
+Note 5 sur 5 :C'est tout l'avantage de PostgreSQL, ne jamais se trouver
+bloqué, avoir un outil très souple, et en plus une communauté ouverte qui est prête à écouter
+et à améliorer le produit.
+
+**de « scalabilité » ?**
+
+Note 5 sur 5 :Sans soucis.
+
+**de « tuning » ?**
+
+Note 4 sur 5 :Le tuning est facile sous PostgreSQL, mais il est des fois délicat de
+constater vraiment la finesse des réglages. Le tuning de l'utilisation
+mémoire est parfois assez subtile pour une véritable utilisation performante.
+
+**d'outils annexes ?**
+
+Nous n'utilisons pratiquement que psql... et nous en sommes très satisfait !
+
+**Le support de la communauté PostgreSQL vous parraît-il efficace ?**
+
+Déjà explicité... c'est un vrai régal... il nous ait même arrivé que des
+membres important de la communauté viennent nous aider à debugger le produit
+sur nos machines en direct ... une chose incroyable avec des produits
+propriétaires !
+
+Hervé Piedvache\\
+Elma Ingénierie Informatique\\
+6 rue du Faubourg Saint-Honoré\\
+F-75008 - Paris - France\\
+Pho. 33-144949901\\
+Fax. 33-144949902\\
+
+-- \\
+Jean-Paul Argudo le 11/09/2004

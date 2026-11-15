@@ -1,0 +1,176 @@
+====== Hussein Metdaoui - Responsable Technique chez Eyrolles ======
+
+**Êtes vous d'accord pour que votre nom, prénom, courriel, nom d'organisation et
+votre fonction dans celle-ci soit connue du public ?**
+
+Hussein Metdaoui\\
+Groupe Eyrolles - Responsable technique\\
+hmetdaoui _à_ eyrolles _point_ com\\
+
+**Vous faites partie d'une organisation à but lucratif, associatif ou
+gouvernementale ?**
+
+Le Groupe Eyrolles SA occupe une position privilégiée sur le marché français du
+livre professionnel et technique avec les marques Éditions Eyrolles et Éditions
+d'Organisation. Si l'édition reste le coeur du métier, le Groupe Eyrolles est
+également diffuseur et libraire. Les équipes commerciales assurent notamment la
+diffusion d'une quarantaine d'éditeurs spécialisés en plus des marques du
+groupe. Il possède également plusieurs librairies, dont l'une des principales
+librairies spécialisées en France, la Librairie Eyrolles, boulevard
+Saint-Germain. Le site marchand de la librairie Eyrolles
+(http://www.eyrolles.com)
+existe depuis juillet 1999.
+
+**Quelle est la taille de votre organisation en nombre de collaborateurs ?**
+
+Le Groupe Eyrolles emploie 200 personnes.
+
+**À quoi sert la(les) bases de données que vous utilisez dans votre organisation ?**
+
+PostgreSQL est utilisé principalement dans le cadre du site web marchand
+eyrolles.com pour gérer l'ensemble des informations bibliographiques, données de
+commandes, données clients, statistiques etc... C'est également le support d'un
+backoffice de gestion de la relation client et gestion des commandes issues du
+site.
+
+**La(les) bases de données gérées sont critiques pour votre l'organisation ?**
+
+Cette base de données est le support du site de vente en ligne et doit donc être
+en permanence accessible en 24h/24 et 7j/7.
+
+**Quel est le nombre de bases de données qui fonctionnent sous PostgreSQL par
+rapport au nombre total de bases de données (tous SGBD confondus) de votre
+organisation ?**
+
+PostgreSQL (2), Oracle (1), SQL Server (1), MySQL (2)
+
+**Quel est le nombre minimum/maximum/moyen de tables par base de données ?**
+
+60 tables et 150 procédures stockées
+
+**Quelle est la taille minimum/max/moyenne des bases gérées (en méga octets) ?**
+
+1,6 Go
+
+**PostgreSQL est utilisée dans un contexte transactionnel ou plutôt de type
+datamining/datawarehouse ?**
+
+Principalement Transactionnel.
+
+**Quelle est la version utilisée ?**
+
+PostgreSQL version 7.4
+
+**Le serveur sur lequel est installé PostgreSQL est de quel type ?**
+
+Serveur DELL sous Debian - Pentium III Xeon 1 Ghz, 768 Mo de RAM ECC, RAID 5
+
+**Quelle est la part des logiciels libres dans votre organisation ? Au niveau des
+serveurs ? Et au niveau des postes clients ?**
+
+60% pour les serveurs ( dont 100% pour les serveurs web ) 1% pour les postes de
+travail
+
+**Depuis combien de temps PostgreSQL est utilisé dans l'organisation et/ou depuis
+quelle version ?**
+
+Depuis 9 mois en version 7.4
+
+**PostgreSQL est-il venu en remplacement d'une technologie propriétaire (ou
+plusieurs), si oui, laquelle (lesquelles) ?**
+
+A la création d'eyrolles.com s'est posé la question du choix de la base de
+données. En 1999, le SGBD Oracle venait d'être porté sous Linux. Nous nous
+sommes tourné vers Oracle car les performances et la robustesse de cette base de
+données étaient garantis par notre prestataire de service. Depuis nous
+utilisions Oracle en surveillant avec attention les progrès considérables de
+PostgreSQL.
+
+Nous avons profité de la refonte du site Eyrolles.com en fin 2003 pour nous
+orienter vers postgreSQL
+
+**Si vous avez remplacé une technologie propriétaire par PostgreSQL: Pourquoi ?**
+
+Notre objectif : Utiliser 100% de logiciels libres tout en améliorant le
+service. Nous utilisions auparavant PHP, Apache, Linux et Oracle.
+
+    * C'est un équivalent d'Oracle pour un site de commerce électronique comme eyrolles.com
+      ( au moins Oracle 8 )
+    * Permet de bénéficier d'un coût de licence nul et d'une communauté de développeurs.
+
+**Si vous avez remplacé une technologie propriétaire par PostgreSQL: Avez vous
+testé d'autres SGBD Libres ? Si oui, lesquels ?**
+
+Naturellement MySQL: Évalué mais pas testé car ne répondait pas aux exigences:
+
+    * Fonctions absentes pourtant bien pratiques (rapidité et modularité)
+    * Transaction et sous requêtes maintenant supportées mais pas au moment de la
+      décision
+
+**Si vous avez testé d'autres SGBD/R libres: Pourquoi avoir choisi PostgreSQL au
+final ?**
+
+    * La migration d'Oracle vers PostgreSQL avait déjà été réalisée avec succès chez
+      des grands comptes ( réalisation par IdéalX )
+    * PostgresSQL nous a été conseillé et recommandé par plusieurs auteurs des Éditions Eyrolles
+
+**Quel est votre ressenti sur PostgreSQL en termes de fiabilité ?**
+
+5
+
+La base de données fonctionne correctement.
+
+Il faut réaliser régulièrement des opérations de nettoyage de la base (Vacuum)
+pour ne pas perdre en performances.
+
+**de robustesse ?**
+
+4/5 pour la robustesse
+
+5 pour les capacités de reprise sur panne
+
+Les capacités de reprises sur panne sont impressionnantes.
+
+En cas de panne la base de données "retombe sur ses pieds" avec une facilité
+déconcertante:
+
+    * "automatic recovery in progress": une fois le travail terminé la base vous
+      annonce fièrement:
+    * "database system is ready"
+
+La seule opération réellement critique est le VACUUM FULL qui peut dans
+certaines conditions engendrer quelques complications (Apposition de verrous
+exclusifs en lecture et écriture et mise en attente d'autres processus
+bloquants)
+
+**d'administration ?**
+
+5
+
+**de facilité d'utilisation ?**
+
+5
+
+**de performances ?**
+
+5
+
+**d'extensibilité ?**
+
+-
+
+**de « scalabilité » ?**
+
+-
+
+**de « tuning » ?**
+
+Les opérations de tunning sont assez simples à gérer.
+
+**Le support de la communauté PostgreSQL vous parraît-il efficace ?**
+
+La communauté PgSQL francophone se développe progressivement et sera dans
+quelques années à la hauteur de la communauté MySQL. 
+
+-- \\
+Jean-Paul Argudo le 21/09/2004

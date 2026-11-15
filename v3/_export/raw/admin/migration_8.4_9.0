@@ -1,0 +1,59 @@
+====== 8.4 => 9.0  ======
+
+===== Etape 0 : les bases obsolètes =====
+
+drupal6 et pgfr sont juste des vestiges du passé :)
+
+<code>
+/usr/local/pgsql/bin/dropdb -h 127.0.0.1 -p 5433 drupal6
+/usr/local/pgsql/bin/createdb -h 127.0.0.1 -p 5433 drupal6
+pg_dump drupal6 | /usr/local/pgsql/bin/psql -h 127.0.0.1 -p 5433 drupal6
+</code>
+
+<code>
+/usr/local/pgsql/bin/dropdb -h 127.0.0.1 -p 5433 pgfr
+/usr/local/pgsql/bin/createdb -h 127.0.0.1 -p 5433 pgfr
+pg_dump pgfr | /usr/local/pgsql/bin/psql -h 127.0.0.1 -p 5433 pgfr
+</code>
+
+===== Etape 1 : limesurvey =====
+
+<code>
+/usr/local/pgsql/bin/createuser -h 127.0.0.1 -p 5433 limesurvey -SPRDl
+/usr/local/pgsql/bin/createdb -h 127.0.0.1 -p 5433 limesurvey --owner limesurvey
+pg_dump limesurvey | /usr/local/pgsql/bin/psql -h 127.0.0.1 -p 5433 limesurvey -U limesurvey 
+</code>
+
+===== Etape 1a : roundcube + postfix + postfixadmin =====
+
+<code>
+/usr/local/pgsql/bin/createuser -h 127.0.0.1 -p 5433 roundcube -SPRDl
+/usr/local/pgsql/bin/createdb -h 127.0.0.1 -p 5433 roundcube --owner roundcube
+pg_dump roundcube | /usr/local/pgsql/bin/psql -h 127.0.0.1 -p 5433 roundcube -U roundcube
+</code>
+
++ Modification du fichier :
+
+
+/data/www/fr/postgresql.fr/webmail$/config/db.inc.php
+
+
+
+===== Etape 1b : courier + postfix + postfixadmin =====
+
+
+
+
+<code>
+/usr/local/pgsql/bin/createuser -h 127.0.0.1 -p 5433 postfix -SPRDl
+/usr/local/pgsql/bin/createdb -h 127.0.0.1 -p 5433 postfix --owner postfix
+pg_dump postfix | /usr/local/pgsql/bin/psql -h 127.0.0.1 -p 5433 postfix -U postfix
+</code>
+
+fichier à modifier :
+
+  * /usr/share/postfixadmin/config.inc.php
+  * /etc/courier/authpgsqlrc
+  * /etc/postfix/pgsql
+
+<note important> ROLLBACK ! Postfix et postfixadmin supportent mal le port 5433 :-/</note>

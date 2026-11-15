@@ -1,0 +1,79 @@
+Soit le script
+
+<code>
+CREATE TABLE test_ref (
+    id integer,
+    tvalue text,
+    tparent integer
+);
+
+
+INSERT INTO test_ref VALUES (1, 'Department IT', NULL);
+INSERT INTO test_ref VALUES (2, 'Departement HR', NULL);
+INSERT INTO test_ref VALUES (3, 'Departement fourniture IT', 1);
+INSERT INTO test_ref VALUES (4, 'Departement Machine IT', 1);
+INSERT INTO test_ref VALUES (5, 'Departement Server', 4);
+INSERT INTO test_ref VALUES (6, 'Departemet Machine bureau', 4);
+INSERT INTO test_ref VALUES (7, 'Departement logiciel server', 5);
+INSERT INTO test_ref VALUES (8, 'Departement relation', 2);
+INSERT INTO test_ref VALUES (9, 'Departement event', 2);
+INSERT INTO test_ref VALUES (10, 'Departement secretariat', 2);
+INSERT INTO test_ref VALUES (14, 'Departement procedure', 10);
+INSERT INTO test_ref VALUES (15, 'Sous departement procedure', 14);
+INSERT INTO test_ref VALUES (16, 'Sous sous departement procedure', 15);
+</code>
+
+Je souhaite trouver tout les enregistrements qui dépendent directement ou directement d'un département. 
+Par exemple : j'aimerais savoir tout ce qui dépend du département 1, directement ET indirectement
+
+La solution la plus simple est d'utiliser une fonction récursive, évidemment, c'est lourd en performance et avec des
+grande table, ce n'est pas la solution optimale
+<code>
+create or replace function get_tree(value integer)
+returns setof test_ref
+as
+$_$
+declare
+        n integer;
+        i record;
+        e record;
+begin
+        raise notice 'Call get_tree(%)', value;
+        for i in select * from test_ref where tparent=value loop
+                raise notice 'return tparent i %',i.id;
+                return next i;
+
+                for e in select * from get_tree(i.id) loop
+                        raise notice 'recursive part tparent e %',e.id;
+                        return next e;
+                end loop;
+
+        end loop;
+
+        raise notice 'Call get_tree(%) finished ', value;
+        return;
+
+
+
+end;
+$_$ language plpgsql;
+</code>
+
+Testons pour voir, tous les département dépendant du 1 (Département IT)
+<code>
+
+ select * from get_tree(1);
+
+
+id |           tvalue            | tparent
+----+-----------------------------+---------
+  3 | Departement fourniture IT   |       1
+  4 | Departement Machine IT      |       1
+  5 | Departement Server          |       4
+  7 | Departement logiciel server |       5
+  6 | Departemet Machine bureau   |       4
+</code>
+
+
+
+

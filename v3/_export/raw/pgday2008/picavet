@@ -1,0 +1,35 @@
+Voici le plan de mon lightning talk :
+==================================================================
+  - Introduction
+    - Makina Corpus, domaines d'activités, SIG
+  - Postgresql/Postgis dans les architectures SIG web classiques
+    - environnement système
+    - outils d'intégration de données
+    - logiciels clients : langages, serveurs cartos, clients SIG lourds
+    - types d'utilisation de la Bdd dans les projets SIG web
+  - Un projet carto particulier : graphes de réseaux
+    - Contexte : deux bases de graphes de réseau routier désynchronisés
+    - Problèmatique : «recoller» les réseaux
+    - Méthodes : Sémantiques, topologiques, géométriques
+    - Type d'utilisation de postgres : «ELT», traitements longs et lourds
+    - Volumétrie des bases
+    - Environnment système : Windows
+    - Outils annexes
+      - intégration avec Talend SDI, à partir de sybase 
+      - Modélisation et rétroingénierie avec PowerAMC
+      - import/export géo avec shp2pgsql, ogr2ogr
+      - clients SIG gvsig, udig (et mapinfo) 
+  - Problèmes rencontrés
+    - modularisation du code en pl/pgsql
+      - compromis modularité/généricité/performance
+      - répartition du code coté client/serveur
+      - accès au log des requetes
+      - gestion du cache de requete
+    - certains traitements peu adaptés au relationnel    
+    - extensions modules C sous windows
+    - paramétrages serveurs
+    - monitoring et statistiques d'exécutions (pgfouine)
+    - avancement des requetes longues
+    - gestion des tables géo selon les outils sig utilisés
+    - intégration d'outils externes pas adaptés
+    - updates

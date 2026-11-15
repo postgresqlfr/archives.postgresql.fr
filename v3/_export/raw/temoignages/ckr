@@ -1,0 +1,188 @@
+====== Jean-Max REYMOND, Directeur Technique de CKR Solutions ======
+
+**Êtes vous d'accord pour que votre nom, prénom, courriel, nom
+d'organisation et votre fonction dans celle-ci soit connue du public ?**
+
+Oui, totalement.
+
+    * Nom: Reymond
+    * Prénom: Jean-Max
+    * Société : CKR Solutions
+    * Date de création : 2004
+    * Activité : SSII - Société de services en logiciels libres
+    * Situation Nice - France
+    * Fonction : Directeur technique
+    * Effectif : 3
+    * Site web : http://www.ckr-solutions.com
+\\
+**Vous faites partie d'une organisation à but lucratif,
+associatif ou gouvernementale ?**
+
+CKR Solutions est une société de services ayant pour but
+d'accompagner les grands comptes et les collectivités locales dans une démarche OpenSource.
+
+**Quelle est la taille de votre organisation en nombre de collaborateurs ?**
+
+Nos clients utilisant Postgres vont de trois utilisateurs pour les
+plus petits à plusieurs centaines pour la plus grosse.
+
+**À quoi sert la(les) bases de données que vous utilisez dans votre
+organisation ?**
+
+Pour le cas le plus significatif, très grosse application de
+gestion financière pour une mairie.
+
+**La(les) bases de donnéess gérées sont critiques pour votre organisation ?**
+
+Toujours, pour le même client, si le système s'interrompt pendant
+les heures de travail, c'est plusieurs centaines de personnes qui
+sont bloquées dans leur activité.
+
+**Quel est le nombre de bases de données distinctes par rapport au
+nombre total de bases de données de votre organisation ?**
+
+1 base de données centrale
+
+**Quel est le nombre minimum/maximum/moyen de tables par base de
+données ?**
+
+pour le cas, le plus significatif, nous avons 340 tables et 71
+vues. Aucune procédure stockée.
+
+**Quelle est la taille minimum/max/moyenne des bases gérées (en
+méga octets) ?**
+
+de l'ordre de 3 Go
+
+**PostgreSQL est utilisée dans un contexte transactionnel ou plutôt
+de type datamining/datawarehouse ?**
+
+principalement transactionnelle. Une base répliquée sur une autre
+machine sert pour toutes les applications du type Business Objects.
+
+**Quelle est la version utilisée ?**
+
+la dernière version 7.4 dans la mesure où elle apporte des gains
+substantiels de performances.
+
+**Le serveur sur lequel est installé PostgreSQL est de quel type ?**
+
+Mandrake 9.1, Athlon 2800, 1 Go RAM, DD 10K t/mn.
+
+**Quelle est la part des logiciels libres dans votre organisation ?
+Au niveau des serveurs ? Et au niveau des postes clients ?**
+
+la société CKR Solutions est 100% logiciels Open Source. Notre
+client est Windows pour les postes clients et vient de passer à
+Linux en remplacement d'AIX pour ses serveurs.
+
+**Depuis combien de temps PostgreSQL est utilisé dans
+l'organisation et/ou depuis quelle version ?**
+
+deux ans depuis la 7.1.
+
+**PostgreSQL est-il venu en remplacement d'une technologie
+propriétaire (ou plusieurs), si oui, laquelle (lesquelles) ?**
+
+La solution est en remplacement d'Oracle dont les tarifs licences
+n'étaient plus raisonnables.
+
+**Si vous avez remplacé une technologie propriétaire par
+PostgreSQL: Pourquoi ?**
+
+tout d'abord à cause du coût de licence. Ensuite pour sa
+simplicité d'administration très utile pour des non initiés.
+Enfin, les performances restaient correctes et c'est le principal.
+
+**Si vous avez remplacé une technologie propriétaire par
+PostgreSQL: Avez vous testé d'autres SGBD Libres ? Si oui, lesquels ?**
+
+nous avons regardé les spécifications de MySQL et l'avons rejeté car
+il y a trop de manquements par rapport à la norme SQL92. Maxdb était bien
+sur le papier mais les performances sont très en retrait par
+rapport à PostgreSQL.
+
+**Si vous avez testé d'autres SGBD/R libres: Pourquoi avoir choisi
+PostgreSQL au final ?**
+
+respect de la norme SQL92, performances
+
+**À présent, donnez des notes de 1 à 5 et commentez**
+
+**1 = mauvais, 2 = passable, 3 = moyen, 4 = bon, 5 = très bon**
+
+**Quel est votre ressenti sur PostgreSQL en termes de fiabilité ?**
+
+5: très bon.
+
+Dans ma précédente société, une base a tourné depuis 1997 sur la
+même machine sans corruption des données avec une dizaine
+d'utilisateurs simultanées et en permanence.
+
+**de robustesse ?**
+
+5: très bon : RAS
+
+**d'administration ?**
+
+4: bon.
+
+La base elle même ne demande quasiment rien mais les
+outils efficaces commencent seulement à arriver.
+
+**de facilité d'utilisation ?**
+
+5: très bon.
+
+Le respect des normes y est pour beaucoup.
+
+**de performances ?**
+
+3 = moyen.
+
+il y a toujours moyen de mieux faire en particulier
+pour les bases dont la taille dépasse la taille de la RAM. A ce
+sujet, il est bon de consulter le très bon document de référence
+de thierry Missimilly de BULL SA. il est utile de noter que la 7.4
+a été un grand progrès et que le système de fichiers XFS est aussi
+très utile pour des gains en performance.
+
+**d'extensibilité ?**
+
+4: bon mais on ne s'en sert pas :-(
+
+**de « scalabilité » ?**
+
+3: moyen.
+
+On regrette à ce sujet l'absence des tablespace qui
+permettraient de balancer les tables et les index sur des
+disques supplémentaires. Bonne nouvelle, les tablespace arrivent
+en 7.5. Nous n'avons pas essayé en bi-processeur.
+
+**de « tuning » ?**
+
+3: moyen.
+
+Le tuning est délicat même si c'est plus aisé qu'avec
+Oracle qui nécessite un DBA expérimenté. On attends beaucoup de la
+7.5 pour les raisons évoquées plus haut.
+
+**d'outils annexes ?**
+
+4: bon.
+
+L'outil psql avec son historique de commandes et son
+éditeur ligne fait baver les admin's oracle. L'outil pgAdmin3 est
+très prometteur.
+
+**Le support de la communauté PostgreSQL vous parraît-il efficace ?**
+
+4: bon.
+
+On se sert d'Usenet ou des listes spécifiques PostgreSQL et
+dans les 4 heures, on a une réponse, y compris, pour les cas les
+plus délicats de tuning. 
+
+-- \\
+Jean-Paul Argudo le 11/09/2004

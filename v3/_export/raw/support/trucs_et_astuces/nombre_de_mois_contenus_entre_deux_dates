@@ -1,0 +1,24 @@
+====== Nombre de mois contenus entre deux dates ======
+
+Cela se fait avec les deux fontions suivantes :
+
+<code sql>create function extract_months(interval) returns integer language sql
+
+  as $f$
+
+    select 12 * extract(year from $1)::integer
+
+           + extract(month from $1)::integer
+
+$f$;
+
+create function months_between(date,date) returns integer language sql
+
+  as $f$
+
+    select extract_months(age($2,$1))
+
+$f$;
+</code>
+-- \\
+dim le 08/09/2006

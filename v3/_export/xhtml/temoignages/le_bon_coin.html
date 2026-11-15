@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+<head>
+  <meta charset="utf-8" />
+  <title>temoignages:le_bon_coin</title>
+<meta name="generator" content="DokuWiki"/>
+<meta name="robots" content="index,follow"/>
+<meta name="keywords" content="temoignages,le_bon_coin"/>
+<link rel="search" type="application/opensearchdescription+xml" href="../../../lib/exe/opensearch.php" title="Communauté francophone de PostgreSQL"/>
+<link rel="start" href="../../../index.html"/>
+<link rel="contents" href="https://www.postgresql.fr/temoignages/le_bon_coin?do=index" title="Plan du site"/>
+<link rel="manifest" href="../../../lib/exe/manifest.php" crossorigin="use-credentials"/>
+<link rel="alternate" type="application/rss+xml" title="Derniers changements" href="../../../feed.php"/>
+<link rel="alternate" type="text/html" title="HTML brut" href="le_bon_coin.html"/>
+<link rel="alternate" type="text/plain" title="Wiki balise" href="../../raw/temoignages/le_bon_coin"/>
+<link rel="canonical" href="../../../temoignages/le_bon_coin.html"/>
+<link rel="stylesheet" href="../../../lib/exe/css.php%3Ft=tortoise&amp;tseed=ad76b451e9e42d817acb1920a91f4def.css"/>
+<link type="text/css" rel="stylesheet" href="../../../lib/plugins/icons/assets/font-awesome/css/font-awesome.min.css"/>
+<link type="text/css" rel="stylesheet" href="../../../lib/plugins/icons/assets/material-design-icons/css/materialdesignicons.min.css"/>
+<script >var NS='temoignages';var JSINFO = {"ga":{"trackingId":"UA-3921927-1","gtagId":"","anonymizeIp":true,"action":"export_xhtml","trackOutboundLinks":true,"options":[],"pageview":"\/temoignages\/le_bon_coin","debug":false},"id":"temoignages:le_bon_coin","namespace":"temoignages","ACT":"export_xhtml","useHeadingNavigation":0,"useHeadingContent":0};(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement);</script>
+<script src="../../../lib/exe/jquery.php%3Ftseed=8faf3dc90234d51a499f4f428a0eae43"></script>
+<script src="../../../lib/exe/js.php%3Ft=tortoise&amp;tseed=ad76b451e9e42d817acb1920a91f4def"></script>
+</head>
+<body>
+<div class="dokuwiki export">
+
+<h1 class="sectionedit1" id="cas_d_utilisation_de_postgresqlsite_le_bon_coin">Cas d&#039;utilisation de PostgreSQL : site &quot;Le bon coin&quot;</h1>
+<div class="level1">
+
+<p>
+Paris, le 6 mars 2012,
+</p>
+
+<p>
+Aujourd&#039;hui, Christophe Legendre, directeur technique, témoigne de l&#039;utilisation de PostgreSQL pour le site « leboncoin.fr ».
+</p>
+
+</div>
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;Cas d&#039;utilisation de PostgreSQL : site \&quot;Le bon coin\&quot;&quot;,&quot;hid&quot;:&quot;cas_d_utilisation_de_postgresqlsite_le_bon_coin&quot;,&quot;codeblockOffset&quot;:0,&quot;secid&quot;:1,&quot;range&quot;:&quot;1-222&quot;} -->
+<h2 class="sectionedit2" id="leboncoinfr">leboncoin.fr</h2>
+<div class="level2">
+
+<p>
+Pour qui ne connaîtrait pas encore le site LeBonCoin.fr, il s&#039;agit du site de petites annonces, pour particuliers et professionnels le plus visité en France, selon l&#039;agence Alexa (voir le palmarès complet sur <a href="http://www.alexa.com/topsites/countries/FR" class="urlextern" title="http://www.alexa.com/topsites/countries/FR" rel="ugc nofollow">http://www.alexa.com/topsites/countries/FR</a>).
+</p>
+
+</div>
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;leboncoin.fr&quot;,&quot;hid&quot;:&quot;leboncoinfr&quot;,&quot;codeblockOffset&quot;:0,&quot;secid&quot;:2,&quot;range&quot;:&quot;223-506&quot;} -->
+<h2 class="sectionedit3" id="historique">Historique</h2>
+<div class="level2">
+
+<p>
+Le site existe depuis Avril 2006 et sa forme originale provient d&#039;un groupe Suédois, qui a initié le projet, avec le site <code>blocket.se</code>.
+</p>
+
+<p>
+leboncoin.fr fonctionnait au départ sous MySQL, origines suédoises oblige. La migration vers PostgreSQL a été envisagée lorsque sont apparus des soucis de montée en charge et de performances imputables à la version de MySQL de l&#039;époque.
+</p>
+
+<p>
+Christophe Legendre est arrivé dans la société en 2008, la version de PostgreSQL en production était alors la version 8.1, hébergée sur un petit serveur HP (G5) qui contenait à peine 8 disques, pour environ 800.000 annonces.
+</p>
+
+<p>
+Depuis, la croissance du site a été supportée par une montée en puissance du matériel, que les mises à jour de PostgreSQL ont accompagné.
+En l&#039;espace de 4 ans, tout a été multiplié par plus 10 ! Tant au niveau du matériel que des annonces. Aujourd&#039;hui À ce jour il n&#039;y a pas moins de 17.6 Millions d&#039;annonces en ligne.
+</p>
+
+<p>
+Le site est désormais animé par une machine <code>HP ProLiant DL980</code>, avec une baie <code>HP 3PAR V800</code>. Une seule machine, mais quelle machine ! Jugez-en par vous-même :
+</p>
+<ul>
+<li class="level1 node"><div class="li"> DL980</div>
+<ul>
+<li class="level2"><div class="li"> 160 cœurs</div>
+</li>
+<li class="level2"><div class="li"> 1 Téraoctet de RAM</div>
+</li>
+</ul>
+</li>
+<li class="level1 node"><div class="li"> 3PAR V800</div>
+<ul>
+<li class="level2"><div class="li"> 192 disques (dont 32 ssd et 160 fiber-channel)</div>
+</li>
+<li class="level2"><div class="li"> 400 Gigaoctets de cache</div>
+</li>
+</ul>
+</li>
+</ul>
+
+<p>
+Il existe une fonction de « <em>tiering</em> » automatique, qui permet à la baie de déplacer automatiquement les données en fonction de la fréquence de leur utilisation sur les parties rapides de la baie (disques SSD). 
+</p>
+
+<p>
+Cette baie permet ainsi d&#039;atteindre régulièrement les 80.000 I/O par secondes. C&#039;est déjà énorme, mais celle-ci est donnée pour 200.000 I/O par seconde. Autant dire que cette infrastructure en a encore sous le pied.
+</p>
+
+<p>
+Les caractéristiques de la base principale ne sont pas démesurées pour autant, celle-ci a en tout une volumétrie de 2.8 To. C&#039;est certes une taille respectable, mais on est encore loin des records que la communauté PostgreSQL à mis au jour ces dernières années.
+</p>
+
+<p>
+Cependant, la base est soumise à de fortes contraintes. Une caractéristique semble déroutante à la première lecture : le taux d&#039;écritures sur la base est de 70%, contre 30% de lectures. On s&#039;attendait à l&#039;inverse pour un site de petites annonces. Ce ratio est dû au fait que le site leboncoin.fr utilise de manière massive des caches web (<code>varnish</code>), afin de solliciter le moins possible la base de données.
+</p>
+
+<p>
+Les écritures sont dues aux quelques 500.000 nouvelles annonces publiées chaque jour, et aux plusieurs milliers d&#039;autres qui sont modifiées par jour.
+</p>
+
+<p>
+Au sujet de l&#039;infrastructure, inutile de préciser que c&#039;est du 100% Open-Source : CentOS, Apache, Varnish, PostgreSQL.. et Slony !
+</p>
+
+</div>
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;Historique&quot;,&quot;hid&quot;:&quot;historique&quot;,&quot;codeblockOffset&quot;:0,&quot;secid&quot;:3,&quot;range&quot;:&quot;507-3227&quot;} -->
+<h2 class="sectionedit4" id="pourquoi_slony">Pourquoi Slony ?</h2>
+<div class="level2">
+
+<p>
+Slony est un outil de réplication très connu de la communauté PostgreSQL. Il permet de construire des <em>clusters</em> PostgreSQL du type maître-esclave(s), plus précisément, il s&#039;agit d&#039;une réplication asynchrone et asymétrique. Slony a cette capacité depuis bien longtemps, avant même que la réplication ne soit intégrée à PostgreSQL 9. L&#039;une de ses caractéristiques est qu&#039;il permet de faire des réplications entre des serveurs PostgreSQL de différentes versions, ce que même la réplication intégrée à PostgreSQL ne permet pas de faire.
+</p>
+
+<p>
+C&#039;est précisément pour cette caractéristique qu&#039;il est utilisé chez leboncoin.fr, il a permis en effet d&#039;effectuer les montées de version de PostgreSQL sans jamais arrêter le service.
+</p>
+
+<p>
+Pour mettre à jour le maître, on bascule la production sur l&#039;esclave, qui devient le maître. On déconnecte l&#039;ancien maître, on met la version de PostgreSQL à jour, puis on rebascule la production dessus, une fois qu&#039;il a récupéré toutes les données du maître temporaire. Puis on fait la même chose sur l&#039;esclave et les esclaves de celui-ci.
+</p>
+
+<p>
+Car c&#039;est une autre particularité de Slony : il permet la réplication dite « en cascade », où un esclave pourra à son tour fournir les données pour d&#039;autres esclaves. Cette réplication en cascade devrait arriver dans la version 9.2 de PostgreSQL.
+</p>
+
+<p>
+Bien sûr, avec les avancées de PostgreSQL, Christophe Legendre n&#039;exclue pas de mettre de côté Slony un jour, mais ce n&#039;est pas un projet prioritaire pour le moment. Il faudrait déjà que PostgreSQL 9.2 sorte avec la réplication en cascade, puis faire des tests pour s&#039;assurer que tout cela est jouable. Ça le sera très certainement, ce n&#039;est qu&#039;une question de temps.
+</p>
+
+<p>
+Ainsi, grâce à Slony, leboncoin.fr utilise aujourd&#039;hui la toute dernière version mineure de PostgreSQL 8.4.
+</p>
+
+<p>
+De même, le site est redondé sur deux datacenters différents, le premier esclave Slony faisant office de « <em>failover</em> », si jamais le maître avait la moindre avarie. C&#039;est d&#039;ailleurs l&#039;ensemble de l&#039;infrastructure qui est ainsi redondée sur deux sites distants.
+</p>
+
+<p>
+Ces deux sites sont reliés par deux fibres 10 Gb. Le transit internet est assuré lui aussi par deux fibres 10Gb. Ce qui est largement suffisant pour supporter les 3 Gb de bande passante qui sont utilisés à ce jour.
+</p>
+
+</div>
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;Pourquoi Slony ?&quot;,&quot;hid&quot;:&quot;pourquoi_slony&quot;,&quot;codeblockOffset&quot;:0,&quot;secid&quot;:4,&quot;range&quot;:&quot;3228-5599&quot;} -->
+<h2 class="sectionedit5" id="configuration_de_postgresql">Configuration de PostgreSQL</h2>
+<div class="level2">
+
+<p>
+La configuration de PostgreSQL sur le maître donne aussi le tournis, pour peu que vous ayez jamais modifié un postgresql.conf. Voici quelques chiffres-clé de la configuration:
+</p>
+<ul>
+<li class="level1"><div class="li"> <code>max_connections = 600</code></div>
+</li>
+<li class="level1"><div class="li"> <code>shared_buffers = 130 Gb</code></div>
+</li>
+<li class="level1"><div class="li"> <code>effective_cache_size = 750 Gb</code></div>
+</li>
+<li class="level1"><div class="li"> <code>work_mem = 24 Mb</code></div>
+</li>
+<li class="level1"><div class="li"> <code>random_page_cost = 2</code></div>
+</li>
+<li class="level1"><div class="li"> environ 160 Wals en rotation</div>
+</li>
+</ul>
+
+<p>
+À n&#039;en pas douter, peu d&#039;utilisateurs de PostgreSQL peuvent se vanter d&#039;avoir 750 Gigaoctets de cache effectif pour PostgreSQL ou 130 Gigaoctets de <code>shared_buffers</code> !
+</p>
+
+<p>
+Au sujet de la facilité de configuration de PostgreSQL, Christophe Legendre est radical: « Je mets quiconque au défi de faire plus simple que le <code>postgresql.conf</code> ! ».
+</p>
+
+</div>
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;Configuration de PostgreSQL&quot;,&quot;hid&quot;:&quot;configuration_de_postgresql&quot;,&quot;codeblockOffset&quot;:0,&quot;secid&quot;:5,&quot;range&quot;:&quot;5600-6353&quot;} -->
+<h2 class="sectionedit6" id="des_problemes_avec_postgresql">Des problèmes avec PostgreSQL ?</h2>
+<div class="level2">
+
+<p>
+Sur cette question, Christophe Legendre a été très clair. Oui il y a eu, une fois, un problème d&#039;alimentation sur le site principal. Lorsque le courant fut rétabli, PostgreSQL est reparti en « <em>crash recovery</em> » et a retrouvé un état stable, sans pertes de données apparente.
+</p>
+
+<p>
+Christophe Legendre assure qu&#039;« après ce genre d’événement, on voue une confiance sans limite à PostgreSQL !».
+</p>
+
+<p>
+Il voit cependant deux inconvénients majeurs dans l&#039;utilisation de PostgreSQL.
+</p>
+
+</div>
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;Des probl\u00e8mes avec PostgreSQL ?&quot;,&quot;hid&quot;:&quot;des_problemes_avec_postgresql&quot;,&quot;codeblockOffset&quot;:0,&quot;secid&quot;:6,&quot;range&quot;:&quot;6354-6889&quot;} -->
+<h3 class="sectionedit7" id="la_creation_des_index">La création des index</h3>
+<div class="level3">
+
+<p>
+Bien que PostgreSQL permette de créer des index sans blocages (voir <code>CREATE INDEX […] CONCURRENTLY […]</code>), la création de l&#039;index est toujours trop lente ! Fort heureusement, on ne crée pas d&#039;index tous les jours.
+</p>
+
+</div>
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;La cr\u00e9ation des index&quot;,&quot;hid&quot;:&quot;la_creation_des_index&quot;,&quot;codeblockOffset&quot;:0,&quot;secid&quot;:7,&quot;range&quot;:&quot;6890-7146&quot;} -->
+<h3 class="sectionedit8" id="le_partitionnement">Le partitionnement</h3>
+<div class="level3">
+
+<p>
+La plus grosse table contient près de 1.7 milliards d&#039;enregistrements.
+</p>
+
+<p>
+Bien sûr, la question du partitionnement s&#039;est posée, mais à la lecture de la documentation PostgreSQL, Christophe Legendre a fait le même constat que beaucoup de personnes: c&#039;est bien trop compliqué à mettre en œuvre, et la maintenance est alors accrue. Par exemple, PostgreSQL ne créée pas automatiquement des sous-tables.
+</p>
+
+<p>
+Au final, cette table n&#039;a pas été partitionnée, mais ça ne pose pas de problème au quotidien, vu qu&#039;elle représente 180 Gigaoctets de données pour 350 Gigaoctets d&#039;index, la plate-forme actuelle a largement de quoi l&#039;encaisser.
+</p>
+
+<p>
+Là aussi, c&#039;est un « <em>work in progress</em> » dans la communauté des développeurs de PostgreSQL : on sait que le partitionnement doit-être repensé. À ce jour, les discussions portent sur la syntaxe.
+</p>
+
+</div>
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;Le partitionnement&quot;,&quot;hid&quot;:&quot;le_partitionnement&quot;,&quot;codeblockOffset&quot;:0,&quot;secid&quot;:8,&quot;range&quot;:&quot;7147-8026&quot;} -->
+<h2 class="sectionedit9" id="conclusion">Conclusion</h2>
+<div class="level2">
+
+<p>
+Christophe Legendre est revenu sur la facilité d&#039;utilisation de PostgreSQL et le fait qu&#039;il a pu en devenir un utilisateur chevronné tout seul. C&#039;est un avantage indéniable de PostgreSQL à ses yeux : c&#039;est un moteur de données simple, avec un seul fichier de configuration, et une documentation détaillée, traduite en français. Il utilise les vues et tables systèmes (<code>pg_stat*</code>) pour obtenir facilement toutes les statistiques dont il a besoin au quotidien.
+</p>
+
+<p>
+En plus de la documentation, il lit le code source C, ce qui lui permet de savoir exactement ce qui se passe quand il se pose des questions sur PostgreSQL. 
+</p>
+
+<p>
+À n&#039;en pas douter, PostgreSQL est une pièce maîtresse de l&#039;infrastructure du site leboincoin.fr, et le temps a montré que c&#039;était un excellent choix.
+</p>
+
+<p>
+La fréquentation du site le démontre tout aussi bien, avec ses 200 millions de pages lues et ses 4 millions de visiteurs uniques <strong>par jour</strong>.
+Peu d&#039;infrastructures peuvent se targuer de supporter un tel trafic.
+</p>
+
+</div>
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;Conclusion&quot;,&quot;hid&quot;:&quot;conclusion&quot;,&quot;codeblockOffset&quot;:0,&quot;secid&quot;:9,&quot;range&quot;:&quot;8027-&quot;} --></div>
+</body>
+</html>

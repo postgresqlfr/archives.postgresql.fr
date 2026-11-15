@@ -1,0 +1,32 @@
+====== Supprimer les fonctions à l'intérieur d'un schéma ======
+
+Trouvé sur un des [[http://drupal.postgresql.fr/?q=node/1192|forums]], cette astuce qui mérite de figurer dans le cookbook.
+
+Pour supprimer toutes les fonctions d'un schéma, on peut utiliser la commande suivante, en shell :
+
+<code bash>
+psql -U MON_USER MA_BASE -t -P format=unaligned -c "\df MON_SCHEMA.*"|awk -F '|' '{if (NF > 0 ) print "drop function "$2"("$4") cascade;";}' | psql -U MON_USER MA_BASE
+</code>
+
+Le cascade permet de gérer la présence d'une fonction d'agrégation.
+
+Il est utile pour le bon fonctionnement de la commande de mettre le mot de passe de l'utilisateur dans la variable d'environnement ''PGPASSWORD''.
+
+Merci à jxemo pour cette astuce et à Sparky pour la piste.
+
+-- \\
+SAS le 22/05/2007
+
+Finalement, j'ai une autre façon de faire, que je préfère 
+<code>
+psql -U mon_user DATABASE -t -c "select 'drop function '||nspname||'.'||proname||';' 
+  from pg_proc join pg_namespace as m on 
+  (pronamespace=m.oid) where nspname = lower('MONSCHEMA')" > a.sql
+
+psql -U mon_user DATABASE -e -f a.sql
+</code>
+
+--\\
+Sparky le 20/04/2010
+
+

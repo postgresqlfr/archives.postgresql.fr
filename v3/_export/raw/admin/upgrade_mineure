@@ -1,0 +1,88 @@
+====== Mises à jour mineures ======
+
+===== 9.0beta3 => 9.0.2 =====
+
+Préparation classique :
+
+<code>
+cd /home/damien/
+wget ftp://ftp4.fr.postgresql.org/pub/mirrors/postgresql/source/v9.0.2/postgresql-9.0.2.tar.gz
+tar xzvf postgresql-9.0.2.tar.gz 
+cd postgresql-9.0.2/
+./configure 
+make
+</code>
+
+Remplacement des anciens binaires :
+
+<code>
+sudo /etc/init.d/postgresql-9.0 stop
+sudo cp -pr /usr/local/pgsql/bin/ /usr/local/pgsql/bin-9.0beta3/
+sudo make install
+</code>
+
+Redémarrage
+
+<code>
+sudo /etc/init.d/postgresql-9.0 start
+</code>
+
+FAIL !
+
+<file>
+FATAL:  database files are incompatible with server
+DETAIL:  The database cluster was initialized with CATALOG_VERSION_NO 201004261, but the server was compiled with CATALOG_VERSION_NO 201008051.
+</file>
+
+J'ai oublié que le format des données a changé entre la 9.0beta3 et la 9.0.2 !
+
+c'est l'occasion de tester pg_upgrade :
+
+<code>
+cd ~/postgresql-9.0.2/contrib/pg_upgrade
+make
+sudo make install
+cd ../pg_upgrade_support/
+make
+sudo make install
+</code>
+
+On sauvegarde l'ancien PGDATA et on en crée un nouveau :
+
+<code>
+sudo su - postgres
+cd /var/lib/postgresql/
+mv 9.0 9.0-beta3
+mkdir 9.0
+/usr/local/pgsql/bin/initdb -D /var/lib/postgresql/9.0/
+</code>
+
+Kowabonga !
+
+<code>
+/usr/local/pgsql/bin/pg_upgrade \
+  --old-datadir=/var/lib/postgresql/9.0-beta3/ \
+  --new-datadir=/var/lib/postgresql/9.0 \
+  --old-bindir=/usr/local/pgsql/bin-9.0beta3/ \
+  --new-bindir=/usr/local/pgsql/bin/ \
+  --old-port=543300 \
+  --new-port=543400
+</code>
+
+Il ne reste plus qu'à récupérer la conf :
+
+<code>
+cd /var/lib/postgresql/9.0
+mv postgresql.conf postgresql.conf.orig
+cp ../9.0-beta3/postgresql.conf .
+mv  pg_hba.conf pg_hba.conf.orig
+cp ../9.0-beta3/pg_hba.conf .
+</code>
+
+et c'est reparti !
+
+<code>
+sudo /etc/init.d/postgresql-9.0 start
+</code>
+
+**Attention** : cela va péter la réplication vers Dumbo. Il faut donc faire la même opération sur Dumbo. 

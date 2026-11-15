@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+<head>
+  <meta charset="utf-8" />
+  <title>admin:trac</title>
+<meta name="generator" content="DokuWiki"/>
+<meta name="robots" content="index,follow"/>
+<meta name="keywords" content="admin,trac"/>
+<link rel="search" type="application/opensearchdescription+xml" href="../../../lib/exe/opensearch.php" title="Communauté francophone de PostgreSQL"/>
+<link rel="start" href="../../../index.html"/>
+<link rel="contents" href="https://www.postgresql.fr/admin/trac?do=index" title="Plan du site"/>
+<link rel="manifest" href="../../../lib/exe/manifest.php" crossorigin="use-credentials"/>
+<link rel="alternate" type="application/rss+xml" title="Derniers changements" href="../../../feed.php"/>
+<link rel="alternate" type="text/html" title="HTML brut" href="trac.html"/>
+<link rel="alternate" type="text/plain" title="Wiki balise" href="../../raw/admin/trac"/>
+<link rel="canonical" href="../../../admin/trac.html"/>
+<link rel="stylesheet" href="../../../lib/exe/css.php%3Ft=tortoise&amp;tseed=ad76b451e9e42d817acb1920a91f4def.css"/>
+<link type="text/css" rel="stylesheet" href="../../../lib/plugins/icons/assets/font-awesome/css/font-awesome.min.css"/>
+<link type="text/css" rel="stylesheet" href="../../../lib/plugins/icons/assets/material-design-icons/css/materialdesignicons.min.css"/>
+<script >var NS='admin';var JSINFO = {"ga":{"trackingId":"UA-3921927-1","gtagId":"","anonymizeIp":true,"action":"export_xhtml","trackOutboundLinks":true,"options":[],"pageview":"\/admin\/trac","debug":false},"id":"admin:trac","namespace":"admin","ACT":"export_xhtml","useHeadingNavigation":0,"useHeadingContent":0};(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement);</script>
+<script src="../../../lib/exe/jquery.php%3Ftseed=8faf3dc90234d51a499f4f428a0eae43"></script>
+<script src="../../../lib/exe/js.php%3Ft=tortoise&amp;tseed=ad76b451e9e42d817acb1920a91f4def"></script>
+</head>
+<body>
+<div class="dokuwiki export">
+
+<p>
+<a href="../../../admin.html" class="wikilink1" title="admin" data-wiki-id="admin">« admin</a>
+</p>
+
+<h1 class="sectionedit1" id="trac">Trac</h1>
+<div class="level1">
+
+</div>
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;Trac&quot;,&quot;hid&quot;:&quot;trac&quot;,&quot;codeblockOffset&quot;:0,&quot;secid&quot;:1,&quot;range&quot;:&quot;21-40&quot;} -->
+<h2 class="sectionedit2" id="authentification">Authentification</h2>
+<div class="level2">
+
+<p>
+Les comptes utilisateur sont dans ** /data/trac/.htusers**
+</p>
+
+<p>
+Pour ajouter un utilisateur :
+</p>
+<pre class="code sh">sudo htpasswd  /data/trac/.htusers pgfruser</pre>
+
+</div>
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;Authentification&quot;,&quot;hid&quot;:&quot;authentification&quot;,&quot;codeblockOffset&quot;:0,&quot;secid&quot;:2,&quot;range&quot;:&quot;41-228&quot;} -->
+<h2 class="sectionedit3" id="mise_a_jour">Mise à jour</h2>
+<div class="level2">
+
+<p>
+Trac a été installé avec par paquet Debian en utilisant un dépot de backports
+etch. Donc Trac est mis à jour automatiquement via les apt-get upgrade.
+L&#039;installation du paquet dégage les modifs que j&#039;ai faites et la charte
+graphique intitale réapparait.
+</p>
+
+<p>
+Du coup, après chaque mise à jour il faut taper : 
+</p>
+<pre class="code sh">cd /usr/share/trac/templates
+sudo mv header.cs header.cs.orig
+sudo ln -s header.cs.pgfr header.cs</pre>
+
+<p>
+La charte graphique pgfr sera de retour.
+</p>
+
+</div>
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;Mise \u00e0 jour&quot;,&quot;hid&quot;:&quot;mise_a_jour&quot;,&quot;codeblockOffset&quot;:1,&quot;secid&quot;:3,&quot;range&quot;:&quot;229-&quot;} --></div>
+</body>
+</html>

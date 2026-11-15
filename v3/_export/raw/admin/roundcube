@@ -1,0 +1,53 @@
+====== Roundcube ======
+
+
+  * Adresse du service : http://webmail.postgresql.fr
+  * Date de MAJ : 20 avril 2008
+  * Version courante : 0.1.1
+  * site officiel : http://roundcube.net
+
+
+
+
+===== Installation =====
+
+
+=== Premier pas ===
+
+
+<code>
+$ tar xzvf roundcubemail-0.1.1.tar.gz                                             
+$ sudo mv roundcubemail-0.1.1 /data/www/fr/postgresql.fr/webmail                
+</code> 
+
+=== Création de la base ===
+
+<code>
+$ sudo su postgres
+$ createuser roundcube -P
+Saisissez le mot de passe pour le nouvel rôle :
+Saisissez-le à nouveau :
+Le nouvel rôle est-il super-utilisateur ? (o/n) n
+Le nouvel rôle est-il autorisé à créer des bases de données ? (o/n) n
+Le nouvel rôle est-il autorisé à créer de nouveaux rôles ? (o/n) n
+$ createdb roundcube --owner roundcube
+$ psql -h 127.0.0.1 roundcube -U roundcube < SQL/postgres.initial.sql
+</code>
+
+
+=== Configuration ===
+
+<code>
+$ cd config/
+$ sudo cp db.inc.php.dist db.inc.php
+$ sudo vi db.inc.php
+$ sudo cp main.inc.php.dist main.inc.php
+$ sudo vi main.inc.php
+</code>
+
+=== Cosmétique ===
+
+<code>
+$ cd skins/default
+$ vi templates/login.html
+</code>

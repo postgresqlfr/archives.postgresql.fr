@@ -1,0 +1,35 @@
+====== Etude de cas sur l'utilisation de PostgreSQL / PostGIS à l'IGN (2005) ======
+
+PostGIS est une extension PostgreSQL donnant à la base des capacités de Système d'Information Géographique.
+Cette extension est certifiée conforme aux normes ISO ISO 19125-1 et 19125-2 par l'Open Geospatial Consorsium, et est distribuée sous la licence GNU GPL.
+
+Sur le site du projet PostGIS est publiée une étude de cas sur l'adoption de PostgreSQL / PostGIS par l'IGN - Institut Géographique National - pour sa base de données nationale "BDUni" de préférence aux outils propriétaires.
+
+Les critères de choix ont été : 
+  * La capacité de traiter plus de 100 millions d'objets géométriques ; 
+  * Une rapidité de réponse satisfaisante sur une base de données d'une telle volumétrie ; 
+  * Intégrité transactionnelle complète pour assurer la cohérence des données pendant les opérations de maintenance.
+
+En octobre 2006, 30 millions d'objets étaient chargés dans la base, utilisée par 40 utilisateurs simultanés.
+
+Selon le chef de projet à l'IGN, "PostGIS apporte ces outils [SIG] à la communauté des Systèmes d'Information Géographiques de manière très efficace".
+
+Lien vers l'étude (en anglais) : http://postgis.refractions.net/documentation/casestudies/ign/
+
+**Édition:**
+
+Alexandre T. nous apporte les précisions suivantes :
+
+> Je souhaitais réagir et apporter des précisions sur l'information suivante :
+> L'IGN, Institut Géographique National, a choisi PostgreSQL et PostGIS pour son extensibilité, sa vitesse et son intégrité transactionnelle.
+> 
+> Désormais, les développements réalisés par le ministère de l'équipement suit une directive nommée ACAI (Architecture commune des applications informatique). Récemment employé dans le but de réaliser des applications informatiques, j'ai eu le plaisir de lire dans le guide de persistance ACAI que la base de données pour les applications est PostGreSQL. PostGreSQL supplante donc Oracle. Les développements pour les bases géographiques se fait évidemment avec l'extension PostGIS. Réaliser un développement sur Oracle nécessite donc une dérogation. D'expérience, je vous prie de croire que compte tenu de la qualité de PostGreSQL et des coûts de licence d'Oracle, les développements Oracle seront de moins en moins nombreux. L'application "Géoportail" de l'IGN en est donc un exemple parmi d'autres.
+> 
+> Je vous invite à lire ces guides plutôt bien écrit ici :
+> http://www.informatique.dgpa.equipement.gouv.fr/
+> 
+> Et notamment le guide de persistance :
+> http://www.informatique.dgpa.equipement.gouv.fr/article.php3?id_article=229
+> 
+> Géoportail:
+> http://www.geoportail.fr

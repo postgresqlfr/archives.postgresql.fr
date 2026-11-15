@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+<head>
+  <meta charset="utf-8" />
+  <title>admin:installation_9.0</title>
+<meta name="generator" content="DokuWiki"/>
+<meta name="robots" content="index,follow"/>
+<meta name="keywords" content="admin,installation_9.0"/>
+<link rel="search" type="application/opensearchdescription+xml" href="../../../lib/exe/opensearch.php" title="Communauté francophone de PostgreSQL"/>
+<link rel="start" href="../../../index.html"/>
+<link rel="contents" href="https://www.postgresql.fr/admin/installation_9.0?do=index" title="Plan du site"/>
+<link rel="manifest" href="../../../lib/exe/manifest.php" crossorigin="use-credentials"/>
+<link rel="alternate" type="application/rss+xml" title="Derniers changements" href="../../../feed.php"/>
+<link rel="alternate" type="text/html" title="HTML brut" href="installation_9.0.html"/>
+<link rel="alternate" type="text/plain" title="Wiki balise" href="../../raw/admin/installation_9.0"/>
+<link rel="canonical" href="../../../admin/installation_9.0.html"/>
+<link rel="stylesheet" href="../../../lib/exe/css.php%3Ft=tortoise&amp;tseed=ad76b451e9e42d817acb1920a91f4def.css"/>
+<link type="text/css" rel="stylesheet" href="../../../lib/plugins/icons/assets/font-awesome/css/font-awesome.min.css"/>
+<link type="text/css" rel="stylesheet" href="../../../lib/plugins/icons/assets/material-design-icons/css/materialdesignicons.min.css"/>
+<script >var NS='admin';var JSINFO = {"ga":{"trackingId":"UA-3921927-1","gtagId":"","anonymizeIp":true,"action":"export_xhtml","trackOutboundLinks":true,"options":[],"pageview":"\/admin\/installation_9.0","debug":false},"id":"admin:installation_9.0","namespace":"admin","ACT":"export_xhtml","useHeadingNavigation":0,"useHeadingContent":0};(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement);</script>
+<script src="../../../lib/exe/jquery.php%3Ftseed=8faf3dc90234d51a499f4f428a0eae43"></script>
+<script src="../../../lib/exe/js.php%3Ft=tortoise&amp;tseed=ad76b451e9e42d817acb1920a91f4def"></script>
+</head>
+<body>
+<div class="dokuwiki export">
+
+<h1 class="sectionedit1" id="installation_de_postgres_90">Installation de Postgres 9.0</h1>
+<div class="level1">
+<div class="plugin_note noteclassic">Cette doc est succinte ! 
+Pour plus de détails, voir les articles de Guillaume, notamment : <a href="http://www.dalibo.org/hs44_installation_de_postgresql" class="urlextern" title="http://www.dalibo.org/hs44_installation_de_postgresql" rel="ugc nofollow">L&#039;installation de PostgreSQL</a> et <a href="http://www.dalibo.org/hs44_la_replication_par_les_journaux_de_transactions" class="urlextern" title="http://www.dalibo.org/hs44_la_replication_par_les_journaux_de_transactions" rel="ugc nofollow">La réplication par les journaux applicatifs</a> 
+
+</div>
+</div>
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;Installation de Postgres 9.0&quot;,&quot;hid&quot;:&quot;installation_de_postgres_90&quot;,&quot;codeblockOffset&quot;:0,&quot;secid&quot;:1,&quot;range&quot;:&quot;2-370&quot;} -->
+<h2 class="sectionedit2" id="preambule">Préambule</h2>
+<div class="level2">
+
+<p>
+On met ici en place une réplication “Hot Standby en Streaming” entre les deux serveurs de la plate-forme postgresql.fr
+</p>
+<ul>
+<li class="level1"><div class="li"> Babar : serveur principal : ip = 212.85.154.68 port = 5433</div>
+</li>
+<li class="level1"><div class="li"> Dumbo : serveur secondaire (en mode standby) : ip = 212.85.154.69 port = 5433</div>
+</li>
+</ul>
+
+</div>
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;Pr\u00e9ambule&quot;,&quot;hid&quot;:&quot;preambule&quot;,&quot;codeblockOffset&quot;:0,&quot;secid&quot;:2,&quot;range&quot;:&quot;371-662&quot;} -->
+<h2 class="sectionedit3" id="compilation">Compilation</h2>
+<div class="level2">
+
+<p>
+Même procédure sur Babar et Dumbo
+</p>
+<pre class="code sh">sudo aptitude install make libreadline-dev
+cd /home/damien/
+wget http://wwwmaster.postgresql.org/redir/357/f/source/v9.0beta3/postgresql-9.0beta3.tar.gz
+tar xzvf postgresql-9.0beta3.tar.gz 
+cd postgresql-9.0beta3/
+./configure 
+make
+sudo make install
+sudo su - postgres
+cd /var/lib/postgresql/
+mkdir 9.0
+/usr/local/pgsql/bin/initdb -D /var/lib/postgresql/9.0/</pre>
+
+<p>
+Avant de démarrer le serveur, on modifie port sur 5433 dans postgresql.conf
+</p>
+<pre class="file">port 5433</pre>
+
+<p>
+Puis on met en place le script de démarrage. Ne pas oublier de modifier la paramètre PGDATA !
+</p>
+<pre class="code sh">sudo cp /home/damien/postgresql-9.0beta3/contrib/start-script/linux /etc/init.d/postgresql-9.0
+sudo vi /etc/init.d/postgresql-9.0
+sudo chmod a+x /etc/init.d/postgresql-9.0
+sudo update-rc.d postgresql-9.0 defaults</pre>
+
+</div>
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;Compilation&quot;,&quot;hid&quot;:&quot;compilation&quot;,&quot;codeblockOffset&quot;:0,&quot;secid&quot;:3,&quot;range&quot;:&quot;663-1533&quot;} -->
+<h2 class="sectionedit4" id="smoke_test">Smoke test</h2>
+<div class="level2">
+<pre class="code sh">sudo /etc/init.d/postgresql-9.0 start
+sudo su - postgres
+/usr/local/pgsql/bin/psql -h 127.0.0.1 -p 5433</pre>
+
+</div>
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;Smoke test&quot;,&quot;hid&quot;:&quot;smoke_test&quot;,&quot;codeblockOffset&quot;:3,&quot;secid&quot;:4,&quot;range&quot;:&quot;1534-1680&quot;} -->
+<h2 class="sectionedit5" id="configuration_du_hot_standby">Configuration du Hot Standby</h2>
+<div class="level2">
+
+<p>
+sur Dumbo :
+</p>
+<pre class="code sh">sudo passwd postgres
+sudo su - postgres
+mkdir -p /var/lib/postgresql/babar_wals</pre>
+
+<p>
+Au passage le shmmax de dumbo est trop bas pour la 9.0, on corrige :
+</p>
+<pre class="code sh">sudo su -
+echo &quot;kernel.shmmax=134217728&quot; &gt; /etc/sysctl.conf
+echo &quot;kernel.shmall=2097152&quot; &gt; /etc/sysctl.conf
+sudo sysctl -p</pre>
+
+<p>
+sur Babar, on ouvre une liaison ssh pour exporter les wals :
+</p>
+<pre class="code sh">sudo su - postgres
+ssh-keygen
+ssh-copy-id postgres@dumbo.postgresql.fr
+touch /tmp/tst
+scp /tmp/tst postgres@dumbo.postgresql.fr:/var/lib/postgresql/babar_wals</pre>
+
+<p>
+Modification dans le postgresql.conf de Babar 
+</p>
+<pre class="file">wal_level = hot_standby
+archive_mode = on
+archive_command = &#039;scp %p postgres@dumbo.postgresql.fr:/var/lib/postgresql/babar_wals/%f&#039;</pre>
+
+<p>
+puis redémarrage du serveur PG sur Babar
+</p>
+<pre class="code sh">sudo /etc/init.d/postgresql-9.0 restart</pre>
+
+<p>
+On fait un snapshot de la base sur Babar
+</p>
+<pre class="code sh">sudo su - postgres
+/usr/local/pgsql/bin/psql -h 127.0.0.1 -p 5433 -c &quot;select pg_start_backup('init dumbo')&quot;
+cp -pr /var/lib/postgresql/9.0 /var/lib/postgresql/9.0-dumbo
+/usr/local/pgsql/bin/psql -h 127.0.0.1 -p 5433 -c &quot;select pg_stop_backup()&quot;</pre>
+
+<p>
+Préparation et export du snapshot sur Babar
+</p>
+<pre class="code sh">sudo su - postgres
+cd /var/lib/postgresql/9.0-dumbo
+rm postmaster.pid
+rm pg_xlog/*
+echo 'hot_standby = on' &gt;&gt; postgresql.conf
+echo &quot;standby_mode = 'on'&quot; &gt;&gt; recovery.conf
+echo &quot;restore_command = 'cp -i /var/lib/postgresql/babar_wals/%f %p'&quot; &gt;&gt; recovery.conf
+scp -pr /var/lib/postgresql/9.0-dumbo dumbo.postgresql.fr:/var/lib/postgresql/</pre>
+
+<p>
+Sur dumbo, on charge le snapshot et on démarre en mode recovery/standby
+</p>
+<pre class="code sh">sudo /etc/init.d/postgresql-9.0 stop
+sudo mv /var/lib/postgresql/9.0 /var/lib/postgresql/9.0-orig
+sudo mv /var/lib/postgresql/9.0-dumbo/ /var/lib/postgresql/9.0
+sudo /etc/init.d/postgresql-9.0 start</pre>
+
+<p>
+Il ne reste plus qu&#039;à tester sur Dumbo :
+</p>
+<pre class="code sh">/usr/local/pgsql/bin/psql  -h 127.0.0.1 -p 5433 -c &quot;SELECT pg_is_in_recovery();&quot;;
+ pg_is_in_recovery 
+-------------------
+ t
+(1 row)</pre>
+
+</div>
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;Configuration du Hot Standby&quot;,&quot;hid&quot;:&quot;configuration_du_hot_standby&quot;,&quot;codeblockOffset&quot;:4,&quot;secid&quot;:5,&quot;range&quot;:&quot;1681-3780&quot;} -->
+<h2 class="sectionedit6" id="streaming_replication">Streaming Réplication</h2>
+<div class="level2">
+
+<p>
+Sur Babar, ouverture d&#039;un accès vers la pseudo-base “replication” en provenance de Dumbo
+</p>
+
+<p>
+Dans postgresql.conf :
+</p>
+<pre class="file">listen_addresses = &#039;*&#039;</pre>
+
+<p>
+et dans pg_hba.conf :
+</p>
+<div class="plugin_note notewarning">Note pour le lecteur : Ceci est une installation de test, le serveur n&#039;a pas vocation a détenir des données sensibles et la sécurité n&#039;est pas un enjeu crucial. Si vous souhaitez utiliser le mode streaming en production, vous devez élever le niveau d&#039;authenitification ( évitez trust ! ) et utiliser 
+des adresses IP issues d&#039;un réseau privé.
+
+</div><pre class="file">host  replication  postgres  212.85.154.69/32  trust</pre>
+
+<p>
+… puis redémarrage du serveur sur Babar
+</p>
+
+<p>
+Attention ! Il faut également vérifier la conf <a href="../../../admin/iptables.html" class="wikilink1" title="admin:iptables" data-wiki-id="admin:iptables">iptables</a> !
+</p>
+
+<p>
+Sur Dumbo, on teste avec l&#039;option replication=1
+</p>
+<pre class="code">/usr/local/pgsql/bin/psql -h babar.postgresql.fr -p 5433 -U postgres replication=1</pre>
+
+<p>
+Sur Babar, on configure le streaming des wals :
+</p>
+<pre class="file">max_wal_senders = 5
+wal_keep_segments = 32</pre>
+
+<p>
+… et on redémarre le serveur
+</p>
+
+<p>
+Sur Dumbo, on complète le recovery.conf pour récupérer les transactions commitées en se connectant à Babar :
+</p>
+<pre class="file">primary_conninfo      = &#039;host=212.85.154.68 port=5433 user=postgres&#039;
+trigger_file = &#039;/var/lib/postgresql/9.0/failover.trigger&#039;</pre>
+
+<p>
+… et on redémarre le serveur
+</p>
+
+<p>
+Il ne reste plus qu&#039;à tester <img src="../../../lib/images/smileys/smile.svg" class="icon smiley" alt=":-)" />
+</p>
+
+<p>
+sur babar :
+</p>
+<pre class="code">$ /usr/local/pgsql/bin/psql -h 127.0.0.1 -p 5433 -c &quot;SELECT pg_current_xlog_location()&quot;
+ pg_current_xlog_location 
+--------------------------
+ 0/12000BB8
+(1 row)</pre>
+
+<p>
+puis sur dumbo
+</p>
+<pre class="code">$ /usr/local/pgsql/bin/psql -h 127.0.0.1 -p 5433 -U postgres -c &quot;SELECT pg_last_xlog_receive_location ()&quot;
+ pg_last_xlog_receive_location 
+--------------------------
+ 0/12000BB8
+(1 row)</pre>
+
+<p>
+Pour transformer Dumbo en maitre en cas de crash de babar, taper la commande suivante sur dumbo:
+</p>
+<pre class="code">sudo su - postgres
+touch /var/lib/postgresql/9.0/failover.trigger</pre>
+
+</div>
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;Streaming R\u00e9plication&quot;,&quot;hid&quot;:&quot;streaming_replication&quot;,&quot;codeblockOffset&quot;:13,&quot;secid&quot;:6,&quot;range&quot;:&quot;3781-5750&quot;} -->
+<h2 class="sectionedit7" id="migration_83_-_90">Migration 8.3 -&gt; 9.0</h2>
+<div class="level2">
+
+<p>
+Exemple pour la base drupal6
+</p>
+<pre class="code sh">/usr/local/pgsql/bin/dropdb -h 127.0.0.1 -p 5433 drupal6
+/usr/local/pgsql/bin/createdb -h 127.0.0.1 -p 5433 drupal6
+pg_dump drupal6 | /usr/local/pgsql/bin/psql -h 127.0.0.1 -p 5433 drupal6</pre>
+
+</div>
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;Migration 8.3 -&gt; 9.0&quot;,&quot;hid&quot;:&quot;migration_83_-_90&quot;,&quot;codeblockOffset&quot;:21,&quot;secid&quot;:7,&quot;range&quot;:&quot;5751-&quot;} --></div>
+</body>
+</html>

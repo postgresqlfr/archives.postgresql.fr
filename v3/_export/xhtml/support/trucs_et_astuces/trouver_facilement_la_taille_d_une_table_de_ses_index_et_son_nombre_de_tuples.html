@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+<head>
+  <meta charset="utf-8" />
+  <title>support:trucs_et_astuces:trouver_facilement_la_taille_d_une_table_de_ses_index_et_son_nombre_de_tuples</title>
+<meta name="generator" content="DokuWiki"/>
+<meta name="robots" content="index,follow"/>
+<meta name="keywords" content="support,trucs_et_astuces,trouver_facilement_la_taille_d_une_table_de_ses_index_et_son_nombre_de_tuples"/>
+<link rel="search" type="application/opensearchdescription+xml" href="../../../../lib/exe/opensearch.php" title="Communauté francophone de PostgreSQL"/>
+<link rel="start" href="../../../../index.html"/>
+<link rel="contents" href="https://www.postgresql.fr/support/trucs_et_astuces/trouver_facilement_la_taille_d_une_table_de_ses_index_et_son_nombre_de_tuples?do=index" title="Plan du site"/>
+<link rel="manifest" href="../../../../lib/exe/manifest.php" crossorigin="use-credentials"/>
+<link rel="alternate" type="application/rss+xml" title="Derniers changements" href="../../../../feed.php"/>
+<link rel="alternate" type="text/html" title="HTML brut" href="trouver_facilement_la_taille_d_une_table_de_ses_index_et_son_nombre_de_tuples.html"/>
+<link rel="alternate" type="text/plain" title="Wiki balise" href="../../../raw/support/trucs_et_astuces/trouver_facilement_la_taille_d_une_table_de_ses_index_et_son_nombre_de_tuples"/>
+<link rel="canonical" href="../../../../support/trucs_et_astuces/trouver_facilement_la_taille_d_une_table_de_ses_index_et_son_nombre_de_tuples.html"/>
+<link rel="stylesheet" href="../../../../lib/exe/css.php%3Ft=tortoise&amp;tseed=ad76b451e9e42d817acb1920a91f4def.css"/>
+<link type="text/css" rel="stylesheet" href="../../../../lib/plugins/icons/assets/font-awesome/css/font-awesome.min.css"/>
+<link type="text/css" rel="stylesheet" href="../../../../lib/plugins/icons/assets/material-design-icons/css/materialdesignicons.min.css"/>
+<script >var NS='support:trucs_et_astuces';var JSINFO = {"ga":{"trackingId":"UA-3921927-1","gtagId":"","anonymizeIp":true,"action":"export_xhtml","trackOutboundLinks":true,"options":[],"pageview":"\/support\/trucs_et_astuces\/trouver_facilement_la_taille_d_une_table_de_ses_index_et_son_nombre_de_tuples","debug":false},"id":"support:trucs_et_astuces:trouver_facilement_la_taille_d_une_table_de_ses_index_et_son_nombre_de_tuples","namespace":"support:trucs_et_astuces","ACT":"export_xhtml","useHeadingNavigation":0,"useHeadingContent":0};(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement);</script>
+<script src="../../../../lib/exe/jquery.php%3Ftseed=8faf3dc90234d51a499f4f428a0eae43"></script>
+<script src="../../../../lib/exe/js.php%3Ft=tortoise&amp;tseed=ad76b451e9e42d817acb1920a91f4def"></script>
+</head>
+<body>
+<div class="dokuwiki export">
+
+<h1 class="sectionedit1" id="trouver_facilement_la_taille_d_une_table_de_ses_index_et_son_nombre_de_tuples">Trouver facilement la taille d&#039;une table, de ses index et son nombre de tuples</h1>
+<div class="level1">
+
+<p>
+On a besoin parfois d&#039;avoir rapidement la taille sur disque d&#039;une table et le nombre d&#039;enregistrements qu&#039;elle contient. Pour cela, on peut utiliser la fonction <code>pg_total_relation_size(&#039;nom de table&#039;)</code> qui permet de rapatrier la taille <strong>totale</strong> de la table sur disque, index inclus. Si on ne veut pas connaître la taille prise par les index, il suffit d&#039;utiliser la fonction <code>pg_relation_size(&#039;nom de table&#039;)</code>. La soustraction des deux permet de connaître la taille des index!
+</p>
+
+<p>
+Tout cela nous permet de réaliser une vue fort sympathique pour l&#039;administrateur de base de données. Attention à <strong>lancer un ANALYZE avant tout requêtage de cette vue</strong> :
+</p>
+<pre class="code sql"><span class="kw1">DROP</span> <span class="kw1">VIEW</span> vue_stats;
+&nbsp;
+<span class="kw1">CREATE</span> <span class="kw1">VIEW</span> vue_stats <span class="kw1">AS</span>
+<span class="kw1">SELECT</span>
+c<span class="sy0">.</span>relname <span class="kw1">AS</span> nom<span class="sy0">,</span>
+c<span class="sy0">.</span>reltuples::<span class="kw1">BIGINT</span> <span class="kw1">AS</span> tuples<span class="sy0">,</span>
+pg_total_relation_size<span class="br0">&#40;</span>c<span class="sy0">.</span>relname<span class="br0">&#41;</span> <span class="kw1">AS</span> volume_total<span class="sy0">,</span>
+pg_relation_size<span class="br0">&#40;</span>c<span class="sy0">.</span>relname<span class="br0">&#41;</span> <span class="kw1">AS</span> volume_donnees<span class="sy0">,</span>
+pg_total_relation_size<span class="br0">&#40;</span>c<span class="sy0">.</span>relname<span class="br0">&#41;</span><span class="sy0">-</span>pg_relation_size<span class="br0">&#40;</span>c<span class="sy0">.</span>relname<span class="br0">&#41;</span> <span class="kw1">AS</span> volume_index
+<span class="kw1">FROM</span> pg_catalog<span class="sy0">.</span>pg_class c
+<span class="kw1">JOIN</span> pg_catalog<span class="sy0">.</span>pg_roles r <span class="kw1">ON</span> r<span class="sy0">.</span>oid <span class="sy0">=</span> c<span class="sy0">.</span>relowner
+<span class="kw1">LEFT</span> <span class="kw1">JOIN</span> pg_catalog<span class="sy0">.</span>pg_namespace n <span class="kw1">ON</span> n<span class="sy0">.</span>oid <span class="sy0">=</span> c<span class="sy0">.</span>relnamespace
+<span class="kw1">WHERE</span> c<span class="sy0">.</span>relkind <span class="sy0">=</span> <span class="st0">'r'</span>
+<span class="kw1">AND</span> n<span class="sy0">.</span>nspname <span class="kw1">NOT</span> <span class="kw1">IN</span> <span class="br0">&#40;</span><span class="st0">'pg_catalog'</span><span class="sy0">,</span> <span class="st0">'pg_toast'</span><span class="br0">&#41;</span>
+<span class="kw1">AND</span> pg_catalog<span class="sy0">.</span>pg_table_is_visible<span class="br0">&#40;</span>c<span class="sy0">.</span>oid<span class="br0">&#41;</span>
+<span class="kw1">ORDER</span> <span class="kw1">BY</span> <span class="nu0">1</span><span class="sy0">,</span><span class="nu0">2</span>;</pre>
+
+<p>
+Merci à klando (Cédric) pour cet ajout, fort sympathique: il permet d&#039;avoir les tailles des objets lisibles sous la forme <em>humaine</em> :
+</p>
+<pre class="code sql"><span class="kw1">DROP</span> <span class="kw1">VIEW</span> vue_stats_pretty ;
+&nbsp;
+<span class="kw1">CREATE</span> <span class="kw1">VIEW</span> vue_stats_pretty <span class="kw1">AS</span>
+<span class="kw1">SELECT</span>
+nom<span class="sy0">,</span>
+tuples<span class="sy0">,</span>
+pg_size_pretty<span class="br0">&#40;</span>volume_total<span class="br0">&#41;</span> <span class="kw1">AS</span> volume_total<span class="sy0">,</span>
+pg_size_pretty<span class="br0">&#40;</span>volume_donnees<span class="br0">&#41;</span> <span class="kw1">AS</span> volume_donnees<span class="sy0">,</span>
+pg_size_pretty<span class="br0">&#40;</span>volume_index<span class="br0">&#41;</span> <span class="kw1">AS</span> volume_index
+<span class="kw1">FROM</span> vue_stats;</pre>
+
+<p>
+Enjoy!
+</p>
+
+<p>
+– <br/>
+
+Jean-Paul ARGUDO<br/>
+
+<a href="http://dalibo.com" class="urlextern" title="http://dalibo.com" rel="ugc nofollow">http://dalibo.com</a> | <a href="http://dalibo.org" class="urlextern" title="http://dalibo.org" rel="ugc nofollow">http://dalibo.org</a> 
+</p>
+
+<p>
+Merci pour cette vue.<br/>
+
+Apres migration en postgres 8.4 j&#039;ai du la modifier pour qu&#039;elle fonctionne.<br/>
+
+En esperant que cela soit utile.
+</p>
+<pre class="code sql"><span class="kw1">DROP</span> <span class="kw1">VIEW</span> vue_stats;
+&nbsp;
+<span class="kw1">CREATE</span> <span class="kw1">VIEW</span> vue_stats <span class="kw1">AS</span>
+<span class="kw1">SELECT</span>
+c<span class="sy0">.</span>relname <span class="kw1">AS</span> nom<span class="sy0">,</span>
+c<span class="sy0">.</span>reltuples::<span class="kw1">BIGINT</span> <span class="kw1">AS</span> tuples<span class="sy0">,</span>
+pg_total_relation_size<span class="br0">&#40;</span><span class="kw1">CAST</span><span class="br0">&#40;</span>c<span class="sy0">.</span>relname <span class="kw1">AS</span> TEXT<span class="br0">&#41;</span><span class="br0">&#41;</span> <span class="kw1">AS</span> volume_total<span class="sy0">,</span>
+pg_relation_size<span class="br0">&#40;</span><span class="kw1">CAST</span><span class="br0">&#40;</span>c<span class="sy0">.</span>relname <span class="kw1">AS</span> TEXT<span class="br0">&#41;</span><span class="br0">&#41;</span> <span class="kw1">AS</span> volume_donnees<span class="sy0">,</span>
+pg_total_relation_size<span class="br0">&#40;</span><span class="kw1">CAST</span><span class="br0">&#40;</span>c<span class="sy0">.</span>relname <span class="kw1">AS</span> TEXT<span class="br0">&#41;</span><span class="br0">&#41;</span><span class="sy0">-</span>pg_relation_size<span class="br0">&#40;</span><span class="kw1">CAST</span><span class="br0">&#40;</span>c<span class="sy0">.</span>relname <span class="kw1">AS</span> TEXT<span class="br0">&#41;</span><span class="br0">&#41;</span> <span class="kw1">AS</span> volume_index
+<span class="kw1">FROM</span> pg_catalog<span class="sy0">.</span>pg_class c
+<span class="kw1">JOIN</span> pg_catalog<span class="sy0">.</span>pg_roles r <span class="kw1">ON</span> r<span class="sy0">.</span>oid <span class="sy0">=</span> c<span class="sy0">.</span>relowner
+<span class="kw1">LEFT</span> <span class="kw1">JOIN</span> pg_catalog<span class="sy0">.</span>pg_namespace n <span class="kw1">ON</span> n<span class="sy0">.</span>oid <span class="sy0">=</span> c<span class="sy0">.</span>relnamespace
+<span class="kw1">WHERE</span> c<span class="sy0">.</span>relkind <span class="sy0">=</span> <span class="st0">'r'</span>
+<span class="kw1">AND</span> n<span class="sy0">.</span>nspname <span class="kw1">NOT</span> <span class="kw1">IN</span> <span class="br0">&#40;</span><span class="st0">'pg_catalog'</span><span class="sy0">,</span> <span class="st0">'pg_toast'</span><span class="br0">&#41;</span>
+<span class="kw1">AND</span> pg_catalog<span class="sy0">.</span>pg_table_is_visible<span class="br0">&#40;</span>c<span class="sy0">.</span>oid<span class="br0">&#41;</span>
+<span class="kw1">ORDER</span> <span class="kw1">BY</span> <span class="nu0">1</span><span class="sy0">,</span><span class="nu0">2</span>;</pre>
+
+<p>
+– <br/>
+
+Jean-Philippe FARCY<br/>
+
+<a href="http://www.sigma.fr" class="urlextern" title="http://www.sigma.fr" rel="ugc nofollow">http://www.sigma.fr</a>
+</p>
+
+<p>
+Les fonctions ci dessus ne tiennent pas compte des tables toast dans leur calculs.
+Voici des fonctions qui en tiennent compte:
+</p>
+<pre class="code sql"><span class="kw1">CREATE</span> <span class="kw1">OR</span> <span class="kw1">REPLACE</span> <span class="kw1">VIEW</span> view_relations_size <span class="kw1">AS</span> 
+<span class="kw1">SELECT</span>
+    c<span class="sy0">.</span>relname <span class="kw1">AS</span> name<span class="sy0">,</span>
+    c<span class="sy0">.</span>reltuples::<span class="kw1">BIGINT</span> <span class="kw1">AS</span> tuples<span class="sy0">,</span>
+    pg_relation_size<span class="br0">&#40;</span>c<span class="sy0">.</span>oid<span class="br0">&#41;</span> <span class="kw1">AS</span> table_size<span class="sy0">,</span>
+    pg_total_relation_size<span class="br0">&#40;</span>c<span class="sy0">.</span>oid<span class="br0">&#41;</span><span class="sy0">-</span>pg_relation_size<span class="br0">&#40;</span>c<span class="sy0">.</span>oid<span class="br0">&#41;</span> <span class="sy0">-</span> <span class="br0">&#40;</span><span class="kw1">CASE</span> <span class="kw1">WHEN</span> c<span class="sy0">.</span>reltoastrelid <span class="sy0">&lt;&gt;</span> <span class="nu0">0</span> <span class="kw1">THEN</span> pg_relation_size<span class="br0">&#40;</span>c<span class="sy0">.</span>reltoastrelid<span class="br0">&#41;</span> <span class="kw1">ELSE</span> <span class="nu0">0</span> <span class="kw1">END</span><span class="br0">&#41;</span> <span class="kw1">AS</span> index_size<span class="sy0">,</span>
+    <span class="kw1">CASE</span> <span class="kw1">WHEN</span> c<span class="sy0">.</span>reltoastrelid <span class="sy0">&lt;&gt;</span> <span class="nu0">0</span> <span class="kw1">THEN</span> pg_relation_size<span class="br0">&#40;</span>c<span class="sy0">.</span>reltoastrelid<span class="br0">&#41;</span> <span class="kw1">ELSE</span> <span class="nu0">0</span> <span class="kw1">END</span> <span class="kw1">AS</span> toast_size<span class="sy0">,</span>
+    pg_total_relation_size<span class="br0">&#40;</span>c<span class="sy0">.</span>oid<span class="br0">&#41;</span> <span class="kw1">AS</span> total_size
+<span class="kw1">FROM</span> 
+    pg_catalog<span class="sy0">.</span>pg_class c
+<span class="kw1">JOIN</span> 
+    pg_catalog<span class="sy0">.</span>pg_roles r <span class="kw1">ON</span> r<span class="sy0">.</span>oid <span class="sy0">=</span> c<span class="sy0">.</span>relowner
+<span class="kw1">LEFT</span> <span class="kw1">JOIN</span> 
+    pg_catalog<span class="sy0">.</span>pg_namespace n <span class="kw1">ON</span> n<span class="sy0">.</span>oid <span class="sy0">=</span> c<span class="sy0">.</span>relnamespace
+<span class="kw1">WHERE</span> 
+    c<span class="sy0">.</span>relkind <span class="sy0">=</span> <span class="st0">'r'</span>
+<span class="kw1">AND</span> n<span class="sy0">.</span>nspname <span class="kw1">NOT</span> <span class="kw1">IN</span> <span class="br0">&#40;</span><span class="st0">'pg_catalog'</span><span class="sy0">,</span> <span class="st0">'pg_toast'</span><span class="br0">&#41;</span>
+<span class="kw1">AND</span> pg_catalog<span class="sy0">.</span>pg_table_is_visible<span class="br0">&#40;</span>c<span class="sy0">.</span>oid<span class="br0">&#41;</span>
+<span class="kw1">ORDER</span> <span class="kw1">BY</span> total_size <span class="kw1">DESC</span>;
+&nbsp;
+<span class="kw1">CREATE</span> <span class="kw1">VIEW</span> view_relations_size_pretty <span class="kw1">AS</span>
+<span class="kw1">SELECT</span>
+    name<span class="sy0">,</span>
+    tuples<span class="sy0">,</span>
+    pg_size_pretty<span class="br0">&#40;</span>table_size<span class="br0">&#41;</span> <span class="kw1">AS</span> table_size<span class="sy0">,</span>
+    pg_size_pretty<span class="br0">&#40;</span>index_size<span class="br0">&#41;</span> <span class="kw1">AS</span> index_size<span class="sy0">,</span>
+    pg_size_pretty<span class="br0">&#40;</span>toast_size<span class="br0">&#41;</span> <span class="kw1">AS</span> toast_size<span class="sy0">,</span>
+    pg_size_pretty<span class="br0">&#40;</span>total_size<span class="br0">&#41;</span> <span class="kw1">AS</span> total_size
+<span class="kw1">FROM</span> view_relations_size;</pre>
+
+<p>
+– <br/>
+
+Laurent Coustet
+</p>
+
+</div>
+</div>
+</body>
+</html>

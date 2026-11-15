@@ -1,0 +1,104 @@
+====== dokuwiki ======
+
+
+Dokuwiki c'est le wiki dont on rêve : simple, modulaire, flexible.
+
+===== Nouveau design =====
+
+Installer via l'installateur d'extensions: 
+
+  * Templace bootstrap : https://www.dokuwiki.org/template:bootstrap3
+  * Plugin Bootstap wrapper : FIXME 
+  * Plugin icons : FIXME
+  * Plugin Wrap : FIXME
+
+Modifier la config de conf/local.php
+
+<pre>
+$conf['tpl']['bootstrap3']['showUserHomeLink']='on';
+$conf['tpl']['bootstrap3']['showTools']='on';
+$conf['tpl']['bootstrap3']['pageOnPanel']='on';
+$conf['tpl']['bootstrap3']['fluidContainer']='on';
+etc.
+</pre>
+
+Désactiver les breadcrumbs
+
+Désactivers la piste
+
+Désactiver les Liens sociaux
+
+Recopier la page navbar
+
+Changer le logo et le favicon (FIXME)
+
+sudo mv logo.png lib/tpl/bootstrap3/images/logo.png
+===== SSO avec le forum ===== 
+
+<code>
+
+$conf['plugin']['authpdo']['dsn'] = 'pgsql:dbname=fluxbb;host=localhost';
+$conf['plugin']['authpdo']['user'] = 'fluxbb';
+$conf['plugin']['authpdo']['pass'] = 'XXXXXXXXXXXXXXXXXX';
+$conf['plugin']['authpdo']['select-user'] = 'SELECT id AS uid,
+       username AS user,
+       COALESCE(realname,username) AS "name",
+       password AS hash,
+       email AS mail
+  FROM fbb_users
+ WHERE username = :user';
+$conf['plugin']['authpdo']['select-user-groups'] = 'SELECT g.g_title AS group
+FROM fbb_users u JOIN fbb_groups g ON u.group_id = g.g_id
+WHERE u.id = :uid';
+$conf['plugin']['authpdo']['select-groups'] = 'SELECT g_id, g_title FROM fbb_groups';
+$conf['plugin']['authpdo']['list-users'] = 'SELECT DISTINCT u.username AS user
+FROM fbb_users u JOIN fbb_groups g ON u.group_id = g.g_id
+WHERE g.g_title LIKE :group
+  AND u.username LIKE :user
+  AND u.realname  LIKE :name
+  AND u.email  LIKE :mail
+ORDER BY u.username
+LIMIT :limit OFFSET :start';
+$conf['plugin']['authpdo']['count-users'] = 'SELECT COUNT(DISTINCT u.username) AS count
+FROM fbb_users u JOIN fbb_groups g ON u.group_id = g.g_id
+WHERE g.g_title LIKE :group
+  AND u.username LIKE :user
+  AND u.realname  LIKE :name
+  AND u.email  LIKE :mail
+';
+</code>
+
+===== Resynchroniser l'environement de test =====
+
+1. Cloner la toolbox sur Celeste2 
+
+<code>
+git clone https://gitlab.com/postgresqlfr/pgfr_toolbox.git
+</code>
+
+2. Lancer la synchro
+
+<code>
+make dokuwiki_sync_test_env
+</code>
+
+3. http://testwww.postgresql.fr
+===== Procédure de mise à jour =====
+
+Tout se fait via l'interface d'administration !
+
+1. Aller dans la section ''Administrer > Mise à jour du wiki''
+
+2. Suivre les étapes
+
+
+
+==== plugins nécessaires ====
+
+  * Note
+  * columns
+  * ODT
+  * googleanalytics
+  * redirect
+  * upgrade
+  * authpdo
